@@ -1,0 +1,30 @@
+doctype html
+html(lang='en')
+    head
+        title Express-Royale
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css')
+        link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css')
+    body
+        if user
+            header.navbar.navbar-default.navbar-static-top(role='navigation')
+                div.container
+                    div.navbar-header
+                        button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+                            span.sr-only Toggle navigation
+                            span.icon-bar
+                            span.icon-bar
+                            span.icon-bar
+                    div#navbar.collapse.navbar-collapse
+                        ul.nav.navbar-nav
+                            li
+                                a(href='/profile') Profile
+                            li
+                                a(href='/game') Game
+                            li
+                                a(href='/logout') Logout
+
+        div(class='container')
+            block content
+
+        block content-footer

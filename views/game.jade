@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    div.row(ng-app='expressRoyale', ng-controller='MainController as myCtrl')
+        div.col-sm-6
+
+block content-footer
+    script(type='text/javascript' src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js')
+    script(type='text/javascript' src='/javascripts/localApp.js')
