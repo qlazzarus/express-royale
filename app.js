@@ -5,6 +5,7 @@ var express     = require('express');
 var mongoose    = require('mongoose');
 var passport    = require('passport');
 var flash       = require('connect-flash');
+var socketIo    = require('socket.io');
 
 var logger          = require('morgan');
 var cookieParser    = require('cookie-parser');
@@ -31,6 +32,13 @@ var currentProperties = properties[app.get('env')];
  * db connect
  */
 mongoose.connect(currentProperties.mongoose);
+
+
+/**
+ * socket.io
+ */
+var io = socketIo();
+app.io = io;
 
 
 /**
@@ -72,11 +80,21 @@ app.use(flash());
 
 
 /**
+ * events
+ */
+require('./events')(io, {
+    mongoose:mongoose,
+    passport:passport
+});
+
+
+/**
  * routes
  */
 require('./routes')(app, {
     mongoose:mongoose,
-    passport:passport
+    passport:passport,
+    io:io
 });
 
 

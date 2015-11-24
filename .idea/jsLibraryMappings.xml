@@ -2,7 +2,7 @@
 <project version="4">
   <component name="JavaScriptLibraryMappings">
     <file url="file://$PROJECT_DIR$" libraries="{express-royale node_modules}" />
-    <file url="PROJECT" libraries="{angularjs-DefinitelyTyped, express-royale node_modules}" />
+    <file url="PROJECT" libraries="{angularjs-DefinitelyTyped, express-royale node_modules, socket.io-DefinitelyTyped}" />
     <includedPredefinedLibrary name="Node.js Core" />
   </component>
 </project>

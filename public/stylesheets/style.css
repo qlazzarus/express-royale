@@ -1,1 +1,6 @@
-body { margin:1em; }
+#chatBody ul.chat   { list-style:none; margin:0; padding:0; }
+#chatBody ul.chat li    { margin-bottom:10px; padding-bottom:5px; border-bottom: 1px dotted #b3a9a9; }
+#chatBody ul.chat li.left .chat-body    { margin-left:60px; }
+#chatBody ul.chat li.right .chat-body   { margin-right:60px; }
+#chatBody ul.chat li .chat-body p   { margin:0; color:#777777; }
+#chatBody   { overflow-y: scroll; height:50em; }
