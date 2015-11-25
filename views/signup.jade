@@ -6,8 +6,7 @@ block content
             span.fa.fa-sign-in
             | &nbsp; Signup
 
-        if message.length > 0
-            div.alert.alert-danger #{message}
+        include ./partial/alertMessage
 
         form(action='/signup', method='post')
             div.form-group
@@ -16,6 +15,9 @@ block content
             div.form-group
                 label Password
                 input.form-control(type='password' name='password' placeholder='Password')
+            div.form-group
+                label Password Confirm
+                input.form-control(type='password' name='passwordConfirm' placeholder='Password Confirm')
             button.btn.btn-warning.btn-lg(type='submit') Signup
 
         hr

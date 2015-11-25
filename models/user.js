@@ -27,7 +27,17 @@ module.exports = function(mongoose){
             token        : String,
             email        : String,
             name         : String
-        }
+        },
+        game : {
+            maxHp : Number,
+            hp : Number,
+            maxStamina : Number,
+            stamina : Number,
+            location : Number
+        },
+        nickName: String,
+        loggedAt: Date,
+        registerAt: Date
     });
 
     userSchema.methods.generateHash = function(password){

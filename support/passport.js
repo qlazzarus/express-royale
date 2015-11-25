@@ -41,6 +41,7 @@ module.exports = function (passport, mongoose) {
                             var newUser = new User();
                             newUser.local.email = email;
                             newUser.local.password = newUser.generateHash(password);
+                            newUser.registerAt = new Date();
 
                             newUser.save(function (err) {
                                 if (err) {
@@ -81,7 +82,14 @@ module.exports = function (passport, mongoose) {
                             req.flash('loginMessage', 'Wrong Password.')
                         );
                     } else {
-                        return done(null, user);
+                        user.loggedAt = new Date();
+                        user.save(function (err) {
+                            if (err) {
+                                throw err;
+                            }
+
+                            return done(null, user);
+                        });
                     }
                 });
             }

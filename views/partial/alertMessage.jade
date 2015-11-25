@@ -1,0 +1,8 @@
+//
+   Created by monoless on 2015-11-25.
+
+if message.length == 1
+    div.alert.alert-danger #{message}
+else if message.length > 1
+    each currentMessage in message
+        div.alert.alert-danger #{currentMessage}

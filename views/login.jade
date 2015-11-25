@@ -6,8 +6,7 @@ block content
             span.fa.fa-sign-in
             | &nbsp; Login
 
-        if message.length > 0
-            div.alert.alert-danger #{message}
+        include ./partial/alertMessage
 
         form(action='/login', method='post')
             div.form-group

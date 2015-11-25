@@ -1,7 +1,7 @@
 /**
  * Created by monoless on 2015-11-20.
  */
-var messageLimit = 100;
+var messageLimit = 10;
 
 function isLoggedIn(req, res, next){
     if (req.isAuthenticated()) {
