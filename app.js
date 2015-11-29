@@ -17,6 +17,12 @@ var path            = require('path');
 
 
 /**
+ * define root
+ */
+global.appRoot = path.resolve(__dirname);
+
+
+/**
  * app start
  */
 var app         = express();
@@ -25,8 +31,10 @@ var app         = express();
 /**
  * config
  */
-var properties = require('./config/properties.js');
+var properties = require(appRoot + '/config/properties.js');
 var currentProperties = properties[app.get('env')];
+app.property = currentProperties;
+
 
 
 /**
@@ -45,7 +53,7 @@ app.io = io;
 /**
  * passport
  */
-require('./support/passport')(passport, mongoose);
+require(appRoot + '/support/passport/index')(passport, mongoose);
 
 
 /**
@@ -84,7 +92,7 @@ app.use(flash());
 /**
  * events
  */
-require('./events')(io, {
+require(appRoot + '/events')(io, {
     mongoose:mongoose,
     passport:passport
 });
@@ -93,7 +101,7 @@ require('./events')(io, {
 /**
  * routes
  */
-require('./routes')(app, {
+require(appRoot + '/routes')(app, {
     mongoose:mongoose,
     passport:passport,
     io:io

@@ -5,26 +5,9 @@ html(lang='en')
         link(rel='stylesheet', href='/stylesheets/style.css')
         link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css')
         link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css')
+        meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
     body
-        if user
-            header.navbar.navbar-default.navbar-static-top(role='navigation')
-                div.container
-                    div.navbar-header
-                        button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
-                            span.sr-only Toggle navigation
-                            span.icon-bar
-                            span.icon-bar
-                            span.icon-bar
-                    div#navbar.collapse.navbar-collapse
-                        ul.nav.navbar-nav
-                            li
-                                a(href='/profile') Profile
-                            li
-                                a(href='/game') Game
-                            li
-                                a(href='/logout') Logout
-
-        div(class='container')
+        div(class='container-fluid')
             block content
-
+        script(type='text/javascript' src='//code.jquery.com/jquery-2.1.4.min.js')
         block content-footer

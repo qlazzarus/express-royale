@@ -4,22 +4,21 @@ block content
     div.col-sm-6.col-sm-offset-3
         h1
             span.fa.fa-sign-in
-            | &nbsp; Login
+            | &nbsp; 로그인
 
         include ./partial/alertMessage
 
         form(action='/login', method='post')
             div.form-group
-                label Email
-                input.form-control(type='text' name='email' placeholder='Email')
+                label 아이디
+                input.form-control(type='text' name='userId' placeholder='아이디')
             div.form-group
-                label Password
-                input.form-control(type='password' name='password' placeholder='Password')
-            button.btn.btn-warning.btn-lg(type='submit') Login
+                label 비밀번호
+                input.form-control(type='password' name='password' placeholder='비밀번호')
+            button.btn.btn-warning.btn-lg(type='submit') 로그인
 
         hr
 
-        p Need an account? #[a(href="/signup") on Signup]
-        p Or go #[a(href="/") home].
+        p 이 학교 학생이 아니신가요? #[a(href="/signup") 전학수속]
 
 block content-footer
