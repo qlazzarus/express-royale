@@ -12,7 +12,8 @@ function isLoggedIn(req, res, next){
 }
 
 module.exports = function(app, options){
-    var Message = require(appRoot + '/models/chat')(options.mongoose);
+    /*
+    var Message = require('./../models/chat')(options.mongoose);
 
     app.get('/message', isLoggedIn, function(req, res, next){
         Message.find({}).limit(messageLimit).exec(function (err, allMessages) {
@@ -41,4 +42,5 @@ module.exports = function(app, options){
             }
         });
     });
+    */
 };

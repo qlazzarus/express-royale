@@ -4,11 +4,12 @@
  * @returns {Model<T>}
  */
 module.exports = function(mongoose){
-    var bcrypt = require('bcrypt-nodejs');
-    var userSchema = mongoose.Schema({
-        userId: String,
+    var passportLocalMongoose = require('passport-local-mongoose');
+    var Schema = mongoose.Schema;
+
+    var User = new Schema({
+        username: String,
         password: String,
-        userName: String,
         userGender: Boolean,
         userIcon: String,
         message: String,
@@ -20,16 +21,11 @@ module.exports = function(mongoose){
         hp : Number,
         maxStamina : Number,
         stamina : Number,
-        location : Number
+        location : Number,
+        attempts: Number,   // login attempt
+        last: Number   // last-login attempt
     });
 
-    userSchema.methods.generateHash = function(password){
-        return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-    };
-
-    userSchema.methods.validPassword = function(password){
-        return bcrypt.compareSync(password, this.password);
-    };
-
-    return mongoose.model('User', userSchema);
+    User.plugin(passportLocalMongoose, require('../config/passport'));
+    return mongoose.model('User', User);
 };

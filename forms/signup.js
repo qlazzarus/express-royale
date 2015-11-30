@@ -3,9 +3,19 @@
  */
 module.exports = function(password){
     return {
-        'userId': {
+        'userGender': {
+            isInt:{
+                errorMessage:'성별을 선택해주세요.'
+            }
+        },
+        'userIcon': {
             notEmpty:{
-                errorMessage:'아이디를 입력해주세요.'
+                errorMessage:'아이콘을 선택해주세요.'
+            }
+        },
+        'username': {
+            notEmpty:{
+                errorMessage:'이름을 입력해주세요.'
             }
         },
         'password': {
@@ -20,21 +30,6 @@ module.exports = function(password){
             equals:{
                 options: [password],
                 errorMessage:'비밀번호가 일치하지 않습니다.'
-            }
-        },
-        'userName': {
-            notEmpty:{
-                errorMessage:'이름을 입력해주세요.'
-            }
-        },
-        'userGender': {
-            isInt:{
-                errorMessage:'성별을 선택해주세요.'
-            }
-        },
-        'userIcon': {
-            notEmpty:{
-                errorMessage:'아이콘을 선택해주세요.'
             }
         },
         'message': {

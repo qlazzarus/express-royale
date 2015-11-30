@@ -17,12 +17,6 @@ var path            = require('path');
 
 
 /**
- * define root
- */
-global.appRoot = path.resolve(__dirname);
-
-
-/**
  * app start
  */
 var app         = express();
@@ -31,7 +25,7 @@ var app         = express();
 /**
  * config
  */
-var properties = require(appRoot + '/config/properties.js');
+var properties = require('./config/properties.js');
 var currentProperties = properties[app.get('env')];
 app.property = currentProperties;
 
@@ -51,9 +45,16 @@ app.io = io;
 
 
 /**
+ * define model container
+ */
+var modelContainer = require('./support/modelContainer');
+var Modeler = new modelContainer(mongoose, __dirname + '/models/');
+
+
+/**
  * passport
  */
-require(appRoot + '/support/passport/index')(passport, mongoose);
+require('./support/passport')(passport, Modeler);
 
 
 /**
@@ -92,8 +93,8 @@ app.use(flash());
 /**
  * events
  */
-require(appRoot + '/events')(io, {
-    mongoose:mongoose,
+require('./events')(io, {
+    models:Modeler,
     passport:passport
 });
 
@@ -101,8 +102,8 @@ require(appRoot + '/events')(io, {
 /**
  * routes
  */
-require(appRoot + '/routes')(app, {
-    mongoose:mongoose,
+require('./routes')(app, {
+    models:Modeler,
     passport:passport,
     io:io
 });

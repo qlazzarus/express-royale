@@ -11,42 +11,51 @@ block content
         form(action='/signup', method='post')
             fieldset
                 legend 입학신청서
-                div.form-group
-                    label 이름
-                    input.form-control(type='text', name='userName', placeholder='이름')
-                div.form-group
+                div.form-group(class=(typeof errors.userGender === "undefined" ? "" : "has-error"))
                     label 성별
-                    select.form-control(name='userGender')
-                        option(value='0') 남성
-                        option(value='1') 여성
-                div.form-group
+                    div.radio
+                        label
+                            input(type='radio', name='userGender', value='0',
+                                checked=(0 == bodies.userGender ? 'checked' : undefined))
+                            | 남성
+                    div.radio
+                        label
+                            input(type='radio', name='userGender', value='1',
+                                checked=(1 == bodies.userGender ? 'checked' : undefined))
+                            | 여성
+                div.form-group(class=(typeof errors.userIcon === "undefined" ? "" : "has-error"))
                     label 아이콘
                     select.form-control(name='userIcon' id='userIcon')
                         each icon in gameIcons
-                            option(value='#{icon.path}') #{icon.name}
+                            option(value='#{icon.path}',
+                                selected=(icon.path == bodies.userIcon ? 'selected' : undefined)) #{icon.name}
                     div#iconPreview(style='padding:1em;')
             fieldset
-                legend 접속시 사용되는 아이디와 패스워드 입니다.
-                div.form-group
-                    label 아이디
-                    input.form-control(type='text', name='userId', placeholder='아이디')
-                div.form-group
+                legend 접속시 사용되는 이름과 비밀번호 입니다.
+                div.form-group(class=(typeof errors.username === "undefined" ? "" : "has-error"))
+                    label 이름
+                    input.form-control(type='text', name='username', placeholder='이름',
+                        value=(typeof bodies.username !== 'undefined' ? bodies.username : undefined))
+                div.form-group(class=(typeof errors.password === "undefined" ? "" : "has-error"))
                     label 비밀번호
                     input.form-control(type='password', name='password', placeholder='비밀번호')
-                div.form-group
-                    label 비밀번호 확인
+                div.form-group(class=(typeof errors.passwordConfirm === "undefined" ? "" : "has-error"))
+                    label 비밀번호 확인 #{errors.passwordConfirm}
                     input.form-control(type='password', name='passwordConfirm', placeholder='비밀번호 확인')
             fieldset
                 legend 대사를 입력하여 주세요
-                div.form-group
+                div.form-group(class=(typeof errors.message === "undefined" ? "" : "has-error"))
                     label 대사 : 공격, 살해시의 대사
-                    input.form-control(type='text', name='message', placeholder='대사')
-                div.form-group
+                    input.form-control(type='text', name='message', placeholder='대사',
+                        value=(typeof bodies.message !== 'undefined' ? bodies.message : undefined))
+                div.form-group(class=(typeof errors.messageDying === "undefined" ? "" : "has-error"))
                     label 유언 : 사망시 대사
-                    input.form-control(type='text', name='messageDying', placeholder='유언')
-                div.from-group
+                    input.form-control(type='text', name='messageDying', placeholder='유언',
+                        value=(typeof bodies.messageDying !== 'undefined' ? bodies.messageDying : undefined))
+                div.from-group(class=(typeof errors.messageComment === "undefined" ? "" : "has-error"))
                     label 자기어필 : 생존자 리스트에 나오는 멘트
-                    input.form-control(type='text', name='messageComment', placeholder='자기어필')
+                    input.form-control(type='text', name='messageComment', placeholder='자기어필',
+                        value=(typeof bodies.messageComment !== 'undefined' ? bodies.messageComment : undefined))
             hr
             button.btn.btn-warning.btn-lg(type='submit') 전학수속
         hr
@@ -62,5 +71,5 @@ block content-footer
                 } else {
                     $('#iconPreview').html('<img src="' + selectedValue + '" alt=""/>');
                 }
-            });
+            }).change();
         });

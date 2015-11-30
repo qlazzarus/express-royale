@@ -8,10 +8,10 @@ block content
 
         include ./partial/alertMessage
 
-        form(action='/login', method='post')
+        form(action='/', method='post')
             div.form-group
-                label 아이디
-                input.form-control(type='text' name='userId' placeholder='아이디')
+                label 이름
+                input.form-control(type='text' name='username' placeholder='이름')
             div.form-group
                 label 비밀번호
                 input.form-control(type='password' name='password' placeholder='비밀번호')
