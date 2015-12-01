@@ -2,12 +2,39 @@ doctype html
 html(lang='en')
     head
         title Express-Royale
-        link(rel='stylesheet', href='/stylesheets/style.css')
         link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css')
         link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
         meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
     body
-        div(class='container-fluid')
-            block content
+        div.container
+            div.row
+                div.col-sm-7.col-sm-offset-2(style='min-height:50em;')
+                    block content
+                div.col-sm-2(role='navigation')
+                    ul.nav
+                        li
+                            a(href='/') 로그인
+                        li
+                            a(href='/signup') 전학수속
+                        li
+                            a(href='/rule') 메뉴얼
+                        li
+                            a(href='/rank') 생존자 리스트
+                        li
+                            a(href='/news') 진행상황
+                        li
+                            a(href='/map') 회장 지도
+                        li
+                            a(href='/winner') 역대 우승자
+            div.row
+                div.col-sm-9.col-sm-offset-2
+                    hr
+                    p.text-right
+                        a(href='http://github.com/monoless/express-royale' target='_blank ') Express Royale by monoless
+                        br/
+                        | Special Thanks to 원본 한글화 루리아
+
+
         script(type='text/javascript' src='//code.jquery.com/jquery-2.1.4.min.js')
         block content-footer

@@ -1,6 +1,7 @@
 extends layout
 
 block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+    h1.red= message
+    h2(style='white-space:pre;') #{error.status}
+    if (error.stack)
+        pre #{error.stack}

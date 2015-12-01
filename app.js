@@ -25,16 +25,15 @@ var app         = express();
 /**
  * config
  */
-var properties = require('./config/properties.js');
-var currentProperties = properties[app.get('env')];
-app.property = currentProperties;
+app.property = require('./config/properties')[app.get('env')];
+app.gameConfig = require('./config/game');
 
 
 
 /**
  * db connect
  */
-mongoose.connect(currentProperties.mongoose);
+mongoose.connect(app.property.mongoose);
 
 
 /**
@@ -47,14 +46,14 @@ app.io = io;
 /**
  * define model container
  */
-var modelContainer = require('./support/modelContainer');
-var Modeler = new modelContainer(mongoose, __dirname + '/models/');
+var modelContainer = require('./support/modelFactory');
+var ModelFactory = new modelContainer(mongoose, __dirname + '/models/');
 
 
 /**
  * passport
  */
-require('./support/passport')(passport, Modeler);
+require('./support/passport')(passport, ModelFactory);
 
 
 /**
@@ -81,7 +80,7 @@ app.use(validator());
  * required for passport
  */
 app.use(session({
-    secret: currentProperties.sessionKey,
+    secret: app.property.sessionKey,
     resave: false,
     saveUninitialized: true
 }));
@@ -91,11 +90,47 @@ app.use(flash());
 
 
 /**
+ * container
+ */
+var container = require('./support/container');
+var Container = new container();
+
+
+/**
+ * load serverFlag
+ */
+var ServerFlag = ModelFactory.getModel('server');
+ServerFlag.findOne({}, function(err, flag){
+    if (err) {
+        throw new Error('Initialize Game Failed');
+    }
+
+    var currentDate = new Date();
+
+    if (null === flag) {
+        flag = new ServerFlag({
+            status: 'start',
+            started: currentDate
+        });
+
+        flag.save(function(err){
+            if (err) {
+                throw new Error('Save Game Flag Failed');
+            }
+        });
+    }
+
+    Container.set('serverFlag', flag);
+});
+
+
+/**
  * events
  */
 require('./events')(io, {
-    models:Modeler,
-    passport:passport
+    models:ModelFactory,
+    container:Container,
+    passport:passport,
 });
 
 
@@ -103,7 +138,8 @@ require('./events')(io, {
  * routes
  */
 require('./routes')(app, {
-    models:Modeler,
+    models:ModelFactory,
+    container:Container,
     passport:passport,
     io:io
 });

@@ -1,8 +1,8 @@
 function signupRender(req, res, app, validationError, bodies) {
     var errors = {};
     if (typeof validationError !== 'undefined') {
-        for (var currentError in validationError) {
-            errors[currentError.param] = currentError.msg;
+        for (var i in validationError) {
+            errors[validationError[i].param] = validationError[i].msg;
         }
     }
 
@@ -10,13 +10,21 @@ function signupRender(req, res, app, validationError, bodies) {
         bodies = {};
     }
 
-    console.log(errors);
-
     res.render('signup', {
         message: req.flash('error'),
-        gameIcons: app.property.gameIcons,
+        gameIcons: app.gameConfig.icons,
         errors: errors,
         bodies: bodies
+    });
+}
+
+function errorRender(res, errorMessage) {
+    res.render('error', {
+        message: '에러발생',
+        error: {
+            status: errorMessage,
+            stack: ''
+        }
     });
 }
 
@@ -39,6 +47,16 @@ module.exports = function (app, options) {
     });
 
     app.get('/signup', function (req, res) {
+        var flag = options.container.get('serverFlag');
+
+        console.log(flag);
+
+        var dateDiff = Date.now() - flag.started.getTime();
+        if ('start' !== flag.status || app.gameConfig.maxRecruitTime < dateDiff) {
+            errorRender(res, '프로그램의 접수는 종료되었습니다.\n다음 프로그램 시작을 기다려주세요.');
+            return;
+        }
+
         signupRender(req, res, app);
     });
 
@@ -56,7 +74,25 @@ module.exports = function (app, options) {
         if (true !== validStatus) {
             signupRender(req, res, app, errors, req.body);
         } else {
-            res.send('hello');
+            var currentDate = new Date();
+
+            User.register(new User({
+                username: req.body.username,
+                userGender: req.body.userGender,
+                userIcon: req.body.userIcon,
+                message: req.body.message,
+                messageDying: req.body.messageDying,
+                messageComment: req.body.messageComment,
+                loggedAt: currentDate,
+                registerAt: currentDate
+            }), req.body.password, function (err, user) {
+                if (err) {
+                    res.flash('error', err.message);
+                    res.redirect('/signup');
+                } else {
+                    res.redirect('/game');
+                }
+            });
         }
     });
 };
