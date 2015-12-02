@@ -17,13 +17,16 @@ module.exports = function(mongoose){
         messageComment: {type:String, required:true},
         loggedAt: Date,
         registerAt: Date,
+        deadAt: Date,
+        ip: {type:String, required: true},
         last: Number,  // last-login attempt
         attempts: Number,   // login attempt
         maxHp : {type:Number, required:true},
         hp : {type:Number, required:true},
         maxStamina : {type:Number, required:true},
         stamina : {type:Number, required:true},
-        location : {type:Number, required:true}
+        location : {type:Number, required:true},
+        status : {type:String, required:true}
     });
 
     User.plugin(passportLocalMongoose, require('../config/passport'));

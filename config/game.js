@@ -209,6 +209,11 @@ module.exports = {
     maxRecruitTime: 4 * 86400000,
 
     /*
+     * 사망 후 가입 가능 시간
+     */
+    respawnTime: 7200000,
+
+    /*
      * ■ 스테미너 최대치
      */
     maxStamina: 300,
