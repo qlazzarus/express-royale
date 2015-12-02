@@ -1,11 +1,12 @@
 /**
  * load modules
  */
-var express     = require('express');
-var mongoose    = require('mongoose');
-var passport    = require('passport');
-var flash       = require('connect-flash');
-var socketIo    = require('socket.io');
+var express         = require('express');
+var mongoose        = require('mongoose');
+var passport        = require('passport');
+var flash           = require('connect-flash');
+var socketIo        = require('socket.io');
+var socketIoClient = require('socket.io-client');
 
 var logger          = require('morgan');
 var cookieParser    = require('cookie-parser');
@@ -41,6 +42,7 @@ mongoose.connect(app.property.mongoose);
  */
 var io = socketIo();
 app.io = io;
+app.ioClient = socketIoClient.connect('http://localhost:3000');
 
 
 /**
@@ -93,35 +95,7 @@ app.use(flash());
  * container
  */
 var container = require('./support/container');
-var Container = new container();
-
-
-/**
- * load serverFlag
- */
-var ServerFlag = ModelFactory.getModel('server');
-ServerFlag.findOne({}, function(err, flag){
-    if (err) {
-        throw new Error('Initialize Game Failed');
-    }
-
-    var currentDate = new Date();
-
-    if (null === flag) {
-        flag = new ServerFlag({
-            status: 'start',
-            started: currentDate
-        });
-
-        flag.save(function(err){
-            if (err) {
-                throw new Error('Save Game Flag Failed');
-            }
-        });
-    }
-
-    Container.set('serverFlag', flag);
-});
+var Container = new container()
 
 
 /**
@@ -141,7 +115,7 @@ require('./routes')(app, {
     models:ModelFactory,
     container:Container,
     passport:passport,
-    io:io
+    socket:app.ioClient
 });
 
 

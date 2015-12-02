@@ -47,17 +47,16 @@ module.exports = function (app, options) {
     });
 
     app.get('/signup', function (req, res) {
-        var flag = options.container.get('serverFlag');
-
-        console.log(flag);
-
-        var dateDiff = Date.now() - flag.started.getTime();
-        if ('start' !== flag.status || app.gameConfig.maxRecruitTime < dateDiff) {
-            errorRender(res, '프로그램의 접수는 종료되었습니다.\n다음 프로그램 시작을 기다려주세요.');
-            return;
-        }
-
-        signupRender(req, res, app);
+        options.socket.emit('serverStatus');
+        options.socket.on('serverStatusResponse', function(flag){
+            console.log(flag);
+            var dateDiff = Date.now() - new Date(flag.started).getTime();
+            if ('start' !== flag.status || app.gameConfig.maxRecruitTime < dateDiff) {
+                errorRender(res, '프로그램의 접수는 종료되었습니다.\n다음 프로그램 시작을 기다려주세요.');
+            } else {
+                signupRender(req, res, app);
+            }
+        });
     });
 
     app.post('/signup', function (req, res) {
