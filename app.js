@@ -95,7 +95,14 @@ app.use(flash());
  * container
  */
 var container = require('./support/container');
-var Container = new container()
+var Container = new container();
+
+
+/**
+ * service
+ */
+var service = require('./support/service');
+Container.set('service', new service());
 
 
 /**

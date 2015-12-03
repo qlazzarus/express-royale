@@ -29,11 +29,6 @@ function errorRender(res, errorMessage) {
 }
 
 module.exports = function (app, options) {
-    var async = require('async');
-
-    var User = options.models.getModel('user');
-    var ServerFlag = options.models.getModel('server');
-
     app.get('/', function (req, res) {
         res.render('login', {message: req.flash('error')});
     });
@@ -51,115 +46,71 @@ module.exports = function (app, options) {
 
     app.get('/signup', function (req, res) {
         var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-
-        async.parallel({
-            userCountAll: function (cb){ User.count({}).exec(cb); },
-            userFindByIp: function (cb){ User.find({ip:ip}).exec(cb); },
-            flag: function (cb){ ServerFlag.findOne({}).exec(cb); }
-        }, function(err, result) {
-            if (err) {
-                throw err;
-            }
-
-            if (!result.flag) {
-                result.flag = new ServerFlag({
-                    status: 'start',
-                    started: new Date()
-                });
-
-                result.flag.save(function (err) {
-                    throw err;
-                });
-            }
-
-            var dateDiff = Date.now() - new Date(result.flag.started).getTime();
-            var isExist = false;
-            var isDead = false;
-            var rebornTime = new Date();
-
-            for (var i = 0; result.userFindByIp.length; i++) {
-                var current = result.userFindByIp[i];
-                if (0 >= current.hp && app.gameConfig.respawnTime > Date.now() - new Date(current.deadAt).getTime()) {
-                    isExist = false;
-                    isDead = false;
-                } else if (0 >= current.hp) {
-                    isExist = true;
-                    isDead = true;
-                    rebornTime = current.deadAt;
-                    break;
+        options.container.get('service').checkSignup(
+            options.models.getModel('user'),
+            options.models.getModel('server'),
+            ip,
+            app.gameConfig.respawnTime,
+            app.gameConfig.maxRecruitTime,
+            app.gameConfig.maxRecruitMember,
+            function (err, status, options) {
+                if (-1 === status) {
+                    errorRender(res, '프로그램의 접수는 종료되었습니다.\n다음 프로그램 시작을 기다려주세요.');
+                } else if (-2 === status) {
+                    errorRender(res, '죄송합니다만, 정원(' + app.gameConfig.maxRecruitMember + '명) 오버입니다.');
+                } else if (-3 === status) {
+                    errorRender(res, '캐릭터가 사망한 후, 2시간이 지나야 재등록할 수 있습니다.\n\n등록가능시간：' + options.rebornTime);
+                } else if (-4 === status) {
+                    errorRender(res, '캐릭터의 중복등록은 금지되어 있습니다. 관리자에게 문의하세요.');
                 } else {
-                    isExist = true;
-                    break;
+                    signupRender(req, res, app);
                 }
             }
-
-            if ('start' !== result.flag.status || app.gameConfig.maxRecruitTime < dateDiff) {
-                errorRender(res, '프로그램의 접수는 종료되었습니다.\n다음 프로그램 시작을 기다려주세요.');
-            } else if (app.gameConfig.maxRecruitMember <= result.userCountAll) {
-                errorRender(res, '죄송합니다만, 정원(' + app.gameConfig.maxRecruitMember + '명) 오버입니다.');
-            } else if (true === isExist && true === isDead) {
-                errorRender(res, '캐릭터가 사망한 후, 2시간이 지나야 재등록할 수 있습니다.\n\n등록가능시간：' + rebornTime);
-            } else if (true === isExist && true === isDead) {
-                errorRender(res, '캐릭터의 중복등록은 금지되어 있습니다. 관리자에게 문의하세요.');
-            } else {
-                signupRender(req, res, app);
-            }
-        });
+        );
     });
 
     app.post('/signup', function (req, res) {
         var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-        var validStatus = true;
-
-        // validate form
-        req.checkBody(require('../forms/signup')(req.body.password));
-        var errors = req.validationErrors();
-        if (errors) {
-            validStatus = false;
-        }
-
-        // 아이콘 성별 체크
-        if (true === validStatus) {
-            var icon = {};
-            var iconLength = app.gameConfig.icons;
-            for (var i = 0; i < iconLength; i++) {
-                icon = app.gameConfig.icons[i];
-                if (icon.path === req.body.userIcon) {
-                    break;
-                }
-            }
-
-            if (0 == req.body.userGender && 'male' !== icon.gender) {
-                errors = [{param:'userGender', msg:'성별과 다른 아이콘을 선택했습니다.'}];
-                validStatus = false;
-            }
-        }
-
-        // result
-        if (true !== validStatus) {
-            signupRender(req, res, app, errors, req.body);
-        } else {
-            var currentDate = new Date();
-
-            User.register(new User({
-                username: req.body.username,
-                userGender: req.body.userGender,
-                userIcon: req.body.userIcon,
-                message: req.body.message,
-                messageDying: req.body.messageDying,
-                messageComment: req.body.messageComment,
-                loggedAt: currentDate,
-                registerAt: currentDate,
-                status: '정상',
-                ip: ip
-            }), req.body.password, function (err, user) {
-                if (err) {
-                    res.flash('error', err.message);
-                    res.redirect('/signup');
+        options.container.get('service').validSignup(
+            options.models.getModel('user'),
+            options.models.getModel('server'),
+            ip,
+            app.gameConfig.respawnTime,
+            app.gameConfig.maxRecruitTime,
+            app.gameConfig.maxRecruitMember,
+            req,
+            require('../forms/signup'),
+            app.gameConfig.icons,
+            app.gameConfig.classPerMan,
+            function (err, status, options) {
+                if (-1 === status) {
+                    errorRender(res, '프로그램의 접수는 종료되었습니다.\n다음 프로그램 시작을 기다려주세요.');
+                } else if (-2 === status) {
+                    errorRender(res, '죄송합니다만, 정원(' + app.gameConfig.maxRecruitMember + '명) 오버입니다.');
+                } else if (-3 === status) {
+                    errorRender(res, '캐릭터가 사망한 후, 2시간이 지나야 재등록할 수 있습니다.\n\n등록가능시간：' + options.rebornTime);
+                } else if (-4 === status) {
+                    errorRender(res, '캐릭터의 중복등록은 금지되어 있습니다. 관리자에게 문의하세요.');
+                } else if (-5 === status) {
+                    signupRender(req, res, app, options, req.body);
+                } else if (-6 === status) {
+                    req.flash('error', '성별과 다른 아이콘을 선택했습니다.');
+                    signupRender(req, res, app, {}, req.body);
+                } else if (-7 === status) {
+                    req.flash('error', '남학생은 더 이상 등록할 수 없습니다.');
+                    signupRender(req, res, app, {}, req.body);
+                } else if (-8 === status) {
+                    req.flash('error', '여학생은 더 이상 등록할 수 없습니다.');
+                    signupRender(req, res, app, {}, req.body);
                 } else {
-                    res.redirect('/game');
+                    options.container.get('service').signup(
+                        options.models.getModel('user'),
+                        ip,
+                        req,
+                        res
+                    );
                 }
-            });
-        }
+            }
+        );
     });
 };

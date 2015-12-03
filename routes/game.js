@@ -10,7 +10,15 @@ function isLoggedIn(req, res, next){
 }
 
 module.exports = function(app, options){
-    app.get('/game', isLoggedIn, function(req, res, next){
+    app.get('/intro', isLoggedIn, function(req, res){
+        res.send('intro');
+    });
+
+    app.get('/intro2', isLoggedIn, function(req, res){
+        res.send('intro2');
+    });
+
+    app.get('/game', isLoggedIn, function(req, res){
         res.render('game', {user:req.user, angularMode:true});
     });
 };
