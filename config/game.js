@@ -286,136 +286,274 @@ module.exports = {
     /*
      * ■ 아이템 정의
      */
-    items: {
-        0: {
-            name: '맨손', equip: false, type: ['fist'], attack: 0, ammo: 0, ammoRequire: false
+    items: [
+        {
+            idx: 0, name: '맨손', equip: false, type: ['fist'], attack: 0, ammo: 0, ammoRequire: false
         },
-        1: {
-            name: '석궁', equip: true, type: ['bow', 'melee'], attack: 20, ammo: 0, ammoRequire: true
+        {
+            idx: 1, name: '석궁', equip: true, type: ['bow', 'melee'], attack: 20, ammo: 0, ammoRequire: true
         },
-        2: {
-            name: '식칼', equip: true, type: ['cut', 'poke'], attack: 15, ammo: 0, ammoRequire: false
+        {
+            idx: 2, name: '식칼', equip: true, type: ['cut', 'poke'], attack: 15, ammo: 0, ammoRequire: false
         },
-        3: {
-            name: '손도끼', equip: true, type: ['cut'], attack: 17, ammo: 0, ammoRequire: false
+        {
+            idx: 3, name: '손도끼', equip: true, type: ['cut'], attack: 17, ammo: 0, ammoRequire: false
         },
-        4: {
-            name: '레밍턴M31RS', equip: true, type: ['shot', 'melee'], attack: 28, ammo: 0, ammoRequire: true
+        {
+            idx: 4, name: '레밍턴M31RS', equip: true, type: ['shot', 'melee'], attack: 28, ammo: 0, ammoRequire: true
         },
-        5: {
-            name: '나이프', equip: true, type: ['cut', 'poke'], attack: 17, ammo: 0, ammoRequire: false
+        {
+            idx: 5, name: '나이프', equip: true, type: ['cut', 'poke'], attack: 17, ammo: 0, ammoRequire: false
         },
-        6: {
-            name: '단도', equip: true, type: ['cut', 'poke'], attack: 15, ammo: 0, ammoRequire: false
+        {
+            idx: 6, name: '단도', equip: true, type: ['cut', 'poke'], attack: 15, ammo: 0, ammoRequire: false
         },
-        7: {
-            name: '잉그램M10 서브머신건', equip: true, type: ['shot', 'melee'], attack: 30, ammo: 0, ammoRequire: true
+        {
+            idx: 7, name: '잉그램M10 서브머신건', equip: true, type: ['shot', 'melee'], attack: 30, ammo: 0, ammoRequire: true
         },
-        8: {
-            name: '포크', equip: true, type: ['poke'], attack: 7, ammo: 0, ammoRequire: false
+        {
+            idx: 8, name: '포크', equip: true, type: ['poke'], attack: 7, ammo: 0, ammoRequire: false
         },
-        9: {
-            name: '금속 배트', equip: true, type: ['melee'], attack: 15, ammo: 0, ammoRequire: false
+        {
+            idx: 9, name: '금속 배트', equip: true, type: ['melee'], attack: 15, ammo: 0, ammoRequire: false
         },
-        10: {
-            name: '22구경 2연발 데린져', equip: true, type: ['shot', 'melee'], attack: 20, ammo: 0, ammoRequire: true
+        {
+            idx: 10, name: '22구경 2연발 데린져', equip: true, type: ['shot', 'melee'], attack: 20, ammo: 0, ammoRequire: true
         },
-        11: {
-            name: '군용 나이프', equip: true, type: ['cut', 'poke', 'throw'], attack: 20, ammo: 1, ammoRequire: false
+        {
+            idx: 11,
+            name: '군용 나이프',
+            equip: true,
+            type: ['cut', 'poke', 'throw'],
+            attack: 20,
+            ammo: 1,
+            ammoRequire: false
         },
-        12: {
-            name: '월터PPK 9밀리', equip: true, type: ['shot', 'melee'], attack: 25, ammo: 0, ammoRequire: true
+        {
+            idx: 12, name: '월터PPK 9밀리', equip: true, type: ['shot', 'melee'], attack: 25, ammo: 0, ammoRequire: true
         },
-        13: {
-            name: 'S&W M19 357 매그넘', equip: true, type: ['shot', 'melee'], attack: 26, ammo: 0, ammoRequire: true
+        {
+            idx: 13,
+            name: 'S&W M19 357 매그넘',
+            equip: true,
+            type: ['shot', 'melee'],
+            attack: 26,
+            ammo: 0,
+            ammoRequire: true
         },
-        14: {
-            name: '베레타M92F', equip: true, type: ['shot', 'melee'], attack: 25, ammo: 0, ammoRequire: true
+        {
+            idx: 14, name: '베레타M92F', equip: true, type: ['shot', 'melee'], attack: 25, ammo: 0, ammoRequire: true
         },
-        15: {
-            name: 'S&W 치프스페셜 38구경', equip: true, type: ['shot', 'melee'], attack: 23, ammo: 0, ammoRequire: true
+        {
+            idx: 15,
+            name: 'S&W 치프스페셜 38구경',
+            equip: true,
+            type: ['shot', 'melee'],
+            attack: 23,
+            ammo: 0,
+            ammoRequire: true
         },
-        16: {
-            name: '콜트357 매그넘 리볼버', equip: true, type: ['shot', 'melee'], attack: 27, ammo: 0, ammoRequire: true
+        {
+            idx: 16, name: '콜트357 매그넘 리볼버', equip: true, type: ['shot', 'melee'], attack: 27, ammo: 0, ammoRequire: true
         },
-        17: {
-            name: '양날 나이프', equip: true, type: ['cut', 'poke'], attack: 20, ammo: 0, ammoRequire: false
+        {
+            idx: 17, name: '양날 나이프', equip: true, type: ['cut', 'poke'], attack: 20, ammo: 0, ammoRequire: false
         },
-        18: {
-            name: '브라우닝 하이파워 9mm', equip: true, type: ['shot', 'melee'], attack: 26, ammo: 0, ammoRequire: true
+        {
+            idx: 18, name: '브라우닝 하이파워 9mm', equip: true, type: ['shot', 'melee'], attack: 26, ammo: 0, ammoRequire: true
         },
-        19: {
-            name: '다이버즈 나이프', equip: true, type: ['cut', 'poke'], attack: 20, ammo: 0, ammoRequire: false
+        {
+            idx: 19, name: '다이버즈 나이프', equip: true, type: ['cut', 'poke'], attack: 20, ammo: 0, ammoRequire: false
         },
-        20: {
-            name: '다트', equip: true, type: ['throw'], attack: 5, ammo: 12, ammoRequire: false
+        {
+            idx: 20, name: '다트', equip: true, type: ['throw'], attack: 5, ammo: 12, ammoRequire: false
         },
-        21: {
-            name: '수류탄', equip: true, type: ['bomb'], attack: 40, ammo: 2, ammoRequire: false
+        {
+            idx: 21, name: '수류탄', equip: true, type: ['bomb'], attack: 40, ammo: 2, ammoRequire: false
         },
-        22: {
-            name: 'S&W M59 오토', equip: true, type: ['shot', 'melee'], attack: 24, ammo: 0, ammoRequire: true
+        {
+            idx: 22, name: 'S&W M59 오토', equip: true, type: ['shot', 'melee'], attack: 24, ammo: 0, ammoRequire: true
         },
-        23: {
-            name: '특수경봉', equip: true, type: ['melee'], attack: 13, ammo: 0, ammoRequire: false
+        {
+            idx: 23, name: '특수경봉', equip: true, type: ['melee'], attack: 13, ammo: 0, ammoRequire: false
         },
-        24: {
-            name: '콜트 하이웨이 패트롤맨 38구경', equip: true, type: ['shot', 'melee'], attack: 24, ammo: 0, ammoRequire: true
+        {
+            idx: 24,
+            name: '콜트 하이웨이 패트롤맨 38구경',
+            equip: true,
+            type: ['shot', 'melee'],
+            attack: 24,
+            ammo: 0,
+            ammoRequire: true
         },
-        25: {
-            name: '낫', equip: true, type: ['cut', 'poke'], attack: 20, ammo: 0, ammoRequire: false
+        {
+            idx: 25, name: '낫', equip: true, type: ['cut', 'poke'], attack: 20, ammo: 0, ammoRequire: false
         },
-        26: {
-            name: '얼음송곳', equip: true, type: ['poke'], attack: 8, ammo: 0, ammoRequire: false
+        {
+            idx: 26, name: '얼음송곳', equip: true, type: ['poke'], attack: 8, ammo: 0, ammoRequire: false
         },
-        27: {
-            name: '눈쳐크', equip: true, type: ['melee'], attack: 12, ammo: 0, ammoRequire: false
+        {
+            idx: 27, name: '눈쳐크', equip: true, type: ['melee'], attack: 12, ammo: 0, ammoRequire: false
         },
-        28: {
-            name: '부메랑', equip: true, type: ['throw'], attack: 9, ammo: 5, ammoRequire: false
+        {
+            idx: 28, name: '부메랑', equip: true, type: ['throw'], attack: 9, ammo: 5, ammoRequire: false
         },
-        29: {
-            name: 'CZ M75', equip: true, type: ['shot', 'melee'], attack: 25, ammo: 0, ammoRequire: true
+        {
+            idx: 29, name: 'CZ M75', equip: true, type: ['shot', 'melee'], attack: 25, ammo: 0, ammoRequire: true
         },
-        30: {
-            name: '우지 9mm 서브머신건', equip: true, type: ['shot', 'melee'], attack: 30, ammo: 0, ammoRequire: true
+        {
+            idx: 30, name: '우지 9mm 서브머신건', equip: true, type: ['shot', 'melee'], attack: 30, ammo: 0, ammoRequire: true
         },
-        31: {
-            name: '시그 사우엘 P230 9mm', equip: true, type: ['shot', 'melee'], attack: 26, ammo: 0, ammoRequire: true
+        {
+            idx: 31,
+            name: '시그 사우엘 P230 9mm',
+            equip: true,
+            type: ['shot', 'melee'],
+            attack: 26,
+            ammo: 0,
+            ammoRequire: true
         },
-        32: {
-            name: '콜트 거버먼트 45구경', equip: true, type: ['shot', 'melee'], attack: 25, ammo: 0, ammoRequire: true
+        {
+            idx: 32, name: '콜트 거버먼트 45구경', equip: true, type: ['shot', 'melee'], attack: 25, ammo: 0, ammoRequire: true
         },
-        33: {
-            name: '일본도', equip: true, type: ['cut', 'poke'], attack: 25, ammo: 0, ammoRequire: false
+        {
+            idx: 33, name: '일본도', equip: true, type: ['cut', 'poke'], attack: 25, ammo: 0, ammoRequire: false
         },
-        34: {
-            name: '부채', equip: true, type: ['melee'], attack: 1, ammo: 0, ammoRequire: false
+        {
+            idx: 34, name: '부채', equip: true, type: ['melee'], attack: 1, ammo: 0, ammoRequire: false
         },
-        35: {
-            name: '대야', equip: true, type: ['melee'], attack: 3, ammo: 0, ammoRequire: false
+        {
+            idx: 35, name: '대야', equip: true, type: ['melee'], attack: 3, ammo: 0, ammoRequire: false
         },
-        36: {
-            name: '슬리퍼', equip: true, type: ['melee'], attack: 2, ammo: 0, ammoRequire: false
+        {
+            idx: 36, name: '슬리퍼', equip: true, type: ['melee'], attack: 2, ammo: 0, ammoRequire: false
         },
-        37: {
-            name: '칠판지우개', equip: true, type: ['throw'], attack: 2, ammo: 1, ammoRequire: false
+        {
+            idx: 37, name: '칠판지우개', equip: true, type: ['throw'], attack: 2, ammo: 1, ammoRequire: false
         },
-        38: {
-            name: '분필', equip: true, type: ['throw'], attack: 1, ammo: 1, ammoRequire: false
+        {
+            idx: 38, name: '분필', equip: true, type: ['throw'], attack: 1, ammo: 1, ammoRequire: false
         },
-        39: {
-            name: '배트', equip: true, type: ['melee'], attack: 12, ammo: 0, ammoRequire: false
+        {
+            idx: 39, name: '배트', equip: true, type: ['melee'], attack: 12, ammo: 0, ammoRequire: false
         },
-        40: {
-            name: '너클', equip: true, type: ['fist'], attack: 8, ammo: 0, ammoRequire: false
+        {
+            idx: 40, name: '너클', equip: true, type: ['fist'], attack: 8, ammo: 0, ammoRequire: false
         },
-        41: {
-            name: '뿅망치', equip: true, type: ['melee'], attack: 1, ammo: 0, ammoRequire: false
+        {
+            idx: 41, name: '뿅망치', equip: true, type: ['melee'], attack: 1, ammo: 0, ammoRequire: false
+        },
+        {
+            idx: 42, name: '간이화염방사기', equip: true, type: ['bomb'], attack: 10, ammo: 8, ammoRequire: false
+        },
+        {
+            idx: 43, name: '거대삼각자', equip: true, type: ['melee'], attack: 4, ammo: 0, ammoRequire: false
+        },
+        {
+            idx: 44, name: '거대콤파스', equip: true, type: ['melee'], attack: 4, ammo: 0, ammoRequire: false
+        },
+        {
+            idx: 45, name: '고장난노트북', equip: true, type: ['throw'], attack: 10, ammo: 1, ammoRequire: false
+        },
+        {
+            idx: 46, name: '곡괭이', equip: true, type: ['poke'], attack: 15, ammo: 0, ammoRequire: false
+        },
+        {
+            idx: 47, name: '관음보살상', equip: true, type: ['melee'], attack: 5, ammo: 0, ammoRequire: false
+        },
+        {
+            idx: 48, name: '냄비', equip: true, type: ['throw'], attack: 10, ammo: 4, ammoRequire: false
+        },
+        {
+            idx: 49, name: '노란분필', equip: true, type: ['throw'], attack: 2, ammo: 1, ammoRequire: false
+        },
+        {
+            idx: 50, name: '다이나마이트', equip: true, type: ['bomb'], attack: 30, ammo: 8, ammoRequire: false
+        },
+        {
+            idx: 51, name: '대걸레', equip: true, type: ['melee'], attack: 8, ammo: 0, ammoRequire: false
+        },
+        {
+            idx: 52, name: '대나무', equip: true, type: ['melee'], attack: 6, ammo: 0, ammoRequire: false
+        },
+        {
+            idx: 53, name: '대나무창', equip: true, type: ['poke'], attack: 20, ammo: 0, ammoRequire: false
+        },
+        {
+            idx: 54, name: '돌도끼', equip: true, type: ['melee'], attack: 15, ammo: 0, ammoRequire: false
+        },
+        {
+            idx: 55, name: '돌멩이', equip: true, type: ['throw'], attack: 15, ammo: 5, ammoRequire: false
+        },
+        {
+            idx: 56, name: '명도마사무네', equip: true, type: ['cut', 'poke'], attack: 23, ammo: 0, ammoRequire: false
+        },
+        {
+            idx: 57, name: '목검', equip: true, type: ['cut', 'poke'], attack: 12, ammo: 0, ammoRequire: false
+        },
+        {
+            idx: 58, name: '목탁', equip: true, type: ['throw'], attack: 1, ammo: 1, ammoRequire: false
+        },
+        {
+            idx: 59, name: '못박은대나무', equip: true, type: ['melee'], attack: 13, ammo: 0, ammoRequire: false
+        },
+        {
+            idx: 60, name: '못박은배트', equip: true, type: ['melee'], attack: 20, ammo: 0, ammoRequire: false
+        },
+        {
+            idx: 61, name: '보검', equip: true, type: ['cut', 'poke'], attack: 20, ammo: 0, ammoRequire: false
+        },
+        {
+            idx: 62, name: '빈병', equip: true, type: ['throw'], attack: 1, ammo: 10, ammoRequire: true
         }
-    }
+    ]
 };
 /*
+ 빈병<>WC,1,10,
+ 빈캔<>WC,2,10,
+ 빨간분필<>WC,2,1,
+ 사슬낫<>WBN,22,∞
+ 샤벨<>WSB,5,∞,
+ 선반<>WC,15,1,
+ 소방용도끼<>WN,20,∞,
+ 소화기<>WB,12,∞,
+ 솔도파<>WB,4,1,
+ 쇠뇌<>WAB,25,0
+ 쇠사슬<>WB,15,∞,
+ 수리검<>WC,30,15,
+ 스카프<>WSB,10,∞,
+ 식칼<>WN,5,20,
+ 쌍칼<>WS,35,∞
+ 아수라상<>WB,10,∞,
+ 암석<>WC,20,8,
+ 야구공세트<>WC,20,30,
+ 양궁<>WAB,20,0,
+ 언월도<>WS,40,∞
+ 연필<>WS,2,∞,
+ 염라대왕상<>WB,7,∞,
+ 요도무라마사<>WNS,23,∞,
+ 유리잔<>WC,10,4,
+ 의자<>WB,4,∞,
+ 인체모형<>WB,3,∞,
+ 일본궁<>WAB,18,0,
+ 전기인두<>WS,6,∞,
+ 접시<>WC,10,4,
+ 지우개<>WC,1,1,
+ 지장보살상<>WB,8,∞,
+ 칠판지우개<>WC,2,1,
+ 커스텀나이프<>WNS,20,∞
+ 컵<>WC,10,4,
+ 테이블<>WC,20,1,
+ 텔레비젼<>WC,20,1,
+ 파란분필<>WC,2,1,
+ 폭탄<>WD,60,3
+ 플라스크<>WC,3,1,
+ 헤비크로스보우<>WAB,30,0,
+ 화승총<>WGB,20,0,
+ 화염병<>WD,15,1
+ 후라이팬<>WB,15,∞,
+ 흰분필<>WC,2,1,
+
  #탄 또는 화살 지급
  if ($w_wep =~ /     ,    G/) { #?
  $item[3] = "탄환<>Y"; $eff[3] = 24; $itai[3] = 1;
@@ -448,72 +586,5 @@ module.exports = {
  간이레이더<>R1,1,∞,
 
 
- 화염병<>WD<>15<>1");
- 폭탄<>WD<>60<>3");
- 간이화염방사기<>WD<>10<>8");
- 사슬낫<>WBN<>22<>∞");
- 못박은배트<>WB<>20<>∞");
- 못박은대나무<>WB<>13<>∞");
- 돌도끼<>WB<>15<>∞");
- 커스텀나이프<>WNS<>20<>∞");
- 쇠뇌<>WAB<>25<>0");
- 대나무창<>WS<>20<>∞");
- 언월도<>WS<>40<>∞");
- 쌍칼<>WS<>35<>∞
- 1,다이나마이트<>WD,30,8,
- 2,돌멩이<>WC,15,5,
- 2,식칼<>WN,5,20,
- 2,컵<>WC,10,4,
- 2,야구공세트<>WC,20,30,
- 2,접시<>WC,10,4,
- 2,텔레비젼<>WC,20,1,
- 2,테이블<>WC,20,1,
- 2,선반<>WC,15,1,
- 2,보검<>WNS,20,∞,
- 2,빈병<>WC,1,10,
- 2,빈캔<>WC,2,10,
- 2,유리잔<>WC,10,4,
- 2,냄비<>WC,10,4,
- 2,쇠사슬<>WB,15,∞,
- 2,후라이팬<>WB,15,∞,
- 5,소방용도끼<>WN,20,∞,
- 5,소화기<>WB,12,∞,
- 6,관음보살상<>WB,5,∞,
- 6,염라대왕상<>WB,7,∞,
- 6,아수라상<>WB,10,∞,
- 6,지장보살상<>WB,8,∞,
- 8,양궁<>WAB,20,0,
- 12,곡괭이<>WS,15,∞,
- 12,스카프<>WSB,10,∞,
- 12,샤벨<>WSB,5,∞,
- 12,암석<>WC,20,8,
- 13,목탁<>WC,1,1,
- 13,솔도파<>WB,4,1,
 
- 14,연필<>WS,2,∞,
- 14,지우개<>WC,1,1,
- 14,플라스크<>WC,3,1,
- 14,대걸레<>WB,8,1,
- 14,칠판지우개<>WC,2,1,
- 14,흰분필<>WC,2,1,
- 14,빨간분필<>WC,2,1,
- 14,노란분필<>WC,2,1,
- 14,파란분필<>WC,2,1,
- 14,인체모형<>WB,3,∞,
- 14,거대삼각자<>WB,4,∞,
- 14,거대콤파스<>WB,4,∞,
- 14,의자<>WB,4,∞,
- 14,소화기<>WB,12,∞,
- 15,대나무<>WB,6,1,
- 16,목검<>WNS,12,∞,
- 16,대나무<>WB,6,1,
- 99,화승총<>WGB,20,0,
- 99,명도마사무네<>WNS,23,∞,
- 99,요도무라마사<>WNS,23,∞,
- 99,일본궁<>WAB,18,0,
- 99,보검<>WNS,20,∞,
- 99,전기인두<>WS,6,∞,
- 99,고장난노트북<>WC,10,1,
- 99,수리검<>WC,30,15,
- 99,헤비크로스보우<>WAB,30,0,
  */
