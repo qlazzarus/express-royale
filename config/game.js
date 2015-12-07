@@ -2029,6 +2029,8 @@ module.exports = {
         armor38: {name: '조교완장', type: 'arm', armor: 5, endurance: 5},
         armor39: {name: 'MP완장', type: 'arm', armor: 4, endurance: 5},
         armor40: {name: '군복', type: 'body', material: 'fabric', armor: 10, endurance: 40},
+        armor41: {name: '교복', type: 'body', material: 'fabric', armor: 5, endurance: 30},
+        armor42: {name: '세라복', type: 'body', material: 'fabric', armor: 5, endurance: 30},
 
 
         // -- stamina
@@ -2049,6 +2051,7 @@ module.exports = {
         stamina14: {name: '영양드링크', healing: 50, quantity: 1},
         stamina15: {name: '스튜', healing: 25, quantity: 1},
         stamina16: {name: '스튜', healing: -25, quantity: 1},
+        stamina17: {name: '빵', healing: 20, quantity: 2},
 
 
         // -- heal
@@ -2056,6 +2059,7 @@ module.exports = {
         heal1: {name: '물', healing: 20, quantity: 1},
         heal2: {name: '약', healing: 40, quantity: 1},
         heal3: {name: '분말쥬스', healing: 30, quantity: 1},
+        heal4: {name: '물', healing: 20, quantity: 2},
 
 
         // -- trap
