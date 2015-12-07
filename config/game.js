@@ -1621,7 +1621,6 @@ module.exports = {
         },
         weapon16: {
             name: '콜트357 매그넘 리볼버',
-
             type: ['shot', 'melee'],
             attack: 27,
             ammo: 0,
@@ -2059,7 +2058,6 @@ module.exports = {
         heal1: {name: '물', healing: 20, quantity: 1},
         heal2: {name: '약', healing: 40, quantity: 1},
         heal3: {name: '분말쥬스', healing: 30, quantity: 1},
-        heal4: {name: '물', healing: 20, quantity: 2},
 
 
         // -- trap
