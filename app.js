@@ -6,7 +6,6 @@ var mongoose        = require('mongoose');
 var passport        = require('passport');
 var flash           = require('connect-flash');
 var socketIo        = require('socket.io');
-var socketIoClient = require('socket.io-client');
 
 var logger          = require('morgan');
 var cookieParser    = require('cookie-parser');
@@ -42,7 +41,6 @@ mongoose.connect(app.property.mongoose);
  */
 var io = socketIo();
 app.io = io;
-app.ioClient = socketIoClient.connect('http://localhost:3000');
 
 
 /**
@@ -108,10 +106,10 @@ Container.set('service', new service());
 /**
  * events
  */
-require('./events')(io, {
+require('./sockets')(io, {
     models:ModelFactory,
     container:Container,
-    passport:passport,
+    passport:passport
 });
 
 
@@ -121,8 +119,7 @@ require('./events')(io, {
 require('./routes')(app, {
     models:ModelFactory,
     container:Container,
-    passport:passport,
-    socket:app.ioClient
+    passport:passport
 });
 
 
