@@ -71,17 +71,6 @@ module.exports = function (app, options) {
 
     app.post('/signup', function (req, res) {
         var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-
-        var supplyWeapon = options.container.get('util').getRandomItem(app.gameConfig.supplyItems, app.gameConfig.items);
-        var personalItem = options.container.get('util').getRandomItem(app.gameConfig.personalItems, app.gameConfig.items);
-        var attack = options.container.get('util').getPoint(app.gameConfig.attack, app.gameConfig.attackMaxIncrease);
-        var defence = options.container.get('util').getPoint(app.gameConfig.defence, app.gameConfig.defenceMaxIncrease);
-        var health = options.container.get('util').getPoint(app.gameConfig.health, app.gameConfig.healthMaxIncrease);
-        var clubId = options.container.get('util').dice(app.gameConfig.clubs.length);
-        var clubName = app.gameConfig.clubs[clubId];
-        var skillMap = options.container.get('util').getSkillByClubId(clubId, app.gameConfig.expPerSkillLevel);
-        var mergeItems = options.container.get('util').appendSupplyItem(supplyWeapon, personalItem);
-
         options.container.get('service').validSignup(
             options.models.getModel('user'),
             options.models.getModel('server'),
@@ -116,22 +105,34 @@ module.exports = function (app, options) {
                     req.flash('error', '여학생은 더 이상 등록할 수 없습니다.');
                     signupRender(req, res, app, {}, req.body);
                 } else {
-                    console.log(attack);
-                    console.log(defence);
-                    console.log(health);
-                    console.log(clubId);
-                    console.log(clubName);
-                    console.log(skillMap);
-                    console.log(mergeItems);
-                    /*
+                    var supplyWeapon = options.container.get('util').getRandomItem(app.gameConfig.supplyItems, app.gameConfig.items);
+                    var personalItem = options.container.get('util').getRandomItem(app.gameConfig.personalItems, app.gameConfig.items);
+                    var clubId = options.container.get('util').dice(app.gameConfig.clubs.length);
+                    var clubName = app.gameConfig.clubs[clubId];
+                    var skillMap = options.container.get('util').getSkillByClubId(clubId, app.gameConfig.expPerSkillLevel);
+                    var mergeItems = options.container.get('util').appendSupplyItem(supplyWeapon, personalItem);
+                    var armorBody = {id:'armor41', point:5, endurance:30};
+                    if (1 == req.body.userGender) {
+                        armorBody.id = 'armor42';
+                    }
+
                     options.container.get('service').signup(
                         options.models.getModel('user'),
                         ip,
                         req,
-                        res
+                        res,
+                        options.container.get('util').getPoint(app.gameConfig.attack, app.gameConfig.attackMaxIncrease),
+                        options.container.get('util').getPoint(app.gameConfig.defence, app.gameConfig.defenceMaxIncrease),
+                        options.container.get('util').getPoint(app.gameConfig.health, app.gameConfig.healthMaxIncrease),
+                        app.gameConfig.maxStamina,
+                        app.gameConfig.expPerLevel + app.gameConfig.expIncrease,
+                        opts.groupName,
+                        opts.groupCount++,
+                        clubName,
+                        skillMap,
+                        armorBody,
+                        mergeItems
                     );
-                    */
-                    res.send('hello');
                 }
             }
         );

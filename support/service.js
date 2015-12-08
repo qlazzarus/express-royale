@@ -36,7 +36,8 @@ module.exports = function () {
                     collections.push({
                         name: groups[i],
                         maleCount: 0,
-                        femaleCount: 0
+                        femaleCount: 0,
+                        totalCount: 0
                     });
 
                     groupCount++;
@@ -71,7 +72,9 @@ module.exports = function () {
         });
 
         server.save(function (err) {
-            throw err;
+            if (err) {
+                throw err;
+            }
         });
 
         return server;
@@ -110,7 +113,7 @@ module.exports = function () {
             }
 
             if (!result.flag) {
-                result.flag = that.createServerFlag('start', new Date());
+                result.flag = that.createServerFlag(serverModel, 'start', new Date());
             }
 
             var timeStamp = Date.now();
@@ -200,6 +203,8 @@ module.exports = function () {
 
                 if (0 == expressRequest.body.userGender && 'male' !== icon.gender) {
                     status = false;
+                } else if (1 == expressRequest.body.userGender && 'female' !== icon.gender) {
+                    status = false;
                 }
 
                 cb(null, status);
@@ -225,11 +230,14 @@ module.exports = function () {
                 options = result.formCheck;
             } else if (false === result.iconGenderCheck) {
                 resultStatus = -6;
-            } else if (true !== result.groupCount && 0 === expressRequest.body.userGender) {
+            } else if (true !== result.groupCount[0] && 0 === expressRequest.body.userGender) {
                 resultStatus = -7;
-            } else if (true !== result.groupCount && 1 === expressRequest.body.userGender) {
+            } else if (true !== result.groupCount[0] && 1 === expressRequest.body.userGender) {
                 resultStatus = -8;
             }
+
+            options.groupCount = result.groupCount[1].totalCount;
+            options.groupName = result.groupCount[1].name;
 
             callback(null, resultStatus, options);
         });
@@ -251,28 +259,16 @@ module.exports = function () {
      * @param groupName
      * @param studentNo
      * @param clubName
-     * @param shotSkill
-     * @param cutSkill
-     * @param throwSkill
-     * @param fistSkill
-     * @param bowSkill
-     * @param meleeSkill
-     * @param bombSkill
-     * @param pokeSkill
-     * @param item0
-     * @param item1
-     * @param item2
-     * @param item3
-     * @param item4
-     * @param item5
+     * @param skillMap
+     * @param armorBody
+     * @param items
      */
     this.signup = function (userModel, remoteAddress, expressRequest, expressResponse, attack, defence, health,
-                            stamina, requireExp, groupName, studentNo, clubName, shotSkill, cutSkill, throwSkill,
-                            fistSkill, bowSkill, meleeSkill, bombSkill, pokeSkill, armorId, armorDefence,
-                            armorEndurance, item0, item1, item2, item3, item4, item5) {
+                            stamina, requireExp, groupName, studentNo, clubName, skillMap, armorBody, items) {
 
         userModel.register(new userModel({
             username: expressRequest.body.username,
+            password: expressRequest.body.password,
             userGender: expressRequest.body.userGender,
             userIcon: expressRequest.body.userIcon,
             message: expressRequest.body.message,
@@ -305,34 +301,35 @@ module.exports = function () {
             tactics: 0,
 
             // skills
-            shotSkill: shotSkill,
-            cutSkill: cutSkill,
-            throwSkill: throwSkill,
-            fistSkill: fistSkill,
-            bowSkill: bowSkill,
-            meleeSkill: meleeSkill,
-            bombSkill: bombSkill,
-            pokeSkill: pokeSkill,
+            shotSkill: skillMap.shotSkill,
+            cutSkill: skillMap.cutSkill,
+            throwSkill: skillMap.throwSkill,
+            fistSkill: skillMap.fistSkill,
+            bowSkill: skillMap.bowSkill,
+            meleeSkill: skillMap.meleeSkill,
+            bombSkill: skillMap.bombSkill,
+            pokeSkill: skillMap.pokeSkill,
 
             // equip
-            weapon: {idx: '', attack: 0, ammo: 0},
+            weapon: {idx: '', point: 0, endurance: 0},
             armor: {
-                head: {idx: '', defence: 0, endurance: 0},
-                body: {idx: armorId, defence: armorDefence, endurance: armorEndurance},
-                arm: {idx: '', defence: 0, endurance: 0},
-                foot: {idx: '', defence: 0, endurance: 0}
+                head: {idx: '', point: 0, endurance: 0},
+                body: armorBody,
+                arm: {idx: '', point: 0, endurance: 0},
+                foot: {idx: '', point: 0, endurance: 0}
             },
 
             // items
-            item0: item0,
-            item1: item1,
-            item2: item2,
-            item3: item3,
-            item4: item4,
-            item5: item5
-        }), expressRequest.body.password, function (err, user) {
+            item0: items.item0,
+            item1: items.item1,
+            item2: items.item2,
+            item3: items.item3,
+            item4: items.item4,
+            item5: items.item5
+        }), function (err, user) {
             if (err) {
-                throw err;
+                console.log(err);
+                throw new err;
             } else {
                 expressResponse.redirect('/intro');
             }
@@ -360,7 +357,7 @@ module.exports = function () {
                 for (var i in groups) {
                     var group = groups[i];
 
-                    if ((group.maleCount + group.femaleCount) >= (groupPerMan * 2)
+                    if (group.totalCount >= (groupPerMan * 2)
                         && maxGroups >= groupCount) {
                         continue;
                     }
@@ -369,12 +366,14 @@ module.exports = function () {
                         resultStatus = false;
                     } else if (isFemale && group.femaleCount >= groupPerMan) {
                         resultStatus = false;
+                    } else {
+                        break;
                     }
 
                     groupCount++;
                 }
 
-                callback(null, resultStatus);
+                callback(null, resultStatus, group);
             }
         });
     };

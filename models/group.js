@@ -9,6 +9,7 @@ module.exports = function(mongoose){
     return mongoose.model('Group', {
         name: String,
         maleCount: Number,
-        femaleCount: Number
+        femaleCount: Number,
+        totalCount: Number
     });
 };

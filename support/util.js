@@ -83,30 +83,31 @@ module.exports = (function () {
 
     function appendSupplyItem(supplyWeapon, personalItem) {
         var result = {
-            item0:{},
-            item1:{},
-            item2:{},
-            item3:{},
+            item0:{idx: supplyWeapon.id, point: supplyWeapon.point, endurance:supplyWeapon.endurance},
+            item1:{idx: personalItem.id, point: personalItem.point, endurance:personalItem.endurance},
+            item2:{idx: 'stamina17', point: 20, endurance:2},
+            item3:{idx: 'heal1', point: 20, endurance:2},
             item4:{},
             item5:{}
         };
 
-        if ('weapon' === supplyWeapon.equip && supplyWeapon.attackType.indexOf('shot')) {
-
-        } else if ('weapon' === supplyWeapon.equip && supplyWeapon.attackType.indexOf('bow')) {
-
+        if ('weapon' === supplyWeapon.equip && '12gauge' === supplyWeapon.ammoType) {
+            result.item4 = {idx: 'etc8', point: 24, endurance: 1};
+        } else if ('weapon' === supplyWeapon.equip && '9mm' === supplyWeapon.ammoType) {
+            result.item4 = {idx: 'etc9', point: 24, endurance: 1};
+        } else if ('weapon' === supplyWeapon.equip && '22lr' === supplyWeapon.ammoType) {
+            result.item4 = {idx: 'etc10', point: 24, endurance: 1};
+        } else if ('weapon' === supplyWeapon.equip && '357mag' === supplyWeapon.ammoType) {
+            result.item4 = {idx: 'etc12', point: 24, endurance: 1};
+        } else if ('weapon' === supplyWeapon.equip && '38special' === supplyWeapon.ammoType) {
+            result.item4 = {idx: 'etc13', point: 24, endurance: 1};
+        } else if ('weapon' === supplyWeapon.equip && '45acp' === supplyWeapon.ammoType) {
+            result.item4 = {idx: 'etc14', point: 24, endurance: 1};
+        } else if ('weapon' === supplyWeapon.equip && 'apostle' === supplyWeapon.ammoType) {
+            result.item4 = {idx:'etc15', point:24, endurance:1 };
+        } else if ('weapon' === supplyWeapon.equip && 'bow' === supplyWeapon.ammoType) {
+            result.item4 = {idx:'etc16', point:24, endurance:1 };
         }
-
-        result.item3 = {
-            idx: personalItem.id,
-            point: personalItem.point,
-            quantity: personalItem.quantity
-        };
-
-        /*
-         appendSupplyItem
-         */
-        console.log(supplyWeapon);
 
         return result;
     }
