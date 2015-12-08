@@ -53,13 +53,13 @@ module.exports = function (app, options) {
             app.gameConfig.respawnTime,
             app.gameConfig.maxRecruitTime,
             app.gameConfig.maxRecruitMember,
-            function (err, status, options) {
+            function (err, status, opts) {
                 if (-1 === status) {
                     errorRender(res, '프로그램의 접수는 종료되었습니다.\n다음 프로그램 시작을 기다려주세요.');
                 } else if (-2 === status) {
                     errorRender(res, '죄송합니다만, 정원(' + app.gameConfig.maxRecruitMember + '명) 오버입니다.');
                 } else if (-3 === status) {
-                    errorRender(res, '캐릭터가 사망한 후, 2시간이 지나야 재등록할 수 있습니다.\n\n등록가능시간：' + options.rebornTime);
+                    errorRender(res, '캐릭터가 사망한 후, 2시간이 지나야 재등록할 수 있습니다.\n\n등록가능시간：' + opts.rebornTime);
                 } else if (-4 === status) {
                     errorRender(res, '캐릭터의 중복등록은 금지되어 있습니다. 관리자에게 문의하세요.');
                 } else {
@@ -71,24 +71,37 @@ module.exports = function (app, options) {
 
     app.post('/signup', function (req, res) {
         var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+
+        var supplyWeapon = options.container.get('util').getRandomItem(app.gameConfig.supplyItems, app.gameConfig.items);
+        var personalItem = options.container.get('util').getRandomItem(app.gameConfig.personalItems, app.gameConfig.items);
+        var attack = options.container.get('util').getPoint(app.gameConfig.attack, app.gameConfig.attackMaxIncrease);
+        var defence = options.container.get('util').getPoint(app.gameConfig.defence, app.gameConfig.defenceMaxIncrease);
+        var health = options.container.get('util').getPoint(app.gameConfig.health, app.gameConfig.healthMaxIncrease);
+        var clubId = options.container.get('util').dice(app.gameConfig.clubs.length);
+        var clubName = app.gameConfig.clubs[clubId];
+        var skillMap = options.container.get('util').getSkillByClubId(clubId, app.gameConfig.expPerSkillLevel);
+        var mergeItems = options.container.get('util').appendSupplyItem(supplyWeapon, personalItem);
+
         options.container.get('service').validSignup(
             options.models.getModel('user'),
             options.models.getModel('server'),
+            options.models.getModel('group'),
             ip,
             app.gameConfig.respawnTime,
             app.gameConfig.maxRecruitTime,
             app.gameConfig.maxRecruitMember,
+            app.gameConfig.maxGroups,
+            app.gameConfig.groupPerMan,
+            app.gameConfig.icons,
             req,
             require('../forms/signup'),
-            app.gameConfig.icons,
-            app.gameConfig.classPerMan,
-            function (err, status, options) {
+            function (err, status, opts) {
                 if (-1 === status) {
                     errorRender(res, '프로그램의 접수는 종료되었습니다.\n다음 프로그램 시작을 기다려주세요.');
                 } else if (-2 === status) {
                     errorRender(res, '죄송합니다만, 정원(' + app.gameConfig.maxRecruitMember + '명) 오버입니다.');
                 } else if (-3 === status) {
-                    errorRender(res, '캐릭터가 사망한 후, 2시간이 지나야 재등록할 수 있습니다.\n\n등록가능시간：' + options.rebornTime);
+                    errorRender(res, '캐릭터가 사망한 후, 2시간이 지나야 재등록할 수 있습니다.\n\n등록가능시간：' + opts.rebornTime);
                 } else if (-4 === status) {
                     errorRender(res, '캐릭터의 중복등록은 금지되어 있습니다. 관리자에게 문의하세요.');
                 } else if (-5 === status) {
@@ -103,12 +116,22 @@ module.exports = function (app, options) {
                     req.flash('error', '여학생은 더 이상 등록할 수 없습니다.');
                     signupRender(req, res, app, {}, req.body);
                 } else {
+                    console.log(attack);
+                    console.log(defence);
+                    console.log(health);
+                    console.log(clubId);
+                    console.log(clubName);
+                    console.log(skillMap);
+                    console.log(mergeItems);
+                    /*
                     options.container.get('service').signup(
                         options.models.getModel('user'),
                         ip,
                         req,
                         res
                     );
+                    */
+                    res.send('hello');
                 }
             }
         );

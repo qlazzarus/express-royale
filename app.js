@@ -103,6 +103,14 @@ var service = require('./support/service');
 Container.set('service', new service());
 
 
+
+/**
+ * util
+ */
+var util = require('./support/util');
+Container.set('util', util);
+
+
 /**
  * events
  */
@@ -157,6 +165,16 @@ if (app.get('env') === 'development') {
         });
     });
 }
+
+
+/**
+ * initialize service
+ */
+Container.get('service').initializeGroups(
+    ModelFactory.getModel('group'),
+    app.gameConfig.groups,
+    app.gameConfig.maxGroups
+);
 
 
 module.exports = app;

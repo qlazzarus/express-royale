@@ -7,11 +7,6 @@ module.exports = function(mongoose){
     var passportLocalMongoose = require('passport-local-mongoose');
     var Schema = mongoose.Schema;
 
-    /*
-     $bid,   // 공격자 ID (중복공격 방지)
-     $log,   // 이전 액션 로그
-     */
-
     var User = new Schema({
         userGender: Boolean,
         userIcon: String,       // icon2
@@ -29,90 +24,93 @@ module.exports = function(mongoose){
         stamina: Number,    // sta
         killCount: Number,  // kill
         level: Number,      // level
-        exp: Number,        // exp
+        requireExp: Number, // exp (minus 되는 구조)
         injured: Array,     // inf
         place: Number,      // pls
         status: Number,     // sts
 
-        deathCause: String, // death
-        deathAt: Number,    // endtime
+        // battle
+        prevAttacker: String,   // bid 공격자 ID (중복공격 방지)
+        prevLog: String,        // 이전 Log
+        deathCause: String,     // death
+        deathAt: Number,        // endtime
 
         // character extends
-        className: String,  // cl
+        groupName: String,  // cl
         studentNo: String,  // no
-        club: String,       // club
+        clubName: String,   // club
         tactics: Number,    // tactics
 
 
         // skills
-        shot: Number,   // wg
-        cut: Number,    // wn
-        throw: Number,  // wc
-        fist: Number,   // wp
-        bow: Number,    // wa
-        melee: Number,  // wb
-        bomb: Number,   // wd
-        poke: Number,   // ws
+        shotSkill: Number,   // wg
+        cutSkill: Number,    // wn
+        throwSkill: Number,  // wc
+        fistSkill: Number,   // wp
+        bowSkill: Number,    // wa
+        meleeSkill: Number,  // wb
+        bombSkill: Number,   // wd
+        pokeSkill: Number,   // ws
 
         // equip
         weapon:{
-            idx: String,    // wep
-            attack: Number, // watt
-            ammo: Number    // wtai
+            idx: String,
+            endurance: Number,
+            point: Number
         },
         armor:{
             head:{
-                idx: String,        // bou_h
-                defence: Number,    // bdef_h
-                endurance: Number   // btai_h
+                idx: String,
+                endurance: Number,
+                point: Number
             },
             body:{
-                idx: String,        // bou
-                defence: Number,    // bdef
-                endurance: Number   // btai
+                idx: String,
+                endurance: Number,
+                point: Number
             },
             arm:{
-                idx: String,        // bou_a
-                defence: Number,    // bdef_a
-                endurance: Number   // btai_a
+                idx: String,
+                endurance: Number,
+                point: Number
             },
             foot:{
-                idx: String,        // bou_f
-                defence: Number,    // bdef_f
-                endurance: Number   // btai_f
+                idx: String,
+                endurance: Number,
+                point: Number
             }
         },
 
         // game items
         item0:{
             idx: String,
-            point: Number,
-            quantity: Number
+            endurance: Number,
+            point: Number
         },
         item1:{
             idx: String,
-            point: Number,
-            quantity: Number
+            endurance: Number,
+            point: Number
         },
         item2:{
             idx: String,
-            point: Number,
-            quantity: Number
+            endurance: Number,
+            point: Number
         },
         item3:{
             idx: String,
-            point: Number,
-            quantity: Number
+            endurance: Number,
+            point: Number
         },
         item4:{
             idx: String,
-            point: Number,
-            quantity: Number
+            endurance: Number,
+            point: Number
         },
         item5:{
             idx: String,
-            point: Number,
-            quantity: Number
+            endurance: Number,
+            point: Number
         },
 
         // passport properties
