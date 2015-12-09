@@ -2,6 +2,6 @@ extends layout
 
 block content
     h1.red= message
-    h2(style='white-space:pre;') #{error.status}
+    p.text-center(style='white-space:pre;') #{error.status}
     if (error.stack)
         pre #{error.stack}

@@ -33,11 +33,32 @@ module.exports = function (app, options) {
         res.render('login', {message: req.flash('error')});
     });
 
-    app.post('/', options.passport.authenticate('local', {
-        successRedirect: '/game',
-        failureRedirect: '/',
-        failureFlash: true
-    }));
+    app.post('/', function (req, res, next) {
+        options.passport.authenticate(
+            'local',
+            function (err, user, info) {
+                if (err) {
+                    return next(err);
+                } else if (!user && 'died' === info.status) {
+                    return errorRender(
+                        res,
+                        '이미 죽어있습니다.\n사인：' + info.message + '\n' + info.saying
+                    );
+                } else if (!user) {
+                    req.flash('error', info.message);
+                    return res.redirect('/');
+                } else {
+                    req.logIn(user, function(err) {
+                        if (err) {
+                            return next(err);
+                        } else {
+                            return res.redirect('/game');
+                        }
+                    });
+                }
+            }
+        )(req, res, next);
+    });
 
     app.get('/logout', function (req, res) {
         req.logout();
@@ -111,7 +132,7 @@ module.exports = function (app, options) {
                     var clubName = app.gameConfig.clubs[clubId];
                     var skillMap = options.container.get('util').getSkillByClubId(clubId, app.gameConfig.expPerSkillLevel);
                     var mergeItems = options.container.get('util').appendSupplyItem(supplyWeapon, personalItem);
-                    var armorBody = {id:'armor41', point:5, endurance:30};
+                    var armorBody = {id: 'armor41', point: 5, endurance: 30};
                     if (1 == req.body.userGender) {
                         armorBody.id = 'armor42';
                     }

@@ -1,0 +1,40 @@
+extends layout
+
+block content
+    h1.red.text-center 전학수속 종료
+    table.table.table-bordered
+        tbody
+            tr
+                th 클래스
+                td(colspan=3) #{user.groupName}
+            tr
+                th 번호
+                td(colspan=3) #{0 == user.userGender ? '남자' : '여자'}
+                    | #{user.studentNo}번
+            tr
+                th 클럽
+                td(colspan=3) #{user.clubName}
+            tr
+                th 체력
+                td #{user.health} / #{user.maxHealth}
+                th 스테미너
+                td #{user.stamina}
+            tr
+                th 공격력
+                td(colspan=3) #{user.attack}
+            tr
+                th 방어력
+                td(colspan=3) #{user.defence}
+
+    p.text-center(style='white-space:pre;')
+        | #{user.username} #{0 == user.userGender ? '군이구나' : '양이구나'}
+        | 이제 막 전학했지만, 내일은 수학여행이야.
+        | &nbsp;
+        | 시간에 맞춰서, 늦지 말고 와~!
+        | &nbsp;
+        | &nbsp;
+
+    h3.red.text-center
+        a(href='/intro2') 수학여행 출발
+
+block content-footer

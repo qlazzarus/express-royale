@@ -11,11 +11,11 @@ function isLoggedIn(req, res, next){
 
 module.exports = function(app, options){
     app.get('/intro', isLoggedIn, function(req, res){
-        res.send('intro');
+        res.render('intro', {user:req.user});
     });
 
     app.get('/intro2', isLoggedIn, function(req, res){
-        res.send('intro2');
+        res.render('intro2', {user:req.user});
     });
 
     app.get('/game', isLoggedIn, function(req, res){
