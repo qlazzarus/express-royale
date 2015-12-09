@@ -21,7 +21,83 @@ a:hover {
     color: #ff0000;
 }
 
+.stamina {
+    color: #ffccaa;
+}
+
+.health {
+    color: #ccffcc;
+}
+
+.weapon {
+    color: #ccaaff;
+}
+
+.armor {
+    color: #ffaaaa;
+}
+
+.equip-weapon {
+    color: #ddccff;
+}
+
+.equip-armor {
+    color: #ffcccc;
+}
+
+.bg-equip {
+    background: #202080;
+}
+
 .bg-red, .bg-red:hover, .bg-red:focus {
     background: #ff0000;
     border: #ff0000;
+}
+
+.bg-black-red {
+    background: #AA0000
+}
+
+.padding5px {
+    padding: 3px;
+}
+
+.padding5px {
+    padding: 5px;
+}
+
+.vertical-text-bottom {
+    vertical-align: text-bottom;
+}
+
+.small-dl {
+    margin: 0;
+    padding: 3px 0;
+}
+
+.small-dl dt {
+    width: 50px;
+}
+
+.small-dl dd {
+    margin-left: 60px;
+}
+
+.solid-bordered {
+    border: solid 1px;
+}
+
+.list-inline-custom {
+    width: 150px;
+    padding: 0 5px !important;
+    font-size: 12px;
+}
+
+.status-log {
+    padding: 5px;
+    white-space: pre;
+    height: 10em;
+    word-break: break-all;
+    word-wrap: break-word;
+    overflow-y: auto;
 }

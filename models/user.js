@@ -3,12 +3,12 @@
  * @param mongoose
  * @returns {Model<T>}
  */
-module.exports = function(mongoose){
+module.exports = function (mongoose) {
     var passportLocalMongoose = require('passport-local-mongoose');
     var Schema = mongoose.Schema;
 
     var User = new Schema({
-        username: {type:String, unique:true, required:true, dropDups:true},
+        username: {type: String, unique: true, required: true, dropDups: true},
         userGender: Boolean,
         userIcon: String,       // icon2
         ip: String,
@@ -55,28 +55,33 @@ module.exports = function(mongoose){
         pokeSkill: Number,   // ws
 
         // equip
-        weapon:{
+        weapon: {
             idx: String,
             endurance: Number,
             point: Number
         },
-        armor:{
-            head:{
+        armor: {
+            head: {
                 idx: String,
                 endurance: Number,
                 point: Number
             },
-            body:{
+            body: {
                 idx: String,
                 endurance: Number,
                 point: Number
             },
-            arm:{
+            arm: {
                 idx: String,
                 endurance: Number,
                 point: Number
             },
-            foot:{
+            foot: {
+                idx: String,
+                endurance: Number,
+                point: Number
+            },
+            accessory: {
                 idx: String,
                 endurance: Number,
                 point: Number
@@ -84,32 +89,32 @@ module.exports = function(mongoose){
         },
 
         // game items
-        item0:{
+        item0: {
             idx: String,
             endurance: Number,
             point: Number
         },
-        item1:{
+        item1: {
             idx: String,
             endurance: Number,
             point: Number
         },
-        item2:{
+        item2: {
             idx: String,
             endurance: Number,
             point: Number
         },
-        item3:{
+        item3: {
             idx: String,
             endurance: Number,
             point: Number
         },
-        item4:{
+        item4: {
             idx: String,
             endurance: Number,
             point: Number
         },
-        item5:{
+        item5: {
             idx: String,
             endurance: Number,
             point: Number
