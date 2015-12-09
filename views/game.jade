@@ -75,32 +75,32 @@ block content
         div.col-sm-4
             h5.text-center.bg-black-red.padding5px 커맨드
             div.text-center.padding5px
-                select(ng-model='cmd-find-selector')
+                select(ng-model='findSelector')
             p.padding5px 무엇을 합니까?
             ul.list-unstyled
                 li
                     label
-                        input.vertical-text-bottom(type='radio', name='cmd', ng-model='cmd-find' )
+                        input.vertical-text-bottom(type='radio', name='cmd', ng-model='cmdFind' )
                         span.padding5px 탐색
                 li
                     label
-                        input.vertical-text-bottom(type='radio', name='cmd', ng-model='cmd-item')
+                        input.vertical-text-bottom(type='radio', name='cmd', ng-model='cmdItem')
                         span.padding5px 아이템 정리/합성/장비
                 li
                     label
-                        input.vertical-text-bottom(type='radio', name='cmd', ng-model='cmd-heal')
+                        input.vertical-text-bottom(type='radio', name='cmd', ng-model='cmdHeal')
                         span.padding5px.health 치료
                 li
                     label
-                        input.vertical-text-bottom(type='radio', name='cmd', ng-model='cmd-sleep')
+                        input.vertical-text-bottom(type='radio', name='cmd', ng-model='cmdSleep')
                         span.padding5px.stamina 수면
                 li
                     label
-                        input.vertical-text-bottom(type='radio', name='cmd', ng-model='cmd-first-aid')
+                        input.vertical-text-bottom(type='radio', name='cmd', ng-model='cmdFirstAid')
                         span.padding5px 응급처치
                 li
                     label
-                        input.vertical-text-bottom(type='radio', name='cmd', ng-model='cmd-extra')
+                        input.vertical-text-bottom(type='radio', name='cmd', ng-model='cmdExtra')
                         span.padding5px 특수 커맨드
                     //
                         label
@@ -109,10 +109,11 @@ block content
                             span.padding5px 버림
                             | )
 
-            input.btn.btn-warning.bg-red(type='button', ng-model='cmd-exec', value='확인')
+            input.btn.btn-warning.bg-red(type='button', ng-model='cmdExec', value='확인')
 
 
 block content-footer
     script(type='text/javascript' src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js')
     script(type='text/javascript' src='//cdn.socket.io/socket.io-1.2.0.js')
     script(type='text/javascript' src='//code.jquery.com/jquery-2.1.4.min.js')
+    script(type='text/javascript' src='/javascripts/localApp.js')

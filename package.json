@@ -20,6 +20,7 @@
     "async": "^1.5.0",
     "bcrypt-nodejs": "0.0.3",
     "bower": "^1.6.8",
+    "connect": "^3.4.0",
     "connect-flash": "^0.1.1",
     "express-session": "^1.12.1",
     "express-validator": "^2.18.0",

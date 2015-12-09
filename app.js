@@ -112,7 +112,7 @@ Container.set('util', util);
 
 
 /**
- * events
+ * socket.io
  */
 require('./sockets')(io, {
     models:ModelFactory,
