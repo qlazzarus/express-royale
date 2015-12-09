@@ -1,11 +1,12 @@
 module.exports = function(io, options)
 {
-    var User = options.models.getModel('user');
     io.on('connection', function(socket){
         // connection
         var clients = options.container.get('clients');
         //var cookie = connect.utils.parseCookie(socket.request.headers.cookie);
+
         console.log('new client connected - ' + socket.id);
+        console.log(socket.request.user);
         /*
          var connect = require('connect');
          io.on('connection', function(socket_client) {

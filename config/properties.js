@@ -4,6 +4,7 @@
 module.exports = {
     'development': {
         'mongoose': 'mongodb://localhost/mean-royale',
-        'sessionKey': 'iHaveToGo'
+        'sessionKey': 'iHaveToGo',
+        'cookieKey': 'connect.sid'
     }
 };

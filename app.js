@@ -1,19 +1,25 @@
 /**
  * load modules
  */
-var express         = require('express');
-var mongoose        = require('mongoose');
-var passport        = require('passport');
-var flash           = require('connect-flash');
-var socketIo        = require('socket.io');
-
-var logger          = require('morgan');
-var cookieParser    = require('cookie-parser');
-var bodyParser      = require('body-parser');
-var session         = require('express-session');
-var validator       = require('express-validator');
-var path            = require('path');
+var logger              = require('morgan');
+var cookieParser        = require('cookie-parser');
+var bodyParser          = require('body-parser');
+var path                = require('path');
 //var favicon = require('serve-favicon');
+
+var express             = require('express');
+var session             = require('express-session');
+var validator           = require('express-validator');
+
+var mongoose            = require('mongoose');
+
+var passport            = require('passport');
+var flash               = require('connect-flash');
+var connectMongo        = require('connect-mongo')(session);
+
+var socketIo            = require('socket.io');
+var passportSocketIo    = require('passport.socketio');
+
 
 
 /**
@@ -37,10 +43,9 @@ mongoose.connect(app.property.mongoose);
 
 
 /**
- * socket.io
+ * session store
  */
-var io = socketIo();
-app.io = io;
+var sessionStore = new connectMongo({ mongooseConnection: mongoose.connection });
 
 
 /**
@@ -82,11 +87,27 @@ app.use(validator());
 app.use(session({
     secret: app.property.sessionKey,
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    store: sessionStore
 }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
+
+
+/**
+ * socket.io
+ */
+var io = socketIo();
+io.use(passportSocketIo.authorize({
+    cookieParser: cookieParser,
+    key:          app.property.cookieKey,
+    secret:       app.property.sessionKey,
+    store:        sessionStore,        // we NEED to use a sessionstore. no memorystore please
+    //success:      onAuthorizeSuccess,  // *optional* callback on success - read more below
+    //fail:         onAuthorizeFail,     // *optional* callback on fail/error - read more below
+}));
+app.io = io;
 
 
 /**
