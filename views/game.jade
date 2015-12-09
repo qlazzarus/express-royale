@@ -1,27 +1,6 @@
 extends layout
 
 block content
-    div.row(ng-app='expressRoyale', ng-controller='ChatController as ChatCtrl')
-        div.col-sm-8
-        div.col-md-4
-            div.panel.panel-primary
-                div.panel-heading
-                    span.glyphicon.glyphicon-comment
-                    | &nbsp; Chat
-                div.panel-body#chatBody
-                    ul.chat
-                        li.left.clearfix(ng-repeat='text in messages')
-                            div.chat-body.clearfix
-                                div.header
-                                    strong.primary-font {{text.userName}}
-                                p {{text.message}}
-                div.panel-footer
-                    div.input-group
-                        input.form-control.input-sm#chatInput(type='text', placeholder='Type your message', ng-model='chatInput', ng-enter='sendMessage()')
-                        span.input-group-btn
-                            button.btn.btn-warning.btn-sm#chatButton(ng-click='sendMessage()') Send
 
 block content-footer
-    script(type='text/javascript' src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js')
     script(type='text/javascript' src='//cdn.socket.io/socket.io-1.2.0.js')
-    script(type='text/javascript' src='/javascripts/localApp.js')

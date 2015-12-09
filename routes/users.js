@@ -61,7 +61,7 @@ module.exports = function (app, options) {
                 } else if (-3 === status) {
                     errorRender(res, '캐릭터가 사망한 후, 2시간이 지나야 재등록할 수 있습니다.\n\n등록가능시간：' + opts.rebornTime);
                 } else if (-4 === status) {
-                    errorRender(res, '캐릭터의 중복등록은 금지되어 있습니다. 관리자에게 문의하세요.');
+                    errorRender(res, '캐릭터의 중복등록은 금지되어 있습니다.\n관리자에게 문의하세요.');
                 } else {
                     signupRender(req, res, app);
                 }
@@ -92,7 +92,7 @@ module.exports = function (app, options) {
                 } else if (-3 === status) {
                     errorRender(res, '캐릭터가 사망한 후, 2시간이 지나야 재등록할 수 있습니다.\n\n등록가능시간：' + opts.rebornTime);
                 } else if (-4 === status) {
-                    errorRender(res, '캐릭터의 중복등록은 금지되어 있습니다. 관리자에게 문의하세요.');
+                    errorRender(res, '캐릭터의 중복등록은 금지되어 있습니다.\n관리자에게 문의하세요.');
                 } else if (-5 === status) {
                     signupRender(req, res, app, options, req.body);
                 } else if (-6 === status) {
@@ -117,7 +117,9 @@ module.exports = function (app, options) {
                     }
 
                     options.container.get('service').signup(
+                        options.passport,
                         options.models.getModel('user'),
+                        options.models.getModel('group'),
                         ip,
                         req,
                         res,
@@ -127,7 +129,7 @@ module.exports = function (app, options) {
                         app.gameConfig.maxStamina,
                         app.gameConfig.expPerLevel + app.gameConfig.expIncrease,
                         opts.groupName,
-                        opts.groupCount++,
+                        (opts.groupCount + 1),
                         clubName,
                         skillMap,
                         armorBody,

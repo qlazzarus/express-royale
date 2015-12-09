@@ -8,8 +8,10 @@ module.exports = function(mongoose){
     var Schema = mongoose.Schema;
 
     var User = new Schema({
+        username: {type:String, unique:true, required:true, dropDups:true},
         userGender: Boolean,
         userIcon: String,       // icon2
+        ip: String,
 
         // message
         message: String,        // msg2
@@ -111,13 +113,7 @@ module.exports = function(mongoose){
             idx: String,
             endurance: Number,
             point: Number
-        },
-
-        // passport properties
-        username: {type:String, unique:true, required:true, dropDups:true},
-        password: {type:String, required:true},
-        last: Number,       // last-login attempt
-        attempts: Number    // login attempt
+        }
     });
 
     User.plugin(passportLocalMongoose, require('../config/passport'));

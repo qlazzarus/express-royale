@@ -18,8 +18,8 @@ module.exports = function () {
             function (callback) {
                 groupModel.remove({}, function (err, docs) {
                     if (err) {
-                        console.log('truncate groups failed');
-                        throw err;
+                        console.log(err);
+                        throw new Error('truncate groups failed');
                     }
 
                     callback(null);
@@ -45,8 +45,8 @@ module.exports = function () {
 
                 groupModel.collection.insert(collections, function (err) {
                     if (err) {
-                        console.log('initialize groups failed');
-                        throw err;
+                        console.log(err);
+                        throw new Error('initialize groups failed');
                     } else {
                         console.log('initialize groups success');
                         callback(null);
@@ -73,7 +73,8 @@ module.exports = function () {
 
         server.save(function (err) {
             if (err) {
-                throw err;
+                console.log(err);
+                throw new Error('create server flag failed');
             }
         });
 
@@ -102,14 +103,15 @@ module.exports = function () {
                 userModel.count({}).exec(cb);
             },
             userFindByIp: function (cb) {
-                serverModel.find({ip: remoteAddress}).exec(cb);
+                userModel.find({ip: remoteAddress}).exec(cb);
             },
             flag: function (cb) {
                 serverModel.findOne({}).exec(cb);
             }
         }, function (err, result) {
             if (err) {
-                throw err;
+                console.log(err);
+                throw new Error('check signup process failed');
             }
 
             if (!result.flag) {
@@ -125,13 +127,13 @@ module.exports = function () {
 
             for (var i = 0; result.userFindByIp.length; i++) {
                 var current = result.userFindByIp[i];
-                if (0 >= current.hp && respawnTime > timeStamp - new Date(current.deadAt).getTime()) {
+                if (0 >= current.health && respawnTime > timeStamp - new Date(current.deathAt).getTime()) {
                     isExist = false;
                     isDead = false;
-                } else if (0 >= current.hp) {
+                } else if (0 >= current.health) {
                     isExist = true;
                     isDead = true;
-                    rebornTime = current.deadAt;
+                    rebornTime = current.deathAt;
                     break;
                 } else {
                     isExist = true;
@@ -247,7 +249,9 @@ module.exports = function () {
     /**
      * 가입 / DB 기록
      *
+     * @param passport
      * @param userModel
+     * @param groupModel
      * @param remoteAddress
      * @param expressRequest
      * @param expressResponse
@@ -263,17 +267,18 @@ module.exports = function () {
      * @param armorBody
      * @param items
      */
-    this.signup = function (userModel, remoteAddress, expressRequest, expressResponse, attack, defence, health,
-                            stamina, requireExp, groupName, studentNo, clubName, skillMap, armorBody, items) {
+    this.signup = function (passport, userModel, groupModel, remoteAddress, expressRequest, expressResponse, attack,
+                            defence, health, stamina, requireExp, groupName, studentNo, clubName, skillMap, armorBody,
+                            items) {
 
         userModel.register(new userModel({
             username: expressRequest.body.username,
-            password: expressRequest.body.password,
             userGender: expressRequest.body.userGender,
             userIcon: expressRequest.body.userIcon,
             message: expressRequest.body.message,
             messageDying: expressRequest.body.messageDying,
             messageComment: expressRequest.body.messageComment,
+            ip: remoteAddress,
 
             // character stats
             attack: attack,
@@ -326,12 +331,38 @@ module.exports = function () {
             item3: items.item3,
             item4: items.item4,
             item5: items.item5
-        }), function (err, user) {
+        }), expressRequest.body.password, function (err, user) {
             if (err) {
-                console.log(err);
-                throw new err;
+                if (typeof err.message !== 'undefined') {
+                    expressRequest.flash('error', err.message);
+                } else {
+                    expressRequest.flash('error', '데이터 저장 중 에러가 발생하였습니다.');
+                }
+
+                expressResponse.redirect('/signup');
             } else {
-                expressResponse.redirect('/intro');
+                groupModel.findOne({name: groupName}, function (err, group) {
+                    if (err) {
+                        console.log(err);
+                    }
+
+                    group.totalCount++;
+                    if (0 == expressRequest.body.userGender) {
+                        group.maleCount++;
+                    } else {
+                        group.femaleCount++;
+                    }
+
+                    group.save(function (err) {
+                        if (err) {
+                            console.log(err);
+                        }
+                    });
+                });
+
+                passport.authenticate('local')(expressRequest, expressResponse, function () {
+                    expressResponse.redirect('/intro');
+                });
             }
         });
     };
@@ -351,7 +382,7 @@ module.exports = function () {
 
         groupModel.find({}).exec(function (err, groups) {
             if (err) {
-                throw err;
+                console.log(err);
             } else {
                 var groupCount = 1;
                 for (var i in groups) {
