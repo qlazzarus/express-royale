@@ -2,10 +2,69 @@
  * Created by monoless on 2015-12-08.
  */
 module.exports = (function () {
+    var itemCollection = {};
+
+    /**
+     * 아이템 콜렉션 리턴
+     *
+     * @returns {{}}
+     */
+    function getItemCollection() {
+        return itemCollection;
+    }
+
+
+    /**
+     * 아이템 콜렉션 저장
+     *
+     * @param collection
+     */
+    function setItemCollection(collection) {
+        itemCollection = collection;
+    }
+
+
+    /**
+     * 아이템 리턴
+     *
+     * @param itemId
+     * @returns {*}
+     */
+    function getItem(itemId) {
+        if (itemId instanceof Array) {
+            var result = {};
+            for (var i in itemId) {
+                var item = getItem(itemId[i]);
+                if (typeof item !== 'undefined') {
+                    result[itemId[i]] = item;
+                }
+            }
+
+            return result;
+        } else {
+            return itemCollection[itemId];
+        }
+    }
+
+
+    /**
+     * 주사위 (랜덤)
+     *
+     * @param maxValue
+     * @returns {number}
+     */
     function dice(maxValue) {
         return Math.floor(Math.random() * maxValue);
     }
 
+
+    /**
+     * 아이템 랜덤으로 뽑아오기
+     *
+     * @param itemList
+     * @param itemObject
+     * @returns {*}
+     */
     function getRandomItem(itemList, itemObject) {
         var itemLength = itemList.length;
         var itemId = itemList[dice(itemLength)];
@@ -13,10 +72,26 @@ module.exports = (function () {
         return itemObject[itemId];
     }
 
+
+    /**
+     * 포인트 랜덤으로 더하기
+     *
+     * @param basic
+     * @param random
+     * @returns {*}
+     */
     function getPoint(basic, random) {
         return dice(random) + basic;
     }
 
+
+    /**
+     * 동아리에 따른 능력치 결정
+     *
+     * @param clubId
+     * @param expPerSkillLevel
+     * @returns {{cutSkill: number, throwSkill: number, fistSkill: number, meleeSkill: number, bombSkill: number, pokeSkill: number, bowSkill: number, shotSkill: number}}
+     */
     function getSkillByClubId(clubId, expPerSkillLevel) {
         var result = {
             cutSkill: 0,
@@ -81,14 +156,22 @@ module.exports = (function () {
         return result;
     }
 
+
+    /**
+     * 보급 아이템 추가 설정
+     *
+     * @param supplyWeapon
+     * @param personalItem
+     * @returns {{item0: {idx: *, point: *, endurance: *}, item1: {idx: *, point: *, endurance: *}, item2: {idx: string, point: number, endurance: number}, item3: {idx: string, point: number, endurance: number}, item4: {}, item5: {}}}
+     */
     function appendSupplyItem(supplyWeapon, personalItem) {
         var result = {
-            item0:{idx: supplyWeapon.id, point: supplyWeapon.point, endurance:supplyWeapon.endurance},
-            item1:{idx: personalItem.id, point: personalItem.point, endurance:personalItem.endurance},
-            item2:{idx: 'stamina17', point: 20, endurance:2},
-            item3:{idx: 'heal1', point: 20, endurance:2},
-            item4:{},
-            item5:{}
+            item0: {idx: supplyWeapon.id, point: supplyWeapon.point, endurance: supplyWeapon.endurance},
+            item1: {idx: personalItem.id, point: personalItem.point, endurance: personalItem.endurance},
+            item2: {idx: 'stamina17', point: 20, endurance: 2},
+            item3: {idx: 'heal1', point: 20, endurance: 2},
+            item4: {idx: '', point: 0, endurance: 0},
+            item5: {idx: '', point: 0, endurance: 0}
         };
 
         if ('weapon' === supplyWeapon.equip && '12gauge' === supplyWeapon.ammoType) {
@@ -104,9 +187,32 @@ module.exports = (function () {
         } else if ('weapon' === supplyWeapon.equip && '45acp' === supplyWeapon.ammoType) {
             result.item4 = {idx: 'etc14', point: 24, endurance: 1};
         } else if ('weapon' === supplyWeapon.equip && 'apostle' === supplyWeapon.ammoType) {
-            result.item4 = {idx:'etc15', point:24, endurance:1 };
+            result.item4 = {idx: 'etc15', point: 24, endurance: 1};
         } else if ('weapon' === supplyWeapon.equip && 'bow' === supplyWeapon.ammoType) {
-            result.item4 = {idx:'etc16', point:24, endurance:1 };
+            result.item4 = {idx: 'etc16', point: 24, endurance: 1};
+        }
+
+        return result;
+    }
+
+
+    /**
+     * 장소 관련된 정보 노출 최소화
+     *
+     * @param places
+     * @returns {Array}
+     */
+    function arrangePlaceInfo(places) {
+        var result = {};
+        for (var i in places) {
+            var place = places[i];
+            result[place.idx] = {
+                idx: place.idx,
+                name: place.name,
+                code: place.code,
+                restrict: place.restrict,
+                restrictReserve: place.restrictReserve
+            };
         }
 
         return result;
@@ -117,6 +223,10 @@ module.exports = (function () {
         getRandomItem: getRandomItem,
         getPoint: getPoint,
         getSkillByClubId: getSkillByClubId,
-        appendSupplyItem: appendSupplyItem
+        appendSupplyItem: appendSupplyItem,
+        arrangePlaceInfo: arrangePlaceInfo,
+        getItemCollection: getItemCollection,
+        setItemCollection: setItemCollection,
+        getItem: getItem
     };
 })();

@@ -132,9 +132,9 @@ module.exports = function (app, options) {
                     var clubName = app.gameConfig.clubs[clubId];
                     var skillMap = options.container.get('util').getSkillByClubId(clubId, app.gameConfig.expPerSkillLevel);
                     var mergeItems = options.container.get('util').appendSupplyItem(supplyWeapon, personalItem);
-                    var armorBody = {id: 'armor41', point: 5, endurance: 30};
+                    var armorBody = {idx: 'armor41', point: 5, endurance: 30};
                     if (1 == req.body.userGender) {
-                        armorBody.id = 'armor42';
+                        armorBody.idx = 'armor42';
                     }
 
                     options.container.get('service').signup(

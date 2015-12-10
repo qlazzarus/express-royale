@@ -13,10 +13,9 @@ module.exports = function () {
      * @param groups
      */
     this.initializeGroups = function (groupModel, groups, maxGroups) {
-
         async.waterfall([
             function (callback) {
-                groupModel.remove({}, function (err, docs) {
+                groupModel.remove({}, function (err) {
                     if (err) {
                         console.log(err);
                         throw new Error('truncate groups failed');
@@ -58,27 +57,96 @@ module.exports = function () {
 
 
     /**
-     * 서버 현재 상황
+     * 지역정보 리셋
+     *
+     * @param placeModel
+     * @param places
+     */
+    this.initializePlaces = function (placeModel, places) {
+        async.waterfall([
+            function (callback) {
+                placeModel.remove({}, function (err) {
+                    if (err) {
+                        console.log(err);
+                        throw new Error('truncate places failed');
+                    }
+
+                    callback(null);
+                });
+            },
+            function (callback) {
+                var collections = [];
+                for (var i in places) {
+                    var place = places[i];
+                    collections.push({
+                        idx: i,
+                        name: place.name,
+                        code: place.code,
+                        restrict: place.restrict,
+                        restrictReserve: place.restrictReserve,
+                        users: [],
+                        items: []
+                    });
+                }
+
+                placeModel.collection.insert(collections, function(err){
+                    if (err) {
+                        console.log(err);
+                        throw new Error('initialize places failed');
+                    } else {
+                        console.log('initialize places success');
+                        callback(null);
+                    }
+                });
+            }
+        ]);
+    };
+
+
+    /**
+     * 서버정보 리셋
      *
      * @param serverModel
-     * @param status
-     * @param started
-     * @returns {*}
      */
-    this.createServerFlag = function (serverModel, status, started) {
-        var server = new serverModel({
-            status: status,
-            started: started
-        });
+    this.initializeServerFlag = function (serverModel) {
+        async.waterfall([
+            function (callback) {
+                serverModel.remove({}, function (err) {
+                    if (err) {
+                        console.log(err);
+                        throw new Error('truncate server-flag failed');
+                    }
 
-        server.save(function (err) {
-            if (err) {
-                console.log(err);
-                throw new Error('create server flag failed');
+                    callback(null);
+                });
+            },
+            function (callback) {
+                var server = new serverModel({
+                    status: 'start',
+                    started: new Date()
+                });
+
+                server.save(function(err){
+                    if (err) {
+                        console.log(err);
+                        throw new Error('initialize server-flag failed');
+                    } else {
+                        console.log('initialize server-flag success');
+                        callback(null);
+                    }
+                });
             }
-        });
+        ]);
+    };
 
-        return server;
+
+    /**
+     * 리셋
+     */
+    this.initialize = function(groupModel, placeModel, serverModel, groups, maxGroups, places) {
+        that.initializeGroups(groupModel, groups, maxGroups);
+        that.initializePlaces(placeModel, places);
+        that.initializeServerFlag(serverModel);
     };
 
 
@@ -112,10 +180,6 @@ module.exports = function () {
             if (err) {
                 console.log(err);
                 throw new Error('check signup process failed');
-            }
-
-            if (!result.flag) {
-                result.flag = that.createServerFlag(serverModel, 'start', new Date());
             }
 
             var timeStamp = Date.now();
@@ -321,7 +385,8 @@ module.exports = function () {
                 head: {idx: '', point: 0, endurance: 0},
                 body: armorBody,
                 arm: {idx: '', point: 0, endurance: 0},
-                foot: {idx: '', point: 0, endurance: 0}
+                foot: {idx: '', point: 0, endurance: 0},
+                accessory: {idx: '', point: 0, endurance: 0}
             },
 
             // items
@@ -383,6 +448,7 @@ module.exports = function () {
         groupModel.find({}).exec(function (err, groups) {
             if (err) {
                 console.log(err);
+                callback(err);
             } else {
                 var groupCount = 1;
                 for (var i in groups) {
@@ -405,6 +471,107 @@ module.exports = function () {
                 }
 
                 callback(null, resultStatus, group);
+            }
+        });
+    };
+
+
+    /**
+     * 계정 정보 리턴
+     *
+     * @param userModel
+     * @param username
+     * @param callback
+     */
+    this.getUserInfo = function(userModel, username, callback){
+        userModel.findOne({username:username}, function(err, user){
+            if (err) {
+                console.log(err);
+                callback(err);
+            } else {
+                callback(null, user);
+            }
+        });
+    };
+
+
+    /**
+     * 위치 정보 리턴
+     *
+     * @param placeModel
+     * @param callback
+     */
+    this.getPlacesInfo = function(placeModel, callback){
+        placeModel.find({}, function(err, places){
+            if (err) {
+                console.log(err);
+                callback(err);
+            } else {
+                callback(null, places);
+            }
+        });
+    };
+
+
+    /**
+     * 서버 정보 리턴
+     *
+     * @param serverModel
+     * @param callback
+     */
+    this.getServerInfo = function(serverModel, callback){
+        serverModel.findOne({}, function(err, server){
+            if (err) {
+                console.log(err);
+                callback(err);
+            } else {
+                callback(null, server);
+            }
+        });
+    };
+
+
+    /**
+     * 계정 + 위치
+     *
+     * @param userModel
+     * @param placeModel
+     * @param serverModel
+     * @param username
+     * @param callback
+     */
+    this.getBasicInfo = function(userModel, placeModel, serverModel, username, callback) {
+        async.parallel({
+            account:function(cb){
+                that.getUserInfo(userModel, username, cb);
+            },
+            place:function(cb){
+                that.getPlacesInfo(placeModel, cb);
+            },
+            server:function(cb){
+                that.getServerInfo(serverModel, cb);
+            }
+        }, function(err, result){
+            if (err) {
+                console.log(err);
+                callback(err);
+            } else {
+                var userPlace = null;
+                if (result.account) {
+                    for (var i in result.place) {
+                        userPlace = result.place[i];
+                        if ('place' + result.account.place == userPlace.idx) {
+                            break;
+                        }
+                    }
+                }
+
+                if (null !== userPlace && -1 === userPlace.users.indexOf(username)) {
+                    userPlace.users.push(username);
+                    userPlace.save();
+                }
+
+                callback(err, result);
             }
         });
     };

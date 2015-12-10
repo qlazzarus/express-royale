@@ -101,3 +101,12 @@ a:hover {
     word-wrap: break-word;
     overflow-y: auto;
 }
+
+option.restrict {
+    color:#ff0000;
+}
+
+option.restrict-reserve {
+    color:#ff8000;
+
+}

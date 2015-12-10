@@ -129,6 +129,7 @@ Container.set('service', new service());
  * util
  */
 var util = require('./support/util');
+util.setItemCollection(app.gameConfig.items);
 Container.set('util', util);
 
 
@@ -191,11 +192,14 @@ if (app.get('env') === 'development') {
 /**
  * initialize service
  */
-Container.get('service').initializeGroups(
+Container.get('service').initialize(
     ModelFactory.getModel('group'),
+    ModelFactory.getModel('place'),
+    ModelFactory.getModel('server'),
     app.gameConfig.groups,
-    app.gameConfig.maxGroups
-);
+    app.gameConfig.maxGroups,
+    app.gameConfig.places
+)
 
 
 module.exports = app;
