@@ -2,25 +2,226 @@
  * Created by monoless on 2015-12-08.
  */
 module.exports = (function () {
-    var itemCollection = {};
+    var gameConfig = {};
+
 
     /**
-     * 아이템 콜렉션 리턴
+     * 설정값 추가
      *
-     * @returns {{}}
+     * @param config
      */
-    function getItemCollection() {
-        return itemCollection;
+    function setGameConfig(config) {
+        gameConfig = config;
     }
 
 
     /**
-     * 아이템 콜렉션 저장
+     * 스킬 설명
      *
-     * @param collection
+     * @returns {{}}
      */
-    function setItemCollection(collection) {
-        itemCollection = collection;
+    function getSkills() {
+        return gameConfig.skills;
+    }
+
+
+    /**
+     * 전략 설명
+     *
+     * @returns {Array}
+     */
+    function getTactics() {
+        return gameConfig.tactics;
+    }
+
+
+    /**
+     * 공격 기본수치
+     *
+     * @returns {number}
+     */
+    function getAttack() {
+        return gameConfig.attack;
+    }
+
+
+    /**
+     * 방어 기본수치
+     *
+     * @returns {number}
+     */
+    function getDefence() {
+        return gameConfig.defence;
+    }
+
+
+    /**
+     * 체력 기본수치
+     *
+     * @returns {number}
+     */
+    function getHealth() {
+        return gameConfig.health;
+    }
+
+
+    /**
+     * 공격 기본수치 증가치
+     *
+     * @returns {number}
+     */
+    function getAttackMaxIncrease() {
+        return gameConfig.attackMaxIncrease;
+    }
+
+
+    /**
+     * 방어 기본수치 증가치
+     *
+     * @returns {number}
+     */
+    function getDefenceMaxIncrease() {
+        return gameConfig.defenceMaxIncrease;
+    }
+
+
+    /**
+     * 체력 기본수치 증가치
+     *
+     * @returns {number}
+     */
+    function getHealthMaxIncrease() {
+        return gameConfig.healthMaxIncrease;
+    }
+
+
+    /**
+     * 스테미너 기본수치
+     *
+     * @returns {number}
+     */
+    function getMaxStamina() {
+        return gameConfig.maxStamina;
+    }
+
+
+    /**
+     * 레벨당 경험치
+     *
+     * @returns {number}
+     */
+    function getExpPerLevel() {
+        return gameConfig.expPerLevel;
+    }
+
+
+    /**
+     * 레벨당 경험치 증가치
+     *
+     * @returns {number}
+     */
+    function getExpIncrease() {
+        return gameConfig.expIncrease;
+    }
+
+
+    /**
+     * 동아리
+     *
+     * @returns {Array}
+     */
+    function getClubs() {
+        return gameConfig.clubs;
+    }
+
+
+    /**
+     * 학급명 리턴
+     *
+     * @returns {Array}
+     */
+    function getGroups() {
+        return gameConfig.groups;
+    }
+
+
+    /**
+     * 최대 학급 수 리턴
+     *
+     * @returns {number}
+     */
+    function getMaxGroups() {
+        return gameConfig.maxGroups;
+    }
+
+
+    /**
+     * 학급당 최대 남학생(여학생) 후
+     *
+     * @return {number}
+     */
+    function getGroupPerMan() {
+        return gameConfig.groupPerMan;
+    }
+
+
+    /**
+     * 가입기간
+     *
+     * @returns {number}
+     */
+    function getMaxRecruitTime() {
+        return gameConfig.maxRecruitTime;
+    }
+
+
+    /**
+     * 최대 가입자 수 제한
+     *
+     * @returns {number}
+     */
+    function getMaxRecruitMember() {
+        return gameConfig.maxRecruitMember;
+    }
+
+
+    /**
+     * 스킬 경험치 리턴
+     *
+     * @returns {number}
+     */
+    function getExpPerSkillLevel() {
+        return gameConfig.expPerSkillLevel;
+    }
+
+
+    /**
+     * 캐릭터 재생성 시간
+     *
+     * @returns {number}
+     */
+    function getRespawnTime() {
+        return gameConfig.respawnTime;
+    }
+
+
+    /**
+     * 지역 정보 리턴
+     *
+     * @returns {{}}
+     */
+    function getPlaces() {
+        return gameConfig.places;
+    }
+
+
+    /**
+     * 아이콘 정보 리턴
+     *
+     * @returns {Array}
+     */
+    function getIcons() {
+        return gameConfig.icons;
     }
 
 
@@ -28,7 +229,7 @@ module.exports = (function () {
      * 아이템 리턴
      *
      * @param itemId
-     * @returns {*}
+     * @returns {{}}
      */
     function getItem(itemId) {
         if (itemId instanceof Array) {
@@ -42,7 +243,7 @@ module.exports = (function () {
 
             return result;
         } else {
-            return itemCollection[itemId];
+            return gameConfig.items[itemId];
         }
     }
 
@@ -62,14 +263,33 @@ module.exports = (function () {
      * 아이템 랜덤으로 뽑아오기
      *
      * @param itemList
-     * @param itemObject
      * @returns {*}
      */
-    function getRandomItem(itemList, itemObject) {
+    function getRandomItem(itemList) {
         var itemLength = itemList.length;
         var itemId = itemList[dice(itemLength)];
 
-        return itemObject[itemId];
+        return getItem(itemId);
+    }
+
+
+    /**
+     * 보급 아이템
+     *
+     * @returns {Array}
+     */
+    function getSupplyItems() {
+        return gameConfig.supplyItems;
+    }
+
+
+    /**
+     * 개인 아이템
+     *
+     * @returns {Array}
+     */
+    function getPersonalItems() {
+        return gameConfig.personalItems;
     }
 
 
@@ -89,10 +309,10 @@ module.exports = (function () {
      * 동아리에 따른 능력치 결정
      *
      * @param clubId
-     * @param expPerSkillLevel
      * @returns {{cutSkill: number, throwSkill: number, fistSkill: number, meleeSkill: number, bombSkill: number, pokeSkill: number, bowSkill: number, shotSkill: number}}
      */
-    function getSkillByClubId(clubId, expPerSkillLevel) {
+    function getSkillByClubId(clubId) {
+        var expPerSkillLevel = getExpPerSkillLevel();
         var result = {
             cutSkill: 0,
             throwSkill: 0,
@@ -199,15 +419,15 @@ module.exports = (function () {
     /**
      * 장소 관련된 정보 노출 최소화
      *
-     * @param places
-     * @returns {Array}
+     * @returns {{}}
      */
-    function arrangePlaceInfo(places) {
+    function arrangePlaceInfo() {
         var result = {};
+        var places = getPlaces();
         for (var i in places) {
             var place = places[i];
-            result[place.idx] = {
-                idx: place.idx,
+            result[i] = {
+                idx: i,
                 name: place.name,
                 code: place.code,
                 restrict: place.restrict,
@@ -225,8 +445,30 @@ module.exports = (function () {
         getSkillByClubId: getSkillByClubId,
         appendSupplyItem: appendSupplyItem,
         arrangePlaceInfo: arrangePlaceInfo,
-        getItemCollection: getItemCollection,
-        setItemCollection: setItemCollection,
-        getItem: getItem
+        setGameConfig: setGameConfig,
+        getExpPerSkillLevel: getExpPerSkillLevel,
+        getRespawnTime: getRespawnTime,
+        getGroups: getGroups,
+        getMaxGroups: getMaxGroups,
+        getMaxRecruitMember: getMaxRecruitMember,
+        getMaxRecruitTime: getMaxRecruitTime,
+        getGroupPerMan: getGroupPerMan,
+        getPlaces: getPlaces,
+        getItem: getItem,
+        getSupplyItems: getSupplyItems,
+        getPersonalItems: getPersonalItems,
+        getIcons: getIcons,
+        getClubs: getClubs,
+        getAttack: getAttack,
+        getDefence: getDefence,
+        getHealth: getHealth,
+        getAttackMaxIncrease: getAttackMaxIncrease,
+        getDefenceMaxIncrease: getDefenceMaxIncrease,
+        getHealthMaxIncrease: getHealthMaxIncrease,
+        getMaxStamina: getMaxStamina,
+        getExpPerLevel: getExpPerLevel,
+        getExpIncrease: getExpIncrease,
+        getSkills: getSkills,
+        getTactics: getTactics
     };
 })();

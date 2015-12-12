@@ -1,39 +1,36 @@
 /**
  * load modules
  */
-var logger              = require('morgan');
-var cookieParser        = require('cookie-parser');
-var bodyParser          = require('body-parser');
-var path                = require('path');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var path = require('path');
 //var favicon = require('serve-favicon');
 
-var express             = require('express');
-var session             = require('express-session');
-var validator           = require('express-validator');
+var express = require('express');
+var session = require('express-session');
+var validator = require('express-validator');
 
-var mongoose            = require('mongoose');
+var mongoose = require('mongoose');
 
-var passport            = require('passport');
-var flash               = require('connect-flash');
-var connectMongo        = require('connect-mongo')(session);
+var passport = require('passport');
+var flash = require('connect-flash');
+var connectMongo = require('connect-mongo')(session);
 
-var socketIo            = require('socket.io');
-var passportSocketIo    = require('passport.socketio');
-
+var socketIo = require('socket.io');
+var passportSocketIo = require('passport.socketio');
 
 
 /**
  * app start
  */
-var app         = express();
+var app = express();
 
 
 /**
  * config
  */
 app.property = require('./config/properties')[app.get('env')];
-app.gameConfig = require('./config/game');
-
 
 
 /**
@@ -45,7 +42,7 @@ mongoose.connect(app.property.mongoose);
 /**
  * session store
  */
-var sessionStore = new connectMongo({ mongooseConnection: mongoose.connection });
+var sessionStore = new connectMongo({mongooseConnection: mongoose.connection});
 
 
 /**
@@ -75,7 +72,7 @@ app.set('view engine', 'jade');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(validator());
@@ -101,11 +98,9 @@ app.use(flash());
 var io = socketIo();
 io.use(passportSocketIo.authorize({
     cookieParser: cookieParser,
-    key:          app.property.cookieKey,
-    secret:       app.property.sessionKey,
-    store:        sessionStore,        // we NEED to use a sessionstore. no memorystore please
-    //success:      onAuthorizeSuccess,  // *optional* callback on success - read more below
-    //fail:         onAuthorizeFail,     // *optional* callback on fail/error - read more below
+    key: app.property.cookieKey,
+    secret: app.property.sessionKey,
+    store: sessionStore
 }));
 app.io = io;
 
@@ -124,12 +119,11 @@ var service = require('./support/service');
 Container.set('service', new service());
 
 
-
 /**
  * util
  */
 var util = require('./support/util');
-util.setItemCollection(app.gameConfig.items);
+util.setGameConfig(require('./config/game'));
 Container.set('util', util);
 
 
@@ -137,9 +131,9 @@ Container.set('util', util);
  * socket.io
  */
 require('./sockets')(io, {
-    models:ModelFactory,
-    container:Container,
-    passport:passport
+    models: ModelFactory,
+    container: Container,
+    passport: passport
 });
 
 
@@ -147,16 +141,16 @@ require('./sockets')(io, {
  * routes
  */
 require('./routes')(app, {
-    models:ModelFactory,
-    container:Container,
-    passport:passport
+    models: ModelFactory,
+    container: Container,
+    passport: passport
 });
 
 
 /**
  * catch 404
  */
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
@@ -169,7 +163,7 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
     // development error handler
     // will print stack-trace
-    app.use(function(err, req, res, next) {
+    app.use(function (err, req, res, next) {
         res.status(err.status || 500);
         res.render('error', {
             message: err.message,
@@ -179,7 +173,7 @@ if (app.get('env') === 'development') {
 } else {
     // production error handler
     // no stack-traces leaked to user
-    app.use(function(err, req, res, next) {
+    app.use(function (err, req, res, next) {
         res.status(err.status || 500);
         res.render('error', {
             message: err.message,
@@ -196,9 +190,7 @@ Container.get('service').initialize(
     ModelFactory.getModel('group'),
     ModelFactory.getModel('place'),
     ModelFactory.getModel('server'),
-    app.gameConfig.groups,
-    app.gameConfig.maxGroups,
-    app.gameConfig.places
+    Container.get('util')
 )
 
 

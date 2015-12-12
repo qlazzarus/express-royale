@@ -1,20 +1,25 @@
 /**
  * Created by monoless on 2015-12-10.
  */
-module.exports = function(io, options, socket){
+module.exports = function (io, options, socket) {
     var util = options.container.get('util');
     options.container.get('service').getBasicInfo(
         options.models.getModel('user'),
         options.models.getModel('place'),
         options.models.getModel('server'),
         socket.request.user.username,
-        function(err, data){
+        function (err, data) {
             console.log('client connected - ' + socket.id);
             if (err) {
                 console.log(err);
             } else {
                 data.type = 'info';
                 data.place = util.arrangePlaceInfo(data.place);
+                data.config = {
+                    expPerSkillLevel: util.getExpPerSkillLevel(),
+                    skills: util.getSkills(),
+                    tactics: util.getTactics()
+                };
                 data.itemList = util.getItem([
                     data.account.weapon.idx,
                     data.account.armor.head.idx,
@@ -32,7 +37,7 @@ module.exports = function(io, options, socket){
 
                 socket.join(data.account.place);
                 socket.join(data.account.username);
-                io.sockets.to(data.account.username).emit('recv', data);
+                socket.emit('recv', data);
             }
         }
     );

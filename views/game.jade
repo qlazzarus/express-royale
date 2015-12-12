@@ -6,70 +6,9 @@ block content
         div.col-sm-8
             h5.text-center.bg-black-red.padding5px 스테이터스
             div.row
-                div.col-sm-6
-                    table.table.table-bordered
-                        colgroup
-                            col(style='width:90px')
-                            col
-                        tbody
-                            tr
-                                td
-                                    img(src=user.userIcon alt='')
-                                td.text-center
-                                    | #{user.username}<br />
-                                    | {{level}}<br />
-                                    | {{exp}}
-                            tr
-                                th 체력
-                                td.health {{health}}
-                            tr
-                                th 스테미너
-                                td.stamina {{stamina}}
-                            tr
-                                th 공격력
-                                td {{attack}}
-                            tr
-                                th 방어력
-                                td {{defence}}
-                            tr
-                                th 클럽
-                                td #{user.clubName}
-                            tr
-                                th 기본방침
-                                td {{tactics}}
-                            tr
-                                th 부상부위
-                                td {{injured}}
-                div.col-sm-6
-                    dl.dl-horizontal.small-dl.bg-equip
-                        dt.equip-weapon [무기]
-                        dd.equip-weapon {{weapon}}
-                        dt.equip-armor [방어]
-                        dd.equip-armor {{armorBody}}
-                        dt.equip-armor [머리]
-                        dd.equip-armor {{armorHead}}
-                        dt.equip-armor [팔]
-                        dd.equip-armor {{armorArm}}
-                        dt.equip-armor [다리]
-                        dd.equip-armor {{armorFeet}}
-                        dt.equip-armor [장식]
-                        dd.equip-armor {{armorAccessory}}
-                    ul.list-unstyled
-                        li {{item0}}
-                        li {{item1}}
-                        li {{item2}}
-                        li {{item3}}
-                        li {{item4}}
-                        li {{item5}}
-            ul.list-inline.solid-bordered.padding3px
-                li.list-inline-custom 총：{{gunSkill}}
-                li.list-inline-custom 칼：{{cutSkill}}
-                li.list-inline-custom 던지기：{{throwSkill}}
-                li.list-inline-custom 때리기：{{fistSkill}}
-                li.list-inline-custom 활 : {{bowSkill}}
-                li.list-inline-custom 곤봉 : {{meleeSkill}}
-                li.list-inline-custom 폭탄 : {{bombSkill}}
-                li.list-inline-custom 찌르기 : {{pokeSkill}}
+                div#characterInfo.col-sm-6
+                div#equipItem.col-sm-6
+            div#currentSkills
             p.solid-bordered.status-log
 
         div.col-sm-4

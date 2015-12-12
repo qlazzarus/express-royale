@@ -1,4 +1,4 @@
-function signupRender(req, res, app, validationError, bodies) {
+function signupRender(req, res, util, validationError, bodies) {
     var errors = {};
     if (typeof validationError !== 'undefined') {
         for (var i in validationError) {
@@ -12,7 +12,7 @@ function signupRender(req, res, app, validationError, bodies) {
 
     res.render('signup', {
         message: req.flash('error'),
-        gameIcons: app.gameConfig.icons,
+        gameIcons: util.getIcons(),
         errors: errors,
         bodies: bodies
     });
@@ -67,24 +67,25 @@ module.exports = function (app, options) {
 
     app.get('/signup', function (req, res) {
         var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+        var util = options.container.get('util');
         options.container.get('service').checkSignup(
             options.models.getModel('user'),
             options.models.getModel('server'),
             ip,
-            app.gameConfig.respawnTime,
-            app.gameConfig.maxRecruitTime,
-            app.gameConfig.maxRecruitMember,
+            util.getRespawnTime(),
+            util.getMaxRecruitTime(),
+            util.getMaxRecruitMember(),
             function (err, status, opts) {
                 if (-1 === status) {
                     errorRender(res, '프로그램의 접수는 종료되었습니다.\n다음 프로그램 시작을 기다려주세요.');
                 } else if (-2 === status) {
-                    errorRender(res, '죄송합니다만, 정원(' + app.gameConfig.maxRecruitMember + '명) 오버입니다.');
+                    errorRender(res, '죄송합니다만, 정원(' + util.getMaxRecruitMember() + '명) 오버입니다.');
                 } else if (-3 === status) {
                     errorRender(res, '캐릭터가 사망한 후, 2시간이 지나야 재등록할 수 있습니다.\n\n등록가능시간：' + opts.rebornTime);
                 } else if (-4 === status) {
                     errorRender(res, '캐릭터의 중복등록은 금지되어 있습니다.\n관리자에게 문의하세요.');
                 } else {
-                    signupRender(req, res, app);
+                    signupRender(req, res, util);
                 }
             }
         );
@@ -92,46 +93,47 @@ module.exports = function (app, options) {
 
     app.post('/signup', function (req, res) {
         var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+        var util = options.container.get('util');
         options.container.get('service').validSignup(
             options.models.getModel('user'),
             options.models.getModel('server'),
             options.models.getModel('group'),
             ip,
-            app.gameConfig.respawnTime,
-            app.gameConfig.maxRecruitTime,
-            app.gameConfig.maxRecruitMember,
-            app.gameConfig.maxGroups,
-            app.gameConfig.groupPerMan,
-            app.gameConfig.icons,
+            util.getRespawnTime(),
+            util.getMaxRecruitTime(),
+            util.getMaxRecruitMember(),
+            util.getMaxGroups(),
+            util.getGroupPerMan(),
+            util.getIcons(),
             req,
             require('../forms/signup'),
             function (err, status, opts) {
                 if (-1 === status) {
                     errorRender(res, '프로그램의 접수는 종료되었습니다.\n다음 프로그램 시작을 기다려주세요.');
                 } else if (-2 === status) {
-                    errorRender(res, '죄송합니다만, 정원(' + app.gameConfig.maxRecruitMember + '명) 오버입니다.');
+                    errorRender(res, '죄송합니다만, 정원(' + util.getMaxRecruitMember() + '명) 오버입니다.');
                 } else if (-3 === status) {
                     errorRender(res, '캐릭터가 사망한 후, 2시간이 지나야 재등록할 수 있습니다.\n\n등록가능시간：' + opts.rebornTime);
                 } else if (-4 === status) {
                     errorRender(res, '캐릭터의 중복등록은 금지되어 있습니다.\n관리자에게 문의하세요.');
                 } else if (-5 === status) {
-                    signupRender(req, res, app, options, req.body);
+                    signupRender(req, res, util, opts, req.body);
                 } else if (-6 === status) {
                     req.flash('error', '성별과 다른 아이콘을 선택했습니다.');
-                    signupRender(req, res, app, {}, req.body);
+                    signupRender(req, res, util, {}, req.body);
                 } else if (-7 === status) {
                     req.flash('error', '남학생은 더 이상 등록할 수 없습니다.');
-                    signupRender(req, res, app, {}, req.body);
+                    signupRender(req, res, util, {}, req.body);
                 } else if (-8 === status) {
                     req.flash('error', '여학생은 더 이상 등록할 수 없습니다.');
-                    signupRender(req, res, app, {}, req.body);
+                    signupRender(req, res, util, {}, req.body);
                 } else {
-                    var supplyWeapon = options.container.get('util').getRandomItem(app.gameConfig.supplyItems, app.gameConfig.items);
-                    var personalItem = options.container.get('util').getRandomItem(app.gameConfig.personalItems, app.gameConfig.items);
-                    var clubId = options.container.get('util').dice(app.gameConfig.clubs.length);
-                    var clubName = app.gameConfig.clubs[clubId];
-                    var skillMap = options.container.get('util').getSkillByClubId(clubId, app.gameConfig.expPerSkillLevel);
-                    var mergeItems = options.container.get('util').appendSupplyItem(supplyWeapon, personalItem);
+                    var supplyWeapon = util.getRandomItem(util.getSupplyItems());
+                    var personalItem = util.getRandomItem(util.getPersonalItems());
+                    var clubId = util.dice(util.getClubs().length);
+                    var clubName = util.getClubs()[clubId];
+                    var skillMap = util.getSkillByClubId(clubId);
+                    var mergeItems = util.appendSupplyItem(supplyWeapon, personalItem);
                     var armorBody = {idx: 'armor41', point: 5, endurance: 30};
                     if (1 == req.body.userGender) {
                         armorBody.idx = 'armor42';
@@ -144,11 +146,11 @@ module.exports = function (app, options) {
                         ip,
                         req,
                         res,
-                        options.container.get('util').getPoint(app.gameConfig.attack, app.gameConfig.attackMaxIncrease),
-                        options.container.get('util').getPoint(app.gameConfig.defence, app.gameConfig.defenceMaxIncrease),
-                        options.container.get('util').getPoint(app.gameConfig.health, app.gameConfig.healthMaxIncrease),
-                        app.gameConfig.maxStamina,
-                        app.gameConfig.expPerLevel + app.gameConfig.expIncrease,
+                        util.getPoint(util.getAttack(), util.getAttackMaxIncrease()),
+                        util.getPoint(util.getDefence(), util.getDefenceMaxIncrease()),
+                        util.getPoint(util.getHealth(), util.getHealthMaxIncrease()),
+                        util.getMaxStamina(),
+                        util.getExpPerLevel() + util.getExpIncrease(),
                         opts.groupName,
                         (opts.groupCount + 1),
                         clubName,

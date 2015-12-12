@@ -39,6 +39,22 @@ module.exports = {
         {name: '연속공격'}
     ],
 
+
+    /*
+     * ■ 캐릭터 스킬
+     */
+    skills: {
+        shotSkill:'총',
+        cutSkill:'칼',
+        throwSkill:'던지기',
+        fistSkill:'때리기',
+        bowSkill:'활',
+        meleeSkill:'곤봉',
+        bombSkill:'폭탄',
+        pokeSkill:'찌르기'
+    },
+
+
     /*
      * ■ 장소
      */
