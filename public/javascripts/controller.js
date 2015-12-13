@@ -25,6 +25,11 @@ var CurrentPlace = React.createClass({
 });
 
 var PlaceSelector = React.createClass({
+    handleChange: function (event) {
+        //this.setState({value: event.target.value});
+        ExpressRoyale.playerMove(event.target.value, this);
+    },
+
     render: function () {
         var places = this.props.places;
         var current = this.props.current;
@@ -50,7 +55,7 @@ var PlaceSelector = React.createClass({
         }
 
         return (
-            <select value={'place' + current}>
+            <select value={'place' + current} onChange={this.handleChange}>
                 {mapped.map(function (option) {
                     return <option value={option.value} className={option.className}>{option.subject}</option>;
                 })}
@@ -321,7 +326,6 @@ var Commander = React.createClass({
         for (var i in mapped) {
             var item = mapped[i];
             if ('' !== item.idx) {
-                console.log(item);
                 result.push({
                     name:[ExpressRoyale.getItemName(item.idx, itemSchema), item.point, item.endurance].join('/'),
                     value:'item' + i,
@@ -517,11 +521,16 @@ var ExpressRoyale = (function () {
         );
     }
 
+    function playerMove(moveTo, caller) {
+        console.log(caller.setState);
+    }
+
     initialize();
 
     return {
         getItemName: getItemName,
         getItemType: getItemType,
-        showItems: showItems
+        showItems: showItems,
+        playerMove: playerMove
     };
 })();
