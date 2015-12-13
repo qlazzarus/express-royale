@@ -40,6 +40,7 @@ module.exports = function (mongoose) {
         // character extends
         groupName: String,  // cl
         studentNo: String,  // no
+        clubId: Number,     // club
         clubName: String,   // club
         tactics: Number,    // tactics
 

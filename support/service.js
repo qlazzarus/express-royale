@@ -84,7 +84,6 @@ module.exports = function () {
                         code: place.code,
                         restrict: place.restrict,
                         restrictReserve: place.restrictReserve,
-                        users: [],
                         items: []
                     });
                 }
@@ -143,9 +142,9 @@ module.exports = function () {
     /**
      * 리셋
      */
-    this.initialize = function(groupModel, placeModel, serverModel, groups, maxGroups, places) {
-        that.initializeGroups(groupModel, groups, maxGroups);
-        that.initializePlaces(placeModel, places);
+    this.initialize = function(groupModel, placeModel, serverModel, util) {
+        that.initializeGroups(groupModel, util.getGroups(), util.getMaxGroups());
+        that.initializePlaces(placeModel, util.getPlaces());
         that.initializeServerFlag(serverModel);
     };
 
@@ -326,14 +325,15 @@ module.exports = function () {
      * @param requireExp
      * @param groupName
      * @param studentNo
+     * @param clubId
      * @param clubName
      * @param skillMap
      * @param armorBody
      * @param items
      */
     this.signup = function (passport, userModel, groupModel, remoteAddress, expressRequest, expressResponse, attack,
-                            defence, health, stamina, requireExp, groupName, studentNo, clubName, skillMap, armorBody,
-                            items) {
+                            defence, health, stamina, requireExp, groupName, studentNo, clubId, clubName, skillMap,
+                            armorBody, items) {
 
         userModel.register(new userModel({
             username: expressRequest.body.username,
@@ -366,6 +366,7 @@ module.exports = function () {
             // character extends
             groupName: groupName,
             studentNo: studentNo,
+            clubId: clubId,
             clubName: clubName,
             tactics: 0,
 
@@ -556,21 +557,6 @@ module.exports = function () {
                 console.log(err);
                 callback(err);
             } else {
-                var userPlace = null;
-                if (result.account) {
-                    for (var i in result.place) {
-                        userPlace = result.place[i];
-                        if ('place' + result.account.place == userPlace.idx) {
-                            break;
-                        }
-                    }
-                }
-
-                if (null !== userPlace && -1 === userPlace.users.indexOf(username)) {
-                    userPlace.users.push(username);
-                    userPlace.save();
-                }
-
                 callback(err, result);
             }
         });

@@ -12,7 +12,6 @@ module.exports = function(mongoose){
         code: String,
         restrict: Boolean,
         restrictReserve: Boolean,
-        users: Array,
         items: Array
     });
 };

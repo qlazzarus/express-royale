@@ -153,6 +153,7 @@ module.exports = function (app, options) {
                         util.getExpPerLevel() + util.getExpIncrease(),
                         opts.groupName,
                         (opts.groupCount + 1),
+                        clubId,
                         clubName,
                         skillMap,
                         armorBody,
