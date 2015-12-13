@@ -3,16 +3,19 @@ var CurrentPlace = React.createClass({
         var places = this.props.places;
         var current = this.props.current;
         if (typeof places == 'undefined') {
-            places = {};
+            places = [];
         }
 
         if (typeof current == 'undefined') {
             current = 0;
         }
 
-        var place = places['place' + current];
-        if (typeof place == 'undefined') {
-            place = {};
+        var place = {};
+        for (var i in places) {
+            place = places[i];
+            if (place.idx == 'place' + current) {
+                break;
+            }
         }
 
         return (
@@ -26,17 +29,16 @@ var PlaceSelector = React.createClass({
         var places = this.props.places;
         var current = this.props.current;
         if (typeof places == 'undefined') {
-            places = {};
+            places = [];
         }
 
         if (typeof current == 'undefined') {
             current = 0;
         }
 
-        var placeLength = Object.keys(places).length;
         var mapped = [];
-        for (var i = 0; i < placeLength; i++) {
-            var place = places['place' + i];
+        for (var i in places) {
+            var place = places[i];
             mapped.push({
                 value: place.idx,
                 className: (true === place.restrict) ?
@@ -137,7 +139,7 @@ var CharacterInfo = React.createClass({
                 </tr>
                 <tr>
                     <th>공격력</th>
-                    <td>{data.attack} + {data.weapon.endurance}</td>
+                    <td>{data.attack} + {data.weapon.point}</td>
                 </tr>
                 <tr>
                     <th>방어력</th>
@@ -165,47 +167,215 @@ var CharacterInfo = React.createClass({
 });
 
 var EquipItem = React.createClass({
-    render: function(){
+    render: function () {
         var items = this.props.items;
         var itemSchema = this.props.itemSchema;
 
         if (typeof items == 'undefined') {
-            items = {};
+            items = {armor: {}};
         }
 
         if (typeof itemSchema == 'undefined') {
             itemSchema = {};
         }
 
-        console.log(items);
-        console.log(itemSchema);
+        var equipMapped = [
+            {className: 'equip-weapon', category: '[무기]', status: items.weapon},
+            {className: 'equip-armor', category: '[방어]', status: items.armor.body},
+            {className: 'equip-armor', category: '[머리]', status: items.armor.head},
+            {className: 'equip-armor', category: '[팔]', status: items.armor.arm},
+            {className: 'equip-armor', category: '[다리]', status: items.armor.foot},
+            {className: 'equip-armor', category: '[장식]', status: items.armor.accessory}
+        ];
+        var itemMapped = ExpressRoyale.showItems(
+            [items.item0, items.item1, items.item2, items.item3, items.item4, items.item5],
+            itemSchema
+        );
 
         return (
             <div>
-                <dl className="dl-horizontal small-dl bg-equip">
-                    <dt className="equip-weapon">[무기]</dt>
-                    <dd className="equip-weapon"></dd>
-                    <dt className="equip-armor">[방어]</dt>
-                    <dd className="equip-armor"></dd>
-                    <dt className="equip-armor">[머리]</dt>
-                    <dd className="equip-armor"></dd>
-                    <dt className="equip-armor">[팔]</dt>
-                    <dd className="equip-armor"></dd>
-                    <dt className="equip-armor">[다리]</dt>
-                    <dd className="equip-armor"></dd>
-                    <dt className="equip-armor">[장식]</dt>
-                    <dd className="equip-armor"></dd>
-                </dl>
+                {equipMapped.map(function (o) {
+                    var desc = ['-'];
+
+                    if ('' !== o.status.idx) {
+                        desc = [
+                            ExpressRoyale.getItemName(o.status.idx, itemSchema),
+                            '/',
+                            o.status.point,
+                            '/',
+                            o.status.endurance
+                        ];
+                    }
+
+                    return (
+                        <dl className="dl-horizontal small-dl bg-equip">
+                            <dt className={o.className}>{o.category}</dt>
+                            <dd>{desc.join('')}</dd>
+                        </dl>
+                    );
+                })}
                 <ul className="list-unstyled">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    {itemMapped.map(function (o) {
+                        return (
+                            <li className={o.className}>{o.desc}</li>
+                        );
+                    })}
                 </ul>
             </div>
         )
+    }
+});
+
+var Commander = React.createClass({
+    getCommand: function(){
+        var command = this.props.command;
+
+        if (typeof command == 'undefined') {
+            command = '';
+        }
+
+        return command;
+    },
+
+    getAccount: function() {
+        var account = this.props.account;
+
+        if (typeof account == 'undefined') {
+            account = {};
+        }
+
+        return account;
+    },
+
+    getServerFlag: function() {
+        var serverFlag = this.props.serverFlag;
+
+        if (typeof serverFlag == 'undefined') {
+            serverFlag = {};
+        }
+
+        return serverFlag;
+    },
+
+    getItemSchema: function() {
+        var itemSchema = this.props.itemSchema;
+
+        if (typeof itemSchema == 'undefined') {
+            itemSchema = {};
+        }
+
+        return itemSchema;
+    },
+
+    getExecuteName: function(command) {
+        var executeName;
+        if ('info' == command) {
+            executeName = '확인';
+        }
+
+        return executeName;
+    },
+
+    getCommandDesc: function(command) {
+        var commandDesc;
+        if ('info' == command) {
+            commandDesc = '무엇을 합니까?';
+        }
+
+        return commandDesc;
+    },
+
+    getCommandList: function(command, placeId, serverStatus, item0, item1, item2, item3, item4, item5, itemSchema) {
+        var commandList;
+        if ('info' == command) {
+            commandList = [
+                {name:'아이템 정리/합성/장비', value:'items', className:'', item:false},
+                {name:'응급처치', value:'injured', className:'', item:false},
+                {name:'특수커맨드', value:'special', className:'', item:false}
+            ];
+
+            if (0 != placeId) {
+                commandList.splice(1, 0, {name:'치료', value:'health', className:'health', item:false},
+                    {name:'수면', value:'stamina', className:'stamina', item:false});
+            }
+
+            var itemList = this.getItemCommandList(item0, item1, item2, item3, item4, item5, itemSchema);
+            var itemLength = itemList.length;
+            if (0 < itemLength) {
+                for (var i = itemLength; i > 0; i--) {
+                    commandList.unshift(itemList[(i - 1)]);
+                }
+            }
+
+            if (0 != placeId || (0 == placeId && 'hacked' == serverStatus)) {
+                commandList.unshift({name:'탐색', value:'search', className:'', item:false});
+            }
+        }
+
+        return commandList;
+    },
+
+    getItemCommandList: function(item0, item1, item2, item3, item4, item5, itemSchema) {
+        var result = [];
+        var mapped = [item0, item1, item2, item3, item4, item5];
+        for (var i in mapped) {
+            var item = mapped[i];
+            if ('' !== item.idx) {
+                console.log(item);
+                result.push({
+                    name:[ExpressRoyale.getItemName(item.idx, itemSchema), item.point, item.endurance].join('/'),
+                    value:'item' + i,
+                    className:ExpressRoyale.getItemType(item.idx, itemSchema),
+                    item:true
+                });
+            }
+        }
+
+        return result;
+    },
+
+    render: function(){
+        var command = this.getCommand();
+        var account = this.getAccount();
+        var serverFlag = this.getServerFlag();
+        var itemSchema = this.getItemSchema();
+
+        var executeName = this.getExecuteName(command);
+        var commandDesc = this.getCommandDesc(command);
+        var commandList = this.getCommandList(command, account.place, serverFlag.status, account.item0,
+            account.item1, account.item2, account.item3, account.item4, account.item5, itemSchema);
+
+        return (
+            <div>
+                <p className="padding5px">{commandDesc}</p>
+                <ul className="list-unstyled">
+                    {commandList.map(function(o){
+                        return (
+                            <li className={o.className}>
+                                <label>
+                                    <input type="radio" name="cmd" value={o.value} />
+                                    <span className="padding5px">{o.name}</span>
+                                </label>
+                                {(() => {
+                                    if (o.item) {
+                                        return (
+                                            <label>
+                                                &nbsp;(
+                                                <span className="padding5px">버림</span>
+                                                <input type="radio" name="cmd"
+                                                       className="vertical-text-bottom" value={'drop_' + o.value} />
+                                                &nbsp;)
+                                            </label>
+                                        );
+                                    }
+                                })()}
+                            </li>
+                        );
+                    })}
+                </ul>
+                <button className="input btn btn-warning bg-red">{executeName}</button>
+            </div>
+        );
     }
 });
 
@@ -221,6 +391,62 @@ var ExpressRoyale = (function () {
         socket.on('recv', receivePacket);
     }
 
+    function getItemName(itemId, itemSchema) {
+        var currentItem = itemSchema[itemId];
+        var itemName = '';
+        if (typeof currentItem == 'undefined') {
+            currentItem = {};
+        }
+
+        if (typeof currentItem.name != 'undefined') {
+            itemName = currentItem.name;
+        }
+
+        return itemName;
+    }
+
+    function getItemType(itemId, itemSchema) {
+        var currentItem = itemSchema[itemId];
+        var itemType = '';
+        if (typeof currentItem == 'undefined') {
+            currentItem = {};
+        }
+
+        if (typeof currentItem.equip != 'undefined') {
+            itemType = currentItem.equip;
+        }
+
+        return itemType;
+    }
+
+    function showItems(itemList, itemSchema) {
+        var result = [];
+        for (var i in itemList) {
+            var item = itemList[i];
+            var desc = [];
+            var className = '';
+
+            if ('' !== item.idx) {
+                desc = [
+                    getItemName(item.idx, itemSchema),
+                    '/',
+                    item.point,
+                    '/',
+                    item.endurance
+                ];
+
+                className = getItemType(item.idx, itemSchema);
+            }
+
+            result.push({
+                className:className,
+                desc:desc.join('')
+            });
+        }
+
+        return result;
+    }
+
     function receivePacket(data) {
         // check server-flag
 
@@ -234,6 +460,7 @@ var ExpressRoyale = (function () {
             renderPlace(data.place, data.account.place);
             renderSkill(data.account, data.config.skills, data.config.expPerSkillLevel);
             renderItem(data.account, data.itemList);
+            renderCommander(data.type, data.account, data.server, data.itemList);
         }
     }
 
@@ -258,7 +485,7 @@ var ExpressRoyale = (function () {
         React.render(
             <CurrentPlace
                 places={places}
-                current={current} />,
+                current={current}/>,
             document.getElementById('currentPlace')
         );
 
@@ -274,12 +501,27 @@ var ExpressRoyale = (function () {
         React.render(
             <EquipItem
                 items={items}
-                itemSchema={itemSchema} />,
+                itemSchema={itemSchema}/>,
             document.getElementById('equipItem')
-        )
+        );
+    }
+
+    function renderCommander(command, account, serverFlag, itemSchema) {
+        React.render(
+            <Commander
+                command={command}
+                account={account}
+                serverFlag={serverFlag}
+                itemSchema={itemSchema} />,
+            document.getElementById('commander')
+        );
     }
 
     initialize();
 
-    return 'ExpressRoyale';
+    return {
+        getItemName: getItemName,
+        getItemType: getItemType,
+        showItems: showItems
+    };
 })();

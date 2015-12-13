@@ -1370,6 +1370,35 @@ module.exports = {
 
 
     /*
+     * ■ 장소 노출
+     */
+    placeArrange:[
+        'place0',
+        'place16',
+        'place20',
+        'place8',
+        'place2',
+        'place12',
+        'place6',
+        'place13',
+        'place7',
+        'place17',
+        'place3',
+        'place10',
+        'place5',
+        'place15',
+        'place18',
+        'place14',
+        'place4',
+        'place19',
+        'place1',
+        'place11',
+        'place9',
+        'place21'
+    ],
+
+
+    /*
      * ■ 전역 스폰 아이템
      */
     globalLooted: [
@@ -1631,63 +1660,63 @@ module.exports = {
             equip: 'weapon',
             name: '석궁',
             attackType: ['bow', 'melee'],
-            endurance: 20,
-            point: 0,
+            point: 20,
+            endurance: 0,
             ammoRequire: true,
             ammoReload: 1,
             ammoType: 'bow'
         },
         weapon2: {
             id: 'weapon2',
-            equip: 'weapon', name: '식칼', attackType: ['cut', 'poke'], endurance: 15, point: 0, ammoRequire: false
+            equip: 'weapon', name: '식칼', attackType: ['cut', 'poke'], point: 15, endurance: 0, ammoRequire: false
         },
         weapon3: {
             id: 'weapon3',
-            equip: 'weapon', name: '손도끼', attackType: ['cut'], endurance: 17, point: 0, ammoRequire: false
+            equip: 'weapon', name: '손도끼', attackType: ['cut'], point: 17, endurance: 0, ammoRequire: false
         },
         weapon4: {
             id: 'weapon4',
             equip: 'weapon', name: '레밍턴M31RS',
             attackType: ['shot', 'melee'],
-            endurance: 28,
-            point: 0,
+            point: 28,
+            endurance: 0,
             ammoRequire: true,
             ammoReload: 5,
             ammoType: '12gauge'
         },
         weapon5: {
             id: 'weapon5',
-            equip: 'weapon', name: '나이프', attackType: ['cut', 'poke'], endurance: 17, point: 0, ammoRequire: false
+            equip: 'weapon', name: '나이프', attackType: ['cut', 'poke'], point: 17, endurance: 0, ammoRequire: false
         },
         weapon6: {
             id: 'weapon6',
-            equip: 'weapon', name: '단도', attackType: ['cut', 'poke'], endurance: 15, point: 0, ammoRequire: false
+            equip: 'weapon', name: '단도', attackType: ['cut', 'poke'], point: 15, endurance: 0, ammoRequire: false
         },
         weapon7: {
             id: 'weapon7',
             equip: 'weapon', name: '잉그램M10 서브머신건',
             attackType: ['shot', 'melee'],
-            endurance: 30,
-            point: 0,
+            point: 30,
+            endurance: 0,
             ammoRequire: true,
             ammoReload: 32,
             ammoType: '9mm'
         },
         weapon8: {
             id: 'weapon8',
-            equip: 'weapon', name: '포크', attackType: ['poke'], endurance: 7, point: 0, ammoRequire: false
+            equip: 'weapon', name: '포크', attackType: ['poke'], point: 7, endurance: 0, ammoRequire: false
         },
         weapon9: {
             id: 'weapon9',
-            equip: 'weapon', name: '금속 배트', attackType: ['melee'], endurance: 15, point: 0, ammoRequire: false
+            equip: 'weapon', name: '금속 배트', attackType: ['melee'], point: 15, endurance: 0, ammoRequire: false
         },
         weapon10: {
             id: 'weapon10',
             equip: 'weapon',
             name: '22구경 2연발 데린져',
             attackType: ['shot', 'melee'],
-            endurance: 20,
-            point: 0,
+            point: 20,
+            endurance: 0,
             ammoRequire: true,
             ammoReload: 2,
             ammoType: '22lr'
@@ -1695,15 +1724,15 @@ module.exports = {
         weapon11: {
             id: 'weapon11',
             equip: 'weapon',
-            name: '군용 나이프', attackType: ['cut', 'poke', 'throw'], endurance: 20, point: 1, ammoRequire: false
+            name: '군용 나이프', attackType: ['cut', 'poke', 'throw'], point: 20, endurance: 1, ammoRequire: false
         },
         weapon12: {
             id: 'weapon12',
             equip: 'weapon',
             name: '월터PPK 9밀리',
             attackType: ['shot', 'melee'],
-            endurance: 25,
-            point: 0,
+            point: 25,
+            endurance: 0,
             ammoRequire: true,
             ammoReload: 8,
             ammoType: '9mm'
@@ -1713,8 +1742,8 @@ module.exports = {
             equip: 'weapon',
             name: 'S&W M19 357 매그넘',
             attackType: ['shot', 'melee'],
-            endurance: 26,
-            point: 0,
+            point: 26,
+            endurance: 0,
             ammoRequire: true,
             ammoReload: 6,
             ammoType: '357mag'
@@ -1724,8 +1753,8 @@ module.exports = {
             equip: 'weapon',
             name: '베레타M92F',
             attackType: ['shot', 'melee'],
-            endurance: 25,
-            point: 0,
+            point: 25,
+            endurance: 0,
             ammoRequire: true,
             ammoReload: 14,
             ammoType: '9mm'
@@ -1735,8 +1764,8 @@ module.exports = {
             equip: 'weapon',
             name: 'S&W 치프스페셜 38구경',
             attackType: ['shot', 'melee'],
-            endurance: 23,
-            point: 0,
+            point: 23,
+            endurance: 0,
             ammoRequire: true,
             ammoReload: 5,
             ammoType: '38special'
@@ -1746,8 +1775,8 @@ module.exports = {
             equip: 'weapon',
             name: '콜트357 매그넘 리볼버',
             attackType: ['shot', 'melee'],
-            endurance: 27,
-            point: 0,
+            point: 27,
+            endurance: 0,
             ammoRequire: true,
             ammoReload: 6,
             ammoType: '357mag'
@@ -1755,15 +1784,15 @@ module.exports = {
         weapon17: {
             id: 'weapon17',
             equip: 'weapon',
-            name: '양날 나이프', attackType: ['cut', 'poke'], endurance: 20, point: 0, ammoRequire: false
+            name: '양날 나이프', attackType: ['cut', 'poke'], point: 20, endurance: 0, ammoRequire: false
         },
         weapon18: {
             id: 'weapon18',
             equip: 'weapon',
             name: '브라우닝 하이파워 9mm',
             attackType: ['shot', 'melee'],
-            endurance: 26,
-            point: 0,
+            point: 26,
+            endurance: 0,
             ammoRequire: true,
             ammoReload: 14,
             ammoType: '9mm'
@@ -1771,25 +1800,25 @@ module.exports = {
         weapon19: {
             id: 'weapon19',
             equip: 'weapon',
-            name: '다이버즈 나이프', attackType: ['cut', 'poke'], endurance: 20, point: 0, ammoRequire: false
+            name: '다이버즈 나이프', attackType: ['cut', 'poke'], point: 20, endurance: 0, ammoRequire: false
         },
         weapon20: {
             id: 'weapon20',
             equip: 'weapon',
-            name: '다트', attackType: ['throw'], endurance: 5, point: 12, ammoRequire: false
+            name: '다트', attackType: ['throw'], point: 5, endurance: 12, ammoRequire: false
         },
         weapon21: {
             id: 'weapon21',
             equip: 'weapon',
-            name: '수류탄', attackType: ['bomb'], endurance: 40, point: 2, ammoRequire: false
+            name: '수류탄', attackType: ['bomb'], point: 40, endurance: 2, ammoRequire: false
         },
         weapon22: {
             id: 'weapon22',
             equip: 'weapon',
             name: 'S&W M59 오토',
             attackType: ['shot', 'melee'],
-            endurance: 24,
-            point: 0,
+            point: 24,
+            endurance: 0,
             ammoRequire: true,
             ammoReload: 15,
             ammoType: '9mm'
@@ -1797,15 +1826,15 @@ module.exports = {
         weapon23: {
             id: 'weapon23',
             equip: 'weapon',
-            name: '특수경봉', attackType: ['melee'], endurance: 13, point: 0, ammoRequire: false
+            name: '특수경봉', attackType: ['melee'], point: 13, endurance: 0, ammoRequire: false
         },
         weapon24: {
             id: 'weapon24',
             equip: 'weapon',
             name: '콜트 하이웨이 패트롤맨 38구경',
             attackType: ['shot', 'melee'],
-            endurance: 24,
-            point: 0,
+            point: 24,
+            endurance: 0,
             ammoRequire: true,
             ammoReload: 6,
             ammoType: '38special'
@@ -1813,30 +1842,30 @@ module.exports = {
         weapon25: {
             id: 'weapon25',
             equip: 'weapon',
-            name: '낫', attackType: ['cut', 'poke'], endurance: 20, point: 0, ammoRequire: false
+            name: '낫', attackType: ['cut', 'poke'], point: 20, endurance: 0, ammoRequire: false
         },
         weapon26: {
             id: 'weapon26',
             equip: 'weapon',
-            name: '얼음송곳', attackType: ['poke'], endurance: 8, point: 0, ammoRequire: false
+            name: '얼음송곳', attackType: ['poke'], point: 8, endurance: 0, ammoRequire: false
         },
         weapon27: {
             id: 'weapon27',
             equip: 'weapon',
-            name: '눈쳐크', attackType: ['melee'], endurance: 12, point: 0, ammoRequire: false
+            name: '눈쳐크', attackType: ['melee'], point: 12, endurance: 0, ammoRequire: false
         },
         weapon28: {
             id: 'weapon28',
             equip: 'weapon',
-            name: '부메랑', attackType: ['throw'], endurance: 9, point: 5, ammoRequire: false
+            name: '부메랑', attackType: ['throw'], point: 9, endurance: 5, ammoRequire: false
         },
         weapon29: {
             id: 'weapon29',
             equip: 'weapon',
             name: 'CZ M75',
             attackType: ['shot', 'melee'],
-            endurance: 25,
-            point: 0,
+            point: 25,
+            endurance: 0,
             ammoRequire: true,
             ammoReload: 16,
             ammoType: '9mm'
@@ -1846,8 +1875,8 @@ module.exports = {
             equip: 'weapon',
             name: '우지 9mm 서브머신건',
             attackType: ['shot', 'melee'],
-            endurance: 30,
-            point: 0,
+            point: 30,
+            endurance: 0,
             ammoRequire: true,
             ammoReload: 32,
             ammoType: '9mm'
@@ -1857,8 +1886,8 @@ module.exports = {
             equip: 'weapon',
             name: '시그 사우엘 P230 9mm',
             attackType: ['shot', 'melee'],
-            endurance: 26,
-            point: 0,
+            point: 26,
+            endurance: 0,
             ammoRequire: true,
             ammoReload: 8,
             ammoType: '9mm'
@@ -1868,8 +1897,8 @@ module.exports = {
             equip: 'weapon',
             name: '콜트 거버먼트 45구경',
             attackType: ['shot', 'melee'],
-            endurance: 25,
-            point: 0,
+            point: 25,
+            endurance: 0,
             ammoRequire: true,
             ammoReload: 8,
             ammoType: '45acp'
@@ -1877,95 +1906,95 @@ module.exports = {
         weapon33: {
             id: 'weapon33',
             equip: 'weapon',
-            name: '일본도', attackType: ['cut', 'poke'], endurance: 25, point: 0, ammoRequire: false
+            name: '일본도', attackType: ['cut', 'poke'], point: 25, endurance: 0, ammoRequire: false
         },
         weapon34: {
             id: 'weapon34',
             equip: 'weapon',
-            name: '부채', attackType: ['melee'], endurance: 1, point: 0, ammoRequire: false
+            name: '부채', attackType: ['melee'], point: 1, endurance: 0, ammoRequire: false
         },
         weapon35: {
             id: 'weapon35',
             equip: 'weapon',
-            name: '대야', attackType: ['melee'], endurance: 3, point: 0, ammoRequire: false
+            name: '대야', attackType: ['melee'], point: 3, endurance: 0, ammoRequire: false
         },
         weapon36: {
             id: 'weapon36',
             equip: 'weapon',
-            name: '슬리퍼', attackType: ['melee'], endurance: 2, point: 0, ammoRequire: false
+            name: '슬리퍼', attackType: ['melee'], point: 2, endurance: 0, ammoRequire: false
         },
         weapon37: {
             id: 'weapon37',
             equip: 'weapon',
-            name: '칠판지우개', attackType: ['throw'], endurance: 2, point: 1, ammoRequire: false
+            name: '칠판지우개', attackType: ['throw'], point: 2, endurance: 1, ammoRequire: false
         },
         weapon38: {
             id: 'weapon38',
             equip: 'weapon',
-            name: '분필', attackType: ['throw'], endurance: 1, point: 1, ammoRequire: false
+            name: '분필', attackType: ['throw'], point: 1, endurance: 1, ammoRequire: false
         },
         weapon39: {
             id: 'weapon39',
             equip: 'weapon',
-            name: '배트', attackType: ['melee'], endurance: 12, point: 0, ammoRequire: false
+            name: '배트', attackType: ['melee'], point: 12, endurance: 0, ammoRequire: false
         },
         weapon40: {
             id: 'weapon40',
             equip: 'weapon',
-            name: '너클', attackType: ['fist'], endurance: 8, point: 0, ammoRequire: false
+            name: '너클', attackType: ['fist'], point: 8, endurance: 0, ammoRequire: false
         },
         weapon41: {
             id: 'weapon41',
             equip: 'weapon',
-            name: '뿅망치', attackType: ['melee'], endurance: 1, point: 0, ammoRequire: false
+            name: '뿅망치', attackType: ['melee'], point: 1, endurance: 0, ammoRequire: false
         },
         weapon42: {
             id: 'weapon42',
             equip: 'weapon',
-            name: '화염병', attackType: ['bomb'], endurance: 15, point: 1, ammoRequire: false
+            name: '화염병', attackType: ['bomb'], point: 15, endurance: 1, ammoRequire: false
         },
         weapon43: {
             id: 'weapon43',
             equip: 'weapon',
-            name: '폭탄', attackType: ['bomb'], endurance: 60, point: 3, ammoRequire: false
+            name: '폭탄', attackType: ['bomb'], point: 60, endurance: 3, ammoRequire: false
         },
         weapon44: {
             id: 'weapon44',
             equip: 'weapon',
-            name: '간이화염방사기', attackType: ['bomb'], endurance: 10, point: 8, ammoRequire: false
+            name: '간이화염방사기', attackType: ['bomb'], point: 10, endurance: 8, ammoRequire: false
         },
         weapon45: {
             id: 'weapon45',
             equip: 'weapon',
-            name: '사슬낫', attackType: ['cut', 'melee'], endurance: 22, point: 0, ammoRequire: false
+            name: '사슬낫', attackType: ['cut', 'melee'], point: 22, endurance: 0, ammoRequire: false
         },
         weapon46: {
             id: 'weapon46',
             equip: 'weapon',
-            name: '못박은배트', attackType: ['melee'], endurance: 20, point: 0, ammoRequire: false
+            name: '못박은배트', attackType: ['melee'], point: 20, endurance: 0, ammoRequire: false
         },
         weapon47: {
             id: 'weapon47',
             equip: 'weapon',
-            name: '못박은대나무', attackType: ['melee'], endurance: 13, point: 0, ammoRequire: false
+            name: '못박은대나무', attackType: ['melee'], point: 13, endurance: 0, ammoRequire: false
         },
         weapon48: {
             id: 'weapon48',
             equip: 'weapon',
-            name: '돌도끼', attackType: ['melee'], endurance: 15, point: 0, ammoRequire: false
+            name: '돌도끼', attackType: ['melee'], point: 15, endurance: 0, ammoRequire: false
         },
         weapon49: {
             id: 'weapon49',
             equip: 'weapon',
-            name: '커스텀나이프', attackType: ['cut', 'poke'], endurance: 20, point: 0, ammoRequire: false
+            name: '커스텀나이프', attackType: ['cut', 'poke'], point: 20, endurance: 0, ammoRequire: false
         },
         weapon50: {
             id: 'weapon50',
             equip: 'weapon',
             name: '쇠뇌',
             attackType: ['bow', 'melee'],
-            endurance: 25,
-            point: 0,
+            point: 25,
+            endurance: 0,
             ammoRequire: true,
             ammoReload: 1,
             ammoType: 'bow'
@@ -1973,130 +2002,130 @@ module.exports = {
         weapon51: {
             id: 'weapon51',
             equip: 'weapon',
-            name: '죽창', attackType: ['poke'], endurance: 20, point: 0, ammoRequire: false
+            name: '죽창', attackType: ['poke'], point: 20, endurance: 0, ammoRequire: false
         },
         weapon52: {
             id: 'weapon52',
             equip: 'weapon',
-            name: '언월도', attackType: ['poke'], endurance: 40, point: 0, ammoRequire: false
+            name: '언월도', attackType: ['poke'], point: 40, endurance: 0, ammoRequire: false
         },
         weapon53: {
             id: 'weapon53',
             equip: 'weapon',
-            name: '쌍칼', attackType: ['poke'], endurance: 35, point: 0, ammoRequire: false
+            name: '쌍칼', attackType: ['poke'], point: 35, endurance: 0, ammoRequire: false
         },
         weapon54: {
             id: 'weapon54',
             equip: 'weapon',
-            name: '다이나마이트', attackType: ['bomb'], endurance: 30, point: 8, ammoRequire: false
+            name: '다이나마이트', attackType: ['bomb'], point: 30, endurance: 8, ammoRequire: false
         },
         weapon55: {
             id: 'weapon55',
             equip: 'weapon',
-            name: '돌멩이', attackType: ['throw'], endurance: 15, point: 5, ammoRequire: false
+            name: '돌멩이', attackType: ['throw'], point: 15, endurance: 5, ammoRequire: false
         },
         weapon56: {
             id: 'weapon56',
             equip: 'weapon',
-            name: '컵', attackType: ['throw'], endurance: 10, point: 4, ammoRequire: false
+            name: '컵', attackType: ['throw'], point: 10, endurance: 4, ammoRequire: false
         },
         weapon57: {
             id: 'weapon57',
             equip: 'weapon',
-            name: '야구공세트', attackType: ['throw'], endurance: 20, point: 30, ammoRequire: false
+            name: '야구공세트', attackType: ['throw'], point: 20, endurance: 30, ammoRequire: false
         },
         weapon58: {
             id: 'weapon58',
             equip: 'weapon',
-            name: '접시', attackType: ['throw'], endurance: 10, point: 4, ammoRequire: false
+            name: '접시', attackType: ['throw'], point: 10, endurance: 4, ammoRequire: false
         },
         weapon59: {
             id: 'weapon59',
             equip: 'weapon',
-            name: '텔레비젼', attackType: ['throw'], endurance: 20, point: 1, ammoRequire: false
+            name: '텔레비젼', attackType: ['throw'], point: 20, endurance: 1, ammoRequire: false
         },
         weapon60: {
             id: 'weapon60',
             equip: 'weapon',
-            name: '테이블', attackType: ['throw'], endurance: 20, point: 1, ammoRequire: false
+            name: '테이블', attackType: ['throw'], point: 20, endurance: 1, ammoRequire: false
         },
         weapon61: {
             id: 'weapon61',
             equip: 'weapon',
-            name: '선반', attackType: ['throw'], endurance: 15, point: 1, ammoRequire: false
+            name: '선반', attackType: ['throw'], point: 15, endurance: 1, ammoRequire: false
         },
         weapon62: {
             id: 'weapon62',
             equip: 'weapon',
-            name: '보검', attackType: ['cut', 'poke'], endurance: 20, point: 0, ammoRequire: false
+            name: '보검', attackType: ['cut', 'poke'], point: 20, endurance: 0, ammoRequire: false
         },
         weapon63: {
             id: 'weapon63',
             equip: 'weapon',
-            name: '빈병', attackType: ['throw'], endurance: 1, point: 10, ammoRequire: false
+            name: '빈병', attackType: ['throw'], point: 1, endurance: 10, ammoRequire: false
         },
         weapon64: {
             id: 'weapon64',
             equip: 'weapon',
-            name: '빈캔', attackType: ['throw'], endurance: 2, point: 10, ammoRequire: false
+            name: '빈캔', attackType: ['throw'], point: 2, endurance: 10, ammoRequire: false
         },
         weapon65: {
             id: 'weapon65',
             equip: 'weapon',
-            name: '유리잔', attackType: ['throw'], endurance: 10, point: 4, ammoRequire: false
+            name: '유리잔', attackType: ['throw'], point: 10, endurance: 4, ammoRequire: false
         },
         weapon66: {
             id: 'weapon66',
             equip: 'weapon',
-            name: '냄비', attackType: ['throw'], endurance: 10, point: 4, ammoRequire: false
+            name: '냄비', attackType: ['throw'], point: 10, endurance: 4, ammoRequire: false
         },
         weapon67: {
             id: 'weapon67',
             equip: 'weapon',
-            name: '쇠사슬', attackType: ['melee'], endurance: 15, point: 0, ammoRequire: false
+            name: '쇠사슬', attackType: ['melee'], point: 15, endurance: 0, ammoRequire: false
         },
         weapon68: {
             id: 'weapon68',
             equip: 'weapon',
-            name: '후라이팬', attackType: ['melee'], endurance: 15, point: 0, ammoRequire: false
+            name: '후라이팬', attackType: ['melee'], point: 15, endurance: 0, ammoRequire: false
         },
         weapon69: {
             id: 'weapon69',
             equip: 'weapon',
-            name: '소방용도끼', attackType: ['cut'], endurance: 20, point: 0, ammoRequire: false
+            name: '소방용도끼', attackType: ['cut'], point: 20, endurance: 0, ammoRequire: false
         },
         weapon70: {
             id: 'weapon70',
             equip: 'weapon',
-            name: '소화기', attackType: ['melee'], endurance: 12, point: 0, ammoRequire: false
+            name: '소화기', attackType: ['melee'], point: 12, endurance: 0, ammoRequire: false
         },
         weapon71: {
             id: 'weapon71',
             equip: 'weapon',
-            name: '관음보살상', attackType: ['melee'], endurance: 5, point: 0, ammoRequire: false
+            name: '관음보살상', attackType: ['melee'], point: 5, endurance: 0, ammoRequire: false
         },
         weapon72: {
             id: 'weapon72',
             equip: 'weapon',
-            name: '염라대왕상', attackType: ['melee'], endurance: 7, point: 0, ammoRequire: false
+            name: '염라대왕상', attackType: ['melee'], point: 7, endurance: 0, ammoRequire: false
         },
         weapon73: {
             id: 'weapon73',
             equip: 'weapon',
-            name: '아수라상', attackType: ['melee'], endurance: 10, point: 0, ammoRequire: false
+            name: '아수라상', attackType: ['melee'], point: 10, endurance: 0, ammoRequire: false
         },
         weapon74: {
             id: 'weapon74',
             equip: 'weapon',
-            name: '지장보살상', attackType: ['melee'], endurance: 8, point: 0, ammoRequire: false
+            name: '지장보살상', attackType: ['melee'], point: 8, endurance: 0, ammoRequire: false
         },
         weapon75: {
             id: 'weapon75',
             equip: 'weapon',
             name: '양궁',
             attackType: ['bow', 'melee'],
-            endurance: 20,
-            point: 0,
+            point: 20,
+            endurance: 0,
             ammoRequire: true,
             ammoReload: 1,
             ammoType: 'bow'
@@ -2104,110 +2133,110 @@ module.exports = {
         weapon76: {
             id: 'weapon76',
             equip: 'weapon',
-            name: '곡괭이', attackType: ['poke'], endurance: 15, point: 0, ammoRequire: false
+            name: '곡괭이', attackType: ['poke'], point: 15, endurance: 0, ammoRequire: false
         },
         weapon77: {
             id: 'weapon77',
             equip: 'weapon',
-            name: '스카프', attackType: ['poke', 'melee'], endurance: 10, point: 0, ammoRequire: false
+            name: '스카프', attackType: ['poke', 'melee'], point: 10, endurance: 0, ammoRequire: false
         },
         weapon78: {
             id: 'weapon78',
             equip: 'weapon',
-            name: '샤벨', attackType: ['poke', 'melee'], endurance: 5, point: 0, ammoRequire: false
+            name: '샤벨', attackType: ['poke', 'melee'], point: 5, endurance: 0, ammoRequire: false
         },
         weapon79: {
             id: 'weapon79',
             equip: 'weapon',
-            name: '암석', attackType: ['throw'], endurance: 20, point: 8, ammoRequire: false
+            name: '암석', attackType: ['throw'], point: 20, endurance: 8, ammoRequire: false
         },
         weapon80: {
             id: 'weapon80',
             equip: 'weapon',
-            name: '목탁', attackType: ['throw'], endurance: 1, point: 1, ammoRequire: false
+            name: '목탁', attackType: ['throw'], point: 1, endurance: 1, ammoRequire: false
         },
         weapon81: {
             id: 'weapon81',
             equip: 'weapon',
-            name: '솔도파', attackType: ['melee'], endurance: 4, point: 0, ammoRequire: false
+            name: '솔도파', attackType: ['melee'], point: 4, endurance: 0, ammoRequire: false
         },
         weapon82: {
             id: 'weapon82',
             equip: 'weapon',
-            name: '연필', attackType: ['poke'], endurance: 2, point: 0, ammoRequire: false
+            name: '연필', attackType: ['poke'], point: 2, endurance: 0, ammoRequire: false
         },
         weapon83: {
             id: 'weapon83',
             equip: 'weapon',
-            name: '지우개', attackType: ['throw'], endurance: 1, point: 1, ammoRequire: false
+            name: '지우개', attackType: ['throw'], point: 1, endurance: 1, ammoRequire: false
         },
         weapon84: {
             id: 'weapon84',
             equip: 'weapon',
-            name: '플라스크', attackType: ['throw'], endurance: 1, point: 1, ammoRequire: false
+            name: '플라스크', attackType: ['throw'], point: 1, endurance: 1, ammoRequire: false
         },
         weapon85: {
             id: 'weapon85',
             equip: 'weapon',
-            name: '대걸레', attackType: ['melee'], endurance: 8, point: 0, ammoRequire: false
+            name: '대걸레', attackType: ['melee'], point: 8, endurance: 0, ammoRequire: false
         },
         weapon87: {
             id: 'weapon87',
             equip: 'weapon',
-            name: '흰분필', attackType: ['throw'], endurance: 2, point: 1, ammoRequire: false
+            name: '흰분필', attackType: ['throw'], point: 2, endurance: 1, ammoRequire: false
         },
         weapon88: {
             id: 'weapon88',
             equip: 'weapon',
-            name: '빨간분필', attackType: ['throw'], endurance: 2, point: 1, ammoRequire: false
+            name: '빨간분필', attackType: ['throw'], point: 2, endurance: 1, ammoRequire: false
         },
         weapon89: {
             id: 'weapon89',
             equip: 'weapon',
-            name: '노란분필', attackType: ['throw'], endurance: 2, point: 1, ammoRequire: false
+            name: '노란분필', attackType: ['throw'], point: 2, endurance: 1, ammoRequire: false
         },
         weapon90: {
             id: 'weapon90',
             equip: 'weapon',
-            name: '파란분필', attackType: ['throw'], endurance: 2, point: 1, ammoRequire: false
+            name: '파란분필', attackType: ['throw'], point: 2, endurance: 1, ammoRequire: false
         },
         weapon91: {
             id: 'weapon91',
             equip: 'weapon',
-            name: '인체모형', attackType: ['melee'], endurance: 3, point: 0, ammoRequire: false
+            name: '인체모형', attackType: ['melee'], point: 3, endurance: 0, ammoRequire: false
         },
         weapon92: {
             id: 'weapon92',
             equip: 'weapon',
-            name: '거대삼각자', attackType: ['melee'], endurance: 4, point: 0, ammoRequire: false
+            name: '거대삼각자', attackType: ['melee'], point: 4, endurance: 0, ammoRequire: false
         },
         weapon93: {
             id: 'weapon93',
             equip: 'weapon',
-            name: '거대콤파스', attackType: ['melee'], endurance: 4, point: 0, ammoRequire: false
+            name: '거대콤파스', attackType: ['melee'], point: 4, endurance: 0, ammoRequire: false
         },
         weapon94: {
             id: 'weapon94',
             equip: 'weapon',
-            name: '의자', attackType: ['melee'], endurance: 4, point: 0, ammoRequire: false
+            name: '의자', attackType: ['melee'], point: 4, endurance: 0, ammoRequire: false
         },
         weapon96: {
             id: 'weapon96',
             equip: 'weapon',
-            name: '대나무', attackType: ['melee'], endurance: 6, point: 0, ammoRequire: false
+            name: '대나무', attackType: ['melee'], point: 6, endurance: 0, ammoRequire: false
         },
         weapon97: {
             id: 'weapon97',
             equip: 'weapon',
-            name: '목검', attackType: ['cut', 'poke'], endurance: 12, point: 0, ammoRequire: false
+            name: '목검', attackType: ['cut', 'poke'], point: 12, endurance: 0, ammoRequire: false
         },
         weapon98: {
             id: 'weapon98',
             equip: 'weapon',
             name: '화승총',
             attackType: ['shot', 'melee'],
-            endurance: 20,
-            point: 0,
+            point: 20,
+            endurance: 0,
             ammoRequire: true,
             ammoReload: 1,
             ammoType: 'apostle'
@@ -2215,15 +2244,15 @@ module.exports = {
         weapon99: {
             id: 'weapon99',
             equip: 'weapon',
-            name: '명도마사무네', attackType: ['cut', 'poke'], endurance: 23, point: 0, ammoRequire: false
+            name: '명도마사무네', attackType: ['cut', 'poke'], point: 23, endurance: 0, ammoRequire: false
         },
         weapon100: {
             id: 'weapon100',
             equip: 'weapon',
             name: '일본궁',
             attackType: ['bow', 'melee'],
-            endurance: 18,
-            point: 0,
+            point: 18,
+            endurance: 0,
             ammoRequire: true,
             ammoReload: 1,
             ammoType: 'bow'
@@ -2231,25 +2260,25 @@ module.exports = {
         weapon102: {
             id: 'weapon102',
             equip: 'weapon',
-            name: '전기인두', attackType: ['poke'], endurance: 6, point: 0, ammoRequire: false
+            name: '전기인두', attackType: ['poke'], point: 6, endurance: 0, ammoRequire: false
         },
         weapon103: {
             id: 'weapon103',
             equip: 'weapon',
-            name: '고장난노트북', attackType: ['throw'], endurance: 10, point: 1, ammoRequire: false
+            name: '고장난노트북', attackType: ['throw'], point: 10, endurance: 1, ammoRequire: false
         },
         weapon104: {
             id: 'weapon104',
             equip: 'weapon',
-            name: '수리검', attackType: ['throw'], endurance: 30, point: 15, ammoRequire: false
+            name: '수리검', attackType: ['throw'], point: 30, endurance: 15, ammoRequire: false
         },
         weapon105: {
             id: 'weapon105',
             equip: 'weapon',
             name: '헤비크로스보우',
             attackType: ['bow', 'melee'],
-            endurance: 30,
-            point: 0,
+            point: 30,
+            endurance: 0,
             ammoRequire: true,
             ammoReload: 1,
             ammoType: 'bow'
@@ -2257,47 +2286,47 @@ module.exports = {
         weapon106: {
             id: 'weapon106',
             equip: 'weapon',
-            name: '면도칼', attackType: ['cut'], endurance: 5, point: 0, ammoRequire: false
+            name: '면도칼', attackType: ['cut'], point: 5, endurance: 0, ammoRequire: false
         },
         weapon107: {
             id: 'weapon107',
             equip: 'weapon',
-            name: '버터플라이나이프', attackType: ['cut', 'poke'], endurance: 8, point: 0, ammoRequire: false
+            name: '버터플라이나이프', attackType: ['cut', 'poke'], point: 8, endurance: 0, ammoRequire: false
         },
         weapon108: {
             id: 'weapon108',
             equip: 'weapon',
-            name: '화투', attackType: ['throw'], endurance: 1, point: 1, ammoRequire: false
+            name: '화투', attackType: ['throw'], point: 1, endurance: 1, ammoRequire: false
         },
         weapon109: {
             id: 'weapon109',
             equip: 'weapon',
-            name: '트럼프카드', attackType: ['throw'], endurance: 1, point: 1, ammoRequire: false
+            name: '트럼프카드', attackType: ['throw'], point: 1, endurance: 1, ammoRequire: false
         },
         weapon110: {
             id: 'weapon110',
             equip: 'weapon',
-            name: '휴대용게임기', attackType: ['melee'], endurance: 2, point: 0, ammoRequire: false
+            name: '휴대용게임기', attackType: ['melee'], point: 2, endurance: 0, ammoRequire: false
         },
         weapon111: {
             id: 'weapon111',
             equip: 'weapon',
-            name: '비누', attackType: ['melee'], endurance: 1, point: 0, ammoRequire: false
+            name: '비누', attackType: ['melee'], point: 1, endurance: 0, ammoRequire: false
         },
         weapon112: {
             id: 'weapon112',
             equip: 'weapon',
-            name: '칫솔', attackType: ['melee'], endurance: 1, point: 0, ammoRequire: false
+            name: '칫솔', attackType: ['melee'], point: 1, endurance: 0, ammoRequire: false
         },
         weapon113: {
             id: 'weapon113',
             equip: 'weapon',
-            name: '요도마사무네', attackType: ['cut', 'poke'], endurance: 25, point: 0, ammoRequire: false
+            name: '요도마사무네', attackType: ['cut', 'poke'], point: 25, endurance: 0, ammoRequire: false
         },
         weapon114: {
             id: 'weapon114',
             equip: 'weapon',
-            name: '요도무라마사', attackType: ['cut', 'poke'], endurance: 23, point: 0, ammoRequire: false
+            name: '요도무라마사', attackType: ['cut', 'poke'], point: 23, endurance: 0, ammoRequire: false
         },
 
         // -- armor
@@ -2403,31 +2432,31 @@ module.exports = {
 
 
         // -- stamina
-        stamina0: {id: 'stamina0', equip: 'potion', name: '와일드세븐', point: 20, endurance: 1},
-        stamina1: {id: 'stamina1', equip: 'potion', name: '초콜렛', point: 20, endurance: 1},
-        stamina2: {id: 'stamina2', equip: 'potion', name: '쿠키', point: 20, endurance: 1},
-        stamina3: {id: 'stamina3', equip: 'potion', name: '고구마', point: 20, endurance: 1},
-        stamina4: {id: 'stamina4', equip: 'potion', name: '참마', point: 10, endurance: 1},
-        stamina5: {id: 'stamina5', equip: 'potion', name: '감자', point: 20, endurance: 1},
-        stamina6: {id: 'stamina6', equip: 'potion', name: '우엉', point: 20, endurance: 1},
-        stamina7: {id: 'stamina7', equip: 'potion', name: '당근', point: 20, endurance: 1},
-        stamina8: {id: 'stamina8', equip: 'potion', name: '양파', point: 20, endurance: 1},
-        stamina9: {id: 'stamina9', equip: 'potion', name: '마늘', point: 20, endurance: 1},
-        stamina10: {id: 'stamina10', equip: 'potion', name: '생강', point: 20, endurance: 1},
-        stamina11: {id: 'stamina11', equip: 'potion', name: '카레가루', point: 10, endurance: 1},
-        stamina12: {id: 'stamina12', equip: 'potion', name: '간장', point: 10, endurance: 1},
-        stamina13: {id: 'stamina13', equip: 'potion', name: '소스', point: 10, endurance: 1},
-        stamina14: {id: 'stamina14', equip: 'potion', name: '영양드링크', point: 50, endurance: 1},
-        stamina15: {id: 'stamina15', equip: 'potion', name: '스튜', point: 25, endurance: 1},
-        stamina16: {id: 'stamina16', equip: 'potion', name: '스튜', point: -25, endurance: 1},
-        stamina17: {id: 'stamina17', equip: 'potion', name: '빵', point: 20, endurance: 2},
+        stamina0: {id: 'stamina0', equip: 'stamina', name: '와일드세븐', point: 20, endurance: 1},
+        stamina1: {id: 'stamina1', equip: 'stamina', name: '초콜렛', point: 20, endurance: 1},
+        stamina2: {id: 'stamina2', equip: 'stamina', name: '쿠키', point: 20, endurance: 1},
+        stamina3: {id: 'stamina3', equip: 'stamina', name: '고구마', point: 20, endurance: 1},
+        stamina4: {id: 'stamina4', equip: 'stamina', name: '참마', point: 10, endurance: 1},
+        stamina5: {id: 'stamina5', equip: 'stamina', name: '감자', point: 20, endurance: 1},
+        stamina6: {id: 'stamina6', equip: 'stamina', name: '우엉', point: 20, endurance: 1},
+        stamina7: {id: 'stamina7', equip: 'stamina', name: '당근', point: 20, endurance: 1},
+        stamina8: {id: 'stamina8', equip: 'stamina', name: '양파', point: 20, endurance: 1},
+        stamina9: {id: 'stamina9', equip: 'stamina', name: '마늘', point: 20, endurance: 1},
+        stamina10: {id: 'stamina10', equip: 'stamina', name: '생강', point: 20, endurance: 1},
+        stamina11: {id: 'stamina11', equip: 'stamina', name: '카레가루', point: 10, endurance: 1},
+        stamina12: {id: 'stamina12', equip: 'stamina', name: '간장', point: 10, endurance: 1},
+        stamina13: {id: 'stamina13', equip: 'stamina', name: '소스', point: 10, endurance: 1},
+        stamina14: {id: 'stamina14', equip: 'stamina', name: '영양드링크', point: 50, endurance: 1},
+        stamina15: {id: 'stamina15', equip: 'stamina', name: '스튜', point: 25, endurance: 1},
+        stamina16: {id: 'stamina16', equip: 'stamina', name: '스튜', point: -25, endurance: 1},
+        stamina17: {id: 'stamina17', equip: 'stamina', name: '빵', point: 20, endurance: 2},
 
 
         // -- heal
-        heal0: {id: 'heal0', equip: 'potion', name: '위스키', point: 20, endurance: 1},
-        heal1: {id: 'heal1', equip: 'potion', name: '물', point: 20, endurance: 1},
-        heal2: {id: 'heal2', equip: 'potion', name: '약', point: 40, endurance: 1},
-        heal3: {id: 'heal3', equip: 'potion', name: '분말쥬스', point: 30, endurance: 1},
+        heal0: {id: 'heal0', equip: 'health', name: '위스키', point: 20, endurance: 1},
+        heal1: {id: 'heal1', equip: 'health', name: '물', point: 20, endurance: 1},
+        heal2: {id: 'heal2', equip: 'health', name: '약', point: 40, endurance: 1},
+        heal3: {id: 'heal3', equip: 'health', name: '분말쥬스', point: 30, endurance: 1},
 
 
         // -- trap

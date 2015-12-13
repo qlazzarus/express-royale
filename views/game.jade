@@ -14,41 +14,7 @@ block content
         div.col-sm-4
             h5.text-center.bg-black-red.padding5px 커맨드
             div#placeSelector.text-center.padding5px
-            p.padding5px 무엇을 합니까?
-            ul.list-unstyled
-                li
-                    label
-                        input.vertical-text-bottom(type='radio', name='cmd')
-                        span.padding5px 탐색
-                li
-                    label
-                        input.vertical-text-bottom(type='radio', name='cmd')
-                        span.padding5px 아이템 정리/합성/장비
-                li
-                    label
-                        input.vertical-text-bottom(type='radio', name='cmd')
-                        span.padding5px.health 치료
-                li
-                    label
-                        input.vertical-text-bottom(type='radio', name='cmd')
-                        span.padding5px.stamina 수면
-                li
-                    label
-                        input.vertical-text-bottom(type='radio', name='cmd')
-                        span.padding5px 응급처치
-                li
-                    label
-                        input.vertical-text-bottom(type='radio', name='cmd')
-                        span.padding5px 특수 커맨드
-                    //
-                        label
-                            | (
-                            input.vertical-text-bottom(type='radio' name='cmd-drop' ng-model='cmd-drop1')
-                            span.padding5px 버림
-                            | )
-
-            input.btn.btn-warning.bg-red(type='button', value='확인')
-
+            div#commander
 
 block content-header
     script(src='//cdn.socket.io/socket.io-1.2.0.js')

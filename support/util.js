@@ -419,21 +419,24 @@ module.exports = (function () {
     /**
      * 장소 관련된 정보 노출 최소화
      *
-     * @returns {{}}
+     * @returns {Array}
      */
     function arrangePlaceInfo() {
-        var result = {};
+        var result = [];
         var places = getPlaces();
-        for (var i in places) {
-            var place = places[i];
-            result[i] = {
-                idx: i,
+        var placeArrange = gameConfig.placeArrange;
+        for (var i in placeArrange) {
+            var idx = placeArrange[i];
+            var place = places[idx];
+            result.push({
+                idx: idx,
                 name: place.name,
                 code: place.code,
                 restrict: place.restrict,
                 restrictReserve: place.restrictReserve
-            };
+            });
         }
+
 
         return result;
     }
