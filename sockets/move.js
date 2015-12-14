@@ -31,5 +31,5 @@ module.exports = function(io, options, socket, reqData, userData){
         }
     }
 
-    socket.emit('recv', util.setReceivePacket(reqData.queueId, 'info', result, log, userData));
+    require('./search')(io, options, socket, reqData, userData, 'info', result, log);
 };

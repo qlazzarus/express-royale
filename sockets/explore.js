@@ -13,11 +13,11 @@ module.exports = function(io, options, socket, reqData, userData){
         }
     }
 
-    log.push([userData.account.username, ' 참가자가, 주위를 탐색했다...'].join(''));
+    log.push([userData.account.username, ' 은(는), 주위를 탐색했다...'].join(''));
     userData.account.stamina -= util.exploreConsumeStamina(userData.account.clubId, userData.account.injured);
     if (0 > userData.account.stamina) {
         userData.account.stamina = 0;
     }
 
-    socket.emit('recv', util.setReceivePacket(reqData.queueId, 'info', true, log, userData));
+    require('./search')(io, options, socket, reqData, userData, 'info', true, log);
 };

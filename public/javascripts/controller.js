@@ -346,14 +346,14 @@ var Commander = React.createClass({
         var commandList;
         if ('info' == command) {
             commandList = [
-                {name:'아이템 정리/합성/장비', value:'items', className:'', item:false},
-                {name:'응급처치', value:'injured', className:'', item:false},
-                {name:'특수커맨드', value:'special', className:'', item:false}
+                {name:'아이템 정리/합성/장비', value:'items', className:'', item:false, checked:false},
+                {name:'응급처치', value:'injured', className:'', item:false, checked:false},
+                {name:'특수커맨드', value:'special', className:'', item:false, checked:false}
             ];
 
             if (0 != placeId) {
-                commandList.splice(1, 0, {name:'치료', value:'health', className:'health', item:false},
-                    {name:'수면', value:'stamina', className:'stamina', item:false});
+                commandList.splice(1, 0, {name:'치료', value:'health', className:'health', item:false, checked:false},
+                    {name:'수면', value:'stamina', className:'stamina', item:false, checked:false});
             }
 
             var itemList = this.getItemCommandList(item0, item1, item2, item3, item4, item5, itemSchema);
@@ -365,9 +365,11 @@ var Commander = React.createClass({
             }
 
             if (0 != placeId || (0 == placeId && 'hacked' == serverStatus)) {
-                commandList.unshift({name:'탐색', value:'explore', className:'', item:false});
+                commandList.unshift({name:'탐색', value:'explore', className:'', item:false, checked:false});
             }
         }
+
+        commandList[0].checked = true;
 
         return commandList;
     },
@@ -414,7 +416,7 @@ var Commander = React.createClass({
                         return (
                             <li className={o.className}>
                                 <label>
-                                    <input type="radio" name="cmd" value={o.value} />
+                                    <input type="radio" name="cmd" value={o.value} checked={o.checked} />
                                     <span className="padding5px">{o.name}</span>
                                 </label>
                                 {(() => {

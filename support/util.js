@@ -227,6 +227,17 @@ module.exports = (function () {
 
 
     /**
+     * 지역 스텟
+     *
+     * @param placeId
+     * @returns {string}
+     */
+    function getPlaceSpecialize(placeId) {
+        return gameConfig.places[placeId].specialize;
+    }
+
+
+    /**
      * 아이콘 정보 리턴
      *
      * @returns {Array}
@@ -537,6 +548,130 @@ module.exports = (function () {
 
         return packetData;
     }
+
+
+    function getBattleRate(tactics, placeId, injured) {
+        var result = {
+            find: 5,    // 적, 아이템 발견율
+            ambush: 7,  // 선제공격율
+            attack: 1.00,   // 공격율
+            defence: 1.00   // 방어율
+        };
+
+        if (1 == tactics) {
+            // 공격중시
+            result.attack += 0.4;
+            result.defence -= 0.4;
+        } else if (2 == tactics) {
+            // 방어중시
+            result.attack -= 0.4;
+            result.defence += 0.4;
+            result.ambush -= 4;
+        } else if (3 == tactics) {
+            // 은밀행동
+            result.attack -= 0.4;
+            result.defence -= 0.4;
+            result.find -= 4;
+            result.ambush += 4;
+        } else if (4 == tactics) {
+            // 탐색행동
+            result.attack -= 0.4;
+            result.defence -= 0.4;
+            result.find += 4;
+            result.ambush += 4;
+        } else if (5 == tactics) {
+            // 연속공격
+            result.defence -= 0.4;
+            result.find += 6;
+        }
+
+        var merged = getBattleRateByPlace(placeId, result.attack, result.defence, result.find);
+        result.attack = merged.attack;
+        result.defence = merged.defence;
+        result.find = merged.find;
+
+        if (-1 !== injured.indexOf('arm')) {
+            result.attack -= 0.2;
+        }
+
+        return result;
+    }
+
+
+    function getBattleRateByPlace(placeId, attack, defence, find) {
+        var specialize = getPlaceSpecialize('place' + placeId);
+        var result = {
+            attack:attack,
+            defence:defence,
+            find:find
+        };
+
+        if ('attack_plus' === specialize) {
+            result.attack += 0.1;
+        } else if ('attack_minus' === specialize) {
+            result.attack -= 0.1;
+        } else if ('defence_plus' === specialize) {
+            result.defence += 0.1;
+        } else if ('defence_minus' === specialize) {
+            result.defence -= 0.1;
+        } else if ('find_plus' === specialize) {
+            result.find += 1;
+        } else if ('find_minus' === specialize) {
+            result.find -= 1;
+        }
+
+        return result;
+    }
+    /*
+     $chkpnt = 5 ;   #적, 아이템 발견율
+     $chkpnt2 = 7 ;  #선제공격율
+     $atp = 1.00 ;
+     $dfp = 1.00 ;
+
+     local($kind) = $w_kind ;
+     local($wmei) = 0;
+     local($wweps) = "" ;
+
+     if (($kind =~ /B/) || (($kind =~ /G|A/) && ($wtai == 0))) { #棍棒 or ?無し銃 or 矢無し弓
+     $wweps = "S" ;
+     $wmei = 80 ;
+     $wmei += int($wb/$BASE);
+     } elsif ($kind =~ /A/) {        #射
+     $wweps = "L" ;
+     $wmei = 60 ;
+     $wmei += int($wa/$BASE*2);
+     }elsif ($kind =~ /C/) { #投
+     $wweps = "L" ;
+     $wmei = 70 ;
+     $wmei += int($wc/$BASE*1.5);
+     }elsif ($kind =~ /D/) { #爆
+     $wweps = "L" ;
+     $wmei = 60 ;
+     $wmei += int($wd/$BASE*2);
+     }elsif ($kind =~ /G/) { #銃
+     $wweps = "L" ;
+     $wmei = 60 ;
+     $wmei += int($wg/$BASE*2);
+     }elsif ($kind =~ /N/) { #斬
+     $wweps = "S" ;
+     $wmei = 80 ;
+     $wmei += int($wn/$BASE);
+     }elsif ($kind  =~ /S/) {    #刺
+     $wweps = "S" ;
+     $wmei = 80 ;
+     $wmei += int($ws/$BASE);
+     } else {    #手
+     $wweps = "S" ;
+     $wmei = 70 ;
+     $wmei += int($wp/$BASE*1.5);
+     }
+
+     $weps = $wweps ;
+     $mei = $wmei ;
+
+     if ( $wmei > 95 ) { $wmei = 95; }
+     if ($inf =~ /頭/) { $mei -= 20; }   // head
+     */
 
 
     return {
