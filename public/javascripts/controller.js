@@ -25,22 +25,33 @@ var CurrentPlace = React.createClass({
 });
 
 var PlaceSelector = React.createClass({
+    getInitialState: function() {
+        return {value: 'place' + this.getCurrent()};
+    },
+
     handleChange: function (event) {
-        //this.setState({value: event.target.value});
         ExpressRoyale.playerMove(event.target.value, this);
     },
 
-    render: function () {
+    getPlaces: function() {
         var places = this.props.places;
-        var current = this.props.current;
         if (typeof places == 'undefined') {
             places = [];
         }
 
+        return places;
+    },
+
+    getCurrent: function() {
+        var current = this.props.current;
         if (typeof current == 'undefined') {
             current = 0;
         }
 
+        return current;
+    },
+
+    getMapped: function(places){
         var mapped = [];
         for (var i in places) {
             var place = places[i];
@@ -54,8 +65,13 @@ var PlaceSelector = React.createClass({
             });
         }
 
+        return mapped;
+    },
+
+    render: function () {
+        var mapped = this.getMapped(this.getPlaces());
         return (
-            <select value={'place' + current} onChange={this.handleChange}>
+            <select value={this.state.value} onChange={this.handleChange}>
                 {mapped.map(function (option) {
                     return <option value={option.value} className={option.className}>{option.subject}</option>;
                 })}
@@ -231,6 +247,42 @@ var EquipItem = React.createClass({
     }
 });
 
+var Logger = React.createClass({
+    log: [],
+
+    getMapped: function(){
+        if (typeof this.props.log === 'string') {
+            this.log.push(this.props.log);
+        } else if (this.props.log instanceof Array) {
+            this.log = this.log.concat(this.props.log);
+        }
+
+        var logLength = this.log.length;
+        var maxLength = 5;
+        if (logLength > maxLength) {
+            this.log.splice(0, logLength - maxLength);
+        }
+
+        return this.log;
+    },
+
+    componentDidUpdate: function() {
+        var node = this.getDOMNode();
+        node.scrollTop = node.scrollHeight;
+    },
+
+    render: function(){
+        var mapped = this.getMapped();
+        return (
+            <div className="solid-bordered status-log">
+                {mapped.map(function (o) {
+                    return <p>{o}</p>;
+                })}
+            </div>
+        );
+    }
+});
+
 var Commander = React.createClass({
     getCommand: function(){
         var command = this.props.command;
@@ -313,7 +365,7 @@ var Commander = React.createClass({
             }
 
             if (0 != placeId || (0 == placeId && 'hacked' == serverStatus)) {
-                commandList.unshift({name:'탐색', value:'search', className:'', item:false});
+                commandList.unshift({name:'탐색', value:'explore', className:'', item:false});
             }
         }
 
@@ -338,6 +390,11 @@ var Commander = React.createClass({
         return result;
     },
 
+    executeCommand: function(evt) {
+        evt.preventDefault();
+        ExpressRoyale.playerCommand(evt.target.cmd.value, this);
+    },
+
     render: function(){
         var command = this.getCommand();
         var account = this.getAccount();
@@ -350,7 +407,7 @@ var Commander = React.createClass({
             account.item1, account.item2, account.item3, account.item4, account.item5, itemSchema);
 
         return (
-            <div>
+            <form onSubmit={this.executeCommand}>
                 <p className="padding5px">{commandDesc}</p>
                 <ul className="list-unstyled">
                     {commandList.map(function(o){
@@ -377,22 +434,87 @@ var Commander = React.createClass({
                         );
                     })}
                 </ul>
-                <button className="input btn btn-warning bg-red">{executeName}</button>
-            </div>
+                <input type='submit' className="input btn btn-warning bg-red" value={executeName} />
+            </form>
         );
     }
 });
 
+var QueueManager = function (socket) {
+    var that = this;
+    var receivePacketName = 'recv';
+    var requestPacketName = 'req';
+    var queueId = '';
+    var reserveCallback = undefined;
+
+    this.setQueueId = function(id) {
+        queueId = id;
+    };
+
+    this.getQueueId = function(){
+        return queueId;
+    };
+
+    this.setReserveCallback = function(callback){
+        reserveCallback = callback;
+    };
+
+    this.getReserveCallback = function(){
+        return reserveCallback;
+    };
+
+    this.generateId = function(length) {
+        if (typeof length == 'undefined') {
+            length = 10;
+        }
+
+        var result = [];
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        for (var i = 0; i < length; i++) {
+            result.push(possible.charAt(Math.floor(Math.random() * possible.length)));
+        }
+
+        return result.join('');
+    };
+
+    this.observe = function(callback) {
+        socket.on(receivePacketName, function(data){
+            if (!data.queueId) {
+                callback(data);
+            } else if (data.queueId == that.getQueueId()) {
+                callback(data, that.getReserveCallback());
+                that.setQueueId('');
+                that.setReserveCallback();
+                ExpressRoyale.hideLoading();
+            }
+        });
+    };
+
+    this.send = function(data, reserveCallback) {
+        if ('' === that.getQueueId()) {
+            ExpressRoyale.showLoading();
+
+            that.setQueueId(that.generateId());
+            that.setReserveCallback(reserveCallback);
+
+            data.queueId = that.getQueueId();
+            socket.emit(requestPacketName, data);
+        }
+    };
+};
+
 var ExpressRoyale = (function () {
     var that = this;
     var socket = io();
+    var queueManager = new QueueManager(socket);
 
     function initialize() {
         observeEvent();
     }
 
     function observeEvent() {
-        socket.on('recv', receivePacket);
+        queueManager.observe(receivePacket);
     }
 
     function getItemName(itemId, itemSchema) {
@@ -451,7 +573,7 @@ var ExpressRoyale = (function () {
         return result;
     }
 
-    function receivePacket(data) {
+    function receivePacket(data, callback) {
         // check server-flag
 
         // check account status
@@ -465,6 +587,12 @@ var ExpressRoyale = (function () {
             renderSkill(data.account, data.config.skills, data.config.expPerSkillLevel);
             renderItem(data.account, data.itemList);
             renderCommander(data.type, data.account, data.server, data.itemList);
+        }
+
+        renderLog(data.log);
+
+        if (typeof callback !== 'undefined') {
+            callback(data.result);
         }
     }
 
@@ -521,8 +649,46 @@ var ExpressRoyale = (function () {
         );
     }
 
-    function playerMove(moveTo, caller) {
-        console.log(caller.setState);
+    function renderLog(log) {
+        React.render(
+            <Logger log={log} />,
+            document.getElementById('logger')
+        );
+    }
+
+    function playerMove(nextPlace, placeSelector) {
+        queueManager.send({command:'move', value:nextPlace}, function(result){
+            if (true === result) {
+                placeSelector.setState({value:nextPlace});
+            }
+        });
+    }
+
+    function playerCommand(command) {
+        console.log(command);
+        var commandList = ['explore'];
+        if (-1 === commandList.indexOf(command)) {
+            return false;
+        } else {
+            queueManager.send({command:command}, function(result){
+                console.log(result);
+            });
+        }
+    }
+
+    function showLoading() {
+        if (!document.getElementById('loading')) {
+            var loading = document.createElement("div");
+            loading.setAttribute('id', 'loading');
+            document.body.appendChild(loading);
+        }
+    }
+
+    function hideLoading() {
+        var loading = document.getElementById('loading');
+        if (loading) {
+            loading.parentNode.removeChild(loading);
+        }
     }
 
     initialize();
@@ -531,6 +697,9 @@ var ExpressRoyale = (function () {
         getItemName: getItemName,
         getItemType: getItemType,
         showItems: showItems,
-        playerMove: playerMove
+        playerMove: playerMove,
+        playerCommand: playerCommand,
+        showLoading: showLoading,
+        hideLoading: hideLoading
     };
 })();

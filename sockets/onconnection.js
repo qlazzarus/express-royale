@@ -9,35 +9,13 @@ module.exports = function (io, options, socket) {
         options.models.getModel('server'),
         socket.request.user.username,
         function (err, data) {
-            console.log('client connected - ' + socket.id);
+            console.log([socket.id, ' connected'].join(''));
             if (err) {
                 console.log(err);
             } else {
-                data.type = 'info';
-                data.place = util.arrangePlaceInfo(data.place);
-                data.config = {
-                    expPerSkillLevel: util.getExpPerSkillLevel(),
-                    skills: util.getSkills(),
-                    tactics: util.getTactics()
-                };
-                data.itemList = util.getItem([
-                    data.account.weapon.idx,
-                    data.account.armor.head.idx,
-                    data.account.armor.body.idx,
-                    data.account.armor.arm.idx,
-                    data.account.armor.foot.idx,
-                    data.account.armor.accessory.idx,
-                    data.account.item0.idx,
-                    data.account.item1.idx,
-                    data.account.item2.idx,
-                    data.account.item3.idx,
-                    data.account.item4.idx,
-                    data.account.item5.idx
-                ]);
-
                 socket.join(data.account.place);
                 socket.join(data.account.username);
-                socket.emit('recv', data);
+                socket.emit('recv', util.setReceivePacket(null, 'info', true, '자, 어떻게하지...', data));
             }
         }
     );

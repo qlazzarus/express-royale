@@ -216,6 +216,17 @@ module.exports = (function () {
 
 
     /**
+     * 지역 대사 리턴
+     *
+     * @param placeId
+     * @returns {string}
+     */
+    function getPlaceMessage(placeId) {
+        return gameConfig.places[placeId].message;
+    }
+
+
+    /**
      * 아이콘 정보 리턴
      *
      * @returns {Array}
@@ -263,7 +274,7 @@ module.exports = (function () {
      * 아이템 랜덤으로 뽑아오기
      *
      * @param itemList
-     * @returns {*}
+     * @returns {{}}
      */
     function getRandomItem(itemList) {
         var itemLength = itemList.length;
@@ -298,10 +309,52 @@ module.exports = (function () {
      *
      * @param basic
      * @param random
-     * @returns {*}
+     * @returns {number}
      */
     function getPoint(basic, random) {
         return dice(random) + basic;
+    }
+
+
+    /**
+     * 이동 스테미너 계산
+     *
+     * @param clubId
+     * @param injured
+     * @returns {number}
+     */
+    function moveConsumeStamina(clubId, injured) {
+        var result = 0;
+        if (-1 !== injured.indexOf('foot')) {
+            result = dice(5) + 13;
+        } else if (10 == clubId) {
+            result = dice(5) + 5;
+        } else {
+            result = dice(5) + 8;
+        }
+
+        return result;
+    }
+
+
+    /**
+     * 탐색 스테미너 계산
+     *
+     * @param clubId
+     * @param injured
+     * @returns {number}
+     */
+    function exploreConsumeStamina(clubId, injured) {
+        var result = 0;
+        if (-1 !== injured.indexOf('foot')) {
+            result = dice(5) + 23;
+        } else if (10 == clubId) {
+            result = dice(5) + 13;
+        } else {
+            result = dice(5) + 18;
+        }
+
+        return result;
     }
 
 
@@ -437,9 +490,54 @@ module.exports = (function () {
             });
         }
 
-
         return result;
     }
+
+
+    /**
+     * 게임 패킷 정보 정리
+     *
+     * @param queueId
+     * @param eventName
+     * @param eventResult
+     * @param eventLog
+     * @param packetData
+     * @returns {{}}
+     */
+    function setReceivePacket(queueId, eventName, eventResult, eventLog, packetData) {
+        if (queueId) {
+            packetData.queueId = queueId;
+        }
+        packetData.type = eventName;
+        packetData.result = eventResult;
+        packetData.log = eventLog;
+        packetData.place = arrangePlaceInfo();
+        packetData.config = {
+            expPerSkillLevel: getExpPerSkillLevel(),
+            skills: getSkills(),
+            tactics: getTactics()
+        };
+
+        if (typeof packetData.account != 'undefined') {
+            packetData.itemList = getItem([
+                packetData.account.weapon.idx,
+                packetData.account.armor.head.idx,
+                packetData.account.armor.body.idx,
+                packetData.account.armor.arm.idx,
+                packetData.account.armor.foot.idx,
+                packetData.account.armor.accessory.idx,
+                packetData.account.item0.idx,
+                packetData.account.item1.idx,
+                packetData.account.item2.idx,
+                packetData.account.item3.idx,
+                packetData.account.item4.idx,
+                packetData.account.item5.idx
+            ]);
+        }
+
+        return packetData;
+    }
+
 
     return {
         dice: dice,
@@ -472,6 +570,10 @@ module.exports = (function () {
         getExpPerLevel: getExpPerLevel,
         getExpIncrease: getExpIncrease,
         getSkills: getSkills,
-        getTactics: getTactics
+        getTactics: getTactics,
+        setReceivePacket: setReceivePacket,
+        getPlaceMessage: getPlaceMessage,
+        moveConsumeStamina: moveConsumeStamina,
+        exploreConsumeStamina: exploreConsumeStamina
     };
 })();
