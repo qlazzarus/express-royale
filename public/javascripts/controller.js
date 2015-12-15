@@ -276,7 +276,9 @@ var Logger = React.createClass({
         return (
             <div className="solid-bordered status-log">
                 {mapped.map(function (o) {
-                    return <p>{o}</p>;
+                    return (
+                        <p dangerouslySetInnerHTML={{__html: o}}></p>
+                    );
                 })}
             </div>
         );
@@ -326,7 +328,7 @@ var Commander = React.createClass({
 
     getExecuteName: function(command) {
         var executeName;
-        if ('info' == command) {
+        if (-1 !== ['info', 'move', 'explore'].indexOf(command)) {
             executeName = '확인';
         }
 
@@ -344,7 +346,7 @@ var Commander = React.createClass({
 
     getCommandList: function(command, placeId, serverStatus, item0, item1, item2, item3, item4, item5, itemSchema) {
         var commandList;
-        if ('info' == command) {
+        if (-1 !== ['info', 'move', 'explore'].indexOf(command)) {
             commandList = [
                 {name:'아이템 정리/합성/장비', value:'items', className:'', item:false, checked:false},
                 {name:'응급처치', value:'injured', className:'', item:false, checked:false},

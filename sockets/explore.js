@@ -8,16 +8,25 @@ module.exports = function(io, options, socket, reqData, userData){
     var places = userData.place;
     for (var i in places) {
         place = places[i];
-        if (reqData.value === place.idx) {
+        if ('place' + userData.account.place === place.idx) {
             break;
         }
     }
 
+    var isDeath = false;
+
     log.push([userData.account.username, ' 은(는), 주위를 탐색했다...'].join(''));
     userData.account.stamina -= util.exploreConsumeStamina(userData.account.clubId, userData.account.injured);
     if (0 > userData.account.stamina) {
-        userData.account.stamina = 0;
+        var drainStatus = require('./drain')(io, options, socket, reqData, userData, 'explore', result, log);
+        isDeath = drainStatus.isDeath;
+        userData = drainStatus.userData;
+        log = drainStatus.eventLog;
     }
 
-    require('./search')(io, options, socket, reqData, userData, 'info', true, log);
+    if (false === isDeath) {
+        require('./search')(io, options, socket, reqData, userData, 'explore', true, log);
+    } else {
+        // TODO 사망
+    }
 };

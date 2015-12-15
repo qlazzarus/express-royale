@@ -130,7 +130,7 @@ module.exports = function (app, options) {
                 } else {
                     var supplyWeapon = util.getRandomItem(util.getSupplyItems());
                     var personalItem = util.getRandomItem(util.getPersonalItems());
-                    var clubId = util.dice(util.getClubs().length);
+                    var clubId = util.dice(util.getClubs().length - 1);
                     var clubName = util.getClubs()[clubId];
                     var skillMap = util.getSkillByClubId(clubId);
                     var mergeItems = util.appendSupplyItem(supplyWeapon, personalItem);

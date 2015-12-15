@@ -191,7 +191,7 @@ Container.get('service').initialize(
     ModelFactory.getModel('place'),
     ModelFactory.getModel('server'),
     Container.get('util')
-)
+);
 
 
 module.exports = app;

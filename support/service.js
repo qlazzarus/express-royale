@@ -11,6 +11,7 @@ module.exports = function () {
      *
      * @param groupModel
      * @param groups
+     * @param maxGroups
      */
     this.initializeGroups = function (groupModel, groups, maxGroups) {
         async.waterfall([
@@ -61,8 +62,9 @@ module.exports = function () {
      *
      * @param placeModel
      * @param places
+     * @param globalLooted
      */
-    this.initializePlaces = function (placeModel, places) {
+    this.initializePlaces = function (placeModel, places, globalLooted) {
         async.waterfall([
             function (callback) {
                 placeModel.remove({}, function (err) {
@@ -84,8 +86,15 @@ module.exports = function () {
                         code: place.code,
                         restrict: place.restrict,
                         restrictReserve: place.restrictReserve,
-                        items: []
+                        items: typeof place.looted !== 'undefined' ? place.looted : []
                     });
+                }
+
+                var maxCollection = collections.length;
+                for (var i in globalLooted) {
+                    var looted = globalLooted[i];
+                    var randomPlace = Math.floor(Math.random() * (maxCollection - 1)) + 1;
+                    collections[randomPlace].items.push(looted);
                 }
 
                 placeModel.collection.insert(collections, function(err){
@@ -144,7 +153,7 @@ module.exports = function () {
      */
     this.initialize = function(groupModel, placeModel, serverModel, util) {
         that.initializeGroups(groupModel, util.getGroups(), util.getMaxGroups());
-        that.initializePlaces(placeModel, util.getPlaces());
+        that.initializePlaces(placeModel, util.getPlaces(), util.getGlobalLooted());
         that.initializeServerFlag(serverModel);
     };
 

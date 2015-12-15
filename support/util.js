@@ -16,6 +16,26 @@ module.exports = (function () {
 
 
     /**
+     * 기본 적 발견율
+     *
+     * @returns {number}
+     */
+    function getPersonSearch(tactics, level, killCount) {
+        var personSearch = 60;
+        var maxPersonSearch = 90;
+        if (5 == tactics) {
+            // 연속공격시 레벨/2+킬수/2만큼 적 발견율 상승
+            personSearch += parseInt((level + killCount) / 2);
+            if (maxPersonSearch < personSearch) {
+                personSearch = maxPersonSearch;
+            }
+        }
+
+        return personSearch;
+    }
+
+
+    /**
      * 스킬 설명
      *
      * @returns {{}}
@@ -32,6 +52,16 @@ module.exports = (function () {
      */
     function getTactics() {
         return gameConfig.tactics;
+    }
+
+
+    /**
+     * 전역 등장 아이템 추가
+     *
+     * @returns {Array}
+     */
+    function getGlobalLooted() {
+        return gameConfig.globalLooted;
     }
 
 
@@ -271,13 +301,84 @@ module.exports = (function () {
 
 
     /**
+     * 빈슬롯 찾기
+     *
+     * @param item0
+     * @param item1
+     * @param item2
+     * @param item3
+     * @param item4
+     * @param item5
+     * @returns {null|string}
+     */
+    function getEmptyItemSlot(item0, item1, item2, item3, item4, item5) {
+        var inventories = ['item0', 'item1', 'item2', 'item3', 'item4', 'item5'];
+        var slots = {
+            item0: item0,
+            item1: item1,
+            item2: item2,
+            item3: item3,
+            item4: item4,
+            item5: item5
+        };
+
+        var returnSlot = null;
+        for (var i in inventories) {
+            var current = slots[inventories[i]];
+            if ('' === current.idx) {
+                returnSlot = inventories[i];
+                break;
+            }
+        }
+
+        return returnSlot;
+    }
+
+
+    /**
+     * 아이템ID로 슬롯 찾기
+     *
+     * @param itemId
+     * @param item0
+     * @param item1
+     * @param item2
+     * @param item3
+     * @param item4
+     * @param item5
+     * @returns {null|string}
+     */
+    function findItemSlot(itemId, item0, item1, item2, item3, item4, item5) {
+        var inventories = ['item0', 'item1', 'item2', 'item3', 'item4', 'item5'];
+        var slots = {
+            item0: item0,
+            item1: item1,
+            item2: item2,
+            item3: item3,
+            item4: item4,
+            item5: item5
+        };
+
+        var returnSlot = null;
+        for (var i in inventories) {
+            var current = slots[inventories[i]];
+            if (itemId === current.idx) {
+                returnSlot = inventories[i];
+                break;
+            }
+        }
+
+        return returnSlot;
+    }
+
+
+    /**
      * 주사위 (랜덤)
      *
      * @param maxValue
      * @returns {number}
      */
     function dice(maxValue) {
-        return Math.floor(Math.random() * maxValue);
+        return Math.floor(Math.random() * (maxValue + 1));
     }
 
 
@@ -288,8 +389,7 @@ module.exports = (function () {
      * @returns {{}}
      */
     function getRandomItem(itemList) {
-        var itemLength = itemList.length;
-        var itemId = itemList[dice(itemLength)];
+        var itemId = itemList[dice(itemList.length - 1)];
 
         return getItem(itemId);
     }
@@ -506,51 +606,24 @@ module.exports = (function () {
 
 
     /**
-     * 게임 패킷 정보 정리
+     * 공격자 공방수치 계산
      *
-     * @param queueId
-     * @param eventName
-     * @param eventResult
-     * @param eventLog
-     * @param packetData
-     * @returns {{}}
+     * @param tactics
+     * @param placeId
+     * @param injured
+     * @param weapon
+     * @param shotSkill
+     * @param cutSkill
+     * @param throwSkill
+     * @param fistSkill
+     * @param bowSkill
+     * @param meleeSkill
+     * @param bombSkill
+     * @param pokeSkill
+     * @returns {{find: number, ambush: number, attack: number, defence: number}}
      */
-    function setReceivePacket(queueId, eventName, eventResult, eventLog, packetData) {
-        if (queueId) {
-            packetData.queueId = queueId;
-        }
-        packetData.type = eventName;
-        packetData.result = eventResult;
-        packetData.log = eventLog;
-        packetData.place = arrangePlaceInfo();
-        packetData.config = {
-            expPerSkillLevel: getExpPerSkillLevel(),
-            skills: getSkills(),
-            tactics: getTactics()
-        };
-
-        if (typeof packetData.account != 'undefined') {
-            packetData.itemList = getItem([
-                packetData.account.weapon.idx,
-                packetData.account.armor.head.idx,
-                packetData.account.armor.body.idx,
-                packetData.account.armor.arm.idx,
-                packetData.account.armor.foot.idx,
-                packetData.account.armor.accessory.idx,
-                packetData.account.item0.idx,
-                packetData.account.item1.idx,
-                packetData.account.item2.idx,
-                packetData.account.item3.idx,
-                packetData.account.item4.idx,
-                packetData.account.item5.idx
-            ]);
-        }
-
-        return packetData;
-    }
-
-
-    function getBattleRate(tactics, placeId, injured) {
+    function getBattleRateByAttacker(tactics, placeId, injured, weapon, shotSkill, cutSkill, throwSkill, fistSkill,
+                                     bowSkill, meleeSkill, bombSkill, pokeSkill) {
         var result = {
             find: 5,    // 적, 아이템 발견율
             ambush: 7,  // 선제공격율
@@ -594,16 +667,105 @@ module.exports = (function () {
             result.attack -= 0.2;
         }
 
+        var weaponStatus = getBattleRateByWeapon(weapon, injured, shotSkill, cutSkill, throwSkill, fistSkill, bowSkill,
+            meleeSkill, bombSkill, pokeSkill);
+
+        result.longRangeEngage = weaponStatus.longRangeEngage;
+        result.accuracyRate = weaponStatus.accuracyRate;
+
         return result;
     }
 
 
+    /**
+     * 방어자 공방수치 계산
+     *
+     * @param status
+     * @param tactics
+     * @param placeId
+     * @param injured
+     * @param weapon
+     * @param shotSkill
+     * @param cutSkill
+     * @param throwSkill
+     * @param fistSkill
+     * @param bowSkill
+     * @param meleeSkill
+     * @param bombSkill
+     * @param pokeSkill
+     * @returns {{find: number, ambush: number, stealth: number}}
+     */
+    function getBattleRateByDefender(status, tactics, placeId, injured, weapon, shotSkill, cutSkill, throwSkill, fistSkill,
+                                     bowSkill, meleeSkill, bombSkill, pokeSkill) {
+        var result = {
+            find: 5,    // 적, 아이템 발견율
+            ambush: 7,  // 선제공격율
+            stealth: 1.0    // 발견당할 확율? (높을수록 발견되지 않음)
+        };
+
+        if (5 == status) {
+            // 치료중
+            result.stealth -= 0.3;
+        }
+
+        if (1 == tactics) {
+            // 공격중시
+            result.attack += 0.4;
+            result.defence -= 0.4;
+        } else if (2 == tactics) {
+            // 방어중시
+            result.attack -= 0.4;
+            result.defence += 0.4;
+            result.stealth -= 0.2;
+        } else if (3 == tactics) {
+            // 은밀행동
+            result.attack -= 0.4;
+            result.defence -= 0.4;
+            result.stealth += 0.4;
+        } else if (4 == tactics) {
+            // 탐색행동
+            result.attack -= 0.4;
+            result.defence -= 0.4;
+            result.stealth -= 0.4;
+        } else if (5 == tactics) {
+            // 연속공격
+            result.defence -= 0.4;
+            result.stealth -= 0.3;
+        }
+
+        var merged = getBattleRateByPlace(placeId, result.attack, result.defence, 0);
+        result.attack = merged.attack;
+        result.defence = merged.defence;
+
+        if (-1 !== injured.indexOf('arm')) {
+            result.attack -= 0.2;
+        }
+
+        var weaponStatus = getBattleRateByWeapon(weapon, injured, shotSkill, cutSkill, throwSkill, fistSkill, bowSkill,
+            meleeSkill, bombSkill, pokeSkill);
+
+        result.longRangeEngage = weaponStatus.longRangeEngage;
+        result.accuracyRate = weaponStatus.accuracyRate;
+
+        return result;
+    }
+
+
+    /**
+     * 지역에 따른 공방수치 계산
+     *
+     * @param placeId
+     * @param attack
+     * @param defence
+     * @param find
+     * @returns {{attack: *, defence: *, find: *}}
+     */
     function getBattleRateByPlace(placeId, attack, defence, find) {
         var specialize = getPlaceSpecialize('place' + placeId);
         var result = {
-            attack:attack,
-            defence:defence,
-            find:find
+            attack: attack,
+            defence: defence,
+            find: find
         };
 
         if ('attack_plus' === specialize) {
@@ -622,56 +784,67 @@ module.exports = (function () {
 
         return result;
     }
-    /*
-     $chkpnt = 5 ;   #적, 아이템 발견율
-     $chkpnt2 = 7 ;  #선제공격율
-     $atp = 1.00 ;
-     $dfp = 1.00 ;
 
-     local($kind) = $w_kind ;
-     local($wmei) = 0;
-     local($wweps) = "" ;
 
-     if (($kind =~ /B/) || (($kind =~ /G|A/) && ($wtai == 0))) { #棍棒 or ?無し銃 or 矢無し弓
-     $wweps = "S" ;
-     $wmei = 80 ;
-     $wmei += int($wb/$BASE);
-     } elsif ($kind =~ /A/) {        #射
-     $wweps = "L" ;
-     $wmei = 60 ;
-     $wmei += int($wa/$BASE*2);
-     }elsif ($kind =~ /C/) { #投
-     $wweps = "L" ;
-     $wmei = 70 ;
-     $wmei += int($wc/$BASE*1.5);
-     }elsif ($kind =~ /D/) { #爆
-     $wweps = "L" ;
-     $wmei = 60 ;
-     $wmei += int($wd/$BASE*2);
-     }elsif ($kind =~ /G/) { #銃
-     $wweps = "L" ;
-     $wmei = 60 ;
-     $wmei += int($wg/$BASE*2);
-     }elsif ($kind =~ /N/) { #斬
-     $wweps = "S" ;
-     $wmei = 80 ;
-     $wmei += int($wn/$BASE);
-     }elsif ($kind  =~ /S/) {    #刺
-     $wweps = "S" ;
-     $wmei = 80 ;
-     $wmei += int($ws/$BASE);
-     } else {    #手
-     $wweps = "S" ;
-     $wmei = 70 ;
-     $wmei += int($wp/$BASE*1.5);
-     }
-
-     $weps = $wweps ;
-     $mei = $wmei ;
-
-     if ( $wmei > 95 ) { $wmei = 95; }
-     if ($inf =~ /頭/) { $mei -= 20; }   // head
+    /**
+     * 무기+스킬에 따른 명중률 계산
+     *
+     * @param weapon
+     * @param injured
+     * @param shotSkill
+     * @param cutSkill
+     * @param throwSkill
+     * @param fistSkill
+     * @param bowSkill
+     * @param meleeSkill
+     * @param bombSkill
+     * @param pokeSkill
+     * @returns {{longRangeEngage: boolean, accuracyRate: number}}
      */
+    function getBattleRateByWeapon(weapon, injured, shotSkill, cutSkill, throwSkill, fistSkill, bowSkill, meleeSkill,
+                                   bombSkill, pokeSkill) {
+
+        var result = {
+            longRangeEngage: false,
+            accuracyRate: 0
+        };
+
+        var weaponStatus = getItem(weapon.idx);
+        var skillRate = getExpPerSkillLevel();
+        if (-1 !== weaponStatus.attackType.indexOf('melee')
+            || ((-1 !== weaponStatus.attackType.indexOf('bow') || -1 !== weaponStatus.attackType.indexOf('shot'))
+            && 0 == weapon.endurance)) {
+            result.accuracyRate = 80 + parseInt(meleeSkill / skillRate);
+        } else if (-1 !== weaponStatus.attackType.indexOf('bow')) {
+            result.longRangeEngage = true;
+            result.accuracyRate = 60 + parseInt(bowSkill / skillRate * 2);
+        } else if (-1 !== weaponStatus.attackType.indexOf('throw')) {
+            result.longRangeEngage = true;
+            result.accuracyRate = 70 + parseInt(throwSkill / skillRate * 1.5);
+        } else if (-1 !== weaponStatus.attackType.indexOf('bomb')) {
+            result.longRangeEngage = true;
+            result.accuracyRate = 60 + parseInt(bombSkill / skillRate * 2);
+        } else if (-1 !== weaponStatus.attackType.indexOf('shot')) {
+            result.longRangeEngage = true;
+            result.accuracyRate = 60 + parseInt(shotSkill / skillRate * 2);
+        } else if (-1 !== weaponStatus.attackType.indexOf('cut')) {
+            result.accuracyRate = 80 + parseInt(cutSkill / skillRate);
+        } else if (-1 !== weaponStatus.attackType.indexOf('poke')) {
+            result.accuracyRate = 80 + parseInt(pokeSkill / skillRate);
+        } else {
+            result.accuracyRate = 70 + parseInt(fistSkill / skillRate * 1.5);
+        }
+
+        if (result.accuracyRate > 95) {
+            result.accuracyRate = 95;
+        }
+
+        if (-1 !== injured.indexOf('head')) {
+            result.accuracyRate -= 20;
+        }
+
+        return result;
+    }
 
 
     return {
@@ -706,9 +879,14 @@ module.exports = (function () {
         getExpIncrease: getExpIncrease,
         getSkills: getSkills,
         getTactics: getTactics,
-        setReceivePacket: setReceivePacket,
         getPlaceMessage: getPlaceMessage,
         moveConsumeStamina: moveConsumeStamina,
-        exploreConsumeStamina: exploreConsumeStamina
+        exploreConsumeStamina: exploreConsumeStamina,
+        getBattleRateByAttacker: getBattleRateByAttacker,
+        getBattleRateByDefender: getBattleRateByDefender,
+        getPersonSearch: getPersonSearch,
+        getGlobalLooted: getGlobalLooted,
+        getEmptyItemSlot: getEmptyItemSlot,
+        findItemSlot: findItemSlot
     };
 })();

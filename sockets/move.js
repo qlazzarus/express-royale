@@ -14,6 +14,7 @@ module.exports = function(io, options, socket, reqData, userData){
         }
     }
 
+    var isDeath = false;
     if (true === place.restrict && 'hacked' !== userData.server.status) {
         result = false;
         log.push([place.name, ' 쪽은 금지구역이다. 이동할 수 없어...'].join(''));
@@ -27,9 +28,16 @@ module.exports = function(io, options, socket, reqData, userData){
         userData.account.place = reqData.value.replace(/place/, '');
         userData.account.stamina -= util.moveConsumeStamina(userData.account.clubId, userData.account.injured);
         if (0 > userData.account.stamina) {
-            userData.account.stamina = 0;
+            var drainStatus = require('./drain')(io, options, socket, reqData, userData, 'move', result, log);
+            isDeath = drainStatus.isDeath;
+            userData = drainStatus.userData;
+            log = drainStatus.eventLog;
         }
     }
 
-    require('./search')(io, options, socket, reqData, userData, 'info', result, log);
+    if (false === isDeath) {
+        require('./search')(io, options, socket, reqData, userData, 'move', result, log);
+    } else {
+        // TODO 사망
+    }
 };
