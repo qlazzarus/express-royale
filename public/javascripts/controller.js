@@ -328,7 +328,7 @@ var Commander = React.createClass({
 
     getExecuteName: function(command) {
         var executeName;
-        if (-1 !== ['info', 'move', 'explore'].indexOf(command)) {
+        if (-1 !== ['info', 'move', 'explore', 'attackStart'].indexOf(command)) {
             executeName = '확인';
         }
 
@@ -337,7 +337,7 @@ var Commander = React.createClass({
 
     getCommandDesc: function(command) {
         var commandDesc;
-        if ('info' == command) {
+        if (-1 !== ['info', 'move', 'explore', 'attackStart'].indexOf(command)) {
             commandDesc = '무엇을 합니까?';
         }
 
@@ -345,7 +345,7 @@ var Commander = React.createClass({
     },
 
     getCommandList: function(command, placeId, serverStatus, item0, item1, item2, item3, item4, item5, itemSchema) {
-        var commandList;
+        var commandList = [];
         if (-1 !== ['info', 'move', 'explore'].indexOf(command)) {
             commandList = [
                 {name:'아이템 정리/합성/장비', value:'items', className:'', item:false, checked:false},
@@ -369,9 +369,22 @@ var Commander = React.createClass({
             if (0 != placeId || (0 == placeId && 'hacked' == serverStatus)) {
                 commandList.unshift({name:'탐색', value:'explore', className:'', item:false, checked:false});
             }
-        }
 
-        commandList[0].checked = true;
+            commandList[0].checked = true;
+        } else if (-1 !== ['attackStart'].indexOf(command)) {
+            commandList = [
+                {name:'때린다()', value:'meleeSkill', className:'', item:false, checked:false},
+                {name:'때린다()', value:'fistSkill', className:'', item:false, checked:false},
+                {name:'쏜다()', value:'shotSkill', className:'', item:false, checked:false},
+                {name:'쏜다()', value:'bowSkill', className:'', item:false, checked:false},
+                {name:'벤다()', value:'cutSkill', className:'', item:false, checked:false},
+                {name:'던진다()', value:'throwSkill', className:'', item:false, checked:false},
+                {name:'던진다()', value:'bombSkill', className:'', item:false, checked:false},
+                {name:'도망', value:'runaway', className:'', item:false, checked:false}
+            ];
+
+            commandList[0].checked = true;
+        }
 
         return commandList;
     },
@@ -489,7 +502,9 @@ var QueueManager = function (socket) {
             } else if (data.queueId == that.getQueueId()) {
                 callback(data, that.getReserveCallback());
                 that.setQueueId('');
-                that.setReserveCallback();
+                if (typeof that.getReserveCallback() !== 'undefined') {
+                    that.setReserveCallback();
+                }
                 ExpressRoyale.hideLoading();
             }
         });
@@ -669,14 +684,11 @@ var ExpressRoyale = (function () {
     }
 
     function playerCommand(command) {
-        console.log(command);
         var commandList = ['explore'];
         if (-1 === commandList.indexOf(command)) {
             return false;
         } else {
-            queueManager.send({command:command}, function(result){
-                console.log(result);
-            });
+            queueManager.send({command:command});
         }
     }
 

@@ -1,6 +1,26 @@
 /**
  * Created by monoless on 2015-12-15.
  */
+function shuffle(array) {
+    var counter = array.length, temp, index;
+
+    // While there are elements in the array
+    while (counter > 0) {
+        // Pick a random index
+        index = Math.floor(Math.random() * counter);
+
+        // Decrease counter by 1
+        counter--;
+
+        // And swap the last element with it
+        temp = array[counter];
+        array[counter] = array[index];
+        array[index] = temp;
+    }
+
+    return array;
+}
+
 module.exports = function(io, options, socket, reqData, userData, eventName, eventResult, eventLog){
     var async = require('async');
 
@@ -45,14 +65,15 @@ module.exports = function(io, options, socket, reqData, userData, eventName, eve
         },
 
         function (enemyList, callback) {
-            var enemy = null;
             var enemyCount = enemyList.length;
-            if (0 < enemyCount) {
-                enemy = enemyList[util.dice(enemyCount - 1)];
+            var shuffleEnemy = shuffle(enemyList);
+            if (enemyCount > 5) {
+                enemyCount = 5;
             }
 
-            if (null !== enemy) {
-                var defenceStat = util.getBattleRateByDefender(
+            for (var i = 0; i < enemyCount; i++) {
+                var enemy = shuffleEnemy[0];
+                var defenderStat = util.getBattleRateByDefender(
                     enemy.status,
                     enemy.tactics,
                     enemy.place,
@@ -68,13 +89,37 @@ module.exports = function(io, options, socket, reqData, userData, eventName, eve
                     enemy.pokeSkill
                 );
 
-                console.log(attackerStat);
-                console.log(defenceStat);
+                if (5 == userData.account.tactics && defenderStat.stealth * 2 < util.dice(10) * 100) {
+                    enemy.prevAttacker = '';
+                }
 
-                eventLog.push('enemy');
+                if (enemy.prevAttacker == userData.account.username) {
+                    continue;
+                }
+
+                var isEnemyFind = (util.dice(10) * defenderStat.stealth < attackerStat.find * 100);
+                if (isEnemyFind && 0 >= enemy.health) {
+                    // TODO deathGet
+                    eventLog.push('enemy dead');
+                    break;
+                } else if (isEnemyFind && util.dice(10) <= attackerStat.ambush) {
+                    userData.enemy = enemy;
+                    require('./attackStart')(io, options, socket, reqData, userData, eventName, eventResult, eventLog);
+                    callback(null);
+                    return;
+                } else if (isEnemyFind) {
+                    userData.enemy = enemy;
+                    require('./attack')(io, options, socket, reqData, userData, eventName, eventResult, eventLog);
+                    callback(null);
+                    return;
+                }
             }
 
-            require('./finalize')(io, options, socket, reqData, userData, eventName, eventResult, eventLog);
+            if (0 < enemyCount) {
+                eventLog.push('누군가 숨어있는 듯한 느낌이 있다. 기분탓인가?');
+                require('./finalize')(io, options, socket, reqData, userData, eventName, eventResult, eventLog);
+            }
+
             callback(null);
         }
     ]);

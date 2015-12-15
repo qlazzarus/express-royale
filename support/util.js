@@ -627,34 +627,34 @@ module.exports = (function () {
         var result = {
             find: 5,    // 적, 아이템 발견율
             ambush: 7,  // 선제공격율
-            attack: 1.00,   // 공격율
-            defence: 1.00   // 방어율
+            attack: 100,   // 공격율
+            defence: 100   // 방어율
         };
 
         if (1 == tactics) {
             // 공격중시
-            result.attack += 0.4;
-            result.defence -= 0.4;
+            result.attack += 40;
+            result.defence -= 40;
         } else if (2 == tactics) {
             // 방어중시
-            result.attack -= 0.4;
-            result.defence += 0.4;
+            result.attack -= 40;
+            result.defence += 40;
             result.ambush -= 4;
         } else if (3 == tactics) {
             // 은밀행동
-            result.attack -= 0.4;
-            result.defence -= 0.4;
+            result.attack -= 40;
+            result.defence -= 40;
             result.find -= 4;
             result.ambush += 4;
         } else if (4 == tactics) {
             // 탐색행동
-            result.attack -= 0.4;
-            result.defence -= 0.4;
+            result.attack -= 40;
+            result.defence -= 40;
             result.find += 4;
             result.ambush += 4;
         } else if (5 == tactics) {
             // 연속공격
-            result.defence -= 0.4;
+            result.defence -= 40;
             result.find += 6;
         }
 
@@ -664,7 +664,7 @@ module.exports = (function () {
         result.find = merged.find;
 
         if (-1 !== injured.indexOf('arm')) {
-            result.attack -= 0.2;
+            result.attack -= 20;
         }
 
         var weaponStatus = getBattleRateByWeapon(weapon, injured, shotSkill, cutSkill, throwSkill, fistSkill, bowSkill,
@@ -693,44 +693,44 @@ module.exports = (function () {
      * @param meleeSkill
      * @param bombSkill
      * @param pokeSkill
-     * @returns {{find: number, ambush: number, stealth: number}}
+     * @returns {{attack: number, defence: number, stealth: number}}
      */
     function getBattleRateByDefender(status, tactics, placeId, injured, weapon, shotSkill, cutSkill, throwSkill, fistSkill,
                                      bowSkill, meleeSkill, bombSkill, pokeSkill) {
         var result = {
-            find: 5,    // 적, 아이템 발견율
-            ambush: 7,  // 선제공격율
-            stealth: 1.0    // 발견당할 확율? (높을수록 발견되지 않음)
+            attack: 100,   // 공격율
+            defence: 100,  // 방어율
+            stealth: 100    // 발견당할 확율? (높을수록 발견되지 않음)
         };
 
         if (5 == status) {
             // 치료중
-            result.stealth -= 0.3;
+            result.stealth -= 30;
         }
 
         if (1 == tactics) {
             // 공격중시
-            result.attack += 0.4;
-            result.defence -= 0.4;
+            result.attack += 40;
+            result.defence -= 40;
         } else if (2 == tactics) {
             // 방어중시
-            result.attack -= 0.4;
-            result.defence += 0.4;
-            result.stealth -= 0.2;
+            result.attack -= 40;
+            result.defence += 40;
+            result.stealth -= 20;
         } else if (3 == tactics) {
             // 은밀행동
-            result.attack -= 0.4;
-            result.defence -= 0.4;
-            result.stealth += 0.4;
+            result.attack -= 40;
+            result.defence -= 40;
+            result.stealth += 40;
         } else if (4 == tactics) {
             // 탐색행동
-            result.attack -= 0.4;
-            result.defence -= 0.4;
-            result.stealth -= 0.4;
+            result.attack -= 40;
+            result.defence -= 40;
+            result.stealth -= 40;
         } else if (5 == tactics) {
             // 연속공격
-            result.defence -= 0.4;
-            result.stealth -= 0.3;
+            result.defence -= 40;
+            result.stealth -= 30;
         }
 
         var merged = getBattleRateByPlace(placeId, result.attack, result.defence, 0);
@@ -738,7 +738,7 @@ module.exports = (function () {
         result.defence = merged.defence;
 
         if (-1 !== injured.indexOf('arm')) {
-            result.attack -= 0.2;
+            result.attack -= 20;
         }
 
         var weaponStatus = getBattleRateByWeapon(weapon, injured, shotSkill, cutSkill, throwSkill, fistSkill, bowSkill,
@@ -769,13 +769,13 @@ module.exports = (function () {
         };
 
         if ('attack_plus' === specialize) {
-            result.attack += 0.1;
+            result.attack += 10;
         } else if ('attack_minus' === specialize) {
-            result.attack -= 0.1;
+            result.attack -= 10;
         } else if ('defence_plus' === specialize) {
-            result.defence += 0.1;
+            result.defence += 10;
         } else if ('defence_minus' === specialize) {
-            result.defence -= 0.1;
+            result.defence -= 10;
         } else if ('find_plus' === specialize) {
             result.find += 1;
         } else if ('find_minus' === specialize) {
