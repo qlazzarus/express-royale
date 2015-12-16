@@ -25,7 +25,7 @@ var CurrentPlace = React.createClass({
 });
 
 var PlaceSelector = React.createClass({
-    getInitialState: function() {
+    getInitialState: function () {
         return {value: 'place' + this.getCurrent()};
     },
 
@@ -33,7 +33,7 @@ var PlaceSelector = React.createClass({
         ExpressRoyale.playerMove(event.target.value, this);
     },
 
-    getPlaces: function() {
+    getPlaces: function () {
         var places = this.props.places;
         if (typeof places == 'undefined') {
             places = [];
@@ -42,7 +42,7 @@ var PlaceSelector = React.createClass({
         return places;
     },
 
-    getCurrent: function() {
+    getCurrent: function () {
         var current = this.props.current;
         if (typeof current == 'undefined') {
             current = 0;
@@ -51,7 +51,7 @@ var PlaceSelector = React.createClass({
         return current;
     },
 
-    getMapped: function(places){
+    getMapped: function (places) {
         var mapped = [];
         for (var i in places) {
             var place = places[i];
@@ -117,6 +117,68 @@ var Skills = React.createClass({
     }
 });
 
+var BattleInfo = React.createClass({
+    getAccount: function () {
+        var account = this.props.account;
+
+        if (typeof account == 'undefined') {
+            account = {};
+        }
+
+        return account;
+    },
+
+    getEnemy: function () {
+        var enemy = this.props.enemy;
+
+        if (typeof enemy == 'undefined') {
+            enemy = {};
+        }
+
+        return enemy;
+    },
+
+    getItemSchema: function () {
+        var itemSchema = this.props.itemSchema;
+
+        if (typeof itemSchema == 'undefined') {
+            itemSchema = {};
+        }
+
+        return itemSchema;
+    },
+
+    render: function () {
+        var account = this.getAccount();
+        var enemy = this.getEnemy();
+        var itemSchema = this.getItemSchema();
+
+        return (
+            <div className="solid-bordered row">
+                <h5 className="red text-center">전투 발생</h5>
+                <div className="col-sm-5 col-sm-offset-1">
+                    <img src={account.userIcon} alt=''/><br />
+                    {account.username}<br />
+                    {account.groupName} ({0 == account.userGender ? '남자' : '여자'}{account.studentNo}번)<br />
+                    체력 : {account.health}/{account.maxHealth}<br />
+                    무기 : {ExpressRoyale.getItemName(account.weapon.idx, itemSchema)}<br />
+                    방어 : {ExpressRoyale.getItemName(account.armor.body.idx, itemSchema)}<br />
+                    살해수 : {account.killCount}명
+                </div>
+                <div className="col-sm-5 col-sm-offset-1">
+                    <img src={enemy.userIcon} alt=''/><br />
+                    {enemy.username}<br />
+                    {enemy.groupName} ({0 == enemy.userGender ? '남자' : '여자'}{enemy.studentNo}번)<br />
+                    상태 : <span style={{color:enemy.healthStatusStyle}}>{enemy.healthStatus}</span><br />
+                    무기 : {ExpressRoyale.getItemName(enemy.weapon.idx, itemSchema)}<br />
+                    방어 : {ExpressRoyale.getItemName(enemy.armor.body.idx, itemSchema)}<br />
+                    살해수 : {account.killCount}명
+                </div>
+            </div>
+        );
+    }
+});
+
 var CharacterInfo = React.createClass({
     render: function () {
         var colStyle = {width: '80px'};
@@ -178,7 +240,13 @@ var CharacterInfo = React.createClass({
                 <tr>
                     <th>부상부위</th>
                     <td>{data.injured.map(function (o) {
-                        return <span>{o}</span>
+                        var value = {
+                            head: '머리',
+                            body: '복부',
+                            foot: '다리',
+                            arm: '팔'
+                        }[o];
+                        return <span>{value} </span>
                     })}</td>
                 </tr>
                 </tbody>
@@ -250,7 +318,7 @@ var EquipItem = React.createClass({
 var Logger = React.createClass({
     log: [],
 
-    getMapped: function(){
+    getMapped: function () {
         if (typeof this.props.log === 'string') {
             this.log.push(this.props.log);
         } else if (this.props.log instanceof Array) {
@@ -266,12 +334,12 @@ var Logger = React.createClass({
         return this.log;
     },
 
-    componentDidUpdate: function() {
+    componentDidUpdate: function () {
         var node = this.getDOMNode();
         node.scrollTop = node.scrollHeight;
     },
 
-    render: function(){
+    render: function () {
         var mapped = this.getMapped();
         return (
             <div className="solid-bordered status-log">
@@ -286,7 +354,15 @@ var Logger = React.createClass({
 });
 
 var Commander = React.createClass({
-    getCommand: function(){
+    getInitialState: function () {
+        return {command: ''};
+    },
+
+    handleChange: function (value) {
+        this.setState({command: value});
+    },
+
+    getCommand: function () {
         var command = this.props.command;
 
         if (typeof command == 'undefined') {
@@ -296,7 +372,7 @@ var Commander = React.createClass({
         return command;
     },
 
-    getAccount: function() {
+    getAccount: function () {
         var account = this.props.account;
 
         if (typeof account == 'undefined') {
@@ -306,7 +382,17 @@ var Commander = React.createClass({
         return account;
     },
 
-    getServerFlag: function() {
+    getEnemy: function () {
+        var enemy = this.props.enemy;
+
+        if (typeof enemy == 'undefined') {
+            enemy = {};
+        }
+
+        return enemy;
+    },
+
+    getServerFlag: function () {
         var serverFlag = this.props.serverFlag;
 
         if (typeof serverFlag == 'undefined') {
@@ -316,7 +402,7 @@ var Commander = React.createClass({
         return serverFlag;
     },
 
-    getItemSchema: function() {
+    getItemSchema: function () {
         var itemSchema = this.props.itemSchema;
 
         if (typeof itemSchema == 'undefined') {
@@ -326,7 +412,7 @@ var Commander = React.createClass({
         return itemSchema;
     },
 
-    getExecuteName: function(command) {
+    getExecuteName: function (command) {
         var executeName;
         if (-1 !== ['info', 'move', 'explore', 'attackStart'].indexOf(command)) {
             executeName = '확인';
@@ -335,7 +421,7 @@ var Commander = React.createClass({
         return executeName;
     },
 
-    getCommandDesc: function(command) {
+    getCommandDesc: function (command) {
         var commandDesc;
         if (-1 !== ['info', 'move', 'explore', 'attackStart'].indexOf(command)) {
             commandDesc = '무엇을 합니까?';
@@ -344,21 +430,29 @@ var Commander = React.createClass({
         return commandDesc;
     },
 
-    getCommandList: function(command, placeId, serverStatus, item0, item1, item2, item3, item4, item5, itemSchema) {
+    getCommandList: function (command, account, serverFlag, itemSchema, enemy) {
         var commandList = [];
         if (-1 !== ['info', 'move', 'explore'].indexOf(command)) {
             commandList = [
-                {name:'아이템 정리/합성/장비', value:'items', className:'', item:false, checked:false},
-                {name:'응급처치', value:'injured', className:'', item:false, checked:false},
-                {name:'특수커맨드', value:'special', className:'', item:false, checked:false}
+                {name: '아이템 정리/합성/장비', value: 'items', className: '', item: false},
+                {name: '응급처치', value: 'injured', className: '', item: false},
+                {name: '특수커맨드', value: 'special', className: '', item: false}
             ];
 
-            if (0 != placeId) {
-                commandList.splice(1, 0, {name:'치료', value:'health', className:'health', item:false, checked:false},
-                    {name:'수면', value:'stamina', className:'stamina', item:false, checked:false});
+            if (0 != account.place) {
+                commandList.splice(1, 0, {
+                        name: '치료',
+                        value: 'health',
+                        className: 'health',
+                        item: false,
+                        target: null
+                    },
+                    {name: '수면', value: 'stamina', className: 'stamina', item: false});
             }
 
-            var itemList = this.getItemCommandList(item0, item1, item2, item3, item4, item5, itemSchema);
+            var itemList = this.getItemCommandList(account.item0, account.item1, account.item2, account.item3,
+                account.item4, account.item5, itemSchema);
+
             var itemLength = itemList.length;
             if (0 < itemLength) {
                 for (var i = itemLength; i > 0; i--) {
@@ -366,40 +460,56 @@ var Commander = React.createClass({
                 }
             }
 
-            if (0 != placeId || (0 == placeId && 'hacked' == serverStatus)) {
-                commandList.unshift({name:'탐색', value:'explore', className:'', item:false, checked:false});
+            if (0 != account.place || (0 == account.place && 'hacked' == serverFlag.status)) {
+                commandList.unshift({
+                    name: '탐색',
+                    value: 'explore',
+                    className: '',
+                    item: false
+                });
             }
-
-            commandList[0].checked = true;
         } else if (-1 !== ['attackStart'].indexOf(command)) {
-            commandList = [
-                {name:'때린다()', value:'meleeSkill', className:'', item:false, checked:false},
-                {name:'때린다()', value:'fistSkill', className:'', item:false, checked:false},
-                {name:'쏜다()', value:'shotSkill', className:'', item:false, checked:false},
-                {name:'쏜다()', value:'bowSkill', className:'', item:false, checked:false},
-                {name:'벤다()', value:'cutSkill', className:'', item:false, checked:false},
-                {name:'던진다()', value:'throwSkill', className:'', item:false, checked:false},
-                {name:'던진다()', value:'bombSkill', className:'', item:false, checked:false},
-                {name:'도망', value:'runaway', className:'', item:false, checked:false}
+            var weaponInfo = itemSchema[account.weapon.idx];
+            var queueList = [
+                {name: '때린다', type: 'melee', skill: account.meleeSkill, value: 'meleeSkill'},
+                {name: '때린다', type: 'fist', skill: account.fistSkill, value: 'fistSkill'},
+                {name: '쏜다', type: 'shot', skill: account.shotSkill, value: 'shotSkill'},
+                {name: '쏜다', type: 'bow', skill: account.bowSkill, value: 'bowSkill'},
+                {name: '벤다', type: 'cut', skill: account.cutSkill, value: 'cutSkill'},
+                {name: '찌른다', type: 'poke', skill: account.pokeSkill, value: 'pokeSkill'},
+                {name: '던진다', type: 'throw', skill: account.throwSkill, value: 'throwSkill'},
+                {name: '던진다', type: 'bomb', skill: account.bombSkill, value: 'bombSkill'}
             ];
 
-            commandList[0].checked = true;
+            for (var i in queueList) {
+                var queue = queueList[i];
+                if (-1 !== weaponInfo.attackType.indexOf(queue.type)) {
+                    commandList.push({
+                        name: queue.name + '(' + queue.skill + ')',
+                        value: queue.value,
+                        className: '',
+                        item: false
+                    });
+                }
+            }
+
+            commandList.push({name: '도망', value: 'runaway', className: '', item: false});
         }
 
         return commandList;
     },
 
-    getItemCommandList: function(item0, item1, item2, item3, item4, item5, itemSchema) {
+    getItemCommandList: function (item0, item1, item2, item3, item4, item5, itemSchema) {
         var result = [];
         var mapped = [item0, item1, item2, item3, item4, item5];
         for (var i in mapped) {
             var item = mapped[i];
             if ('' !== item.idx) {
                 result.push({
-                    name:[ExpressRoyale.getItemName(item.idx, itemSchema), item.point, item.endurance].join('/'),
-                    value:'item' + i,
-                    className:ExpressRoyale.getItemType(item.idx, itemSchema),
-                    item:true
+                    name: [ExpressRoyale.getItemName(item.idx, itemSchema), item.point, item.endurance].join('/'),
+                    value: 'item' + i,
+                    className: ExpressRoyale.getItemType(item.idx, itemSchema),
+                    item: true
                 });
             }
         }
@@ -407,31 +517,38 @@ var Commander = React.createClass({
         return result;
     },
 
-    executeCommand: function(evt) {
+    executeCommand: function (evt) {
         evt.preventDefault();
-        ExpressRoyale.playerCommand(evt.target.cmd.value, this);
+        var command = evt.target.cmd.value;
+        var enemy = this.getEnemy();
+
+        ExpressRoyale.playerCommand(command, enemy.username);
     },
 
-    render: function(){
+    render: function () {
         var command = this.getCommand();
         var account = this.getAccount();
+        var enemy = this.getEnemy();
         var serverFlag = this.getServerFlag();
         var itemSchema = this.getItemSchema();
 
         var executeName = this.getExecuteName(command);
         var commandDesc = this.getCommandDesc(command);
-        var commandList = this.getCommandList(command, account.place, serverFlag.status, account.item0,
-            account.item1, account.item2, account.item3, account.item4, account.item5, itemSchema);
+        var commandList = this.getCommandList(command, account, serverFlag, itemSchema, enemy);
+
+        var that = this;
 
         return (
             <form onSubmit={this.executeCommand}>
                 <p className="padding5px">{commandDesc}</p>
                 <ul className="list-unstyled">
-                    {commandList.map(function(o){
+                    {commandList.map(function (o, i) {
                         return (
                             <li className={o.className}>
                                 <label>
-                                    <input type="radio" name="cmd" value={o.value} checked={o.checked} />
+                                    <input type="radio" name="cmd" value={o.value}
+                                           onChange={that.handleChange.bind(that, o.value)}
+                                           defaultChecked={i == 0 ? true : false}/>
                                     <span className="padding5px">{o.name}</span>
                                 </label>
                                 {(() => {
@@ -441,7 +558,8 @@ var Commander = React.createClass({
                                                 &nbsp;(
                                                 <span className="padding5px">버림</span>
                                                 <input type="radio" name="cmd"
-                                                       className="vertical-text-bottom" value={'drop_' + o.value} />
+                                                       className="vertical-text-bottom" value={'drop_' + o.value}
+                                                       onChange={that.handleChange.bind(that, 'drop_' + o.value)}/>
                                                 &nbsp;)
                                             </label>
                                         );
@@ -451,7 +569,7 @@ var Commander = React.createClass({
                         );
                     })}
                 </ul>
-                <input type='submit' className="input btn btn-warning bg-red" value={executeName} />
+                <input type='submit' className="input btn btn-warning bg-red" value={executeName}/>
             </form>
         );
     }
@@ -464,23 +582,23 @@ var QueueManager = function (socket) {
     var queueId = '';
     var reserveCallback = undefined;
 
-    this.setQueueId = function(id) {
+    this.setQueueId = function (id) {
         queueId = id;
     };
 
-    this.getQueueId = function(){
+    this.getQueueId = function () {
         return queueId;
     };
 
-    this.setReserveCallback = function(callback){
+    this.setReserveCallback = function (callback) {
         reserveCallback = callback;
     };
 
-    this.getReserveCallback = function(){
+    this.getReserveCallback = function () {
         return reserveCallback;
     };
 
-    this.generateId = function(length) {
+    this.generateId = function (length) {
         if (typeof length == 'undefined') {
             length = 10;
         }
@@ -495,8 +613,8 @@ var QueueManager = function (socket) {
         return result.join('');
     };
 
-    this.observe = function(callback) {
-        socket.on(receivePacketName, function(data){
+    this.observe = function (callback) {
+        socket.on(receivePacketName, function (data) {
             if (!data.queueId) {
                 callback(data);
             } else if (data.queueId == that.getQueueId()) {
@@ -510,7 +628,7 @@ var QueueManager = function (socket) {
         });
     };
 
-    this.send = function(data, reserveCallback) {
+    this.send = function (data, reserveCallback) {
         if ('' === that.getQueueId()) {
             ExpressRoyale.showLoading();
 
@@ -527,6 +645,7 @@ var ExpressRoyale = (function () {
     var that = this;
     var socket = io();
     var queueManager = new QueueManager(socket);
+    var holders = {};
 
     function initialize() {
         observeEvent();
@@ -584,8 +703,8 @@ var ExpressRoyale = (function () {
             }
 
             result.push({
-                className:className,
-                desc:desc.join('')
+                className: className,
+                desc: desc.join('')
             });
         }
 
@@ -593,19 +712,19 @@ var ExpressRoyale = (function () {
     }
 
     function receivePacket(data, callback) {
-        // check server-flag
+        renderInit();
 
-        // check account status
-
-        // check data.type
-        if (0) {
-
-        } else {
-            renderCharacterInfo(data.account, data.config.tactics);
-            renderPlace(data.place, data.account.place);
-            renderSkill(data.account, data.config.skills, data.config.expPerSkillLevel);
-            renderItem(data.account, data.itemList);
-            renderCommander(data.type, data.account, data.server, data.itemList);
+        if (-1 !== ['info', 'move', 'explore'].indexOf(data.type)) {
+            renderCharacterInfo(data);
+            renderCurrentPlace(data);
+            renderPlaceSelector(data);
+            renderSkill(data);
+            renderItem(data);
+            renderCommander(data);
+        } else if ('attackStart' == data.type) {
+            renderBattleInfo(data);
+            renderCurrentPlace(data);
+            renderCommander(data);
         }
 
         renderLog(data.log);
@@ -615,80 +734,187 @@ var ExpressRoyale = (function () {
         }
     }
 
-    function renderCharacterInfo(data, tactics) {
+    function getBattleInfoHolder() {
+        if (typeof holders.battleInfo == 'undefined') {
+            holders.battleInfo = document.getElementById('battleInfo');
+        }
+
+        return holders.battleInfo;
+    }
+
+    function getCharacterInfoHolder() {
+        if (typeof holders.characterInfo == 'undefined') {
+            holders.characterInfo = document.getElementById('characterInfo');
+        }
+
+        return holders.characterInfo;
+    }
+
+    function getCurrentSkillsHolder() {
+        if (typeof holders.currentSkills == 'undefined') {
+            holders.currentSkills = document.getElementById('currentSkills');
+        }
+
+        return holders.currentSkills;
+    }
+
+    function getCurrentPlaceHolder() {
+        if (typeof holders.currentPlace == 'undefined') {
+            holders.currentPlace = document.getElementById('currentPlace');
+        }
+
+        return holders.currentPlace;
+    }
+
+    function getPlaceSelectorHolder() {
+        if (typeof holders.placeSelector == 'undefined') {
+            holders.placeSelector = document.getElementById('placeSelector');
+        }
+
+        return holders.placeSelector;
+    }
+
+    function getEquipItemHolder() {
+        if (typeof holders.equipItem == 'undefined') {
+            holders.equipItem = document.getElementById('equipItem');
+        }
+
+        return holders.equipItem;
+    }
+
+    function getCommanderHolder() {
+        if (typeof holders.commander == 'undefined') {
+            holders.commander = document.getElementById('commander');
+        }
+
+        return holders.commander;
+    }
+
+    function getLoggerHolder() {
+        if (typeof holders.logger == 'undefined') {
+            holders.logger = document.getElementById('logger');
+        }
+
+        return holders.logger;
+    }
+
+    function renderInit() {
+        getBattleInfoHolder().style.display = 'none';
+        getCharacterInfoHolder().style.display = 'none';
+        getCurrentSkillsHolder().style.display = 'none';
+        getCurrentPlaceHolder().style.display = 'none';
+        getPlaceSelectorHolder().style.display = 'none';
+        getEquipItemHolder().style.display = 'none';
+        getCommanderHolder().style.display = 'none';
+        getLoggerHolder().style.display = 'none';
+    }
+
+    function renderBattleInfo(data) {
+        getBattleInfoHolder().style.display = 'block';
         React.render(
-            <CharacterInfo data={data} tactics={tactics}/>,
-            document.getElementById('characterInfo')
+            <BattleInfo account={data.account} enemy={data.enemy} itemSchema={data.itemList}/>,
+            getBattleInfoHolder()
         );
     }
 
-    function renderSkill(data, skills, expPerSkillLevel) {
+    function renderCharacterInfo(data) {
+        getCharacterInfoHolder().style.display = 'block';
+        React.render(
+            <CharacterInfo data={data.account} tactics={data.config.tactics}/>,
+            getCharacterInfoHolder()
+        );
+    }
+
+    function renderSkill(data) {
+        getCurrentSkillsHolder().style.display = 'block';
         React.render(
             <Skills
-                skillExp={data}
-                skillNames={skills}
-                expPerSkillLevel={expPerSkillLevel}/>,
-            document.getElementById('currentSkills')
+                skillExp={data.account}
+                skillNames={data.config.skills}
+                expPerSkillLevel={data.config.expPerSkillLevel}/>,
+            getCurrentSkillsHolder()
         );
     }
 
-    function renderPlace(places, current) {
+    function renderCurrentPlace(data) {
+        getCurrentPlaceHolder().style.display = 'block';
         React.render(
             <CurrentPlace
-                places={places}
-                current={current}/>,
-            document.getElementById('currentPlace')
+                places={data.place}
+                current={data.account.place}/>,
+            getCurrentPlaceHolder()
         );
+    }
 
+    function renderPlaceSelector(data) {
+        getPlaceSelectorHolder().style.display = 'block';
         React.render(
             <PlaceSelector
-                places={places}
-                current={current}/>,
-            document.getElementById('placeSelector')
+                places={data.place}
+                current={data.account.place}/>,
+            getPlaceSelectorHolder()
         );
     }
 
-    function renderItem(items, itemSchema) {
+    function renderItem(data) {
+        getEquipItemHolder().style.display = 'block';
         React.render(
             <EquipItem
-                items={items}
-                itemSchema={itemSchema}/>,
-            document.getElementById('equipItem')
+                items={data.account}
+                itemSchema={data.itemList}/>,
+            getEquipItemHolder()
         );
     }
 
-    function renderCommander(command, account, serverFlag, itemSchema) {
+    function renderCommander(data) {
+        getCommanderHolder().style.display = 'block';
         React.render(
             <Commander
-                command={command}
-                account={account}
-                serverFlag={serverFlag}
-                itemSchema={itemSchema} />,
-            document.getElementById('commander')
+                command={data.type}
+                account={data.account}
+                enemy={data.enemy}
+                serverFlag={data.server}
+                itemSchema={data.itemList}/>,
+            getCommanderHolder()
         );
     }
 
     function renderLog(log) {
+        getLoggerHolder().style.display = 'block';
         React.render(
-            <Logger log={log} />,
-            document.getElementById('logger')
+            <Logger log={log}/>,
+            getLoggerHolder()
         );
     }
 
     function playerMove(nextPlace, placeSelector) {
-        queueManager.send({command:'move', value:nextPlace}, function(result){
+        queueManager.send({command: 'move', value: nextPlace}, function (result) {
             if (true === result) {
-                placeSelector.setState({value:nextPlace});
+                placeSelector.setState({value: nextPlace});
             }
         });
     }
 
-    function playerCommand(command) {
-        var commandList = ['explore'];
+    function playerCommand(command, value) {
+        var commandList = [
+            'explore',
+            'runaway',
+            'meleeSkill',
+            'shotSkill',
+            'cutSkill',
+            'throwSkill',
+            'fistSkill',
+            'bowSkill',
+            'pokeSkill',
+            'bombSkill'
+        ];
+
         if (-1 === commandList.indexOf(command)) {
+            console.log(command);
+            console.log(value);
             return false;
         } else {
-            queueManager.send({command:command});
+            queueManager.send({command: command, value: value});
         }
     }
 

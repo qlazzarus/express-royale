@@ -12,7 +12,9 @@ module.exports = function(io, options, socket, reqData, userData, eventName, eve
             eventLog.push('문득, 하늘을 보자, 새떼들이다!');
             if (18 === eventDice) {
                 eventLog.push('새에게 습격받아, 머리를 다쳤다!');
-                userData.account.injured.push('head');
+                if (-1 === userData.account.injured.indexOf('head')) {
+                    userData.account.injured.push('head');
+                }
             } else if (19 === eventDice) {
                 eventLog.push(['새에게 습격받아, <strong class="red">', damageDice, '데미지</strong> 를 입었다!'].join(''));
                 userData.account.health -= damageDice;
@@ -26,7 +28,9 @@ module.exports = function(io, options, socket, reqData, userData, eventName, eve
             eventLog.push('이런, 토사가 쏟아졌다!');
             if (18 === eventDice) {
                 eventLog.push('간신히 피했지만, 낙석에 발을 다쳤다!');
-                userData.account.injured.push('foot');
+                if (-1 === userData.account.injured.indexOf('foot')) {
+                    userData.account.injured.push('foot');
+                }
             } else if (19 === eventDice) {
                 eventLog.push(['낙석에 의해, <strong class="red">', damageDice, '데미지</strong> 를 입었다!'].join(''));
                 userData.account.health -= damageDice;
@@ -40,7 +44,9 @@ module.exports = function(io, options, socket, reqData, userData, eventName, eve
             eventLog.push('갑자기, 들개가 습격해 왔다!');
             if (18 === eventDice) {
                 eventLog.push('팔을 물려, 팔을 다쳤다!');
-                userData.account.injured.push('arm');
+                if (-1 === userData.account.injured.indexOf('arm')) {
+                    userData.account.injured.push('arm');
+                }
             } else if (19 === eventDice) {
                 eventLog.push(['들개에게 습격받아, <strong class="red">', damageDice, '데미지</strong> 를 입었다!'].join(''));
                 userData.account.health -= damageDice;

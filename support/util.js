@@ -16,6 +16,42 @@ module.exports = (function () {
 
 
     /**
+     * 체력 상태 출력
+     *
+     * @param maxHealth
+     * @param health
+     * @returns {{name:String, color:String}}
+     */
+    function getHealthStatus(maxHealth, health) {
+        var statusId = 0;
+        var percent = 100;
+        if (0 < maxHealth) {
+            percent = health * 100 / maxHealth;
+            if (percent > 60) {
+                statusId = 0;
+            } else if (percent > 30) {
+                statusId = 1;
+            } else if (percent > 10) {
+                statusId = 2;
+            } else if (percent > 0) {
+                statusId = 3;
+            } else if (percent <= 0) {
+                statusId = 4;
+            }
+        } else {
+            statusId = 4;
+        }
+
+        var status = gameConfig.status[statusId];
+        if (typeof status === 'undefined') {
+            status = {};
+        }
+
+        return status;
+    }
+
+
+    /**
      * 기본 적 발견율
      *
      * @returns {number}
@@ -849,6 +885,7 @@ module.exports = (function () {
 
     return {
         dice: dice,
+        getHealthStatus: getHealthStatus,
         getRandomItem: getRandomItem,
         getPoint: getPoint,
         getSkillByClubId: getSkillByClubId,

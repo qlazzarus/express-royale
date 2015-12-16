@@ -25,7 +25,9 @@ module.exports = function(io, options, socket, reqData, userData){
     }
 
     if (true === result) {
+        socket.leave(data.account.place);
         userData.account.place = reqData.value.replace(/place/, '');
+        socket.join(data.account.place);
         userData.account.stamina -= util.moveConsumeStamina(userData.account.clubId, userData.account.injured);
         if (0 > userData.account.stamina) {
             var drainStatus = require('./drain')(io, options, socket, reqData, userData, 'move', result, log);

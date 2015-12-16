@@ -1,48 +1,78 @@
 /**
  * Created by monoless on 2015-12-15.
  */
-module.exports = function(io, options, socket, reqData, userData, eventName, eventResult, eventLog) {
+module.exports = function(io, options, socket, req, res, eventName, eventResult, eventLog) {
     // util
     var util = options.container.get('util');
 
-    if (reqData.queueId) {
-        userData.queueId = reqData.queueId;
+    if (req.queueId) {
+        res.queueId = req.queueId;
     }
 
-    userData.type = eventName;
-    userData.result = eventResult;
-    userData.log = eventLog;
-    userData.place = util.arrangePlaceInfo();
-    userData.config = {
+    res.type = eventName;
+    res.result = eventResult;
+    res.log = eventLog;
+    res.place = util.arrangePlaceInfo();
+    res.config = {
         expPerSkillLevel: util.getExpPerSkillLevel(),
         skills: util.getSkills(),
         tactics: util.getTactics()
     };
 
-    if (typeof userData.account != 'undefined') {
+    if (typeof res.account != 'undefined') {
         // user status save
-        userData.account.save();
+        res.account.save();
 
         var itemList = ['item0', 'item1', 'item2', 'item3', 'item4', 'item5'];
         for (var i in itemList) {
-            userData.account[itemList[i]].point = Math.abs(userData.account[itemList[i]].point);
+            res.account[itemList[i]].point = Math.abs(res.account[itemList[i]].point);
         }
 
-        userData.itemList = util.getItem([
-            userData.account.weapon.idx,
-            userData.account.armor.head.idx,
-            userData.account.armor.body.idx,
-            userData.account.armor.arm.idx,
-            userData.account.armor.foot.idx,
-            userData.account.armor.accessory.idx,
-            userData.account.item0.idx,
-            userData.account.item1.idx,
-            userData.account.item2.idx,
-            userData.account.item3.idx,
-            userData.account.item4.idx,
-            userData.account.item5.idx
+        res.itemList = util.getItem([
+            res.account.weapon.idx,
+            res.account.armor.head.idx,
+            res.account.armor.body.idx,
+            res.account.armor.arm.idx,
+            res.account.armor.foot.idx,
+            res.account.armor.accessory.idx,
+            res.account.item0.idx,
+            res.account.item1.idx,
+            res.account.item2.idx,
+            res.account.item3.idx,
+            res.account.item4.idx,
+            res.account.item5.idx
         ]);
     }
 
-    socket.emit('recv', userData);
+    if (typeof res.enemy != 'undefined') {
+        var enemyItemList = util.getItem([
+            res.enemy.weapon.idx,
+            res.enemy.armor.body.idx
+        ]);
+
+        if (typeof res.itemList == 'undefined') {
+            res.itemList = enemyItemList;
+        } else {
+            for (var i in enemyItemList) {
+                res.itemList[i] = enemyItemList[i];
+            }
+        }
+
+        var healthStatus = util.getHealthStatus(res.enemy.maxHealth, res.enemy.health);
+        res.enemy = {
+            username: res.enemy.username,
+            userIcon: res.enemy.userIcon,
+            userGender: res.enemy.userGender,
+            groupName: res.enemy.groupName,
+            studentNo: res.enemy.studentNo,
+            healthStatus: healthStatus.name,
+            healthStatusStyle: healthStatus.color,
+            weapon: {idx: res.enemy.weapon.idx},
+            armor: {body: {idx: res.enemy.armor.body.idx}},
+            killCount: res.enemy.killCount
+        };
+
+    }
+
+    socket.emit('recv', res);
 };
