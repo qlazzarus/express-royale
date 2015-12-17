@@ -506,6 +506,42 @@ module.exports = (function () {
 
 
     /**
+     * 공격 퍼센트 계산
+     *
+     * @param attack
+     * @param weaponPoint
+     * @param command
+     * @returns {Number}
+     */
+    function getAttackPercent(attack, weaponPoint, command) {
+        var result = (weaponPoint + attack) * attack;
+        if ('meleeSkill' == command) {
+            result = (parseInt(weaponPoint / 10) + attack) * attack;
+        }
+
+        return parseInt(result / 100);
+    }
+
+
+    /**
+     * 방어 퍼센트 계산
+     *
+     * @param defence
+     * @param headPoint
+     * @param bodyPoint
+     * @param armPoint
+     * @param footPoint
+     * @param accessoryPoint
+     * @returns {Number}
+     */
+    function getDefencePercent(defence, headPoint, bodyPoint, armPoint, footPoint, accessoryPoint) {
+        var result = (defence + headPoint + bodyPoint + armPoint + footPoint + accessoryPoint) * defence;
+
+        return parseInt(result / 100);
+    }
+
+
+    /**
      * 동아리에 따른 능력치 결정
      *
      * @param clubId
@@ -617,6 +653,401 @@ module.exports = (function () {
 
 
     /**
+     * 데미지 계산
+     *
+     * @param userAttack
+     * @param userDamage
+     * @param enemyDefence
+     * @param skillName
+     * @param armorBody
+     * @param armorHead
+     * @param armorAccessory
+     * @returns {number}
+     */
+    function getTotalDamage(userAttack, userDamage, enemyDefence, skillName, armorBody, armorHead, armorAccessory) {
+        var result = parseInt(userAttack * userDamage / 100) - enemyDefence;
+        result /= 2;
+        result += dice(result);
+
+        var equipBuff = util.getEquipCounter(
+            skillName,
+            armorBody,
+            armorHead,
+            armorAccessory
+        );
+
+        result = parseInt(result * equipBuff / 100);
+        if (result <= 0) {
+            result = 1;
+        }
+
+        return result;
+    }
+
+
+    /**
+     * 경험치 계산
+     *
+     * @param userLevel
+     * @param enemyLevel
+     * @returns {number}
+     */
+    function getBattleExp(userLevel, enemyLevel) {
+        var levelDiff = enemyLevel - userLevel;
+        if (0 > levelDiff) {
+            levelDiff = 0;
+        }
+
+        return parseInt(levelDiff / 2) + 1;
+    }
+
+
+    /**
+     * 레벨 상승 이벤트
+     *
+     * @param level
+     * @param maxHealth
+     * @param attack
+     * @param defence
+     * @param requireExp
+     * @returns {{status: boolean, maxHealth: *, attack: *, defence: *, level: *, requireExp: number}}
+     */
+    function setLevelUp(level, maxHealth, attack, defence, requireExp) {
+        var result = {
+            status: false,
+            maxHealth: maxHealth,
+            attack: attack,
+            defence: defence,
+            level: level,
+            requireExp: 0
+        };
+
+        if (0 >= requireExp) {
+            result.status = true;
+            result.maxHealth += dice(3) + 7;
+            result.attack += dice(3) + 2;
+            result.defence += dice(3) + 2;
+            result.level++;
+            result.requireExp = getExpPerLevel() + getExpIncrease() * result.level;
+        }
+
+        return result;
+    }
+
+
+    /**
+     * 전투 계산
+     *
+     * @param user
+     * @param skillType
+     * @param enemy
+     * @param strikeBack
+     * @param eventLog
+     * @returns {{damage: number, critical: boolean, injured: string, alert: boolean, weaponDestroy: boolean, eventLog: [], user: {}, enemy: {}}}
+     */
+    function getBattleResult(user, skillType, enemy, strikeBack, eventLog) {
+        var res = {
+            damage: 0,
+            critical: false,
+            injured: '',
+            alert: false,
+            weaponDestroy: false,
+            eventLog: eventLog,
+            user: user,
+            enemy: enemy
+        };
+
+        var attackName = strikeBack ? '공격' : '반격';
+        var weapon = util.getItem(user.weapon.idx);
+        var destroyPercent = 0;
+        var injurePercent = 0;
+        var injurePart = [];
+        var skillLevel = 0;
+
+        if ('meleeSkill' === skillType) {
+            eventLog.push([
+                res.user.username, '의 ', attackName, '! ', weapon.name, '(으)로 ', res.enemy.username,
+                '을(를) 때렸다!'
+            ].join(''));
+            res.user.meleeSkill++;
+            skillLevel = res.user.meleeSkill;
+            destroyPercent = 3;
+            injurePercent = 5;
+            injurePart = ['head', 'arm'];
+        } else if ('bowSkill' === skillType) {
+            eventLog.push([
+                res.user.username, '의 ', attackName, '! ', weapon.name, '(으)로 ', res.enemy.username,
+                '을(를) 겨냥해 쐈다!'
+            ].join(''));
+            res.user.bowSkill++;
+            skillLevel = res.user.bowSkill;
+            destroyPercent = 3;
+            injurePercent = 10;
+            injurePart = ['head', 'arm', 'body', 'foot'];
+        } else if ('throwSkill' === skillType) {
+            eventLog.push([
+                res.user.username, '의 ', attackName, '! ', weapon.name, '(을)를 ', res.enemy.username,
+                '에게 던졌다!'
+            ].join(''));
+            res.user.throwSkill++;
+            skillLevel = res.user.throwSkill;
+            destroyPercent = 0;
+            injurePercent = 7;
+            injurePart = ['head', 'foot'];
+        } else if ('bombSkill' === skillType) {
+            eventLog.push([
+                res.user.username, '의 ', attackName, '! ', weapon.name, '(을)를 ', res.enemy.username,
+                '에게 던졌다!'
+            ].join(''));
+            res.user.bombSkill++;
+            skillLevel = res.user.bombSkill;
+            destroyPercent = 0;
+            injurePercent = 15;
+            injurePart = ['head', 'arm', 'body', 'foot'];
+            res.alert = true;
+        } else if ('shotSkill' === skillType) {
+            eventLog.push([
+                res.user.username, '의 ', attackName, '! ', weapon.name, '(으)로 ', res.enemy.username,
+                '을(를) 겨냥해 발포했다!'
+            ].join(''));
+            res.user.shotSkill++;
+            skillLevel = res.user.shotSkill;
+            destroyPercent = 3;
+            injurePercent = 12;
+            injurePart = ['head', 'arm', 'body', 'foot'];
+            res.alert = true;
+        } else if ('pokeSkill' === skillType) {
+            eventLog.push([
+                res.user.username, '의 ', attackName, '! ', weapon.name, '(을)를 ', res.enemy.username,
+                '을(를) 찔렀다!'
+            ].join(''));
+            res.user.pokeSkill++;
+            skillLevel = res.user.pokeSkill;
+            destroyPercent = 3;
+            injurePercent = 10;
+            injurePart = ['head', 'arm', 'body', 'foot'];
+        } else if ('cutSkill' === skillType) {
+            eventLog.push([
+                res.user.username, '의 ', attackName, '! ', weapon.name, '(을)를 ', res.enemy.username,
+                '을(를) 베었다!'
+            ].join(''));
+            res.user.cutSkill++;
+            skillLevel = res.user.cutSkill;
+            destroyPercent = 3;
+            injurePercent = 10;
+            injurePart = ['head', 'arm', 'body', 'foot'];
+        } else if ('fistSkill' === skillType) {
+            eventLog.push([
+                res.user.username, '의 ', attackName, '! ', weapon.name, '(을)를 ', res.enemy.username,
+                '을(를) 때렸다!'
+            ].join(''));
+            res.user.fistSkill++;
+            skillLevel = res.user.fistSkill;
+            destroyPercent = 3;
+            injurePercent = 10;
+            injurePart = ['head'];
+
+            if ('weapon0' === res.user.weapon.idx) {
+                destroyPercent = 0;
+                injurePercent = 3;
+            }
+        }
+
+        skillLevel = parseInt(skillLevel / getExpPerSkillLevel());
+        res.damage = getDamageBySkillLevel(skillLevel, res.user.weapon.idx);
+
+        // 무기 손상
+        if (dice(100) < destroyPercent) {
+            res.weaponDestroy = true;
+            res.user.weapon = {idx: 'weapon0', point: 0, endurance: 0};
+        }
+
+        // 부상처리 & 크리티컬
+        var injureAttack = false;
+        var injureDice = dice(100);
+        var injurePartDice = dice(4);
+        if (injureDice < injurePercent) {
+            if (0 == injurePartDice && -1 !== injurePart.indexOf('head')) {
+                res.injured = 'head';
+                injureAttack = true;
+            } else if (1 == injurePartDice && -1 !== injurePart.indexOf('arm')) {
+                res.injured = 'arm';
+                injureAttack = true;
+            } else if (2 == injurePartDice && -1 !== injurePart.indexOf('body')) {
+                res.injured = 'body';
+                injureAttack = true;
+            } else if (3 == injurePartDice && -1 !== injurePart.indexOf('foot')) {
+                res.injured = 'foot';
+                injureAttack = true;
+            }
+        }
+
+        if (true === injureAttack && -1 !== ['', 'armor0'].indexOf(res.enemy.armor[res.injured].idx)) {
+            res.injured = '';
+            injureAttack = false;
+            res.enemy.armor[res.injured].endurance--;
+            if (0 >= res.enemy.armor[res.injured].endurance) {
+                res.enemy.armor[res.injured] = {idx: '', point: 0, endurance: 0};
+            }
+        }
+
+        if (true === injureAttack && dice(100) < {head: 30, arm: 80, body: 20, foot: 50}[res.injured]) {
+            res.injured = '';
+            res.damage += 10;
+            res.critical = true;
+        }
+
+        if ('' !== res.injured && -1 === res.enemy.injured.indexOf(res.injured)) {
+            res.enemy.injured.push(res.injured);
+        }
+
+        return res;
+    }
+
+
+    function getEquipCounter(skillType, bodyId, headId, accessoryId) {
+        var body = getItem(bodyId);
+        var head = getItem(headId);
+        var accessory = getItem(accessoryId);
+        var result = 100;
+
+        if ('shotSkill' == skillType && typeof accessory !== 'undefined') {
+            result = 50;
+        } else if ('shotSkill' == skillType && typeof head !== 'undefined') {
+            result = 150;
+        } else if ('cutSkill' == skillType && typeof body !== 'undefined' && 'chain' === body.material) {
+            result = 50;
+        } else if ('cutSkill' == skillType && typeof accessory !== 'undefined') {
+            result = 150;
+        } else if ('meleeSkill' == skillType && typeof head !== 'undefined') {
+            result = 50;
+        } else if ('meleeSkill' == skillType && typeof body !== 'undefined' && 'armor' === body.material) {
+            result = 150;
+        } else if ('pokeSkill' == skillType && typeof body !== 'undefined' && 'armor' === body.material) {
+            result = 50;
+        } else if ('pokSkill' == skillType && typeof body !== 'undefined' && 'chain' === body.material) {
+            result = 150;
+        }
+
+        return result;
+    }
+
+
+    /**
+     * 스킬레벨에 따른 데미지 계산
+     *
+     * @param skillLevel
+     * @param weaponIdx
+     * @returns {Number}
+     */
+    function getDamageBySkillLevel(skillLevel, weaponIdx) {
+        var result = {
+            0: 90,
+            1: 95,
+            2: 100,
+            3: 105,
+            4: 110,
+            5: 115,
+            6: 117,
+            7: 119,
+            8: 121,
+            9: 123,
+            10: 125,
+            11: 127,
+            12: 129,
+            13: 131,
+            14: 133,
+            15: 135,
+            16: 137,
+            17: 139,
+            18: 141,
+            19: 143
+        }[skillLevel];
+
+        if (typeof result !== 'undefined') {
+            result = 145;
+        }
+
+        if ('weapon0' === weaponIdx) {
+            result = {
+                0: 90,
+                1: 95,
+                2: 100,
+                3: 105,
+                4: 110,
+                5: 115,
+                6: 118,
+                7: 121,
+                8: 124,
+                9: 127,
+                10: 130,
+                11: 133,
+                12: 136,
+                13: 139,
+                14: 142,
+                15: 145,
+                16: 148,
+                17: 151,
+                18: 154,
+                19: 157
+            }[skillLevel];
+
+            if (typeof result !== 'undefined') {
+                result = 160;
+            }
+        }
+
+        return result;
+    }
+
+
+    /**
+     * 무기 소모율 계산
+     *
+     * @param weapon
+     * @param skillType
+     * @returns {{}}
+     */
+    function setConsumeWeapon(weapon, skillType) {
+        var weaponInfo = getItem(weapon.idx);
+        if (true == weaponInfo.ammoRequire && 0 < weapon.endurance) {
+            weapon.endurance--;
+        } else if ('throwSkill' === skillType && -1 !== weaponInfo.attackType.indexOf('throw')) {
+            weapon.endurance--;
+            if (0 >= weapon.endurance) {
+                weapon = {idx:'weapon0', point:0, endurance:0};
+            }
+        } else if ('cutSkill' === skillType && -1 !== weaponInfo.attack.indexOf('cut')) {
+            weapon.point -= dice(1) + 1;
+            if (0 >= weapon.point) {
+                weapon = {idx:'weapon0', point:0, endurance:0};
+            }
+        }
+
+        return weapon;
+    }
+
+
+    /**
+     * 방어구 소모율 계산
+     *
+     * @param armor
+     * @returns {{}}
+     */
+    function setConsumeBodyArmor(armor) {
+        if ('armor0' !== armor.idx && 0 == dice(5)) {
+            armor.endurance--;
+        }
+
+        if (0 >= armor.endurance) {
+            armor = {idx: 'armor0', point: 0, endurance: 0};
+        }
+
+        return armor;
+    }
+
+
+    /**
      * 장소 관련된 정보 노출 최소화
      *
      * @returns {Array}
@@ -656,7 +1087,7 @@ module.exports = (function () {
      * @param meleeSkill
      * @param bombSkill
      * @param pokeSkill
-     * @returns {{find: number, ambush: number, attack: number, defence: number}}
+     * @returns {{find: number, ambush: number, attack: number, defence: number, longRangeEngage: boolean, accuracyRate}}
      */
     function getBattleRateByAttacker(tactics, placeId, injured, weapon, shotSkill, cutSkill, throwSkill, fistSkill,
                                      bowSkill, meleeSkill, bombSkill, pokeSkill) {
@@ -664,7 +1095,9 @@ module.exports = (function () {
             find: 5,    // 적, 아이템 발견율
             ambush: 7,  // 선제공격율
             attack: 100,   // 공격율
-            defence: 100   // 방어율
+            defence: 100,  // 방어율
+            longRangeEngage: false,
+            accuracyRate: 0
         };
 
         if (1 == tactics) {
@@ -729,14 +1162,16 @@ module.exports = (function () {
      * @param meleeSkill
      * @param bombSkill
      * @param pokeSkill
-     * @returns {{attack: number, defence: number, stealth: number}}
+     * @returns {{attack: number, defence: number, stealth: number, longRangeEngage: boolean, accuracyRate}}
      */
     function getBattleRateByDefender(status, tactics, placeId, injured, weapon, shotSkill, cutSkill, throwSkill, fistSkill,
                                      bowSkill, meleeSkill, bombSkill, pokeSkill) {
         var result = {
             attack: 100,   // 공격율
             defence: 100,  // 방어율
-            stealth: 100    // 발견당할 확율? (높을수록 발견되지 않음)
+            stealth: 100,   // 발견당할 확율? (높을수록 발견되지 않음)
+            longRangeEngage: false,
+            accuracyRate: 0
         };
 
         if (5 == status) {
@@ -885,6 +1320,8 @@ module.exports = (function () {
 
     return {
         dice: dice,
+        getAttackPercent: getAttackPercent,
+        getDefencePercent: getDefencePercent,
         getHealthStatus: getHealthStatus,
         getRandomItem: getRandomItem,
         getPoint: getPoint,
@@ -924,6 +1361,13 @@ module.exports = (function () {
         getPersonSearch: getPersonSearch,
         getGlobalLooted: getGlobalLooted,
         getEmptyItemSlot: getEmptyItemSlot,
-        findItemSlot: findItemSlot
+        findItemSlot: findItemSlot,
+        getBattleResult: getBattleResult,
+        getEquipCounter: getEquipCounter,
+        setConsumeWeapon: setConsumeWeapon,
+        setConsumeBodyArmor: setConsumeBodyArmor,
+        getTotalDamage: getTotalDamage,
+        getBattleExp: getBattleExp,
+        setLevelUp: setLevelUp
     };
 })();

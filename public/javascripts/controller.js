@@ -413,24 +413,14 @@ var Commander = React.createClass({
     },
 
     getExecuteName: function (command) {
-        var executeName;
-        if (-1 !== ['info', 'move', 'explore', 'attackStart'].indexOf(command)) {
-            executeName = '확인';
-        }
-
-        return executeName;
+        return '확인';
     },
 
     getCommandDesc: function (command) {
-        var commandDesc;
-        if (-1 !== ['info', 'move', 'explore', 'attackStart'].indexOf(command)) {
-            commandDesc = '무엇을 합니까?';
-        }
-
-        return commandDesc;
+        return '무엇을 합니까?';
     },
 
-    getCommandList: function (command, account, serverFlag, itemSchema, enemy) {
+    getCommandList: function (command, account, serverFlag, itemSchema) {
         var commandList = [];
         if (-1 !== ['info', 'move', 'explore'].indexOf(command)) {
             commandList = [
@@ -494,6 +484,8 @@ var Commander = React.createClass({
             }
 
             commandList.push({name: '도망', value: 'runaway', className: '', item: false});
+        } else {
+            commandList.push({name: '돌아간다', value: 'info', className: '', item: false});
         }
 
         return commandList;
@@ -528,13 +520,12 @@ var Commander = React.createClass({
     render: function () {
         var command = this.getCommand();
         var account = this.getAccount();
-        var enemy = this.getEnemy();
         var serverFlag = this.getServerFlag();
         var itemSchema = this.getItemSchema();
 
         var executeName = this.getExecuteName(command);
         var commandDesc = this.getCommandDesc(command);
-        var commandList = this.getCommandList(command, account, serverFlag, itemSchema, enemy);
+        var commandList = this.getCommandList(command, account, serverFlag, itemSchema);
 
         var that = this;
 
@@ -721,7 +712,7 @@ var ExpressRoyale = (function () {
             renderSkill(data);
             renderItem(data);
             renderCommander(data);
-        } else if ('attackStart' == data.type) {
+        } else if (-1 !== ['attackStart', 'attackResult'].indexOf(data.type)) {
             renderBattleInfo(data);
             renderCurrentPlace(data);
             renderCommander(data);

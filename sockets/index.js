@@ -27,6 +27,13 @@ module.exports = function (io, options) {
                     } else if ('runaway' === req.command) {
                         require('./finalize')(io, options, socket, req, res, 'info', true,
                             res.account.username + '은(는) 전속력으로 도망쳤다...');
+                    } else if (-1 !== [
+                            'meleeSkill', 'shotSkill', 'cutSkill', 'throwSkill', 'fistSkill', 'bowSkill',
+                            'pokeSkill', 'bombSkill'
+                        ].indexOf(req.command)) {
+                        require('./attackTarget')(io, options, socket, req, res);
+                    } else {
+                        require('./finalize')(io, options, socket, req, res, 'info', true, '');
                     }
                 }
             );

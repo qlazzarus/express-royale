@@ -109,7 +109,7 @@ module.exports = function(io, options, socket, reqData, userData, eventName, eve
                     return;
                 } else if (isEnemyFind) {
                     userData.enemy = enemy;
-                    require('./attack')(io, options, socket, reqData, userData, eventName, eventResult, eventLog);
+                    require('./attacked')(io, options, socket, reqData, userData, eventName, eventResult, eventLog);
                     callback(null);
                     return;
                 }
