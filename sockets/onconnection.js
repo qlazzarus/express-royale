@@ -8,14 +8,14 @@ module.exports = function (io, options, socket) {
         options.models.getModel('place'),
         options.models.getModel('server'),
         socket.request.user.username,
-        function (err, data) {
+        function (err, res) {
             console.log([socket.id, ' connected'].join(''));
             if (err) {
                 console.log(err);
             } else {
-                socket.join(data.account.place);
-                socket.join(data.account.username);
-                require('./finalize')(io, options, socket, {}, data, 'info', true, '자, 어떻게하지...');
+                socket.join(res.account.place);
+                socket.join(res.account.username);
+                require('./finalize')(io, options, socket, {}, res, 'info', true, '자, 어떻게하지...');
             }
         }
     );

@@ -284,16 +284,22 @@ var EquipItem = React.createClass({
         return (
             <div>
                 {equipMapped.map(function (o) {
-                    var desc = '-';
+                    var desc = ['-'];
 
                     if ('' !== o.status.idx) {
-                        desc = ExpressRoyale.getItemDesc(o.status, itemSchema);
+                        desc = [
+                            ExpressRoyale.getItemName(o.status.idx, itemSchema),
+                            '/',
+                            o.status.point,
+                            '/',
+                            o.status.endurance
+                        ];
                     }
 
                     return (
                         <dl className="dl-horizontal small-dl bg-equip">
                             <dt className={o.className}>{o.category}</dt>
-                            <dd>{desc}</dd>
+                            <dd>{desc.join('')}</dd>
                         </dl>
                     );
                 })}
@@ -411,12 +417,7 @@ var Commander = React.createClass({
     },
 
     getCommandDesc: function (command) {
-        var desc = '무엇을 합니까?';
-        if ('injured' === command) {
-            desc = '어디를 치료합니까?';
-        }
-
-        return desc;
+        return '무엇을 합니까?';
     },
 
     getCommandList: function (command, account, serverFlag, itemSchema) {
@@ -457,7 +458,7 @@ var Commander = React.createClass({
                     item: false
                 });
             }
-        } else if ('attackStart' === command) {
+        } else if (-1 !== ['attackStart'].indexOf(command)) {
             var weaponInfo = itemSchema[account.weapon.idx];
             var queueList = [
                 {name: '때린다', type: 'melee', skill: account.meleeSkill, value: 'meleeSkill'},
@@ -483,21 +484,6 @@ var Commander = React.createClass({
             }
 
             commandList.push({name: '도망', value: 'runaway', className: '', item: false});
-        } else if ('injured' === command) {
-            commandList.push({name: '돌아간다', value: 'info', className: '', item: false});
-            var mapped = [
-                {name: '머리', type: 'head'},
-                {name: '팔', type: 'arm'},
-                {name: '복부', type: 'body'},
-                {name: '다리', type: 'foot'}
-            ];
-
-            for (var i in mapped) {
-                var map = mapped[i];
-                if (-1 !== account.injured.indexOf(map.type)) {
-                    commandList.push({name: map.name, value: 'injured_' + map.type, className: '', item: false});
-                }
-            }
         } else {
             commandList.push({name: '돌아간다', value: 'info', className: '', item: false});
         }
@@ -512,14 +498,12 @@ var Commander = React.createClass({
             var item = mapped[i];
             if ('' !== item.idx) {
                 result.push({
-                    name: ExpressRoyale.getItemDesc(item, itemSchema),
+                    name: [ExpressRoyale.getItemName(item.idx, itemSchema), item.point, item.endurance].join('/'),
                     value: 'item' + i,
                     className: ExpressRoyale.getItemType(item.idx, itemSchema),
                     item: true
                 });
             }
-
-
         }
 
         return result;
@@ -662,23 +646,6 @@ var ExpressRoyale = (function () {
         queueManager.observe(receivePacket);
     }
 
-    function getItemDesc(item, itemSchema) {
-        var itemName = getItemName(item.idx, itemSchema);
-        var itemInfo = itemSchema[item.idx];
-        if (typeof itemInfo === 'undefined') {
-            itemInfo = {};
-        }
-
-        var result = [itemName, Math.abs(item.point)];
-        if (0 < item.endurance
-            || ('weapon' === itemInfo.equip && -1 !== itemInfo.attackType.indexOf('shot'))
-            || ('weapon' === itemInfo.equip && -1 !== itemInfo.attackType.indexOf('bow'))) {
-            result.push(item.endurance);
-        }
-
-        return result.join('/');
-    }
-
     function getItemName(itemId, itemSchema) {
         var currentItem = itemSchema[itemId];
         var itemName = '';
@@ -711,17 +678,24 @@ var ExpressRoyale = (function () {
         var result = [];
         for (var i in itemList) {
             var item = itemList[i];
-            var desc = '';
+            var desc = [];
             var className = '';
 
             if ('' !== item.idx) {
-                desc = getItemDesc(item, itemSchema);
+                desc = [
+                    getItemName(item.idx, itemSchema),
+                    '/',
+                    item.point,
+                    '/',
+                    item.endurance
+                ];
+
                 className = getItemType(item.idx, itemSchema);
             }
 
             result.push({
                 className: className,
-                desc: desc
+                desc: desc.join('')
             });
         }
 
@@ -741,12 +715,6 @@ var ExpressRoyale = (function () {
         } else if (-1 !== ['attackStart', 'attackResult'].indexOf(data.type)) {
             renderBattleInfo(data);
             renderCurrentPlace(data);
-            renderCommander(data);
-        } else if ('injured' === data.type) {
-            renderCharacterInfo(data);
-            renderCurrentPlace(data);
-            renderSkill(data);
-            renderItem(data);
             renderCommander(data);
         }
 
@@ -931,17 +899,12 @@ var ExpressRoyale = (function () {
             'bowSkill',
             'pokeSkill',
             'bombSkill',
-            'item0',
-            'item1',
-            'item2',
-            'item3',
-            'item4',
-            'item5',
-            'injured',
-            'injured_head',
-            'injured_body',
-            'injured_arm',
-            'injured_foot'
+            'drop_item0',
+            'drop_item1',
+            'drop_item2',
+            'drop_item3',
+            'drop_item4',
+            'drop_item5'
         ];
 
         if (-1 === commandList.indexOf(command)) {
@@ -971,7 +934,6 @@ var ExpressRoyale = (function () {
     initialize();
 
     return {
-        getItemDesc: getItemDesc,
         getItemName: getItemName,
         getItemType: getItemType,
         showItems: showItems,
