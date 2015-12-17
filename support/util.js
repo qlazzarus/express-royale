@@ -669,7 +669,7 @@ module.exports = (function () {
         result /= 2;
         result += dice(result);
 
-        var equipBuff = util.getEquipCounter(
+        var equipBuff = getEquipCounter(
             skillName,
             armorBody,
             armorHead,
@@ -758,7 +758,7 @@ module.exports = (function () {
         };
 
         var attackName = strikeBack ? '공격' : '반격';
-        var weapon = util.getItem(user.weapon.idx);
+        var weapon = getItem(user.weapon.idx);
         var destroyPercent = 0;
         var injurePercent = 0;
         var injurePart = [];

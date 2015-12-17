@@ -888,6 +888,7 @@ var ExpressRoyale = (function () {
 
     function playerCommand(command, value) {
         var commandList = [
+            'info',
             'explore',
             'runaway',
             'meleeSkill',
