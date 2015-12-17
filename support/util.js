@@ -719,7 +719,7 @@ module.exports = (function () {
             attack: attack,
             defence: defence,
             level: level,
-            requireExp: 0
+            requireExp: requireExp
         };
 
         if (0 >= requireExp) {
@@ -732,6 +732,22 @@ module.exports = (function () {
         }
 
         return result;
+    }
+
+
+    /**
+     * 부상부위 결정
+     *
+     * @param injured
+     * @param part
+     * @returns {[]}
+     */
+    function setInjured(injured, part) {
+        if ('' !== part && -1 === injured.indexOf(part)) {
+            injured.push(part);
+        }
+
+        return injured;
     }
 
 
@@ -757,7 +773,7 @@ module.exports = (function () {
             enemy: enemy
         };
 
-        var attackName = strikeBack ? '공격' : '반격';
+        var attackName = strikeBack ? '반격' : '공격';
         var weapon = getItem(user.weapon.idx);
         var destroyPercent = 0;
         var injurePercent = 0;
@@ -765,7 +781,7 @@ module.exports = (function () {
         var skillLevel = 0;
 
         if ('meleeSkill' === skillType) {
-            eventLog.push([
+            res.eventLog.push([
                 res.user.username, '의 ', attackName, '! ', weapon.name, '(으)로 ', res.enemy.username,
                 '을(를) 때렸다!'
             ].join(''));
@@ -775,7 +791,7 @@ module.exports = (function () {
             injurePercent = 5;
             injurePart = ['head', 'arm'];
         } else if ('bowSkill' === skillType) {
-            eventLog.push([
+            res.eventLog.push([
                 res.user.username, '의 ', attackName, '! ', weapon.name, '(으)로 ', res.enemy.username,
                 '을(를) 겨냥해 쐈다!'
             ].join(''));
@@ -785,7 +801,7 @@ module.exports = (function () {
             injurePercent = 10;
             injurePart = ['head', 'arm', 'body', 'foot'];
         } else if ('throwSkill' === skillType) {
-            eventLog.push([
+            res.eventLog.push([
                 res.user.username, '의 ', attackName, '! ', weapon.name, '(을)를 ', res.enemy.username,
                 '에게 던졌다!'
             ].join(''));
@@ -795,7 +811,7 @@ module.exports = (function () {
             injurePercent = 7;
             injurePart = ['head', 'foot'];
         } else if ('bombSkill' === skillType) {
-            eventLog.push([
+            res.eventLog.push([
                 res.user.username, '의 ', attackName, '! ', weapon.name, '(을)를 ', res.enemy.username,
                 '에게 던졌다!'
             ].join(''));
@@ -806,7 +822,7 @@ module.exports = (function () {
             injurePart = ['head', 'arm', 'body', 'foot'];
             res.alert = true;
         } else if ('shotSkill' === skillType) {
-            eventLog.push([
+            res.eventLog.push([
                 res.user.username, '의 ', attackName, '! ', weapon.name, '(으)로 ', res.enemy.username,
                 '을(를) 겨냥해 발포했다!'
             ].join(''));
@@ -817,8 +833,8 @@ module.exports = (function () {
             injurePart = ['head', 'arm', 'body', 'foot'];
             res.alert = true;
         } else if ('pokeSkill' === skillType) {
-            eventLog.push([
-                res.user.username, '의 ', attackName, '! ', weapon.name, '(을)를 ', res.enemy.username,
+            res.eventLog.push([
+                res.user.username, '의 ', attackName, '! ', weapon.name, '(으) ', res.enemy.username,
                 '을(를) 찔렀다!'
             ].join(''));
             res.user.pokeSkill++;
@@ -827,8 +843,8 @@ module.exports = (function () {
             injurePercent = 10;
             injurePart = ['head', 'arm', 'body', 'foot'];
         } else if ('cutSkill' === skillType) {
-            eventLog.push([
-                res.user.username, '의 ', attackName, '! ', weapon.name, '(을)를 ', res.enemy.username,
+            res.eventLog.push([
+                res.user.username, '의 ', attackName, '! ', weapon.name, '(으)로 ', res.enemy.username,
                 '을(를) 베었다!'
             ].join(''));
             res.user.cutSkill++;
@@ -837,8 +853,8 @@ module.exports = (function () {
             injurePercent = 10;
             injurePart = ['head', 'arm', 'body', 'foot'];
         } else if ('fistSkill' === skillType) {
-            eventLog.push([
-                res.user.username, '의 ', attackName, '! ', weapon.name, '(을)를 ', res.enemy.username,
+            res.eventLog.push([
+                res.user.username, '의 ', attackName, '! ', weapon.name, '(으)로 ', res.enemy.username,
                 '을(를) 때렸다!'
             ].join(''));
             res.user.fistSkill++;
@@ -895,10 +911,6 @@ module.exports = (function () {
             res.injured = '';
             res.damage += 10;
             res.critical = true;
-        }
-
-        if ('' !== res.injured && -1 === res.enemy.injured.indexOf(res.injured)) {
-            res.enemy.injured.push(res.injured);
         }
 
         return res;
@@ -1368,6 +1380,7 @@ module.exports = (function () {
         setConsumeBodyArmor: setConsumeBodyArmor,
         getTotalDamage: getTotalDamage,
         getBattleExp: getBattleExp,
-        setLevelUp: setLevelUp
+        setLevelUp: setLevelUp,
+        setInjured: setInjured
     };
 })();

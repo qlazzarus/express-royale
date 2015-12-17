@@ -45,6 +45,9 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
     }
 
     if (typeof res.enemy != 'undefined') {
+        // enemy status save
+        res.enemy.save();
+
         var enemyItemList = util.getItem([
             res.enemy.weapon.idx,
             res.enemy.armor.body.idx

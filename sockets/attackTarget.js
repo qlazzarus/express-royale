@@ -72,24 +72,9 @@ module.exports = function (io, options, socket, req, res) {
 
                 // 적
                 res.enemy.prevAttacker = res.account.username;
-                var enemyStat = util.getBattleRateByDefender(
-                    res.enemy.status,
-                    res.enemy.tactics,
-                    res.enemy.place,
-                    res.enemy.injured,
-                    res.enemy.weapon,
-                    res.enemy.shotSkill,
-                    res.enemy.cutSkill,
-                    res.enemy.throwSkill,
-                    res.enemy.fistSkill,
-                    res.enemy.bowSkill,
-                    res.enemy.meleeSkill,
-                    res.enemy.bombSkill,
-                    res.enemy.pokeSkill
-                );
 
                 var enemyWeapon = util.getItem(res.enemy.weapon.idx);
-                var enemyCommand = enemyWeapon.attackType[0];
+                var enemyCommand = enemyWeapon.attackType[0] + 'Skill';
                 if (true == enemyWeapon.ammoRequire && 0 == res.enemy.weapon.endurance) {
                     enemyCommand = 'meleeSkill';
                 }
@@ -107,7 +92,6 @@ module.exports = function (io, options, socket, req, res) {
                 res.account = battleResult.user;
                 res.enemy = battleResult.enemy;
                 eventLog = battleResult.eventLog;
-
 
                 // 공격 시도
                 var attackDice = util.dice(100);
@@ -133,11 +117,12 @@ module.exports = function (io, options, socket, req, res) {
                         }[battleResult.injured] : '',
                         true === battleResult.critical ? '크리티컬' : '',
                         '</strong>!'
-                    ].join());
+                    ].join(''));
 
                     res.enemy.health -= result;
                     res.enemy.armor.body = util.setConsumeBodyArmor(res.enemy.armor.body);
-                    res.account.requireExp = util.getBattleExp(res.account.level, res.enemy.level);
+                    res.enemy.injured = util.setInjured(res.enemy.injured, battleResult.injured);
+                    res.account.requireExp-= util.getBattleExp(res.account.level, res.enemy.level);
 
                     // 레벨업 이벤트
                     var accountLevelUp = util.setLevelUp(res.account.level, res.account.maxHealth, res.account.attack,
@@ -149,6 +134,22 @@ module.exports = function (io, options, socket, req, res) {
                         res.account.defence = accountLevelUp.defence;
                         res.account.requireExp = accountLevelUp.requireExp;
                     }
+
+                    var enemyStat = util.getBattleRateByDefender(
+                        res.enemy.status,
+                        res.enemy.tactics,
+                        res.enemy.place,
+                        res.enemy.injured,
+                        res.enemy.weapon,
+                        res.enemy.shotSkill,
+                        res.enemy.cutSkill,
+                        res.enemy.throwSkill,
+                        res.enemy.fistSkill,
+                        res.enemy.bowSkill,
+                        res.enemy.meleeSkill,
+                        res.enemy.bombSkill,
+                        res.enemy.pokeSkill
+                    );
 
                     var strikeBackDice = util.dice(10);
                     if (0 >= res.enemy.health) {
@@ -196,21 +197,21 @@ module.exports = function (io, options, socket, req, res) {
                                 }[strikeResult.injured] : '',
                                 true === strikeResult.critical ? '크리티컬' : '',
                                 '</strong>!'
-                            ].join());
+                            ].join(''));
 
                             res.account.health -= enemyResult;
                             res.account.armor.body = util.setConsumeBodyArmor(res.account.armor.body);
+                            res.account.injured = util.setInjured(res.account.injured, battleResult.injured);
 
                             if (0 >= res.account.health) {
                                 userKilled = true;
                             } else {
+                                res.enemy.requireExp -= util.getBattleExp(res.enemy.level, res.account.level);
                                 eventLog.push([res.enemy.username, '은(는) 도망갔다...'].join(''));
 
                                 // TODO 반격상황 대상자 통보 (socket)
                                 //$w_log = ($w_log . "<font color=\"yellow\"><b>$hour:$min:$sec 전투：$f_name $l_name\($cl $sex$no번\) 공격:$result2 피해:$result $hakaiinf2 $kega3 </b></font><br>") ;
                             }
-
-                            res.enemy.requireExp -= util.getBattleExp(res.enemy.level, res.account.level);
 
                             // 적 레벨업 이벤트
                             var enemyLevelUp = util.setLevelUp(res.enemy.level, res.enemy.maxHealth, res.enemy.attack,
@@ -247,7 +248,7 @@ module.exports = function (io, options, socket, req, res) {
                         //$w_log = ($w_log . "<font color=\"yellow\"><b>$hour:$min:$sec 전투：$f_name $l_name\($cl $sex$no번\) 피해:$result $hakaiinf2 $kega3 </b></font><br>");
                     }
                 } else {
-                    eventLog.push(['그러나, 피했다! ', true === battleResult.weaponDestroy ? '무기손상' : ''].join());
+                    eventLog.push(['그러나, 피했다! ', true === battleResult.weaponDestroy ? '무기손상' : ''].join(''));
                 }
             } else if (true === encounterFail && true === enemyDeath) {
                 eventName = 'info';

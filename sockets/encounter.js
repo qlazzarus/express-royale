@@ -21,50 +21,51 @@ function shuffle(array) {
     return array;
 }
 
-module.exports = function(io, options, socket, reqData, userData, eventName, eventResult, eventLog){
+module.exports = function(io, options, socket, req, res, eventName, eventResult, eventLog){
     var async = require('async');
 
     var util = options.container.get('util');
     var userModel = options.models.getModel('user');
     var place = {};
-    var places = userData.place;
+    var places = res.place;
     for (var i in places) {
         place = places[i];
-        if ('place' + userData.account.place === place.idx) {
+        if ('place' + res.account.place === place.idx) {
             break;
         }
     }
 
-    var attacker = userData.account.username;
-    if (5 == userData.account.tactics) {
+    var attacker = res.account.username;
+    if (5 == res.account.tactics) {
         attacker = null;
     }
 
     var attackerStat = util.getBattleRateByAttacker(
-        userData.account.tactics,
-        userData.account.place,
-        userData.account.injured,
-        userData.account.weapon,
-        userData.account.shotSkill,
-        userData.account.cutSkill,
-        userData.account.throwSkill,
-        userData.account.fistSkill,
-        userData.account.bowSkill,
-        userData.account.meleeSkill,
-        userData.account.bombSkill,
-        userData.account.pokeSkill
+        res.account.tactics,
+        res.account.place,
+        res.account.injured,
+        res.account.weapon,
+        res.account.shotSkill,
+        res.account.cutSkill,
+        res.account.throwSkill,
+        res.account.fistSkill,
+        res.account.bowSkill,
+        res.account.meleeSkill,
+        res.account.bombSkill,
+        res.account.pokeSkill
     );
 
     async.waterfall([
         function (callback) {
             userModel
-                .where('place').equals(userData.account.place)
-                .where('username').ne(userData.account.username)
+                .where('place').equals(res.account.place)
+                .where('username').ne(res.account.username)
                 .where('prevAttacker').ne(attacker)
                 .exec(callback);
         },
 
         function (enemyList, callback) {
+            var finalize = true;
             var enemyCount = enemyList.length;
             var shuffleEnemy = shuffle(enemyList);
             if (enemyCount > 5) {
@@ -89,11 +90,11 @@ module.exports = function(io, options, socket, reqData, userData, eventName, eve
                     enemy.pokeSkill
                 );
 
-                if (5 == userData.account.tactics && defenderStat.stealth * 2 < util.dice(10) * 100) {
+                if (5 == res.account.tactics && defenderStat.stealth * 2 < util.dice(10) * 100) {
                     enemy.prevAttacker = '';
                 }
 
-                if (enemy.prevAttacker == userData.account.username) {
+                if (enemy.prevAttacker == res.account.username) {
                     continue;
                 }
 
@@ -103,21 +104,24 @@ module.exports = function(io, options, socket, reqData, userData, eventName, eve
                     eventLog.push('enemy dead');
                     break;
                 } else if (isEnemyFind && util.dice(10) <= attackerStat.ambush) {
-                    userData.enemy = enemy;
-                    require('./attackStart')(io, options, socket, reqData, userData, eventName, eventResult, eventLog);
-                    callback(null);
-                    return;
+                    res.enemy = enemy;
+                    finalize = false;
+                    require('./attackStart')(io, options, socket, req, res, eventName, eventResult, eventLog);
+                    break;
                 } else if (isEnemyFind) {
-                    userData.enemy = enemy;
-                    require('./attacked')(io, options, socket, reqData, userData, eventName, eventResult, eventLog);
-                    callback(null);
-                    return;
+                    res.enemy = enemy;
+                    finalize = false;
+                    require('./attacked')(io, options, socket, req, res, eventName, eventResult, eventLog);
+                    break;
                 }
             }
 
             if (0 < enemyCount) {
                 eventLog.push('누군가 숨어있는 듯한 느낌이 있다. 기분탓인가?');
-                require('./finalize')(io, options, socket, reqData, userData, eventName, eventResult, eventLog);
+            }
+
+            if (true === finalize) {
+                require('./finalize')(io, options, socket, req, res, eventName, eventResult, eventLog);
             }
 
             callback(null);

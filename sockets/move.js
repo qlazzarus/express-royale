@@ -1,21 +1,21 @@
 /**
  * Created by monoless on 2015-12-14.
  */
-module.exports = function(io, options, socket, reqData, userData){
+module.exports = function(io, options, socket, req, res){
     var util = options.container.get('util');
     var result = true;
     var log = [];
     var place = {};
-    var places = userData.place;
+    var places = res.place;
     for (var i in places) {
         place = places[i];
-        if (reqData.value === place.idx) {
+        if (req.value === place.idx) {
             break;
         }
     }
 
     var isDeath = false;
-    if (true === place.restrict && 'hacked' !== userData.server.status) {
+    if (true === place.restrict && 'hacked' !== res.server.status) {
         result = false;
         log.push([place.name, ' 쪽은 금지구역이다. 이동할 수 없어...'].join(''));
     } else if (true === place.restrictReserve) {
@@ -25,20 +25,20 @@ module.exports = function(io, options, socket, reqData, userData){
     }
 
     if (true === result) {
-        socket.leave(data.account.place);
-        userData.account.place = reqData.value.replace(/place/, '');
-        socket.join(data.account.place);
-        userData.account.stamina -= util.moveConsumeStamina(userData.account.clubId, userData.account.injured);
-        if (0 > userData.account.stamina) {
-            var drainStatus = require('./drain')(io, options, socket, reqData, userData, 'move', result, log);
+        socket.leave(res.account.place);
+        res.account.place = req.value.replace(/place/, '');
+        socket.join(res.account.place);
+        res.account.stamina -= util.moveConsumeStamina(res.account.clubId, res.account.injured);
+        if (0 > res.account.stamina) {
+            var drainStatus = require('./drain')(io, options, socket, req, res, 'move', result, log);
             isDeath = drainStatus.isDeath;
-            userData = drainStatus.userData;
+            res = drainStatus.userData;
             log = drainStatus.eventLog;
         }
     }
 
     if (false === isDeath) {
-        require('./search')(io, options, socket, reqData, userData, 'move', result, log);
+        require('./search')(io, options, socket, req, res, 'move', result, log);
     } else {
         // TODO 사망
     }

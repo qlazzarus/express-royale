@@ -1,14 +1,13 @@
 /**
  * Created by monoless on 2015-12-15.
  */
-module.exports = function (io, options, socket, reqData, userData, eventName, eventResult, eventLog) {
+module.exports = function (io, options, socket, req, res, eventName, eventResult, eventLog) {
     var util = options.container.get('util');
-
     var place = {};
-    var places = userData.place;
+    var places = res.place;
     for (var i in places) {
         place = places[i];
-        if (reqData.value === place.idx) {
+        if ('place' + res.account.place === place.idx) {
             break;
         }
     }
@@ -24,24 +23,24 @@ module.exports = function (io, options, socket, reqData, userData, eventName, ev
         var itemInfo = util.getItem(itemId);
 
         var targetItemSlot = util.getEmptyItemSlot(
-            userData.account.item0,
-            userData.account.item1,
-            userData.account.item2,
-            userData.account.item3,
-            userData.account.item4,
-            userData.account.item5
+            res.account.item0,
+            res.account.item1,
+            res.account.item2,
+            res.account.item3,
+            res.account.item4,
+            res.account.item5
         );
 
         var ammoSlot = null;
         if (-1 !== ['etc8', 'etc9', 'etc10', 'etc12', 'etc13', 'etc14', 'etc15', 'etc16'].indexOf(itemInfo.idx)) {
             ammoSlot = util.findItemSlot(
                 itemInfo.idx,
-                userData.account.item0,
-                userData.account.item1,
-                userData.account.item2,
-                userData.account.item3,
-                userData.account.item4,
-                userData.account.item5
+                res.account.item0,
+                res.account.item1,
+                res.account.item2,
+                res.account.item3,
+                res.account.item4,
+                res.account.item5
             );
         }
 
@@ -56,8 +55,8 @@ module.exports = function (io, options, socket, reqData, userData, eventName, ev
                 '의 데미지</strong>를 입었다!'
             ].join(''));
 
-            userData.account.health -= attackPoint;
-            if (0 >= userData.account.health) {
+            res.account.health -= attackPoint;
+            if (0 >= res.account.health) {
                 isDeath = true;
             }
 
@@ -66,7 +65,7 @@ module.exports = function (io, options, socket, reqData, userData, eventName, ev
             place.save();
         } else if (null !== ammoSlot) {
             eventLog.push([itemInfo.name, '을(를) 발견했다. 분명 뭔가에 쓸 수 있겠지.'].join(''));
-            userData.account[ammoSlot].endurance += itemInfo.endurance;
+            res.account[ammoSlot].endurance += itemInfo.endurance;
 
             // 아이템 삭제
             place.items.splice(randomId, 1);
@@ -99,7 +98,7 @@ module.exports = function (io, options, socket, reqData, userData, eventName, ev
 
             eventLog.push([itemInfo.name, '을(를) 발견했다. ', itemDesc].join(''));
 
-            userData.account[targetItemSlot] = {
+            res.account[targetItemSlot] = {
                 idx: itemInfo.id,
                 point: itemInfo.point,
                 endurance: itemInfo.endurance
@@ -112,7 +111,7 @@ module.exports = function (io, options, socket, reqData, userData, eventName, ev
     }
 
     if (false === isDeath) {
-        require('./finalize')(io, options, socket, reqData, userData, eventName, eventResult, eventLog);
+        require('./finalize')(io, options, socket, req, res, eventName, eventResult, eventLog);
     } else {
         // TODO 사망
     }
