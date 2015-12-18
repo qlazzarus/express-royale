@@ -174,14 +174,36 @@ module.exports = function (io, options, socket, req, res) {
                 }
             },
             armor_refine: function() {
-                // TODO 바느질
-                //$log = ($log . "$in을(를) 사용했다.$d_name의 내구력이 $btai 이(가) 되었다.<BR>");
-                eventLog.push('바느질');
+                var defenceInfo = util.getItem(res.account.armor.body.idx);
+                if ('fabric' === defenceInfo.material && 'armor0' !== res.account.armor.body.idx) {
+                    res.account.armor.body.endurance +=  item.point;
+                    if (30 < res.account.armor.body.endurance) {
+                        res.account.armor.body.endurance = 30;
+                    }
+
+                    eventLog.push([itemInfo.name, '을(를) 사용했다.', defenceInfo.name, '의 내구력이 ',
+                        res.account.armor.body.endurance, '이(가) 되었다.'].join(''));
+
+                    res.account[req.command] = util.setConsumeItem(item);
+                } else {
+                    eventLog.push('이건 어디에 쓰는 것일까...');
+                }
             },
             weapon_refine: function() {
-                // TODO 숫돌
-                //$log = ($log . "$in을(를) 사용했다.$w_name의 공격력이 $watt 이(가) 되었다.<BR>");
-                eventLog.push('숫돌');
+                var weaponInfo = util.getItem(res.account.weapon.idx);
+                if (-1 !== weaponInfo.attackType.indexOf('cut')) {
+                    res.account.weapon.point += item.point;
+                    if (30 < res.account.weapon.point) {
+                        res.account.weapon.point = 30;
+                    }
+
+                    eventLog.push([itemInfo.name, '을(를) 사용했다.', weaponInfo.name, '의 공격력이 ',
+                        res.account.weapon.point, '이(가) 되었다.'].join(''));
+
+                    res.account[req.command] = util.setConsumeItem(item);
+                } else {
+                    eventLog.push('이건 어디에 쓰는 것일까...');
+                }
             },
             speaker: function() {
                 // TODO 스피커
