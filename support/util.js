@@ -752,6 +752,28 @@ module.exports = (function () {
 
 
     /**
+     * 아이템 소모 결정
+     *
+     * @param item
+     * @param quantity
+     * @returns {{}}
+     */
+    function setConsumeItem(item, quantity) {
+        if (typeof quantity === 'undefined') {
+            item.endurance--;
+        } else {
+            item.endurance -= quantity;
+        }
+
+        if (0 >= item.endurance) {
+            item = {idx: '', endurance: 0, point: 0};
+        }
+
+        return item;
+    }
+
+
+    /**
      * 전투 계산
      *
      * @param user
@@ -1381,6 +1403,7 @@ module.exports = (function () {
         getTotalDamage: getTotalDamage,
         getBattleExp: getBattleExp,
         setLevelUp: setLevelUp,
-        setInjured: setInjured
+        setInjured: setInjured,
+        setConsumeItem: setConsumeItem
     };
 })();

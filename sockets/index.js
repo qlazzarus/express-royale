@@ -32,6 +32,8 @@ module.exports = function (io, options) {
                             'pokeSkill', 'bombSkill'
                         ].indexOf(req.command)) {
                         require('./attackTarget')(io, options, socket, req, res);
+                    } else if (-1 !== ['item0', 'item1', 'item2', 'item3', 'item4', 'item5'].indexOf(req.command)) {
+                        require('./useItem')(io, options, socket, req, res);
                     } else {
                         require('./finalize')(io, options, socket, req, res, 'info', true, '');
                     }

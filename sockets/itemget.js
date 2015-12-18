@@ -19,8 +19,8 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
         eventLog.push('이제, 이 지역에는 아무것도 없는건가...?');
     } else {
         var randomId = util.dice(itemLength - 1);
-        var itemId = place.items[randomId];
-        var itemInfo = util.getItem(itemId);
+        var item = place.items[randomId];
+        var itemInfo = util.getItem(item.idx);
 
         var targetItemSlot = util.getEmptyItemSlot(
             res.account.item0,
@@ -45,7 +45,7 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
         }
 
         if ('trap' === itemInfo.equip && true === itemInfo.deploy) {
-            var attackPoint = parseInt(itemInfo.point / 2);
+            var attackPoint = parseInt(item.point / 2);
             attackPoint = util.dice(attackPoint) + attackPoint;
             eventLog.push([
                 '덫이다! 설치되어 있던 ',
@@ -100,8 +100,8 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
 
             res.account[targetItemSlot] = {
                 idx: itemInfo.id,
-                point: itemInfo.point,
-                endurance: itemInfo.endurance
+                point: item.point,
+                endurance: item.endurance
             };
 
             // 아이템 삭제

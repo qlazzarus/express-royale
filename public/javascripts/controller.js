@@ -284,22 +284,16 @@ var EquipItem = React.createClass({
         return (
             <div>
                 {equipMapped.map(function (o) {
-                    var desc = ['-'];
+                    var desc = '-';
 
                     if ('' !== o.status.idx) {
-                        desc = [
-                            ExpressRoyale.getItemName(o.status.idx, itemSchema),
-                            '/',
-                            o.status.point,
-                            '/',
-                            o.status.endurance
-                        ];
+                        desc = ExpressRoyale.getItemDesc(o.status, itemSchema);
                     }
 
                     return (
                         <dl className="dl-horizontal small-dl bg-equip">
                             <dt className={o.className}>{o.category}</dt>
-                            <dd>{desc.join('')}</dd>
+                            <dd>{desc}</dd>
                         </dl>
                     );
                 })}
@@ -498,12 +492,14 @@ var Commander = React.createClass({
             var item = mapped[i];
             if ('' !== item.idx) {
                 result.push({
-                    name: [ExpressRoyale.getItemName(item.idx, itemSchema), item.point, item.endurance].join('/'),
+                    name: ExpressRoyale.getItemDesc(item, itemSchema),
                     value: 'item' + i,
                     className: ExpressRoyale.getItemType(item.idx, itemSchema),
                     item: true
                 });
             }
+
+
         }
 
         return result;
@@ -646,6 +642,23 @@ var ExpressRoyale = (function () {
         queueManager.observe(receivePacket);
     }
 
+    function getItemDesc(item, itemSchema) {
+        var itemName = getItemName(item.idx, itemSchema);
+        var itemInfo = itemSchema[item.idx];
+        if (typeof itemInfo === 'undefined') {
+            itemInfo = {};
+        }
+
+        var result = [itemName, Math.abs(item.point)];
+        if (0 < item.endurance
+            || ('weapon' === itemInfo.equip && -1 !== itemInfo.attackType.indexOf('shot'))
+            || ('weapon' === itemInfo.equip && -1 !== itemInfo.attackType.indexOf('bow'))) {
+            result.push(item.endurance);
+        }
+
+        return result.join('/');
+    }
+
     function getItemName(itemId, itemSchema) {
         var currentItem = itemSchema[itemId];
         var itemName = '';
@@ -678,24 +691,17 @@ var ExpressRoyale = (function () {
         var result = [];
         for (var i in itemList) {
             var item = itemList[i];
-            var desc = [];
+            var desc = '';
             var className = '';
 
             if ('' !== item.idx) {
-                desc = [
-                    getItemName(item.idx, itemSchema),
-                    '/',
-                    item.point,
-                    '/',
-                    item.endurance
-                ];
-
+                desc = getItemDesc(item, itemSchema);
                 className = getItemType(item.idx, itemSchema);
             }
 
             result.push({
                 className: className,
-                desc: desc.join('')
+                desc: desc
             });
         }
 
@@ -898,7 +904,13 @@ var ExpressRoyale = (function () {
             'fistSkill',
             'bowSkill',
             'pokeSkill',
-            'bombSkill'
+            'bombSkill',
+            'item0',
+            'item1',
+            'item2',
+            'item3',
+            'item4',
+            'item5'
         ];
 
         if (-1 === commandList.indexOf(command)) {
@@ -928,6 +940,7 @@ var ExpressRoyale = (function () {
     initialize();
 
     return {
+        getItemDesc: getItemDesc,
         getItemName: getItemName,
         getItemType: getItemType,
         showItems: showItems,
