@@ -105,11 +105,12 @@ module.exports = function (io, options, socket, req, res) {
             trap: function() {
                 eventLog.push([itemInfo.name, '을(를) 덫으로 설치했다. 스스로도 조심하지 않으면...'].join(''));
 
-                // trap set-up (+10 id)
-                item.idx = 'trap' + (parseInt(item.idx.replace('trap', '')) + 10);
-
-                // trap deploy
-                place.items.push(item);
+                // trap set-up & deploy (+10 id)
+                place.items.push({
+                    idx: 'trap' + (parseInt(item.idx.replace('trap', '')) + 10),
+                    point: item.point,
+                    endurance: item.endurance
+                });
                 place.save();
 
                 // remove item
