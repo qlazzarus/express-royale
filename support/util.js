@@ -895,7 +895,7 @@ module.exports = (function () {
             injurePercent = 10;
             injurePart = ['head'];
 
-            if ('weapon0' === res.user.weapon.idx) {
+            if ('weaponDefault' === res.user.weapon.idx) {
                 destroyPercent = 0;
                 injurePercent = 3;
             }
@@ -907,7 +907,7 @@ module.exports = (function () {
         // 무기 손상
         if (dice(100) < destroyPercent) {
             res.weaponDestroy = true;
-            res.user.weapon = {idx: 'weapon0', point: 0, endurance: 0};
+            res.user.weapon = {idx: 'weaponDefault', point: 0, endurance: 0};
         }
 
         // 부상처리 & 크리티컬
@@ -930,7 +930,7 @@ module.exports = (function () {
             }
         }
 
-        if (true === injureAttack && -1 !== ['', 'armor0'].indexOf(res.enemy.armor[res.injured].idx)) {
+        if (true === injureAttack && -1 !== ['', 'armorDefault'].indexOf(res.enemy.armor[res.injured].idx)) {
             res.injured = '';
             injureAttack = false;
             res.enemy.armor[res.injured].endurance--;
@@ -1012,7 +1012,7 @@ module.exports = (function () {
             result = 145;
         }
 
-        if ('weapon0' === weaponIdx) {
+        if ('weaponDefault' === weaponIdx) {
             result = {
                 0: 90,
                 1: 95,
@@ -1059,12 +1059,12 @@ module.exports = (function () {
         } else if ('throwSkill' === skillType && -1 !== weaponInfo.attackType.indexOf('throw')) {
             weapon.endurance--;
             if (0 >= weapon.endurance) {
-                weapon = {idx:'weapon0', point:0, endurance:0};
+                weapon = {idx:'weaponDefault', point:0, endurance:0};
             }
         } else if ('cutSkill' === skillType && -1 !== weaponInfo.attack.indexOf('cut')) {
             weapon.point -= dice(1) + 1;
             if (0 >= weapon.point) {
-                weapon = {idx:'weapon0', point:0, endurance:0};
+                weapon = {idx:'weaponDefault', point:0, endurance:0};
             }
         }
 
@@ -1079,12 +1079,12 @@ module.exports = (function () {
      * @returns {{}}
      */
     function setConsumeBodyArmor(armor) {
-        if ('armor0' !== armor.idx && 0 == dice(5)) {
+        if ('armorDefault' !== armor.idx && 0 == dice(5)) {
             armor.endurance--;
         }
 
         if (0 >= armor.endurance) {
-            armor = {idx: 'armor0', point: 0, endurance: 0};
+            armor = {idx: 'armorDefault', point: 0, endurance: 0};
         }
 
         return armor;

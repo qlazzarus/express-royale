@@ -1646,8 +1646,8 @@ module.exports = {
      */
     items: {
         // -- weapon
-        weapon0: {
-            id: 'weapon0',
+        weaponDefault: {
+            id: 'weaponDefault',
             equip: 'weapon', name: '맨손', attackType: ['fist'], endurance: 0, point: 0, ammoRequire: false
         },
         weapon1: {

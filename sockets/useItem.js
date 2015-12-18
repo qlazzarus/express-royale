@@ -74,10 +74,10 @@ module.exports = function (io, options, socket, req, res) {
 
                 if ('weapon' == itemInfo.equip) {
                     desc = '장비했다';
-                    defaultEquip = 'weapon0';
+                    defaultEquip = 'weaponDefault';
                 } if ('armor' == itemInfo.equip && 'body' == itemInfo.type) {
                     desc = '몸에 장비했다.';
-                    defaultEquip = 'armor0';
+                    defaultEquip = 'armorDefault';
                 } else if ('armor' == itemInfo.equip && 'head' == itemInfo.type) {
                     desc = '머리에 장비했다.';
                 } else if ('armor' == itemInfo.equip && 'foot' == itemInfo.type) {
@@ -176,7 +176,7 @@ module.exports = function (io, options, socket, req, res) {
             },
             armor_refine: function() {
                 var defenceInfo = util.getItem(res.account.armor.body.idx);
-                if ('fabric' === defenceInfo.material && 'armor0' !== res.account.armor.body.idx) {
+                if ('fabric' === defenceInfo.material && 'armorDefault' !== res.account.armor.body.idx) {
                     res.account.armor.body.endurance +=  item.point;
                     if (30 < res.account.armor.body.endurance) {
                         res.account.armor.body.endurance = 30;

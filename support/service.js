@@ -390,7 +390,7 @@ module.exports = function () {
             pokeSkill: skillMap.pokeSkill,
 
             // equip
-            weapon: {idx: 'weapon0', point: 0, endurance: 0},
+            weapon: {idx: 'weaponDefault', point: 0, endurance: 0},
             armor: {
                 head: {idx: '', point: 0, endurance: 0},
                 body: armorBody,
