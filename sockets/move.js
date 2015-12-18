@@ -26,7 +26,7 @@ module.exports = function(io, options, socket, req, res){
 
     if (true === result) {
         socket.leave(res.account.place);
-        res.account.place = req.value.replace(/place/, '');
+        res.account.place = req.value.replace('place', '');
         socket.join(res.account.place);
         res.account.stamina -= util.moveConsumeStamina(res.account.clubId, res.account.injured);
         if (0 > res.account.stamina) {

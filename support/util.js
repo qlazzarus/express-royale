@@ -82,6 +82,16 @@ module.exports = (function () {
 
 
     /**
+     * 응급처치 스테미너 소모
+     *
+     * @returns {number}
+     */
+    function getFirstAidStamina() {
+        return gameConfig.firstAidStamina;
+    }
+
+
+    /**
      * 전략 설명
      *
      * @returns {Array}
@@ -1404,6 +1414,7 @@ module.exports = (function () {
         getBattleExp: getBattleExp,
         setLevelUp: setLevelUp,
         setInjured: setInjured,
-        setConsumeItem: setConsumeItem
+        setConsumeItem: setConsumeItem,
+        getFirstAidStamina: getFirstAidStamina
     };
 })();

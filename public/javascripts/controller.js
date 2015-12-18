@@ -411,7 +411,12 @@ var Commander = React.createClass({
     },
 
     getCommandDesc: function (command) {
-        return '무엇을 합니까?';
+        var desc = '무엇을 합니까?';
+        if ('injured' === command) {
+            desc = '어디를 치료합니까?';
+        }
+
+        return desc;
     },
 
     getCommandList: function (command, account, serverFlag, itemSchema) {
@@ -452,7 +457,7 @@ var Commander = React.createClass({
                     item: false
                 });
             }
-        } else if (-1 !== ['attackStart'].indexOf(command)) {
+        } else if ('attackStart' === command) {
             var weaponInfo = itemSchema[account.weapon.idx];
             var queueList = [
                 {name: '때린다', type: 'melee', skill: account.meleeSkill, value: 'meleeSkill'},
@@ -478,6 +483,21 @@ var Commander = React.createClass({
             }
 
             commandList.push({name: '도망', value: 'runaway', className: '', item: false});
+        } else if ('injured' === command) {
+            commandList.push({name: '돌아간다', value: 'info', className: '', item: false});
+            var mapped = [
+                {name: '머리', type: 'head'},
+                {name: '팔', type: 'arm'},
+                {name: '복부', type: 'body'},
+                {name: '다리', type: 'foot'}
+            ];
+
+            for (var i in mapped) {
+                var map = mapped[i];
+                if (-1 !== account.injured.indexOf(map.type)) {
+                    commandList.push({name: map.name, value: 'injured_' + map.type, className: '', item: false});
+                }
+            }
         } else {
             commandList.push({name: '돌아간다', value: 'info', className: '', item: false});
         }
@@ -722,6 +742,12 @@ var ExpressRoyale = (function () {
             renderBattleInfo(data);
             renderCurrentPlace(data);
             renderCommander(data);
+        } else if ('injured' === data.type) {
+            renderCharacterInfo(data);
+            renderCurrentPlace(data);
+            renderSkill(data);
+            renderItem(data);
+            renderCommander(data);
         }
 
         renderLog(data.log);
@@ -910,7 +936,12 @@ var ExpressRoyale = (function () {
             'item2',
             'item3',
             'item4',
-            'item5'
+            'item5',
+            'injured',
+            'injured_head',
+            'injured_body',
+            'injured_arm',
+            'injured_foot'
         ];
 
         if (-1 === commandList.indexOf(command)) {

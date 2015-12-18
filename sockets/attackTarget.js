@@ -62,7 +62,7 @@ module.exports = function (io, options, socket, req, res) {
                 );
 
                 var accountWeapon = util.getItem(res.account.weapon.idx);
-                if (-1 === accountWeapon.attackType.indexOf(req.command.replace(/Skill/, ''))) {
+                if (-1 === accountWeapon.attackType.indexOf(req.command.replace('Skill', ''))) {
                     req.command = accountWeapon.attackType[0] + 'Skill';
                 } else if (true == accountWeapon.ammoRequire && 0 == res.account.weapon.endurance) {
                     req.command = 'meleeSkill';
