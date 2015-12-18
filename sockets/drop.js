@@ -13,33 +13,17 @@ module.exports = function(io, options, socket, req, res){
     }
 
     var dropId = req.command.replace(/drop_item/, '');
-    var itemList = [];
     var eventLog = [];
-    for (var i = 0; i <= 5; i++) {
-        var item = res.account['item' + i];
-        if (i == dropId) {
-            var info = util.getItem(item.idx);
 
-            // 아이템 추가
-            place.items.push(item.idx);
-            place.save();
+    var item = res.account['item' + dropId];
+    var info = util.getItem(item.idx);
 
-            eventLog.push([info.name, '을(를) 버렸다.'].join(''));
-            item = {idx:'', endurance:0, point:0};
-        }
+    // 아이템 추가
+    place.items.push({idx:item.idx, endurance:item.endurance, point:item.point});
+    place.save();
 
-        if ('' !== item.idx) {
-            itemList.push(item);
-        }
-    }
-
-    for (var i = 0; i <= 5; i++) {
-        if (typeof itemList[i] !== 'undefined') {
-            res.account['item' + i] = itemList[i];
-        } else {
-            res.account['item' + i] = {idx:'', endurance:0, point:0};
-        }
-    }
+    eventLog.push([info.name, '을(를) 버렸다.'].join(''));
+    res.account['item' + dropId] = {idx:'', endurance:0, point:0};
 
     require('./finalize')(io, options, socket, req, res, 'info', true, eventLog);
 };
