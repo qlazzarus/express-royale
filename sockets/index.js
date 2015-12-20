@@ -32,12 +32,13 @@ module.exports = function (io, options) {
                             'pokeSkill', 'bombSkill'
                         ].indexOf(req.command)) {
                         require('./attackTarget')(io, options, socket, req, res);
-                    } else if (-1 !== ['drop_item0', 'drop_item1', 'drop_item2', 'drop_item3', 'drop_item4',
-                            'drop_item5'].indexOf(req.command)) {
+                    } else if ('drop' === req.command) {
                         require('./drop')(io, options, socket, req, res);
-                    } else if (-1 !== ['item0', 'item1', 'item2', 'item3', 'item4', 'item5'].indexOf(req.command)) {
+                    } else if ('use' === req.command) {
                         require('./useItem')(io, options, socket, req, res);
-                    } else if (-1 !== ['injured', 'injured_body', 'injured_head', 'injured_foot', 'injured_arm'].indexOf(req.command)) {
+                    } else if ('backpack' === req.command) {
+                        require('./backpack')(io, options, socket, req, res);
+                    } else if ('injured' === req.command) {
                         require('./injured')(io, options, socket, req, res);
                     } else {
                         require('./finalize')(io, options, socket, req, res, 'info', true, '');

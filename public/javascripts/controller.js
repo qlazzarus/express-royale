@@ -406,10 +406,6 @@ var Commander = React.createClass({
         return itemSchema;
     },
 
-    getExecuteName: function (command) {
-        return '확인';
-    },
-
     getCommandDesc: function (command) {
         var desc = '무엇을 합니까?';
         if ('injured' === command) {
@@ -423,20 +419,20 @@ var Commander = React.createClass({
         var commandList = [];
         if (-1 !== ['info', 'move', 'explore'].indexOf(command)) {
             commandList = [
-                {name: '아이템 정리/합성/장비', value: 'items', className: '', item: false},
-                {name: '응급처치', value: 'injured', className: '', item: false},
-                {name: '특수커맨드', value: 'special', className: '', item: false}
+                {name: '아이템 정리/합성/장비', command: 'backpack', className: '', item: false},
+                {name: '응급처치', command: 'injured', className: '', item: false},
+                {name: '특수커맨드', command: 'special', className: '', item: false}
             ];
 
             if (0 != account.place) {
                 commandList.splice(1, 0, {
                         name: '치료',
-                        value: 'health',
+                        command: 'health',
                         className: 'health',
                         item: false,
                         target: null
                     },
-                    {name: '수면', value: 'stamina', className: 'stamina', item: false});
+                    {name: '수면', command: 'stamina', className: 'stamina', item: false});
             }
 
             var itemList = this.getItemCommandList(account.item0, account.item1, account.item2, account.item3,
@@ -452,22 +448,23 @@ var Commander = React.createClass({
             if (0 != account.place || (0 == account.place && 'hacked' == serverFlag.status)) {
                 commandList.unshift({
                     name: '탐색',
-                    value: 'explore',
+                    command: 'explore',
                     className: '',
                     item: false
                 });
             }
         } else if ('attackStart' === command) {
+            var enemy = this.getEnemy();
             var weaponInfo = itemSchema[account.weapon.idx];
             var queueList = [
-                {name: '때린다', type: 'melee', skill: account.meleeSkill, value: 'meleeSkill'},
-                {name: '때린다', type: 'fist', skill: account.fistSkill, value: 'fistSkill'},
-                {name: '쏜다', type: 'shot', skill: account.shotSkill, value: 'shotSkill'},
-                {name: '쏜다', type: 'bow', skill: account.bowSkill, value: 'bowSkill'},
-                {name: '벤다', type: 'cut', skill: account.cutSkill, value: 'cutSkill'},
-                {name: '찌른다', type: 'poke', skill: account.pokeSkill, value: 'pokeSkill'},
-                {name: '던진다', type: 'throw', skill: account.throwSkill, value: 'throwSkill'},
-                {name: '던진다', type: 'bomb', skill: account.bombSkill, value: 'bombSkill'}
+                {name: '때린다', type: 'melee', skill: account.meleeSkill, command: 'meleeSkill'},
+                {name: '때린다', type: 'fist', skill: account.fistSkill, command: 'fistSkill'},
+                {name: '쏜다', type: 'shot', skill: account.shotSkill, command: 'shotSkill'},
+                {name: '쏜다', type: 'bow', skill: account.bowSkill, command: 'bowSkill'},
+                {name: '벤다', type: 'cut', skill: account.cutSkill, command: 'cutSkill'},
+                {name: '찌른다', type: 'poke', skill: account.pokeSkill, command: 'pokeSkill'},
+                {name: '던진다', type: 'throw', skill: account.throwSkill, command: 'throwSkill'},
+                {name: '던진다', type: 'bomb', skill: account.bombSkill, command: 'bombSkill'}
             ];
 
             for (var i in queueList) {
@@ -475,16 +472,17 @@ var Commander = React.createClass({
                 if (-1 !== weaponInfo.attackType.indexOf(queue.type)) {
                     commandList.push({
                         name: queue.name + '(' + queue.skill + ')',
-                        value: queue.value,
+                        command: queue.value,
+                        value: enemy.username,
                         className: '',
                         item: false
                     });
                 }
             }
 
-            commandList.push({name: '도망', value: 'runaway', className: '', item: false});
+            commandList.push({name: '도망', command: 'runaway', className: '', item: false});
         } else if ('injured' === command) {
-            commandList.push({name: '돌아간다', value: 'info', className: '', item: false});
+            commandList.push({name: '돌아간다', command: 'info', className: '', item: false});
             var mapped = [
                 {name: '머리', type: 'head'},
                 {name: '팔', type: 'arm'},
@@ -495,11 +493,11 @@ var Commander = React.createClass({
             for (var i in mapped) {
                 var map = mapped[i];
                 if (-1 !== account.injured.indexOf(map.type)) {
-                    commandList.push({name: map.name, value: 'injured_' + map.type, className: '', item: false});
+                    commandList.push({name: map.name, command: 'injured', value: map.type, className: '', item: false});
                 }
             }
         } else {
-            commandList.push({name: '돌아간다', value: 'info', className: '', item: false});
+            commandList.push({name: '돌아간다', command: 'info', className: '', item: false});
         }
 
         return commandList;
@@ -513,6 +511,7 @@ var Commander = React.createClass({
             if ('' !== item.idx) {
                 result.push({
                     name: ExpressRoyale.getItemDesc(item, itemSchema),
+                    command: 'use',
                     value: 'item' + i,
                     className: ExpressRoyale.getItemType(item.idx, itemSchema),
                     item: true
@@ -523,12 +522,8 @@ var Commander = React.createClass({
         return result;
     },
 
-    executeCommand: function (evt) {
-        evt.preventDefault();
-        var command = evt.target.cmd.value;
-        var enemy = this.getEnemy();
-
-        ExpressRoyale.playerCommand(command, enemy.username);
+    executeCommand: function (command, value) {
+        ExpressRoyale.playerCommand(command, value);
     },
 
     render: function () {
@@ -537,36 +532,27 @@ var Commander = React.createClass({
         var serverFlag = this.getServerFlag();
         var itemSchema = this.getItemSchema();
 
-        var executeName = this.getExecuteName(command);
         var commandDesc = this.getCommandDesc(command);
         var commandList = this.getCommandList(command, account, serverFlag, itemSchema);
 
         var that = this;
 
         return (
-            <form onSubmit={this.executeCommand}>
+            <div>
                 <p className="padding5px">{commandDesc}</p>
                 <ul className="list-unstyled">
                     {commandList.map(function (o, i) {
+                        o.className = 'padding3px ' + o.className;
                         return (
                             <li className={o.className}>
-                                <label>
-                                    <input type="radio" name="cmd" value={o.value}
-                                           onChange={that.handleChange.bind(that, o.value)}
-                                           defaultChecked={i == 0 ? true : false}/>
-                                    <span className="padding5px">{o.name}</span>
-                                </label>
+                                <button className="input btn btn-danger"
+                                   onClick={that.executeCommand.bind(that, o.command, o.value)}>
+                                    {o.name}</button>
                                 {(() => {
                                     if (o.item) {
                                         return (
-                                            <label>
-                                                &nbsp;(
-                                                <span className="padding5px">버림</span>
-                                                <input type="radio" name="cmd"
-                                                       className="vertical-text-bottom" value={'drop_' + o.value}
-                                                       onChange={that.handleChange.bind(that, 'drop_' + o.value)}/>
-                                                &nbsp;)
-                                            </label>
+                                            <button className="input btn btn-danger margin3px"
+                                               onClick={that.executeCommand.bind(that, 'drop', o.value)}>버림</button>
                                         );
                                     }
                                 })()}
@@ -574,8 +560,7 @@ var Commander = React.createClass({
                         );
                     })}
                 </ul>
-                <input type='submit' className="input btn btn-warning bg-red" value={executeName}/>
-            </form>
+            </div>
         );
     }
 });
@@ -740,7 +725,7 @@ var ExpressRoyale = (function () {
             renderBattleInfo(data);
             renderCurrentPlace(data);
             renderCommander(data);
-        } else if ('injured' === data.type) {
+        } else if (-1 !== ['injured', 'backpack'].indexOf(data.type)) {
             renderCharacterInfo(data);
             renderCurrentPlace(data);
             renderSkill(data);
@@ -929,23 +914,10 @@ var ExpressRoyale = (function () {
             'bowSkill',
             'pokeSkill',
             'bombSkill',
-            'drop_item0',
-            'drop_item1',
-            'drop_item2',
-            'drop_item3',
-            'drop_item4',
-            'drop_item5',
-            'item0',
-            'item1',
-            'item2',
-            'item3',
-            'item4',
-            'item5',
+            'drop',
+            'use',
             'injured',
-            'injured_head',
-            'injured_body',
-            'injured_arm',
-            'injured_foot'
+            'backpack'
         ];
 
         if (-1 === commandList.indexOf(command)) {

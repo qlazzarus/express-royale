@@ -12,10 +12,10 @@ module.exports = function(io, options, socket, req, res){
         }
     }
 
-    var dropId = req.command.replace(/drop_item/, '');
+    var dropId = req.value;
     var eventLog = [];
 
-    var item = res.account['item' + dropId];
+    var item = res.account[dropId];
     var info = util.getItem(item.idx);
 
     // 아이템 추가
@@ -23,7 +23,7 @@ module.exports = function(io, options, socket, req, res){
     place.save();
 
     eventLog.push([info.name, '을(를) 버렸다.'].join(''));
-    res.account['item' + dropId] = {idx:'', endurance:0, point:0};
+    res.account[dropId] = {idx:'', endurance:0, point:0};
 
     require('./finalize')(io, options, socket, req, res, 'info', true, eventLog);
 };

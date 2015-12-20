@@ -8,10 +8,10 @@ module.exports = function (io, options, socket, req, res) {
     var eventName = '';
     var eventLog = [];
 
-    if (-1 !== req.command.indexOf('_')) {
+    if (typeof req.value !== 'undefined') {
         eventName = 'info';
         eventLog.push('응급처치를 했다.');
-        var part = req.command.replace('injured_', '');
+        var part = req.value;
         var injureIdx = res.account.injured.indexOf(part);
         if (-1 !== injureIdx) {
             res.account.injured.splice(injureIdx, 1);

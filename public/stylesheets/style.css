@@ -58,7 +58,15 @@ a:hover {
     background: #AA0000
 }
 
-.padding5px {
+.margin3px {
+    margin: 0 3px;
+}
+
+.margin5px {
+    margin: 0 5px;
+}
+
+.padding3px {
     padding: 3px;
 }
 

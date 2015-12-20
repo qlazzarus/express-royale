@@ -14,7 +14,7 @@ module.exports = function (io, options, socket, req, res) {
 
     var eventLog = [];
     var eventName = 'info';
-    var item = res.account[req.command];
+    var item = res.account[req.value];
     var isDeath = false;
     if (typeof item !== 'undefined') {
         var itemInfo = util.getItem(item.idx);
@@ -31,7 +31,7 @@ module.exports = function (io, options, socket, req, res) {
                     Process.poison();
                 }
 
-                res.account[req.command] = util.setConsumeItem(item);
+                res.account['item' + req.command] = util.setConsumeItem(item);
             },
             health: function () {
                 if (0 < itemInfo.point) {
@@ -45,7 +45,7 @@ module.exports = function (io, options, socket, req, res) {
                     this.poison();
                 }
 
-                res.account[req.command] = util.setConsumeItem(item);
+                res.account['item' + req.command] = util.setConsumeItem(item);
             },
             poison: function () {
                 var result = parseInt(itemInfo.point * 150 / 100);
@@ -97,9 +97,9 @@ module.exports = function (io, options, socket, req, res) {
                 }
 
                 if (defaultEquip === prevEquip.idx) {
-                    res.account[req.command] = {idx: '', endurance: 0, point: 0};
+                    res.account['item' + req.command] = {idx: '', endurance: 0, point: 0};
                 } else {
-                    res.account[req.command] = prevEquip;
+                    res.account['item' + req.command] = prevEquip;
                 }
             },
             trap: function() {
@@ -114,7 +114,7 @@ module.exports = function (io, options, socket, req, res) {
                 place.save();
 
                 // remove item
-                res.account[req.command] = {idx: '', endurance: 0, point: 0};
+                res.account['item' + req.command] = {idx: '', endurance: 0, point: 0};
             },
             temp_radar: function() {
                 // TODO 임시 레이더
@@ -167,7 +167,7 @@ module.exports = function (io, options, socket, req, res) {
                     eventLog.push([weaponInfo.name, '의 사용횟수가 ', up, '올랐다.'].join(''));
 
                     res.account.weapon.endurance += up;
-                    res.account[req.command] = util.setConsumeItem(item, up);
+                    res.account['item' + req.command] = util.setConsumeItem(item, up);
                 } else if (true === weaponInfo.ammoRequire) {
                     eventLog.push([weaponInfo.name, '에 맞지 않는다...'].join(''));
                 } else {
@@ -185,7 +185,7 @@ module.exports = function (io, options, socket, req, res) {
                     eventLog.push([itemInfo.name, '을(를) 사용했다.', defenceInfo.name, '의 내구력이 ',
                         res.account.armor.body.endurance, '이(가) 되었다.'].join(''));
 
-                    res.account[req.command] = util.setConsumeItem(item);
+                    res.account['item' + req.command] = util.setConsumeItem(item);
                 } else {
                     eventLog.push('이건 어디에 쓰는 것일까...');
                 }
@@ -201,7 +201,7 @@ module.exports = function (io, options, socket, req, res) {
                     eventLog.push([itemInfo.name, '을(를) 사용했다.', weaponInfo.name, '의 공격력이 ',
                         res.account.weapon.point, '이(가) 되었다.'].join(''));
 
-                    res.account[req.command] = util.setConsumeItem(item);
+                    res.account['item' + req.command] = util.setConsumeItem(item);
                 } else {
                     eventLog.push('이건 어디에 쓰는 것일까...');
                 }
