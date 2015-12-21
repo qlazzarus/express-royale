@@ -26,29 +26,11 @@ var CurrentPlace = React.createClass({
 
 var PlaceSelector = React.createClass({
     getInitialState: function () {
-        return {value: 'place' + this.getCurrent()};
+        return {value: 'place' + this.props.current};
     },
 
     handleChange: function (event) {
         ExpressRoyale.playerMove(event.target.value, this);
-    },
-
-    getPlaces: function () {
-        var places = this.props.places;
-        if (typeof places == 'undefined') {
-            places = [];
-        }
-
-        return places;
-    },
-
-    getCurrent: function () {
-        var current = this.props.current;
-        if (typeof current == 'undefined') {
-            current = 0;
-        }
-
-        return current;
     },
 
     getMapped: function (places) {
@@ -69,11 +51,32 @@ var PlaceSelector = React.createClass({
     },
 
     render: function () {
-        var mapped = this.getMapped(this.getPlaces());
+        var mapped = this.getMapped(this.props.places);
         return (
             <select value={this.state.value} onChange={this.handleChange}>
                 {mapped.map(function (option) {
                     return <option value={option.value} className={option.className}>{option.subject}</option>;
+                })}
+            </select>
+        );
+    }
+});
+
+var Selector = React.createClass({
+    getInitialState: function () {
+        return {value: this.props.current};
+    },
+
+    handleChange: function (event) {
+        this.setState({value: event.target.value});
+    },
+
+    render: function () {
+        var mapped = this.props.options;
+        return (
+            <select value={this.state.value} onChange={this.handleChange}>
+                {mapped.map(function (option) {
+                    return <option value={option.index}>{option.name}</option>;
                 })}
             </select>
         );
@@ -118,40 +121,10 @@ var Skills = React.createClass({
 });
 
 var BattleInfo = React.createClass({
-    getAccount: function () {
-        var account = this.props.account;
-
-        if (typeof account == 'undefined') {
-            account = {};
-        }
-
-        return account;
-    },
-
-    getEnemy: function () {
-        var enemy = this.props.enemy;
-
-        if (typeof enemy == 'undefined') {
-            enemy = {};
-        }
-
-        return enemy;
-    },
-
-    getItemSchema: function () {
-        var itemSchema = this.props.itemSchema;
-
-        if (typeof itemSchema == 'undefined') {
-            itemSchema = {};
-        }
-
-        return itemSchema;
-    },
-
     render: function () {
-        var account = this.getAccount();
-        var enemy = this.getEnemy();
-        var itemSchema = this.getItemSchema();
+        var account = this.props.account;
+        var enemy = this.props.enemy;
+        var itemSchema = this.props.itemSchema;
 
         return (
             <div className="solid-bordered row">
@@ -348,162 +321,18 @@ var Logger = React.createClass({
 });
 
 var Commander = React.createClass({
-    getInitialState: function () {
-        return {command: ''};
-    },
-
-    handleChange: function (value) {
-        this.setState({command: value});
-    },
-
-    getCommand: function () {
-        var command = this.props.command;
-
-        if (typeof command == 'undefined') {
-            command = '';
-        }
-
-        return command;
-    },
-
-    getAccount: function () {
-        var account = this.props.account;
-
-        if (typeof account == 'undefined') {
-            account = {};
-        }
-
-        return account;
-    },
-
-    getEnemy: function () {
-        var enemy = this.props.enemy;
-
-        if (typeof enemy == 'undefined') {
-            enemy = {};
-        }
-
-        return enemy;
-    },
-
-    getServerFlag: function () {
-        var serverFlag = this.props.serverFlag;
-
-        if (typeof serverFlag == 'undefined') {
-            serverFlag = {};
-        }
-
-        return serverFlag;
-    },
-
-    getItemSchema: function () {
-        var itemSchema = this.props.itemSchema;
-
-        if (typeof itemSchema == 'undefined') {
-            itemSchema = {};
-        }
-
-        return itemSchema;
-    },
-
     getCommandDesc: function (command) {
         var desc = '무엇을 합니까?';
         if ('injured' === command) {
             desc = '어디를 치료합니까?';
+        } else if ('combine' === command) {
+            desc = '무엇과 무엇을 모읍니까?';
         }
 
         return desc;
     },
 
-    getCommandList: function (command, account, serverFlag, itemSchema) {
-        var commandList = [];
-        if (-1 !== ['info', 'move', 'explore'].indexOf(command)) {
-            commandList = [
-                {name: '아이템 정리/합성/장비', command: 'backpack', className: '', item: false},
-                {name: '응급처치', command: 'injured', className: '', item: false},
-                {name: '특수커맨드', command: 'special', className: '', item: false}
-            ];
-
-            if (0 != account.place) {
-                commandList.splice(1, 0, {
-                        name: '치료',
-                        command: 'health',
-                        className: 'health',
-                        item: false,
-                        target: null
-                    },
-                    {name: '수면', command: 'stamina', className: 'stamina', item: false});
-            }
-
-            var itemList = this.getItemCommandList(account.item0, account.item1, account.item2, account.item3,
-                account.item4, account.item5, itemSchema);
-
-            var itemLength = itemList.length;
-            if (0 < itemLength) {
-                for (var i = itemLength; i > 0; i--) {
-                    commandList.unshift(itemList[(i - 1)]);
-                }
-            }
-
-            if (0 != account.place || (0 == account.place && 'hacked' == serverFlag.status)) {
-                commandList.unshift({
-                    name: '탐색',
-                    command: 'explore',
-                    className: '',
-                    item: false
-                });
-            }
-        } else if ('attackStart' === command) {
-            var enemy = this.getEnemy();
-            var weaponInfo = itemSchema[account.weapon.idx];
-            var queueList = [
-                {name: '때린다', type: 'melee', skill: account.meleeSkill, command: 'meleeSkill'},
-                {name: '때린다', type: 'fist', skill: account.fistSkill, command: 'fistSkill'},
-                {name: '쏜다', type: 'shot', skill: account.shotSkill, command: 'shotSkill'},
-                {name: '쏜다', type: 'bow', skill: account.bowSkill, command: 'bowSkill'},
-                {name: '벤다', type: 'cut', skill: account.cutSkill, command: 'cutSkill'},
-                {name: '찌른다', type: 'poke', skill: account.pokeSkill, command: 'pokeSkill'},
-                {name: '던진다', type: 'throw', skill: account.throwSkill, command: 'throwSkill'},
-                {name: '던진다', type: 'bomb', skill: account.bombSkill, command: 'bombSkill'}
-            ];
-
-            for (var i in queueList) {
-                var queue = queueList[i];
-                if (-1 !== weaponInfo.attackType.indexOf(queue.type)) {
-                    commandList.push({
-                        name: queue.name + '(' + queue.skill + ')',
-                        command: queue.value,
-                        value: enemy.username,
-                        className: '',
-                        item: false
-                    });
-                }
-            }
-
-            commandList.push({name: '도망', command: 'runaway', className: '', item: false});
-        } else if ('injured' === command) {
-            commandList.push({name: '돌아간다', command: 'info', className: '', item: false});
-            var mapped = [
-                {name: '머리', type: 'head'},
-                {name: '팔', type: 'arm'},
-                {name: '복부', type: 'body'},
-                {name: '다리', type: 'foot'}
-            ];
-
-            for (var i in mapped) {
-                var map = mapped[i];
-                if (-1 !== account.injured.indexOf(map.type)) {
-                    commandList.push({name: map.name, command: 'injured', value: map.type, className: '', item: false});
-                }
-            }
-        } else {
-            commandList.push({name: '돌아간다', command: 'info', className: '', item: false});
-        }
-
-        return commandList;
-    },
-
-    getItemCommandList: function (item0, item1, item2, item3, item4, item5, itemSchema) {
+    getItemList: function (item0, item1, item2, item3, item4, item5, itemSchema) {
         var result = [];
         var mapped = [item0, item1, item2, item3, item4, item5];
         for (var i in mapped) {
@@ -511,10 +340,8 @@ var Commander = React.createClass({
             if ('' !== item.idx) {
                 result.push({
                     name: ExpressRoyale.getItemDesc(item, itemSchema),
-                    command: 'use',
-                    value: 'item' + i,
-                    className: ExpressRoyale.getItemType(item.idx, itemSchema),
-                    item: true
+                    index: 'item' + i,
+                    type: ExpressRoyale.getItemType(item.idx, itemSchema)
                 });
             }
         }
@@ -522,42 +349,240 @@ var Commander = React.createClass({
         return result;
     },
 
+    getInfoCommand: function (account, serverFlag, itemList) {
+        var commandList = [
+            {
+                name: '아이템 정리/합성/장비',
+                event: 'backpack',
+                className: '',
+                type: 'command'
+            }
+        ];
+
+        if (0 != account.place) {
+            commandList.push({
+                name: '치료',
+                event: 'healing',
+                className: 'health',
+                type: 'command'
+            });
+            commandList.push({
+                name: '수면',
+                event: 'sleep',
+                className: 'stamina',
+                type: 'command'
+            });
+        }
+
+        commandList.push({
+            name: '응급처치',
+            event: 'injured',
+            className: '',
+            type: 'command'
+        });
+
+        commandList.push({
+            name: '특수커맨드',
+            event: 'special',
+            className: 'stamina',
+            type: 'command'
+        });
+
+        var itemLength = itemList.length;
+        if (0 < itemLength) {
+            for (var i = itemLength; i > 0; i--) {
+                var item = itemList[(i - 1)];
+                commandList.unshift({
+                    name:  item.name,
+                    event: item.index,
+                    className: '',
+                    type: 'item'
+                });
+            }
+        }
+
+        if (0 != account.place || (0 == account.place && 'hacked' == serverFlag.status)) {
+            commandList.unshift({
+                name:  '탐색',
+                event: 'explore',
+                className: '',
+                type: 'command'
+            });
+        }
+
+        return commandList;
+    },
+
+    getAttackCommand: function (account, enemy, itemSchema) {
+        var weaponInfo = itemSchema[account.weapon.idx];
+        var commandList = [];
+        var queueList = [
+            {name: '때린다', type: 'melee', skill: account.meleeSkill, command: 'meleeSkill'},
+            {name: '때린다', type: 'fist', skill: account.fistSkill, command: 'fistSkill'},
+            {name: '쏜다', type: 'shot', skill: account.shotSkill, command: 'shotSkill'},
+            {name: '쏜다', type: 'bow', skill: account.bowSkill, command: 'bowSkill'},
+            {name: '벤다', type: 'cut', skill: account.cutSkill, command: 'cutSkill'},
+            {name: '찌른다', type: 'poke', skill: account.pokeSkill, command: 'pokeSkill'},
+            {name: '던진다', type: 'throw', skill: account.throwSkill, command: 'throwSkill'},
+            {name: '던진다', type: 'bomb', skill: account.bombSkill, command: 'bombSkill'}
+        ];
+
+        for (var i in queueList) {
+            var queue = queueList[i];
+            if (-1 !== weaponInfo.attackType.indexOf(queue.type)) {
+                commandList.push({
+                    name: queue.name + '(' + queue.skill + ')',
+                    event: queue.command,
+                    value: enemy.username,
+                    className: '',
+                    type: 'command'
+                });
+            }
+        }
+
+        commandList.push({name: '도망', event: 'runaway', className: '', type: 'command'});
+        return commandList;
+    },
+
+    getInjureCommand: function (account) {
+        var commandList = [{name: '돌아간다', event: 'info', className: '', type: 'command'}];
+        var mapped = [
+            {name: '머리', type: 'head'},
+            {name: '팔', type: 'arm'},
+            {name: '복부', type: 'body'},
+            {name: '다리', type: 'foot'}
+        ];
+
+        for (var i in mapped) {
+            var map = mapped[i];
+            if (-1 !== account.injured.indexOf(map.type)) {
+                commandList.push({name: map.name, event: 'injured', value: map.type, className: '', type: 'command'});
+            }
+        }
+
+        return command;
+    },
+
+    getBackpackCommand: function (account) {
+        var commandList = [
+            {name: '돌아간다', event: 'info', className: '', type: 'command'},
+            {name: '아이템 정리', event: 'combine', className: '', type: 'command'},
+            {name: '아이템 합성', event: 'mix', className: '', type: 'command'}
+        ];
+
+        if ('weaponDefault' !== account.weapon.idx) {
+            commandList.push({
+                name: '장비무기를 벗는다',
+                event: 'weapon',
+                value: 'unequip',
+                className: '',
+                type: 'command'
+            });
+            commandList.push({name: '장비무기를 버린다', event: 'weapon', value: 'drop', className: '', type: 'command'});
+        }
+
+        return commandList;
+    },
+
+    getItemMixCommand: function (nextEvent, account, itemList) {
+        var newItem = itemList.slice(0);
+        newItem.unshift({name:'그만둔다', index: 'info'});
+        return [{name: '확인', event: nextEvent, value: newItem, className: '', type: 'itemMix'}];
+    },
+
+    getCommandList: function (command, account, serverFlag, itemSchema) {
+        var commandList = [];
+        var itemList = this.getItemList(account.item0, account.item1, account.item2, account.item3,
+            account.item4, account.item5, itemSchema);
+
+        if (-1 !== ['info', 'move', 'explore'].indexOf(command)) {
+            commandList = this.getInfoCommand(account, serverFlag, itemList);
+        } else if ('attackStart' === command) {
+            commandList = this.getAttackCommand(account, this.props.enemy, itemSchema);
+        } else if ('injured' === command) {
+            commandList = this.getInjureCommand(account);
+        } else if ('backpack' === command) {
+            commandList = this.getBackpackCommand(account);
+        } else if (-1 !== ['combine', 'mix'].indexOf(command)) {
+            commandList = this.getItemMixCommand(command + 'Start', account, itemList);
+        } else {
+            commandList.push({
+                name:  '돌아간다',
+                event: 'info',
+                className: '',
+                type: 'command'
+            });
+        }
+
+        return commandList;
+    },
+
     executeCommand: function (command, value) {
+        if ('combineStart' === command) {
+            var newValue = [];
+            for (var i in value) {
+                newValue.push(this.refs[value[i]].state.value);
+            }
+
+            value = newValue;
+        }
+
         ExpressRoyale.playerCommand(command, value);
     },
 
     render: function () {
-        var command = this.getCommand();
-        var account = this.getAccount();
-        var serverFlag = this.getServerFlag();
-        var itemSchema = this.getItemSchema();
-
-        var commandDesc = this.getCommandDesc(command);
-        var commandList = this.getCommandList(command, account, serverFlag, itemSchema);
-
         var that = this;
+        var commandDesc = this.getCommandDesc(this.props.command);
+        var commandList = this.getCommandList(
+            this.props.command,
+            this.props.account,
+            this.props.serverFlag,
+            this.props.itemSchema
+        );
 
         return (
             <div>
                 <p className="padding5px">{commandDesc}</p>
                 <ul className="list-unstyled">
-                    {commandList.map(function (o, i) {
+                    {commandList.map(function (o) {
                         o.className = 'padding3px ' + o.className;
-                        return (
-                            <li className={o.className}>
-                                <button className="input btn btn-danger"
-                                   onClick={that.executeCommand.bind(that, o.command, o.value)}>
-                                    {o.name}</button>
-                                {(() => {
-                                    if (o.item) {
-                                        return (
-                                            <button className="input btn btn-danger margin3px"
-                                               onClick={that.executeCommand.bind(that, 'drop', o.value)}>버림</button>
-                                        );
-                                    }
-                                })()}
-                            </li>
-                        );
+                        if ('item' === o.type) {
+                            return (
+                                <li className={o.className}>
+                                    <button className="input btn btn-sm btn-danger"
+                                            onClick={that.executeCommand.bind(that, 'use', o.event)}>
+                                        {o.name}
+                                    </button>
+                                    <button className="input btn btn-sm btn-danger margin3px"
+                                            onClick={that.executeCommand.bind(that, 'drop', o.event)}>
+                                        버림
+                                    </button>
+                                </li>
+                            );
+                        } else if ('itemMix' === o.type) {
+                            var itemFrom = <Selector ref="itemFrom" options={o.value} current="info" />;
+                            var itemTo = <Selector ref="itemTo" options={o.value} current="info" />;
+
+                            return (
+                                <li className={o.className}>
+                                    <p>{itemFrom}</p>
+                                    <p>{itemTo}</p>
+                                    <button className="input btn btn-sm btn-danger"
+                                            onClick={that.executeCommand.bind(that, o.event, ['itemFrom', 'itemTo'])}>
+                                        {o.name}
+                                    </button>
+                                </li>
+                            );
+                        } else {
+                            return (
+                                <li className={o.className}>
+                                    <button className="input btn btn-sm btn-danger"
+                                            onClick={that.executeCommand.bind(that, o.event, o.value)}>
+                                        {o.name}
+                                    </button>
+                                </li>
+                            );
+                        }
                     })}
                 </ul>
             </div>
@@ -725,7 +750,7 @@ var ExpressRoyale = (function () {
             renderBattleInfo(data);
             renderCurrentPlace(data);
             renderCommander(data);
-        } else if (-1 !== ['injured', 'backpack'].indexOf(data.type)) {
+        } else if (-1 !== ['injured', 'backpack', 'combine', 'mix'].indexOf(data.type)) {
             renderCharacterInfo(data);
             renderCurrentPlace(data);
             renderSkill(data);
@@ -917,12 +942,15 @@ var ExpressRoyale = (function () {
             'drop',
             'use',
             'injured',
-            'backpack'
+            'backpack',
+            'combine',
+            'mix',
+            'combineStart',
+            'mixStart',
+            'weapon'
         ];
 
         if (-1 === commandList.indexOf(command)) {
-            console.log(command);
-            console.log(value);
             return false;
         } else {
             queueManager.send({command: command, value: value});

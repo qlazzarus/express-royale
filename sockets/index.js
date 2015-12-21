@@ -38,6 +38,12 @@ module.exports = function (io, options) {
                         require('./useItem')(io, options, socket, req, res);
                     } else if ('backpack' === req.command) {
                         require('./backpack')(io, options, socket, req, res);
+                    } else if (-1 !== ['combine', 'combineStart'].indexOf(req.command)) {
+                        require('./combine')(io, options, socket, req, res);
+                    } else if (-1 !== ['mix', 'mixStart'].indexOf(req.command)) {
+                        require('./mix')(io, options, socket, req, res);
+                    } else if ('weapon' === req.command) {
+                        require('./weapon')(io, options, socket, req, res);
                     } else if ('injured' === req.command) {
                         require('./injured')(io, options, socket, req, res);
                     } else {
