@@ -462,7 +462,7 @@ var Commander = React.createClass({
             }
         }
 
-        return command;
+        return commandList;
     },
 
     getBackpackCommand: function (account) {
