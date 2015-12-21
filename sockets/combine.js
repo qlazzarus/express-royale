@@ -21,7 +21,7 @@ module.exports = function (io, options, socket, req, res) {
         eventName = 'info';
         eventLog = ['아이템을 정리합니다.', itemInfo.name + '을(를) 고쳐넣었습니다.'];
     } else if (typeof req.value !== 'undefined') {
-        var combineResult = true;
+        var combineResult = itemInfo.id === itemInfo2.id;
 
         eventName = 'info';
         eventLog = ['아이템을 정리합니다.'];
@@ -29,16 +29,13 @@ module.exports = function (io, options, socket, req, res) {
         itemInfo = util.getItem(res.account[req.value[0]].idx);
         itemInfo2 = util.getItem(res.account[req.value[1]].idx);
 
-        if (itemInfo.id !== itemInfo2.id) {
-            combineResult = false;
-        } else if (-1 === [
-                'health', 'stamina', '12gauage', '9mm', '22lr', '357mag', '38special', '45acp', 'apostle',
-                'bow', 'weapon'
-            ].indexOf(itemInfo.equip)) {
-            combineResult = false;
-        } else if (('weapon' === itemInfo.equip && -1 === itemInfo.attackType.indexOf('bomb'))
-            && ('weapon' === itemInfo.equip && -1 !== itemInfo.attackType.indexOf('throw'))) {
-            combineResult = false;
+        if (true === combineResult &&
+            -1 === ['health', 'stamina', '12gauage', '9mm', '22lr', '357mag', '38special', '45acp', 'apostle',
+                'bow'].indexOf(itemInfo.equip)) {
+            combineResult = true;
+        } else if (true === combineResult && 'weapon' === itemInfo.equip
+            && (-1 !== itemInfo.attackType.indexOf('bomb') || -1 !== itemInfo.attackType.indexOf('throw'))) {
+            combineResult = true;
         }
 
         if (true === combineResult) {

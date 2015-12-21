@@ -1437,6 +1437,6 @@ module.exports = (function () {
         setInjured: setInjured,
         setConsumeItem: setConsumeItem,
         getFirstAidStamina: getFirstAidStamina,
-        getMixItem: getMixItemf
+        getMixItem: getMixItem
     };
 })();

@@ -492,6 +492,35 @@ var Commander = React.createClass({
         return [{name: '확인', event: nextEvent, value: newItem, className: '', type: 'itemMix'}];
     },
 
+    getSpecialCommand: function (account, itemList) {
+        var commandList = [
+            {name: '돌아간다', event: 'info', className: '', type: 'command'},
+            {value: '기본방침 변경', className: '', type: 'string'},
+            {name: '보통', event: 'tactics', value: 0, className: '', type: 'command'},
+            {name: '공격중시', event: 'tactics', value: 1, className: '', type: 'command'},
+            {name: '방어중시', event: 'tactics', value: 2, className: '', type: 'command'},
+            {name: '은밀행동', event: 'tactics', value: 3, className: '', type: 'command'},
+            {name: '탐색행동', event: 'tactics', value: 4, className: '', type: 'command'},
+            {name: '연속공격', event: 'tactics', value: 5, className: '', type: 'command'},
+            {name: '대사 변경', event: 'message', className: '', type: 'command'}
+        ];
+
+        if (13 == account.clubId) {
+            commandList.push({name: '독 조사', event: 'poisonCheck', className: '', type: 'command'});
+        }
+
+        for (var i in itemList) {
+            var item = itemList[i];
+            if ('etc7' === item.index) {
+                commandList.push({name: '독 섞기', event: 'poisonStart', className: '', type: 'command'});
+            } else if ('etc37' === item.index) {
+                commandList.push({name: '해킹', event: 'hackStart', className: '', type: 'command'});
+            }
+        }
+
+        return commandList;
+    },
+
     getCommandList: function (command, account, serverFlag, itemSchema) {
         var commandList = [];
         var itemList = this.getItemList(account.item0, account.item1, account.item2, account.item3,
@@ -507,6 +536,8 @@ var Commander = React.createClass({
             commandList = this.getBackpackCommand(account);
         } else if (-1 !== ['combine', 'mix'].indexOf(command)) {
             commandList = this.getItemMixCommand(command + 'Start', account, itemList);
+        } else if ('special' === command) {
+            commandList = this.getSpecialCommand(account, itemList);
         } else {
             commandList.push({
                 name:  '돌아간다',
@@ -520,7 +551,7 @@ var Commander = React.createClass({
     },
 
     executeCommand: function (command, value) {
-        if ('combineStart' === command) {
+        if (-1 !== ['combineStart', 'mixStart'].indexOf(command)) {
             var newValue = [];
             for (var i in value) {
                 newValue.push(this.refs[value[i]].state.value);
@@ -562,8 +593,8 @@ var Commander = React.createClass({
                                 </li>
                             );
                         } else if ('itemMix' === o.type) {
-                            var itemFrom = <Selector ref="itemFrom" options={o.value} current="info" />;
-                            var itemTo = <Selector ref="itemTo" options={o.value} current="info" />;
+                            var itemFrom = <Selector ref="itemFrom" options={o.value} current="info"/>;
+                            var itemTo = <Selector ref="itemTo" options={o.value} current="info"/>;
 
                             return (
                                 <li className={o.className}>
@@ -573,6 +604,12 @@ var Commander = React.createClass({
                                             onClick={that.executeCommand.bind(that, o.event, ['itemFrom', 'itemTo'])}>
                                         {o.name}
                                     </button>
+                                </li>
+                            );
+                        } else if ('string' === o.type) {
+                            return (
+                                <li className="padding5px">
+                                    <p>{o.value}</p>
                                 </li>
                             );
                         } else {
@@ -752,7 +789,7 @@ var ExpressRoyale = (function () {
             renderBattleInfo(data);
             renderCurrentPlace(data);
             renderCommander(data);
-        } else if (-1 !== ['injured', 'backpack', 'combine', 'mix'].indexOf(data.type)) {
+        } else if (-1 !== ['injured', 'backpack', 'combine', 'mix', 'special'].indexOf(data.type)) {
             renderCharacterInfo(data);
             renderCurrentPlace(data);
             renderSkill(data);
@@ -949,7 +986,9 @@ var ExpressRoyale = (function () {
             'mix',
             'combineStart',
             'mixStart',
-            'weapon'
+            'weapon',
+            'special',
+            'tactics'
         ];
 
         if (-1 === commandList.indexOf(command)) {

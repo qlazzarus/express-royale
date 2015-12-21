@@ -36,6 +36,8 @@ module.exports = function (io, options, socket, req, res) {
         itemInfo = util.getItem(res.account[req.value[0]].idx);
         itemInfo2 = util.getItem(res.account[req.value[1]].idx);
 
+        eventName = 'info';
+
         if (null === emptySlot) {
             eventLog = '더 이상 배낭에 들어가지 않습니다.';
         } else if (null === mixResult) {

@@ -24,9 +24,6 @@ module.exports = function (io, options) {
                         require('./move')(io, options, socket, req, res);
                     } else if ('explore' === req.command) {
                         require('./explore')(io, options, socket, req, res);
-                    } else if ('runaway' === req.command) {
-                        require('./finalize')(io, options, socket, req, res, 'info', true,
-                            res.account.username + '은(는) 전속력으로 도망쳤다...');
                     } else if (-1 !== [
                             'meleeSkill', 'shotSkill', 'cutSkill', 'throwSkill', 'fistSkill', 'bowSkill',
                             'pokeSkill', 'bombSkill'
@@ -46,6 +43,13 @@ module.exports = function (io, options) {
                         require('./weapon')(io, options, socket, req, res);
                     } else if ('injured' === req.command) {
                         require('./injured')(io, options, socket, req, res);
+                    } else if ('tactics' === req.command) {
+                        require('./tactics')(io, options, socket, req, res);
+                    } else if ('runaway' === req.command) {
+                        require('./finalize')(io, options, socket, req, res, 'info', true,
+                            res.account.username + '은(는) 전속력으로 도망쳤다...');
+                    } else if ('special' === req.command) {
+                        require('./finalize')(io, options, socket, req, res, 'special', true, '특수 커맨드입니다.');
                     } else {
                         require('./finalize')(io, options, socket, req, res, 'info', true, '');
                     }
