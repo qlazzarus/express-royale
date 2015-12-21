@@ -382,6 +382,27 @@ module.exports = (function () {
 
 
     /**
+     * 아이템 합성
+     *
+     * @param itemFrom
+     * @param itemTo
+     */
+    function getMixItem(itemFrom, itemTo) {
+        var result = null;
+        var mixItems = gameConfig.mixItems;
+        for (var i in mixItems) {
+            var entry = mixItems[i];
+            if (-1 !== entry.material.indexOf(itemFrom) && -1 !== entry.material.indexOf(itemTo)) {
+                result = entry.result;
+                break;
+            }
+        }
+
+        return result;
+    }
+
+
+    /**
      * 아이템ID로 슬롯 찾기
      *
      * @param itemId
@@ -1415,6 +1436,7 @@ module.exports = (function () {
         setLevelUp: setLevelUp,
         setInjured: setInjured,
         setConsumeItem: setConsumeItem,
-        getFirstAidStamina: getFirstAidStamina
+        getFirstAidStamina: getFirstAidStamina,
+        getMixItem: getMixItemf
     };
 })();

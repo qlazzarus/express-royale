@@ -327,6 +327,8 @@ var Commander = React.createClass({
             desc = '어디를 치료합니까?';
         } else if ('combine' === command) {
             desc = '무엇과 무엇을 모읍니까?';
+        } else if ('mix' === command) {
+            desc = '무엇과 무엇을 합성합니까?';
         }
 
         return desc;

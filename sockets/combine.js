@@ -9,7 +9,6 @@ module.exports = function (io, options, socket, req, res) {
     var itemInfo = {};
     var itemInfo2 = {};
 
-
     if (typeof req.value === 'undefined') {
         eventName = 'combine';
         eventLog = '배낭 안을 정리할까...';
