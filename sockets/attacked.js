@@ -180,37 +180,12 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
                 } else {
                     eventLog.push([res.account.username, '은(는) 도망쳤다...'].join(''));
 
-                    // TODO 공격 통보 (socket)
-                    /*
-                    var currentDate = new Date();
-                    socket.broadcast.to(res.enemy).emit('recv', {
-                        type: 'broadcast',
-                        log: [
-                            '<strong style="color:#ffff00;">',
-                            currentDate.getHours(),
-                            ':',
-                            currentDate.getMinutes(),
-                            ':',
-                            currentDate.getSeconds(),
-                            ' 전투:',
-                            res.account.username,
-                            '(',
-                            res.account.groupName,
-                            ' ',
-                            0 == res.account.userGender ? '남자' : '여자',
-                            res.account.studentNo,
-                            '번) 공격:',
-                            result,
-                            ' 피해:',
-                        ].join('')
-                    });
-                    */
-                    //$w_log = ($w_log . "<font color=\"yellow\"><b>$hour:$min:$sec 전투：$f_name $l_name\($cl $sex$no번\) 공격:$result 피해:$result2 $hakaiinf2 $kega3 </b></font><br>") ;
+                    util.broadcastAttack(socket, res.enemy, res.account, enemyResult, strikeResult, result);
                 }
             } else {
                 eventLog.push('그러나, 피했다!');
-                // TODO 공격 통보 (socket)
-                //$w_log = ($w_log . "<font color=\"yellow\"><b>$hour:$min:$sec 전투：$f_name $l_name\($cl $sex$no번\) 공격:$result $hakaiinf2 $kega3 </b></font><br>") ;
+
+                util.broadcastAttack(socket, res.enemy, res.account, enemyResult, strikeResult);
             }
 
             // 탄소모

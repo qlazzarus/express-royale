@@ -864,6 +864,63 @@ module.exports = (function () {
 
 
     /**
+     * broadcast attack
+     *
+     * @param socket
+     * @param victim
+     * @param assault
+     * @param damagePoint
+     * @param counterPoint
+     * @param counterResult
+     */
+    function broadcastAttack(socket, victim, assault, damagePoint, counterResult, counterPoint) {
+        var currentDate = new Date();
+        var hour = currentDate.getHours();
+        var min = currentDate.getMinutes();
+        var sec = currentDate.getSeconds();
+        if (10 > hour) {
+            hour = '0' + hour;
+        }
+
+        if (10 > min) {
+            min = '0' + min;
+        }
+
+        if (10 > sec) {
+            sec = '0' + sec;
+        }
+
+        var result = {
+            type: 'broadcast',
+            log: ['<strong style="color:#ffff00;">', hour, ':', min, ':', sec, ' 전투:',
+                assault.username, '(', assault.groupName, ' ',
+                0 == assault.userGender ? '남자' : '여자', assault.studentNo,
+                '번) 공격:', damagePoint]
+        };
+
+        if (typeof counterPoint !== 'undefined') {
+            result.log.push(' 피해:');
+            result.log.push(counterPoint);
+        }
+
+        result.log.push([
+            true === counterResult.weaponDestroy ? ' 무기손상' : '',
+            '' !== counterResult.injured ? {
+                head: ' 머리 부상',
+                arm: ' 팔 부상',
+                body: ' 복부 부상',
+                foot: ' 다리 부상'
+            }[counterResult.injured] : '',
+            true === counterResult.critical ? ' 크리티컬' : '',
+            '</strong>'
+        ].join(''));
+        result.log = result.log.join('');
+
+        socket.broadcast.to(victim).emit('recv', result);
+    }
+
+
+    /**
      * 전투 계산
      *
      * @param user
@@ -1500,6 +1557,7 @@ module.exports = (function () {
         setConsumeItem: setConsumeItem,
         getFirstAidStamina: getFirstAidStamina,
         getDetoxStamina: getDetoxStamina,
-        getMixItem: getMixItem
+        getMixItem: getMixItem,
+        broadcastAttack: broadcastAttack
     };
 })();
