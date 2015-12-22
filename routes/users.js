@@ -134,15 +134,16 @@ module.exports = function (app, options) {
                     var clubName = util.getClubs()[clubId];
                     var skillMap = util.getSkillByClubId(clubId);
                     var mergeItems = util.appendSupplyItem(supplyWeapon, personalItem);
-                    var armorBody = {idx: 'armor42', point: 5, endurance: 30};
+                    var armorBody = {idx: 'armor41', point: 5, endurance: 30};
                     if (1 == req.body.userGender) {
-                        armorBody.idx = 'armor43';
+                        armorBody.idx = 'armor42';
                     }
 
                     options.container.get('service').signup(
                         options.passport,
                         options.models.getModel('user'),
                         options.models.getModel('group'),
+                        options.models.getModel('news'),
                         ip,
                         req,
                         res,

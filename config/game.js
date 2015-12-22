@@ -2489,13 +2489,13 @@ module.exports = {
         etc24: {id: 'etc24', equip: 'item', name: '경유', endurance: 1, point: 1},
         etc25: {id: 'etc25', equip: 'item', name: '비료', endurance: 1, point: 1},
         etc26: {id: 'etc26', equip: 'speaker', name: '확성기', endurance: 1, point: 1},
-        etc27: {id: 'etc27', equip: 'battery', name: '배터리', type: '.', endurance: 1, point: 1},
+        etc27: {id: 'etc27', equip: 'battery', name: '배터리', endurance: 1, point: 1},
         etc31: {id: 'etc31', equip: 'item', name: '못', endurance: 1, point: 1},
         etc32: {id: 'etc32', equip: 'item', name: '도화선', endurance: 1, point: 1},
         etc34: {id: 'etc34', equip: 'radar', name: '레이더', endurance: 1, point: 1},
         etc35: {id: 'etc35', equip: 'item', name: '화약', endurance: 1, point: 1},
         etc36: {id: 'etc36', equip: 'item', name: '노트북', endurance: 1, point: 1},
-        etc37: {id: 'etc37', equip: 'mobilepc', name: '모바일PC', endurance: 1, point: 1},
+        etc37: {id: 'etc37', equip: 'mobilepc', name: '모바일PC', endurance: 0, point: 1},
         etc38: {id: 'etc38', equip: 'item', name: '창대', endurance: 1, point: 1}
     },
 

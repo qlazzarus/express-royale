@@ -33,7 +33,7 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
 
         var ammoSlot = null;
         if (-1 !== ['etc8', 'etc9', 'etc10', 'etc12', 'etc13', 'etc14', 'etc15', 'etc16'].indexOf(itemInfo.idx)) {
-            ammoSlot = util.findItemSlot(
+            ammoSlot = util.findItemSlotById(
                 itemInfo.idx,
                 res.account.item0,
                 res.account.item1,

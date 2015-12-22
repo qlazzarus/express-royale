@@ -7,17 +7,15 @@ module.exports = function (io, options, socket, req, res) {
     var eventName = 'info';
     var eventLog = [];
 
-    var poisonSlot = null;
-    var poisonInfo = {};
-    var inventories = ['item0', 'item1', 'item2', 'item3', 'item4', 'item5'];
-    for (var i in inventories) {
-        var itemId = res.account[inventories[i]].idx;
-
-        if ('' !== itemId && 'poison' === util.getItem(itemId).equip) {
-            poisonSlot = inventories[i];
-            break;
-        }
-    }
+    var poisonSlot = util.findItemSlotByEquip(
+        'poison',
+        res.account.item0,
+        res.account.item1,
+        res.account.item2,
+        res.account.item3,
+        res.account.item4,
+        res.account.item5
+    );
 
     if (typeof req.value !== 'undefined' && null !== poisonSlot) {
         var item = res.account[req.value];
@@ -29,7 +27,7 @@ module.exports = function (io, options, socket, req, res) {
             res.account[req.value].point = res.account[req.value].point * -1;
         }
     } else if (13 === res.account.clubId && null !== poisonSlot) {
-        poisonInfo = util.getItem(res.account[poisonSlot].idx);
+        var poisonInfo = util.getItem(res.account[poisonSlot].idx);
         eventName = 'poisonStart';
         eventLog.push(['이 ', poisonInfo.name, '을(를) 섞으면... 후후후.'].join(''));
     }

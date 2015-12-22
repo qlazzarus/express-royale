@@ -302,13 +302,35 @@ module.exports = (function () {
 
 
     /**
+     * 지역 정보 출력
+     *
+     * @param placeId
+     * @returns {{}}
+     */
+    function getPlaceInfo(placeId) {
+        return gameConfig.places[placeId];
+    }
+
+
+    /**
+     * 지역 이름 출력
+     *
+     * @param placeId
+     * @returns {string}
+     */
+    function getPlaceName(placeId) {
+        return getPlaceInfo(placeId).name;
+    }
+
+
+    /**
      * 지역 대사 리턴
      *
      * @param placeId
      * @returns {string}
      */
     function getPlaceMessage(placeId) {
-        return gameConfig.places[placeId].message;
+        return getPlaceInfo(placeId).message;
     }
 
 
@@ -319,7 +341,7 @@ module.exports = (function () {
      * @returns {string}
      */
     function getPlaceSpecialize(placeId) {
-        return gameConfig.places[placeId].specialize;
+        return getPlaceInfo(placeId).specialize;
     }
 
 
@@ -353,6 +375,33 @@ module.exports = (function () {
         } else {
             return gameConfig.items[itemId];
         }
+    }
+
+
+    /**
+     * 아이템 종류에 따른 아이템 슬롯 리턴
+     *
+     * @param equipType
+     * @param item0
+     * @param item1
+     * @param item2
+     * @param item3
+     * @param item4
+     * @param item5
+     * @returns {null|string}
+     */
+    function findItemSlotByEquip(equipType, item0, item1, item2, item3, item4, item5) {
+        var resultSlot = null;
+        var inventories = [item0, item1, item2, item3, item4, item5];
+        for (var i in inventories) {
+            var itemInfo = getItem(inventories[i].idx);
+            if (typeof itemInfo !== 'undefined' && equipType === itemInfo.equip) {
+                resultSlot = 'item' + i;
+                break;
+            }
+        }
+
+        return resultSlot;
     }
 
 
@@ -424,7 +473,7 @@ module.exports = (function () {
      * @param item5
      * @returns {null|string}
      */
-    function findItemSlot(itemId, item0, item1, item2, item3, item4, item5) {
+    function findItemSlotById(itemId, item0, item1, item2, item3, item4, item5) {
         var inventories = ['item0', 'item1', 'item2', 'item3', 'item4', 'item5'];
         var slots = {
             item0: item0,
@@ -1412,6 +1461,9 @@ module.exports = (function () {
         getMaxRecruitTime: getMaxRecruitTime,
         getGroupPerMan: getGroupPerMan,
         getPlaces: getPlaces,
+        getPlaceInfo: getPlaceInfo,
+        getPlaceName: getPlaceName,
+        getPlaceMessage: getPlaceMessage,
         getItem: getItem,
         getSupplyItems: getSupplyItems,
         getPersonalItems: getPersonalItems,
@@ -1428,7 +1480,6 @@ module.exports = (function () {
         getExpIncrease: getExpIncrease,
         getSkills: getSkills,
         getTactics: getTactics,
-        getPlaceMessage: getPlaceMessage,
         moveConsumeStamina: moveConsumeStamina,
         exploreConsumeStamina: exploreConsumeStamina,
         getBattleRateByAttacker: getBattleRateByAttacker,
@@ -1436,7 +1487,8 @@ module.exports = (function () {
         getPersonSearch: getPersonSearch,
         getGlobalLooted: getGlobalLooted,
         getEmptyItemSlot: getEmptyItemSlot,
-        findItemSlot: findItemSlot,
+        findItemSlotById: findItemSlotById,
+        findItemSlotByEquip: findItemSlotByEquip,
         getBattleResult: getBattleResult,
         getEquipCounter: getEquipCounter,
         setConsumeWeapon: setConsumeWeapon,

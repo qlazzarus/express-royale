@@ -358,6 +358,8 @@ var Commander = React.createClass({
             desc = '무엇을 조사합니까?';
         } else if ('poisonStart' === command) {
             desc = '무엇에 독약을 섞습니까?';
+        } else if ('speaker' === command) {
+            desc = '이것을 사용하면, 모두에게 들리겠지...';
         }
 
         return desc;
@@ -564,6 +566,18 @@ var Commander = React.createClass({
         }];
     },
 
+    getSpeakerCommand: function() {
+        return [{
+            name: '',
+            event: 'speaker',
+            className: '',
+            type: 'inputList',
+            entries: [
+                {name: 'message', value: '', label: '전한다'}
+            ]
+        }];
+    },
+
     getPoisonCommand: function (eventName, itemList) {
         var commandList = [{name: '돌아간다', event: 'info', className: '', type: 'command'}];
 
@@ -593,20 +607,31 @@ var Commander = React.createClass({
 
         if (-1 !== ['info', 'move', 'explore'].indexOf(command)) {
             commandList = this.getInfoCommand(account, serverFlag, itemList);
+
         } else if ('attackStart' === command) {
             commandList = this.getAttackCommand(account, this.props.enemy, itemSchema);
+
         } else if ('injured' === command) {
             commandList = this.getInjureCommand(account);
+
         } else if ('backpack' === command) {
             commandList = this.getBackpackCommand(account);
+
         } else if (-1 !== ['combine', 'mix'].indexOf(command)) {
             commandList = this.getItemMixCommand(command + 'Start', account, itemList);
+
         } else if ('special' === command) {
             commandList = this.getSpecialCommand(account, itemList);
+
         } else if ('message' === command) {
             commandList = this.getMessageCommand(account);
+
+        } else if ('speaker' === command) {
+            commandList = this.getSpeakerCommand();
+
         } else if (-1 !== ['poisonCheck', 'poisonStart'].indexOf(command)) {
             commandList = this.getPoisonCommand(command, itemList);
+
         } else {
             commandList.push({
                 name: '돌아간다',
@@ -614,13 +639,14 @@ var Commander = React.createClass({
                 className: '',
                 type: 'command'
             });
+
         }
 
         return commandList;
     },
 
     executeCommand: function (command, value) {
-        if (-1 !== ['combineStart', 'mixStart', 'messageStart'].indexOf(command)) {
+        if (-1 !== ['combineStart', 'mixStart', 'messageStart', 'speaker'].indexOf(command)) {
             var newValue = [];
             for (var i in value) {
                 newValue.push(this.refs[value[i]].state.value);
@@ -861,26 +887,32 @@ var ExpressRoyale = (function () {
     }
 
     function receivePacket(data, callback) {
-        renderInit();
+
 
         if (-1 !== ['info', 'move', 'explore'].indexOf(data.type)) {
+            renderInit();
             renderCharacterInfo(data);
             renderCurrentPlace(data);
             renderPlaceSelector(data);
             renderSkill(data);
             renderItem(data);
             renderCommander(data);
+
         } else if (-1 !== ['attackStart', 'attackResult'].indexOf(data.type)) {
+            renderInit();
             renderBattleInfo(data);
             renderCurrentPlace(data);
             renderCommander(data);
+
         } else if (-1 !== ['injured', 'backpack', 'combine', 'mix', 'special', 'message', 'poisonStart',
-                'poisonCheck'].indexOf(data.type)) {
+                'poisonCheck', 'speaker'].indexOf(data.type)) {
+            renderInit();
             renderCharacterInfo(data);
             renderCurrentPlace(data);
             renderSkill(data);
             renderItem(data);
             renderCommander(data);
+
         }
 
         renderLog(data.log);
@@ -1078,7 +1110,8 @@ var ExpressRoyale = (function () {
             'message',
             'messageStart',
             'poisonCheck',
-            'poisonStart'
+            'poisonStart',
+            'speaker'
         ];
 
         if (-1 === commandList.indexOf(command)) {

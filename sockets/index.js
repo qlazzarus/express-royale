@@ -65,6 +65,9 @@ module.exports = function (io, options) {
                     } else if ('poisonCheck' === req.command) {
                         require('./poisonCheck')(io, options, socket, req, res);
 
+                    } else if ('speaker' === req.command) {
+                        require('./speaker')(io, options, socket, req, res);
+
                     } else if ('message' === req.command) {
                         require('./finalize')(io, options, socket, req, res, 'message', true,
                             '살해시, 사망시의 대사를 변경합니다.');

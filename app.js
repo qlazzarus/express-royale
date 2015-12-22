@@ -190,6 +190,7 @@ Container.get('service').initialize(
     ModelFactory.getModel('group'),
     ModelFactory.getModel('place'),
     ModelFactory.getModel('server'),
+    ModelFactory.getModel('news'),
     Container.get('util')
 );
 

@@ -149,12 +149,50 @@ module.exports = function () {
 
 
     /**
+     * 대회상황 리셋
+     *
+     * @param newsModel
+     */
+    this.initializeNews = function (newsModel) {
+        async.waterfall([
+            function (callback) {
+                newsModel.remove({}, function (err) {
+                    if (err) {
+                        console.log(err);
+                        throw new Error('truncate news failed');
+                    }
+
+                    callback(null);
+                });
+            },
+            function (callback) {
+                var news = new newsModel({
+                    registerAt: new Date(),
+                    type: 'NEWGAME'
+                });
+
+                news.save(function(err){
+                    if (err) {
+                        console.log(err);
+                        throw new Error('initialize news failed');
+                    } else {
+                        console.log('initialize news success');
+                        callback(null);
+                    }
+                });
+            }
+        ]);
+    };
+
+
+    /**
      * 리셋
      */
-    this.initialize = function(groupModel, placeModel, serverModel, util) {
+    this.initialize = function(groupModel, placeModel, serverModel, newsModel, util) {
         that.initializeGroups(groupModel, util.getGroups(), util.getMaxGroups());
         that.initializePlaces(placeModel, util.getPlaces(), util.getGlobalLooted());
         that.initializeServerFlag(serverModel);
+        that.initializeNews(newsModel);
     };
 
 
@@ -324,6 +362,7 @@ module.exports = function () {
      * @param passport
      * @param userModel
      * @param groupModel
+     * @param newsModel
      * @param remoteAddress
      * @param expressRequest
      * @param expressResponse
@@ -340,7 +379,7 @@ module.exports = function () {
      * @param armorBody
      * @param items
      */
-    this.signup = function (passport, userModel, groupModel, remoteAddress, expressRequest, expressResponse, attack,
+    this.signup = function (passport, userModel, groupModel, newsModel, remoteAddress, expressRequest, expressResponse, attack,
                             defence, health, stamina, requireExp, groupName, studentNo, clubId, clubName, skillMap,
                             armorBody, items) {
 
@@ -434,6 +473,19 @@ module.exports = function () {
                         }
                     });
                 });
+
+                var news = new newsModel({
+                    registerAt: new Date(),
+                    type: 'ENTRY',
+                    victim:{
+                        username: expressRequest.body.username,
+                        userGender: expressRequest.body.userGender,
+                        groupName: groupName,
+                        studentNo: studentNo
+                    }
+                });
+
+                news.save();
 
                 passport.authenticate('local')(expressRequest, expressResponse, function () {
                     expressResponse.redirect('/intro');

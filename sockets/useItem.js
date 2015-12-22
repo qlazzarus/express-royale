@@ -207,13 +207,37 @@ module.exports = function (io, options, socket, req, res) {
                 }
             },
             speaker: function() {
-                // TODO 스피커
-                eventLog.push('스피커');
+                eventName = 'speaker';
+                eventLog.push('확성기를 써서, 모두에게 메시지를 전한다.');
             },
             battery: function() {
-                // TODO 배터리
-                //$log = ($log . "$in로 모바일PC를 충전했다. 모바일PC의 사용횟수가 $itai[$paso]이(가) 되었다.<BR>");
-                eventLog.push('배터리');
+                var pcSlot = util.findItemSlotByEquip(
+                    'mobilepc',
+                    res.account.item0,
+                    res.account.item1,
+                    res.account.item2,
+                    res.account.item3,
+                    res.account.item4,
+                    res.account.item5
+                );
+
+                if (null === pcSlot) {
+                    eventLog.push('이건 어디에 쓰는 것일까...');
+                } else {
+                    res.account[pcSlot].endurance += item.endurance;
+                    if (5 < res.account[pcSlot].endurance) {
+                        res.account[pcSlot].endurance = 5;
+                    }
+
+                    res.account[req.value] = {idx:'', endurance:0, point:0};
+
+                    eventLog.push([
+                        itemInfo.name,
+                        '로 모바일PC를 충전했다. 모바일PC의 사용횟수가 ',
+                        res.account[pcSlot].endurance,
+                        '이(가) 되었다.'
+                    ].join(''));
+                }
             }
         };
 
