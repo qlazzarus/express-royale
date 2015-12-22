@@ -356,6 +356,8 @@ var Commander = React.createClass({
             desc = '대사를 입력해 주세요.';
         } else if ('poisonCheck' === command) {
             desc = '무엇을 조사합니까?';
+        } else if ('poisonStart' === command) {
+            desc = '무엇에 독약을 섞습니까?';
         }
 
         return desc;
@@ -538,9 +540,9 @@ var Commander = React.createClass({
 
         for (var i in itemList) {
             var item = itemList[i];
-            if ('etc7' === item.index) {
+            if ('poison' === item.type) {
                 commandList.push({name: '독 섞기', event: 'poisonStart', className: '', type: 'command'});
-            } else if ('etc37' === item.index) {
+            } else if ('mobilepc' === item.type) {
                 commandList.push({name: '해킹', event: 'hackStart', className: '', type: 'command'});
             }
         }
@@ -562,7 +564,7 @@ var Commander = React.createClass({
         }];
     },
 
-    getPoisonCheckCommand: function (itemList) {
+    getPoisonCommand: function (eventName, itemList) {
         var commandList = [{name: '돌아간다', event: 'info', className: '', type: 'command'}];
 
         var itemLength = itemList.length;
@@ -572,7 +574,7 @@ var Commander = React.createClass({
                 if (-1 !== ['health', 'stamina'].indexOf(item.type)) {
                     commandList.push({
                         name: item.name,
-                        event: 'poisonCheck',
+                        event: eventName,
                         value: item.index,
                         className: '',
                         type: 'command'
@@ -603,8 +605,8 @@ var Commander = React.createClass({
             commandList = this.getSpecialCommand(account, itemList);
         } else if ('message' === command) {
             commandList = this.getMessageCommand(account);
-        } else if ('poisonCheck' === command) {
-            commandList = this.getPoisonCheckCommand(itemList);
+        } else if (-1 !== ['poisonCheck', 'poisonStart'].indexOf(command)) {
+            commandList = this.getPoisonCommand(command, itemList);
         } else {
             commandList.push({
                 name: '돌아간다',
@@ -1075,7 +1077,8 @@ var ExpressRoyale = (function () {
             'tactics',
             'message',
             'messageStart',
-            'poisonCheck'
+            'poisonCheck',
+            'poisonStart'
         ];
 
         if (-1 === commandList.indexOf(command)) {

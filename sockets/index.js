@@ -59,6 +59,9 @@ module.exports = function (io, options) {
                     } else if ('messageStart' === req.command) {
                         require('./messageStart')(io, options, socket, req, res);
 
+                    } else if ('poisonStart' === req.command) {
+                        require('./poisonStart')(io, options, socket, req, res);
+
                     } else if ('poisonCheck' === req.command) {
                         require('./poisonCheck')(io, options, socket, req, res);
 
