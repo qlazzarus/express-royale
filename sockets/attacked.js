@@ -179,7 +179,15 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
                     enemyKilled = true;
                 } else {
                     eventLog.push([res.account.username, '은(는) 도망쳤다...'].join(''));
+
                     // TODO 공격 통보 (socket)
+                    var currentDate = new Date();
+                    socket.broadcast.to(res.enemy).emit('recv', {
+                        type: 'broadcast',
+                        log: [
+                            '<strong style="color:#ffff00;">',
+                        ].join('')
+                    });
                     //$w_log = ($w_log . "<font color=\"yellow\"><b>$hour:$min:$sec 전투：$f_name $l_name\($cl $sex$no번\) 공격:$result 피해:$result2 $hakaiinf2 $kega3 </b></font><br>") ;
                 }
             } else {
