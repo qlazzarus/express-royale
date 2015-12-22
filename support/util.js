@@ -92,6 +92,16 @@ module.exports = (function () {
 
 
     /**
+     * 독약 체크 스테미너 소모
+     *
+     * @returns {number}
+     */
+    function getDetoxStamina() {
+        return gameConfig.detoxStamina;
+    }
+
+
+    /**
      * 전략 설명
      *
      * @returns {Array}
@@ -1437,6 +1447,7 @@ module.exports = (function () {
         setInjured: setInjured,
         setConsumeItem: setConsumeItem,
         getFirstAidStamina: getFirstAidStamina,
+        getDetoxStamina: getDetoxStamina,
         getMixItem: getMixItem
     };
 })();
