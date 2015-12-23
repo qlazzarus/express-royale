@@ -1,0 +1,41 @@
+extends layout
+
+block content
+    h1.text-center.red 생존자 리스트
+
+    table.table.table-bordered.table-battle
+        colgroup
+            col(style='width:90px')
+            col
+            col(style='width:100px')
+            col(style='width:80px')
+            col(style='width:60px')
+            col
+        thead
+            tr
+                th 얼 굴
+                th 이 름
+                th 반/번호
+                th 소속부
+                th 살해수
+                th 코멘트
+        tbody
+            for user in survivors
+                tr
+                    td
+                        img(src=user.userIcon alt='')
+                    td #{user.username}
+                    td #{user.groupName}<br />
+                        if !user.userGender
+                            | 남자
+                        else
+                            | 여자
+                        | &nbsp;
+                        | #{user.studentNo}번
+                    td #{user.clubName}
+                    td #{user.killCount}명
+                    td #{user.messageComment}
+    p.text-center
+        | 총 참가인원
+        | #{userCount} 명
+        | 【남은 인원 #{survivorCount}명】
