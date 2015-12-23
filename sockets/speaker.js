@@ -20,19 +20,8 @@ module.exports = function (io, options, socket, req, res) {
 
     if (typeof req.value !== 'undefined' && null !== speakerSlot) {
         var message = req.value[0];
-        var placeName = util.getPlaceName('place' + res.account.place);
 
-        socket.broadcast.emit('recv', {
-            type: 'broadcast',
-            log: [
-                '<strong style="color:#ffff00;">',
-                placeName,
-                ' 쪽에서 ',
-                res.account.username,
-                '의 목소리가 들렸다...</strong><br /><strong style="color:#00ff00;">『',
-                message, '』</strong>'
-            ].join('')
-        });
+        util.broadcastToAll(socket, res.account.place, 'speaker', res.account.username, message);
 
         eventLog.push(message);
         eventLog.push('확실히 전해졌을까?');

@@ -188,7 +188,6 @@ module.exports = function (io, options, socket, req, res) {
 
                             eventLog.push([
                                 '<strong class="red">', enemyResult, '데미지 ',
-                                true === strikeResult.weaponDestroy ? '무기손상' : '',
                                 '' !== strikeResult.injured ? {
                                     head: '머리 부상',
                                     arm: '팔 부상',
@@ -209,8 +208,7 @@ module.exports = function (io, options, socket, req, res) {
                                 res.enemy.requireExp -= util.getBattleExp(res.enemy.level, res.account.level);
                                 eventLog.push([res.enemy.username, '은(는) 도망갔다...'].join(''));
 
-                                // TODO 반격상황 대상자 통보 (socket)
-                                //$w_log = ($w_log . "<font color=\"yellow\"><b>$hour:$min:$sec 전투：$f_name $l_name\($cl $sex$no번\) 공격:$result2 피해:$result $hakaiinf2 $kega3 </b></font><br>") ;
+                                util.broadcastToVictim(socket, res.enemy, res.account, result, strikeResult, enemyResult);
                             }
 
                             // 적 레벨업 이벤트
@@ -227,25 +225,27 @@ module.exports = function (io, options, socket, req, res) {
                             // 반격 회피
                             eventLog.push('그러나, 간발의 차이로 피했다!');
 
-                            // TODO 반격상황 대상자 통보 (socket)
-                            //$w_log = ($w_log . "<font color=\"yellow\"><b>$hour:$min:$sec 전투：$f_name $l_name\($cl $sex$no번\) 피해:$result $hakaiinf2 $kega3 </b></font><br>") ;
+                            util.broadcastToVictim(socket, res.enemy, res.account, result);
                         }
 
                         // 적 탄 소모
                         res.enemy.weapon = util.setConsumeWeapon(res.enemy.weapon, enemyCommand);
+                        if ('shotSkill' === enemyCommand) {
+                            util.broadcastToAll(socket, res.account.place, 'shot', res.enemy.username);
+                        } else if ('bombSkill' === enemyCommand) {
+                            util.broadcastToAll(socket, res.account.place, 'bomb', res.enemy.username);
+                        }
                     } else if (5 > strikeBackDice && accountStat.longRangeEngage != enemyStat.longRangeEngage) {
                         // 반격 실패 (거리 안맞음)
                         eventLog.push([res.enemy.username, '은(는) 반격할 수 없다!'].join(''));
                         eventLog.push([res.enemy.username, '은(는) 도망쳤다...'].join(''));
 
-                        // TODO 피해상황 대상자 통보 (socket)
-                        //$w_log = ($w_log . "<font color=\"yellow\"><b>$hour:$min:$sec 전투：$f_name $l_name\($cl $sex$no번\) 피해:$result $hakaiinf2 $kega3 </b></font><br>") ;
+                        util.broadcastToVictim(socket, res.enemy, res.account, result);
                     } else {
                         // 반격 실패
                         eventLog.push([res.enemy.username, '은(는) 도망쳤다...'].join(''));
 
-                        // TODO 피해상황 대상자 통보 (socket)
-                        //$w_log = ($w_log . "<font color=\"yellow\"><b>$hour:$min:$sec 전투：$f_name $l_name\($cl $sex$no번\) 피해:$result $hakaiinf2 $kega3 </b></font><br>");
+                        util.broadcastToVictim(socket, res.enemy, res.account, result);
                     }
                 } else {
                     eventLog.push(['그러나, 피했다! ', true === battleResult.weaponDestroy ? '무기손상' : ''].join(''));
@@ -266,6 +266,11 @@ module.exports = function (io, options, socket, req, res) {
 
             // 탄소모
             res.account.weapon = util.setConsumeWeapon(res.account.weapon, req.command);
+            if ('shotSkill' === req.command) {
+                util.broadcastToAll(socket, res.account.place, 'shot', res.enemy.username);
+            } else if ('bombSkill' === req.command) {
+                util.broadcastToAll(socket, res.account.place, 'bomb', res.enemy.username);
+            }
 
             if (false === userKilled && false == enemyKilled) {
                 require('./finalize')(io, options, socket, req, res, eventName, true, eventLog);

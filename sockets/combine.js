@@ -21,14 +21,13 @@ module.exports = function (io, options, socket, req, res) {
         eventName = 'info';
         eventLog = ['아이템을 정리합니다.', itemInfo.name + '을(를) 고쳐넣었습니다.'];
     } else if (typeof req.value !== 'undefined') {
-        var combineResult = itemInfo.id === itemInfo2.id;
-
         eventName = 'info';
         eventLog = ['아이템을 정리합니다.'];
 
         itemInfo = util.getItem(res.account[req.value[0]].idx);
         itemInfo2 = util.getItem(res.account[req.value[1]].idx);
 
+        var combineResult = itemInfo.id === itemInfo2.id;
         if (true === combineResult &&
             -1 === ['health', 'stamina', '12gauage', '9mm', '22lr', '357mag', '38special', '45acp', 'apostle',
                 'bow'].indexOf(itemInfo.equip)) {

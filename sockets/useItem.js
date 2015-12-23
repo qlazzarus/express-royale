@@ -151,11 +151,9 @@ module.exports = function (io, options, socket, req, res) {
             reload: function() {
                 var weaponInfo = util.getItem(res.account.weapon.idx);
                 if (true === weaponInfo.ammoRequire && weaponInfo.ammoType === itemInfo.equip) {
-                    var up = 0;
-                    if (0 > item.endurance - weaponInfo.ammoReload) {
+                    var up = weaponInfo.ammoReload - res.account.weapon.endurance;
+                    if (item.endurance < up) {
                         up = item.endurance;
-                    } else {
-                        up = weaponInfo.ammoReload;
                     }
 
                     if ('bow' === itemInfo.equip) {

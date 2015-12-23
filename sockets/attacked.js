@@ -97,6 +97,13 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
             eventLog.push('그러나, 간발의 차이로 피했다!');
         }
 
+        res.enemy.weapon = util.setConsumeWeapon(res.enemy.weapon, enemyCommand);
+        if ('shotSkill' === enemyCommand) {
+            util.broadcastToAll(socket, res.account.place, 'shot', res.enemy.username);
+        } else if ('bombSkill' === enemyCommand) {
+            util.broadcastToAll(socket, res.account.place, 'bomb', res.enemy.username);
+        }
+
         var accountStat = util.getBattleRateByDefender(
             res.account.status,
             res.account.tactics,
@@ -180,16 +187,21 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
                 } else {
                     eventLog.push([res.account.username, '은(는) 도망쳤다...'].join(''));
 
-                    util.broadcastAttack(socket, res.enemy, res.account, enemyResult, strikeResult, result);
+                    util.broadcastToVictim(socket, res.enemy, res.account, enemyResult, strikeResult, result);
                 }
             } else {
                 eventLog.push('그러나, 피했다!');
 
-                util.broadcastAttack(socket, res.enemy, res.account, enemyResult, strikeResult);
+                util.broadcastToVictim(socket, res.enemy, res.account, enemyResult, strikeResult);
             }
 
             // 탄소모
             res.account.weapon = util.setConsumeWeapon(res.account.weapon, req.command);
+            if ('shotSkill' === req.command) {
+                util.broadcastToAll(socket, res.account.place, 'shot', res.enemy.username);
+            } else if ('bombSkill' === req.command) {
+                util.broadcastToAll(socket, res.account.place, 'bomb', res.enemy.username);
+            }
         }
     }
 

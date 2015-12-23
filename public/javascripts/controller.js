@@ -316,7 +316,7 @@ var Logger = React.createClass({
         }
 
         var logLength = this.log.length;
-        var maxLength = 5;
+        var maxLength = 10;
         if (logLength > maxLength) {
             this.log.splice(0, logLength - maxLength);
         }
@@ -811,6 +811,7 @@ var ExpressRoyale = (function () {
     var socket = io();
     var queueManager = new QueueManager(socket);
     var holders = {};
+    var username = null;
 
     function initialize() {
         observeEvent();
@@ -887,9 +888,11 @@ var ExpressRoyale = (function () {
     }
 
     function receivePacket(data, callback) {
-
-
         if (-1 !== ['info', 'move', 'explore'].indexOf(data.type)) {
+            if (null === username) {
+                username = data.account.username;
+            }
+
             renderInit();
             renderCharacterInfo(data);
             renderCurrentPlace(data);
@@ -913,9 +916,19 @@ var ExpressRoyale = (function () {
             renderItem(data);
             renderCommander(data);
 
+        } else if ('attackBroadcast' === data.type) {
+            renderCharacterInfo(data, true);
+            renderSkill(data, true);
+            renderItem(data, true);
+
         }
 
-        renderLog(data.log);
+        if ('broadcast' === data.type && data.except !== username) {
+            console.log(data);
+            renderLog(data.log);
+        } else if ('broadcast' !== data.type) {
+            renderLog(data.log);
+        }
 
         if (typeof callback !== 'undefined') {
             callback(data.result);
@@ -999,22 +1012,27 @@ var ExpressRoyale = (function () {
 
     function renderBattleInfo(data) {
         getBattleInfoHolder().style.display = 'block';
+
         React.render(
             <BattleInfo account={data.account} enemy={data.enemy} itemSchema={data.itemList}/>,
             getBattleInfoHolder()
         );
     }
 
-    function renderCharacterInfo(data) {
-        getCharacterInfoHolder().style.display = 'block';
+    function renderCharacterInfo(data, isHidden) {
+        if (typeof isHidden === 'undefined') {
+            getCharacterInfoHolder().style.display = 'block';
+        }
         React.render(
             <CharacterInfo data={data.account} tactics={data.config.tactics}/>,
             getCharacterInfoHolder()
         );
     }
 
-    function renderSkill(data) {
-        getCurrentSkillsHolder().style.display = 'block';
+    function renderSkill(data, isHidden) {
+        if (typeof isHidden === 'undefined') {
+            getCurrentSkillsHolder().style.display = 'block';
+        }
         React.render(
             <Skills
                 skillExp={data.account}
@@ -1044,8 +1062,10 @@ var ExpressRoyale = (function () {
         );
     }
 
-    function renderItem(data) {
-        getEquipItemHolder().style.display = 'block';
+    function renderItem(data, isHidden) {
+        if (typeof isHidden === 'undefined') {
+            getEquipItemHolder().style.display = 'block';
+        }
         React.render(
             <EquipItem
                 items={data.account}
@@ -1073,6 +1093,10 @@ var ExpressRoyale = (function () {
             <Logger log={log}/>,
             getLoggerHolder()
         );
+    }
+
+    function playerName() {
+        return username;
     }
 
     function playerMove(nextPlace, placeSelector) {
@@ -1143,6 +1167,7 @@ var ExpressRoyale = (function () {
         getItemName: getItemName,
         getItemType: getItemType,
         showItems: showItems,
+        playerName: playerName,
         playerMove: playerMove,
         playerCommand: playerCommand,
         showLoading: showLoading,

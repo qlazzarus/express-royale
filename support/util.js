@@ -721,21 +721,21 @@ module.exports = (function () {
         };
 
         if ('weapon' === supplyWeapon.equip && '12gauge' === supplyWeapon.ammoType) {
-            result.item4 = {idx: 'etc8', point: 24, endurance: 1};
+            result.item4 = {idx: 'etc8', endurance: 24, point: 1};
         } else if ('weapon' === supplyWeapon.equip && '9mm' === supplyWeapon.ammoType) {
-            result.item4 = {idx: 'etc9', point: 24, endurance: 1};
+            result.item4 = {idx: 'etc9', endurance: 24, point: 1};
         } else if ('weapon' === supplyWeapon.equip && '22lr' === supplyWeapon.ammoType) {
-            result.item4 = {idx: 'etc10', point: 24, endurance: 1};
+            result.item4 = {idx: 'etc10', endurance: 24, point: 1};
         } else if ('weapon' === supplyWeapon.equip && '357mag' === supplyWeapon.ammoType) {
-            result.item4 = {idx: 'etc12', point: 24, endurance: 1};
+            result.item4 = {idx: 'etc12', endurance: 24, point: 1};
         } else if ('weapon' === supplyWeapon.equip && '38special' === supplyWeapon.ammoType) {
-            result.item4 = {idx: 'etc13', point: 24, endurance: 1};
+            result.item4 = {idx: 'etc13', endurance: 24, point: 1};
         } else if ('weapon' === supplyWeapon.equip && '45acp' === supplyWeapon.ammoType) {
-            result.item4 = {idx: 'etc14', point: 24, endurance: 1};
+            result.item4 = {idx: 'etc14', endurance: 24, point: 1};
         } else if ('weapon' === supplyWeapon.equip && 'apostle' === supplyWeapon.ammoType) {
-            result.item4 = {idx: 'etc15', point: 24, endurance: 1};
+            result.item4 = {idx: 'etc15', endurance: 24, point: 1};
         } else if ('weapon' === supplyWeapon.equip && 'bow' === supplyWeapon.ammoType) {
-            result.item4 = {idx: 'etc16', point: 24, endurance: 1};
+            result.item4 = {idx: 'etc16', endurance: 24, point: 1};
         }
 
         return result;
@@ -863,6 +863,48 @@ module.exports = (function () {
     }
 
 
+    function broadcastToAll(socket, placeId, broadType, broadUser, broadMessage) {
+        var placeName = getPlaceName('place' + placeId);
+        var result = {
+            type: 'broadcast',
+            log: '',
+            except: broadUser
+        };
+
+        if ('shot' === broadType) {
+            result.log = [
+                '<strong style="color:#ffff00;">',
+                placeName,
+                ' 쪽에서, 총성이 들렸다...</strong>'
+            ].join('');
+            socket.broadcast.emit('recv', result);
+        } else if ('bomb' === broadType) {
+            result.log = [
+                '<strong style="color:#ffff00;">',
+                placeName,
+                ' 쪽에서, 폭발소리가 들렸다...</strong>'
+            ].join('');
+            socket.broadcast.emit('recv', result);
+        } else if ('killed' === broadType) {
+            result.log = '<strong style="color:#ffff00;">근처에서 비명이? 누군가, 죽은 것인가...?</strong>';
+            socket.broadcast.to(placeId).emit('recv', result);
+        } else if ('speaker' === broadType) {
+            result.log = [
+                '<strong style="color:#ffff00;">',
+                placeName,
+                ' 쪽에서 ',
+                broadUser,
+                '의 목소리가 들렸다...</strong><br /><strong style="color:#00ff00;">『',
+                broadMessage,
+                '』</strong>'
+            ].join('');
+            socket.broadcast.emit('recv', result);
+        }
+
+
+    }
+
+
     /**
      * broadcast attack
      *
@@ -873,7 +915,7 @@ module.exports = (function () {
      * @param counterPoint
      * @param counterResult
      */
-    function broadcastAttack(socket, victim, assault, damagePoint, counterResult, counterPoint) {
+    function broadcastToVictim(socket, victim, assault, damagePoint, counterResult, counterPoint) {
         var currentDate = new Date();
         var hour = currentDate.getHours();
         var min = currentDate.getMinutes();
@@ -890,33 +932,75 @@ module.exports = (function () {
             sec = '0' + sec;
         }
 
-        var result = {
-            type: 'broadcast',
-            log: ['<strong style="color:#ffff00;">', hour, ':', min, ':', sec, ' 전투:',
-                assault.username, '(', assault.groupName, ' ',
-                0 == assault.userGender ? '남자' : '여자', assault.studentNo,
-                '번) 공격:', damagePoint]
+        var res = {
+            type: 'attackBroadcast',
+            account: victim,
+            config: {
+                expPerSkillLevel: getExpPerSkillLevel(),
+                skills: getSkills(),
+                tactics: getTactics()
+            },
+            itemList: [],
+            log: [
+                '<strong style="color:#ffff00;">',
+                hour,
+                ':',
+                min,
+                ':',
+                sec,
+                ' 전투:',
+                assault.username,
+                '(',
+                assault.groupName,
+                ' ',
+                0 == assault.userGender ? '남자' : '여자',
+                assault.studentNo,
+                '번) 공격:',
+                damagePoint
+            ]
         };
 
-        if (typeof counterPoint !== 'undefined') {
-            result.log.push(' 피해:');
-            result.log.push(counterPoint);
+        var itemList = ['item0', 'item1', 'item2', 'item3', 'item4', 'item5'];
+        for (var i in itemList) {
+            res.account[itemList[i]].point = Math.abs(res.account[itemList[i]].point);
         }
 
-        result.log.push([
-            true === counterResult.weaponDestroy ? ' 무기손상' : '',
-            '' !== counterResult.injured ? {
-                head: ' 머리 부상',
-                arm: ' 팔 부상',
-                body: ' 복부 부상',
-                foot: ' 다리 부상'
-            }[counterResult.injured] : '',
-            true === counterResult.critical ? ' 크리티컬' : '',
-            '</strong>'
-        ].join(''));
-        result.log = result.log.join('');
+        res.itemList = getItem([
+            res.account.weapon.idx,
+            res.account.armor.head.idx,
+            res.account.armor.body.idx,
+            res.account.armor.arm.idx,
+            res.account.armor.foot.idx,
+            res.account.armor.accessory.idx,
+            res.account.item0.idx,
+            res.account.item1.idx,
+            res.account.item2.idx,
+            res.account.item3.idx,
+            res.account.item4.idx,
+            res.account.item5.idx
+        ]);
 
-        socket.broadcast.to(victim).emit('recv', result);
+        if (typeof counterPoint !== 'undefined') {
+            res.log.push(' 피해:');
+            res.log.push(counterPoint);
+        }
+
+        if (typeof counterResult !== 'undefined') {
+            res.log.push([
+                true === counterResult.weaponDestroy ? ' 무기손상' : '',
+                '' !== counterResult.injured ? {
+                    head: ' 머리 부상',
+                    arm: ' 팔 부상',
+                    body: ' 복부 부상',
+                    foot: ' 다리 부상'
+                }[counterResult.injured] : '',
+                true === counterResult.critical ? ' 크리티컬' : ''
+            ].join(''));
+        }
+
+        res.log.push('</strong>');
+        res.log = res.log.join('');
+        socket.to(victim.username).emit('recv', res);
     }
 
 
@@ -1070,6 +1154,9 @@ module.exports = (function () {
         if (true === injureAttack && -1 !== ['', 'armorDefault'].indexOf(res.enemy.armor[res.injured].idx)) {
             res.injured = '';
             injureAttack = false;
+        }
+
+        if (true === injureAttack) {
             res.enemy.armor[res.injured].endurance--;
             if (0 >= res.enemy.armor[res.injured].endurance) {
                 res.enemy.armor[res.injured] = {idx: '', point: 0, endurance: 0};
@@ -1191,17 +1278,29 @@ module.exports = (function () {
      */
     function setConsumeWeapon(weapon, skillType) {
         var weaponInfo = getItem(weapon.idx);
-        if (true == weaponInfo.ammoRequire && 0 < weapon.endurance) {
+
+        if (true === weaponInfo.ammoRequire && 0 >= weapon.endurance) {
+            skillType = 'meleeSkill';
+        }
+
+        if ('shotSkill' === skillType && -1 !== weaponInfo.attackType.indexOf('shot')) {
             weapon.endurance--;
+        } else if ('bowSkill' === skillType && -1 !== weaponInfo.attackType.indexOf('bow')) {
+            weapon.endurance--;
+        } else if ('bombSkill' === skillType && -1 !== weaponInfo.attackType.indexOf('bomb')) {
+            weapon.endurance--;
+            if (0 >= weapon.endurance) {
+                weapon = {idx: 'weaponDefault', point: 0, endurance: 0};
+            }
         } else if ('throwSkill' === skillType && -1 !== weaponInfo.attackType.indexOf('throw')) {
             weapon.endurance--;
             if (0 >= weapon.endurance) {
-                weapon = {idx:'weaponDefault', point:0, endurance:0};
+                weapon = {idx: 'weaponDefault', point: 0, endurance: 0};
             }
         } else if ('cutSkill' === skillType && -1 !== weaponInfo.attack.indexOf('cut')) {
             weapon.point -= dice(1) + 1;
             if (0 >= weapon.point) {
-                weapon = {idx:'weaponDefault', point:0, endurance:0};
+                weapon = {idx: 'weaponDefault', point: 0, endurance: 0};
             }
         }
 
@@ -1558,6 +1657,7 @@ module.exports = (function () {
         getFirstAidStamina: getFirstAidStamina,
         getDetoxStamina: getDetoxStamina,
         getMixItem: getMixItem,
-        broadcastAttack: broadcastAttack
+        broadcastToVictim: broadcastToVictim,
+        broadcastToAll: broadcastToAll
     };
 })();
