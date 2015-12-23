@@ -106,6 +106,61 @@ var Inputs = React.createClass({
     }
 });
 
+var RecoverClocks = React.createClass({
+    getInitialState: function(){
+        return {
+            recover: 0,
+            period: 0,
+            timeoutId: null
+        };
+    },
+
+    componentDidMount: function() {
+        this.tick();
+    },
+
+    tick: function() {
+        if (this.isMounted()) {
+            if (null !== this.state.timeoutId) {
+                clearTimeout(this.state.timeoutId);
+            }
+
+            this.setState({
+                recover: Math.floor((this.state.period + 1) / this.props.requireSecond),
+                period: this.state.period + 1,
+                timeoutId: setTimeout(this.tick, 1000)
+            });
+        }
+    },
+
+    componentWillUnmount: function() {
+        clearTimeout(this.state.timeoutId);
+    },
+
+    render: function(){
+        var hour = '00';
+        var min = '00';
+        var sec = '00';
+        sec = this.state.period;
+
+        return (
+            <div>
+                <p className={this.props.className}>
+                    <span> {this.props.desc}</span>
+                    <span> {this.state.recover}</span>
+                    <span> 포인트</span>
+                </p>
+                <p>
+                    <span> 경과시간</span>
+                    <span> {hour}시간</span>
+                    <span> {min}분</span>
+                    <span> {sec}초</span>
+                </p>
+            </div>
+        );
+    }
+});
+
 var Skills = React.createClass({
     render: function () {
         var mapped = [];
@@ -346,7 +401,11 @@ var Logger = React.createClass({
 var Commander = React.createClass({
     getCommandDesc: function (command) {
         var desc = '무엇을 합니까?';
-        if ('injured' === command) {
+        if ('health' === command) {
+            desc = '치료중...';
+        } else if ('stamina' === command) {
+            desc = '수면중...';
+        } else if ('injured' === command) {
             desc = '어디를 치료합니까?';
         } else if ('combine' === command) {
             desc = '무엇과 무엇을 모읍니까?';
@@ -395,13 +454,13 @@ var Commander = React.createClass({
         if (0 != account.place) {
             commandList.push({
                 name: '치료',
-                event: 'healing',
+                event: 'health',
                 className: 'health',
                 type: 'command'
             });
             commandList.push({
                 name: '수면',
-                event: 'sleep',
+                event: 'stamina',
                 className: 'stamina',
                 type: 'command'
             });
@@ -444,6 +503,23 @@ var Commander = React.createClass({
         }
 
         return commandList;
+    },
+
+    getRecoverCommand: function (command, config) {
+        var clockDesc = '';
+        var requireSecond = 0;
+        if ('health' === command) {
+            clockDesc = '회복될 체력';
+            requireSecond = config.healthRequireSecond;
+        } else if ('stamina' === command) {
+            clockDesc = '회복될 스테미너';
+            requireSecond = config.staminaRequireSecond;
+        }
+
+        return [
+            {name: command, desc: clockDesc, value: requireSecond, className: command, type :'clock'},
+            {name: '돌아간다', event: 'info', className: '', type: 'command'}
+        ];
     },
 
     getAttackCommand: function (account, enemy, itemSchema) {
@@ -545,7 +621,7 @@ var Commander = React.createClass({
             if ('poison' === item.type) {
                 commandList.push({name: '독 섞기', event: 'poisonStart', className: '', type: 'command'});
             } else if ('mobilepc' === item.type) {
-                commandList.push({name: '해킹', event: 'hackStart', className: '', type: 'command'});
+                commandList.push({name: '해킹', event: 'hacking', className: '', type: 'command'});
             }
         }
 
@@ -600,13 +676,16 @@ var Commander = React.createClass({
         return commandList;
     },
 
-    getCommandList: function (command, account, serverFlag, itemSchema) {
+    getCommandList: function (command, account, serverFlag, itemSchema, config) {
         var commandList = [];
         var itemList = this.getItemList(account.item0, account.item1, account.item2, account.item3,
             account.item4, account.item5, itemSchema);
 
         if (-1 !== ['info', 'move', 'explore'].indexOf(command)) {
             commandList = this.getInfoCommand(account, serverFlag, itemList);
+
+        } else if (-1 !== ['health', 'stamina'].indexOf(command)) {
+            commandList = this.getRecoverCommand(command, config);
 
         } else if ('attackStart' === command) {
             commandList = this.getAttackCommand(account, this.props.enemy, itemSchema);
@@ -665,7 +744,8 @@ var Commander = React.createClass({
             this.props.command,
             this.props.account,
             this.props.serverFlag,
-            this.props.itemSchema
+            this.props.itemSchema,
+            this.props.config
         );
 
         return (
@@ -705,6 +785,16 @@ var Commander = React.createClass({
                             return (
                                 <li className="padding5px">
                                     <p>{o.value}</p>
+                                </li>
+                            );
+                        } else if ('clock' === o.type) {
+                            return (
+                                <li className="padding5px">
+                                    <RecoverClocks
+                                        type={o.name}
+                                        requireSecond={o.value}
+                                        className={o.className}
+                                        desc={o.desc} />
                                 </li>
                             );
                         } else if ('inputList' === o.type) {
@@ -908,7 +998,7 @@ var ExpressRoyale = (function () {
             renderCommander(data);
 
         } else if (-1 !== ['injured', 'backpack', 'combine', 'mix', 'special', 'message', 'poisonStart',
-                'poisonCheck', 'speaker'].indexOf(data.type)) {
+                'poisonCheck', 'speaker', 'health', 'stamina'].indexOf(data.type)) {
             renderInit();
             renderCharacterInfo(data);
             renderCurrentPlace(data);
@@ -1082,7 +1172,8 @@ var ExpressRoyale = (function () {
                 account={data.account}
                 enemy={data.enemy}
                 serverFlag={data.server}
-                itemSchema={data.itemList}/>,
+                itemSchema={data.itemList}
+                config={data.config} />,
             getCommanderHolder()
         );
     }
@@ -1122,6 +1213,8 @@ var ExpressRoyale = (function () {
             'bombSkill',
             'drop',
             'use',
+            'health',
+            'stamina',
             'injured',
             'backpack',
             'combine',
@@ -1135,7 +1228,8 @@ var ExpressRoyale = (function () {
             'messageStart',
             'poisonCheck',
             'poisonStart',
-            'speaker'
+            'speaker',
+            'hacking'
         ];
 
         if (-1 === commandList.indexOf(command)) {

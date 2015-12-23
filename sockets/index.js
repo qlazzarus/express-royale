@@ -38,6 +38,12 @@ module.exports = function (io, options) {
                     } else if ('use' === req.command) {
                         require('./useItem')(io, options, socket, req, res);
 
+                    } else if ('health' === req.command) {
+                        require('./health')(io, options, socket, req, res);
+
+                    } else if ('stamina' === req.command) {
+                        require('./stamina')(io, options, socket, req, res);
+
                     } else if ('backpack' === req.command) {
                         require('./backpack')(io, options, socket, req, res);
 
@@ -67,6 +73,9 @@ module.exports = function (io, options) {
 
                     } else if ('speaker' === req.command) {
                         require('./speaker')(io, options, socket, req, res);
+
+                    } else if ('hacking' === req.command) {
+                        require('./hacking')(io, options, socket, req, res);
 
                     } else if ('message' === req.command) {
                         require('./finalize')(io, options, socket, req, res, 'message', true,

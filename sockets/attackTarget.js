@@ -39,6 +39,11 @@ module.exports = function (io, options, socket, req, res) {
             if (false === encounterFail) {
                 res.enemy = enemy;
 
+                // 적 상태가 치료나 수면일때 미리 계산 추가
+                if (-1 !== [5, 6].indexOf(res.enemy.status)) {
+                    util.setRecover(res.enemy);
+                }
+
                 eventLog.push([
                     res.enemy.username, '(', res.enemy.groupName, ' ',
                     0 == res.enemy.userGender ? '남자' : '여자',

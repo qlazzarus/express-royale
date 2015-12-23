@@ -30,10 +30,10 @@ module.exports = function (mongoose) {
         injured: Array,     // inf
         place: Number,      // pls
         status: Number,     // sts
+        statusChangedAt: Date,
 
         // battle
         prevAttacker: String,   // bid 공격자 ID (중복공격 방지)
-        prevLog: String,        // 이전 Log
         deathCause: String,     // death
         deathAt: Number,        // endtime
 

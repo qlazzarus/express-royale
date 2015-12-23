@@ -38,6 +38,11 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
             '번)이(가) 갑자기 습격해 왔다!'
         ].join(''));
 
+        // 적 상태가 치료나 수면일때 미리 계산 추가
+        if (-1 !== [5, 6].indexOf(res.enemy.status)) {
+            util.setRecover(res.enemy);
+        }
+
         // 공격 시도
         var attackDice = util.dice(100);
         if (attackDice < enemyStat.accuracyRate) {

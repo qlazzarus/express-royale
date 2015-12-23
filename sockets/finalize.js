@@ -5,6 +5,16 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
     // util
     var util = options.container.get('util');
 
+    if (typeof eventLog === 'string') {
+        eventLog = [eventLog];
+    }
+
+    if (-1 === ['health', 'stamina'].indexOf(eventName) && -1 !== [5, 6].indexOf(res.account.status)) {
+        // 치료 + 수면
+        res.account.status = 0;
+        eventLog.push(util.setRecover(res.account));
+    }
+
     if (req.queueId) {
         res.queueId = req.queueId;
     }
@@ -16,7 +26,9 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
     res.config = {
         expPerSkillLevel: util.getExpPerSkillLevel(),
         skills: util.getSkills(),
-        tactics: util.getTactics()
+        tactics: util.getTactics(),
+        healthRequireSecond: util.getHealthRequireSecond(),
+        staminaRequireSecond: util.getStaminaRequireSecond()
     };
 
     if (typeof res.account != 'undefined') {

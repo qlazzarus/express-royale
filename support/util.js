@@ -122,6 +122,26 @@ module.exports = (function () {
 
 
     /**
+     * 스테미너 1당 회복시간
+     *
+     * @returns {number}
+     */
+    function getStaminaRequireSecond() {
+        return gameConfig.sleepTime;
+    }
+
+
+    /**
+     * 체력 1당 회복시간
+     *
+     * @returns {Number}
+     */
+    function getHealthRequireSecond() {
+        return parseInt(gameConfig.sleepTime / gameConfig.healingRate);
+    }
+
+
+    /**
      * 공격 기본수치
      *
      * @returns {number}
@@ -402,6 +422,47 @@ module.exports = (function () {
         }
 
         return resultSlot;
+    }
+
+
+    /**
+     * 회복 상태 출력
+     *
+     * @param target
+     * @returns {string}
+     */
+    function setRecover(target) {
+        var currentTime = Date.now();
+        var activeTime = new Date(target.statusChangedAt).getTime();
+        if (isNaN(activeTime)) {
+            activeTime = currentTime;
+        }
+
+        var recover = 0;
+        var recoverTime = Math.abs(Math.floor((currentTime - activeTime) / 1000));
+        var recoverLog = '';
+        if (5 === target.status && recoverTime > 0) {
+            recover = Math.floor(recoverTime / util.getHealthRequireSecond());
+            recoverLog = '치료 결과, 체력이 ' + recover + ' 회복 되었다.';
+            target.health += recover;
+            if (target.maxHealth < target.health) {
+                target.health = target.maxHealth;
+            }
+        } else if (6 === target.status && recoverTime > 0) {
+            recover = Math.floor(recoverTime / util.getStaminaRequireSecond());
+            if (recover > 0 && -1 !== target.injured.indexOf('body')) {
+                target = parseInt(recover / 2);
+            }
+
+            recoverLog = '수면 결과, 스테미너가 ' + recover + ' 회복 되었다.';
+            target.stamina += recover;
+            if (getMaxStamina() < target.stamina) {
+                target.stamina = getMaxStamina();
+            }
+        }
+
+        target.statusChangedAt = new Date();
+        return recoverLog;
     }
 
 
@@ -938,7 +999,9 @@ module.exports = (function () {
             config: {
                 expPerSkillLevel: getExpPerSkillLevel(),
                 skills: getSkills(),
-                tactics: getTactics()
+                tactics: getTactics(),
+                staminaRequireSecond: getStaminaRequireSecond(),
+                healthRequireSecond: getHealthRequireSecond()
             },
             itemList: [],
             log: [
@@ -1658,6 +1721,9 @@ module.exports = (function () {
         getDetoxStamina: getDetoxStamina,
         getMixItem: getMixItem,
         broadcastToVictim: broadcastToVictim,
-        broadcastToAll: broadcastToAll
+        broadcastToAll: broadcastToAll,
+        getStaminaRequireSecond: getStaminaRequireSecond,
+        getHealthRequireSecond: getHealthRequireSecond,
+        setRecover: setRecover
     };
 })();
