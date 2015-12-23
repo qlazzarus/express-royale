@@ -61,10 +61,11 @@ module.exports = function () {
      * 지역정보 리셋
      *
      * @param placeModel
+     * @param serverModel
      * @param places
      * @param globalLooted
      */
-    this.initializePlaces = function (placeModel, places, globalLooted) {
+    this.initializePlaces = function (placeModel, serverModel, places, globalLooted) {
         async.waterfall([
             function (callback) {
                 placeModel.remove({}, function (err) {
@@ -106,6 +107,48 @@ module.exports = function () {
                         callback(null);
                     }
                 });
+            },
+            function (callback) {
+                //setInterval(that.restrictPlaceEvent.bind(that, serverModel, placeModel), 86400000);
+                setTimeout(that.restrictPlaceEvent.bind(that, serverModel, placeModel), 5000);
+            }
+        ]);
+    };
+
+
+    this.restrictPlaceEvent = function (serverModel, placeModel){
+        async.waterfall([
+            function (callback) {
+                serverModel.findOne({}, function(err, server){
+                    if (err) {
+                        console.log(err);
+                        throw new Error('initialize places restrict trigger failed');
+                    } else {
+                        callback(server);
+                    }
+                });
+            },
+            function (server, callback) {
+                if ('start' === server.status) {
+                    placeModel.find({}, function(err, places){
+                        if (err) {
+                            console.log(err);
+                            throw new Error('initialize places restrict trigger failed');
+                        } else {
+                            callback(server, places);
+                        }
+                    });
+                }
+            },
+            function (server, places, callback) {
+                /*
+                for (var i in places) {
+                    var place = places[i];
+                    if (true === place.restrictReserve) {
+                        console.log(place);
+                    }
+                }
+                */
             }
         ]);
     };
@@ -131,7 +174,8 @@ module.exports = function () {
             function (callback) {
                 var server = new serverModel({
                     status: 'start',
-                    started: new Date()
+                    started: new Date(),
+                    restrictIndex: 0
                 });
 
                 server.save(function(err){
@@ -190,7 +234,7 @@ module.exports = function () {
      */
     this.initialize = function(groupModel, placeModel, serverModel, newsModel, util) {
         that.initializeGroups(groupModel, util.getGroups(), util.getMaxGroups());
-        that.initializePlaces(placeModel, util.getPlaces(), util.getGlobalLooted());
+        that.initializePlaces(placeModel, serverModel, util.getPlaces(), util.getGlobalLooted());
         that.initializeServerFlag(serverModel);
         that.initializeNews(newsModel);
     };
