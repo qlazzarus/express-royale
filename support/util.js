@@ -442,14 +442,14 @@ module.exports = (function () {
         var recoverTime = Math.abs(Math.floor((currentTime - activeTime) / 1000));
         var recoverLog = '';
         if (5 === target.status && recoverTime > 0) {
-            recover = Math.floor(recoverTime / util.getHealthRequireSecond());
+            recover = Math.floor(recoverTime / getHealthRequireSecond());
             recoverLog = '치료 결과, 체력이 ' + recover + ' 회복 되었다.';
             target.health += recover;
             if (target.maxHealth < target.health) {
                 target.health = target.maxHealth;
             }
         } else if (6 === target.status && recoverTime > 0) {
-            recover = Math.floor(recoverTime / util.getStaminaRequireSecond());
+            recover = Math.floor(recoverTime / getStaminaRequireSecond());
             if (recover > 0 && -1 !== target.injured.indexOf('body')) {
                 target = parseInt(recover / 2);
             }

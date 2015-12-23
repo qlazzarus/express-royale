@@ -11,8 +11,8 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
 
     if (-1 === ['health', 'stamina'].indexOf(eventName) && -1 !== [5, 6].indexOf(res.account.status)) {
         // 치료 + 수면
-        res.account.status = 0;
         eventLog.push(util.setRecover(res.account));
+        res.account.status = 0;
     }
 
     if (req.queueId) {

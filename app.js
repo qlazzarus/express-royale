@@ -191,6 +191,7 @@ Container.get('service').initialize(
     ModelFactory.getModel('place'),
     ModelFactory.getModel('server'),
     ModelFactory.getModel('news'),
+    ModelFactory.getModel('user'),
     Container.get('util')
 );
 

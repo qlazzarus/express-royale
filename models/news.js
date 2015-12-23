@@ -21,6 +21,8 @@ module.exports = function(mongoose){
             studentNo: String,  // no
             weaponName: String,
             weaponMethod: String
-        }
+        },
+        restrict: Array,
+        restrictReserve: Array
     });
 };

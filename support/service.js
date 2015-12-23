@@ -62,10 +62,12 @@ module.exports = function () {
      *
      * @param placeModel
      * @param serverModel
+     * @param userModel
+     * @param newsModel
      * @param places
      * @param globalLooted
      */
-    this.initializePlaces = function (placeModel, serverModel, places, globalLooted) {
+    this.initializePlaces = function (placeModel, serverModel, userModel, newsModel, places, globalLooted) {
         async.waterfall([
             function (callback) {
                 placeModel.remove({}, function (err) {
@@ -98,7 +100,7 @@ module.exports = function () {
                     collections[randomPlace].items.push(looted);
                 }
 
-                placeModel.collection.insert(collections, function(err){
+                placeModel.collection.insert(collections, function (err) {
                     if (err) {
                         console.log(err);
                         throw new Error('initialize places failed');
@@ -109,46 +111,84 @@ module.exports = function () {
                 });
             },
             function (callback) {
-                //setInterval(that.restrictPlaceEvent.bind(that, serverModel, placeModel), 86400000);
-                setTimeout(that.restrictPlaceEvent.bind(that, serverModel, placeModel), 5000);
+                setInterval(that.restrictPlaceEvent.bind(that, serverModel, placeModel, userModel, newsModel), 86400000);
+                callback(null);
             }
         ]);
     };
 
 
-    this.restrictPlaceEvent = function (serverModel, placeModel){
+    this.restrictPlaceEvent = function (serverModel, placeModel, userModel, newsModel) {
         async.waterfall([
             function (callback) {
-                serverModel.findOne({}, function(err, server){
+                serverModel.findOne({}, function (err, server) {
                     if (err) {
                         console.log(err);
                         throw new Error('initialize places restrict trigger failed');
                     } else {
-                        callback(server);
+                        callback(null, server);
                     }
                 });
             },
             function (server, callback) {
                 if ('start' === server.status) {
-                    placeModel.find({}, function(err, places){
+                    placeModel.find({}, function (err, places) {
                         if (err) {
                             console.log(err);
                             throw new Error('initialize places restrict trigger failed');
                         } else {
-                            callback(server, places);
+                            callback(null, server, places);
                         }
                     });
                 }
             },
             function (server, places, callback) {
-                /*
+                server.restrictIndex += 3;
+                server.save();
+
+                var shutdown = [];
+                var reserve = [server.restrictIndex, server.restrictIndex + 1, server.restrictIndex + 2];
                 for (var i in places) {
                     var place = places[i];
                     if (true === place.restrictReserve) {
-                        console.log(place);
+                        place.restrict = true;
+                        place.restrictReserve = false;
+                        place.save();
+                        shutdown.push(parseInt(place.idx.replace('place', '')));
+                    } else if (-1 !== reserve.indexOf(parseInt(place.idx.replace('place', '')))) {
+                        place.restrictReserve = true;
+                        place.save();
                     }
                 }
-                */
+
+                var news = new newsModel({
+                    registerAt: new Date(),
+                    type: 'RESTRICT',
+                    restrict: shutdown,
+                    restrictReserve: reserve
+                });
+                news.save();
+
+                callback(null, shutdown);
+            },
+            function (shutdowns, callback) {
+                for (var i in shutdowns) {
+                    var shutdown = shutdowns[i];
+                    userModel.find({'place': shutdown}, function (err, users) {
+                        if (err) {
+                            console.log(err);
+                            throw new Error('initialize restrict kill trigger failed');
+                        } else {
+                            callback(null, users);
+                        }
+                    });
+                }
+            },
+            function (victims, callback) {
+                for (var i in victims) {
+                    var user = victims[i];
+                    // TODO user kill
+                }
             }
         ]);
     };
@@ -178,7 +218,7 @@ module.exports = function () {
                     restrictIndex: 0
                 });
 
-                server.save(function(err){
+                server.save(function (err) {
                     if (err) {
                         console.log(err);
                         throw new Error('initialize server-flag failed');
@@ -215,7 +255,7 @@ module.exports = function () {
                     type: 'NEWGAME'
                 });
 
-                news.save(function(err){
+                news.save(function (err) {
                     if (err) {
                         console.log(err);
                         throw new Error('initialize news failed');
@@ -232,10 +272,10 @@ module.exports = function () {
     /**
      * 리셋
      */
-    this.initialize = function(groupModel, placeModel, serverModel, newsModel, util) {
+    this.initialize = function (groupModel, placeModel, serverModel, newsModel, userModel, util) {
         that.initializeGroups(groupModel, util.getGroups(), util.getMaxGroups());
-        that.initializePlaces(placeModel, serverModel, util.getPlaces(), util.getGlobalLooted());
         that.initializeServerFlag(serverModel);
+        that.initializePlaces(placeModel, serverModel, userModel, newsModel, util.getPlaces(), util.getGlobalLooted());
         that.initializeNews(newsModel);
     };
 
@@ -521,7 +561,7 @@ module.exports = function () {
                 var news = new newsModel({
                     registerAt: new Date(),
                     type: 'ENTRY',
-                    victim:{
+                    victim: {
                         username: expressRequest.body.username,
                         userGender: expressRequest.body.userGender,
                         groupName: groupName,
@@ -589,8 +629,8 @@ module.exports = function () {
      * @param username
      * @param callback
      */
-    this.getUserInfo = function(userModel, username, callback){
-        userModel.findOne({username:username}, function(err, user){
+    this.getUserInfo = function (userModel, username, callback) {
+        userModel.findOne({username: username}, function (err, user) {
             if (err) {
                 console.log(err);
                 callback(err);
@@ -607,8 +647,8 @@ module.exports = function () {
      * @param placeModel
      * @param callback
      */
-    this.getPlacesInfo = function(placeModel, callback){
-        placeModel.find({}, function(err, places){
+    this.getPlacesInfo = function (placeModel, callback) {
+        placeModel.find({}, function (err, places) {
             if (err) {
                 console.log(err);
                 callback(err);
@@ -625,8 +665,8 @@ module.exports = function () {
      * @param serverModel
      * @param callback
      */
-    this.getServerInfo = function(serverModel, callback){
-        serverModel.findOne({}, function(err, server){
+    this.getServerInfo = function (serverModel, callback) {
+        serverModel.findOne({}, function (err, server) {
             if (err) {
                 console.log(err);
                 callback(err);
@@ -646,18 +686,18 @@ module.exports = function () {
      * @param username
      * @param callback
      */
-    this.getBasicInfo = function(userModel, placeModel, serverModel, username, callback) {
+    this.getBasicInfo = function (userModel, placeModel, serverModel, username, callback) {
         async.parallel({
-            account:function(cb){
+            account: function (cb) {
                 that.getUserInfo(userModel, username, cb);
             },
-            place:function(cb){
+            place: function (cb) {
                 that.getPlacesInfo(placeModel, cb);
             },
-            server:function(cb){
+            server: function (cb) {
                 that.getServerInfo(serverModel, cb);
             }
-        }, function(err, result){
+        }, function (err, result) {
             if (err) {
                 console.log(err);
                 callback(err);
