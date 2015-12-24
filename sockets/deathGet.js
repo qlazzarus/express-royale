@@ -2,10 +2,7 @@
  * Created by monoless on 2015-12-16.
  */
 module.exports = function (io, options, socket, req, res, eventName, eventResult, eventLog) {
-    var async = require('async');
     var util = options.container.get('util');
-    var userModel = options.models.getModel('user');
-    var newsModel = options.models.getModel('news');
 
     if (typeof eventLog === 'string') {
         eventLog = [eventLog];

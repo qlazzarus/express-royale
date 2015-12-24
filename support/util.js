@@ -1264,6 +1264,13 @@ module.exports = (function () {
     }
 
 
+    /**
+     * 사망 메세지 출력
+     *
+     * @param deathCause
+     * @param deathType
+     * @returns {*}
+     */
     function getCorpseMessage(deathCause, deathType) {
         if ('cutSkill' === deathCause && 0 === deathType) {
             return '머리부분이 목에 있는 피부 하나로 이어져 있는 상태다... 목을 잘린듯하다.';
@@ -1277,7 +1284,7 @@ module.exports = (function () {
             return '머리가 집중적으로 잘게 썰어져 있다. 살아있을 때의 모습따윈 전혀 남아있지 않다...';
         } else if ('cutSkill' === deathCause && 5 === deathType) {
             return '복부가 갈라져 있지만, 잘 보면 손목에도 칼자국이 많이 있다...<br />상대에게 베인 후에 자살을 하려고 했던 것일까?';
-        } else if ('cutSkill') {
+        } else if ('cutSkill' === deathCause) {
             return '머리부터 가슴에 걸쳐 무참히 잘려 있다...';
         } else if ('bowSkill' === deathCause && 0 === deathType) {
             return '이마에 한발의 화살이 박혀있다...';
@@ -1291,7 +1298,7 @@ module.exports = (function () {
             return '벽에 화살로 박혀 고정되어있다... 골고다 언덕에서 처형된 성자 같은 자세다...';
         } else if ('bowSkill' === deathCause && 5 === deathType) {
             return '십수발의 화살이 박혀, 고슴도치처럼 되어 있다...';
-        } else if ('bowSkill') {
+        } else if ('bowSkill' === deathCause) {
             return '목에 몇개의 화살이 박혀 있다... 한발은 턱 아래에 꽂혀 있다...';
         } else if ('shotSkill' === deathCause && 0 === deathType) {
             return '가슴에 3발, 이마에 1발의 탄흔이 있다... 이마의 한발이 치명상이 된 듯하다...';
@@ -1305,7 +1312,7 @@ module.exports = (function () {
             return '복부에 구멍이 뻥 뚤려있어, 반대쪽이 보인다. 이래선 절대 살아 있을 수 없겠구나...';
         } else if ('shotSkill' === deathCause && 5 === deathType) {
             return '얼굴에 몇발이나 탄흔이 있다... 원한이라도 있었던 것일까.';
-        } else if ('shotSkill') {
+        } else if ('shotSkill' === deathCause) {
             return '오른쪽 머리부분이 심하게 손상되어, 뇌가 흘러나와있다...';
         } else if ('bombSkill' === deathCause && 0 === deathType) {
             return '근처에 몸의 각 부분이 분산되어 있다. 화려하게 당한듯 보인다...';
@@ -1319,40 +1326,53 @@ module.exports = (function () {
             return '폭풍으로 날아간 한쪽 팔이 5m정도 앞에 뒹굴고 있다...';
         } else if ('bombSkill' === deathCause && 5 === deathType) {
             return '시체라기보다, 살덩어리구나...';
-        } else if ('bombSkill') {
+        } else if ('bombSkill' === deathCause) {
             return '목과 손이 보이지않네... 폭풍으로 날아간 것일까...';
+        } else if (-1 !== ['meleeSkill', 'fistSkill'].indexOf(deathCause) && 0 === deathType) {
+            return '배를 움켜진 자세로, 웅크리고 있다... 아무래도, 그대로 숨이 끊긴듯하다...';
+        } else if (-1 !== ['meleeSkill', 'fistSkill'].indexOf(deathCause) && 1 === deathType) {
+            return '상대에게 엄청나게 맞은듯 보인다... 머리가 자주색으로 부풀어 올라있다...';
+        } else if (-1 !== ['meleeSkill', 'fistSkill'].indexOf(deathCause) && 2 === deathType) {
+            return '목뼈가 부러져, 목에서 뼈가 튀어나와 있다...';
+        } else if (-1 !== ['meleeSkill', 'fistSkill'].indexOf(deathCause) && 3 === deathType) {
+            return '땅에 얼굴을 대고, 많은 피를 얼굴쪽에서 흘리고 있다... 당한 직후, 후두부를 맞은 듯하다.';
+        } else if (-1 !== ['meleeSkill', 'fistSkill'].indexOf(deathCause) && 4 === deathType) {
+            return '뒤에서 둔기와 같은 것으로 맞은 것일까? 머리를 감싼채 죽어 있다...';
+        } else if (-1 !== ['meleeSkill', 'fistSkill'].indexOf(deathCause) && 5 === deathType) {
+            return '이마가 쪼개져, 피와 뇌수가 흐르고 있다. 정면에서 세게 맞은듯하구나...';
+        } else if (-1 !== ['meleeSkill', 'fistSkill'].indexOf(deathCause)) {
+            return '목이 정확히 옆을 향해 있다. 아무리 봐도, 목뼈가 부러져 있다...';
+        } else if ('pokeSkill' === deathCause && 0 === deathType) {
+            return '온몸에, 뭔가 예리한 날로 찔린 상처가, 많이 있다... 시체의 주변은, 피바다다...';
+        } else if ('pokeSkill' === deathCause && 1 === deathType) {
+            return '상대가 올라타서, 계속해서 찌른듯한 상처가 있다...';
+        } else if ('pokeSkill' === deathCause && 2 === deathType) {
+            return '심장을 한번 찔려, 아직 상처에서 피가 솟아 나오고 있다... 죽은 것은 바로전인 듯하다.';
+        } else if ('pokeSkill' === deathCause && 3 === deathType) {
+            return '목을 찔려 있다... 눈은 흰자위를 드러내고 있다...';
+        } else if ('pokeSkill' === deathCause && 4 === deathType) {
+            return '뒤에서 복부를 찔려 죽어 있다. 습격을 당한 것일까...?';
+        } else if ('pokeSkill' === deathCause && 5 === deathType) {
+            return '왼쪽 복부가 심하게 손상되어 있다. 찔린 후, 도려낸 듯한 상터가 있다...';
+        } else if ('pokeSkill' === deathCause) {
+            return '양쪽 눈이, 뭔가에 찔려 있다... 마치 피눈물을 흘리고 있는 것 같다...';
+        } else if ('poison' === deathCause && 0 === deathType) {
+            return '독을 먹은 것일까...? 구토한 흔적이 있다...';
+        } else if ('poison' === deathCause && 1 === deathType) {
+            return '입에서 한가닥 피가 흘러 있다. 얼핏보면, 자고 있는 걸로 보이는구나...';
+        } else if ('poison' === deathCause && 2 === deathType) {
+            return '시체에 얼굴을 가까이 대자 특유의 아몬드 냄새가 난다. 독살된 것인가...';
+        } else if ('poison' === deathCause && 3 === deathType) {
+            return '독살된 것인가. 입에서 피가 많이 섞인 거품을 물고 있다...';
+        } else if ('poison' === deathCause && 4 === deathType) {
+            return '독을 먹고 괴로워 했던 것일까. 스스로 목을 심하게 손톱으로 할퀸것 같다...';
+        } else if ('poison' === deathCause && 5 === deathType) {
+            return '누군가에게 독이라도 당한건가? 피부가 심하게 변색되어 있다.';
+        } else if ('poison' === deathCause) {
+            return '피부가 새까맣게 변해 있고, 입에서는 많은 피를 토한 듯이 보인다...';
+        } else {
+            return '무참하게 목이 돌아가 있다...';
         }
-        /*
-         }elsif ($w_death =~ /박살/) {
-         if ($w_com == 0) {$log = ($log . "배를 움켜진 자세로, 웅크리고 있다... 아무래도, 그대로 숨이 끊긴듯하다...<br>\n") ;}
-         elsif ($w_com == 1) {$log = ($log . "상대에게 엄청나게 맞은듯 보인다... 머리가 자주색으로 부풀어 올라있다...<br>\n") ;}
-         elsif ($w_com == 2) {$log = ($log . "목뼈가 부러져, 목에서 뼈가 튀어나와 있다...<br>\n") ;}
-         elsif ($w_com == 3) {$log = ($log . "땅에 얼굴을 대고, 많은 피를 얼굴쪽에서 흘리고 있다... 당한 직후, 후두부를 맞은 듯하다.<br>\n") ;}
-         elsif ($w_com == 4) {$log = ($log . "뒤에서 둔기와 같은 것으로 맞은 것일까? 머리를 감싼채 죽어 있다...<br>\n") ;}
-         elsif ($w_com == 5) {$log = ($log . "이마가 쪼개져, 피와 뇌수가 흐르고 있다. 정면에서 세게 맞은듯하구나...<br>\n") ;}
-         else {$log = ($log . "목이 정확히 옆을 향해 있다. 아무리 봐도, 목뼈가 부러져 있다...<br>\n") ;}
-         }elsif ($w_death =~ /척살/) {
-         if ($w_com == 0) {$log = ($log . "온몸에, 뭔가 예리한 날로 찔린 상처가, 많이 있다... 시체의 주변은, 피바다다...<br>\n") ;}
-         elsif ($w_com == 1) {$log = ($log . "상대가 올라타서, 계속해서 찌른듯한 상처가 있다...<br>\n") ;}
-         elsif ($w_com == 2) {$log = ($log . "심장을 한번 찔려, 아직 상처에서 피가 솟아 나오고 있다... 죽은 것은 바로전인 듯하다.<br>\n") ;}
-         elsif ($w_com == 3) {$log = ($log . "목을 찔려 있다... 눈은 흰자위를 드러내고 있다...<br>\n") ;}
-         elsif ($w_com == 4) {$log = ($log . "뒤에서 복부를 찔려 죽어 있다. 습격을 당한 것일까...?<br>\n") ;}
-         elsif ($w_com == 5) {$log = ($log . "왼쪽 복부가 심하게 손상되어 있다. 찔린 후, 도려낸 듯한 상터가 있다...<br>\n") ;}
-         else {$log = ($log . "양쪽 눈이, 뭔가에 찔려 있다... 마치 피눈물을 흘리고 있는 것 같다...<br>\n") ;}
-         }elsif ($w_death =~ /독/) {
-         if ($w_com == 0) {$log = ($log . "독을 먹은 것일까...? 구토한 흔적이 있다...<br>\n") ;}
-         elsif ($w_com == 1) {$log = ($log . "입에서 한가닥 피가 흘러 있다. 얼핏보면, 자고 있는 걸로 보이는구나...<br>\n") ;}
-         elsif ($w_com == 2) {$log = ($log . "시체에 얼굴을 가까이 대자 특유의 아몬드 냄새가 난다. 독살된 것인가...<br>\n") ;}
-         elsif ($w_com == 3) {$log = ($log . "독살된 것인가. 입에서 피가 많이 섞인 거품을 물고 있다...<br>\n") ;}
-         elsif ($w_com == 4) {$log = ($log . "독을 먹고 괴로워 했던 것일까. 스스로 목을 심하게 손톱으로 할퀸것 같다...<br>\n") ;}
-         elsif ($w_com == 5) {$log = ($log . "누군가에게 독이라도 당한건가? 피부가 심하게 변색되어 있다.<br>\n") ;}
-         else {$log = ($log . "피부가 새까맣게 변해 있고, 입에서는 많은 피를 토한 듯이 보인다...<br>\n") ;}
-         } else {
-         $log = ($log . "무참하게 목이 돌아가 있다...<br>\n") ;
-         }
-         $log = ($log . "배낭 속을 뒤져볼까...<br>\n") ;
-         $Command = "DEATHGET";
-         */
     }
 
 
@@ -1819,6 +1839,7 @@ module.exports = (function () {
         broadcastToAll: broadcastToAll,
         getStaminaRequireSecond: getStaminaRequireSecond,
         getHealthRequireSecond: getHealthRequireSecond,
-        setRecover: setRecover
+        setRecover: setRecover,
+        getCorpseMessage: getCorpseMessage
     };
 })();
