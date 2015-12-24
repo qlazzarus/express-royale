@@ -269,6 +269,30 @@ module.exports = function () {
     };
 
 
+    this.initializeUsers = function(userModel, npc) {
+        async.waterfall([
+            function (callback) {
+                userModel.remove({}, function (err) {
+                    if (err) {
+                        console.log(err);
+                        throw new Error('truncate user failed');
+                    }
+
+                    callback(null);
+                });
+            },
+            function () {
+                for (var i in npc) {
+                    var newUser = new userModel(npc[i]);
+                    newUser.save();
+                }
+
+                console.log('initialize user success');
+            }
+        ]);
+    };
+
+
     /**
      * 리셋
      */
@@ -277,6 +301,7 @@ module.exports = function () {
         that.initializeServerFlag(serverModel);
         that.initializePlaces(placeModel, serverModel, userModel, newsModel, util.getPlaces(), util.getGlobalLooted());
         that.initializeNews(newsModel);
+        that.initializeUsers(userModel, require('./../config/npc'));
     };
 
 
@@ -298,10 +323,10 @@ module.exports = function () {
 
         async.parallel({
             userCountAll: function (cb) {
-                userModel.count({}).exec(cb);
+                userModel.count({npc: false}).exec(cb);
             },
             userFindByIp: function (cb) {
-                userModel.find({ip: remoteAddress}).exec(cb);
+                userModel.find({npc: false, ip: remoteAddress}).exec(cb);
             },
             flag: function (cb) {
                 serverModel.findOne({}).exec(cb);
@@ -475,6 +500,7 @@ module.exports = function () {
             messageDying: expressRequest.body.messageDying,
             messageComment: expressRequest.body.messageComment,
             ip: remoteAddress,
+            npc: false,
 
             // character stats
             attack: attack,
@@ -493,7 +519,8 @@ module.exports = function () {
             prevAttacker: '',
             prevLog: '',
             deathCause: '',
-            deathAt: 0,
+            deathType: 0,
+            deathAt: null,
 
             // character extends
             groupName: groupName,

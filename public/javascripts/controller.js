@@ -493,7 +493,7 @@ var Commander = React.createClass({
             }
         }
 
-        if (0 != account.place || (0 == account.place && 'hacked' == serverFlag.status)) {
+        if (0 != account.place || (0 == account.place && 'hacking' == serverFlag.status)) {
             commandList.unshift({
                 name: '탐색',
                 event: 'explore',

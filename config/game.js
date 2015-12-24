@@ -2323,6 +2323,17 @@ module.exports = {
             equip: 'weapon',
             name: '요도무라마사', attackType: ['cut', 'poke'], point: 23, endurance: 0, ammoRequire: false
         },
+        weapon115: {
+            id: 'weapon115',
+            equip: 'weapon',
+            name: 'M16A2',
+            attackType: ['shot', 'melee'],
+            point: 30,
+            endurance: 0,
+            ammoRequire: true,
+            ammoReload: 30,
+            ammoType: '5.56mm'
+        },
 
         // -- armor
         armorDefault: {id: 'armorDefault', equip: 'armor', name: '속옷', type: 'body', material: 'fabric', point: 0, endurance: 0},
@@ -2412,7 +2423,7 @@ module.exports = {
             name: '군복',
             type: 'body',
             material: 'fabric',
-            point: 10,
+            point: 12,
             endurance: 40
         },
         armor41: {id: 'armor41', equip: 'armor', name: '교복', type: 'body', material: 'fabric', point: 5, endurance: 30},
@@ -2425,6 +2436,16 @@ module.exports = {
             point: 5,
             endurance: 30
         },
+        armor43: {
+            id: 'armor43',
+            equip: 'armor',
+            name: '체육복',
+            type: 'body',
+            material: 'fabric',
+            point: 5,
+            endurance: 30
+        },
+        armor44: {id: 'armor44', equip: 'armor', name: '슬리퍼', type: 'foot', point: 3, endurance: 10},
 
 
         // -- stamina
@@ -2446,6 +2467,7 @@ module.exports = {
         stamina15: {id: 'stamina15', equip: 'stamina', name: '스튜', point: 25, endurance: 1},
         stamina16: {id: 'stamina16', equip: 'stamina', name: '스튜', point: -25, endurance: 1},
         stamina17: {id: 'stamina17', equip: 'stamina', name: '빵', point: 20, endurance: 2},
+        stamina18: {id: 'stamina18', equip: 'stamina', name: '건빵', point: 20, endurance: 2},
 
 
         // -- heal
@@ -2453,6 +2475,7 @@ module.exports = {
         heal1: {id: 'heal1', equip: 'health', name: '물', point: 20, endurance: 1},
         heal2: {id: 'heal2', equip: 'health', name: '약', point: 40, endurance: 1},
         heal3: {id: 'heal3', equip: 'health', name: '분말쥬스', point: 30, endurance: 1},
+        heal4: {id: 'heal4', equip: 'health', name: '구급약', point: 50, endurance: 3},
 
 
         // -- trap
@@ -2496,7 +2519,8 @@ module.exports = {
         etc35: {id: 'etc35', equip: 'item', name: '화약', endurance: 1, point: 1},
         etc36: {id: 'etc36', equip: 'item', name: '노트북', endurance: 1, point: 1},
         etc37: {id: 'etc37', equip: 'mobilepc', name: '모바일PC', endurance: 0, point: 1},
-        etc38: {id: 'etc38', equip: 'item', name: '창대', endurance: 1, point: 1}
+        etc38: {id: 'etc38', equip: 'item', name: '창대', endurance: 1, point: 1},
+        etc39: {id: 'etc39', equip: 'program', name: '프로그램해제키', endurance: 1, point: 1}
     },
 
 

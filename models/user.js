@@ -12,6 +12,7 @@ module.exports = function (mongoose) {
         userGender: Boolean,
         userIcon: String,       // icon2
         ip: String,
+        npc: Boolean,
 
         // message
         message: String,        // msg2
@@ -35,7 +36,8 @@ module.exports = function (mongoose) {
         // battle
         prevAttacker: String,   // bid 공격자 ID (중복공격 방지)
         deathCause: String,     // death
-        deathAt: Number,        // endtime
+        deathType: Number,
+        deathAt: Date,          // endtime
 
         // character extends
         groupName: String,  // cl

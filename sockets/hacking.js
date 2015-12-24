@@ -2,7 +2,10 @@
  * Created by monoless on 2015-12-15.
  */
 module.exports = function (io, options, socket, req, res) {
+    var async = require('async');
     var util = options.container.get('util');
+    var serverModel = options.models.getModel('server');
+    var placeModel = options.models.getModel('place');
 
     var eventName = 'info';
     var eventLog = [];
@@ -32,9 +35,40 @@ module.exports = function (io, options, socket, req, res) {
             }
 
             if (hackDice <= hackPoint) {
-                // TODO serverFlag.status -> 해킹
-                // TODO places.restrict -> false / restrictReserved -> false
                 eventLog.push('해킹 성공! 모든 금지지역이 해제되었다!!');
+                async.waterfall([
+                    function (callback) {
+                        serverModel.findOne({}, function(err, server){
+                            if (err) {
+                                console.log(err);
+                                throw new Error(err);
+                            } else {
+                                callback(null, server);
+                            }
+                        });
+                    },
+                    function (server, callback) {
+                        server.status = 'hacking';
+                        server.save();
+
+                        placeModel.find({}, function(err, places){
+                            if (err) {
+                                console.log(err);
+                                throw new Error(err);
+                            } else {
+                                callback(null, places);
+                            }
+                        });
+                    },
+                    function (places, callback) {
+                        for (var i in places) {
+                            var place = places[i];
+                            place.restrict = false;
+                            place.restrictReserve = false;
+                            place.save();
+                        }
+                    }
+                ]);
             } else {
                 eventLog.push('해킹은 실패했다...');
             }

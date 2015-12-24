@@ -64,8 +64,8 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
                 .exec(callback);
         },
 
-        function (enemyList, callback) {
-            var finalize = true;
+        function (enemyList) {
+            var enemyFind = false;
             var enemyCount = enemyList.length;
             var shuffleEnemy = shuffle(enemyList);
             if (enemyCount > 5) {
@@ -100,31 +100,27 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
 
                 var isEnemyFind = (util.dice(10) * defenderStat.stealth < attackerStat.find * 100);
                 if (isEnemyFind && 0 >= enemy.health) {
-                    // TODO deathGet
-                    eventLog.push('enemy dead');
+                    res.enemy = enemy;
+                    enemyFind = true;
+                    require('./deathGet')(io, options, socket, req, res, eventName, eventResult, eventLog);
                     break;
                 } else if (isEnemyFind && util.dice(10) <= attackerStat.ambush) {
                     res.enemy = enemy;
-                    finalize = false;
+                    enemyFind = true;
                     require('./attackStart')(io, options, socket, req, res, eventName, eventResult, eventLog);
                     break;
                 } else if (isEnemyFind) {
                     res.enemy = enemy;
-                    finalize = false;
+                    enemyFind = true;
                     require('./attacked')(io, options, socket, req, res, eventName, eventResult, eventLog);
                     break;
                 }
             }
 
-            if (0 < enemyCount) {
+            if (false === enemyFind) {
                 eventLog.push('누군가 숨어있는 듯한 느낌이 있다. 기분탓인가?');
-            }
-
-            if (true === finalize) {
                 require('./finalize')(io, options, socket, req, res, eventName, eventResult, eventLog);
             }
-
-            callback(null);
         }
     ]);
 };
