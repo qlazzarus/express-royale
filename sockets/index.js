@@ -77,6 +77,9 @@ module.exports = function (io, options) {
                     } else if ('hacking' === req.command) {
                         require('./hacking')(io, options, socket, req, res);
 
+                    } else if ('deathGet' === req.command) {
+                        require('./deathGet')(io, options, socket, req, res, 'info', true, []);
+
                     } else if ('message' === req.command) {
                         require('./finalize')(io, options, socket, req, res, 'message', true,
                             '살해시, 사망시의 대사를 변경합니다.');

@@ -84,22 +84,22 @@ var Selector = React.createClass({
 });
 
 var Inputs = React.createClass({
-    getInitialState: function() {
+    getInitialState: function () {
         return {
             value: this.props.value
         };
     },
 
-    handleChange: function(e) {
+    handleChange: function (e) {
         this.setState({value: e.target.value});
     },
 
-    render: function() {
+    render: function () {
         return (
             <p>
                 <label>
                     <span>{this.props.label}</span><br />
-                    <input type='text' value={this.state.value} onChange={this.handleChange} />
+                    <input type='text' value={this.state.value} onChange={this.handleChange}/>
                 </label>
             </p>
         );
@@ -107,7 +107,7 @@ var Inputs = React.createClass({
 });
 
 var RecoverClocks = React.createClass({
-    getInitialState: function(){
+    getInitialState: function () {
         return {
             recover: 0,
             period: 0,
@@ -115,11 +115,11 @@ var RecoverClocks = React.createClass({
         };
     },
 
-    componentDidMount: function() {
+    componentDidMount: function () {
         this.tick();
     },
 
-    tick: function() {
+    tick: function () {
         if (this.isMounted()) {
             if (null !== this.state.timeoutId) {
                 clearTimeout(this.state.timeoutId);
@@ -133,11 +133,11 @@ var RecoverClocks = React.createClass({
         }
     },
 
-    componentWillUnmount: function() {
+    componentWillUnmount: function () {
         clearTimeout(this.state.timeoutId);
     },
 
-    render: function(){
+    render: function () {
         var hour = '00';
         var min = '00';
         var sec = '00';
@@ -419,6 +419,8 @@ var Commander = React.createClass({
             desc = '무엇에 독약을 섞습니까?';
         } else if ('speaker' === command) {
             desc = '이것을 사용하면, 모두에게 들리겠지...';
+        } else if ('deathGet' === command) {
+            desc = '무엇을 뺏습니까?';
         }
 
         return desc;
@@ -517,7 +519,7 @@ var Commander = React.createClass({
         }
 
         return [
-            {name: command, desc: clockDesc, value: requireSecond, className: command, type :'clock'},
+            {name: command, desc: clockDesc, value: requireSecond, className: command, type: 'clock'},
             {name: '돌아간다', event: 'info', className: '', type: 'command'}
         ];
     },
@@ -642,7 +644,7 @@ var Commander = React.createClass({
         }];
     },
 
-    getSpeakerCommand: function() {
+    getSpeakerCommand: function () {
         return [{
             name: '',
             event: 'speaker',
@@ -671,6 +673,72 @@ var Commander = React.createClass({
                     });
                 }
             }
+        }
+
+        return commandList;
+    },
+
+    getDeathGetCommand: function (enemy, itemSchema) {
+        var commandList = [{name: '돌아간다', event: 'deathGet', value: 'cancel', className: '', type: 'command'}];
+
+        if ('weaponDefault' === enemy.weapon.idx) {
+            enemy.weapon = {idx: '', endurance: 0, point: 0};
+        }
+
+        if ('armorDefault' === enemy.armor.body.idx) {
+            enemy.armor.body = {idx: '', endurance: 0, point: 0};
+        }
+
+        var equipList = this.getItemList(
+            enemy.weapon,
+            enemy.armor.body,
+            enemy.armor.head,
+            enemy.armor.arm,
+            enemy.armor.foot,
+            enemy.armor.accessory,
+            itemSchema
+        );
+
+        var itemList = this.getItemList(
+            enemy.item0,
+            enemy.item1,
+            enemy.item2,
+            enemy.item3,
+            enemy.item4,
+            enemy.item5,
+            itemSchema
+        );
+
+        for (var i in equipList) {
+            var equip = equipList[i];
+            var equipId = {
+                item0: 'weapon',
+                item1: 'armorBody',
+                item2: 'armorHead',
+                item3: 'armorArm',
+                item4: 'armorFoot',
+                item5: 'armorAccessory'
+            }[equip.index];
+
+            commandList.push({
+                name: equip.name,
+                event: 'deathGet',
+                value: [enemy.username, equipId],
+                className: '',
+                type: 'command'
+            });
+        }
+
+        for (var i in itemList) {
+            var item = itemList[i];
+
+            commandList.push({
+                name: item.name,
+                event: 'deathGet',
+                value: [enemy.username, item.index],
+                className: item.type,
+                type: 'command'
+            });
         }
 
         return commandList;
@@ -710,6 +778,9 @@ var Commander = React.createClass({
 
         } else if (-1 !== ['poisonCheck', 'poisonStart'].indexOf(command)) {
             commandList = this.getPoisonCommand(command, itemList);
+
+        } else if ('deathGet' === command) {
+            commandList = this.getDeathGetCommand(this.props.enemy, itemSchema);
 
         } else {
             commandList.push({
@@ -794,7 +865,7 @@ var Commander = React.createClass({
                                         type={o.name}
                                         requireSecond={o.value}
                                         className={o.className}
-                                        desc={o.desc} />
+                                        desc={o.desc}/>
                                 </li>
                             );
                         } else if ('inputList' === o.type) {
@@ -803,14 +874,15 @@ var Commander = React.createClass({
                             for (var i in o.entries) {
                                 var entry = o.entries[i];
                                 entries.push(entry.name);
-                                inputs.push(<Inputs ref={entry.name} value={entry.value} label={entry.label} />);
+                                inputs.push(<Inputs ref={entry.name} value={entry.value} label={entry.label}/>);
                             }
 
                             return (
                                 <li className={o.className}>
                                     {inputs}
                                     <button className="input btn btn-sm btn-danger"
-                                            onClick={that.executeCommand.bind(that, o.event, entries)}>확인</button>
+                                            onClick={that.executeCommand.bind(that, o.event, entries)}>확인
+                                    </button>
                                 </li>
                             );
                         } else {
@@ -991,7 +1063,7 @@ var ExpressRoyale = (function () {
             renderItem(data);
             renderCommander(data);
 
-        } else if (-1 !== ['attackStart', 'attackResult'].indexOf(data.type)) {
+        } else if (-1 !== ['attackStart', 'attackResult', 'deathGet'].indexOf(data.type)) {
             renderInit();
             renderBattleInfo(data);
             renderCurrentPlace(data);
@@ -1014,7 +1086,6 @@ var ExpressRoyale = (function () {
         }
 
         if ('broadcast' === data.type && data.except !== username) {
-            console.log(data);
             renderLog(data.log);
         } else if ('broadcast' !== data.type) {
             renderLog(data.log);
@@ -1173,7 +1244,7 @@ var ExpressRoyale = (function () {
                 enemy={data.enemy}
                 serverFlag={data.server}
                 itemSchema={data.itemList}
-                config={data.config} />,
+                config={data.config}/>,
             getCommanderHolder()
         );
     }
@@ -1229,7 +1300,8 @@ var ExpressRoyale = (function () {
             'poisonCheck',
             'poisonStart',
             'speaker',
-            'hacking'
+            'hacking',
+            'deathGet'
         ];
 
         if (-1 === commandList.indexOf(command)) {

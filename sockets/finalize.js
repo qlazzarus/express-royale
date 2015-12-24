@@ -75,7 +75,17 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
 
                 var enemyItemList = util.getItem([
                     res.enemy.weapon.idx,
-                    res.enemy.armor.body.idx
+                    res.enemy.armor.head.idx,
+                    res.enemy.armor.body.idx,
+                    res.enemy.armor.arm.idx,
+                    res.enemy.armor.foot.idx,
+                    res.enemy.armor.accessory.idx,
+                    res.enemy.item0.idx,
+                    res.enemy.item1.idx,
+                    res.enemy.item2.idx,
+                    res.enemy.item3.idx,
+                    res.enemy.item4.idx,
+                    res.enemy.item5.idx
                 ]);
 
                 if (typeof res.itemList == 'undefined') {
@@ -95,11 +105,16 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
                     studentNo: res.enemy.studentNo,
                     healthStatus: healthStatus.name,
                     healthStatusStyle: healthStatus.color,
-                    weapon: {idx: res.enemy.weapon.idx},
-                    armor: {body: {idx: res.enemy.armor.body.idx}},
+                    weapon: res.enemy.weapon,
+                    armor: res.enemy.armor,
+                    item0: res.enemy.item0,
+                    item1: res.enemy.item1,
+                    item2: res.enemy.item2,
+                    item3: res.enemy.item3,
+                    item4: res.enemy.item4,
+                    item5: res.enemy.item5,
                     killCount: res.enemy.killCount
                 };
-
             }
 
             socket.emit('recv', res);
