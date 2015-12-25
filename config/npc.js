@@ -219,7 +219,7 @@ module.exports = [
         "killCount" : 0,
         "level" : 8,
         "requireExp" : 20,
-        "place" : 18,
+        "place" : 2,
         "status" : 0,
         "prevAttacker" : "",
         "deathCause" : '',

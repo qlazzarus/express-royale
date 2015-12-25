@@ -117,10 +117,11 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
                 }
             }
 
-            if (false === enemyFind) {
+            if (false === enemyFind && 0 < enemyCount) {
                 eventLog.push('누군가 숨어있는 듯한 느낌이 있다. 기분탓인가?');
-                require('./finalize')(io, options, socket, req, res, eventName, eventResult, eventLog);
             }
+
+            require('./finalize')(io, options, socket, req, res, eventName, eventResult, eventLog);
         }
     ]);
 };
