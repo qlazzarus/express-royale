@@ -14,8 +14,7 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
     if (0 >= res.enemy.health) {
         async.waterfall([
             function (callback) {
-                //userModel.count({npc: false}, callback);
-                userModel.count({}, callback);
+                userModel.count({npc: false}, callback);
             },
 
             function (counted, callback) {
@@ -30,38 +29,66 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
                     '번)을(를) 살해했다.【남은 인원 ',
                     counted,
                     '명】</strong>'
-                ]);
-                /*
-                 eventLog.push([
-                 res.enemy.username,
-                 '(',
-                 res.enemy.groupName,
-                 ' ',
-                 0 == res.enemy.userGender ? '남자' : '여자',
-                 res.enemy.studentNo,
-                 '번)을(를) 발견했다!'
-                 ].join(''));
-                 */
-                /*
-                 $w_com = int(rand(7)) ;
-                 $log = ($log . "<font color=\"red\"><b>$w_f_name $w_l_name\($w_cl $w_sex$w_no번\)을\(를\) 살해했다\.【남은 인원 $mem명】</b></font><br>") ;
+                ].join(''));
 
-                 if (length($w_dmes) > 1) {
-                 $log = ($log . "<font color=\"yellow\"><b>$w_f_name $w_l_name『$w_dmes』</b></font><br>") ;
-                 }
-                 if (length($msg) > 1) {
-                 $log = ($log . "<font color=\"lime\"><b>$f_name $l_name『$msg』</b></font><br>") ;
-                 }
-                 */
+                if ('' !== res.enemy.messageDying) {
+                    eventLog.push([
+                        '<strong style="color:#ffff00">',
+                        res.enemy.username,
+                        '『',
+                        res.enemy.messageDying,
+                        '』'
+                    ].join(''));
+                }
+
+                if ('' !== res.account.message) {
+                    eventLog.push([
+                        '<strong style="color:#00ff00">',
+                        res.account.username,
+                        '『',
+                        res.account.message,
+                        '』'
+                    ].join(''));
+                }
+
+                res.enemy.deathCause = req.command;
+                res.enemy.deathType = util.dice(7);
                 res.enemy.health = 0;
                 res.account.killCount += 1;
+
+                util.broadcastToAll(socket, res.account.place, 'killed');
+
+                var news = new newsModel({
+                    registerAt: new Date(),
+                    type: 'KILLED',
+                    message: '',
+                    murder: {
+                        username: res.account.username,
+                        userGender: res.account.userGender,
+                        groupName: res.account.groupName,
+                        studentNo: res.account.studentNo,
+                        weaponName: res.account.weapon.idx,
+                        weaponMethod: req.command
+                    },
+                    victim: {
+                        username: res.enemy.username,
+                        userGender: res.enemy.userGender,
+                        groupName: res.enemy.groupName,
+                        studentNo: res.enemy.studentNo
+                    }
+                });
+
+                news.save();
+
+                callback(null, counted);
             },
 
             function (counted) {
-                if (1 < counted) {
-                    require('./deathGet')(io, options, socket, req, res, eventName, eventResult, eventLog);
-                } else {
+                if ('start' === res.server.status && 0 >= counted) {
                     // TODO 대회우승
+                } else {
+                    req.value = undefined;
+                    require('./deathGet')(io, options, socket, req, res, eventName, eventResult, eventLog);
                 }
             }
         ]);

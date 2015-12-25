@@ -213,7 +213,8 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
     if (true === userKilled && false === enemyKilled) {
         // TODO 유저 사망
     } else if (false === userKilled && true === enemyKilled) {
-        // TODO 적 사망
+        req.command = skillType;
+        require('./enemyKilled')(io, options, socket, req, res, eventName, eventResult, eventLog);
     } else {
         require('./finalize')(io, options, socket, req, res, eventName, eventResult, eventLog);
     }

@@ -22,8 +22,9 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
     if (typeof req.value === 'undefined' && 0 >= res.enemy.health && res.enemy.place === res.account.place) {
         eventName = 'deathGet';
         eventLog.push([res.enemy.username, '의 시체를 발견했다.'].join(''));
-        eventLog.push(util.getCorpseMessage(res.enemy.deathCause, res.enemy.deathCause));
+        eventLog.push(util.getCorpseMessage(res.enemy.deathCause, res.enemy.deathType));
         eventLog.push('배낭 속을 뒤져볼까....');
+        require('./finalize')(io, options, socket, req, res, eventName, eventResult, eventLog);
     } else if (req.value instanceof Array && null !== emptySlot) {
         var targetName = req.value[0];
         var targetSlot = req.value[1];
@@ -75,13 +76,15 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
                 } else {
                     eventLog.push('스스로 자기 물건을 뺏어봤다.<br />허무하다...');
                 }
+
+                require('./finalize')(io, options, socket, req, res, eventName, eventResult, eventLog);
             }
         ]);
     } else if (req.value instanceof Array && null === emptySlot) {
         eventLog.push('더 이상 소지품을 가질 수 없다.');
+        require('./finalize')(io, options, socket, req, res, eventName, eventResult, eventLog);
     } else if (req.value === 'cancel') {
         eventLog.push('빼앗는 것을 포기했다.');
+        require('./finalize')(io, options, socket, req, res, eventName, eventResult, eventLog);
     }
-
-    require('./finalize')(io, options, socket, req, res, eventName, eventResult, eventLog);
 };

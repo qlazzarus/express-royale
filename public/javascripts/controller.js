@@ -223,7 +223,7 @@ var BattleInfo = React.createClass({
                     상태 : <span style={{color:enemy.healthStatusStyle}}>{enemy.healthStatus}</span><br />
                     무기 : {ExpressRoyale.getItemName(enemy.weapon.idx, itemSchema)}<br />
                     방어 : {ExpressRoyale.getItemName(enemy.armor.body.idx, itemSchema)}<br />
-                    살해수 : {account.killCount}명
+                    살해수 : {enemy.killCount}명
                 </div>
             </div>
         );
