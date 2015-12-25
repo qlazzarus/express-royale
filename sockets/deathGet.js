@@ -45,7 +45,7 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
                     res.enemy = enemy;
                     if ('armorBody' === targetSlot) {
                         res.account[emptySlot] = enemy.armor.body;
-                        res.enemy.armor.body = {idx: '', point: 0, endurance: 0};
+                        res.enemy.armor.body = {idx: 'armorDefault', point: 0, endurance: 0};
                     } else if ('armorHead' === targetSlot) {
                         res.account[emptySlot] = enemy.armor.head;
                         res.enemy.armor.head = {idx: '', point: 0, endurance: 0};
@@ -53,11 +53,14 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
                         res.account[emptySlot] = enemy.armor.arm;
                         res.enemy.armor.arm = {idx: '', point: 0, endurance: 0};
                     } else if ('armorFoot' === targetSlot) {
-                        res.account[emptySlot] = enemy.armor.foot
+                        res.account[emptySlot] = enemy.armor.foot;
                         res.enemy.armor.foot = {idx: '', point: 0, endurance: 0};
                     } else if ('armorAccessory' === targetSlot) {
                         res.account[emptySlot] = enemy.armor.accessory;
                         res.enemy.armor.accessory = {idx: '', point: 0, endurance: 0};
+                    } else if ('weapon' === targetSlot) {
+                        res.account[emptySlot] = enemy[targetSlot];
+                        res.enemy[targetSlot] = {idx: 'weaponDefault', point: 0, endurance: 0};
                     } else {
                         res.account[emptySlot] = enemy[targetSlot];
                         res.enemy[targetSlot] = {idx: '', point: 0, endurance: 0};

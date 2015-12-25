@@ -1095,14 +1095,14 @@ module.exports = [
         "messageComment" : "살려죠",
         "ip" : "::2",
         "npc" : false,
-        "attack" : 18,
-        "defence" : 15,
+        "attack" : 41,
+        "defence" : 40,
         "health" : 106,
-        "maxHealth" : 108,
+        "maxHealth" : 167,
         "stamina" : 99999,
         "killCount" : 0,
-        "level" : 1,
-        "requireExp" : 19,
+        "level" : 8,
+        "requireExp" : 34,
         "place" : 19,
         "status" : 0,
         "prevAttacker" : "",
@@ -1114,7 +1114,7 @@ module.exports = [
         "clubId" : 6,
         "clubName" : "농구부",
         "tactics" : 5,
-        "shotSkill" : 6,
+        "shotSkill" : 99,
         "cutSkill" : 0,
         "throwSkill" : 40,
         "fistSkill" : 0,
@@ -1123,19 +1123,35 @@ module.exports = [
         "bombSkill" : 5,
         "pokeSkill" : 0,
         "item5" : { "idx" : "", "point" : 0, "endurance" : 0 },
-        "item4" : { "idx" : "etc9", "endurance" : 8, "point" : 1 },
+        "item4" : { "idx" : "", "endurance" : 0, "point" : 0 },
         "item3" : { "idx" : "", "endurance" : 0, "point" : 0 },
         "item2" : { "idx" : "", "endurance" : 0, "point" : 0 },
-        "item1" : { "idx" : "weapon55", "point" : 15, "endurance": 5 },
-        "item0" : { "endurance" : 2, "point" : 20, "idx" : "heal1" },
+        "item1" : { "idx" : "", "endurance" : 0, "point" : 0 },
+        "item0" : { "endurance" : 6, "point" : 20, "idx" : "heal1" },
         "armor" : {
             "accessory" : { "idx" : "", "point" : 0, "endurance" : 0 },
-            "foot" : { "idx" : "", "point" : 0, "endurance" : 0 },
+            foot: {
+                idx: 'armor36',
+                point: 6,
+                endurance: 20
+            },
             "arm" : { "endurance" : 3, "point" : 2, "idx" : "armor11" },
-            "body" : { "endurance" : 30, "point" : 5, "idx" : "armor41" },
-            "head" : { "endurance" : 3, "point" : 1, "idx" : "armor13" }
+            body: {
+                idx: 'armor40',
+                point: 6,
+                endurance: 20
+            },
+            head: {
+                idx: 'armor37',
+                point: 5,
+                endurance: 30
+            }
         },
-        "weapon" : { "endurance" : 14, "point" : 24, "idx" : "weapon22" },
+        weapon: {
+            idx: 'weapon115',
+            point: 30,
+            endurance: 300
+        },
         "injured" : [ ],
         "statusChangedAt" : null
     }

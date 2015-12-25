@@ -280,7 +280,7 @@ module.exports = function (io, options, socket, req, res) {
             if (false === userKilled && false == enemyKilled) {
                 require('./finalize')(io, options, socket, req, res, eventName, true, eventLog);
             } else if (false === userKilled && true === enemyKilled) {
-                // TODO 적 사망
+                require('./enemyKilled')(io, options, socket, req, res, eventName, true, eventLog);
             } else {
                 // TODO 자신 사망
             }
