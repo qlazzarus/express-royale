@@ -24,6 +24,21 @@ module.exports = function (app, options) {
         res.render('game', {user: req.user, angularMode: true});
     });
 
+    app.get('/killed', isLoggedIn, function (req, res) {
+        if (0 < req.user.health) {
+            res.redirect('/game');
+        } else {
+            var deathCause = {
+            }[req.user.deathCause];
+
+            if (typeof deathCause === 'undefined') {
+                deathCause = '쇠약사';
+            }
+
+            res.render('killed', {deathCause: deathCause, messageDying: req.user.messageDying});
+        }
+    });
+
     app.get('/rank', function (req, res, next) {
         var userModel = options.models.getModel('user');
         userModel.find({npc: false}, function (err, users) {

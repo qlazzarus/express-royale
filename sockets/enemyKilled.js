@@ -14,7 +14,7 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
     if (0 >= res.enemy.health) {
         async.waterfall([
             function (callback) {
-                userModel.count({npc: false}, callback);
+                userModel.count({npc: false, deathAt: null}, callback);
             },
 
             function (counted, callback) {
@@ -51,6 +51,7 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
                     ].join(''));
                 }
 
+                res.enemy.status = 4;
                 res.enemy.deathCause = req.command;
                 res.enemy.deathType = util.dice(7);
                 res.enemy.health = 0;
@@ -61,7 +62,7 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
                 var news = new newsModel({
                     registerAt: new Date(),
                     type: 'KILLED',
-                    message: '',
+                    message: res.enemy.messageDying,
                     murder: {
                         username: res.account.username,
                         userGender: res.account.userGender,
@@ -84,7 +85,9 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
             },
 
             function (counted) {
-                if ('start' === res.server.status && 0 >= counted) {
+                if ('start' === res.server.status
+                    && 1 == counted
+                    && true === util.isBattleOver(res.server.started)) {
                     // TODO 대회우승
                 } else {
                     req.value = undefined;

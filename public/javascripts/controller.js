@@ -1083,6 +1083,9 @@ var ExpressRoyale = (function () {
             renderSkill(data, true);
             renderItem(data, true);
 
+        } else if (-1 !== ['killedByTrap', 'killed'].indexOf(data.type)) {
+            location.replace('/killed');
+
         }
 
         if ('broadcast' === data.type && data.except !== username) {

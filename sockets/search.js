@@ -32,11 +32,11 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
 
     } else if (itemSearchDice < attackerStat.find && 'explore' == eventName) {
         // 아이템 발견 - 탐색시
-        require('./itemget')(io, options, socket, req, res, eventName, eventResult, eventLog);
+        require('./itemGet')(io, options, socket, req, res, eventName, eventResult, eventLog);
 
     } else if (itemSearchDice + 4 < attackerStat.find && 'move' == eventName && 5 !== res.account.tactics) {
         // 아이템 발견 - 이동시
-        require('./itemget')(io, options, socket, req, res, eventName, eventResult, eventLog);
+        require('./itemGet')(io, options, socket, req, res, eventName, eventResult, eventLog);
 
     } else {
         // 기타 이벤트

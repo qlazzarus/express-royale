@@ -107,5 +107,10 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
         };
     }
 
+    if (0 >= res.account.health
+        && -1 === ['killedByTrap'].indexOf(eventName)) {
+        res.type = 'killed';
+    }
+
     socket.emit('recv', res);
 };

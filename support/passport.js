@@ -14,8 +14,6 @@ module.exports = function (passport, modelContainer) {
                     return done(err);
                 } else if (!user) {
                     return done(null, false, {status: 'auth_failed', message: validate.message});
-                } else if (0 >= user.health) {
-                    return done(null, false, {status: 'died', message: user.deathCause, saying: user.messageDying});
                 } else {
                     return done(null, user);
                 }

@@ -58,6 +58,7 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
             res.account.health -= attackPoint;
             if (0 >= res.account.health) {
                 isDeath = true;
+                eventName = 'killedByTrap';
             }
 
             // 아이템 삭제
@@ -113,6 +114,6 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
     if (false === isDeath) {
         require('./finalize')(io, options, socket, req, res, eventName, eventResult, eventLog);
     } else {
-        // TODO 사망
+        require('./userKilled')(io, options, socket, req, res, eventName, eventResult, eventLog);
     }
 };

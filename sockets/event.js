@@ -77,6 +77,6 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
     if (false === isDeath) {
         require('./finalize')(io, options, socket, req, res, eventName, eventResult, eventLog);
     } else {
-        // TODO 사망
+        require('./userKilled')(io, options, socket, req, res, eventName, eventResult, eventLog);
     }
 };

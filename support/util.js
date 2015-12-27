@@ -837,6 +837,17 @@ module.exports = (function () {
 
 
     /**
+     * 프로그램 최저 개최일수
+     *
+     * @param gameStart
+     * @returns {boolean}
+     */
+    function isBattleOver(gameStart) {
+        return (Date.now() - gameStart.getTime()) > gameConfig.minimumBattleTime;
+    }
+
+
+    /**
      * 경험치 계산
      *
      * @param userLevel
@@ -1793,6 +1804,7 @@ module.exports = (function () {
         getMaxGroups: getMaxGroups,
         getMaxRecruitMember: getMaxRecruitMember,
         getMaxRecruitTime: getMaxRecruitTime,
+        isBattleOver: isBattleOver,
         getGroupPerMan: getGroupPerMan,
         getPlaces: getPlaces,
         getPlaceInfo: getPlaceInfo,
