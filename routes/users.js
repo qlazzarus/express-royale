@@ -44,7 +44,7 @@ module.exports = function (app, options) {
                 } else if (!user) {
                     req.flash('error', info.message);
                     return res.redirect('/');
-                } else if (user && typeof info.status !== 'undefined') {
+                } else if (user && typeof info !== 'undefined') {
                     req.logIn(user, function(err) {
                         if (err) {
                             return next(err);
