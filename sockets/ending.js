@@ -11,6 +11,7 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
 
     if ('hackingSuccess' === eventName) {
         res.server.status = eventName;
+        res.server.winner = res.account.username;
         res.server.save();
 
         var news = new newsModel({
@@ -28,8 +29,8 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
         news.save();
 
         socket.broadcast.emit('recv', {
-            type: 'broadcast',
-            log: 'hacking',
+            type: 'broadcastEnding',
+            log: '갑자기 사이렌 소리가 귀를 때렸다.',
             except: ''
         });
     }

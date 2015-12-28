@@ -10,19 +10,27 @@ module.exports = function (passport, modelContainer) {
     passport.use(new LocalStrategy(
         function (username, password, done) {
             var authenticate = userModel.authenticate();
+
             authenticate(username, password, function (err, user, validate) {
-                if (err) {
-                    return done(err);
-                } else if (!user) {
-                    return done(null, false, {status: 'auth_failed', message: validate.message});
-                } else if (0 >= user.health) {
-                    return done(null, user, {status: 'died'});
-                } else {
-                    return done(null, user);
-                }
+                serverModel.findOne({}, function(err2, server){
+                    console.log(server);
+
+                    if (err || err2) {
+                        return done(err);
+                    } else if (!user) {
+                        return done(null, false, {status: 'auth_failed', message: validate.message});
+                    } else if (0 >= user.health) {
+                        return done(null, user, {status: 'died'});
+                    } else if (-1 !== ['hackingSuccess'].indexOf(server.status)) {
+                        return done(null, user, {status: 'hackingSuccess'});
+                    } else {
+                        return done(null, user);
+                    }
+                });
             });
         }
     ));
+
     passport.serializeUser(userModel.serializeUser());
     passport.deserializeUser(userModel.deserializeUser());
 };

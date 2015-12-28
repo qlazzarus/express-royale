@@ -28,7 +28,7 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
                     ' ',
                     0 == res.account.userGender ? '남자' : '여자',
                     res.account.studentNo,
-                    '번)은(는) 사망했다.'
+                    '번)은(는) 사망했다.</strong>'
                 ].join(''));
 
                 if ('hackingFailed' === eventName) {

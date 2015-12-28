@@ -421,7 +421,7 @@ var Commander = React.createClass({
             desc = '이것을 사용하면, 모두에게 들리겠지...';
         } else if ('deathGet' === command) {
             desc = '무엇을 뺏습니까?';
-        } else if (-1 !== ['killed', 'killedByTrap', 'hackingSuccess'].indexOf(command)) {
+        } else if (-1 !== ['killed', 'killedByTrap', 'hackingSuccess', 'broadcastEnding'].indexOf(command)) {
             desc = '';
         }
 
@@ -748,8 +748,12 @@ var Commander = React.createClass({
 
     getCommandList: function (command, account, serverFlag, itemSchema, config) {
         var commandList = [];
-        var itemList = this.getItemList(account.item0, account.item1, account.item2, account.item3,
-            account.item4, account.item5, itemSchema);
+        var itemList = [];
+
+        if (typeof account !== 'undefined') {
+            itemList = this.getItemList(account.item0, account.item1, account.item2, account.item3,
+                account.item4, account.item5, itemSchema);
+        }
 
         if (-1 !== ['info', 'move', 'explore'].indexOf(command)) {
             commandList = this.getInfoCommand(account, serverFlag, itemList);
@@ -792,7 +796,7 @@ var Commander = React.createClass({
                 type: 'command'
             });
 
-        } else if (-1 !== ['hackingSuccess'].indexOf(command)) {
+        } else if (-1 !== ['hackingSuccess', 'broadcastEnding'].indexOf(command)) {
             commandList.push({
                 name: '확인',
                 event: 'ending',
@@ -1115,6 +1119,10 @@ var ExpressRoyale = (function () {
             renderCharacterInfo(data, true);
             renderSkill(data, true);
             renderItem(data, true);
+            renderCommander(data);
+        } else if ('broadcastEnding' === data.type) {
+            getPlaceSelectorHolder().style.display = 'none';
+
             renderCommander(data);
         }
 

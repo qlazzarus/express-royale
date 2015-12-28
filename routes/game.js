@@ -31,8 +31,10 @@ module.exports = function (app, options) {
                 console.log(err);
                 next();
             } else {
-                if ('hackingSuccess' === server.status) {
+                if ('hackingSuccess' === server.status && req.user.username == server.winner) {
                     res.render('endingHacking');
+                } else if ('hackingSuccess' === server.status) {
+                    res.render('endingHackingAlternative');
                 } else if (0 >= req.user.health) {
                     res.render('error', {
                         message: '에러발생',

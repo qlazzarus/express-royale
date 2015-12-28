@@ -260,7 +260,8 @@ module.exports = function () {
                 var server = new serverModel({
                     status: 'start',
                     started: new Date(),
-                    restrictIndex: 0
+                    restrictIndex: 0,
+                    winner: ''
                 });
 
                 server.save(function (err) {
