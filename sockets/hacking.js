@@ -52,7 +52,8 @@ module.exports = function (io, options, socket, req, res) {
 
                 if (util.dice(10) >= 9) {
                     eventLog.push('...뭐지?...목걸이에서 경고음이...!?');
-                    //isDeath = true;
+                    res.account.health = 0;
+                    isDeath = true;
                 }
             } else if (0 >= res.account[pcSlot].endurance) {
                 eventLog.push('모바일PC의 배터리를 다 써버렸다.');
@@ -61,7 +62,7 @@ module.exports = function (io, options, socket, req, res) {
     }
 
     if (true === isDeath) {
-        // TODO 해킹 실패 사망
+        require('./userKilled')(io, options, socket, req, res, 'hackingFailed', true, eventLog);
     } else {
         require('./finalize')(io, options, socket, req, res, eventName, true, eventLog);
     }

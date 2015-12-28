@@ -1279,6 +1279,25 @@ module.exports = (function () {
      * 사망 메세지 출력
      *
      * @param deathCause
+     * @returns {string}
+     */
+    function getDeathCauseMessage(deathCause) {
+        var result = {
+            hackingFailed: '정부에 의해 처형'
+        }[deathCause];
+
+        if (typeof result === 'undefined') {
+            result = '쇠약사';
+        }
+
+        return result;
+    }
+
+
+    /**
+     * 사망 메세지 출력
+     *
+     * @param deathCause
      * @param deathType
      * @returns {*}
      */
@@ -1852,6 +1871,7 @@ module.exports = (function () {
         getStaminaRequireSecond: getStaminaRequireSecond,
         getHealthRequireSecond: getHealthRequireSecond,
         setRecover: setRecover,
-        getCorpseMessage: getCorpseMessage
+        getCorpseMessage: getCorpseMessage,
+        getDeathCauseMessage: getDeathCauseMessage
     };
 })();

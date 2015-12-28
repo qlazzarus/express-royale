@@ -28,14 +28,19 @@ module.exports = function (app, options) {
         if (0 < req.user.health) {
             res.redirect('/game');
         } else {
-            var deathCause = {
-            }[req.user.deathCause];
-
-            if (typeof deathCause === 'undefined') {
-                deathCause = '쇠약사';
-            }
-
-            res.render('killed', {deathCause: deathCause, messageDying: req.user.messageDying});
+            res.render('error', {
+                message: '에러발생',
+                error: {
+                    status: [
+                        '이미 죽어있습니다.\n',
+                        '사인：',
+                        util.getDeathCauseMessage(req.user.deathCause),
+                        '\n<strong style="color:#00ff00;">',
+                        req.user.messageDying,
+                        '</strong>'
+                    ].join('')
+                }
+            });
         }
     });
 

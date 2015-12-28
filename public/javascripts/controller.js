@@ -421,6 +421,8 @@ var Commander = React.createClass({
             desc = '이것을 사용하면, 모두에게 들리겠지...';
         } else if ('deathGet' === command) {
             desc = '무엇을 뺏습니까?';
+        } else if (-1 !== ['killed', 'killedByTrap'].indexOf(command)) {
+            desc = '';
         }
 
         return desc;
@@ -782,6 +784,14 @@ var Commander = React.createClass({
         } else if ('deathGet' === command) {
             commandList = this.getDeathGetCommand(this.props.enemy, itemSchema);
 
+        } else if (-1 !== ['killed', 'killedByTrap'].indexOf(command)) {
+            commandList.push({
+                name: '확인',
+                event: 'killed',
+                className: '',
+                type: 'command'
+            });
+
         } else {
             commandList.push({
                 name: '돌아간다',
@@ -803,9 +813,13 @@ var Commander = React.createClass({
             }
 
             value = newValue;
-        }
 
-        ExpressRoyale.playerCommand(command, value);
+            ExpressRoyale.playerCommand(command, value);
+        } else if ('killed' === command) {
+            document.location.href = '/killed';
+        } else {
+            ExpressRoyale.playerCommand(command, value);
+        }
     },
 
     render: function () {
@@ -1083,9 +1097,17 @@ var ExpressRoyale = (function () {
             renderSkill(data, true);
             renderItem(data, true);
 
-        } else if (-1 !== ['killedByTrap', 'killed'].indexOf(data.type)) {
-            location.replace('/killed');
+        } else if (-1 !== ['killed', 'killedByTrap'].indexOf(data.type)) {
+            getPlaceSelectorHolder().style.display = 'none';
 
+            if (typeof data.enemy !== 'undefined') {
+                renderBattleInfo(data, true);
+            }
+
+            renderCharacterInfo(data, true);
+            renderSkill(data, true);
+            renderItem(data, true);
+            renderCommander(data);
         }
 
         if ('broadcast' === data.type && data.except !== username) {
@@ -1174,8 +1196,10 @@ var ExpressRoyale = (function () {
         getLoggerHolder().style.display = 'none';
     }
 
-    function renderBattleInfo(data) {
-        getBattleInfoHolder().style.display = 'block';
+    function renderBattleInfo(data, isHidden) {
+        if (typeof isHidden === 'undefined') {
+            getBattleInfoHolder().style.display = 'block';
+        }
 
         React.render(
             <BattleInfo account={data.account} enemy={data.enemy} itemSchema={data.itemList}/>,

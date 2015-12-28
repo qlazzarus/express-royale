@@ -29,6 +29,8 @@ function errorRender(res, errorMessage) {
 }
 
 module.exports = function (app, options) {
+    var util = options.container.get('util');
+
     app.get('/', function (req, res) {
         res.render('login', {message: req.flash('error')});
     });
@@ -42,8 +44,16 @@ module.exports = function (app, options) {
                 } else if (!user && 'died' === info.status) {
                     return errorRender(
                         res,
-                        '이미 죽어있습니다.\n사인：' + info.message + '\n' + info.saying
+                        [
+                            '이미 죽어있습니다.\n',
+                            '사인：',
+                            util.getDeathCauseMessage(info.message),
+                            '\n<strong style="color:#00ff00;">',
+                            info.saying,
+                            '</strong>'
+                        ].join('')
                     );
+
                 } else if (!user) {
                     req.flash('error', info.message);
                     return res.redirect('/');

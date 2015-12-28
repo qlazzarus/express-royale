@@ -18,6 +18,8 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
             },
 
             function (counted, callback) {
+                var deathCause = eventName;
+
                 eventLog.push([
                     '<strong class="red">',
                     res.account.username,
@@ -29,7 +31,9 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
                     '번)은(는) 사망했다.'
                 ].join(''));
 
-                var deathCause = eventName;
+                if ('hackingFailed' === eventName) {
+                    eventLog.push('정부『안됐구나, 수상한 행동을 하면 목걸이를 폭파한다고 했잖아』');
+                }
 
                 res.account.status = 4;
                 res.account.deathCause = deathCause;
