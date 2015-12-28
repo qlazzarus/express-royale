@@ -843,8 +843,7 @@ module.exports = (function () {
      * @returns {boolean}
      */
     function isBattleOver(gameStart) {
-        //return (Date.now() - gameStart.getTime()) > gameConfig.minimumBattleTime;
-        return true;
+        return (Date.now() - gameStart.getTime()) > gameConfig.minimumBattleTime;
     }
 
 
