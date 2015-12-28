@@ -41,23 +41,18 @@ module.exports = function (app, options) {
             function (err, user, info) {
                 if (err) {
                     return next(err);
-                } else if (!user && 'died' === info.status) {
-                    return errorRender(
-                        res,
-                        [
-                            '이미 죽어있습니다.\n',
-                            '사인：',
-                            util.getDeathCauseMessage(info.message),
-                            '\n<strong style="color:#00ff00;">',
-                            info.saying,
-                            '</strong>'
-                        ].join('')
-                    );
-
                 } else if (!user) {
                     req.flash('error', info.message);
                     return res.redirect('/');
-                } else {
+                } else if (user && typeof info.status !== 'undefined') {
+                    req.logIn(user, function(err) {
+                        if (err) {
+                            return next(err);
+                        } else {
+                            return res.redirect('/gameover');
+                        }
+                    });
+                } else if (user) {
                     req.logIn(user, function(err) {
                         if (err) {
                             return next(err);

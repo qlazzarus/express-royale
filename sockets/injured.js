@@ -33,6 +33,6 @@ module.exports = function (io, options, socket, req, res) {
     if (false === isDeath) {
         require('./finalize')(io, options, socket, req, res, eventName, true, eventLog);
     } else {
-        // TODO 사망
+        require('./userKilled')(io, options, socket, req, res, 'tired', true, eventLog);
     }
 };

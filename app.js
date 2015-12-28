@@ -63,7 +63,6 @@ require('./support/passport')(passport, ModelFactory);
  */
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-app.locals.pretty = true;
 
 
 /**
@@ -193,7 +192,8 @@ Container.get('service').initialize(
     ModelFactory.getModel('server'),
     ModelFactory.getModel('news'),
     ModelFactory.getModel('user'),
-    Container.get('util')
+    Container.get('util'),
+    io
 );
 
 

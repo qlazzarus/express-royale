@@ -1,26 +1,6 @@
 /**
  * Created by monoless on 2015-12-15.
  */
-function shuffle(array) {
-    var counter = array.length, temp, index;
-
-    // While there are elements in the array
-    while (counter > 0) {
-        // Pick a random index
-        index = Math.floor(Math.random() * counter);
-
-        // Decrease counter by 1
-        counter--;
-
-        // And swap the last element with it
-        temp = array[counter];
-        array[counter] = array[index];
-        array[index] = temp;
-    }
-
-    return array;
-}
-
 module.exports = function(io, options, socket, req, res, eventName, eventResult, eventLog){
     var async = require('async');
 
@@ -65,15 +45,15 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
         },
 
         function (enemyList) {
-            var enemyFind = false;
+            var otherEvent = false;
             var enemyCount = enemyList.length;
-            var shuffleEnemy = shuffle(enemyList);
             if (enemyCount > 5) {
                 enemyCount = 5;
             }
 
-            for (var i = 0; i < enemyCount; i++) {
-                var enemy = shuffleEnemy[0];
+            var enemyStart = util.dice(5);
+            for (var i = enemyStart; i < enemyCount; i++) {
+                var enemy = enemyList[i];
                 var defenderStat = util.getBattleRateByDefender(
                     enemy.status,
                     enemy.tactics,
@@ -98,30 +78,32 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
                     continue;
                 }
 
-                var isEnemyFind = (util.dice(10) * defenderStat.stealth < attackerStat.find * 100);
-                if (isEnemyFind && 0 >= enemy.health) {
+                var isEnemyDetect = (util.dice(10) * defenderStat.stealth < attackerStat.find * 100);
+                if (isEnemyDetect && 0 >= enemy.health) {
                     res.enemy = enemy;
-                    enemyFind = true;
+                    otherEvent = true;
                     require('./deathGet')(io, options, socket, req, res, eventName, eventResult, eventLog);
                     break;
-                } else if (isEnemyFind && util.dice(10) <= attackerStat.ambush) {
+                } else if (isEnemyDetect && util.dice(10) <= attackerStat.ambush) {
                     res.enemy = enemy;
-                    enemyFind = true;
+                    otherEvent = true;
                     require('./attackStart')(io, options, socket, req, res, eventName, eventResult, eventLog);
                     break;
-                } else if (isEnemyFind) {
+                } else if (isEnemyDetect) {
                     res.enemy = enemy;
-                    enemyFind = true;
+                    otherEvent = true;
                     require('./attacked')(io, options, socket, req, res, eventName, eventResult, eventLog);
                     break;
                 }
             }
 
-            if (false === enemyFind && 0 < enemyCount) {
-                eventLog.push('누군가 숨어있는 듯한 느낌이 있다. 기분탓인가?');
-            }
+            if (false === otherEvent) {
+                if (0 < enemyCount) {
+                    eventLog.push('누군가 숨어있는 듯한 느낌이 있다. 기분탓인가?');
+                }
 
-            require('./finalize')(io, options, socket, req, res, eventName, eventResult, eventLog);
+                require('./finalize')(io, options, socket, req, res, eventName, eventResult, eventLog);
+            }
         }
     ]);
 };

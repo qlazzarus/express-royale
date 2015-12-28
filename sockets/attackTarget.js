@@ -94,8 +94,6 @@ module.exports = function (io, options, socket, req, res) {
                 );
 
                 var battleResult = util.getBattleResult(res.account, req.command, res.enemy, false, eventLog);
-                res.account = battleResult.user;
-                res.enemy = battleResult.enemy;
                 eventLog = battleResult.eventLog;
 
                 // 공격 시도
@@ -163,8 +161,6 @@ module.exports = function (io, options, socket, req, res) {
                     } else if (5 > strikeBackDice && accountStat.longRangeEngage == enemyStat.longRangeEngage) {
                         // 반격
                         var strikeResult = util.getBattleResult(res.enemy, enemyCommand, res.account, true, eventLog);
-                        res.account = strikeResult.enemy;
-                        res.enemy = strikeResult.user;
                         eventLog = strikeResult.eventLog;
 
                         // 반격 시도
@@ -213,7 +209,7 @@ module.exports = function (io, options, socket, req, res) {
                                 res.enemy.requireExp -= util.getBattleExp(res.enemy.level, res.account.level);
                                 eventLog.push([res.enemy.username, '은(는) 도망갔다...'].join(''));
 
-                                util.broadcastToVictim(socket, res.enemy, res.account, result, strikeResult, enemyResult);
+                                util.battleInfoToVictim(socket, res.enemy, res.account, result, strikeResult, enemyResult);
                             }
 
                             // 적 레벨업 이벤트
@@ -230,7 +226,7 @@ module.exports = function (io, options, socket, req, res) {
                             // 반격 회피
                             eventLog.push('그러나, 간발의 차이로 피했다!');
 
-                            util.broadcastToVictim(socket, res.enemy, res.account, result);
+                            util.battleInfoToVictim(socket, res.enemy, res.account, result);
                         }
 
                         // 적 탄 소모
@@ -245,12 +241,12 @@ module.exports = function (io, options, socket, req, res) {
                         eventLog.push([res.enemy.username, '은(는) 반격할 수 없다!'].join(''));
                         eventLog.push([res.enemy.username, '은(는) 도망쳤다...'].join(''));
 
-                        util.broadcastToVictim(socket, res.enemy, res.account, result);
+                        util.battleInfoToVictim(socket, res.enemy, res.account, result);
                     } else {
                         // 반격 실패
                         eventLog.push([res.enemy.username, '은(는) 도망쳤다...'].join(''));
 
-                        util.broadcastToVictim(socket, res.enemy, res.account, result);
+                        util.battleInfoToVictim(socket, res.enemy, res.account, result);
                     }
                 } else {
                     eventLog.push(['그러나, 피했다! ', true === battleResult.weaponDestroy ? '무기손상' : ''].join(''));

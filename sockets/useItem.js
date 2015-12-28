@@ -16,6 +16,7 @@ module.exports = function (io, options, socket, req, res) {
     var eventName = 'info';
     var item = res.account[req.value];
     var isDeath = false;
+    var isEnding = false;
     if (typeof item !== 'undefined') {
         var itemInfo = util.getItem(item.idx);
         var Process = {
@@ -55,6 +56,7 @@ module.exports = function (io, options, socket, req, res) {
 
                 if (0 >= res.account.health) {
                     isDeath = true;
+                    eventName = 'poison';
                 }
             },
             weapon: function () {
@@ -236,6 +238,17 @@ module.exports = function (io, options, socket, req, res) {
                         '이(가) 되었다.'
                     ].join(''));
                 }
+            },
+            program: function() {
+                if (0 === res.account.place) {
+                    eventLog.push('해제키를 써서 프로그램을 정지시켰다.');
+                    eventLog.push('목걸이를 벗었다!');
+
+                    isEnding = true;
+                    eventName = 'hackingSuccess';
+                } else {
+                    eventLog.push('여기에서 써도 의미가 없다...');
+                }
             }
         };
 
@@ -247,9 +260,11 @@ module.exports = function (io, options, socket, req, res) {
         }
     }
 
-    if (false === isDeath) {
-        require('./finalize')(io, options, socket, req, res, eventName, true, eventLog);
+    if (true === isDeath) {
+        require('./userKilled')(io, options, socket, req, res, eventName, true, eventLog);
+    } else if (true === isEnding) {
+        require('./ending')(io, options, socket, req, res, eventName, true, eventLog);
     } else {
-        // TODO 사망
+        require('./finalize')(io, options, socket, req, res, eventName, true, eventLog);
     }
 };

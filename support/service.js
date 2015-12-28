@@ -64,10 +64,13 @@ module.exports = function () {
      * @param serverModel
      * @param userModel
      * @param newsModel
-     * @param places
-     * @param globalLooted
+     * @param util
+     * @param io
      */
-    this.initializePlaces = function (placeModel, serverModel, userModel, newsModel, places, globalLooted) {
+    this.initializePlaces = function (placeModel, serverModel, userModel, newsModel, util, io) {
+        var places = util.getPlaces();
+        var globalLooted = util.getGlobalLooted();
+
         async.waterfall([
             function (callback) {
                 placeModel.remove({}, function (err) {
@@ -111,14 +114,14 @@ module.exports = function () {
                 });
             },
             function (callback) {
-                setInterval(that.restrictPlaceEvent.bind(that, serverModel, placeModel, userModel, newsModel), 86400000);
+                setInterval(that.restrictPlaceEvent.bind(that, serverModel, placeModel, userModel, newsModel, util, places, io), 86400000);
                 callback(null);
             }
         ]);
     };
 
 
-    this.restrictPlaceEvent = function (serverModel, placeModel, userModel, newsModel) {
+    this.restrictPlaceEvent = function (serverModel, placeModel, userModel, newsModel, util, places, io) {
         async.waterfall([
             function (callback) {
                 serverModel.findOne({}, function (err, server) {
@@ -143,51 +146,93 @@ module.exports = function () {
                 }
             },
             function (server, places, callback) {
-                server.restrictIndex += 3;
-                server.save();
+                if (server.restrictIndex < places.length) {
+                    server.restrictIndex += 3;
+                    server.save();
 
-                var shutdown = [];
-                var reserve = [server.restrictIndex, server.restrictIndex + 1, server.restrictIndex + 2];
-                for (var i in places) {
-                    var place = places[i];
-                    if (true === place.restrictReserve) {
-                        place.restrict = true;
-                        place.restrictReserve = false;
-                        place.save();
-                        shutdown.push(parseInt(place.idx.replace('place', '')));
-                    } else if (-1 !== reserve.indexOf(parseInt(place.idx.replace('place', '')))) {
-                        place.restrictReserve = true;
-                        place.save();
-                    }
-                }
-
-                var news = new newsModel({
-                    registerAt: new Date(),
-                    type: 'RESTRICT',
-                    restrict: shutdown,
-                    restrictReserve: reserve
-                });
-                news.save();
-
-                callback(null, shutdown);
-            },
-            function (shutdowns, callback) {
-                for (var i in shutdowns) {
-                    var shutdown = shutdowns[i];
-                    userModel.find({'place': shutdown}, function (err, users) {
-                        if (err) {
-                            console.log(err);
-                            throw new Error('initialize restrict kill trigger failed');
-                        } else {
-                            callback(null, users);
+                    var shutdown = [];
+                    var reserve = [server.restrictIndex, server.restrictIndex + 1, server.restrictIndex + 2];
+                    for (var i in places) {
+                        var place = places[i];
+                        if (true === place.restrictReserve) {
+                            place.restrict = true;
+                            place.restrictReserve = false;
+                            place.save();
+                            shutdown.push(parseInt(place.idx.replace('place', '')));
+                        } else if (-1 !== reserve.indexOf(parseInt(place.idx.replace('place', '')))) {
+                            place.restrictReserve = true;
+                            place.save();
                         }
+                    }
+
+                    var news = new newsModel({
+                        registerAt: new Date(),
+                        type: 'RESTRICT',
+                        restrict: shutdown,
+                        restrictReserve: reserve
                     });
+
+                    news.save();
+
+                    callback(null, server, shutdown);
                 }
             },
-            function (victims, callback) {
+            function (server, shutdowns, callback) {
+                userModel.find({npc: false, place: { "$in" : shutdowns}}, function (err, users) {
+                    if (err) {
+                        console.log(err);
+                        throw new Error('initialize restrict kill trigger failed');
+                    } else {
+                        callback(null, server, users, shutdowns);
+                    }
+                });
+            },
+            function (server, victims, shutdowns, callback) {
                 for (var i in victims) {
                     var user = victims[i];
-                    // TODO user kill
+                    user.status = 4;
+                    user.deathCause = 'restrictArea';
+                    user.deathAt = new Date();
+                    user.health = 0;
+                    user.save();
+
+                    util.deathInfoToVictim(io, user);
+
+                    var news = new newsModel({
+                        registerAt: new Date(),
+                        type: 'DEATH',
+                        message: user.messageDying,
+                        murder: {
+                            weaponMethod: 'restrictArea'
+                        },
+                        victim: {
+                            username: user.username,
+                            userGender: user.userGender,
+                            groupName: user.groupName,
+                            studentNo: user.studentNo
+                        }
+                    });
+
+                    news.save();
+                }
+
+                callback(null, server, shutdowns);
+            },
+            function (server, shutdowns, callback) {
+                userModel.find({npc: false, deathAt: null, place: {$nin: shutdowns}}, function (err, count) {
+                    if (err) {
+                        console.log(err);
+                        throw new Error('initialize restrict kill trigger failed');
+                    } else {
+                        callback(null, server, count);
+                    }
+                });
+            },
+            function (server, count, callback) {
+                if ('start' === server.status
+                    && 1 == count
+                    && true === util.isBattleOver(server.started)) {
+                    // TODO 대회우승
                 }
             }
         ]);
@@ -269,7 +314,7 @@ module.exports = function () {
     };
 
 
-    this.initializeUsers = function(userModel, npc) {
+    this.initializeUsers = function (userModel, npc) {
         async.waterfall([
             function (callback) {
                 userModel.remove({}, function (err) {
@@ -296,10 +341,10 @@ module.exports = function () {
     /**
      * 리셋
      */
-    this.initialize = function (groupModel, placeModel, serverModel, newsModel, userModel, util) {
+    this.initialize = function (groupModel, placeModel, serverModel, newsModel, userModel, util, io) {
         that.initializeGroups(groupModel, util.getGroups(), util.getMaxGroups());
         that.initializeServerFlag(serverModel);
-        that.initializePlaces(placeModel, serverModel, userModel, newsModel, util.getPlaces(), util.getGlobalLooted());
+        that.initializePlaces(placeModel, serverModel, userModel, newsModel, util, io);
         that.initializeNews(newsModel);
         that.initializeUsers(userModel, require('./../config/npc'));
     };
@@ -488,9 +533,10 @@ module.exports = function () {
      * @param armorBody
      * @param items
      */
-    this.signup = function (passport, userModel, groupModel, newsModel, remoteAddress, expressRequest, expressResponse, attack,
-                            defence, health, stamina, requireExp, groupName, studentNo, clubId, clubName, skillMap,
-                            armorBody, items) {
+    this.signup
+        = function (passport, userModel, groupModel, newsModel, remoteAddress, expressRequest, expressResponse, attack,
+                    defence, health, stamina, requireExp, groupName, studentNo, clubId, clubName, skillMap,
+                    armorBody, items) {
 
         userModel.register(new userModel({
             username: expressRequest.body.username,

@@ -9,8 +9,6 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
         var enemyKilled = false;
 
         var battleResult = util.getBattleResult(res.account, req.command, res.enemy, false, eventLog);
-        res.account = battleResult.user;
-        res.enemy = battleResult.enemy;
         eventLog = battleResult.eventLog;
 
         var enemyStat = util.getBattleRateByAttacker(
@@ -130,8 +128,6 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
         } else if (7 >= util.dice(10) && accountStat.longRangeEngage == enemyStat.longRangeEngage) {
             // 반격
             var strikeResult = util.getBattleResult(res.account, skillType, res.enemy, true, eventLog);
-            res.account = strikeResult.user;
-            res.enemy = strikeResult.enemy;
             eventLog = strikeResult.eventLog;
 
             // 반격 시도
@@ -192,12 +188,12 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
                 } else {
                     eventLog.push([res.account.username, '은(는) 도망쳤다...'].join(''));
 
-                    util.broadcastToVictim(socket, res.enemy, res.account, enemyResult, strikeResult, result);
+                    util.battleInfoToVictim(socket, res.enemy, res.account, enemyResult, strikeResult, result);
                 }
             } else {
                 eventLog.push('그러나, 피했다!');
 
-                util.broadcastToVictim(socket, res.enemy, res.account, enemyResult, strikeResult);
+                util.battleInfoToVictim(socket, res.enemy, res.account, enemyResult, strikeResult);
             }
 
             // 탄소모

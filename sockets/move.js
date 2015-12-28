@@ -40,6 +40,6 @@ module.exports = function(io, options, socket, req, res){
     if (false === isDeath) {
         require('./search')(io, options, socket, req, res, 'move', result, log);
     } else {
-        // TODO 사망
+        require('./userKilled')(io, options, socket, req, res, 'tired', result, log);
     }
 };

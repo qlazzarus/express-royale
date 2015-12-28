@@ -25,10 +25,6 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
     };
 
     if (typeof res.account != 'undefined') {
-        if ('deathGet' === eventName) {
-            console.log(res.account);
-        }
-
         if (-1 === ['health', 'stamina'].indexOf(eventName) && -1 !== [5, 6].indexOf(res.account.status)) {
             // 치료 + 수면
             eventLog.push(util.setRecover(res.account));

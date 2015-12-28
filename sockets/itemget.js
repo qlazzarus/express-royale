@@ -15,7 +15,7 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
     var isDeath = false;
     var itemLength = place.items.length;
 
-    if (itemLength < 0) {
+    if (0 >= itemLength) {
         eventLog.push('이제, 이 지역에는 아무것도 없는건가...?');
     } else {
         var randomId = util.dice(itemLength - 1);

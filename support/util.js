@@ -935,6 +935,15 @@ module.exports = (function () {
     }
 
 
+    /**
+     * 전체 패킷 전송
+     *
+     * @param socket
+     * @param placeId
+     * @param broadType
+     * @param broadUser
+     * @param broadMessage
+     */
     function broadcastToAll(socket, placeId, broadType, broadUser, broadMessage) {
         var placeName = getPlaceName('place' + placeId);
         var result = {
@@ -972,8 +981,60 @@ module.exports = (function () {
             ].join('');
             socket.broadcast.emit('recv', result);
         }
+    }
 
 
+    /**
+     * 사망내용 대상자 전송
+     *
+     * @param socket
+     * @param victim
+     */
+    function deathInfoToVictim(io, victim) {
+        var res = {
+            type: 'killed',
+            account: victim,
+            config: {
+                expPerSkillLevel: getExpPerSkillLevel(),
+                skills: getSkills(),
+                tactics: getTactics(),
+                staminaRequireSecond: getStaminaRequireSecond(),
+                healthRequireSecond: getHealthRequireSecond()
+            },
+            itemList: [],
+            log: [
+                '<strong class="red">',
+                victim.username,
+                '(',
+                victim.groupName,
+                ' ',
+                0 == victim.userGender ? '남자' : '여자',
+                victim.studentNo,
+                '번)은(는) 사망했다.</strong>'
+            ].join('')
+        };
+
+        var itemList = ['item0', 'item1', 'item2', 'item3', 'item4', 'item5'];
+        for (var i in itemList) {
+            res.account[itemList[i]].point = Math.abs(victim[itemList[i]].point);
+        }
+
+        res.itemList = getItem([
+            victim.weapon.idx,
+            victim.armor.head.idx,
+            victim.armor.body.idx,
+            victim.armor.arm.idx,
+            victim.armor.foot.idx,
+            victim.armor.accessory.idx,
+            victim.item0.idx,
+            victim.item1.idx,
+            victim.item2.idx,
+            victim.item3.idx,
+            victim.item4.idx,
+            victim.item5.idx
+        ]);
+        
+        io.in(victim.username).emit('recv', res);
     }
 
 
@@ -987,7 +1048,7 @@ module.exports = (function () {
      * @param counterPoint
      * @param counterResult
      */
-    function broadcastToVictim(socket, victim, assault, damagePoint, counterResult, counterPoint) {
+    function battleInfoToVictim(socket, victim, assault, damagePoint, counterResult, counterPoint) {
         var currentDate = new Date();
         var hour = currentDate.getHours();
         var min = currentDate.getMinutes();
@@ -1283,7 +1344,9 @@ module.exports = (function () {
      */
     function getDeathCauseMessage(deathCause) {
         var result = {
-            hackingFailed: '정부에 의해 처형'
+            poison: '중독사',
+            hackingFailed: '정부에 의해 처형',
+            restrictArea: '금지지역 체재'
         }[deathCause];
 
         if (typeof result === 'undefined') {
@@ -1866,7 +1929,8 @@ module.exports = (function () {
         getFirstAidStamina: getFirstAidStamina,
         getDetoxStamina: getDetoxStamina,
         getMixItem: getMixItem,
-        broadcastToVictim: broadcastToVictim,
+        battleInfoToVictim: battleInfoToVictim,
+        deathInfoToVictim: deathInfoToVictim,
         broadcastToAll: broadcastToAll,
         getStaminaRequireSecond: getStaminaRequireSecond,
         getHealthRequireSecond: getHealthRequireSecond,

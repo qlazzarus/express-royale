@@ -38,6 +38,7 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
                 res.account.status = 4;
                 res.account.deathCause = deathCause;
                 res.account.deathType = util.dice(7);
+                res.account.deathAt = new Date();
                 res.account.health = 0;
 
                 /*
@@ -61,7 +62,9 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
 
                 news.save();
 
-                util.broadcastToAll(socket, res.account.place, 'killed');
+                if ('tired' !== eventName) {
+                    util.broadcastToAll(socket, res.account.place, 'killed');
+                }
 
                 callback(null, counted);
             },

@@ -54,10 +54,12 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
                 res.enemy.status = 4;
                 res.enemy.deathCause = req.command;
                 res.enemy.deathType = util.dice(7);
+                res.enemy.deathAt = new Date();
                 res.enemy.health = 0;
                 res.account.killCount += 1;
 
                 util.broadcastToAll(socket, res.account.place, 'killed');
+                util.deathInfoToVictim(io, res.enemy);
 
                 var news = new newsModel({
                     registerAt: new Date(),

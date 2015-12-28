@@ -24,24 +24,34 @@ module.exports = function (app, options) {
         res.render('game', {user: req.user, angularMode: true});
     });
 
-    app.get('/killed', isLoggedIn, function (req, res) {
-        if (0 < req.user.health) {
-            res.redirect('/game');
-        } else {
-            res.render('error', {
-                message: '에러발생',
-                error: {
-                    status: [
-                        '이미 죽어있습니다.\n',
-                        '사인：',
-                        util.getDeathCauseMessage(req.user.deathCause),
-                        '\n<strong style="color:#00ff00;">',
-                        req.user.messageDying,
-                        '</strong>'
-                    ].join('')
+    app.get('/gameover', isLoggedIn, function (req, res) {
+        var serverModel = options.models.getModel('server');
+        serverModel.findOne({}, function (err, server) {
+            if (err) {
+                console.log(err);
+                next();
+            } else {
+                if ('hackingSuccess' === server.status) {
+                    res.render('endingHacking');
+                } else if (0 >= req.user.health) {
+                    res.render('error', {
+                        message: '에러발생',
+                        error: {
+                            status: [
+                                '이미 죽어있습니다.\n',
+                                '사인：',
+                                util.getDeathCauseMessage(req.user.deathCause),
+                                '\n<strong style="color:#00ff00;">',
+                                req.user.messageDying,
+                                '</strong>'
+                            ].join('')
+                        }
+                    });
+                } else {
+                    res.redirect('/game');
                 }
-            });
-        }
+            }
+        });
     });
 
     app.get('/rank', function (req, res, next) {

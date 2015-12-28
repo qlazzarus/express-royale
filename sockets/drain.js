@@ -24,6 +24,7 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
     }
 
     if (0 >= res.account.maxHealth) {
+        res.account.maxHealth = 0;
         isDeath = true;
     }
 
