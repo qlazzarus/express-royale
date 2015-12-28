@@ -278,7 +278,8 @@ module.exports = function (io, options, socket, req, res) {
             } else if (false === userKilled && true === enemyKilled) {
                 require('./enemyKilled')(io, options, socket, req, res, eventName, true, eventLog);
             } else {
-                // TODO 자신 사망
+                req.command = enemyCommand;
+                require('./userKilled')(io, options, socket, req, res, eventName, true, eventLog);
             }
         }
     ]);

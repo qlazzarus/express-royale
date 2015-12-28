@@ -421,7 +421,7 @@ var Commander = React.createClass({
             desc = '이것을 사용하면, 모두에게 들리겠지...';
         } else if ('deathGet' === command) {
             desc = '무엇을 뺏습니까?';
-        } else if (-1 !== ['killed', 'killedByTrap', 'hackingSuccess', 'broadcastEnding'].indexOf(command)) {
+        } else if (-1 !== ['killed', 'killedByTrap', 'hackingSuccess', 'broadcastEnding', 'ending'].indexOf(command)) {
             desc = '';
         }
 
@@ -796,7 +796,7 @@ var Commander = React.createClass({
                 type: 'command'
             });
 
-        } else if (-1 !== ['hackingSuccess', 'broadcastEnding'].indexOf(command)) {
+        } else if (-1 !== ['hackingSuccess', 'broadcastEnding', 'ending'].indexOf(command)) {
             commandList.push({
                 name: '확인',
                 event: 'ending',
@@ -1109,7 +1109,7 @@ var ExpressRoyale = (function () {
             renderSkill(data, true);
             renderItem(data, true);
 
-        } else if (-1 !== ['killed', 'killedByTrap', 'hackingSuccess'].indexOf(data.type)) {
+        } else if (-1 !== ['killed', 'killedByTrap', 'hackingSuccess', 'ending'].indexOf(data.type)) {
             getPlaceSelectorHolder().style.display = 'none';
 
             if (typeof data.enemy !== 'undefined') {

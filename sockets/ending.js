@@ -4,6 +4,7 @@
 module.exports = function (io, options, socket, req, res, eventName, eventResult, eventLog) {
     var util = options.container.get('util');
     var newsModel = options.models.getModel('news');
+    var news = {};
 
     if (typeof eventLog === 'string') {
         eventLog = [eventLog];
@@ -14,7 +15,7 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
         res.server.winner = res.account.username;
         res.server.save();
 
-        var news = new newsModel({
+        news = new newsModel({
             registerAt: new Date(),
             type: 'HACKING_SUCCESS',
             message: res.account.messageDying,
@@ -33,6 +34,24 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
             log: '갑자기 사이렌 소리가 귀를 때렸다.',
             except: ''
         });
+    } else {
+        res.server.status = 'ending';
+        res.server.winner = res.account.username;
+        res.server.save();
+
+        news = new newsModel({
+            registerAt: new Date(),
+            type: 'ENDING',
+            message: res.account.messageDying,
+            victim: {
+                username: res.account.username,
+                userGender: res.account.userGender,
+                groupName: res.account.groupName,
+                studentNo: res.account.studentNo
+            }
+        });
+
+        news.save();
     }
 
     require('./finalize')(io, options, socket, req, res, eventName, eventResult, eventLog);

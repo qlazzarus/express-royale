@@ -207,7 +207,8 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
     }
 
     if (true === userKilled && false === enemyKilled) {
-        // TODO 유저 사망
+        req.command = enemyCommand;
+        require('./userKilled')(io, options, socket, req, res, eventName, true, eventLog);
     } else if (false === userKilled && true === enemyKilled) {
         req.command = skillType;
         require('./enemyKilled')(io, options, socket, req, res, eventName, eventResult, eventLog);

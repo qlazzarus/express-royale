@@ -843,7 +843,8 @@ module.exports = (function () {
      * @returns {boolean}
      */
     function isBattleOver(gameStart) {
-        return (Date.now() - gameStart.getTime()) > gameConfig.minimumBattleTime;
+        //return (Date.now() - gameStart.getTime()) > gameConfig.minimumBattleTime;
+        return true;
     }
 
 
@@ -1033,7 +1034,7 @@ module.exports = (function () {
             victim.item4.idx,
             victim.item5.idx
         ]);
-        
+
         io.in(victim.username).emit('recv', res);
     }
 
@@ -1346,7 +1347,15 @@ module.exports = (function () {
         var result = {
             poison: '중독사',
             hackingFailed: '정부에 의해 처형',
-            restrictArea: '금지지역 체재'
+            restrictArea: '금지지역 체재',
+            cutSkill: '참살',
+            bowSkill: '사살',
+            shotSkill: '총살',
+            throwSkill: '살해',
+            bombSkill: '폭살',
+            pokeSkill: '척살',
+            meleeSkill: '박살',
+            fistSkill: '박살'
         }[deathCause];
 
         if (typeof result === 'undefined') {

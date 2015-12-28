@@ -18,8 +18,6 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
             },
 
             function (counted, callback) {
-                var deathCause = eventName;
-
                 eventLog.push([
                     '<strong class="red">',
                     res.account.username,
@@ -31,8 +29,37 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
                     '번)은(는) 사망했다.</strong>'
                 ].join(''));
 
+                var newsType = 'DEATH';
+                var deathCause = eventName;
+                var murder = {
+                    weaponMethod: deathCause
+                };
+
                 if ('hackingFailed' === eventName) {
                     eventLog.push('정부『안됐구나, 수상한 행동을 하면 목걸이를 폭파한다고 했잖아』');
+                } else if ('attackResult' === eventName) {
+                    if ('' !== res.enemy.message) {
+                        eventLog.push([
+                            '<strong style="color:#00ff00">',
+                            res.enemy.username,
+                            '『',
+                            res.enemy.message,
+                            '』</strong>'
+                        ].join(''));
+                    }
+
+                    newsType = 'KILLED';
+                    deathCause = req.command;
+                    murder = {
+                        username: res.enemy.username,
+                        userGender: res.enemy.userGender,
+                        groupName: res.enemy.groupName,
+                        studentNo: res.enemy.studentNo,
+                        weaponName: res.enemy.weapon.idx,
+                        weaponMethod: req.command
+                    };
+
+                    res.enemy.killCount += 1;
                 }
 
                 res.account.status = 4;
@@ -41,17 +68,15 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
                 res.account.deathAt = new Date();
                 res.account.health = 0;
 
-                /*
-                res.enemy.killCount += 1;
-                */
+                if ('tired' !== eventName) {
+                    util.broadcastToAll(socket, res.account.place, 'killed');
+                }
 
                 var news = new newsModel({
                     registerAt: new Date(),
-                    type: 'DEATH',
+                    type: newsType,
                     message: res.account.messageDying,
-                    murder: {
-                        weaponMethod: deathCause
-                    },
+                    murder: murder,
                     victim: {
                         username: res.account.username,
                         userGender: res.account.userGender,
@@ -61,10 +86,6 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
                 });
 
                 news.save();
-
-                if ('tired' !== eventName) {
-                    util.broadcastToAll(socket, res.account.place, 'killed');
-                }
 
                 callback(null, counted);
             },

@@ -285,7 +285,7 @@ module.exports = [
         "npc" : false,
         "attack" : 41,
         "defence" : 40,
-        "health" : 167,
+        "health" : 1,
         "maxHealth" : 167,
         "stamina" : 99999,
         "killCount" : 0,
