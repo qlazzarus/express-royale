@@ -192,6 +192,7 @@ Container.get('service').initialize(
     ModelFactory.getModel('server'),
     ModelFactory.getModel('news'),
     ModelFactory.getModel('user'),
+    ModelFactory.getModel('winner'),
     Container.get('util'),
     io
 );

@@ -124,6 +124,12 @@ option.restrict-reserve {
     color: #ff8000;
 }
 
+.manual-block p,
+.manual-block ol,
+.manual-block ul {
+    margin-left: 2em;
+}
+
 #radar {
     position: absolute;
     width: 350px;

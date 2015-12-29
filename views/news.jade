@@ -1,0 +1,20 @@
+extends layout
+
+block content
+    h1.text-center.red 진행상황
+
+    p 『여러분, 모두 건강하게 잘 지내나.<br />
+        | 그럼, 지금까지의 상황입니다.<br />
+        | 오늘 하루도 힘내~』
+    p
+        strong(style='color:#ffff00') 현재의 금지구역
+        span.red.margin5px #{restrict}
+    p
+        strong(style='color:#ffff00') 다음 금지구역
+        span.margin5px(style='color:#ffff00') #{restrictReserve}
+    each entries, date in logs
+        div
+            h5(style='color:#ffff00')= date
+            ul
+                each entry in entries
+                    li !{entry}

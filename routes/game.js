@@ -57,24 +57,4 @@ module.exports = function (app, options) {
             }
         });
     });
-
-    app.get('/rank', function (req, res, next) {
-        var userModel = options.models.getModel('user');
-        userModel.find({npc: false}, function (err, users) {
-            if (err) {
-                console.log(err);
-                next();
-            } else {
-                var survivors = [];
-                for (var i in users) {
-                    var user = users[i];
-                    if (0 < user.health) {
-                        survivors.push(user);
-                    }
-                }
-
-                res.render('rank', {survivors: survivors, survivorCount: survivors.length, userCount: users.length});
-            }
-        });
-    });
 };

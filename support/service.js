@@ -67,7 +67,7 @@ module.exports = function () {
      * @param util
      * @param io
      */
-    this.initializePlaces = function (placeModel, serverModel, userModel, newsModel, util, io) {
+    this.initializePlaces = function (placeModel, serverModel, userModel, newsModel, winnerModel, util, io) {
         var places = util.getPlaces();
         var globalLooted = util.getGlobalLooted();
 
@@ -114,14 +114,22 @@ module.exports = function () {
                 });
             },
             function (callback) {
-                setInterval(that.restrictPlaceEvent.bind(that, serverModel, placeModel, userModel, newsModel, util, places, io), 86400000);
+                if (typeof global.restrictTimer !== 'undefined') {
+                    clearInterval(global.restrictTimer);
+                }
+
+                global.restrictTimer = setInterval(
+                    that.restrictPlaceEvent.bind(that, serverModel, placeModel, userModel, newsModel, winnerModel, util, places, io),
+                    86400000
+                );
+
                 callback(null);
             }
         ]);
     };
 
 
-    this.restrictPlaceEvent = function (serverModel, placeModel, userModel, newsModel, util, places, io) {
+    this.restrictPlaceEvent = function (serverModel, placeModel, userModel, newsModel, winnerModel, util, places, io) {
         async.waterfall([
             function (callback) {
                 serverModel.findOne({}, function (err, server) {
@@ -235,7 +243,7 @@ module.exports = function () {
             },
 
             function (server, survivors) {
-                var news;
+                var news, winner;
                 var survivorCount = survivors.length;
                 if ('start' === server.status
                     && true === util.isBattleOver(server.started)) {
@@ -262,6 +270,49 @@ module.exports = function () {
                         });
 
                         news.save();
+
+                        winner = winnerModel({
+                            status: 'ending',
+                            started: server.started,
+                            ended: new Date(),
+                            username: user.username,
+                            userGender: user.userGender,
+                            userIcon: user.userIcon,
+                            message: user.message,
+                            messageDying: user.messageDying,
+                            messageComment: user.messageComment,
+                            attack: user.attack,
+                            defence: user.defence,
+                            health: user.health,
+                            maxHealth: user.maxHealth,
+                            stamina: user.stamina,
+                            killCount: user.killCount,
+                            level: user.level,
+                            requireExp: user.requireExp,
+                            injured: user.injured,
+                            groupName: user.groupName,
+                            studentNo: user.studentNo,
+                            clubId: user.clubId,
+                            clubName: user.clubName,
+                            tactics: user.tactics,
+                            shotSkill: user.shotSkill,
+                            cutSkill: user.cutSkill,
+                            throwSkill: user.throwSkill,
+                            fistSkill: user.fistSkill,
+                            bowSkill: user.bowSkill,
+                            meleeSkill: user.meleeSkill,
+                            bombSkill: user.bombSkill,
+                            pokeSkill: user.pokeSkill,
+                            weapon: user.weapon,
+                            armor: user.armor,
+                            item0: user.item0,
+                            item1: user.item1,
+                            item2: user.item2,
+                            item3: user.item3,
+                            item4: user.item4,
+                            item5: user.item5
+                        });
+                        winner.save();
 
                         io.in(user.username).emit('recv', {
                             type: 'broadcastEnding',
@@ -388,10 +439,10 @@ module.exports = function () {
     /**
      * 리셋
      */
-    this.initialize = function (groupModel, placeModel, serverModel, newsModel, userModel, util, io) {
+    this.initialize = function (groupModel, placeModel, serverModel, newsModel, userModel, winnerModel, util, io) {
         that.initializeGroups(groupModel, util.getGroups(), util.getMaxGroups());
         that.initializeServerFlag(serverModel);
-        that.initializePlaces(placeModel, serverModel, userModel, newsModel, util, io);
+        that.initializePlaces(placeModel, serverModel, userModel, newsModel, winnerModel, util, io);
         that.initializeNews(newsModel);
         that.initializeUsers(userModel, require('./../config/npc'));
     };
