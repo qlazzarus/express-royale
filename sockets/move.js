@@ -15,7 +15,7 @@ module.exports = function(io, options, socket, req, res){
     }
 
     var isDeath = false;
-    if (true === place.restrict && 'hacked' !== res.server.status) {
+    if (true === place.restrict) {
         result = false;
         log.push([place.name, ' 쪽은 금지구역이다. 이동할 수 없어...'].join(''));
     } else if (true === place.restrictReserve) {

@@ -1,8 +1,10 @@
 /**
  * Created by monoless on 2015-12-15.
  */
+var async = require('async');
 module.exports = function (io, options, socket, req, res) {
     var util = options.container.get('util');
+    var userModel = options.models.getModel('user');
     var place = {};
     var places = res.place;
     for (var i in places) {
@@ -17,6 +19,8 @@ module.exports = function (io, options, socket, req, res) {
     var item = res.account[req.value];
     var isDeath = false;
     var isEnding = false;
+    var isFinalize = true;
+
     if (typeof item !== 'undefined') {
         var itemInfo = util.getItem(item.idx);
         var Process = {
@@ -65,7 +69,7 @@ module.exports = function (io, options, socket, req, res) {
             armor: function () {
                 Process.equip(res.account.armor[itemInfo.type]);
             },
-            equip: function(equip) {
+            equip: function (equip) {
                 var desc = '';
                 var defaultEquip = '';
                 var prevEquip = {
@@ -77,7 +81,8 @@ module.exports = function (io, options, socket, req, res) {
                 if ('weapon' == itemInfo.equip) {
                     desc = '장비했다';
                     defaultEquip = 'weaponDefault';
-                } if ('armor' == itemInfo.equip && 'body' == itemInfo.type) {
+                }
+                if ('armor' == itemInfo.equip && 'body' == itemInfo.type) {
                     desc = '몸에 장비했다.';
                     defaultEquip = 'armorDefault';
                 } else if ('armor' == itemInfo.equip && 'head' == itemInfo.type) {
@@ -104,7 +109,7 @@ module.exports = function (io, options, socket, req, res) {
                     res.account[req.value] = prevEquip;
                 }
             },
-            trap: function() {
+            trap: function () {
                 eventLog.push([itemInfo.name, '을(를) 덫으로 설치했다. 스스로도 조심하지 않으면...'].join(''));
 
                 // trap set-up & deploy (+10 id)
@@ -118,13 +123,11 @@ module.exports = function (io, options, socket, req, res) {
                 // remove item
                 res.account[req.value] = {idx: '', endurance: 0, point: 0};
             },
-            temp_radar: function() {
-                // TODO 임시 레이더
-                eventLog.push('임시 레이더');
+            temp_radar: function () {
+                Process.map(false);
             },
-            radar: function() {
-                // TODO 레이더
-                eventLog.push('레이더');
+            radar: function () {
+                Process.map(true);
             },
             '12gauge': function () {
                 Process.reload();
@@ -150,7 +153,7 @@ module.exports = function (io, options, socket, req, res) {
             bow: function () {
                 Process.reload();
             },
-            reload: function() {
+            reload: function () {
                 var weaponInfo = util.getItem(res.account.weapon.idx);
                 if (true === weaponInfo.ammoRequire && weaponInfo.ammoType === itemInfo.equip) {
                     var up = weaponInfo.ammoReload - res.account.weapon.endurance;
@@ -174,23 +177,25 @@ module.exports = function (io, options, socket, req, res) {
                     eventLog.push('이건 어디에 쓰는 것일까...');
                 }
             },
-            armor_refine: function() {
+            armor_refine: function () {
                 var defenceInfo = util.getItem(res.account.armor.body.idx);
                 if ('fabric' === defenceInfo.material && 'armorDefault' !== res.account.armor.body.idx) {
-                    res.account.armor.body.endurance +=  item.point;
+                    res.account.armor.body.endurance += item.point;
                     if (30 < res.account.armor.body.endurance) {
                         res.account.armor.body.endurance = 30;
                     }
 
-                    eventLog.push([itemInfo.name, '을(를) 사용했다.', defenceInfo.name, '의 내구력이 ',
-                        res.account.armor.body.endurance, '이(가) 되었다.'].join(''));
+                    eventLog.push([
+                        itemInfo.name, '을(를) 사용했다.', defenceInfo.name, '의 내구력이 ',
+                        res.account.armor.body.endurance, '이(가) 되었다.'
+                    ].join(''));
 
                     res.account[req.value] = util.setConsumeItem(item);
                 } else {
                     eventLog.push('이건 어디에 쓰는 것일까...');
                 }
             },
-            weapon_refine: function() {
+            weapon_refine: function () {
                 var weaponInfo = util.getItem(res.account.weapon.idx);
                 if (-1 !== weaponInfo.attackType.indexOf('cut')) {
                     res.account.weapon.point += item.point;
@@ -198,19 +203,21 @@ module.exports = function (io, options, socket, req, res) {
                         res.account.weapon.point = 30;
                     }
 
-                    eventLog.push([itemInfo.name, '을(를) 사용했다.', weaponInfo.name, '의 공격력이 ',
-                        res.account.weapon.point, '이(가) 되었다.'].join(''));
+                    eventLog.push([
+                        itemInfo.name, '을(를) 사용했다.', weaponInfo.name, '의 공격력이 ',
+                        res.account.weapon.point, '이(가) 되었다.'
+                    ].join(''));
 
                     res.account[req.value] = util.setConsumeItem(item);
                 } else {
                     eventLog.push('이건 어디에 쓰는 것일까...');
                 }
             },
-            speaker: function() {
+            speaker: function () {
                 eventName = 'speaker';
                 eventLog.push('확성기를 써서, 모두에게 메시지를 전한다.');
             },
-            battery: function() {
+            battery: function () {
                 var pcSlot = util.findItemSlotByEquip(
                     'mobilepc',
                     res.account.item0,
@@ -229,7 +236,7 @@ module.exports = function (io, options, socket, req, res) {
                         res.account[pcSlot].endurance = 5;
                     }
 
-                    res.account[req.value] = {idx:'', endurance:0, point:0};
+                    res.account[req.value] = {idx: '', endurance: 0, point: 0};
 
                     eventLog.push([
                         itemInfo.name,
@@ -239,7 +246,7 @@ module.exports = function (io, options, socket, req, res) {
                     ].join(''));
                 }
             },
-            program: function() {
+            program: function () {
                 if (0 === res.account.place) {
                     eventLog.push('해제키를 써서 프로그램을 정지시켰다.');
                     eventLog.push('목걸이를 벗었다!');
@@ -249,6 +256,38 @@ module.exports = function (io, options, socket, req, res) {
                 } else {
                     eventLog.push('여기에서 써도 의미가 없다...');
                 }
+            },
+            map: function (fullscan) {
+                var placeInfo = [];
+
+                isFinalize = false;
+
+                eventLog.push('레이더를 사용했다.');
+                eventLog.push('숫자：지역에 있는 사람수<br />붉은숫자：자신이 있는 지역의 사람수');
+
+                userModel.find({deathAt: null}, function (err, users) {
+                    for (var i in users) {
+                        var user = users[i];
+                        var current = placeInfo[user.place];
+                        if (false === fullscan && res.account.place !== user.place) {
+                            continue;
+                        }
+
+                        if (typeof current === 'undefined') {
+                            placeInfo[user.place] = 1;
+                        } else {
+                            placeInfo[user.place] += 1;
+                        }
+
+                        if ('hacking' !== res.server.status) {
+                            placeInfo[0] = null;
+                        }
+                    }
+
+                    eventName = 'map';
+                    res.placeInfo = placeInfo;
+                    require('./finalize')(io, options, socket, req, res, eventName, true, eventLog);
+                });
             }
         };
 
@@ -260,11 +299,11 @@ module.exports = function (io, options, socket, req, res) {
         }
     }
 
-    if (true === isDeath) {
+    if (true === isDeath && true === isFinalize) {
         require('./userKilled')(io, options, socket, req, res, eventName, true, eventLog);
-    } else if (true === isEnding) {
+    } else if (true === isEnding && true === isFinalize) {
         require('./ending')(io, options, socket, req, res, eventName, true, eventLog);
-    } else {
+    } else if (true === isFinalize) {
         require('./finalize')(io, options, socket, req, res, eventName, true, eventLog);
     }
 };

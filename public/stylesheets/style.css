@@ -124,17 +124,44 @@ option.restrict-reserve {
     color: #ff8000;
 }
 
+#radar {
+    position: absolute;
+    width: 350px;
+    height: 260px;
+    z-index: 10;
+    background: #000000;
+    margin: 35px 0 0 150px;
+}
+
+#radar table {
+    width: 350px;
+    height: 260px;
+    border-collapse: collapse;
+    border: solid 1px;
+    table-layout: fixed;
+}
+
+#radar th,
+#radar td {
+    text-align: center;
+    border: solid 1px;
+}
+
+#radar .ocean {
+    background: #00ffff;
+}
+
 #battleInfo {
     margin-bottom: 10px;
 }
 
 #battleInfo h5 {
-    padding:1em 0;
+    padding: 1em 0;
 }
 
 #battleInfo .row {
-    margin:0 !important;
-    min-height:20em;
+    margin: 0 !important;
+    min-height: 20em;
 }
 
 /* Absolute Center Spinner */

@@ -62,6 +62,169 @@ var PlaceSelector = React.createClass({
     }
 });
 
+var Radar = React.createClass({
+    render: function() {
+        var placeInfo = this.props.placeInfo;
+        placeInfo[this.props.currentPlace] = (
+            <strong className="red">
+                {placeInfo[this.props.currentPlace]}
+            </strong>
+        );
+
+        return (
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>01</th>
+                        <th>02</th>
+                        <th>03</th>
+                        <th>04</th>
+                        <th>05</th>
+                        <th>06</th>
+                        <th>07</th>
+                        <th>08</th>
+                        <th>09</th>
+                        <th>10</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>A</th>
+                        <td className='ocean'></td>
+                        <td>{placeInfo[1]}</td>
+                        <td className='ocean'></td>
+                        <td className='ocean'></td>
+                        <td className='ocean'></td>
+                        <td className='ocean'></td>
+                        <td className='ocean'></td>
+                        <td className='ocean'></td>
+                        <td className='ocean'></td>
+                        <td className='ocean'></td>
+                    </tr>
+                    <tr>
+                        <th>B</th>
+                        <td className='ocean'></td>
+                        <td></td>
+                        <td></td>
+                        <td>{placeInfo[2]}</td>
+                        <td className='ocean'></td>
+                        <td className='ocean'></td>
+                        <td className='ocean'></td>
+                        <td className='ocean'></td>
+                        <td className='ocean'></td>
+                        <td className='ocean'></td>
+                    </tr>
+                    <tr>
+                        <th>C</th>
+                        <td className='ocean'></td>
+                        <td></td>
+                        <td>{placeInfo[3]}</td>
+                        <td>{placeInfo[4]}</td>
+                        <td>{placeInfo[5]}</td>
+                        <td>{placeInfo[6]}</td>
+                        <td></td>
+                        <td className='ocean'></td>
+                        <td className='ocean'></td>
+                        <td className='ocean'></td>
+                    </tr>
+                    <tr>
+                        <th>D</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>{placeInfo[7]}</td>
+                        <td></td>
+                        <td>{placeInfo[0]}</td>
+                        <td></td>
+                        <td></td>
+                        <td className='ocean'></td>
+                        <td className='ocean'></td>
+                    </tr>
+                    <tr>
+                        <th>E</th>
+                        <td></td>
+                        <td>{placeInfo[8]}</td>
+                        <td></td>
+                        <td>{placeInfo[9]}</td>
+                        <td></td>
+                        <td></td>
+                        <td>{placeInfo[10]}</td>
+                        <td></td>
+                        <td className='ocean'></td>
+                        <td className='ocean'></td>
+                    </tr>
+                    <tr>
+                        <th>F</th>
+                        <td></td>
+                        <td>{placeInfo[11]}</td>
+                        <td></td>
+                        <td></td>
+                        <td>{placeInfo[12]}</td>
+                        <td></td>
+                        <td></td>
+                        <td>{placeInfo[13]}</td>
+                        <td></td>
+                        <td className='ocean'></td>
+                    </tr>
+                    <tr>
+                        <th>G</th>
+                        <td className='ocean'></td>
+                        <td></td>
+                        <td>{placeInfo[14]}</td>
+                        <td></td>
+                        <td></td>
+                        <td>{placeInfo[15]}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td className='ocean'></td>
+                    </tr>
+                    <tr>
+                        <th>H</th>
+                        <td className='ocean'></td>
+                        <td className='ocean'></td>
+                        <td></td>
+                        <td>{placeInfo[16]}</td>
+                        <td></td>
+                        <td>{placeInfo[17]}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td className='ocean'></td>
+                    </tr>
+                    <tr>
+                        <th>I</th>
+                        <td className='ocean'></td>
+                        <td className='ocean'></td>
+                        <td className='ocean'></td>
+                        <td></td>
+                        <td></td>
+                        <td>{placeInfo[18]}</td>
+                        <td>{placeInfo[19]}</td>
+                        <td className='ocean'></td>
+                        <td></td>
+                        <td>{placeInfo[20]}</td>
+                    </tr>
+                    <tr>
+                        <th>J</th>
+                        <td className='ocean'></td>
+                        <td className='ocean'></td>
+                        <td className='ocean'></td>
+                        <td className='ocean'></td>
+                        <td className='ocean'></td>
+                        <td>{placeInfo[21]}</td>
+                        <td className='ocean'></td>
+                        <td className='ocean'></td>
+                        <td className='ocean'></td>
+                        <td className='ocean'></td>
+                    </tr>
+                </tbody>
+            </table>
+        );
+    }
+});
+
 var Selector = React.createClass({
     getInitialState: function () {
         return {value: this.props.current};
@@ -421,7 +584,7 @@ var Commander = React.createClass({
             desc = '이것을 사용하면, 모두에게 들리겠지...';
         } else if ('deathGet' === command) {
             desc = '무엇을 뺏습니까?';
-        } else if (-1 !== ['killed', 'killedByTrap', 'hackingSuccess', 'broadcastEnding', 'ending'].indexOf(command)) {
+        } else if (-1 !== ['killed', 'killedByTrap', 'hackingSuccess', 'broadcastEnding', 'ending', 'map'].indexOf(command)) {
             desc = '';
         }
 
@@ -788,18 +951,10 @@ var Commander = React.createClass({
         } else if ('deathGet' === command) {
             commandList = this.getDeathGetCommand(this.props.enemy, itemSchema);
 
-        } else if (-1 !== ['killed', 'killedByTrap'].indexOf(command)) {
+        } else if (-1 !== ['killed', 'killedByTrap', 'hackingSuccess', 'broadcastEnding', 'ending'].indexOf(command)) {
             commandList.push({
                 name: '확인',
-                event: 'killed',
-                className: '',
-                type: 'command'
-            });
-
-        } else if (-1 !== ['hackingSuccess', 'broadcastEnding', 'ending'].indexOf(command)) {
-            commandList.push({
-                name: '확인',
-                event: 'ending',
+                event: 'gameover',
                 className: '',
                 type: 'command'
             });
@@ -811,7 +966,6 @@ var Commander = React.createClass({
                 className: '',
                 type: 'command'
             });
-
         }
 
         return commandList;
@@ -827,7 +981,7 @@ var Commander = React.createClass({
             value = newValue;
 
             ExpressRoyale.playerCommand(command, value);
-        } else if (-1 !== ['killed', 'ending'].indexOf(command)) {
+        } else if ('gameover' === command) {
             document.location.href = '/gameover';
         } else {
             ExpressRoyale.playerCommand(command, value);
@@ -1124,6 +1278,11 @@ var ExpressRoyale = (function () {
             getPlaceSelectorHolder().style.display = 'none';
 
             renderCommander(data);
+        } else if ('map' === data.type) {
+            getPlaceSelectorHolder().style.display = 'none';
+
+            renderRadar(data);
+            renderCommander(data);
         }
 
         if ('broadcast' === data.type && data.except !== username) {
@@ -1201,6 +1360,14 @@ var ExpressRoyale = (function () {
         return holders.logger;
     }
 
+    function getRadarHolder() {
+        if (typeof holders.radar == 'undefined') {
+            holders.radar = document.getElementById('radar');
+        }
+
+        return holders.radar;
+    }
+
     function renderInit() {
         getBattleInfoHolder().style.display = 'none';
         getCharacterInfoHolder().style.display = 'none';
@@ -1210,6 +1377,7 @@ var ExpressRoyale = (function () {
         getEquipItemHolder().style.display = 'none';
         getCommanderHolder().style.display = 'none';
         getLoggerHolder().style.display = 'none';
+        getRadarHolder().style.display = 'none';
     }
 
     function renderBattleInfo(data, isHidden) {
@@ -1297,6 +1465,14 @@ var ExpressRoyale = (function () {
         React.render(
             <Logger log={log}/>,
             getLoggerHolder()
+        );
+    }
+
+    function renderRadar(data) {
+        getRadarHolder().style.display = 'block';
+        React.render(
+            <Radar placeInfo={data.placeInfo} currentPlace={data.account.place} />,
+            getRadarHolder()
         );
     }
 
