@@ -94,10 +94,10 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
                 if ('start' === res.server.status
                     && 1 == counted
                     && true === util.isBattleOver(res.server.started)) {
-                    // TODO 누군가 대회우승
+                    require('./ending')(io, options, socket, req, res, 'endingOther', eventResult, eventLog);
+                } else {
+                    require('./finalize')(io, options, socket, req, res, eventName, eventResult, eventLog);
                 }
-
-                require('./finalize')(io, options, socket, req, res, eventName, eventResult, eventLog);
             }
         ]);
     } else {

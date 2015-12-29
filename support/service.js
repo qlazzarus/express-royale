@@ -133,6 +133,7 @@ module.exports = function () {
                     }
                 });
             },
+
             function (server, callback) {
                 if ('start' === server.status) {
                     placeModel.find({}, function (err, places) {
@@ -145,6 +146,7 @@ module.exports = function () {
                     });
                 }
             },
+
             function (server, places, callback) {
                 if (server.restrictIndex < places.length) {
                     server.restrictIndex += 3;
@@ -177,8 +179,9 @@ module.exports = function () {
                     callback(null, server, shutdown);
                 }
             },
+
             function (server, shutdowns, callback) {
-                userModel.find({npc: false, place: { "$in" : shutdowns}}, function (err, users) {
+                userModel.find({npc: false, place: {"$in": shutdowns}}, function (err, users) {
                     if (err) {
                         console.log(err);
                         throw new Error('initialize restrict kill trigger failed');
@@ -187,6 +190,7 @@ module.exports = function () {
                     }
                 });
             },
+
             function (server, victims, shutdowns, callback) {
                 for (var i in victims) {
                     var user = victims[i];
@@ -218,21 +222,63 @@ module.exports = function () {
 
                 callback(null, server, shutdowns);
             },
+
             function (server, shutdowns, callback) {
-                userModel.find({npc: false, deathAt: null, place: {$nin: shutdowns}}, function (err, count) {
+                userModel.find({npc: false, deathAt: null, place: {$nin: shutdowns}}, function (err, survivors) {
                     if (err) {
                         console.log(err);
                         throw new Error('initialize restrict kill trigger failed');
                     } else {
-                        callback(null, server, count);
+                        callback(null, server, survivors);
                     }
                 });
             },
-            function (server, count, callback) {
+
+            function (server, survivors) {
+                var news;
+                var survivorCount = survivors.length;
                 if ('start' === server.status
-                    && 1 == count
                     && true === util.isBattleOver(server.started)) {
-                    // TODO 대회우승
+
+                    if (1 == survivorCount) {
+                        var user = survivors[0];
+                        server.status = 'ending';
+                        server.winner = user.username;
+                        server.save();
+
+                        news = new newsModel({
+                            registerAt: new Date(),
+                            type: 'ENDING',
+                            message: user.messageDying,
+                            murder: {
+                                weaponMethod: 'restrictArea'
+                            },
+                            victim: {
+                                username: user.username,
+                                userGender: user.userGender,
+                                groupName: user.groupName,
+                                studentNo: user.studentNo
+                            }
+                        });
+
+                        news.save();
+
+                        io.in(user.username).emit('recv', {
+                            type: 'broadcastEnding',
+                            log: '갑자기 사이렌 소리가 귀를 때렸다.',
+                            except: ''
+                        });
+                    } else if (0 == survivorCount) {
+                        server.status = 'noWinner';
+                        server.save();
+
+                        news = new newsModel({
+                            registerAt: new Date(),
+                            type: 'NO_WINNER'
+                        });
+
+                        news.save();
+                    }
                 }
             }
         ]);

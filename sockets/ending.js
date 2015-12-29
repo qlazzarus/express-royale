@@ -3,6 +3,7 @@
  */
 module.exports = function (io, options, socket, req, res, eventName, eventResult, eventLog) {
     var util = options.container.get('util');
+    var userModel = options.models.getModel('user');
     var newsModel = options.models.getModel('news');
     var news = {};
 
@@ -33,6 +34,37 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
             type: 'broadcastEnding',
             log: '갑자기 사이렌 소리가 귀를 때렸다.',
             except: ''
+        });
+    } else if ('endingOther' === eventName) {
+        userModel.findOne({npc: false, username: {$ne: res.account.username}}, function (err, user) {
+            if (err) {
+                console.log(err);
+                throw new Error(err);
+            } else {
+                res.server.status = 'ending';
+                res.server.winner = user.username;
+                res.server.save();
+
+                news = new newsModel({
+                    registerAt: new Date(),
+                    type: 'ENDING',
+                    message: user.messageDying,
+                    victim: {
+                        username: user.username,
+                        userGender: user.userGender,
+                        groupName: user.groupName,
+                        studentNo: user.studentNo
+                    }
+                });
+
+                news.save();
+
+                socket.broadcast.emit('recv', {
+                    type: 'broadcastEnding',
+                    log: '갑자기 사이렌 소리가 귀를 때렸다.',
+                    except: ''
+                });
+            }
         });
     } else {
         res.server.status = 'ending';
