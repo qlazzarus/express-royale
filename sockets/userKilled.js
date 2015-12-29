@@ -55,7 +55,7 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
                         userGender: res.enemy.userGender,
                         groupName: res.enemy.groupName,
                         studentNo: res.enemy.studentNo,
-                        weaponName: util.getItemName(res.enemy.weapon.idx),
+                        weaponName: util.getItem(res.enemy.weapon.idx).name,
                         weaponMethod: req.command
                     };
 

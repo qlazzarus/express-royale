@@ -70,7 +70,7 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
                         userGender: res.account.userGender,
                         groupName: res.account.groupName,
                         studentNo: res.account.studentNo,
-                        weaponName: util.getItemName(res.account.weapon.idx),
+                        weaponName: util.getItem(res.account.weapon.idx).name,
                         weaponMethod: req.command
                     },
                     victim: {

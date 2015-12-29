@@ -31,13 +31,7 @@ module.exports = function (app, options) {
                 console.log(err);
                 next();
             } else {
-                if ('hackingSuccess' === server.status && req.user.username == server.winner) {
-                    res.render('endingHacking');
-                } else if ('hackingSuccess' === server.status) {
-                    res.render('endingHackingAlternative');
-                } else if ('ending' === server.status && req.user.username == server.winner) {
-                    res.render('ending', {user: req.user});
-                } else if (0 >= req.user.health) {
+                if (0 >= req.user.health) {
                     res.render('error', {
                         message: '에러발생',
                         error: {
@@ -51,8 +45,19 @@ module.exports = function (app, options) {
                             ].join('')
                         }
                     });
+
+                } else if ('hackingSuccess' === server.status && req.user.username == server.winner) {
+                    res.render('endingHacking');
+
+                } else if ('hackingSuccess' === server.status) {
+                    res.render('endingHackingAlternative');
+
+                } else if ('ending' === server.status && req.user.username == server.winner) {
+                    res.render('ending', {user: req.user});
+
                 } else {
                     res.redirect('/game');
+
                 }
             }
         });

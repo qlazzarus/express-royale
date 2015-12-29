@@ -1573,7 +1573,7 @@ module.exports = (function () {
             if (0 >= weapon.endurance) {
                 weapon = {idx: 'weaponDefault', point: 0, endurance: 0};
             }
-        } else if ('cutSkill' === skillType && -1 !== weaponInfo.attack.indexOf('cut')) {
+        } else if ('cutSkill' === skillType && -1 !== weaponInfo.attackType.indexOf('cut')) {
             weapon.point -= dice(1) + 1;
             if (0 >= weapon.point) {
                 weapon = {idx: 'weaponDefault', point: 0, endurance: 0};
