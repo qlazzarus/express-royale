@@ -2,3 +2,9 @@ extends layout
 
 block content
     h1.text-center.red 역대 생존자 리스트
+
+    if 0 == gameCount
+        p.text-center 우승자가 아직 없습니다
+    else
+        each user in winners
+            p hi

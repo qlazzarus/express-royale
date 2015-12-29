@@ -258,7 +258,10 @@ module.exports = function (app, options) {
                             '</span>'
                         ].join(''));
 
-                    } else if ('KILLED' === news.type && -1 !== ['meleeSkill', 'fistSkill'].indexOf(news.murder.weaponMethod)) {
+                    } else if ('KILLED' === news.type && -1 !== [
+                            'meleeSkill',
+                            'fistSkill'
+                        ].indexOf(news.murder.weaponMethod)) {
                         logs[currentDate].push([
                             currentTime,
                             ' : <span style="color:#F03020;">',
@@ -296,14 +299,15 @@ module.exports = function (app, options) {
         });
     });
 
-    app.get('/winner', function (req, res, next){
+    app.get('/winner', function (req, res, next) {
         var winnerModel = options.models.getModel('winner');
-        winnerModel.find({}, function(err, winners){
+        winnerModel.find({}, null, {sort: {'_id': -1}}, function (err, winners) {
             if (err) {
                 console.log(err);
                 next();
             } else {
-                res.render('winner', {winners: winners});
+                var gameCount = winners.length;
+                res.render('winner', {winners: winners, gameCount: gameCount});
             }
         });
     });
