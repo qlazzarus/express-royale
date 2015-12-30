@@ -13,8 +13,6 @@ module.exports = function (passport, modelContainer) {
 
             authenticate(username, password, function (err, user, validate) {
                 serverModel.findOne({}, function(err2, server){
-                    console.log(server);
-
                     if (err || err2) {
                         return done(err);
                     } else if (!user) {

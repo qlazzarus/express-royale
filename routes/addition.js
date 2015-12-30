@@ -5,6 +5,26 @@ var async = require('async');
 module.exports = function (app, options) {
     var util = options.container.get('util');
 
+    function convertItemDesc(item, defaultDesc) {
+        if ('' !== item.idx) {
+            var itemInfo = util.getItem(item.idx);
+            if (typeof itemInfo === 'undefined') {
+                itemInfo = {};
+            }
+
+            var result = [itemInfo.name, Math.abs(item.point)];
+            if (0 < item.endurance
+                || ('weapon' === itemInfo.equip && -1 !== itemInfo.attackType.indexOf('shot'))
+                || ('weapon' === itemInfo.equip && -1 !== itemInfo.attackType.indexOf('bow'))) {
+                result.push(item.endurance);
+            }
+
+            return result.join('/');
+        } else {
+            return defaultDesc;
+        }
+    }
+
     app.get('/rank', function (req, res, next) {
         var userModel = options.models.getModel('user');
         userModel.find({npc: false}, function (err, users) {
@@ -307,7 +327,55 @@ module.exports = function (app, options) {
                 next();
             } else {
                 var gameCount = winners.length;
-                res.render('winner', {winners: winners, gameCount: gameCount});
+                res.render('winner', {
+                    winners: winners,
+                    gameCount: gameCount,
+                    expPerSkillLevel: util.getExpPerSkillLevel(),
+                    convertTimeStamp: function (time) {
+                        var weekName = ['일', '월', '화', '수', '목', '금', '토'];
+                        var hour = time.getHours();
+                        var min = time.getMinutes();
+
+                        return [
+                            (time.getYear() + 1900),
+                            '년 ',
+                            (time.getMonth() + 1),
+                            '월 ',
+                            time.getDate(),
+                            '일 ',
+                            weekName[time.getDay()],
+                            '요일 ',
+                            hour < 10 ? '0' + hour : hour,
+                            '시',
+                            min < 10 ? '0' + min : min,
+                            '분'
+                        ].join('');
+                    },
+                    convertItemDesc: convertItemDesc,
+                    showItems: function (item0, item1, item2, item3, item4, item5) {
+                        var result = [];
+                        var itemList = [item0, item1, item2, item3, item4, item5];
+
+                        for (var i in itemList) {
+                            var item = itemList[i];
+                            var desc = '';
+                            var className = '';
+
+                            if ('' !== item.idx) {
+                                var itemInfo = util.getItem(item.idx);
+                                desc = convertItemDesc(item, '');
+                                className = itemInfo.equip;
+
+                                result.push({
+                                    className: className,
+                                    desc: desc
+                                });
+                            }
+                        }
+
+                        return result;
+                    }
+                });
             }
         });
     });

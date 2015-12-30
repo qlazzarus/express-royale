@@ -7,7 +7,14 @@ block content
         p.text-center 우승자가 아직 없습니다
     else
         each user in winners
-            div.col-sm-8
+            div.col-sm-9.col-sm-offset-2
+                h5.text-center.bg-black-red.padding5px 제 #{gameCount--}
+                    if 'hackingSuccess' === user.status
+                        | 회 프로그램 강제종료
+                    else
+                        | 회 프로그램 우승자
+                p 프로그램 시작일시 : #{convertTimeStamp(user.started)}
+                p 프로그램 종료일시 : #{convertTimeStamp(user.ended)}
                 div.row
                     div.col-sm-6
                         table.table.table-bordered
@@ -19,8 +26,13 @@ block content
                                     td
                                         img(src=user.userIcon, alt='')
                                     td.text-center #{user.username}<br />
-                                        | Lv #{user.level}<br />
-                                        | (Lv #{user.level + 1} 까지 #{user.requireExp} 남음)
+                                        | #{user.groupName}
+                                        if 0 == user.userGender
+                                            | &nbsp;남자&nbsp;
+                                        else
+                                            | &nbsp;여자&nbsp;
+                                        | #{user.studentNo}번<br />
+                                        | Lv #{user.level}
                                 tr
                                     th 체력
                                     td.health #{user.health} / #{user.maxHealth}
@@ -42,33 +54,37 @@ block content
                                 tr
                                     th 부상부위
                                     td #{user.injured.map(function(o){return {head:'머리 ', body:'복부 ', foot:'다리 ', arm: '팔 '}[o];})}
+                                tr
+                                    th 살해수
+                                    td #{user.killCount}명
                     div.col-sm-6
                         dl.dl-horizontal.small-dl.bg-equip
-                            dt.equip-weapon
-                            dd
+                            dt.equip-weapon [무기]
+                            dd #{convertItemDesc(user.weapon, '-')}
                         dl.dl-horizontal.small-dl.bg-equip
-                            dt.equip-armor
-                            dd
+                            dt.equip-armor [방어]
+                            dd #{convertItemDesc(user.armor.body, '-')}
                         dl.dl-horizontal.small-dl.bg-equip
-                            dt.equip-armor
-                            dd
+                            dt.equip-armor [머리]
+                            dd #{convertItemDesc(user.armor.head, '-')}
                         dl.dl-horizontal.small-dl.bg-equip
-                            dt.equip-armor
-                            dd
+                            dt.equip-armor [팔]
+                            dd #{convertItemDesc(user.armor.arm, '-')}
                         dl.dl-horizontal.small-dl.bg-equip
-                            dt.equip-armor
-                            dd
+                            dt.equip-armor [다리]
+                            dd #{convertItemDesc(user.armor.foot, '-')}
                         dl.dl-horizontal.small-dl.bg-equip
-                            dt.equip-armor
-                            dd
+                            dt.equip-armor [장식]
+                            dd #{convertItemDesc(user.armor.accessory, '-')}
                         ul.list-unstyled
-                            li
-                div.row
-                    ul.list-inline.solid-bordered.padding3px
-                        li.list-inline-custom
-                        li.list-inline-custom
-                        li.list-inline-custom
-                        li.list-inline-custom
-                        li.list-inline-custom
-                        li.list-inline-custom
-                        li.list-inline-custom
+                            each item in showItems(user.item0, user.item1, user.item2, user.item3, user.item4, user.item5)
+                                li(class=item.className)= item.desc
+                ul.list-inline.solid-bordered.padding3px
+                    li.list-inline-custom 총 : #{Math.floor(user.shotSkill / expPerSkillLevel)} (#{user.shotSkill})
+                    li.list-inline-custom 칼 :#{Math.floor(user.cutSkill / expPerSkillLevel)} (#{user.cutSkill})
+                    li.list-inline-custom 던지기 : #{Math.floor(user.throwSkill / expPerSkillLevel)} (#{user.throwSkill})
+                    li.list-inline-custom 때리기 : #{Math.floor(user.fistSkill / expPerSkillLevel)} (#{user.fistSkill})
+                    li.list-inline-custom 활 : #{Math.floor(user.bowSkill / expPerSkillLevel)} (#{user.bowSkill})
+                    li.list-inline-custom 곤봉 : #{Math.floor(user.meleeSkill / expPerSkillLevel)} (#{user.meleeSkill})
+                    li.list-inline-custom 폭탄 : #{Math.floor(user.bombSkill / expPerSkillLevel)} (#{user.bombSkill})
+                    li.list-inline-custom 찌르기 : #{Math.floor(user.pokeSkill / expPerSkillLevel)} (#{user.pokeSkill})
