@@ -5,7 +5,7 @@ module.exports = [
     {
         username: '선생님',
         userGender: false,
-        userIcon: './images/42.jpg',
+        userIcon: './static/images/42.jpg',
         message: '',
         messageDying: '',
         messageComment: '',
@@ -103,7 +103,7 @@ module.exports = [
     {
         username: '병사1',
         userGender: false,
-        userIcon: './images/42.jpg',
+        userIcon: './static/images/42.jpg',
         message: '',
         messageDying: '',
         messageComment: '',
