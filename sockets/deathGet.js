@@ -67,12 +67,16 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
                         res.enemy[targetSlot] = {idx: '', point: 0, endurance: 0};
                     }
 
-                    eventLog.push([
-                        res.account.username,
-                        '은(는) ',
-                        util.getItem(res.account[emptySlot].idx).name,
-                        '을(를) 입수했다.'
-                    ].join(''));
+                    if ('' !== res.account[emptySlot].idx) {
+                        eventLog.push([
+                            res.account.username,
+                            '은(는) ',
+                            util.getItem(res.account[emptySlot].idx).name,
+                            '을(를) 입수했다.'
+                        ].join(''));
+                    } else {
+                        eventLog.push('어디갔지?! 아이템이 사라져 버렸다...');
+                    }
                 } else {
                     eventLog.push('스스로 자기 물건을 뺏어봤다.<br />허무하다...');
                 }
