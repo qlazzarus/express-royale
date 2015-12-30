@@ -268,9 +268,9 @@ module.exports = function (io, options, socket, req, res) {
             // 탄소모
             res.account.weapon = util.setConsumeWeapon(res.account.weapon, req.command);
             if ('shotSkill' === req.command) {
-                util.broadcastToAll(socket, res.account.place, 'shot', res.enemy.username);
+                util.broadcastToAll(socket, res.account.place, 'shot', enemy.username);
             } else if ('bombSkill' === req.command) {
-                util.broadcastToAll(socket, res.account.place, 'bomb', res.enemy.username);
+                util.broadcastToAll(socket, res.account.place, 'bomb', enemy.username);
             }
 
             if (false === userKilled && false == enemyKilled) {
