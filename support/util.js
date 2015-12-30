@@ -624,11 +624,11 @@ module.exports = (function () {
     function moveConsumeStamina(clubId, injured) {
         var result = 0;
         if (-1 !== injured.indexOf('foot')) {
-            result = dice(5) + 13;
-        } else if (10 == clubId) {
-            result = dice(5) + 5;
-        } else {
             result = dice(5) + 8;
+        } else if (10 == clubId) {
+            result = dice(5);
+        } else {
+            result = dice(5) + 3;
         }
 
         return result;
@@ -645,11 +645,11 @@ module.exports = (function () {
     function exploreConsumeStamina(clubId, injured) {
         var result = 0;
         if (-1 !== injured.indexOf('foot')) {
-            result = dice(5) + 23;
-        } else if (10 == clubId) {
-            result = dice(5) + 13;
-        } else {
             result = dice(5) + 18;
+        } else if (10 == clubId) {
+            result = dice(5) + 8;
+        } else {
+            result = dice(5) + 13;
         }
 
         return result;
