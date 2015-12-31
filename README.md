@@ -1,0 +1,31 @@
+# Express-Royale
+
+## 무엇인가요?
+예전 CGI 웹게임으로 유명한 배틀로얄을 node.js + socket.io 로 실시간으로 구현한 예제입니다.
+
+## 저작권
+MIT 라이센서를 따릅니다.
+변경 및 재배포는 자유입니다! 
+다만 하단 라이센스는 지우지 말아주세요 ㅠ_ㅠ...
+
+## 필요한것은?
+- 서버
+- node.js
+- mongodb
+의존성 있는 모듈이 있습니다! 프로젝트 root 에서 아래와 같이 입력 해주세요
+    # npm install
+
+## 실행은
+    # node ./bin/www 
+상시실행은 npm forever module 을 권장합니다.
+
+## 추가로...
+앞으로 다시 배틀로얄이 흥했으면 좋겠어요
+
+## 후원
+가난한 개발자라 후원을 받습니다... 감사합니다.
+- [비트코인](bitcoin:3JFrDd9LEKkiBYYof5YcQ3drAoCmKsgSD9?amount=0.1) / bitcoin:3JFrDd9LEKkiBYYof5YcQ3drAoCmKsgSD9
+
+## 알려진 버그들
+- 특정 장소에 사람들이 몰리면 더이상 못 들어가는 버그가 있습니다.
+  (socket.io room 에 더이상 입장하지 못하는 버그)
