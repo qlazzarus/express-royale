@@ -12,6 +12,8 @@ MIT 라이센서를 따릅니다.
 - 서버
 - node.js
 - mongodb
+의존성 있는 모듈이 있습니다! 프로젝트 root 에서 아래와 같이 입력 해주세요
+    # npm install
 
 ## 실행은
     # node ./bin/www 
