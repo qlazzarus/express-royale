@@ -19,7 +19,7 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
         res.account.item5
     );
 
-    if (!(req.value instanceof Array) && 0 >= res.enemy.health && res.enemy.place === res.account.place) {
+    if (typeof req.value === 'undefined' && 0 >= res.enemy.health && res.enemy.place === res.account.place) {
         eventName = 'deathGet';
         eventLog.push([res.enemy.username, '의 시체를 발견했다.'].join(''));
         eventLog.push(util.getCorpseMessage(res.enemy.deathCause, res.enemy.deathType));

@@ -80,6 +80,7 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
 
                 var isEnemyDetect = (util.dice(10) * defenderStat.stealth < attackerStat.find * 100);
                 if (isEnemyDetect && 0 >= enemy.health) {
+                    req.value = undefined;
                     res.enemy = enemy;
                     otherEvent = true;
                     require('./deathGet')(io, options, socket, req, res, eventName, eventResult, eventLog);
