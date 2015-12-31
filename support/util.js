@@ -454,6 +454,7 @@ module.exports = (function () {
                 target = parseInt(recover / 2);
             }
 
+            recover = recover * 10;
             recoverLog = '수면 결과, 스테미너가 ' + recover + ' 회복 되었다.';
             target.stamina += recover;
             if (getMaxStamina() < target.stamina) {
@@ -775,7 +776,7 @@ module.exports = (function () {
         var result = {
             item0: {idx: supplyWeapon.id, point: supplyWeapon.point, endurance: supplyWeapon.endurance},
             item1: {idx: personalItem.id, point: personalItem.point, endurance: personalItem.endurance},
-            item2: {idx: 'stamina17', point: 20, endurance: 2},
+            item2: {idx: 'stamina17', point: 40, endurance: 2},
             item3: {idx: 'heal1', point: 20, endurance: 2},
             item4: {idx: '', point: 0, endurance: 0},
             item5: {idx: '', point: 0, endurance: 0}

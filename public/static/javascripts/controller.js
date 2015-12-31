@@ -288,8 +288,13 @@ var RecoverClocks = React.createClass({
                 clearTimeout(this.state.timeoutId);
             }
 
+            var recover = Math.floor((this.state.period + 1) / this.props.requireSecond);
+            if (-1 !== this.props.className.indexOf('stamina')) {
+                recover = recover * 10;
+            }
+
             this.setState({
-                recover: Math.floor((this.state.period + 1) / this.props.requireSecond),
+                recover: recover,
                 period: this.state.period + 1,
                 timeoutId: setTimeout(this.tick, 1000)
             });
