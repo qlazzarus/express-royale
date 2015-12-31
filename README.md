@@ -25,3 +25,7 @@ MIT 라이센서를 따릅니다.
 ## 후원
 가난한 개발자라 후원을 받습니다... 감사합니다.
 - [비트코인](bitcoin:3JFrDd9LEKkiBYYof5YcQ3drAoCmKsgSD9?amount=0.1) / bitcoin:3JFrDd9LEKkiBYYof5YcQ3drAoCmKsgSD9
+
+## 알려진 버그들
+- 특정 장소에 사람들이 몰리면 더이상 못 들어가는 버그가 있습니다.
+  (socket.io room 에 더이상 입장하지 못하는 버그)
