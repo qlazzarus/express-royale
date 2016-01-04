@@ -471,7 +471,7 @@ module.exports = (function () {
                 target.health = target.maxHealth;
             }
         } else if (6 === target.status && recoverTime > 0) {
-            recover = getRecoverStamina(recover);
+            recover = getRecoverStamina(recoverTime);
             if (recover > 0 && -1 !== target.injured.indexOf('body')) {
                 target = parseInt(recover / 2);
             }
