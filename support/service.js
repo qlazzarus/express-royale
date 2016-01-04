@@ -161,35 +161,49 @@ module.exports = function () {
                     server.save();
 
                     var shutdown = [];
-                    var reserve = [server.restrictIndex, server.restrictIndex + 1, server.restrictIndex + 2];
+                    var allShutdown = [];
+                    var queue = [server.restrictIndex + 1, server.restrictIndex + 2, server.restrictIndex + 3];
+                    var reserve = [];
+
+                    for (var i = 0; i < queue.length; i++) {
+                        if (typeof places[queue[i]] !== 'undefined') {
+                            reserve.push(queue[i]);
+                        }
+                    }
+
                     for (var i in places) {
                         var place = places[i];
-                        if (true === place.restrictReserve) {
+                        if (true === place.restrict) {
+                            allShutdown.push(parseInt(place.idx.replace('place', '')));
+                        } else if (true === place.restrictReserve) {
                             place.restrict = true;
                             place.restrictReserve = false;
                             place.save();
                             shutdown.push(parseInt(place.idx.replace('place', '')));
+                            allShutdown.push(parseInt(place.idx.replace('place', '')));
                         } else if (-1 !== reserve.indexOf(parseInt(place.idx.replace('place', '')))) {
                             place.restrictReserve = true;
                             place.save();
                         }
                     }
 
-                    var news = new newsModel({
-                        registerAt: new Date(),
-                        type: 'RESTRICT',
-                        restrict: shutdown,
-                        restrictReserve: reserve
-                    });
+                    if (0 < reserve.length || 0 < shutdown.length) {
+                        var news = new newsModel({
+                            registerAt: new Date(),
+                            type: 'RESTRICT',
+                            restrict: shutdown,
+                            restrictReserve: reserve
+                        });
 
-                    news.save();
+                        news.save();
+                    }
 
-                    callback(null, server, shutdown);
+                    callback(null, server, allShutdown);
                 }
             },
 
             function (server, shutdowns, callback) {
-                userModel.find({npc: false, place: {"$in": shutdowns}}, function (err, users) {
+                userModel.find({npc: false, deathAt: null, place: {"$in": shutdowns}}, function (err, users) {
                     if (err) {
                         console.log(err);
                         throw new Error('initialize restrict kill trigger failed');

@@ -64,10 +64,12 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
                 eventLog.push(['스테미너를 <strong class="red">', damageDice, '포인트</strong> 를 소비했다!'].join(''));
                 res.account.stamina -= damageDice;
 
-                var drainStatus = require('./drain')(io, options, socket, req, res, eventName, eventResult, eventLog);
-                isDeath = drainStatus.isDeath;
-                res = drainStatus.userData;
-                eventLog = drainStatus.eventLog;
+                if (0 >= res.account.stamina) {
+                    var drainStatus = require('./drain')(io, options, socket, req, res, eventName, eventResult, eventLog);
+                    isDeath = drainStatus.isDeath;
+                    res = drainStatus.userData;
+                    eventLog = drainStatus.eventLog;
+                }
             } else {
                 eventLog.push('후우, 간신히 미끌어지지 않았다...');
             }

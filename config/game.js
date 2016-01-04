@@ -133,7 +133,6 @@ module.exports = {
                 {idx: 'armor9', endurance: 2, point: 1},
                 {idx: 'armor9', endurance: 2, point: 1},
                 {idx: 'armor9', endurance: 2, point: 1}
-
             ],
             restrict: false,
             restrictReserve: true
@@ -1649,8 +1648,11 @@ module.exports = {
     /*
      * ■ 회복량의 설정
      */
-    sleepTime: 1,  // 스테미너 회복시간(초) : 3초로 1포인트 회복
-    healingRate: 1, // 체력회복비율 : 스테미너의 1/x (0으로 하지 말것)
+    staminaRecoverInterval: 1,  // 스테미나 회복 시간
+    staminaRecoverIncrease: 10, // 한번에 스테미너 회복 포인트
+
+    healthRecoverInterval: 3,   // 체력 회복 시간
+    healthRecoverIncrease: 1,   // 한번에 체력 회복 포인트
 
     /*
      * ■ 아이콘 정의

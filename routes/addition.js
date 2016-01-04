@@ -120,15 +120,27 @@ module.exports = function (app, options) {
                             '이(가) 전학해 왔다.</span>'
                         ].join(''));
 
-                    } else if ('start' === result.server.status && 'RESTRICT' === news.type) {
+                    } else if ('RESTRICT' === news.type) {
+                        var restrictList = [];
+                        var reserveList = [];
+                        var restrictLength = news.restrict.length;
+                        var reserveLength = news.restrictReserve.length;
+                        for (var i = 0; i < restrictLength; i++) {
+                            restrictList.push(util.getPlaceInfo('place' + news.restrict[i]).name);
+                        }
+
+                        for (var i = 0; i < reserveLength; i++) {
+                            reserveList.push(util.getPlaceInfo('place' + news.restrictReserve[i]).name);
+                        }
+
                         var curLog = [
-                            currentTime, ' : <strong style="color:#FFFF00;">', restrict.join(', '),
+                            currentTime, ' : <strong style="color:#FFFF00;">', restrictList.join(', '),
                             '</strong> 이(가) 금지지역으로 지정되었다.'
                         ];
 
-                        if (0 < restrictReserve.length) {
+                        if (0 < news.restrictReserve.length) {
                             curLog.push('<br />다음 금지지역은 <strong style="color:#FFFF00;">');
-                            curLog.push(restrictReserve.join(', '));
+                            curLog.push(reserveList.join(', '));
                             curLog.push('</strong>.');
                         }
 

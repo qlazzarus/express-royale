@@ -92,7 +92,7 @@ var Radar = React.createClass({
                     <tr>
                         <th>A</th>
                         <td className='ocean'></td>
-                        <td>{placeInfo[1]}</td>
+                        <td>{placeInfo[16]}</td>
                         <td className='ocean'></td>
                         <td className='ocean'></td>
                         <td className='ocean'></td>
@@ -107,7 +107,7 @@ var Radar = React.createClass({
                         <td className='ocean'></td>
                         <td></td>
                         <td></td>
-                        <td>{placeInfo[2]}</td>
+                        <td>{placeInfo[20]}</td>
                         <td className='ocean'></td>
                         <td className='ocean'></td>
                         <td className='ocean'></td>
@@ -119,9 +119,9 @@ var Radar = React.createClass({
                         <th>C</th>
                         <td className='ocean'></td>
                         <td></td>
-                        <td>{placeInfo[3]}</td>
-                        <td>{placeInfo[4]}</td>
-                        <td>{placeInfo[5]}</td>
+                        <td>{placeInfo[8]}</td>
+                        <td>{placeInfo[2]}</td>
+                        <td>{placeInfo[12]}</td>
                         <td>{placeInfo[6]}</td>
                         <td></td>
                         <td className='ocean'></td>
@@ -133,7 +133,7 @@ var Radar = React.createClass({
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td>{placeInfo[7]}</td>
+                        <td>{placeInfo[13]}</td>
                         <td></td>
                         <td>{placeInfo[0]}</td>
                         <td></td>
@@ -144,12 +144,12 @@ var Radar = React.createClass({
                     <tr>
                         <th>E</th>
                         <td></td>
-                        <td>{placeInfo[8]}</td>
+                        <td>{placeInfo[7]}</td>
                         <td></td>
-                        <td>{placeInfo[9]}</td>
+                        <td>{placeInfo[17]}</td>
                         <td></td>
                         <td></td>
-                        <td>{placeInfo[10]}</td>
+                        <td>{placeInfo[3]}</td>
                         <td></td>
                         <td className='ocean'></td>
                         <td className='ocean'></td>
@@ -157,13 +157,13 @@ var Radar = React.createClass({
                     <tr>
                         <th>F</th>
                         <td></td>
-                        <td>{placeInfo[11]}</td>
+                        <td>{placeInfo[10]}</td>
                         <td></td>
                         <td></td>
-                        <td>{placeInfo[12]}</td>
+                        <td>{placeInfo[5]}</td>
                         <td></td>
                         <td></td>
-                        <td>{placeInfo[13]}</td>
+                        <td>{placeInfo[15]}</td>
                         <td></td>
                         <td className='ocean'></td>
                     </tr>
@@ -171,10 +171,10 @@ var Radar = React.createClass({
                         <th>G</th>
                         <td className='ocean'></td>
                         <td></td>
+                        <td>{placeInfo[18]}</td>
+                        <td></td>
+                        <td></td>
                         <td>{placeInfo[14]}</td>
-                        <td></td>
-                        <td></td>
-                        <td>{placeInfo[15]}</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -185,9 +185,9 @@ var Radar = React.createClass({
                         <td className='ocean'></td>
                         <td className='ocean'></td>
                         <td></td>
-                        <td>{placeInfo[16]}</td>
+                        <td>{placeInfo[4]}</td>
                         <td></td>
-                        <td>{placeInfo[17]}</td>
+                        <td>{placeInfo[19]}</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -200,11 +200,11 @@ var Radar = React.createClass({
                         <td className='ocean'></td>
                         <td></td>
                         <td></td>
-                        <td>{placeInfo[18]}</td>
-                        <td>{placeInfo[19]}</td>
+                        <td>{placeInfo[1]}</td>
+                        <td>{placeInfo[11]}</td>
                         <td className='ocean'></td>
                         <td></td>
-                        <td>{placeInfo[20]}</td>
+                        <td>{placeInfo[9]}</td>
                     </tr>
                     <tr>
                         <th>J</th>
@@ -288,10 +288,7 @@ var RecoverClocks = React.createClass({
                 clearTimeout(this.state.timeoutId);
             }
 
-            var recover = Math.floor((this.state.period + 1) / this.props.requireSecond);
-            if (-1 !== this.props.className.indexOf('stamina')) {
-                recover = recover * 10;
-            }
+            var recover = Math.floor(((this.state.period + 1) / this.props.options[0]) * this.props.options[1]);
 
             this.setState({
                 recover: recover,
@@ -679,17 +676,20 @@ var Commander = React.createClass({
 
     getRecoverCommand: function (command, config) {
         var clockDesc = '';
-        var requireSecond = 0;
+        var recoverInterval = 0;
+        var recoverIncrease = 0;
         if ('health' === command) {
             clockDesc = '회복될 체력';
-            requireSecond = config.healthRequireSecond;
+            recoverInterval = config.healthRecoverInterval;
+            recoverIncrease = config.healthRecoverIncrease;
         } else if ('stamina' === command) {
             clockDesc = '회복될 스테미너';
-            requireSecond = config.staminaRequireSecond;
+            recoverInterval = config.staminaRecoverInterval;
+            recoverIncrease = config.staminaRecoverIncrease;
         }
 
         return [
-            {name: command, desc: clockDesc, value: requireSecond, className: command, type: 'clock'},
+            {name: command, desc: clockDesc, value: [recoverInterval, recoverIncrease], className: command, type: 'clock'},
             {name: '돌아간다', event: 'info', className: '', type: 'command'}
         ];
     },
@@ -1048,7 +1048,7 @@ var Commander = React.createClass({
                                 <li className="padding5px">
                                     <RecoverClocks
                                         type={o.name}
-                                        requireSecond={o.value}
+                                        options={o.value}
                                         className={o.className}
                                         desc={o.desc}/>
                                 </li>

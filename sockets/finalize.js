@@ -20,8 +20,10 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
         expPerSkillLevel: util.getExpPerSkillLevel(),
         skills: util.getSkills(),
         tactics: util.getTactics(),
-        healthRequireSecond: util.getHealthRequireSecond(),
-        staminaRequireSecond: util.getStaminaRequireSecond()
+        staminaRecoverInterval: util.getStaminaRecoverInterval(),
+        staminaRecoverIncrease: util.getStaminaRecoverIncrease(),
+        healthRecoverInterval: util.getHealthRecoverInterval(),
+        healthRecoverIncrease: util.getHealthRecoverIncrease()
     };
 
     if (typeof res.account != 'undefined') {

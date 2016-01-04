@@ -37,21 +37,39 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
 
     async.waterfall([
         function (callback) {
-            userModel
-                .where('place').equals(res.account.place)
-                .where('username').ne(res.account.username)
-                .where('prevAttacker').ne(attacker)
-                .exec(callback);
+            userModel.count({
+                place: res.account.place,
+                health: 0
+            }, function (err, corpseCount) {
+                if (err) {
+                    console.log(err);
+                    throw new Error(err);
+                } else {
+                    callback(null, corpseCount);
+                }
+            });
         },
 
-        function (enemyList) {
+        function (corpseCount, callback) {
+            userModel.find({
+                place: res.account.place,
+                username: {$ne: res.account.username},
+                prevAttacker: {$ne: attacker}
+            }, function (err, users) {
+                if (err) {
+                    console.log(err);
+                    throw new Error(err);
+                } else {
+                    callback(corpseCount, users);
+                }
+            });
+        },
+
+        function (corpseCount, enemyList) {
             var otherEvent = false;
             var enemyCount = enemyList.length;
-            if (enemyCount > 5) {
-                enemyCount = 5;
-            }
 
-            var enemyStart = util.dice(5);
+            var enemyStart = util.dice(enemyCount);
             for (var i = enemyStart; i < enemyCount; i++) {
                 var enemy = enemyList[i];
                 var defenderStat = util.getBattleRateByDefender(
@@ -99,7 +117,7 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
             }
 
             if (false === otherEvent) {
-                if (0 < enemyCount) {
+                if (0 < enemyCount && corpseCount < enemyCount) {
                     eventLog.push('누군가 숨어있는 듯한 느낌이 있다. 기분탓인가?');
                 }
 

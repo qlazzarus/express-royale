@@ -121,23 +121,45 @@ module.exports = (function () {
     }
 
 
-    /**
-     * 스테미너 1당 회복시간
-     *
-     * @returns {number}
-     */
-    function getStaminaRequireSecond() {
-        return gameConfig.sleepTime;
+    function getStaminaRecoverInterval() {
+        return gameConfig.staminaRecoverInterval;
+    }
+
+
+    function getStaminaRecoverIncrease() {
+        return gameConfig.staminaRecoverIncrease;
+    }
+
+
+    function getHealthRecoverInterval() {
+        return gameConfig.healthRecoverInterval;
+    }
+
+
+    function getHealthRecoverIncrease() {
+        return gameConfig.healthRecoverIncrease;
     }
 
 
     /**
-     * 체력 1당 회복시간
+     * 초당 스테미너 회복
      *
+     * @param second
      * @returns {Number}
      */
-    function getHealthRequireSecond() {
-        return parseInt(gameConfig.sleepTime / gameConfig.healingRate);
+    function getRecoverStamina(second) {
+        return Math.floor((second / gameConfig.staminaRecoverInterval) * gameConfig.staminaRecoverIncrease);
+    }
+
+
+    /**
+     * 초당 체력 회복
+     *
+     * @param second
+     * @returns {Number}
+     */
+    function getRecoverHealth(second) {
+        return Math.floor((second / gameConfig.healthRecoverInterval) * gameConfig.healthRecoverIncrease);
     }
 
 
@@ -442,19 +464,18 @@ module.exports = (function () {
         var recoverTime = Math.abs(Math.floor((currentTime - activeTime) / 1000));
         var recoverLog = '';
         if (5 === target.status && recoverTime > 0) {
-            recover = Math.floor(recoverTime / getHealthRequireSecond());
+            recover = getRecoverHealth(recoverTime);
             recoverLog = '치료 결과, 체력이 ' + recover + ' 회복 되었다.';
             target.health += recover;
             if (target.maxHealth < target.health) {
                 target.health = target.maxHealth;
             }
         } else if (6 === target.status && recoverTime > 0) {
-            recover = Math.floor(recoverTime / getStaminaRequireSecond());
+            recover = getRecoverStamina(recover);
             if (recover > 0 && -1 !== target.injured.indexOf('body')) {
                 target = parseInt(recover / 2);
             }
 
-            recover = recover * 10;
             recoverLog = '수면 결과, 스테미너가 ' + recover + ' 회복 되었다.';
             target.stamina += recover;
             if (getMaxStamina() < target.stamina) {
@@ -1941,8 +1962,12 @@ module.exports = (function () {
         battleInfoToVictim: battleInfoToVictim,
         deathInfoToVictim: deathInfoToVictim,
         broadcastToAll: broadcastToAll,
-        getStaminaRequireSecond: getStaminaRequireSecond,
-        getHealthRequireSecond: getHealthRequireSecond,
+        getRecoverStamina: getRecoverStamina,
+        getRecoverHealth: getRecoverHealth,
+        getStaminaRecoverInterval: getStaminaRecoverInterval,
+        getStaminaRecoverIncrease: getStaminaRecoverIncrease,
+        getHealthRecoverInterval: getHealthRecoverInterval,
+        getHealthRecoverIncrease: getHealthRecoverIncrease,
         setRecover: setRecover,
         getCorpseMessage: getCorpseMessage,
         getDeathCauseMessage: getDeathCauseMessage
