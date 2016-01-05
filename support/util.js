@@ -1020,8 +1020,10 @@ module.exports = (function () {
                 expPerSkillLevel: getExpPerSkillLevel(),
                 skills: getSkills(),
                 tactics: getTactics(),
-                staminaRequireSecond: getStaminaRequireSecond(),
-                healthRequireSecond: getHealthRequireSecond()
+                staminaRecoverInterval: getStaminaRecoverInterval(),
+                staminaRecoverIncrease: getStaminaRecoverIncrease(),
+                healthRecoverInterval: getHealthRecoverInterval(),
+                healthRecoverIncrease: getHealthRecoverIncrease()
             },
             itemList: [],
             log: [
@@ -1094,8 +1096,10 @@ module.exports = (function () {
                 expPerSkillLevel: getExpPerSkillLevel(),
                 skills: getSkills(),
                 tactics: getTactics(),
-                staminaRequireSecond: getStaminaRequireSecond(),
-                healthRequireSecond: getHealthRequireSecond()
+                staminaRecoverInterval: getStaminaRecoverInterval(),
+                staminaRecoverIncrease: getStaminaRecoverIncrease(),
+                healthRecoverInterval: getHealthRecoverInterval(),
+                healthRecoverIncrease: getHealthRecoverIncrease()
             },
             itemList: [],
             log: [
