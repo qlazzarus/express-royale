@@ -86,7 +86,7 @@ module.exports = function (app, options) {
                 } else if (-2 === status) {
                     errorRender(res, '죄송합니다만, 정원(' + util.getMaxRecruitMember() + '명) 오버입니다.');
                 } else if (-3 === status) {
-                    errorRender(res, '캐릭터가 사망한 후, 2시간이 지나야 재등록할 수 있습니다.\n\n등록가능시간：' + opts.rebornTime);
+                    errorRender(res, '캐릭터가 사망한 후, 1분이 지나야 재등록할 수 있습니다.\n\n등록가능시간：' + opts.rebornTime);
                 } else if (-4 === status) {
                     errorRender(res, '캐릭터의 중복등록은 금지되어 있습니다.\n관리자에게 문의하세요.');
                 } else {

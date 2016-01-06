@@ -1617,17 +1617,17 @@ module.exports = {
      * ■프로그램 최저 개최일수
      * 이벤트·덫등으로 최후의 한명이 결정되더라도, 이 날짜 이하라면 게임이 속행됩니다.
      */
-    minimumBattleTime: 86395000,
+    minimumBattleTime: (1 * 86400000) - 5000,
 
     /*
      * ■ 프로그램 접수마감일수
      */
-    maxRecruitTime: 86395000,
+    maxRecruitTime: (2 * 86400000) - 5000,
 
     /*
      * 사망 후 가입 가능 시간
      */
-    respawnTime: 900000,
+    respawnTime: 60 * 1000,
 
     /*
      * ■ 스테미너 최대치
