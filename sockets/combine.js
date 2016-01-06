@@ -27,16 +27,7 @@ module.exports = function (io, options, socket, req, res) {
         itemInfo = util.getItem(res.account[req.value[0]].idx);
         itemInfo2 = util.getItem(res.account[req.value[1]].idx);
 
-        var combineResult = itemInfo.id === itemInfo2.id;
-        if (true === combineResult &&
-            -1 === ['health', 'stamina', '12gauage', '9mm', '22lr', '357mag', '38special', '45acp', 'apostle',
-                'bow'].indexOf(itemInfo.equip)) {
-            combineResult = true;
-        } else if (true === combineResult && 'weapon' === itemInfo.equip
-            && (-1 !== itemInfo.attackType.indexOf('bomb') || -1 !== itemInfo.attackType.indexOf('throw'))) {
-            combineResult = true;
-        }
-
+        var combineResult = util.isCombine(itemInfo, itemInfo2);
         if (true === combineResult) {
             if (-1 !== ['health', 'stamina'].indexOf(itemInfo.equip)
                 && (0 >= res.account[req.value[0]].point || 0 >= res.account[req.value[1]].point)) {
