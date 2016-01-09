@@ -375,6 +375,10 @@ module.exports = function (app, options) {
 
                             if ('' !== item.idx) {
                                 var itemInfo = util.getItem(item.idx);
+                                if (typeof itemInfo === 'undefined') {
+                                    itemInfo = {};
+                                }
+
                                 desc = convertItemDesc(item, '');
                                 className = itemInfo.equip;
 
