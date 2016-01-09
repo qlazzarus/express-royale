@@ -60,7 +60,7 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
                     console.log(err);
                     throw new Error(err);
                 } else {
-                    callback(corpseCount, users);
+                    callback(null, corpseCount, users);
                 }
             });
         },
@@ -69,7 +69,7 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
             var otherEvent = false;
             var enemyCount = enemyList.length;
 
-            var enemyStart = util.dice(enemyCount);
+            var enemyStart = util.dice(enemyCount - 1);
             for (var i = enemyStart; i < enemyCount; i++) {
                 var enemy = enemyList[i];
                 var defenderStat = util.getBattleRateByDefender(
