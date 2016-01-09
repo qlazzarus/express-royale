@@ -80,7 +80,7 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
             except: ''
         });
     } else if ('endingOther' === eventName) {
-        userModel.findOne({npc: false, username: {$ne: res.account.username}}, function (err, user) {
+        userModel.findOne({npc: false, deathAt:null, username: {$ne: res.account.username}}, function (err, user) {
             if (err) {
                 console.log(err);
                 throw new Error(err);
