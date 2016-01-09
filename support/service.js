@@ -502,6 +502,7 @@ module.exports = function () {
             var rebornTime = new Date();
 
             // 테스트를 위해서 중복가입 허용
+            /*
             for (var i = 0; result.userFindByIp.length; i++) {
                 var current = result.userFindByIp[i];
                 if (0 >= current.health && respawnTime > timeStamp - new Date(current.deathAt).getTime()) {
@@ -517,6 +518,7 @@ module.exports = function () {
                     break;
                 }
             }
+            */
 
             options.rebornTime = rebornTime;
 
