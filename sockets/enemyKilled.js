@@ -14,7 +14,7 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
     if (0 >= res.enemy.health) {
         async.waterfall([
             function (callback) {
-                userModel.count({npc: false, deathAt: null}, callback);
+                userModel.count({npc: false, deathAt: null, username: {$ne: res.enemy.username}}, callback);
             },
 
             function (counted, callback) {
