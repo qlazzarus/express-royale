@@ -1905,7 +1905,7 @@ module.exports = (function () {
 
     function isCombine(itemInfo, itemInfo2) {
         var result = true;
-        var allowEquip = ['health', 'stamina', '12gauage', '9mm', '22lr', '357mag', '38special', '45acp', 'apostle',
+        var allowEquip = ['health', 'stamina', '12gauge', '9mm', '22lr', '357mag', '38special', '45acp', 'apostle',
             'bow', 'weapon'];
         if (itemInfo.id !== itemInfo2.id) {
             result = false;
