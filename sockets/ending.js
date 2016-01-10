@@ -63,14 +63,68 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
             meleeSkill: res.account.meleeSkill,
             bombSkill: res.account.bombSkill,
             pokeSkill: res.account.pokeSkill,
-            weapon: res.account.weapon,
-            armor: res.account.armor,
-            item0: res.account.item0,
-            item1: res.account.item1,
-            item2: res.account.item2,
-            item3: res.account.item3,
-            item4: res.account.item4,
-            item5: res.account.item5
+            weapon: {
+                idx: res.account.weapon.idx,
+                endurance: res.account.weapon.endurance,
+                point: res.account.weapon.point
+            },
+            armor: {
+                head: {
+                    idx: res.account.armor.head.idx,
+                    endurance: res.account.armor.head.endurance,
+                    point: res.account.armor.head.point
+                },
+                body: {
+                    idx: res.account.armor.body.idx,
+                    endurance: res.account.armor.body.endurance,
+                    point: res.account.armor.body.point
+                },
+                arm: {
+                    idx: res.account.armor.arm.idx,
+                    endurance: res.account.armor.arm.endurance,
+                    point: res.account.armor.arm.point
+                },
+                foot: {
+                    idx: res.account.armor.foot.idx,
+                    endurance: res.account.armor.foot.endurance,
+                    point: res.account.armor.foot.point
+                },
+                accessory: {
+                    idx: res.account.armor.accessory.idx,
+                    endurance: res.account.armor.accessory.endurance,
+                    point: res.account.armor.accessory.point
+                }
+            },
+            item0: {
+                idx: res.account.item0.idx,
+                endurance: res.account.item0.endurance,
+                point: res.account.item0.point
+            },
+            item1: {
+                idx: res.account.item1.idx,
+                endurance: res.account.item1.endurance,
+                point: res.account.item1.point
+            },
+            item2: {
+                idx: res.account.item2.idx,
+                endurance: res.account.item2.endurance,
+                point: res.account.item2.point
+            },
+            item3: {
+                idx: res.account.item3.idx,
+                endurance: res.account.item3.endurance,
+                point: res.account.item3.point
+            },
+            item4: {
+                idx: res.account.item4.idx,
+                endurance: res.account.item4.endurance,
+                point: res.account.item4.point
+            },
+            item5: {
+                idx: res.account.item5.idx,
+                endurance: res.account.item5.endurance,
+                point: res.account.item5.point
+            }
         });
         winner.save();
 
@@ -135,14 +189,68 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
                     meleeSkill: user.meleeSkill,
                     bombSkill: user.bombSkill,
                     pokeSkill: user.pokeSkill,
-                    weapon: user.weapon,
-                    armor: user.armor,
-                    item0: user.item0,
-                    item1: user.item1,
-                    item2: user.item2,
-                    item3: user.item3,
-                    item4: user.item4,
-                    item5: user.item5
+                    weapon: {
+                        idx: user.weapon.idx,
+                        endurance: user.weapon.endurance,
+                        point: user.weapon.point
+                    },
+                    armor: {
+                        head: {
+                            idx: user.armor.head.idx,
+                            endurance: user.armor.head.endurance,
+                            point: user.armor.head.point
+                        },
+                        body: {
+                            idx: user.armor.body.idx,
+                            endurance: user.armor.body.endurance,
+                            point: user.armor.body.point
+                        },
+                        arm: {
+                            idx: user.armor.arm.idx,
+                            endurance: user.armor.arm.endurance,
+                            point: user.armor.arm.point
+                        },
+                        foot: {
+                            idx: user.armor.foot.idx,
+                            endurance: user.armor.foot.endurance,
+                            point: user.armor.foot.point
+                        },
+                        accessory: {
+                            idx: user.armor.accessory.idx,
+                            endurance: user.armor.accessory.endurance,
+                            point: user.armor.accessory.point
+                        }
+                    },
+                    item0: {
+                        idx: user.item0.idx,
+                        endurance: user.item0.endurance,
+                        point: user.item0.point
+                    },
+                    item1: {
+                        idx: user.item1.idx,
+                        endurance: user.item1.endurance,
+                        point: user.item1.point
+                    },
+                    item2: {
+                        idx: user.item2.idx,
+                        endurance: user.item2.endurance,
+                        point: user.item2.point
+                    },
+                    item3: {
+                        idx: user.item3.idx,
+                        endurance: user.item3.endurance,
+                        point: user.item3.point
+                    },
+                    item4: {
+                        idx: user.item4.idx,
+                        endurance: user.item4.endurance,
+                        point: user.item4.point
+                    },
+                    item5: {
+                        idx: user.item5.idx,
+                        endurance: user.item5.endurance,
+                        point: user.item5.point
+                    }
                 });
                 winner.save();
 
@@ -204,14 +312,68 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
             meleeSkill: res.account.meleeSkill,
             bombSkill: res.account.bombSkill,
             pokeSkill: res.account.pokeSkill,
-            weapon: res.account.weapon,
-            armor: res.account.armor,
-            item0: res.account.item0,
-            item1: res.account.item1,
-            item2: res.account.item2,
-            item3: res.account.item3,
-            item4: res.account.item4,
-            item5: res.account.item5
+            weapon: {
+                idx: res.account.weapon.idx,
+                endurance: res.account.weapon.endurance,
+                point: res.account.weapon.point
+            },
+            armor: {
+                head: {
+                    idx: res.account.armor.head.idx,
+                    endurance: res.account.armor.head.endurance,
+                    point: res.account.armor.head.point
+                },
+                body: {
+                    idx: res.account.armor.body.idx,
+                    endurance: res.account.armor.body.endurance,
+                    point: res.account.armor.body.point
+                },
+                arm: {
+                    idx: res.account.armor.arm.idx,
+                    endurance: res.account.armor.arm.endurance,
+                    point: res.account.armor.arm.point
+                },
+                foot: {
+                    idx: res.account.armor.foot.idx,
+                    endurance: res.account.armor.foot.endurance,
+                    point: res.account.armor.foot.point
+                },
+                accessory: {
+                    idx: res.account.armor.accessory.idx,
+                    endurance: res.account.armor.accessory.endurance,
+                    point: res.account.armor.accessory.point
+                }
+            },
+            item0: {
+                idx: res.account.item0.idx,
+                endurance: res.account.item0.endurance,
+                point: res.account.item0.point
+            },
+            item1: {
+                idx: res.account.item1.idx,
+                endurance: res.account.item1.endurance,
+                point: res.account.item1.point
+            },
+            item2: {
+                idx: res.account.item2.idx,
+                endurance: res.account.item2.endurance,
+                point: res.account.item2.point
+            },
+            item3: {
+                idx: res.account.item3.idx,
+                endurance: res.account.item3.endurance,
+                point: res.account.item3.point
+            },
+            item4: {
+                idx: res.account.item4.idx,
+                endurance: res.account.item4.endurance,
+                point: res.account.item4.point
+            },
+            item5: {
+                idx: res.account.item5.idx,
+                endurance: res.account.item5.endurance,
+                point: res.account.item5.point
+            }
         });
         winner.save();
     }

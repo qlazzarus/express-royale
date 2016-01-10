@@ -35,11 +35,13 @@ module.exports = function(io, options, socket, req, res){
             res = drainStatus.userData;
             log = drainStatus.eventLog;
         }
-    }
 
-    if (false === isDeath) {
-        require('./search')(io, options, socket, req, res, 'move', result, log);
+        if (false === isDeath) {
+            require('./search')(io, options, socket, req, res, 'move', result, log);
+        } else {
+            require('./userKilled')(io, options, socket, req, res, 'tired', result, log);
+        }
     } else {
-        require('./userKilled')(io, options, socket, req, res, 'tired', result, log);
+        require('./finalize')(io, options, socket, req, res, 'move', result, log);
     }
 };

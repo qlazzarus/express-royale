@@ -36,11 +36,6 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
         // user status save
         res.account.save();
 
-        var itemList = ['item0', 'item1', 'item2', 'item3', 'item4', 'item5'];
-        for (var i in itemList) {
-            res.account[itemList[i]].point = Math.abs(res.account[itemList[i]].point);
-        }
-
         res.itemList = util.getItem([
             res.account.weapon.idx,
             res.account.armor.head.idx,

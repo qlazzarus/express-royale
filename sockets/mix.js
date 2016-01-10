@@ -49,7 +49,7 @@ module.exports = function (io, options, socket, req, res) {
             var itemInfo3 = util.getItem(mixResult);
             res.account[req.value[0]] = {idx:'', endurance:0, point:0};
             res.account[req.value[1]] = {idx:'', endurance:0, point:0};
-            res.account[emptySlot] = {idx:mixResult, endurance:itemInfo3.endurance, point:itemInfo3.endurance};
+            res.account[emptySlot] = {idx:mixResult, endurance:itemInfo3.endurance, point:itemInfo3.point};
 
             eventLog = [
                 '아이템을 합성합니다.',

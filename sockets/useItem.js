@@ -25,10 +25,10 @@ module.exports = function (io, options, socket, req, res) {
         var itemInfo = util.getItem(item.idx);
         var Process = {
             stamina: function () {
-                if (0 < itemInfo.point) {
+                if (0 < item.point) {
                     eventLog.push([itemInfo.name, '을(를) 사용했다.'].join(''));
                     eventLog.push('스테미너가 회복됐다.');
-                    res.account.stamina += itemInfo.point;
+                    res.account.stamina += item.point;
                     if (util.getMaxStamina() < res.account.stamina) {
                         res.account.stamina = util.getMaxStamina();
                     }
@@ -39,10 +39,10 @@ module.exports = function (io, options, socket, req, res) {
                 res.account[req.value] = util.setConsumeItem(item);
             },
             health: function () {
-                if (0 < itemInfo.point) {
+                if (0 < item.point) {
                     eventLog.push([itemInfo.name, '을(를) 사용했다.'].join(''));
                     eventLog.push('체력이 회복됐다.');
-                    res.account.health += itemInfo.point;
+                    res.account.health += item.point;
                     if (res.account.maxHealth < res.account.health) {
                         res.account.health = res.account.maxHealth;
                     }
@@ -53,7 +53,7 @@ module.exports = function (io, options, socket, req, res) {
                 res.account[req.value] = util.setConsumeItem(item);
             },
             poison: function () {
-                var result = Math.abs(parseInt(itemInfo.point * 150 / 100));
+                var result = Math.abs(parseInt(item.point * 150 / 100));
                 eventLog.push('윽, 큰일났다! 아무래도 독이 들어가 있었던 것 같다!');
                 eventLog.push(['<strong class="red">', result, '데미지</strong>!'].join(''));
                 res.account.health -= result;
