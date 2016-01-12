@@ -32,6 +32,7 @@ module.exports = function (mongoose) {
         place: Number,      // pls
         status: Number,     // sts
         statusChangedAt: Date,
+        joinedAt: Date,
 
         // battle
         prevAttacker: String,   // bid 공격자 ID (중복공격 방지)
