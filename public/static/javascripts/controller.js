@@ -499,20 +499,22 @@ var EquipItem = React.createClass({
 
         return (
             <div>
-                {equipMapped.map(function (o) {
-                    var desc = '-';
+                <div id="equips">
+                    {equipMapped.map(function (o) {
+                        var desc = '-';
 
-                    if ('' !== o.status.idx) {
-                        desc = ExpressRoyale.getItemDesc(o.status, itemSchema);
-                    }
+                        if ('' !== o.status.idx) {
+                            desc = ExpressRoyale.getItemDesc(o.status, itemSchema);
+                        }
 
-                    return (
-                        <dl className="dl-horizontal small-dl bg-equip">
-                            <dt className={o.className}>{o.category}</dt>
-                            <dd>{desc}</dd>
-                        </dl>
-                    );
-                })}
+                        return (
+                            <dl className="dl-horizontal small-dl bg-equip">
+                                <dt className={o.className}>{o.category}</dt>
+                                <dd>{desc}</dd>
+                            </dl>
+                        );
+                    })}
+                </div>
                 <ul className="list-unstyled" id="inventories">
                     {itemMapped.map(function (o) {
                         return (
@@ -1006,7 +1008,7 @@ var Commander = React.createClass({
 
         return (
             <div>
-                <p className="padding5px">{commandDesc}</p>
+                <p className="padding5px description">{commandDesc}</p>
                 <ul className="list-unstyled">
                     {commandList.map(function (o) {
                         o.className = 'padding3px ' + o.className;

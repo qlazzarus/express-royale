@@ -301,7 +301,7 @@ option.restrict-reserve {
 
 @media screen and (max-width: 800px) {
     .gameMode h2 {
-        font-size: 15px;
+        display: none !important;
     }
 
     .gameMode h5 {
@@ -310,6 +310,10 @@ option.restrict-reserve {
 
     .gameMode .characterImage {
         display: none !important;
+    }
+
+    .table {
+        margin-bottom: 0;
     }
 
     #characterInfo .characterLevel br {
@@ -337,6 +341,10 @@ option.restrict-reserve {
     }
 
     #inventories {
+        display: none !important;
+    }
+
+    #commander .description {
         display: none !important;
     }
 
