@@ -332,6 +332,10 @@ option.restrict-reserve {
         margin-bottom: 0;
     }
 
+    #radar {
+        margin: 0;
+    }
+
     #characterInfo .characterLevel br {
         display: none !important;
     }
