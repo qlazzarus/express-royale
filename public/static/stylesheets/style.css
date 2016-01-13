@@ -300,10 +300,15 @@ option.restrict-reserve {
 }
 
 @media screen and (max-width: 800px) {
-    .gameMode h2  { font-size:15px; }
-    .gameMode h5  { display: none; }
+    .gameMode h2 {
+        font-size: 15px;
+    }
 
-    #characterInfo .characterImage {
+    .gameMode h5 {
+        display: none;
+    }
+
+    .gameMode .characterImage {
         display: none !important;
     }
 
