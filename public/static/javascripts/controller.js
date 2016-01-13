@@ -373,7 +373,7 @@ var BattleInfo = React.createClass({
             <div className="solid-bordered row">
                 <h5 className="red text-center">전투 발생</h5>
                 <div className="col-sm-5 col-sm-offset-1">
-                    <img src={account.userIcon} alt='' class="characterImage"/><br />
+                    <img src={account.userIcon} alt='' className="characterImage"/><br />
                     {account.username}<br />
                     {account.groupName} ({0 == account.userGender ? '남자' : '여자'}{account.studentNo}번)<br />
                     체력 : {account.health}/{account.maxHealth}<br />
@@ -382,7 +382,7 @@ var BattleInfo = React.createClass({
                     살해수 : {account.killCount}명
                 </div>
                 <div className="col-sm-5 col-sm-offset-1">
-                    <img src={enemy.userIcon} alt='' class="characterImage"/><br />
+                    <img src={enemy.userIcon} alt='' className="characterImage"/><br />
                     {enemy.username}<br />
                     {enemy.groupName} ({0 == enemy.userGender ? '남자' : '여자'}{enemy.studentNo}번)<br />
                     상태 : <span style={{color:enemy.healthStatusStyle}}>{enemy.healthStatus}</span><br />
