@@ -5,36 +5,36 @@ block content
 
     table.table.table-bordered.table-battle
         colgroup
-            col(style='width:90px')
-            col
-            col(style='width:100px')
-            col(style='width:80px')
-            col(style='width:60px')
-            col
+            col.face
+            col.name
+            col.groupName
+            col.clubName
+            col.killCount
+            col.comment
         thead
             tr
-                th 얼 굴
-                th 이 름
-                th 반/번호
-                th 소속부
-                th 살해수
-                th 코멘트
+                th.face 얼 굴
+                th.name 이 름
+                th.groupName 반/번호
+                th.clubName 소속부
+                th.killCount 살해수
+                th.comment 코멘트
         tbody
             for user in survivors
                 tr
-                    td
+                    td.face
                         img(src=user.userIcon alt='')
-                    td #{user.username}
-                    td #{user.groupName}<br />
+                    td.name #{user.username}
+                    td.groupName #{user.groupName}<br />
                         if !user.userGender
                             | 남자
                         else
                             | 여자
                         | &nbsp;
                         | #{user.studentNo}번
-                    td #{user.clubName}
-                    td #{user.killCount}명
-                    td #{user.messageComment}
+                    td.clubName #{user.clubName}
+                    td.killCount #{user.killCount}명
+                    td.comment #{user.messageComment}
     p.text-center
         | 총 참가인원
         | #{userCount} 명

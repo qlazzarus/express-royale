@@ -80,6 +80,22 @@ a:hover {
     vertical-align: middle !important;
 }
 
+.table-battle .face {
+    width: 90px;
+}
+
+.table-battle .groupName {
+    width: 100px;
+}
+
+.table-battle .clubName {
+    width: 80px;
+}
+
+.table-battle .killCount {
+    width: 60px;
+}
+
 .vertical-text-bottom {
     vertical-align: text-bottom;
 }
@@ -350,5 +366,11 @@ option.restrict-reserve {
 
     .mobile-only {
         display: block;
+    }
+
+    .table-battle .groupName,
+    .table-battle .clubName,
+    .table-battle .comment {
+        display: none;
     }
 }
