@@ -17,7 +17,7 @@ module.exports = function (io, options, socket, req, res) {
         res.account.item5
     );
 
-    if (typeof req.value !== 'undefined' && null !== poisonSlot) {
+    if (null !== poisonSlot && typeof req.value !== 'undefined') {
         var item = res.account[req.value];
         var itemInfo = util.getItem(item.idx);
         if (-1 !== ['health', 'stamina'].indexOf(itemInfo.equip)) {
@@ -26,7 +26,7 @@ module.exports = function (io, options, socket, req, res) {
             res.account[poisonSlot] = {idx: '', endurance: 0, point: 0};
             res.account[req.value].point = res.account[req.value].point * -1;
         }
-    } else if (13 === res.account.clubId && null !== poisonSlot) {
+    } else if (null !== poisonSlot) {
         var poisonInfo = util.getItem(res.account[poisonSlot].idx);
         eventName = 'poisonStart';
         eventLog.push(['이 ', poisonInfo.name, '을(를) 섞으면... 후후후.'].join(''));
