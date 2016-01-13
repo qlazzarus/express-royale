@@ -201,7 +201,7 @@ module.exports = function (io, options, socket, req, res) {
 
                             res.account.health -= enemyResult;
                             res.account.armor.body = util.setConsumeBodyArmor(res.account.armor.body);
-                            res.account.injured = util.setInjured(res.account.injured, battleResult.injured);
+                            res.account.injured = util.setInjured(res.account.injured, strikeResult.injured);
 
                             if (0 >= res.account.health) {
                                 userKilled = true;

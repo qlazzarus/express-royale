@@ -1248,7 +1248,7 @@ module.exports = (function () {
             res.alert = true;
         } else if ('pokeSkill' === skillType) {
             res.eventLog.push([
-                res.user.username, '의 ', attackName, '! ', weapon.name, '(으) ', res.enemy.username,
+                res.user.username, '의 ', attackName, '! ', weapon.name, '(으)로 ', res.enemy.username,
                 '을(를) 찔렀다!'
             ].join(''));
             res.user.pokeSkill++;
