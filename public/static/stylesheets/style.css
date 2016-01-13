@@ -334,6 +334,11 @@ option.restrict-reserve {
 
     #radar {
         margin: 0;
+        width: 100%;
+    }
+
+    #radar table {
+        width: 100%;
     }
 
     #characterInfo .characterLevel br {
