@@ -1,7 +1,7 @@
 extends layout
 
 block content
-    div.row
+    div.row.gameMode
         h2#currentPlace.red.text-center
         div.col-sm-8
             h5.text-center.bg-black-red.padding5px 스테이터스
@@ -17,6 +17,7 @@ block content
             h5.text-center.bg-black-red.padding5px 커맨드
             div#placeSelector.text-center.padding5px
             div#commander
+    hr.mobile-only
 
 block content-header
     script(src='/static/javascripts/socket.io-1.2.0.js')

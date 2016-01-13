@@ -421,8 +421,8 @@ var CharacterInfo = React.createClass({
                 </colgroup>
                 <tbody>
                 <tr>
-                    <td><img src={data.userIcon} alt=''/></td>
-                    <td className="text-center">
+                    <td><img src={data.userIcon} alt='' className="characterImage"/></td>
+                    <td className="text-center characterLevel">
                         {data.username}<br />
                         {'Lv ' + data.level}<br />
                         {'(Lv ' + (data.level + 1) + ' 까지 ' + data.requireExp + ' 남음)'}
@@ -436,20 +436,20 @@ var CharacterInfo = React.createClass({
                     <th>스테미너</th>
                     <td className="stamina">{data.stamina}</td>
                 </tr>
-                <tr>
+                <tr className="attack">
                     <th>공격력</th>
                     <td>{data.attack} + {data.weapon.point}</td>
                 </tr>
-                <tr>
+                <tr className="defence">
                     <th>방어력</th>
                     <td>{data.defence} + {data.armor.arm.point + data.armor.body.point + data.armor.foot.point +
                     data.armor.head.point + data.armor.accessory.point}</td>
                 </tr>
-                <tr>
+                <tr className="clubName">
                     <th>클럽</th>
                     <td>{data.clubName}</td>
                 </tr>
-                <tr>
+                <tr className="tactics">
                     <th>기본방침</th>
                     <td>{currentTactics}</td>
                 </tr>
@@ -513,7 +513,7 @@ var EquipItem = React.createClass({
                         </dl>
                     );
                 })}
-                <ul className="list-unstyled">
+                <ul className="list-unstyled" id="inventories">
                     {itemMapped.map(function (o) {
                         return (
                             <li className={o.className}>{o.desc}</li>

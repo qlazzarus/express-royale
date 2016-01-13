@@ -87,14 +87,16 @@ a:hover {
 .small-dl {
     margin: 0;
     padding: 3px 0;
+    overflow: hidden;
 }
 
 .small-dl dt {
-    width: 50px;
+    width: 45px;
+    float: left;
 }
 
 .small-dl dd {
-    margin-left: 60px;
+    margin-left: 55px;
 }
 
 .solid-bordered {
@@ -114,6 +116,10 @@ a:hover {
     word-break: break-all;
     word-wrap: break-word;
     overflow-y: auto;
+}
+
+.mobile-only {
+    display: none;
 }
 
 option.restrict {
@@ -290,5 +296,46 @@ option.restrict-reserve {
         -ms-transform: rotate(360deg);
         -o-transform: rotate(360deg);
         transform: rotate(360deg);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .gameMode h2  { font-size:15px; }
+    .gameMode h5  { display: none; }
+
+    #characterInfo .characterImage {
+        display: none !important;
+    }
+
+    #characterInfo .characterLevel br {
+        display: none !important;
+    }
+
+    #characterInfo .attack {
+        display: none !important;
+    }
+
+    #characterInfo .defence {
+        display: none !important;
+    }
+
+    #characterInfo .clubName {
+        display: none !important;
+    }
+
+    #characterInfo .tactics {
+        display: none !important;
+    }
+
+    #currentSkills {
+        display: none !important;
+    }
+
+    #inventories {
+        display: none !important;
+    }
+
+    .mobile-only {
+        display: block;
     }
 }
