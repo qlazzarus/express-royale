@@ -870,6 +870,17 @@ module.exports = (function () {
 
 
     /**
+     * 가입 제한 체크
+     *
+     * @param gameStart
+     * @returns {boolean}
+     */
+    function isJoinOver(gameStart) {
+        return (Date.now() - gameStart.getTime()) > gameConfig.maxRecruitTime;
+    }
+
+
+    /**
      * 경험치 계산
      *
      * @param userLevel
@@ -1924,6 +1935,116 @@ module.exports = (function () {
     }
 
 
+    function setWinner(winnerModel, status, started, user) {
+        var winner;
+        if ('noWinner' === status) {
+            winner = new winnerModel({
+                status: status,
+                started: started,
+                ended: new Date()
+            });
+        } else {
+            winner = new winnerModel({
+                status: status,
+                started: started,
+                ended: new Date(),
+                username: user.username,
+                userGender: user.userGender,
+                userIcon: user.userIcon,
+                message: user.message,
+                messageDying: user.messageDying,
+                messageComment: user.messageComment,
+                attack: user.attack,
+                defence: user.defence,
+                health: user.health,
+                maxHealth: user.maxHealth,
+                stamina: user.stamina,
+                killCount: user.killCount,
+                level: user.level,
+                requireExp: user.requireExp,
+                injured: user.injured,
+                groupName: user.groupName,
+                studentNo: user.studentNo,
+                clubId: user.clubId,
+                clubName: user.clubName,
+                tactics: user.tactics,
+                shotSkill: user.shotSkill,
+                cutSkill: user.cutSkill,
+                throwSkill: user.throwSkill,
+                fistSkill: user.fistSkill,
+                bowSkill: user.bowSkill,
+                meleeSkill: user.meleeSkill,
+                bombSkill: user.bombSkill,
+                pokeSkill: user.pokeSkill,
+                weapon: {
+                    idx: user.weapon.idx,
+                    endurance: user.weapon.endurance,
+                    point: user.weapon.point
+                },
+                armor: {
+                    head: {
+                        idx: user.armor.head.idx,
+                        endurance: user.armor.head.endurance,
+                        point: user.armor.head.point
+                    },
+                    body: {
+                        idx: user.armor.body.idx,
+                        endurance: user.armor.body.endurance,
+                        point: user.armor.body.point
+                    },
+                    arm: {
+                        idx: user.armor.arm.idx,
+                        endurance: user.armor.arm.endurance,
+                        point: user.armor.arm.point
+                    },
+                    foot: {
+                        idx: user.armor.foot.idx,
+                        endurance: user.armor.foot.endurance,
+                        point: user.armor.foot.point
+                    },
+                    accessory: {
+                        idx: user.armor.accessory.idx,
+                        endurance: user.armor.accessory.endurance,
+                        point: user.armor.accessory.point
+                    }
+                },
+                item0: {
+                    idx: user.item0.idx,
+                    endurance: user.item0.endurance,
+                    point: user.item0.point
+                },
+                item1: {
+                    idx: user.item1.idx,
+                    endurance: user.item1.endurance,
+                    point: user.item1.point
+                },
+                item2: {
+                    idx: user.item2.idx,
+                    endurance: user.item2.endurance,
+                    point: user.item2.point
+                },
+                item3: {
+                    idx: user.item3.idx,
+                    endurance: user.item3.endurance,
+                    point: user.item3.point
+                },
+                item4: {
+                    idx: user.item4.idx,
+                    endurance: user.item4.endurance,
+                    point: user.item4.point
+                },
+                item5: {
+                    idx: user.item5.idx,
+                    endurance: user.item5.endurance,
+                    point: user.item5.point
+                }
+            });
+        }
+
+        winner.save();
+    }
+
+
     return {
         dice: dice,
         getAttackPercent: getAttackPercent,
@@ -1996,6 +2117,7 @@ module.exports = (function () {
         setRecover: setRecover,
         getCorpseMessage: getCorpseMessage,
         getDeathCauseMessage: getDeathCauseMessage,
-        isCombine: isCombine
+        isCombine: isCombine,
+        setWinner: setWinner
     };
 })();
