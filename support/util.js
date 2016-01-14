@@ -3,6 +3,7 @@
  */
 module.exports = (function () {
     var gameConfig = {};
+    var itemConfig = {};
 
 
     /**
@@ -12,6 +13,11 @@ module.exports = (function () {
      */
     function setGameConfig(config) {
         gameConfig = config;
+    }
+
+
+    function setItemConfig(config) {
+        itemConfig = config;
     }
 
 
@@ -415,7 +421,7 @@ module.exports = (function () {
 
             return result;
         } else {
-            return gameConfig.items[itemId];
+            return itemConfig.items[itemId];
         }
     }
 
@@ -531,7 +537,7 @@ module.exports = (function () {
      */
     function getMixItem(itemFrom, itemTo) {
         var result = null;
-        var mixItems = gameConfig.mixItems;
+        var mixItems = itemConfig.mixItems;
         for (var i in mixItems) {
             var entry = mixItems[i];
             if (-1 !== entry.material.indexOf(itemFrom) && -1 !== entry.material.indexOf(itemTo)) {
@@ -610,7 +616,7 @@ module.exports = (function () {
      * @returns {Array}
      */
     function getSupplyItems() {
-        return gameConfig.supplyItems;
+        return itemConfig.supplyItems;
     }
 
 
@@ -620,7 +626,7 @@ module.exports = (function () {
      * @returns {Array}
      */
     function getPersonalItems() {
-        return gameConfig.personalItems;
+        return itemConfig.personalItems;
     }
 
 
@@ -2056,6 +2062,7 @@ module.exports = (function () {
         appendSupplyItem: appendSupplyItem,
         arrangePlaceInfo: arrangePlaceInfo,
         setGameConfig: setGameConfig,
+        setItemConfig: setItemConfig,
         getExpPerSkillLevel: getExpPerSkillLevel,
         getRespawnTime: getRespawnTime,
         getGroups: getGroups,

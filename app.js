@@ -124,6 +124,7 @@ Container.set('service', new service());
  */
 var util = require('./support/util');
 util.setGameConfig(require('./config/game'));
+util.setItemConfig(require('./config/items'));
 Container.set('util', util);
 
 
