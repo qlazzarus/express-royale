@@ -8,7 +8,7 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
         var userKilled = false;
         var enemyKilled = false;
 
-        var battleResult = util.getBattleResult(res.account, req.command, res.enemy, false, eventLog);
+        var battleResult = util.getBattleResult(res.enemy, req.command, res.account, false, eventLog);
         eventLog = battleResult.eventLog;
 
         var enemyStat = util.getBattleRateByAttacker(
@@ -169,7 +169,7 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
 
                 res.enemy.health -= result;
                 res.enemy.armor.body = util.setConsumeBodyArmor(res.enemy.armor.body);
-                res.enemy.injured = util.setInjured(res.enemy.injured, battleResult.injured);
+                res.enemy.injured = util.setInjured(res.enemy.injured, strikeResult.injured);
                 res.account.requireExp-= util.getBattleExp(res.account.level, res.enemy.level);
 
                 // 레벨업 이벤트
