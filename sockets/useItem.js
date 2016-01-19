@@ -288,6 +288,15 @@ module.exports = function (io, options, socket, req, res) {
                     res.placeInfo = placeInfo;
                     require('./finalize')(io, options, socket, req, res, eventName, true, eventLog);
                 });
+            },
+            cellur: function() {
+                eventLog.push([
+                    '아빠! 엄마! 보고싶어!',
+                    '뚜뚜뚜뚜-',
+                    '이미 연락두절인듯 하다.',
+                    '금지된 음악인 락과 헤비메탈등이 있고,',
+                    '총소리도 난다.'
+                ].push('<br />'));
             }
         };
 

@@ -538,7 +538,7 @@ var Logger = React.createClass({
         }
 
         var logLength = this.log.length;
-        var maxLength = 10;
+        var maxLength = 50;
         if (logLength > maxLength) {
             this.log.splice(0, logLength - maxLength);
         }

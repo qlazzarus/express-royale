@@ -146,7 +146,7 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
 
                 var result = util.getTotalDamage(
                     accountAttack,
-                    battleResult.damage,
+                    strikeResult.damage,
                     enemyDefence,
                     skillType,
                     res.enemy.armor.body.idx,

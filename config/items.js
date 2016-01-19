@@ -850,7 +850,7 @@ module.exports = {
 
 
         // -- etc
-        etc0: {id: 'etc0', equip: 'item', name: '휴대폰', endurance: 1, point: 1},
+        etc0: {id: 'etc0', equip: 'cellur', name: '휴대폰', endurance: 1, point: 1},
         etc1: {id: 'etc1', equip: 'item', name: '뇌관', endurance: 1, point: 1},
         etc2: {id: 'etc2', equip: 'item', name: '불꽃놀이', endurance: 1, point: 1},
         etc3: {id: 'etc3', equip: 'item', name: '헤어스프레이', endurance: 1, point: 1},
