@@ -16,7 +16,7 @@ module.exports = function(io, options, socket, req, res){
     var eventLog = [];
 
     var item = res.account[dropId];
-    var info = util.getItem(item.idx);
+    var info = options.container.get('items').getInfo(item.idx);
 
     // 아이템 추가
     place.items.push({idx:item.idx, endurance:item.endurance, point:item.point});

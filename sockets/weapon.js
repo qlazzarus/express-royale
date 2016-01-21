@@ -31,7 +31,7 @@ module.exports = function (io, options, socket, req, res) {
     } else if (null === emptySlot && 'unequip' === req.value) {
         eventLog = '더 이상 배낭에 들어가지 않습니다.';
     } else if (null !== emptySlot && 'unequip' === req.value) {
-        itemInfo = util.getItem(res.account.weapon.idx);
+        itemInfo = options.container.get('items').getInfo(res.account.weapon.idx);
 
         eventLog = [itemInfo.name, '을(를) 배낭에 넣었습니다.'].join('');
 
@@ -50,7 +50,7 @@ module.exports = function (io, options, socket, req, res) {
         });
         place.save();
 
-        itemInfo = util.getItem(res.account.weapon.idx);
+        itemInfo = options.container.get('items').getInfo(res.account.weapon.idx);
 
         eventLog = [itemInfo.name, '을(를) 버렸다.'].join('');
 

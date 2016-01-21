@@ -4,14 +4,15 @@
 module.exports = function (io, options, socket, req, res) {
     var async = require('async');
     var util = options.container.get('util');
-    var userModel = options.models.getModel('user');
 
     async.waterfall([
         function (callback) {
-            userModel.findOne({username: req.value}, callback);
+            options.repositories.getUser(function(user){
+                callback(null, user);
+            }, {username: req.value});
         },
 
-        function (enemy, callback) {
+        function (enemy) {
             var encounterFail = false;
             var enemyDeath = false;
             var enemyNoExist = false;
@@ -41,7 +42,14 @@ module.exports = function (io, options, socket, req, res) {
 
                 // 적 상태가 치료나 수면일때 미리 계산 추가
                 if (-1 !== [5, 6].indexOf(res.enemy.status)) {
-                    util.setRecover(res.enemy);
+                    util.setRecover(
+                        res.enemy,
+                        options.container.get('properties').staminaRecoverInterval,
+                        options.container.get('properties').staminaRecoverIncrease,
+                        options.container.get('properties').healthRecoverInterval,
+                        options.container.get('properties').healthRecoverIncrease,
+                        options.container.get('properties').maxStamina
+                    );
                 }
 
                 eventLog.push([
@@ -52,8 +60,9 @@ module.exports = function (io, options, socket, req, res) {
 
                 // 플레이어
                 var accountStat = util.getBattleRateByAttacker(
+                    options.container.get('items'),
                     res.account.tactics,
-                    res.account.place,
+                    options.container.get('properties').places['place' + res.account.place].specialize,
                     res.account.injured,
                     res.account.weapon,
                     res.account.shotSkill,
@@ -63,10 +72,11 @@ module.exports = function (io, options, socket, req, res) {
                     res.account.bowSkill,
                     res.account.meleeSkill,
                     res.account.bombSkill,
-                    res.account.pokeSkill
+                    res.account.pokeSkill,
+                    options.container.get('properties').expPerSkillLevel
                 );
 
-                var accountWeapon = util.getItem(res.account.weapon.idx);
+                var accountWeapon = options.container.get('items').getInfo(res.account.weapon.idx);
                 if (-1 === accountWeapon.attackType.indexOf(req.command.replace('Skill', ''))) {
                     req.command = accountWeapon.attackType[0] + 'Skill';
                 } else if (true == accountWeapon.ammoRequire && 0 == res.account.weapon.endurance) {
@@ -78,7 +88,7 @@ module.exports = function (io, options, socket, req, res) {
                 // 적
                 res.enemy.prevAttacker = res.account.username;
 
-                var enemyWeapon = util.getItem(res.enemy.weapon.idx);
+                var enemyWeapon = options.container.get('items').getInfo(res.enemy.weapon.idx);
                 var enemyCommand = enemyWeapon.attackType[0] + 'Skill';
                 if (true == enemyWeapon.ammoRequire && 0 == res.enemy.weapon.endurance) {
                     enemyCommand = 'meleeSkill';
@@ -93,13 +103,15 @@ module.exports = function (io, options, socket, req, res) {
                     res.enemy.armor.accessory.point
                 );
 
-                var battleResult = util.getBattleResult(res.account, req.command, res.enemy, false, eventLog);
+                var battleResult = util.getBattleResult(options.container.get('items'), res.account, req.command,
+                    res.enemy, false, options.container.get('properties').expPerSkillLevel, eventLog);
                 eventLog = battleResult.eventLog;
 
                 // 공격 시도
                 var attackDice = util.dice(100);
                 if (attackDice < accountStat.accuracyRate) {
                     var result = util.getTotalDamage(
+                        options.container.get('items'),
                         accountAttack,
                         battleResult.damage,
                         enemyDefence,
@@ -129,7 +141,8 @@ module.exports = function (io, options, socket, req, res) {
 
                     // 레벨업 이벤트
                     var accountLevelUp = util.setLevelUp(res.account.level, res.account.maxHealth, res.account.attack,
-                        res.account.defence, res.account.requireExp);
+                        res.account.defence, res.account.requireExp, options.container.get('properties').expPerLevel,
+                        options.container.get('properties').expIncrease);
                     if (true === accountLevelUp.status) {
                         res.account.level = accountLevelUp.level;
                         res.account.maxHealth = accountLevelUp.maxHealth;
@@ -139,9 +152,10 @@ module.exports = function (io, options, socket, req, res) {
                     }
 
                     var enemyStat = util.getBattleRateByDefender(
+                        options.container.get('items'),
                         res.enemy.status,
                         res.enemy.tactics,
-                        res.enemy.place,
+                        options.container.get('properties').places['place' + res.enemy.place].specialize,
                         res.enemy.injured,
                         res.enemy.weapon,
                         res.enemy.shotSkill,
@@ -151,7 +165,8 @@ module.exports = function (io, options, socket, req, res) {
                         res.enemy.bowSkill,
                         res.enemy.meleeSkill,
                         res.enemy.bombSkill,
-                        res.enemy.pokeSkill
+                        res.enemy.pokeSkill,
+                        options.container.get('properties').expPerSkillLevel
                     );
 
                     var strikeBackDice = util.dice(10);
@@ -160,7 +175,8 @@ module.exports = function (io, options, socket, req, res) {
                         enemyKilled = true;
                     } else if (5 > strikeBackDice && accountStat.longRangeEngage == enemyStat.longRangeEngage) {
                         // 반격
-                        var strikeResult = util.getBattleResult(res.enemy, enemyCommand, res.account, true, eventLog);
+                        var strikeResult = util.getBattleResult(options.container.get('items'), res.enemy, enemyCommand,
+                            res.account, true, options.container.get('properties').expPerSkillLevel, eventLog);
                         eventLog = strikeResult.eventLog;
 
                         // 반격 시도
@@ -178,6 +194,7 @@ module.exports = function (io, options, socket, req, res) {
                             res.account.prevAttacker = res.enemy.username;
 
                             var enemyResult = util.getTotalDamage(
+                                options.container.get('items'),
                                 enemyAttack,
                                 strikeResult.damage,
                                 accountDefence,
@@ -208,13 +225,28 @@ module.exports = function (io, options, socket, req, res) {
                             } else {
                                 res.enemy.requireExp -= util.getBattleExp(res.enemy.level, res.account.level);
                                 eventLog.push([res.enemy.username, '은(는) 도망갔다...'].join(''));
-
-                                util.battleInfoToVictim(socket, res.enemy, res.account, result, strikeResult, enemyResult);
+                                util.battleInfoToVictim(
+                                    options.container.get('items'),
+                                    socket,
+                                    options.container.get('properties').expPerSkillLevel,
+                                    options.container.get('properties').skills,
+                                    options.container.get('properties').tactics,
+                                    options.container.get('properties').staminaRecoverInterval,
+                                    options.container.get('properties').staminaRecoverIncrease,
+                                    options.container.get('properties').healthRecoverInterval,
+                                    options.container.get('properties').healthRecoverIncrease,
+                                    res.enemy,
+                                    res.account,
+                                    result,
+                                    strikeResult,
+                                    enemyResult
+                                );
                             }
 
                             // 적 레벨업 이벤트
                             var enemyLevelUp = util.setLevelUp(res.enemy.level, res.enemy.maxHealth, res.enemy.attack,
-                                res.enemy.defence, res.enemy.requireExp);
+                                res.enemy.defence, res.enemy.requireExp, options.container.get('properties').expPerLevel,
+                                options.container.get('properties').expIncrease);
                             if (true === enemyLevelUp.status) {
                                 res.enemy.level = enemyLevelUp.level;
                                 res.enemy.maxHealth = enemyLevelUp.maxHealth;
@@ -225,28 +257,77 @@ module.exports = function (io, options, socket, req, res) {
                         } else {
                             // 반격 회피
                             eventLog.push('그러나, 간발의 차이로 피했다!');
-
-                            util.battleInfoToVictim(socket, res.enemy, res.account, result);
+                            util.battleInfoToVictim(
+                                options.container.get('items'),
+                                socket,
+                                options.container.get('properties').expPerSkillLevel,
+                                options.container.get('properties').skills,
+                                options.container.get('properties').tactics,
+                                options.container.get('properties').staminaRecoverInterval,
+                                options.container.get('properties').staminaRecoverIncrease,
+                                options.container.get('properties').healthRecoverInterval,
+                                options.container.get('properties').healthRecoverIncrease,
+                                res.enemy,
+                                res.account,
+                                result
+                            );
                         }
 
                         // 적 탄 소모
-                        res.enemy.weapon = util.setConsumeWeapon(res.enemy.weapon, enemyCommand);
+                        res.enemy.weapon = util.setConsumeWeapon(options.container.get('items'), res.enemy.weapon,
+                            enemyCommand);
                         if ('shotSkill' === enemyCommand) {
-                            util.broadcastToAll(socket, res.account.place, 'shot', res.enemy.username);
+                            util.broadcastToAll(
+                                socket,
+                                res.account.place,
+                                options.container.get('properties').places['place' + res.account.place].name,
+                                'shot',
+                                res.enemy.username
+                            );
                         } else if ('bombSkill' === enemyCommand) {
-                            util.broadcastToAll(socket, res.account.place, 'bomb', res.enemy.username);
+                            util.broadcastToAll(
+                                socket,
+                                res.account.place,
+                                options.container.get('properties').places['place' + res.account.place].name,
+                                'bomb',
+                                res.enemy.username
+                            );
                         }
                     } else if (5 > strikeBackDice && accountStat.longRangeEngage != enemyStat.longRangeEngage) {
                         // 반격 실패 (거리 안맞음)
                         eventLog.push([res.enemy.username, '은(는) 반격할 수 없다!'].join(''));
                         eventLog.push([res.enemy.username, '은(는) 도망쳤다...'].join(''));
-
-                        util.battleInfoToVictim(socket, res.enemy, res.account, result);
+                        util.battleInfoToVictim(
+                            options.container.get('items'),
+                            socket,
+                            options.container.get('properties').expPerSkillLevel,
+                            options.container.get('properties').skills,
+                            options.container.get('properties').tactics,
+                            options.container.get('properties').staminaRecoverInterval,
+                            options.container.get('properties').staminaRecoverIncrease,
+                            options.container.get('properties').healthRecoverInterval,
+                            options.container.get('properties').healthRecoverIncrease,
+                            res.enemy,
+                            res.account,
+                            result
+                        );
                     } else {
                         // 반격 실패
                         eventLog.push([res.enemy.username, '은(는) 도망쳤다...'].join(''));
-
-                        util.battleInfoToVictim(socket, res.enemy, res.account, result);
+                        util.battleInfoToVictim(
+                            options.container.get('items'),
+                            socket,
+                            options.container.get('properties').expPerSkillLevel,
+                            options.container.get('properties').skills,
+                            options.container.get('properties').tactics,
+                            options.container.get('properties').staminaRecoverInterval,
+                            options.container.get('properties').staminaRecoverIncrease,
+                            options.container.get('properties').healthRecoverInterval,
+                            options.container.get('properties').healthRecoverIncrease,
+                            res.enemy,
+                            res.account,
+                            result
+                        );
                     }
                 } else {
                     eventLog.push(['그러나, 피했다! ', true === battleResult.weaponDestroy ? '무기손상' : ''].join(''));
@@ -266,11 +347,23 @@ module.exports = function (io, options, socket, req, res) {
             }
 
             // 탄소모
-            res.account.weapon = util.setConsumeWeapon(res.account.weapon, req.command);
+            res.account.weapon = util.setConsumeWeapon(options.container.get('items'), res.account.weapon, req.command);
             if ('shotSkill' === req.command) {
-                util.broadcastToAll(socket, res.account.place, 'shot', enemy.username);
+                util.broadcastToAll(
+                    socket,
+                    res.account.place,
+                    options.container.get('properties').places['place' + res.account.place].name,
+                    'shot',
+                    enemy.username
+                );
             } else if ('bombSkill' === req.command) {
-                util.broadcastToAll(socket, res.account.place, 'bomb', enemy.username);
+                util.broadcastToAll(
+                    socket,
+                    res.account.place,
+                    options.container.get('properties').places['place' + res.account.place].name,
+                    'bomb',
+                    enemy.username
+                );
             }
 
             if (false === userKilled && false == enemyKilled) {

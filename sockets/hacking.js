@@ -9,6 +9,7 @@ module.exports = function (io, options, socket, req, res) {
     var isDeath = false;
 
     var pcSlot = util.findItemSlotByEquip(
+        options.container.get('items'),
         'mobilepc',
         res.account.item0,
         res.account.item1,

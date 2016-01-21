@@ -4,8 +4,6 @@
 module.exports = function (io, options, socket, req, res, eventName, eventResult, eventLog) {
     var async = require('async');
     var util = options.container.get('util');
-    var userModel = options.models.getModel('user');
-    var newsModel = options.models.getModel('news');
 
     if (typeof eventLog === 'string') {
         eventLog = [eventLog];
@@ -14,7 +12,9 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
     if (0 >= res.account.health) {
         async.waterfall([
             function (callback) {
-                userModel.count({npc: false, deathAt: null, username: {$ne: res.account.username}}, callback);
+                options.repositories.countUser(function (result) {
+                    callback(null, result);
+                }, {npc: false, deathAt: null, username: {$ne: res.account.username}});
             },
 
             function (counted, callback) {
@@ -55,7 +55,7 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
                         userGender: res.enemy.userGender,
                         groupName: res.enemy.groupName,
                         studentNo: res.enemy.studentNo,
-                        weaponName: util.getItem(res.enemy.weapon.idx).name,
+                        weaponName: options.container.get('items').getInfo(res.enemy.weapon.idx).name,
                         weaponMethod: req.command
                     };
 
@@ -69,23 +69,27 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
                 res.account.health = 0;
 
                 if ('tired' !== eventName) {
-                    util.broadcastToAll(socket, res.account.place, 'killed');
+                    util.broadcastToAll(
+                        socket,
+                        res.account.place,
+                        options.container.get('properties').places['place' + res.account.place].name,
+                        'killed'
+                    );
                 }
 
-                var news = new newsModel({
-                    registerAt: new Date(),
-                    type: newsType,
-                    message: res.account.messageDying,
-                    murder: murder,
-                    victim: {
+                options.repositories.addNews(
+                    null,
+                    new Date(),
+                    newsType,
+                    res.account.messageDying,
+                    murder,
+                    {
                         username: res.account.username,
                         userGender: res.account.userGender,
                         groupName: res.account.groupName,
                         studentNo: res.account.studentNo
                     }
-                });
-
-                news.save();
+                );
 
                 callback(null, counted);
             },
@@ -93,7 +97,7 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
             function (counted) {
                 if ('start' === res.server.status
                     && 1 == counted
-                    && true === util.isBattleOver(res.server.started)) {
+                    && true === util.isBattleOver(options.container.get('properties').minimumBattleTime, res.server.started)) {
                     require('./ending')(io, options, socket, req, res, 'endingOther', eventResult, eventLog);
                 } else {
                     require('./finalize')(io, options, socket, req, res, eventName, eventResult, eventLog);

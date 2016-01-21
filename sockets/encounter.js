@@ -5,7 +5,6 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
     var async = require('async');
 
     var util = options.container.get('util');
-    var userModel = options.models.getModel('user');
     var place = {};
     var places = res.place;
     for (var i in places) {
@@ -21,8 +20,9 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
     }
 
     var attackerStat = util.getBattleRateByAttacker(
+        options.container.get('items'),
         res.account.tactics,
-        res.account.place,
+        options.container.get('properties').places['place' + res.account.place].specialize,
         res.account.injured,
         res.account.weapon,
         res.account.shotSkill,
@@ -32,37 +32,21 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
         res.account.bowSkill,
         res.account.meleeSkill,
         res.account.bombSkill,
-        res.account.pokeSkill
+        res.account.pokeSkill,
+        options.container.get('properties').expPerSkillLevel
     );
 
     async.waterfall([
         function (callback) {
-            userModel.count({
-                place: res.account.place,
-                health: 0
-            }, function (err, corpseCount) {
-                if (err) {
-                    console.log(err);
-                    throw new Error(err);
-                } else {
-                    callback(null, corpseCount);
-                }
-            });
+            options.repositories.countUser(function(corpseCount){
+                callback(null, corpseCount);
+            }, {place: res.account.place, deathAt:{$ne:null}});
         },
 
         function (corpseCount, callback) {
-            userModel.find({
-                place: res.account.place,
-                username: {$ne: res.account.username},
-                prevAttacker: {$ne: attacker}
-            }, function (err, users) {
-                if (err) {
-                    console.log(err);
-                    throw new Error(err);
-                } else {
-                    callback(null, corpseCount, users);
-                }
-            });
+            options.repositories.getUsers(function(users){
+                callback(null, corpseCount, users);
+            }, {place: res.account.place, username: {$ne: res.account.username}, prevAttacker: {$ne: attacker}});
         },
 
         function (corpseCount, enemyList) {
@@ -73,9 +57,10 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
             for (var i = enemyStart; i < enemyCount; i++) {
                 var enemy = enemyList[i];
                 var defenderStat = util.getBattleRateByDefender(
+                    options.container.get('items'),
                     enemy.status,
                     enemy.tactics,
-                    enemy.place,
+                    options.container.get('properties').places['place' + enemy.place].specialize,
                     enemy.injured,
                     enemy.weapon,
                     enemy.shotSkill,
@@ -85,7 +70,8 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
                     enemy.bowSkill,
                     enemy.meleeSkill,
                     enemy.bombSkill,
-                    enemy.pokeSkill
+                    enemy.pokeSkill,
+                    options.container.get('properties').expPerSkillLevel
                 );
 
                 if (5 == res.account.tactics && defenderStat.stealth * 2 < util.dice(10) * 100) {

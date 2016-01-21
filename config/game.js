@@ -1700,5 +1700,5 @@ module.exports = {
         {'path': './static/images/39.jpg', 'name': '여자 19번', gender: 'female'},
         {'path': './static/images/40.jpg', 'name': '여자 20번', gender: 'female'},
         {'path': './static/images/41.jpg', 'name': '여자 21번', gender: 'female'}
-    ],
+    ]
 };

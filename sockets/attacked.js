@@ -8,12 +8,14 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
         var userKilled = false;
         var enemyKilled = false;
 
-        var battleResult = util.getBattleResult(res.enemy, req.command, res.account, false, eventLog);
+        var battleResult = util.getBattleResult(options.container.get('items'), res.enemy, req.command, res.account,
+            false, options.container.get('properties').expPerSkillLevel, eventLog);
         eventLog = battleResult.eventLog;
 
         var enemyStat = util.getBattleRateByAttacker(
+            options.container.get('items'),
             res.enemy.tactics,
-            res.enemy.place,
+            options.container.get('properties').places['place' + res.enemy.place].specialize,
             res.enemy.injured,
             res.enemy.weapon,
             res.enemy.shotSkill,
@@ -23,7 +25,8 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
             res.enemy.bowSkill,
             res.enemy.meleeSkill,
             res.enemy.bombSkill,
-            res.enemy.pokeSkill
+            res.enemy.pokeSkill,
+            options.container.get('properties').expPerSkillLevel
         );
 
         eventLog.push([
@@ -38,14 +41,21 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
 
         // 적 상태가 치료나 수면일때 미리 계산 추가
         if (-1 !== [5, 6].indexOf(res.enemy.status)) {
-            util.setRecover(res.enemy);
+            util.setRecover(
+                res.enemy,
+                options.container.get('properties').staminaRecoverInterval,
+                options.container.get('properties').staminaRecoverIncrease,
+                options.container.get('properties').healthRecoverInterval,
+                options.container.get('properties').healthRecoverIncrease,
+                options.container.get('properties').maxStamina
+            );
         }
 
         // 공격 시도
         var attackDice = util.dice(100);
         if (attackDice < enemyStat.accuracyRate) {
             // 적
-            var enemyWeapon = util.getItem(res.enemy.weapon.idx);
+            var enemyWeapon = options.container.get('items').getInfo(res.enemy.weapon.idx);
             var enemyCommand = enemyWeapon.attackType[0] + 'Skill';
             if (true == enemyWeapon.ammoRequire && 0 == res.enemy.weapon.endurance) {
                 enemyCommand = 'meleeSkill';
@@ -63,7 +73,7 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
 
             res.account.prevAttacker = res.enemy.username;
 
-            var accountWeapon = util.getItem(res.account.weapon.idx);
+            var accountWeapon = options.container.get('items').getInfo(res.account.weapon.idx);
             var skillType  = accountWeapon.attackType[0] + 'Skill';
             if (true == accountWeapon.ammoRequire && 0 == res.account.weapon.endurance) {
                 skillType = 'meleeSkill';
@@ -71,6 +81,7 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
 
             var enemyAttack = util.getAttackPercent(res.enemy.attack, res.enemy.weapon.point, enemyCommand);
             var enemyResult = util.getTotalDamage(
+                options.container.get('items'),
                 enemyAttack,
                 battleResult.damage,
                 accountDefence,
@@ -100,17 +111,30 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
             eventLog.push('그러나, 간발의 차이로 피했다!');
         }
 
-        res.enemy.weapon = util.setConsumeWeapon(res.enemy.weapon, enemyCommand);
+        res.enemy.weapon = util.setConsumeWeapon(options.container.get('items'), res.enemy.weapon, enemyCommand);
         if ('shotSkill' === enemyCommand) {
-            util.broadcastToAll(socket, res.account.place, 'shot', res.enemy.username);
+            util.broadcastToAll(
+                socket,
+                res.account.place,
+                options.container.get('properties').places['place' + res.account.place].name,
+                'shot',
+                res.enemy.username
+            );
         } else if ('bombSkill' === enemyCommand) {
-            util.broadcastToAll(socket, res.account.place, 'bomb', res.enemy.username);
+            util.broadcastToAll(
+                socket,
+                res.account.place,
+                options.container.get('properties').places['place' + res.account.place].name,
+                'bomb',
+                res.enemy.username
+            );
         }
 
         var accountStat = util.getBattleRateByDefender(
+            options.container.get('items'),
             res.account.status,
             res.account.tactics,
-            res.account.place,
+            options.container.get('properties').places['place' + res.account.place].specialize,
             res.account.injured,
             res.account.weapon,
             res.account.shotSkill,
@@ -120,14 +144,16 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
             res.account.bowSkill,
             res.account.meleeSkill,
             res.account.bombSkill,
-            res.account.pokeSkill
+            res.account.pokeSkill,
+            options.container.get('properties').expPerSkillLevel
         );
 
         if (0 >= res.account.health) {
             userKilled = true;
         } else if (7 >= util.dice(10) && accountStat.longRangeEngage == enemyStat.longRangeEngage) {
             // 반격
-            var strikeResult = util.getBattleResult(res.account, skillType, res.enemy, true, eventLog);
+            var strikeResult = util.getBattleResult(options.container.get('items'), res.account, skillType, res.enemy,
+                true, options.container.get('properties').expPerSkillLevel, eventLog);
             eventLog = strikeResult.eventLog;
 
             // 반격 시도
@@ -145,6 +171,7 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
                 res.account.prevAttacker = res.enemy.username;
 
                 var result = util.getTotalDamage(
+                    options.container.get('items'),
                     accountAttack,
                     strikeResult.damage,
                     enemyDefence,
@@ -174,7 +201,8 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
 
                 // 레벨업 이벤트
                 var accountLevelUp = util.setLevelUp(res.account.level, res.account.maxHealth, res.account.attack,
-                    res.account.defence, res.account.requireExp);
+                    res.account.defence, res.account.requireExp, options.container.get('properties').expPerLevel,
+                    options.container.get('properties').expIncrease);
                 if (true === accountLevelUp.status) {
                     res.account.level = accountLevelUp.level;
                     res.account.maxHealth = accountLevelUp.maxHealth;
@@ -187,21 +215,60 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
                     enemyKilled = true;
                 } else {
                     eventLog.push([res.account.username, '은(는) 도망쳤다...'].join(''));
-
-                    util.battleInfoToVictim(socket, res.enemy, res.account, enemyResult, strikeResult, result);
+                    util.battleInfoToVictim(
+                        options.container.get('items'),
+                        socket,
+                        options.container.get('properties').expPerSkillLevel,
+                        options.container.get('properties').skills,
+                        options.container.get('properties').tactics,
+                        options.container.get('properties').staminaRecoverInterval,
+                        options.container.get('properties').staminaRecoverIncrease,
+                        options.container.get('properties').healthRecoverInterval,
+                        options.container.get('properties').healthRecoverIncrease,
+                        res.enemy,
+                        res.account,
+                        enemyResult,
+                        strikeResult,
+                        result
+                    );
                 }
             } else {
                 eventLog.push('그러나, 피했다!');
-
-                util.battleInfoToVictim(socket, res.enemy, res.account, enemyResult, strikeResult);
+                util.battleInfoToVictim(
+                    options.container.get('items'),
+                    socket,
+                    options.container.get('properties').expPerSkillLevel,
+                    options.container.get('properties').skills,
+                    options.container.get('properties').tactics,
+                    options.container.get('properties').staminaRecoverInterval,
+                    options.container.get('properties').staminaRecoverIncrease,
+                    options.container.get('properties').healthRecoverInterval,
+                    options.container.get('properties').healthRecoverIncrease,
+                    res.enemy,
+                    res.account,
+                    enemyResult,
+                    strikeResult
+                );
             }
 
             // 탄소모
-            res.account.weapon = util.setConsumeWeapon(res.account.weapon, req.command);
+            res.account.weapon = util.setConsumeWeapon(options.container.get('items'), res.account.weapon, req.command);
             if ('shotSkill' === req.command) {
-                util.broadcastToAll(socket, res.account.place, 'shot', res.enemy.username);
+                util.broadcastToAll(
+                    socket,
+                    res.account.place,
+                    options.container.get('properties').places['place' + res.account.place].name,
+                    'shot',
+                    res.enemy.username
+                );
             } else if ('bombSkill' === req.command) {
-                util.broadcastToAll(socket, res.account.place, 'bomb', res.enemy.username);
+                util.broadcastToAll(
+                    socket,
+                    res.account.place,
+                    options.container.get('properties').places['place' + res.account.place].name,
+                    'bomb',
+                    res.enemy.username
+                );
             }
         }
     }

@@ -15,13 +15,14 @@ module.exports = function(io, options, socket, req, res){
     }
 
     var isDeath = false;
+    var placeMessage = options.container.get('properties').places[place.idx].message;
     if (true === place.restrict) {
         result = false;
         log.push([place.name, ' 쪽은 금지구역이다. 이동할 수 없어...'].join(''));
     } else if (true === place.restrictReserve) {
-        log.push([place.name, ' 에 이동했다. 다음에 이곳은 금지지역이 되겠구나.\n', util.getPlaceMessage(place.idx)].join(''));
+        log.push([place.name, ' 에 이동했다. 다음에 이곳은 금지지역이 되겠구나.\n', placeMessage].join(''));
     } else {
-        log.push([place.name, ' 에 이동했다.\n', util.getPlaceMessage(place.idx)].join(''));
+        log.push([place.name, ' 에 이동했다.\n', placeMessage].join(''));
     }
 
     if (true === result) {

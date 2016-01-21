@@ -20,7 +20,7 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
     } else {
         var randomId = util.dice(itemLength - 1);
         var item = place.items[randomId];
-        var itemInfo = util.getItem(item.idx);
+        var itemInfo = options.container.get('items').getInfo(item.idx);
 
         var targetItemSlot = util.getEmptyItemSlot(
             res.account.item0,

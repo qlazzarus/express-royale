@@ -16,7 +16,7 @@ module.exports = function (io, options, socket, req, res) {
         eventName = 'info';
         eventLog = '';
     } else if (typeof req.value !== 'undefined' && req.value[0] === req.value[1]) {
-        itemInfo = util.getItem(res.account[req.value[0]].idx);
+        itemInfo = options.container.get('items').getInfo(res.account[req.value[0]].idx);
 
         eventName = 'info';
         eventLog = ['아이템을 정리합니다.', itemInfo.name + '을(를) 고쳐넣었습니다.'];
@@ -24,8 +24,8 @@ module.exports = function (io, options, socket, req, res) {
         eventName = 'info';
         eventLog = ['아이템을 정리합니다.'];
 
-        itemInfo = util.getItem(res.account[req.value[0]].idx);
-        itemInfo2 = util.getItem(res.account[req.value[1]].idx);
+        itemInfo = options.container.get('items').getInfo(res.account[req.value[0]].idx);
+        itemInfo2 = options.container.get('items').getInfo(res.account[req.value[1]].idx);
 
         var combineResult = util.isCombine(itemInfo, itemInfo2);
         if (true === combineResult) {

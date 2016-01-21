@@ -7,7 +7,7 @@ module.exports = function (app, options) {
 
     function convertItemDesc(item, defaultDesc) {
         if ('' !== item.idx) {
-            var itemInfo = util.getItem(item.idx);
+            var itemInfo = options.container.get('items').getInfo(item.idx);
             if (typeof itemInfo === 'undefined') {
                 itemInfo = {};
             }
@@ -25,24 +25,18 @@ module.exports = function (app, options) {
         }
     }
 
-    app.get('/rank', function (req, res, next) {
-        var userModel = options.models.getModel('user');
-        userModel.find({npc: false}, function (err, users) {
-            if (err) {
-                console.log(err);
-                next();
-            } else {
-                var survivors = [];
-                for (var i in users) {
-                    var user = users[i];
-                    if (0 < user.health) {
-                        survivors.push(user);
-                    }
+    app.get('/rank', function (req, res) {
+        options.repositories.getUsers(function(users){
+            var survivors = [];
+            for (var i in users) {
+                var user = users[i];
+                if (0 < user.health) {
+                    survivors.push(user);
                 }
-
-                res.render('rank', {survivors: survivors, survivorCount: survivors.length, userCount: users.length});
             }
-        });
+
+            res.render('rank', {survivors: survivors, survivorCount: survivors.length, userCount: users.length});
+        }, {npc: false});
     });
 
     app.get('/rule', function (req, res) {
@@ -50,19 +44,21 @@ module.exports = function (app, options) {
     });
 
     app.get('/news', function (req, res, next) {
-        var newsModel = options.models.getModel('news');
-        var placeModel = options.models.getModel('place');
-        var serverModel = options.models.getModel('server');
-
         async.parallel({
             news: function (callback) {
-                newsModel.find({}).sort({registerAt: -1}).exec(callback);
+                options.repositories.getNews(function(entries){
+                    callback(null, entries);
+                });
             },
             place: function (callback) {
-                placeModel.find({}).exec(callback);
+                options.repositories.getPlaces(function(entries){
+                    callback(null, entries);
+                });
             },
             server: function (callback) {
-                serverModel.findOne({}).exec(callback);
+                options.repositories.getServerFlag(function(entry){
+                    callback(null, entry);
+                });
             }
         }, function (err, result) {
             if (err) {
@@ -86,7 +82,7 @@ module.exports = function (app, options) {
                     restrictReserve = [];
                 }
 
-                var weekName = ['일', '월', '화', '수', '목', '금', '토']
+                var weekName = ['일', '월', '화', '수', '목', '금', '토'];
                 for (var i in result.news) {
                     var news = result.news[i];
                     var currentDate = [
@@ -126,11 +122,11 @@ module.exports = function (app, options) {
                         var restrictLength = news.restrict.length;
                         var reserveLength = news.restrictReserve.length;
                         for (var i = 0; i < restrictLength; i++) {
-                            restrictList.push(util.getPlaceInfo('place' + news.restrict[i]).name);
+                            restrictList.push(options.container.get('properties').places['place' + news.restrict[i]].name);
                         }
 
                         for (var i = 0; i < reserveLength; i++) {
-                            reserveList.push(util.getPlaceInfo('place' + news.restrictReserve[i]).name);
+                            reserveList.push(options.container.get('properties').places['place' + news.restrictReserve[i]].name);
                         }
 
                         var curLog = [
@@ -331,68 +327,62 @@ module.exports = function (app, options) {
         });
     });
 
-    app.get('/winner', function (req, res, next) {
-        var winnerModel = options.models.getModel('winner');
-        winnerModel.find({}, null, {sort: {'_id': -1}}, function (err, winners) {
-            if (err) {
-                console.log(err);
-                next();
-            } else {
-                var gameCount = winners.length;
-                res.render('winner', {
-                    winners: winners,
-                    gameCount: gameCount,
-                    expPerSkillLevel: util.getExpPerSkillLevel(),
-                    convertTimeStamp: function (time) {
-                        var weekName = ['일', '월', '화', '수', '목', '금', '토'];
-                        var hour = time.getHours();
-                        var min = time.getMinutes();
+    app.get('/winner', function (req, res) {
+        options.repositories.getWinners(function(winners){
+            var gameCount = winners.length;
+            res.render('winner', {
+                winners: winners,
+                gameCount: gameCount,
+                expPerSkillLevel: options.container.get('properties').expPerSkillLevel,
+                convertTimeStamp: function (time) {
+                    var weekName = ['일', '월', '화', '수', '목', '금', '토'];
+                    var hour = time.getHours();
+                    var min = time.getMinutes();
 
-                        return [
-                            (time.getYear() + 1900),
-                            '년 ',
-                            (time.getMonth() + 1),
-                            '월 ',
-                            time.getDate(),
-                            '일 ',
-                            weekName[time.getDay()],
-                            '요일 ',
-                            hour < 10 ? '0' + hour : hour,
-                            '시',
-                            min < 10 ? '0' + min : min,
-                            '분'
-                        ].join('');
-                    },
-                    convertItemDesc: convertItemDesc,
-                    showItems: function (item0, item1, item2, item3, item4, item5) {
-                        var result = [];
-                        var itemList = [item0, item1, item2, item3, item4, item5];
+                    return [
+                        (time.getYear() + 1900),
+                        '년 ',
+                        (time.getMonth() + 1),
+                        '월 ',
+                        time.getDate(),
+                        '일 ',
+                        weekName[time.getDay()],
+                        '요일 ',
+                        hour < 10 ? '0' + hour : hour,
+                        '시',
+                        min < 10 ? '0' + min : min,
+                        '분'
+                    ].join('');
+                },
+                convertItemDesc: convertItemDesc,
+                showItems: function (item0, item1, item2, item3, item4, item5) {
+                    var result = [];
+                    var itemList = [item0, item1, item2, item3, item4, item5];
 
-                        for (var i in itemList) {
-                            var item = itemList[i];
-                            var desc = '';
-                            var className = '';
+                    for (var i in itemList) {
+                        var item = itemList[i];
+                        var desc = '';
+                        var className = '';
 
-                            if ('' !== item.idx) {
-                                var itemInfo = util.getItem(item.idx);
-                                if (typeof itemInfo === 'undefined') {
-                                    itemInfo = {};
-                                }
-
-                                desc = convertItemDesc(item, '');
-                                className = itemInfo.equip;
-
-                                result.push({
-                                    className: className,
-                                    desc: desc
-                                });
+                        if ('' !== item.idx) {
+                            var itemInfo = options.container.get('items').getInfo(item.idx);
+                            if (typeof itemInfo === 'undefined') {
+                                itemInfo = {};
                             }
-                        }
 
-                        return result;
+                            desc = convertItemDesc(item, '');
+                            className = itemInfo.equip;
+
+                            result.push({
+                                className: className,
+                                desc: desc
+                            });
+                        }
                     }
-                });
-            }
+
+                    return result;
+                }
+            });
         });
     });
 };

@@ -15,7 +15,7 @@ module.exports = function (io, options, socket, req, res) {
         var injureIdx = res.account.injured.indexOf(part);
         if (-1 !== injureIdx) {
             res.account.injured.splice(injureIdx, 1);
-            res.account.stamina -= util.getFirstAidStamina();
+            res.account.stamina -= options.container.get('properties').firstAidStamina;
 
             if (0 >= res.account.stamina) {
                 // 스테미너 부족

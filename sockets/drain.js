@@ -16,7 +16,8 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
         damage = 10;
     }
 
-    res.account.stamina = util.dice(parseInt(util.getMaxStamina() / 10)) + parseInt(util.getMaxStamina() / 4);
+    res.account.stamina = util.dice(parseInt(options.container.get('properties').maxStamina / 10))
+        + parseInt(options.container.get('properties').maxStamina / 4);
     res.account.maxHealth -= damage;
 
     if (res.account.health > res.account.maxHealth) {

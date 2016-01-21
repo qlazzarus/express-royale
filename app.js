@@ -48,14 +48,14 @@ var sessionStore = new connectMongo({mongooseConnection: mongoose.connection});
 /**
  * define model container
  */
-var modelContainer = require('./support/modelFactory');
-var ModelFactory = new modelContainer(mongoose, __dirname + '/models/');
+var Repository = require('./support/repositories');
+var repositories = new Repository(mongoose, __dirname + '/models/');
 
 
 /**
  * passport
  */
-require('./support/passport')(passport, ModelFactory);
+require('./support/passport')(passport, repositories);
 
 
 /**
@@ -122,17 +122,16 @@ Container.set('service', new service());
 /**
  * util
  */
-var util = require('./support/util');
-util.setGameConfig(require('./config/game'));
-util.setItemConfig(require('./config/items'));
-Container.set('util', util);
+Container.set('util', require('./support/util'));
+Container.set('properties', require('./config/game'));
+Container.set('items', require('./config/items'));
 
 
 /**
  * socket.io
  */
 require('./sockets')(io, {
-    models: ModelFactory,
+    repositories: repositories,
     container: Container,
     passport: passport
 });
@@ -142,7 +141,7 @@ require('./sockets')(io, {
  * routes
  */
 require('./routes')(app, {
-    models: ModelFactory,
+    repositories: repositories,
     container: Container,
     passport: passport
 });
@@ -164,7 +163,7 @@ app.use(function (req, res, next) {
 if (app.get('env') === 'development') {
     // development error handler
     // will print stack-trace
-    app.use(function (err, req, res, next) {
+    app.use(function (err, req, res) {
         res.status(err.status || 500);
         res.render('error', {
             message: err.message,
@@ -174,7 +173,7 @@ if (app.get('env') === 'development') {
 } else {
     // production error handler
     // no stack-traces leaked to user
-    app.use(function (err, req, res, next) {
+    app.use(function (err, req, res) {
         res.status(err.status || 500);
         res.render('error', {
             message: err.message,
@@ -188,12 +187,9 @@ if (app.get('env') === 'development') {
  * initialize service
  */
 Container.get('service').initialize(
-    ModelFactory.getModel('group'),
-    ModelFactory.getModel('place'),
-    ModelFactory.getModel('server'),
-    ModelFactory.getModel('news'),
-    ModelFactory.getModel('user'),
-    ModelFactory.getModel('winner'),
+    repositories,
+    Container.get('properties'),
+    Container.get('items'),
     Container.get('util'),
     io
 );

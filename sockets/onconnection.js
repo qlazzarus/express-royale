@@ -2,11 +2,8 @@
  * Created by monoless on 2015-12-10.
  */
 module.exports = function (io, options, socket) {
-    var util = options.container.get('util');
     options.container.get('service').getBasicInfo(
-        options.models.getModel('user'),
-        options.models.getModel('place'),
-        options.models.getModel('server'),
+        options.repositories,
         socket.request.user.username,
         function (err, res) {
             console.log([socket.id, ' connected'].join(''));

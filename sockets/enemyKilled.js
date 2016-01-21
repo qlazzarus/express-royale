@@ -4,8 +4,6 @@
 module.exports = function (io, options, socket, req, res, eventName, eventResult, eventLog) {
     var async = require('async');
     var util = options.container.get('util');
-    var userModel = options.models.getModel('user');
-    var newsModel = options.models.getModel('news');
 
     if (typeof eventLog === 'string') {
         eventLog = [eventLog];
@@ -14,7 +12,9 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
     if (0 >= res.enemy.health) {
         async.waterfall([
             function (callback) {
-                userModel.count({npc: false, deathAt: null, username: {$ne: res.enemy.username}}, callback);
+                options.repositories.countUser(function(result){
+                    callback(null, result);
+                }, {npc: false, deathAt: null, username: {$ne: res.enemy.username}});
             },
 
             function (counted, callback) {
@@ -58,30 +58,45 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
                 res.enemy.health = 0;
                 res.account.killCount += 1;
 
-                util.broadcastToAll(socket, res.account.place, 'killed');
-                util.deathInfoToVictim(io, res.enemy);
+                util.broadcastToAll(
+                    socket,
+                    res.account.place,
+                    options.container.get('properties').places['place' + res.account.place].name,
+                    'killed'
+                );
+                util.deathInfoToVictim(
+                    options.container.get('items'),
+                    io,
+                    options.container.get('properties').expPerSkillLevel,
+                    options.container.get('properties').skills,
+                    options.container.get('properties').tactics,
+                    options.container.get('properties').staminaRecoverInterval,
+                    options.container.get('properties').staminaRecoverIncrease,
+                    options.container.get('properties').healthRecoverInterval,
+                    options.container.get('properties').healthRecoverIncrease,
+                    res.enemy
+                );
 
-                var news = new newsModel({
-                    registerAt: new Date(),
-                    type: 'KILLED',
-                    message: res.enemy.messageDying,
-                    murder: {
+                options.repositories.addNews(
+                    null,
+                    new Date(),
+                    'KILLED',
+                    res.enemy.messageDying,
+                    {
                         username: res.account.username,
                         userGender: res.account.userGender,
                         groupName: res.account.groupName,
                         studentNo: res.account.studentNo,
-                        weaponName: util.getItem(res.account.weapon.idx).name,
+                        weaponName: options.container.get('items').getInfo(res.account.weapon.idx).name,
                         weaponMethod: req.command
                     },
-                    victim: {
+                    {
                         username: res.enemy.username,
                         userGender: res.enemy.userGender,
                         groupName: res.enemy.groupName,
                         studentNo: res.enemy.studentNo
                     }
-                });
-
-                news.save();
+                );
 
                 callback(null, counted);
             },
@@ -89,7 +104,7 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
             function (counted) {
                 if ('start' === res.server.status
                     && 1 == counted
-                    && true === util.isBattleOver(res.server.started)) {
+                    && true === util.isBattleOver(options.container.get('properties').minimumBattleTime, res.server.started)) {
                     require('./ending')(io, options, socket, req, res, 'ending', eventResult, eventLog);
                 } else {
                     req.value = undefined;

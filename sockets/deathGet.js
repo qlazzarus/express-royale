@@ -4,7 +4,6 @@
 module.exports = function (io, options, socket, req, res, eventName, eventResult, eventLog) {
     var async = require('async');
     var util = options.container.get('util');
-    var userModel = options.models.getModel('user');
 
     if (typeof eventLog === 'string') {
         eventLog = [eventLog];
@@ -31,14 +30,9 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
 
         async.waterfall([
             function (callback) {
-                userModel.findOne({username: targetName, place: res.account.place}, function(err, user) {
-                    if (err) {
-                        console.log(err);
-                        throw new Error(err);
-                    } else if (null !== user) {
-                        callback(null, user);
-                    }
-                });
+                options.repositories.getUser(function(user){
+                    callback(null, user);
+                }, {username: targetName, place: res.account.place});
             },
 
             function (enemy) {
@@ -71,7 +65,7 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
                         eventLog.push([
                             res.account.username,
                             '은(는) ',
-                            util.getItem(res.account[emptySlot].idx).name,
+                            options.container.get('items').getInfo(res.account[emptySlot].idx).name,
                             '을(를) 입수했다.'
                         ].join(''));
                     } else {

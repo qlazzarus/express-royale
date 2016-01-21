@@ -5,8 +5,9 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
     var util = options.container.get('util');
 
     var attackerStat = util.getBattleRateByAttacker(
+        options.container.get('items'),
         res.account.tactics,
-        res.account.place,
+        options.container.get('properties').places['place' + res.account.place].specialize,
         res.account.injured,
         res.account.weapon,
         res.account.shotSkill,
@@ -16,7 +17,8 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
         res.account.bowSkill,
         res.account.meleeSkill,
         res.account.bombSkill,
-        res.account.pokeSkill
+        res.account.pokeSkill,
+        options.container.get('properties').expPerSkillLevel
     );
 
     var itemSearchDice = util.dice(10);

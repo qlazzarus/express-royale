@@ -9,21 +9,14 @@ module.exports = function () {
     /**
      * 반 학생 수 리셋
      *
-     * @param groupModel
+     * @param repositories
      * @param groups
      * @param maxGroups
      */
-    this.initializeGroups = function (groupModel, groups, maxGroups) {
+    this.initializeGroups = function (repositories, groups, maxGroups) {
         async.waterfall([
             function (callback) {
-                groupModel.remove({}, function (err) {
-                    if (err) {
-                        console.log(err);
-                        throw new Error('truncate groups failed');
-                    }
-
-                    callback(null);
-                });
+                repositories.truncateGroups(callback);
             },
             function (callback) {
                 var collections = [];
@@ -43,15 +36,10 @@ module.exports = function () {
                     groupCount++;
                 }
 
-                groupModel.collection.insert(collections, function (err) {
-                    if (err) {
-                        console.log(err);
-                        throw new Error('initialize groups failed');
-                    } else {
-                        console.log('initialize groups success');
-                        callback(null);
-                    }
-                });
+                repositories.addGroups(callback, collections);
+            },
+            function () {
+                console.log('initialize group success');
             }
         ]);
     };
@@ -60,27 +48,19 @@ module.exports = function () {
     /**
      * 지역정보 리셋
      *
-     * @param placeModel
-     * @param serverModel
-     * @param userModel
-     * @param newsModel
+     * @param repositories
+     * @param properties
+     * @param items
      * @param util
      * @param io
      */
-    this.initializePlaces = function (placeModel, serverModel, userModel, newsModel, winnerModel, util, io) {
-        var places = util.getPlaces();
-        var globalLooted = util.getGlobalLooted();
+    this.initializePlaces = function (repositories, properties, items, util, io) {
+        var places = properties.places;
+        var globalLooted = properties.globalLooted;
 
         async.waterfall([
             function (callback) {
-                placeModel.remove({}, function (err) {
-                    if (err) {
-                        console.log(err);
-                        throw new Error('truncate places failed');
-                    }
-
-                    callback(null);
-                });
+                repositories.truncatePlaces(callback);
             },
             function (callback) {
                 var collections = [];
@@ -103,15 +83,11 @@ module.exports = function () {
                     collections[randomPlace].items.push(looted);
                 }
 
-                placeModel.collection.insert(collections, function (err) {
-                    if (err) {
-                        console.log(err);
-                        throw new Error('initialize places failed');
-                    } else {
-                        console.log('initialize places success');
-                        callback(null);
-                    }
-                });
+                repositories.addPlaces(callback, collections);
+            },
+            function (callback) {
+                console.log('initialize places success');
+                callback(null);
             },
             function (callback) {
                 if (typeof global.restrictTimer !== 'undefined') {
@@ -123,12 +99,12 @@ module.exports = function () {
                 }
 
                 global.restrictTimer = setInterval(
-                    that.restrictPlaceEvent.bind(that, serverModel, placeModel, userModel, newsModel, winnerModel, util, io),
+                    that.restrictPlaceEvent.bind(that, repositories),
                     86400000
                 );
 
                 global.killTimer = setInterval(
-                    that.restrictKillEvent.bind(that, serverModel, placeModel, userModel, newsModel, winnerModel, util, io),
+                    that.restrictKillEvent.bind(that, repositories, properties, items, util, io),
                     60000
                 );
 
@@ -138,28 +114,23 @@ module.exports = function () {
     };
 
 
-    this.restrictPlaceEvent = function (serverModel, placeModel, userModel, newsModel) {
+    /**
+     * 금지 구역 설정
+     *
+     * @param repositories
+     */
+    this.restrictPlaceEvent = function (repositories) {
         async.waterfall([
             function (callback) {
-                serverModel.findOne({}, function (err, server) {
-                    if (err) {
-                        console.log(err);
-                        throw new Error('initialize places restrict trigger failed');
-                    } else {
-                        callback(null, server);
-                    }
+                repositories.getServerFlag(function (server) {
+                    callback(null, server);
                 });
             },
 
             function (server, callback) {
                 if ('start' === server.status) {
-                    placeModel.find({}, function (err, places) {
-                        if (err) {
-                            console.log(err);
-                            throw new Error('initialize places restrict trigger failed');
-                        } else {
-                            callback(null, server, places);
-                        }
+                    repositories.getPlaces(function (places) {
+                        callback(null, server, places);
                     });
                 }
             },
@@ -195,14 +166,7 @@ module.exports = function () {
                     }
 
                     if (0 < reserve.length || 0 < shutdown.length) {
-                        var news = new newsModel({
-                            registerAt: new Date(),
-                            type: 'RESTRICT',
-                            restrict: shutdown,
-                            restrictReserve: reserve
-                        });
-
-                        news.save();
+                        repositories.addNews(null, new Date(), 'RESTRICT', undefined, undefined, undefined, shutdown, reserve);
                     }
                 }
             }
@@ -210,29 +174,28 @@ module.exports = function () {
     };
 
 
-    this.restrictKillEvent = function(serverModel, placeModel, userModel, newsModel, winnerModel, util, io) {
+    /**
+     * 금지구역내 유저 살해
+     *
+     * @param repositories
+     * @param properties
+     * @param items
+     * @param util
+     * @param io
+     */
+    this.restrictKillEvent = function (repositories, properties, items, util, io) {
         async.waterfall([
             function (callback) {
-                serverModel.findOne({}, function (err, server) {
-                    if (err) {
-                        console.log(err);
-                        throw new Error('initialize places restrict trigger failed');
-                    } else {
-                        callback(null, server);
-                    }
+                repositories.getServerFlag(function (server) {
+                    callback(null, server);
                 });
             },
 
             function (server, callback) {
                 if (-1 !== ['start', 'hacking'].indexOf(server.status)) {
-                    placeModel.find({restrict: true}, function (err, places) {
-                        if (err) {
-                            console.log(err);
-                            throw new Error('initialize places restrict trigger failed');
-                        } else {
-                            callback(null, server, places);
-                        }
-                    });
+                    repositories.getPlaces(function (places) {
+                        callback(null, server, places);
+                    }, {restrict: true});
                 }
             },
 
@@ -243,14 +206,9 @@ module.exports = function () {
                     shutdowns.push(parseInt(place.idx.replace('place', '')));
                 }
 
-                userModel.find({npc: false, deathAt: null, place: {"$in": shutdowns}}, function (err, users) {
-                    if (err) {
-                        console.log(err);
-                        throw new Error('initialize restrict kill trigger failed');
-                    } else {
-                        callback(null, server, users, shutdowns);
-                    }
-                });
+                repositories.getUsers(function (users) {
+                    callback(null, server, users, shutdowns);
+                }, {npc: false, deathAt: null, place: {"$in": shutdowns}});
             },
 
             function (server, victims, shutdowns, callback) {
@@ -267,45 +225,47 @@ module.exports = function () {
                     user.health = 0;
                     user.save();
 
-                    util.deathInfoToVictim(io, user);
+                    util.deathInfoToVictim(
+                        items,
+                        io,
+                        properties.expPerSkillLevel,
+                        properties.skills,
+                        properties.tactics,
+                        properties.staminaRecoverInterval,
+                        properties.staminaRecoverIncrease,
+                        properties.healthRecoverInterval,
+                        properties.healthRecoverIncrease,
+                        user
+                    );
 
-                    var news = new newsModel({
-                        registerAt: new Date(),
-                        type: 'DEATH',
-                        message: user.messageDying,
-                        murder: {
-                            weaponMethod: 'restrictArea'
-                        },
-                        victim: {
+                    repositories.addNews(
+                        null,
+                        new Date(),
+                        'DEATH',
+                        user.messageDying,
+                        {weaponMethod: 'restrictArea'},
+                        {
                             username: user.username,
                             userGender: user.userGender,
                             groupName: user.groupName,
                             studentNo: user.studentNo
                         }
-                    });
-
-                    news.save();
+                    );
                 }
 
                 callback(null, server, shutdowns);
             },
 
             function (server, shutdowns, callback) {
-                userModel.find({npc: false, deathAt: null, place: {$nin: shutdowns}}, function (err, survivors) {
-                    if (err) {
-                        console.log(err);
-                        throw new Error('initialize restrict kill trigger failed');
-                    } else {
-                        callback(null, server, survivors);
-                    }
-                });
+                repositories.getUsers(function (users) {
+                    callback(null, server, users);
+                }, {npc: false, deathAt: null, place: {"$nin": shutdowns}});
             },
 
             function (server, survivors) {
-                var news;
                 var survivorCount = survivors.length;
                 if ('start' === server.status
-                    && true === util.isBattleOver(server.started)) {
+                    && true === util.isBattleOver(properties.minimumBattleTime, server.started)) {
 
                     if (1 == survivorCount) {
                         var user = survivors[0];
@@ -313,24 +273,21 @@ module.exports = function () {
                         server.winner = user.username;
                         server.save();
 
-                        news = new newsModel({
-                            registerAt: new Date(),
-                            type: 'ENDING',
-                            message: user.messageDying,
-                            murder: {
-                                weaponMethod: 'restrictArea'
-                            },
-                            victim: {
+                        repositories.addNews(
+                            null,
+                            new Date(),
+                            'ENDING',
+                            user.messageDying,
+                            {weaponMethod: 'restrictArea'},
+                            {
                                 username: user.username,
                                 userGender: user.userGender,
                                 groupName: user.groupName,
                                 studentNo: user.studentNo
                             }
-                        });
+                        );
 
-                        news.save();
-
-                        util.setWinner(winnerModel, 'ending', server.started, user);
+                        repositories.addWinner(null, 'ending', server.started, new Date(), user);
 
                         io.in(user.username).emit('recv', {
                             type: 'broadcastEnding',
@@ -341,28 +298,16 @@ module.exports = function () {
                         server.status = 'noWinner';
                         server.save();
 
-                        news = new newsModel({
-                            registerAt: new Date(),
-                            type: 'NO_WINNER'
-                        });
-
-                        news.save();
-
-                        util.setWinner(winnerModel, 'noWinner', server.started);
+                        repositories.addNews(null, new Date(), 'NO_WINNER');
+                        repositories.addNoWinner(null, server.started, new Date());
                     }
                 } else if ('hacking' === server.status
                     && 0 == survivorCount) {
                     server.status = 'noWinner';
                     server.save();
 
-                    news = new newsModel({
-                        registerAt: new Date(),
-                        type: 'NO_WINNER'
-                    });
-
-                    news.save();
-
-                    util.setWinner(winnerModel, 'noWinner', server.started);
+                    repositories.addNews(null, new Date(), 'NO_WINNER');
+                    repositories.addNoWinner(null, server.started, new Date());
                 }
             }
         ]);
@@ -372,37 +317,18 @@ module.exports = function () {
     /**
      * 서버정보 리셋
      *
-     * @param serverModel
+     * @param repositories
      */
-    this.initializeServerFlag = function (serverModel) {
+    this.initializeServerFlag = function (repositories) {
         async.waterfall([
             function (callback) {
-                serverModel.remove({}, function (err) {
-                    if (err) {
-                        console.log(err);
-                        throw new Error('truncate server-flag failed');
-                    }
-
-                    callback(null);
-                });
+                repositories.truncateServerFlag(callback);
             },
             function (callback) {
-                var server = new serverModel({
-                    status: 'start',
-                    started: new Date(),
-                    restrictIndex: 0,
-                    winner: ''
-                });
-
-                server.save(function (err) {
-                    if (err) {
-                        console.log(err);
-                        throw new Error('initialize server-flag failed');
-                    } else {
-                        console.log('initialize server-flag success');
-                        callback(null);
-                    }
-                });
+                repositories.addServerFlag(callback, 'start', new Date(), 0, '');
+            },
+            function () {
+                console.log('initialize serverFlag success');
             }
         ]);
     };
@@ -411,56 +337,31 @@ module.exports = function () {
     /**
      * 대회상황 리셋
      *
-     * @param newsModel
+     * @param repositories
      */
-    this.initializeNews = function (newsModel) {
+    this.initializeNews = function (repositories) {
         async.waterfall([
             function (callback) {
-                newsModel.remove({}, function (err) {
-                    if (err) {
-                        console.log(err);
-                        throw new Error('truncate news failed');
-                    }
-
-                    callback(null);
-                });
+                repositories.truncateNews(callback);
             },
             function (callback) {
-                var news = new newsModel({
-                    registerAt: new Date(),
-                    type: 'NEWGAME'
-                });
-
-                news.save(function (err) {
-                    if (err) {
-                        console.log(err);
-                        throw new Error('initialize news failed');
-                    } else {
-                        console.log('initialize news success');
-                        callback(null);
-                    }
-                });
+                repositories.addNews(callback, new Date(), 'NEWGAME');
+            },
+            function () {
+                console.log('initialize news success');
             }
         ]);
     };
 
 
-    this.initializeUsers = function (userModel, npc) {
+    this.initializeUsers = function (repositories, npc) {
         async.waterfall([
             function (callback) {
-                userModel.remove({}, function (err) {
-                    if (err) {
-                        console.log(err);
-                        throw new Error('truncate user failed');
-                    }
-
-                    callback(null);
-                });
+                repositories.truncateUsers(callback);
             },
             function () {
                 for (var i in npc) {
-                    var newUser = new userModel(npc[i]);
-                    newUser.save();
+                    repositories.addUserByObject(null, npc[i]);
                 }
 
                 console.log('initialize user success');
@@ -470,42 +371,52 @@ module.exports = function () {
 
 
     /**
-     * 리셋
+     * 게임실행 및 리셋
+     *
+     * @param repositories
+     * @param properties
+     * @param items
+     * @param util
+     * @param io
      */
-    this.initialize = function (groupModel, placeModel, serverModel, newsModel, userModel, winnerModel, util, io) {
-        that.initializeGroups(groupModel, util.getGroups(), util.getMaxGroups());
-        that.initializeServerFlag(serverModel);
-        that.initializePlaces(placeModel, serverModel, userModel, newsModel, winnerModel, util, io);
-        that.initializeNews(newsModel);
-        that.initializeUsers(userModel, require('./../config/npc'));
+    this.initialize = function (repositories, properties, items, util, io) {
+        that.initializeGroups(repositories, properties.groups, properties.maxGroups);
+        that.initializeServerFlag(repositories);
+        that.initializePlaces(repositories, properties ,items, util, io);
+        that.initializeNews(repositories);
+        that.initializeUsers(repositories, require('./../config/npc'));
     };
 
 
     /**
      * 가입 시도 검사
      *
-     * @param userModel
-     * @param serverModel
+     * @param repositories
      * @param remoteAddress
      * @param respawnTime
      * @param maxRecruitTime
      * @param maxRecruitMember
      * @param callback
      */
-    this.checkSignup = function (userModel, serverModel, remoteAddress, respawnTime, maxRecruitTime,
-                                 maxRecruitMember, callback) {
+    this.checkSignup = function (repositories, remoteAddress, respawnTime, maxRecruitTime, maxRecruitMember, callback) {
         var resultStatus = 0;   // normal;
         var options = {};
 
         async.parallel({
             userCountAll: function (cb) {
-                userModel.count({npc: false}).exec(cb);
+                repositories.countUser(function (result) {
+                    cb(null, result);
+                }, {npc: false});
             },
             userFindByIp: function (cb) {
-                userModel.find({npc: false, ip: remoteAddress}).exec(cb);
+                repositories.getUsers(function (entries) {
+                    cb(null, entries);
+                }, {npc: false, ip: remoteAddress});
             },
             flag: function (cb) {
-                serverModel.findOne({}).exec(cb);
+                repositories.getServerFlag(function (entry) {
+                    cb(null, entry);
+                });
             }
         }, function (err, result) {
             if (err) {
@@ -522,22 +433,22 @@ module.exports = function () {
 
             // 테스트를 위해서 중복가입 허용
             /*
-            for (var i = 0; result.userFindByIp.length; i++) {
-                var current = result.userFindByIp[i];
-                if (0 >= current.health && respawnTime > timeStamp - new Date(current.deathAt).getTime()) {
-                    isExist = false;
-                    isDead = false;
-                } else if (0 >= current.health) {
-                    isExist = true;
-                    isDead = true;
-                    rebornTime = current.deathAt;
-                    break;
-                } else {
-                    isExist = true;
-                    break;
-                }
-            }
-            */
+             for (var i = 0; result.userFindByIp.length; i++) {
+             var current = result.userFindByIp[i];
+             if (0 >= current.health && respawnTime > timeStamp - new Date(current.deathAt).getTime()) {
+             isExist = false;
+             isDead = false;
+             } else if (0 >= current.health) {
+             isExist = true;
+             isDead = true;
+             rebornTime = current.deathAt;
+             break;
+             } else {
+             isExist = true;
+             break;
+             }
+             }
+             */
 
             options.rebornTime = rebornTime;
 
@@ -559,9 +470,7 @@ module.exports = function () {
     /**
      * 가입 POST 후 검사
      *
-     * @param userModel
-     * @param serverModel
-     * @param groupModel
+     * @param repositories
      * @param remoteAddress
      * @param respawnTime
      * @param maxRecruitTime
@@ -573,13 +482,12 @@ module.exports = function () {
      * @param formValidation
      * @param callback
      */
-    this.validSignup = function (userModel, serverModel, groupModel, remoteAddress, respawnTime, maxRecruitTime,
+    this.validSignup = function (repositories, remoteAddress, respawnTime, maxRecruitTime,
                                  maxRecruitMember, maxGroups, groupPerMan, gameIcons, expressRequest, formValidation,
                                  callback) {
         async.parallel({
             beforeCheck: function (cb) {
-                that.checkSignup(userModel, serverModel, remoteAddress, respawnTime, maxRecruitTime,
-                    maxRecruitMember, cb);
+                that.checkSignup(repositories, remoteAddress, respawnTime, maxRecruitTime, maxRecruitMember, cb);
             },
             formCheck: function (cb) {
                 expressRequest.checkBody(formValidation(expressRequest.body.password));
@@ -611,7 +519,7 @@ module.exports = function () {
             },
             groupCount: function (cb) {
                 that.validGroupByGender(
-                    groupModel,
+                    repositories,
                     expressRequest.body.userGender,
                     maxGroups,
                     groupPerMan,
@@ -648,9 +556,7 @@ module.exports = function () {
      * 가입 / DB 기록
      *
      * @param passport
-     * @param userModel
-     * @param groupModel
-     * @param newsModel
+     * @param repositories
      * @param remoteAddress
      * @param expressRequest
      * @param expressResponse
@@ -668,165 +574,160 @@ module.exports = function () {
      * @param items
      */
     this.signup
-        = function (passport, userModel, groupModel, newsModel, remoteAddress, expressRequest, expressResponse, attack,
+        = function (passport, repositories, remoteAddress, expressRequest, expressResponse, attack,
                     defence, health, stamina, requireExp, groupName, studentNo, clubId, clubName, skillMap,
                     armorBody, items) {
 
-        userModel.register(new userModel({
-            username: expressRequest.body.username,
-            userGender: expressRequest.body.userGender,
-            userIcon: expressRequest.body.userIcon,
-            message: expressRequest.body.message,
-            messageDying: expressRequest.body.messageDying,
-            messageComment: expressRequest.body.messageComment,
-            ip: remoteAddress,
-            npc: false,
-
-            // character stats
-            attack: attack,
-            defence: defence,
-            health: health,
-            maxHealth: health,
-            stamina: stamina,
-            killCount: 0,
-            level: 1,
-            requireExp: requireExp,
-            injured: [],
-            place: 0,
-            status: 0,
-            statusChangedAt: new Date(),
-            joinedAt: new Date(),
-
-            // battle
-            prevAttacker: '',
-            prevLog: '',
-            deathCause: '',
-            deathType: 0,
-            deathAt: null,
-
-            // character extends
-            groupName: groupName,
-            studentNo: studentNo,
-            clubId: clubId,
-            clubName: clubName,
-            tactics: 0,
-
-            // skills
-            shotSkill: skillMap.shotSkill,
-            cutSkill: skillMap.cutSkill,
-            throwSkill: skillMap.throwSkill,
-            fistSkill: skillMap.fistSkill,
-            bowSkill: skillMap.bowSkill,
-            meleeSkill: skillMap.meleeSkill,
-            bombSkill: skillMap.bombSkill,
-            pokeSkill: skillMap.pokeSkill,
-
-            // equip
-            weapon: {idx: 'weaponDefault', point: 0, endurance: 0},
-            armor: {
-                head: {idx: '', point: 0, endurance: 0},
-                body: armorBody,
-                arm: {idx: '', point: 0, endurance: 0},
-                foot: {idx: '', point: 0, endurance: 0},
-                accessory: {idx: '', point: 0, endurance: 0}
-            },
-
-            // items
-            item0: items.item0,
-            item1: items.item1,
-            item2: items.item2,
-            item3: items.item3,
-            item4: items.item4,
-            item5: items.item5
-        }), expressRequest.body.password, function (err, user) {
-            if (err) {
-                if (typeof err.message !== 'undefined') {
-                    expressRequest.flash('error', err.message);
-                } else {
-                    expressRequest.flash('error', '데이터 저장 중 에러가 발생하였습니다.');
-                }
-
-                expressResponse.redirect('/signup');
-            } else {
-                groupModel.findOne({name: groupName}, function (err, group) {
-                    if (err) {
-                        console.log(err);
-                    }
-
-                    group.totalCount++;
-                    if (0 == expressRequest.body.userGender) {
-                        group.maleCount++;
+        repositories.registerUser(
+            function(err){
+                if (err) {
+                    if (typeof err.message !== 'undefined') {
+                        expressRequest.flash('error', err.message);
                     } else {
-                        group.femaleCount++;
+                        expressRequest.flash('error', '데이터 저장 중 에러가 발생하였습니다.');
                     }
 
-                    group.save(function (err) {
-                        if (err) {
-                            console.log(err);
+                    expressResponse.redirect('/signup');
+                } else {
+                    repositories.getGroup(function (group) {
+                        group.totalCount++;
+                        if (0 == expressRequest.body.userGender) {
+                            group.maleCount++;
+                        } else {
+                            group.femaleCount++;
                         }
+
+                        group.save(function (err) {
+                            if (err) {
+                                console.log(err);
+                            }
+                        });
+                    }, {name: groupName});
+
+                    repositories.addNews(
+                        null,
+                        new Date(),
+                        'ENTRY',
+                        undefined,
+                        undefined,
+                        {
+                            username: expressRequest.body.username,
+                            userGender: expressRequest.body.userGender,
+                            groupName: groupName,
+                            studentNo: studentNo
+                        }
+                    );
+
+                    passport.authenticate('local')(expressRequest, expressResponse, function () {
+                        expressResponse.redirect('/intro');
                     });
-                });
+                }
+            },
+            {
+                username: expressRequest.body.username,
+                userGender: expressRequest.body.userGender,
+                userIcon: expressRequest.body.userIcon,
+                message: expressRequest.body.message,
+                messageDying: expressRequest.body.messageDying,
+                messageComment: expressRequest.body.messageComment,
+                ip: remoteAddress,
+                npc: false,
 
-                var news = new newsModel({
-                    registerAt: new Date(),
-                    type: 'ENTRY',
-                    victim: {
-                        username: expressRequest.body.username,
-                        userGender: expressRequest.body.userGender,
-                        groupName: groupName,
-                        studentNo: studentNo
-                    }
-                });
+                // character stats
+                attack: attack,
+                defence: defence,
+                health: health,
+                maxHealth: health,
+                stamina: stamina,
+                killCount: 0,
+                level: 1,
+                requireExp: requireExp,
+                injured: [],
+                place: 0,
+                status: 0,
+                statusChangedAt: new Date(),
+                joinedAt: new Date(),
 
-                news.save();
+                // battle
+                prevAttacker: '',
+                prevLog: '',
+                deathCause: '',
+                deathType: 0,
+                deathAt: null,
 
-                passport.authenticate('local')(expressRequest, expressResponse, function () {
-                    expressResponse.redirect('/intro');
-                });
-            }
-        });
+                // character extends
+                groupName: groupName,
+                studentNo: studentNo,
+                clubId: clubId,
+                clubName: clubName,
+                tactics: 0,
+
+                // skills
+                shotSkill: skillMap.shotSkill,
+                cutSkill: skillMap.cutSkill,
+                throwSkill: skillMap.throwSkill,
+                fistSkill: skillMap.fistSkill,
+                bowSkill: skillMap.bowSkill,
+                meleeSkill: skillMap.meleeSkill,
+                bombSkill: skillMap.bombSkill,
+                pokeSkill: skillMap.pokeSkill,
+
+                // equip
+                weapon: {idx: 'weaponDefault', point: 0, endurance: 0},
+                armor: {
+                    head: {idx: '', point: 0, endurance: 0},
+                    body: armorBody,
+                    arm: {idx: '', point: 0, endurance: 0},
+                    foot: {idx: '', point: 0, endurance: 0},
+                    accessory: {idx: '', point: 0, endurance: 0}
+                },
+
+                // items
+                item0: items.item0,
+                item1: items.item1,
+                item2: items.item2,
+                item3: items.item3,
+                item4: items.item4,
+                item5: items.item5
+            },
+            expressRequest.body.password
+        );
     };
 
 
     /**
      * 학급 조회해서 남녀 가입유무 판단
      *
-     * @param groupModel
+     * @param repositories
      * @param isFemale
      * @param maxGroups
      * @param groupPerMan
      * @param callback
      */
-    this.validGroupByGender = function (groupModel, isFemale, maxGroups, groupPerMan, callback) {
+    this.validGroupByGender = function (repositories, isFemale, maxGroups, groupPerMan, callback) {
         var resultStatus = true;   // normal;
+        repositories.getGroups(function(groups){
+            var groupCount = 1;
+            for (var i in groups) {
+                var group = groups[i];
 
-        groupModel.find({}).exec(function (err, groups) {
-            if (err) {
-                console.log(err);
-                callback(err);
-            } else {
-                var groupCount = 1;
-                for (var i in groups) {
-                    var group = groups[i];
-
-                    if (group.totalCount >= (groupPerMan * 2)
-                        && maxGroups >= groupCount) {
-                        continue;
-                    }
-
-                    if (!isFemale && group.maleCount >= groupPerMan) {
-                        resultStatus = false;
-                    } else if (isFemale && group.femaleCount >= groupPerMan) {
-                        resultStatus = false;
-                    } else {
-                        break;
-                    }
-
-                    groupCount++;
+                if (group.totalCount >= (groupPerMan * 2)
+                    && maxGroups >= groupCount) {
+                    continue;
                 }
 
-                callback(null, resultStatus, group);
+                if (!isFemale && group.maleCount >= groupPerMan) {
+                    resultStatus = false;
+                } else if (isFemale && group.femaleCount >= groupPerMan) {
+                    resultStatus = false;
+                } else {
+                    break;
+                }
+
+                groupCount++;
             }
+
+            callback(null, resultStatus, group);
         });
     };
 
@@ -834,36 +735,26 @@ module.exports = function () {
     /**
      * 계정 정보 리턴
      *
-     * @param userModel
+     * @param repositories
      * @param username
      * @param callback
      */
-    this.getUserInfo = function (userModel, username, callback) {
-        userModel.findOne({username: username}, function (err, user) {
-            if (err) {
-                console.log(err);
-                callback(err);
-            } else {
-                callback(null, user);
-            }
-        });
+    this.getUserInfo = function (repositories, username, callback) {
+        repositories.getUser(function(user){
+            callback(null, user);
+        }, {username: username});
     };
 
 
     /**
      * 위치 정보 리턴
      *
-     * @param placeModel
+     * @param repositories
      * @param callback
      */
-    this.getPlacesInfo = function (placeModel, callback) {
-        placeModel.find({}, function (err, places) {
-            if (err) {
-                console.log(err);
-                callback(err);
-            } else {
-                callback(null, places);
-            }
+    this.getPlacesInfo = function (repositories, callback) {
+        repositories.getPlaces(function(places){
+            callback(null, places);
         });
     };
 
@@ -871,17 +762,12 @@ module.exports = function () {
     /**
      * 서버 정보 리턴
      *
-     * @param serverModel
+     * @param repositories
      * @param callback
      */
-    this.getServerInfo = function (serverModel, callback) {
-        serverModel.findOne({}, function (err, server) {
-            if (err) {
-                console.log(err);
-                callback(err);
-            } else {
-                callback(null, server);
-            }
+    this.getServerInfo = function (repositories, callback) {
+        repositories.getServerFlag(function(server){
+            callback(null, server);
         });
     };
 
@@ -889,29 +775,27 @@ module.exports = function () {
     /**
      * 계정 + 위치
      *
-     * @param userModel
-     * @param placeModel
-     * @param serverModel
+     * @param repositories
      * @param username
      * @param callback
      */
-    this.getBasicInfo = function (userModel, placeModel, serverModel, username, callback) {
+    this.getBasicInfo = function (repositories, username, callback) {
         async.parallel({
             account: function (cb) {
-                that.getUserInfo(userModel, username, cb);
+                that.getUserInfo(repositories, username, cb);
             },
             place: function (cb) {
-                that.getPlacesInfo(placeModel, cb);
+                that.getPlacesInfo(repositories, cb);
             },
             server: function (cb) {
-                that.getServerInfo(serverModel, cb);
+                that.getServerInfo(repositories, cb);
             }
         }, function (err, result) {
             if (err) {
                 console.log(err);
                 callback(err);
             } else {
-                callback(err, result);
+                callback(null, result);
             }
         });
     };

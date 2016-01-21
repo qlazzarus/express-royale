@@ -2,31 +2,12 @@
  * Created by monoless on 2015-12-08.
  */
 module.exports = (function () {
-    var gameConfig = {};
-    var itemConfig = {};
-
-
-    /**
-     * 설정값 추가
-     *
-     * @param config
-     */
-    function setGameConfig(config) {
-        gameConfig = config;
-    }
-
-
-    function setItemConfig(config) {
-        itemConfig = config;
-    }
-
-
     /**
      * 체력 상태 출력
      *
      * @param maxHealth
      * @param health
-     * @returns {{name:String, color:String}}
+     * @returns {number}
      */
     function getHealthStatus(maxHealth, health) {
         var statusId = 0;
@@ -48,12 +29,7 @@ module.exports = (function () {
             statusId = 4;
         }
 
-        var status = gameConfig.status[statusId];
-        if (typeof status === 'undefined') {
-            status = {};
-        }
-
-        return status;
+        return statusId;
     }
 
 
@@ -78,83 +54,15 @@ module.exports = (function () {
 
 
     /**
-     * 스킬 설명
-     *
-     * @returns {{}}
-     */
-    function getSkills() {
-        return gameConfig.skills;
-    }
-
-
-    /**
-     * 응급처치 스테미너 소모
-     *
-     * @returns {number}
-     */
-    function getFirstAidStamina() {
-        return gameConfig.firstAidStamina;
-    }
-
-
-    /**
-     * 독약 체크 스테미너 소모
-     *
-     * @returns {number}
-     */
-    function getDetoxStamina() {
-        return gameConfig.detoxStamina;
-    }
-
-
-    /**
-     * 전략 설명
-     *
-     * @returns {Array}
-     */
-    function getTactics() {
-        return gameConfig.tactics;
-    }
-
-
-    /**
-     * 전역 등장 아이템 추가
-     *
-     * @returns {Array}
-     */
-    function getGlobalLooted() {
-        return gameConfig.globalLooted;
-    }
-
-
-    function getStaminaRecoverInterval() {
-        return gameConfig.staminaRecoverInterval;
-    }
-
-
-    function getStaminaRecoverIncrease() {
-        return gameConfig.staminaRecoverIncrease;
-    }
-
-
-    function getHealthRecoverInterval() {
-        return gameConfig.healthRecoverInterval;
-    }
-
-
-    function getHealthRecoverIncrease() {
-        return gameConfig.healthRecoverIncrease;
-    }
-
-
-    /**
      * 초당 스테미너 회복
      *
      * @param second
+     * @param interval
+     * @param increase
      * @returns {Number}
      */
-    function getRecoverStamina(second) {
-        return Math.floor((second / gameConfig.staminaRecoverInterval) * gameConfig.staminaRecoverIncrease);
+    function getRecoverStamina(second, interval, increase) {
+        return Math.floor((second / interval) * increase);
     }
 
 
@@ -162,273 +70,19 @@ module.exports = (function () {
      * 초당 체력 회복
      *
      * @param second
+     * @param interval
+     * @param increase
      * @returns {Number}
      */
-    function getRecoverHealth(second) {
-        return Math.floor((second / gameConfig.healthRecoverInterval) * gameConfig.healthRecoverIncrease);
-    }
-
-
-    /**
-     * 공격 기본수치
-     *
-     * @returns {number}
-     */
-    function getAttack() {
-        return gameConfig.attack;
-    }
-
-
-    /**
-     * 방어 기본수치
-     *
-     * @returns {number}
-     */
-    function getDefence() {
-        return gameConfig.defence;
-    }
-
-
-    /**
-     * 체력 기본수치
-     *
-     * @returns {number}
-     */
-    function getHealth() {
-        return gameConfig.health;
-    }
-
-
-    /**
-     * 공격 기본수치 증가치
-     *
-     * @returns {number}
-     */
-    function getAttackMaxIncrease() {
-        return gameConfig.attackMaxIncrease;
-    }
-
-
-    /**
-     * 방어 기본수치 증가치
-     *
-     * @returns {number}
-     */
-    function getDefenceMaxIncrease() {
-        return gameConfig.defenceMaxIncrease;
-    }
-
-
-    /**
-     * 체력 기본수치 증가치
-     *
-     * @returns {number}
-     */
-    function getHealthMaxIncrease() {
-        return gameConfig.healthMaxIncrease;
-    }
-
-
-    /**
-     * 스테미너 기본수치
-     *
-     * @returns {number}
-     */
-    function getMaxStamina() {
-        return gameConfig.maxStamina;
-    }
-
-
-    /**
-     * 레벨당 경험치
-     *
-     * @returns {number}
-     */
-    function getExpPerLevel() {
-        return gameConfig.expPerLevel;
-    }
-
-
-    /**
-     * 레벨당 경험치 증가치
-     *
-     * @returns {number}
-     */
-    function getExpIncrease() {
-        return gameConfig.expIncrease;
-    }
-
-
-    /**
-     * 동아리
-     *
-     * @returns {Array}
-     */
-    function getClubs() {
-        return gameConfig.clubs;
-    }
-
-
-    /**
-     * 학급명 리턴
-     *
-     * @returns {Array}
-     */
-    function getGroups() {
-        return gameConfig.groups;
-    }
-
-
-    /**
-     * 최대 학급 수 리턴
-     *
-     * @returns {number}
-     */
-    function getMaxGroups() {
-        return gameConfig.maxGroups;
-    }
-
-
-    /**
-     * 학급당 최대 남학생(여학생) 후
-     *
-     * @return {number}
-     */
-    function getGroupPerMan() {
-        return gameConfig.groupPerMan;
-    }
-
-
-    /**
-     * 가입기간
-     *
-     * @returns {number}
-     */
-    function getMaxRecruitTime() {
-        return gameConfig.maxRecruitTime;
-    }
-
-
-    /**
-     * 최대 가입자 수 제한
-     *
-     * @returns {number}
-     */
-    function getMaxRecruitMember() {
-        return gameConfig.maxRecruitMember;
-    }
-
-
-    /**
-     * 스킬 경험치 리턴
-     *
-     * @returns {number}
-     */
-    function getExpPerSkillLevel() {
-        return gameConfig.expPerSkillLevel;
-    }
-
-
-    /**
-     * 캐릭터 재생성 시간
-     *
-     * @returns {number}
-     */
-    function getRespawnTime() {
-        return gameConfig.respawnTime;
-    }
-
-
-    /**
-     * 지역 정보 리턴
-     *
-     * @returns {{}}
-     */
-    function getPlaces() {
-        return gameConfig.places;
-    }
-
-
-    /**
-     * 지역 정보 출력
-     *
-     * @param placeId
-     * @returns {{}}
-     */
-    function getPlaceInfo(placeId) {
-        return gameConfig.places[placeId];
-    }
-
-
-    /**
-     * 지역 이름 출력
-     *
-     * @param placeId
-     * @returns {string}
-     */
-    function getPlaceName(placeId) {
-        return getPlaceInfo(placeId).name;
-    }
-
-
-    /**
-     * 지역 대사 리턴
-     *
-     * @param placeId
-     * @returns {string}
-     */
-    function getPlaceMessage(placeId) {
-        return getPlaceInfo(placeId).message;
-    }
-
-
-    /**
-     * 지역 스텟
-     *
-     * @param placeId
-     * @returns {string}
-     */
-    function getPlaceSpecialize(placeId) {
-        return getPlaceInfo(placeId).specialize;
-    }
-
-
-    /**
-     * 아이콘 정보 리턴
-     *
-     * @returns {Array}
-     */
-    function getIcons() {
-        return gameConfig.icons;
-    }
-
-
-    /**
-     * 아이템 리턴
-     *
-     * @param itemId
-     * @returns {{}}
-     */
-    function getItem(itemId) {
-        if (itemId instanceof Array) {
-            var result = {};
-            for (var i in itemId) {
-                var item = getItem(itemId[i]);
-                if (typeof item !== 'undefined') {
-                    result[itemId[i]] = item;
-                }
-            }
-
-            return result;
-        } else {
-            return itemConfig.items[itemId];
-        }
+    function getRecoverHealth(second, interval, increase) {
+        return Math.floor((second / interval) * increase);
     }
 
 
     /**
      * 아이템 종류에 따른 아이템 슬롯 리턴
      *
+     * @param items
      * @param equipType
      * @param item0
      * @param item1
@@ -438,11 +92,11 @@ module.exports = (function () {
      * @param item5
      * @returns {null|string}
      */
-    function findItemSlotByEquip(equipType, item0, item1, item2, item3, item4, item5) {
+    function findItemSlotByEquip(items, equipType, item0, item1, item2, item3, item4, item5) {
         var resultSlot = null;
         var inventories = [item0, item1, item2, item3, item4, item5];
         for (var i in inventories) {
-            var itemInfo = getItem(inventories[i].idx);
+            var itemInfo = items.getInfo(inventories[i].idx);
             if (typeof itemInfo !== 'undefined' && equipType === itemInfo.equip) {
                 resultSlot = 'item' + i;
                 break;
@@ -457,9 +111,15 @@ module.exports = (function () {
      * 회복 상태 출력
      *
      * @param target
+     * @param staminaRecoverInterval
+     * @param staminaRecoverIncrease
+     * @param healthRecoverInterval
+     * @param healthRecoverIncrease
+     * @param maxStamina
      * @returns {string}
      */
-    function setRecover(target) {
+    function setRecover(target, staminaRecoverInterval, staminaRecoverIncrease, healthRecoverInterval,
+                        healthRecoverIncrease, maxStamina) {
         var currentTime = Date.now();
         var activeTime = new Date(target.statusChangedAt).getTime();
         if (isNaN(activeTime)) {
@@ -470,22 +130,22 @@ module.exports = (function () {
         var recoverTime = Math.abs(Math.floor((currentTime - activeTime) / 1000));
         var recoverLog = '';
         if (5 === target.status && recoverTime > 0) {
-            recover = getRecoverHealth(recoverTime);
+            recover = getRecoverHealth(recoverTime, healthRecoverInterval, healthRecoverIncrease);
             recoverLog = '치료 결과, 체력이 ' + recover + ' 회복 되었다.';
             target.health += recover;
             if (target.maxHealth < target.health) {
                 target.health = target.maxHealth;
             }
         } else if (6 === target.status && recoverTime > 0) {
-            recover = getRecoverStamina(recoverTime);
+            recover = getRecoverStamina(recoverTime, staminaRecoverInterval, staminaRecoverIncrease);
             if (recover > 0 && -1 !== target.injured.indexOf('body')) {
                 target = parseInt(recover / 2);
             }
 
             recoverLog = '수면 결과, 스테미너가 ' + recover + ' 회복 되었다.';
             target.stamina += recover;
-            if (getMaxStamina() < target.stamina) {
-                target.stamina = getMaxStamina();
+            if (maxStamina < target.stamina) {
+                target.stamina = maxStamina;
             }
         }
 
@@ -532,12 +192,12 @@ module.exports = (function () {
     /**
      * 아이템 합성
      *
+     * @param mixItems
      * @param itemFrom
      * @param itemTo
      */
-    function getMixItem(itemFrom, itemTo) {
+    function getMixItem(mixItems, itemFrom, itemTo) {
         var result = null;
-        var mixItems = itemConfig.mixItems;
         for (var i in mixItems) {
             var entry = mixItems[i];
             if (-1 !== entry.material.indexOf(itemFrom) && -1 !== entry.material.indexOf(itemTo)) {
@@ -594,39 +254,6 @@ module.exports = (function () {
      */
     function dice(maxValue) {
         return Math.floor(Math.random() * (maxValue + 1));
-    }
-
-
-    /**
-     * 아이템 랜덤으로 뽑아오기
-     *
-     * @param itemList
-     * @returns {{}}
-     */
-    function getRandomItem(itemList) {
-        var itemId = itemList[dice(itemList.length - 1)];
-
-        return getItem(itemId);
-    }
-
-
-    /**
-     * 보급 아이템
-     *
-     * @returns {Array}
-     */
-    function getSupplyItems() {
-        return itemConfig.supplyItems;
-    }
-
-
-    /**
-     * 개인 아이템
-     *
-     * @returns {Array}
-     */
-    function getPersonalItems() {
-        return itemConfig.personalItems;
     }
 
 
@@ -724,10 +351,10 @@ module.exports = (function () {
      * 동아리에 따른 능력치 결정
      *
      * @param clubId
+     * @param expPerSkillLevel
      * @returns {{cutSkill: number, throwSkill: number, fistSkill: number, meleeSkill: number, bombSkill: number, pokeSkill: number, bowSkill: number, shotSkill: number}}
      */
-    function getSkillByClubId(clubId) {
-        var expPerSkillLevel = getExpPerSkillLevel();
+    function getSkillByClubId(clubId, expPerSkillLevel) {
         var result = {
             cutSkill: 0,
             throwSkill: 0,
@@ -834,6 +461,7 @@ module.exports = (function () {
     /**
      * 데미지 계산
      *
+     * @param items
      * @param userAttack
      * @param userDamage
      * @param enemyDefence
@@ -843,12 +471,14 @@ module.exports = (function () {
      * @param armorAccessory
      * @returns {number}
      */
-    function getTotalDamage(userAttack, userDamage, enemyDefence, skillName, armorBody, armorHead, armorAccessory) {
+    function getTotalDamage(items, userAttack, userDamage, enemyDefence, skillName, armorBody, armorHead,
+                            armorAccessory) {
         var result = parseInt(userAttack * userDamage / 100) - enemyDefence;
         result /= 2;
         result += dice(result);
 
         var equipBuff = getEquipCounter(
+            items,
             skillName,
             armorBody,
             armorHead,
@@ -867,22 +497,12 @@ module.exports = (function () {
     /**
      * 프로그램 최저 개최일수
      *
+     * @param minimumBattleTime
      * @param gameStart
      * @returns {boolean}
      */
-    function isBattleOver(gameStart) {
-        return (Date.now() - gameStart.getTime()) > gameConfig.minimumBattleTime;
-    }
-
-
-    /**
-     * 가입 제한 체크
-     *
-     * @param gameStart
-     * @returns {boolean}
-     */
-    function isJoinOver(gameStart) {
-        return (Date.now() - gameStart.getTime()) > gameConfig.maxRecruitTime;
+    function isBattleOver(minimumBattleTime, gameStart) {
+        return (Date.now() - gameStart.getTime()) > minimumBattleTime;
     }
 
 
@@ -911,9 +531,11 @@ module.exports = (function () {
      * @param attack
      * @param defence
      * @param requireExp
+     * @param expPerLevel
+     * @param expIncrease
      * @returns {{status: boolean, maxHealth: *, attack: *, defence: *, level: *, requireExp: number}}
      */
-    function setLevelUp(level, maxHealth, attack, defence, requireExp) {
+    function setLevelUp(level, maxHealth, attack, defence, requireExp, expPerLevel, expIncrease) {
         var result = {
             status: false,
             maxHealth: maxHealth,
@@ -929,7 +551,7 @@ module.exports = (function () {
             result.attack += dice(3) + 2;
             result.defence += dice(3) + 2;
             result.level++;
-            result.requireExp = getExpPerLevel() + getExpIncrease() * result.level;
+            result.requireExp = expPerLevel + expIncrease * result.level;
         }
 
         return result;
@@ -979,12 +601,12 @@ module.exports = (function () {
      *
      * @param socket
      * @param placeId
+     * @param placeName
      * @param broadType
      * @param broadUser
      * @param broadMessage
      */
-    function broadcastToAll(socket, placeId, broadType, broadUser, broadMessage) {
-        var placeName = getPlaceName('place' + placeId);
+    function broadcastToAll(socket, placeId, placeName, broadType, broadUser, broadMessage) {
         var result = {
             type: 'broadcast',
             log: '',
@@ -1026,21 +648,30 @@ module.exports = (function () {
     /**
      * 사망내용 대상자 전송
      *
-     * @param socket
+     * @param items
+     * @param io
+     * @param expPerSkillLevel
+     * @param skills
+     * @param tactics
+     * @param staminaRecoverInterval
+     * @param staminaRecoverIncrease
+     * @param healthRecoverInterval
+     * @param healthRecoverIncrease
      * @param victim
      */
-    function deathInfoToVictim(io, victim) {
+    function deathInfoToVictim(items, io, expPerSkillLevel, skills, tactics, staminaRecoverInterval,
+                               staminaRecoverIncrease, healthRecoverInterval, healthRecoverIncrease, victim) {
         var res = {
             type: 'killed',
             account: victim,
             config: {
-                expPerSkillLevel: getExpPerSkillLevel(),
-                skills: getSkills(),
-                tactics: getTactics(),
-                staminaRecoverInterval: getStaminaRecoverInterval(),
-                staminaRecoverIncrease: getStaminaRecoverIncrease(),
-                healthRecoverInterval: getHealthRecoverInterval(),
-                healthRecoverIncrease: getHealthRecoverIncrease()
+                expPerSkillLevel: expPerSkillLevel,
+                skills: skills,
+                tactics: tactics,
+                staminaRecoverInterval: staminaRecoverInterval,
+                staminaRecoverIncrease: staminaRecoverIncrease,
+                healthRecoverInterval: healthRecoverInterval,
+                healthRecoverIncrease: healthRecoverIncrease
             },
             itemList: [],
             log: [
@@ -1060,7 +691,7 @@ module.exports = (function () {
             res.account[itemList[i]].point = Math.abs(victim[itemList[i]].point);
         }
 
-        res.itemList = getItem([
+        res.itemList = items.getInfo([
             victim.weapon.idx,
             victim.armor.head.idx,
             victim.armor.body.idx,
@@ -1082,14 +713,24 @@ module.exports = (function () {
     /**
      * broadcast attack
      *
+     * @param items
      * @param socket
+     * @param expPerSkillLevel
+     * @param skills
+     * @param tactics
+     * @param staminaRecoverInterval
+     * @param staminaRecoverIncrease
+     * @param healthRecoverInterval
+     * @param healthRecoverIncrease
      * @param victim
      * @param assault
      * @param damagePoint
      * @param counterPoint
      * @param counterResult
      */
-    function battleInfoToVictim(socket, victim, assault, damagePoint, counterResult, counterPoint) {
+    function battleInfoToVictim(items, socket, expPerSkillLevel, skills, tactics, staminaRecoverInterval,
+                                staminaRecoverIncrease, healthRecoverInterval, healthRecoverIncrease, victim, assault,
+                                damagePoint, counterResult, counterPoint) {
         var currentDate = new Date();
         var hour = currentDate.getHours();
         var min = currentDate.getMinutes();
@@ -1110,13 +751,13 @@ module.exports = (function () {
             type: 'attackBroadcast',
             account: victim,
             config: {
-                expPerSkillLevel: getExpPerSkillLevel(),
-                skills: getSkills(),
-                tactics: getTactics(),
-                staminaRecoverInterval: getStaminaRecoverInterval(),
-                staminaRecoverIncrease: getStaminaRecoverIncrease(),
-                healthRecoverInterval: getHealthRecoverInterval(),
-                healthRecoverIncrease: getHealthRecoverIncrease()
+                expPerSkillLevel: expPerSkillLevel,
+                skills: skills,
+                tactics: tactics,
+                staminaRecoverInterval: staminaRecoverInterval,
+                staminaRecoverIncrease: staminaRecoverIncrease,
+                healthRecoverInterval: healthRecoverInterval,
+                healthRecoverIncrease: healthRecoverIncrease
             },
             itemList: [],
             log: [
@@ -1143,7 +784,7 @@ module.exports = (function () {
             res.account[itemList[i]].point = Math.abs(res.account[itemList[i]].point);
         }
 
-        res.itemList = getItem([
+        res.itemList = items.getInfo([
             res.account.weapon.idx,
             res.account.armor.head.idx,
             res.account.armor.body.idx,
@@ -1185,14 +826,16 @@ module.exports = (function () {
     /**
      * 전투 계산
      *
+     * @param items
      * @param user
      * @param skillType
      * @param enemy
      * @param strikeBack
+     * @param expPerSkillLevel
      * @param eventLog
      * @returns {{damage: number, critical: boolean, injured: string, alert: boolean, weaponDestroy: boolean, eventLog: [], user: {}, enemy: {}}}
      */
-    function getBattleResult(user, skillType, enemy, strikeBack, eventLog) {
+    function getBattleResult(items, user, skillType, enemy, strikeBack, expPerSkillLevel, eventLog) {
         var res = {
             damage: 0,
             critical: false,
@@ -1205,7 +848,7 @@ module.exports = (function () {
         };
 
         var attackName = strikeBack ? '반격' : '공격';
-        var weapon = getItem(user.weapon.idx);
+        var weapon = items.getInfo(user.weapon.idx);
         var destroyPercent = 0;
         var injurePercent = 0;
         var injurePart = [];
@@ -1300,7 +943,7 @@ module.exports = (function () {
             }
         }
 
-        skillLevel = parseInt(skillLevel / getExpPerSkillLevel());
+        skillLevel = parseInt(skillLevel / expPerSkillLevel);
         res.damage = getDamageBySkillLevel(skillLevel, res.user.weapon.idx);
 
         // 무기 손상
@@ -1351,10 +994,20 @@ module.exports = (function () {
     }
 
 
-    function getEquipCounter(skillType, bodyId, headId, accessoryId) {
-        var body = getItem(bodyId);
-        var head = getItem(headId);
-        var accessory = getItem(accessoryId);
+    /**
+     * 크리티컬 확률 계산
+     *
+     * @param items
+     * @param skillType
+     * @param bodyId
+     * @param headId
+     * @param accessoryId
+     * @returns {number}
+     */
+    function getEquipCounter(items, skillType, bodyId, headId, accessoryId) {
+        var body = items.getInfo(bodyId);
+        var head = items.getInfo(headId);
+        var accessory = items.getInfo(accessoryId);
         var result = 100;
 
         if ('shotSkill' == skillType && typeof accessory !== 'undefined') {
@@ -1591,12 +1244,13 @@ module.exports = (function () {
     /**
      * 무기 소모율 계산
      *
+     * @param items
      * @param weapon
      * @param skillType
      * @returns {{}}
      */
-    function setConsumeWeapon(weapon, skillType) {
-        var weaponInfo = getItem(weapon.idx);
+    function setConsumeWeapon(items, weapon, skillType) {
+        var weaponInfo = items.getInfo(weapon.idx);
 
         if (true === weaponInfo.ammoRequire && 0 >= weapon.endurance) {
             skillType = 'meleeSkill';
@@ -1649,11 +1303,12 @@ module.exports = (function () {
     /**
      * 장소 관련된 정보 노출 최소화
      *
+     * @param placeArrange
+     * @param places
      * @returns {Array}
      */
-    function arrangePlaceInfo(places) {
+    function arrangePlaceInfo(placeArrange, places) {
         var result = [];
-        var placeArrange = gameConfig.placeArrange;
         for (var i in placeArrange) {
             var idx = placeArrange[i];
             for (var j in places) {
@@ -1677,8 +1332,9 @@ module.exports = (function () {
     /**
      * 공격자 공방수치 계산
      *
+     * @param items
      * @param tactics
-     * @param placeId
+     * @param specialize
      * @param injured
      * @param weapon
      * @param shotSkill
@@ -1689,10 +1345,11 @@ module.exports = (function () {
      * @param meleeSkill
      * @param bombSkill
      * @param pokeSkill
+     * @param expPerSkillLevel
      * @returns {{find: number, ambush: number, attack: number, defence: number, longRangeEngage: boolean, accuracyRate}}
      */
-    function getBattleRateByAttacker(tactics, placeId, injured, weapon, shotSkill, cutSkill, throwSkill, fistSkill,
-                                     bowSkill, meleeSkill, bombSkill, pokeSkill) {
+    function getBattleRateByAttacker(items, tactics, specialize, injured, weapon, shotSkill, cutSkill, throwSkill,
+                                     fistSkill, bowSkill, meleeSkill, bombSkill, pokeSkill, expPerSkillLevel) {
         var result = {
             find: 5,    // 적, 아이템 발견율
             ambush: 7,  // 선제공격율
@@ -1729,7 +1386,7 @@ module.exports = (function () {
             result.find += 6;
         }
 
-        var merged = getBattleRateByPlace(placeId, result.attack, result.defence, result.find);
+        var merged = getBattleRateByPlace(specialize, result.attack, result.defence, result.find);
         result.attack = merged.attack;
         result.defence = merged.defence;
         result.find = merged.find;
@@ -1738,8 +1395,8 @@ module.exports = (function () {
             result.attack -= 20;
         }
 
-        var weaponStatus = getBattleRateByWeapon(weapon, injured, shotSkill, cutSkill, throwSkill, fistSkill, bowSkill,
-            meleeSkill, bombSkill, pokeSkill);
+        var weaponStatus = getBattleRateByWeapon(items, weapon, injured, shotSkill, cutSkill, throwSkill, fistSkill, bowSkill,
+            meleeSkill, bombSkill, pokeSkill, expPerSkillLevel);
 
         result.longRangeEngage = weaponStatus.longRangeEngage;
         result.accuracyRate = weaponStatus.accuracyRate;
@@ -1751,9 +1408,10 @@ module.exports = (function () {
     /**
      * 방어자 공방수치 계산
      *
+     * @param items
      * @param status
      * @param tactics
-     * @param placeId
+     * @param specialize
      * @param injured
      * @param weapon
      * @param shotSkill
@@ -1764,10 +1422,11 @@ module.exports = (function () {
      * @param meleeSkill
      * @param bombSkill
      * @param pokeSkill
+     * @param expPerSkillLevel
      * @returns {{attack: number, defence: number, stealth: number, longRangeEngage: boolean, accuracyRate}}
      */
-    function getBattleRateByDefender(status, tactics, placeId, injured, weapon, shotSkill, cutSkill, throwSkill, fistSkill,
-                                     bowSkill, meleeSkill, bombSkill, pokeSkill) {
+    function getBattleRateByDefender(items, status, tactics, specialize, injured, weapon, shotSkill, cutSkill,
+                                     throwSkill, fistSkill, bowSkill, meleeSkill, bombSkill, pokeSkill, expPerSkillLevel) {
         var result = {
             attack: 100,   // 공격율
             defence: 100,  // 방어율
@@ -1806,7 +1465,7 @@ module.exports = (function () {
             result.stealth -= 30;
         }
 
-        var merged = getBattleRateByPlace(placeId, result.attack, result.defence, 0);
+        var merged = getBattleRateByPlace(specialize, result.attack, result.defence, 0);
         result.attack = merged.attack;
         result.defence = merged.defence;
 
@@ -1814,8 +1473,8 @@ module.exports = (function () {
             result.attack -= 20;
         }
 
-        var weaponStatus = getBattleRateByWeapon(weapon, injured, shotSkill, cutSkill, throwSkill, fistSkill, bowSkill,
-            meleeSkill, bombSkill, pokeSkill);
+        var weaponStatus = getBattleRateByWeapon(items, weapon, injured, shotSkill, cutSkill, throwSkill, fistSkill,
+            bowSkill, meleeSkill, bombSkill, pokeSkill, expPerSkillLevel);
 
         result.longRangeEngage = weaponStatus.longRangeEngage;
         result.accuracyRate = weaponStatus.accuracyRate;
@@ -1827,14 +1486,13 @@ module.exports = (function () {
     /**
      * 지역에 따른 공방수치 계산
      *
-     * @param placeId
+     * @param specialize
      * @param attack
      * @param defence
      * @param find
      * @returns {{attack: *, defence: *, find: *}}
      */
-    function getBattleRateByPlace(placeId, attack, defence, find) {
-        var specialize = getPlaceSpecialize('place' + placeId);
+    function getBattleRateByPlace(specialize, attack, defence, find) {
         var result = {
             attack: attack,
             defence: defence,
@@ -1862,6 +1520,7 @@ module.exports = (function () {
     /**
      * 무기+스킬에 따른 명중률 계산
      *
+     * @param items
      * @param weapon
      * @param injured
      * @param shotSkill
@@ -1872,18 +1531,19 @@ module.exports = (function () {
      * @param meleeSkill
      * @param bombSkill
      * @param pokeSkill
+     * @param expPerSkillLevel
      * @returns {{longRangeEngage: boolean, accuracyRate: number}}
      */
-    function getBattleRateByWeapon(weapon, injured, shotSkill, cutSkill, throwSkill, fistSkill, bowSkill, meleeSkill,
-                                   bombSkill, pokeSkill) {
+    function getBattleRateByWeapon(items, weapon, injured, shotSkill, cutSkill, throwSkill, fistSkill, bowSkill, meleeSkill,
+                                   bombSkill, pokeSkill, expPerSkillLevel) {
 
         var result = {
             longRangeEngage: false,
             accuracyRate: 0
         };
 
-        var weaponStatus = getItem(weapon.idx);
-        var skillRate = getExpPerSkillLevel();
+        var weaponStatus = items.getInfo(weapon.idx);
+        var skillRate = expPerSkillLevel;
         if (-1 !== weaponStatus.attackType.indexOf('melee')
             || ((-1 !== weaponStatus.attackType.indexOf('bow') || -1 !== weaponStatus.attackType.indexOf('shot'))
             && 0 == weapon.endurance)) {
@@ -1941,162 +1601,21 @@ module.exports = (function () {
     }
 
 
-    function setWinner(winnerModel, status, started, user) {
-        var winner;
-        if ('noWinner' === status) {
-            winner = new winnerModel({
-                status: status,
-                started: started,
-                ended: new Date()
-            });
-        } else {
-            winner = new winnerModel({
-                status: status,
-                started: started,
-                ended: new Date(),
-                username: user.username,
-                userGender: user.userGender,
-                userIcon: user.userIcon,
-                message: user.message,
-                messageDying: user.messageDying,
-                messageComment: user.messageComment,
-                attack: user.attack,
-                defence: user.defence,
-                health: user.health,
-                maxHealth: user.maxHealth,
-                stamina: user.stamina,
-                killCount: user.killCount,
-                level: user.level,
-                requireExp: user.requireExp,
-                injured: user.injured,
-                groupName: user.groupName,
-                studentNo: user.studentNo,
-                clubId: user.clubId,
-                clubName: user.clubName,
-                tactics: user.tactics,
-                shotSkill: user.shotSkill,
-                cutSkill: user.cutSkill,
-                throwSkill: user.throwSkill,
-                fistSkill: user.fistSkill,
-                bowSkill: user.bowSkill,
-                meleeSkill: user.meleeSkill,
-                bombSkill: user.bombSkill,
-                pokeSkill: user.pokeSkill,
-                weapon: {
-                    idx: user.weapon.idx,
-                    endurance: user.weapon.endurance,
-                    point: user.weapon.point
-                },
-                armor: {
-                    head: {
-                        idx: user.armor.head.idx,
-                        endurance: user.armor.head.endurance,
-                        point: user.armor.head.point
-                    },
-                    body: {
-                        idx: user.armor.body.idx,
-                        endurance: user.armor.body.endurance,
-                        point: user.armor.body.point
-                    },
-                    arm: {
-                        idx: user.armor.arm.idx,
-                        endurance: user.armor.arm.endurance,
-                        point: user.armor.arm.point
-                    },
-                    foot: {
-                        idx: user.armor.foot.idx,
-                        endurance: user.armor.foot.endurance,
-                        point: user.armor.foot.point
-                    },
-                    accessory: {
-                        idx: user.armor.accessory.idx,
-                        endurance: user.armor.accessory.endurance,
-                        point: user.armor.accessory.point
-                    }
-                },
-                item0: {
-                    idx: user.item0.idx,
-                    endurance: user.item0.endurance,
-                    point: user.item0.point
-                },
-                item1: {
-                    idx: user.item1.idx,
-                    endurance: user.item1.endurance,
-                    point: user.item1.point
-                },
-                item2: {
-                    idx: user.item2.idx,
-                    endurance: user.item2.endurance,
-                    point: user.item2.point
-                },
-                item3: {
-                    idx: user.item3.idx,
-                    endurance: user.item3.endurance,
-                    point: user.item3.point
-                },
-                item4: {
-                    idx: user.item4.idx,
-                    endurance: user.item4.endurance,
-                    point: user.item4.point
-                },
-                item5: {
-                    idx: user.item5.idx,
-                    endurance: user.item5.endurance,
-                    point: user.item5.point
-                }
-            });
-        }
-
-        winner.save();
-    }
-
-
     return {
         dice: dice,
         getAttackPercent: getAttackPercent,
         getDefencePercent: getDefencePercent,
         getHealthStatus: getHealthStatus,
-        getRandomItem: getRandomItem,
         getPoint: getPoint,
         getSkillByClubId: getSkillByClubId,
         appendSupplyItem: appendSupplyItem,
         arrangePlaceInfo: arrangePlaceInfo,
-        setGameConfig: setGameConfig,
-        setItemConfig: setItemConfig,
-        getExpPerSkillLevel: getExpPerSkillLevel,
-        getRespawnTime: getRespawnTime,
-        getGroups: getGroups,
-        getMaxGroups: getMaxGroups,
-        getMaxRecruitMember: getMaxRecruitMember,
-        getMaxRecruitTime: getMaxRecruitTime,
         isBattleOver: isBattleOver,
-        getGroupPerMan: getGroupPerMan,
-        getPlaces: getPlaces,
-        getPlaceInfo: getPlaceInfo,
-        getPlaceName: getPlaceName,
-        getPlaceMessage: getPlaceMessage,
-        getItem: getItem,
-        getSupplyItems: getSupplyItems,
-        getPersonalItems: getPersonalItems,
-        getIcons: getIcons,
-        getClubs: getClubs,
-        getAttack: getAttack,
-        getDefence: getDefence,
-        getHealth: getHealth,
-        getAttackMaxIncrease: getAttackMaxIncrease,
-        getDefenceMaxIncrease: getDefenceMaxIncrease,
-        getHealthMaxIncrease: getHealthMaxIncrease,
-        getMaxStamina: getMaxStamina,
-        getExpPerLevel: getExpPerLevel,
-        getExpIncrease: getExpIncrease,
-        getSkills: getSkills,
-        getTactics: getTactics,
         moveConsumeStamina: moveConsumeStamina,
         exploreConsumeStamina: exploreConsumeStamina,
         getBattleRateByAttacker: getBattleRateByAttacker,
         getBattleRateByDefender: getBattleRateByDefender,
         getPersonSearch: getPersonSearch,
-        getGlobalLooted: getGlobalLooted,
         getEmptyItemSlot: getEmptyItemSlot,
         findItemSlotById: findItemSlotById,
         findItemSlotByEquip: findItemSlotByEquip,
@@ -2109,22 +1628,15 @@ module.exports = (function () {
         setLevelUp: setLevelUp,
         setInjured: setInjured,
         setConsumeItem: setConsumeItem,
-        getFirstAidStamina: getFirstAidStamina,
-        getDetoxStamina: getDetoxStamina,
         getMixItem: getMixItem,
         battleInfoToVictim: battleInfoToVictim,
         deathInfoToVictim: deathInfoToVictim,
         broadcastToAll: broadcastToAll,
         getRecoverStamina: getRecoverStamina,
         getRecoverHealth: getRecoverHealth,
-        getStaminaRecoverInterval: getStaminaRecoverInterval,
-        getStaminaRecoverIncrease: getStaminaRecoverIncrease,
-        getHealthRecoverInterval: getHealthRecoverInterval,
-        getHealthRecoverIncrease: getHealthRecoverIncrease,
         setRecover: setRecover,
         getCorpseMessage: getCorpseMessage,
         getDeathCauseMessage: getDeathCauseMessage,
-        isCombine: isCombine,
-        setWinner: setWinner
+        isCombine: isCombine
     };
 })();

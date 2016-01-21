@@ -21,44 +21,38 @@ module.exports = function (app, options) {
     });
 
     app.get('/game', isLoggedIn, function (req, res) {
-        res.render('game', {user: req.user, angularMode: true});
+        res.render('game', {user: req.user});
     });
 
     app.get('/gameover', isLoggedIn, function (req, res) {
-        var serverModel = options.models.getModel('server');
-        serverModel.findOne({}, function (err, server) {
-            if (err) {
-                console.log(err);
-                next();
+        options.repositories.getServerFlag(function(server){
+            if (null !== req.user.deathAt) {
+                res.render('error', {
+                    message: '에러발생',
+                    error: {
+                        status: [
+                            '이미 죽어있습니다.\n',
+                            '사인：',
+                            util.getDeathCauseMessage(req.user.deathCause),
+                            '\n<strong style="color:#00ff00;">',
+                            req.user.messageDying,
+                            '</strong>'
+                        ].join('')
+                    }
+                });
+
+            } else if ('hackingSuccess' === server.status && req.user.username == server.winner) {
+                res.render('endingHacking');
+
+            } else if ('hackingSuccess' === server.status) {
+                res.render('endingHackingAlternative');
+
+            } else if ('ending' === server.status && req.user.username == server.winner) {
+                res.render('ending', {user: req.user});
+
             } else {
-                if (0 >= req.user.health) {
-                    res.render('error', {
-                        message: '에러발생',
-                        error: {
-                            status: [
-                                '이미 죽어있습니다.\n',
-                                '사인：',
-                                util.getDeathCauseMessage(req.user.deathCause),
-                                '\n<strong style="color:#00ff00;">',
-                                req.user.messageDying,
-                                '</strong>'
-                            ].join('')
-                        }
-                    });
+                res.redirect('/game');
 
-                } else if ('hackingSuccess' === server.status && req.user.username == server.winner) {
-                    res.render('endingHacking');
-
-                } else if ('hackingSuccess' === server.status) {
-                    res.render('endingHackingAlternative');
-
-                } else if ('ending' === server.status && req.user.username == server.winner) {
-                    res.render('ending', {user: req.user});
-
-                } else {
-                    res.redirect('/game');
-
-                }
             }
         });
     });

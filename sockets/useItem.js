@@ -4,7 +4,6 @@
 var async = require('async');
 module.exports = function (io, options, socket, req, res) {
     var util = options.container.get('util');
-    var userModel = options.models.getModel('user');
     var place = {};
     var places = res.place;
     for (var i in places) {
@@ -22,15 +21,15 @@ module.exports = function (io, options, socket, req, res) {
     var isFinalize = true;
 
     if (typeof item !== 'undefined') {
-        var itemInfo = util.getItem(item.idx);
+        var itemInfo = options.container.get('items').getInfo(item.idx);
         var Process = {
             stamina: function () {
                 if (0 < item.point) {
                     eventLog.push([itemInfo.name, '을(를) 사용했다.'].join(''));
                     eventLog.push('스테미너가 회복됐다.');
                     res.account.stamina += item.point;
-                    if (util.getMaxStamina() < res.account.stamina) {
-                        res.account.stamina = util.getMaxStamina();
+                    if (options.container.get('properties').maxStamina < res.account.stamina) {
+                        res.account.stamina = options.container.get('properties').maxStamina;
                     }
                 } else {
                     Process.poison();
@@ -154,7 +153,7 @@ module.exports = function (io, options, socket, req, res) {
                 Process.reload();
             },
             reload: function () {
-                var weaponInfo = util.getItem(res.account.weapon.idx);
+                var weaponInfo = options.container.get('items').getInfo(res.account.weapon.idx);
                 if (true === weaponInfo.ammoRequire && weaponInfo.ammoType === itemInfo.equip) {
                     var up = weaponInfo.ammoReload - res.account.weapon.endurance;
                     if (item.endurance < up) {
@@ -178,7 +177,7 @@ module.exports = function (io, options, socket, req, res) {
                 }
             },
             armor_refine: function () {
-                var defenceInfo = util.getItem(res.account.armor.body.idx);
+                var defenceInfo = options.container.get('items').getInfo(res.account.armor.body.idx);
                 if ('fabric' === defenceInfo.material && 'armorDefault' !== res.account.armor.body.idx) {
                     res.account.armor.body.endurance += item.point;
                     if (30 < res.account.armor.body.endurance) {
@@ -196,7 +195,7 @@ module.exports = function (io, options, socket, req, res) {
                 }
             },
             weapon_refine: function () {
-                var weaponInfo = util.getItem(res.account.weapon.idx);
+                var weaponInfo = options.container.get('items').getInfo(res.account.weapon.idx);
                 if (-1 !== weaponInfo.attackType.indexOf('cut')) {
                     res.account.weapon.point += item.point;
                     if (30 < res.account.weapon.point) {
@@ -219,6 +218,7 @@ module.exports = function (io, options, socket, req, res) {
             },
             battery: function () {
                 var pcSlot = util.findItemSlotByEquip(
+                    options.container.get('items'),
                     'mobilepc',
                     res.account.item0,
                     res.account.item1,
@@ -257,7 +257,7 @@ module.exports = function (io, options, socket, req, res) {
                     eventLog.push('여기에서 써도 의미가 없다...');
                 }
             },
-            map: function (fullscan) {
+            map: function (fullScan) {
                 var placeInfo = [];
 
                 isFinalize = false;
@@ -265,11 +265,11 @@ module.exports = function (io, options, socket, req, res) {
                 eventLog.push('레이더를 사용했다.');
                 eventLog.push('숫자：지역에 있는 사람수<br />붉은숫자：자신이 있는 지역의 사람수');
 
-                userModel.find({deathAt: null}, function (err, users) {
+                options.repositories.getUsers(function(users){
                     for (var i in users) {
                         var user = users[i];
                         var current = placeInfo[user.place];
-                        if (false === fullscan && res.account.place !== user.place) {
+                        if (false === fullScan && res.account.place !== user.place) {
                             continue;
                         }
 
@@ -287,7 +287,7 @@ module.exports = function (io, options, socket, req, res) {
                     eventName = 'map';
                     res.placeInfo = placeInfo;
                     require('./finalize')(io, options, socket, req, res, eventName, true, eventLog);
-                });
+                }, {deathAt: null});
             },
             cellur: function() {
                 eventLog.push([
@@ -296,7 +296,7 @@ module.exports = function (io, options, socket, req, res) {
                     '이미 연락두절인듯 하다.',
                     '금지된 음악인 락과 헤비메탈등이 있고,',
                     '총소리도 난다.'
-                ].push('<br />'));
+                ].join('<br />'));
             }
         };
 

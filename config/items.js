@@ -697,7 +697,15 @@ module.exports = {
         },
 
         // -- armor
-        armorDefault: {id: 'armorDefault', equip: 'armor', name: '속옷', type: 'body', material: 'fabric', point: 0, endurance: 0},
+        armorDefault: {
+            id: 'armorDefault',
+            equip: 'armor',
+            name: '속옷',
+            type: 'body',
+            material: 'fabric',
+            point: 0,
+            endurance: 0
+        },
         armor0: {id: 'armor0', equip: 'armor', name: '목걸이', type: 'head', point: 1, endurance: 5},
         armor1: {id: 'armor1', equip: 'armor', name: '머리핀', type: 'head', point: 1, endurance: 2},
         armor2: {id: 'armor2', equip: 'armor', name: '안경', type: 'head', point: 1, endurance: 1},
@@ -987,5 +995,33 @@ module.exports = {
         {material: ['weapon62', 'etc38'], result: 'weapon52'},      // 언월도
         {material: ['weapon2', 'weapon2'], result: 'weapon53'},     // 쌍칼
         {material: ['weapon96', 'trap2'], result: 'etc38'}          // 창대
-    ]
+    ],
+
+    getInfo: function (itemId) {
+        if (itemId instanceof Array) {
+            var result = {};
+            for (var i in itemId) {
+                var item = this.getInfo(itemId[i]);
+                if (typeof item !== 'undefined') {
+                    result[itemId[i]] = item;
+                }
+            }
+
+            return result;
+        } else {
+            return this.items[itemId];
+        }
+    },
+
+    getRandomSupply: function () {
+        var randomId = Math.floor(Math.random() * (this.supplyItems.length));
+        var itemId = this.supplyItems[randomId];
+        return this.getInfo(itemId);
+    },
+
+    getRandomPersonal: function () {
+        var randomId = Math.floor(Math.random() * (this.personalItems.length));
+        var itemId = this.personalItems[randomId];
+        return this.getInfo(itemId);
+    }
 };

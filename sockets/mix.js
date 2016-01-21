@@ -16,12 +16,13 @@ module.exports = function (io, options, socket, req, res) {
         eventName = 'info';
         eventLog = '';
     } else if (typeof req.value !== 'undefined' && req.value[0] === req.value[1]) {
-        itemInfo = util.getItem(res.account[req.value[0]].idx);
+        itemInfo = options.container.get('items').getInfo(res.account[req.value[0]].idx);
 
         eventName = 'info';
         eventLog = ['아이템을 합성합니다.', itemInfo.name + '을(를) 바라봤다.'];
     } else if (typeof req.value !== 'undefined') {
         var mixResult = util.getMixItem(
+            options.container.get('items').mixItems,
             res.account[req.value[0]].idx,
             res.account[req.value[1]].idx
         );
@@ -33,8 +34,8 @@ module.exports = function (io, options, socket, req, res) {
             res.account.item4,
             res.account.item5
         );
-        itemInfo = util.getItem(res.account[req.value[0]].idx);
-        itemInfo2 = util.getItem(res.account[req.value[1]].idx);
+        itemInfo = options.container.get('items').getInfo(res.account[req.value[0]].idx);
+        itemInfo2 = options.container.get('items').getInfo(res.account[req.value[1]].idx);
 
         eventName = 'info';
 
@@ -46,7 +47,7 @@ module.exports = function (io, options, socket, req, res) {
                 [itemInfo.name, '와(과) ', itemInfo2.name, '은(는) 조합되지 않는구나.'].join('')
             ];
         } else {
-            var itemInfo3 = util.getItem(mixResult);
+            var itemInfo3 = options.container.get('items').getInfo(mixResult);
             res.account[req.value[0]] = {idx:'', endurance:0, point:0};
             res.account[req.value[1]] = {idx:'', endurance:0, point:0};
             res.account[emptySlot] = {idx:mixResult, endurance:itemInfo3.endurance, point:itemInfo3.point};

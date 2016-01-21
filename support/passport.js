@@ -3,17 +3,13 @@
  */
 var LocalStrategy = require('passport-local').Strategy;
 
-module.exports = function (passport, modelContainer) {
-    var userModel = modelContainer.getModel('user');
-    var serverModel = modelContainer.getModel('server');
-
+module.exports = function (passport, repositories) {
     passport.use(new LocalStrategy(
         function (username, password, done) {
-            var authenticate = userModel.authenticate();
-
+            var authenticate = repositories.authenticateUser();
             authenticate(username, password, function (err, user, validate) {
-                serverModel.findOne({}, function(err2, server){
-                    if (err || err2) {
+                repositories.getServerFlag(function(server){
+                    if (err) {
                         return done(err);
                     } else if (!user) {
                         return done(null, false, {status: 'auth_failed', message: validate.message});
@@ -29,6 +25,6 @@ module.exports = function (passport, modelContainer) {
         }
     ));
 
-    passport.serializeUser(userModel.serializeUser());
-    passport.deserializeUser(userModel.deserializeUser());
+    passport.serializeUser(repositories.serializeUser());
+    passport.deserializeUser(repositories.deserializeUser());
 };

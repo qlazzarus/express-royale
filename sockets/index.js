@@ -11,9 +11,7 @@ module.exports = function (io, options) {
         // res
         socket.on('req', function (req) {
             options.container.get('service').getBasicInfo(
-                options.models.getModel('user'),
-                options.models.getModel('place'),
-                options.models.getModel('server'),
+                options.repositories,
                 socket.request.user.username,
                 function (err, res) {
                     console.log([socket.id, ' request:', req.command, ' - ', req.value].join(''));

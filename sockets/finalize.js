@@ -15,28 +15,37 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
     res.type = eventName;
     res.result = eventResult;
     res.log = eventLog;
-    res.place = util.arrangePlaceInfo(res.place);
+    res.place = util.arrangePlaceInfo(options.container.get('properties').placeArrange, res.place);
     res.config = {
-        expPerSkillLevel: util.getExpPerSkillLevel(),
-        skills: util.getSkills(),
-        tactics: util.getTactics(),
-        staminaRecoverInterval: util.getStaminaRecoverInterval(),
-        staminaRecoverIncrease: util.getStaminaRecoverIncrease(),
-        healthRecoverInterval: util.getHealthRecoverInterval(),
-        healthRecoverIncrease: util.getHealthRecoverIncrease()
+        expPerSkillLevel: options.container.get('properties').expPerSkillLevel,
+        skills: options.container.get('properties').skills,
+        tactics: options.container.get('properties').tactics,
+        staminaRecoverInterval: options.container.get('properties').staminaRecoverInterval,
+        staminaRecoverIncrease: options.container.get('properties').staminaRecoverIncrease,
+        healthRecoverInterval: options.container.get('properties').healthRecoverInterval,
+        healthRecoverIncrease: options.container.get('properties').healthRecoverIncrease
     };
 
     if (typeof res.account != 'undefined') {
         if (-1 === ['health', 'stamina'].indexOf(eventName) && -1 !== [5, 6].indexOf(res.account.status)) {
             // 치료 + 수면
-            eventLog.push(util.setRecover(res.account));
+            eventLog.push(
+                util.setRecover(
+                    res.account,
+                    options.container.get('properties').staminaRecoverInterval,
+                    options.container.get('properties').staminaRecoverIncrease,
+                    options.container.get('properties').healthRecoverInterval,
+                    options.container.get('properties').healthRecoverIncrease,
+                    options.container.get('properties').maxStamina
+                )
+            );
             res.account.status = 0;
         }
 
         // user status save
         res.account.save();
 
-        res.itemList = util.getItem([
+        res.itemList = options.container.get('items').getInfo([
             res.account.weapon.idx,
             res.account.armor.head.idx,
             res.account.armor.body.idx,
@@ -56,7 +65,7 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
         // enemy status save
         res.enemy.save();
 
-        var enemyItemList = util.getItem([
+        var enemyItemList = options.container.get('items').getInfo([
             res.enemy.weapon.idx,
             res.enemy.armor.head.idx,
             res.enemy.armor.body.idx,
@@ -79,7 +88,9 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
             }
         }
 
-        var healthStatus = util.getHealthStatus(res.enemy.maxHealth, res.enemy.health);
+        var healthStatus = options.container.get('properties').status[
+            util.getHealthStatus(res.enemy.maxHealth, res.enemy.health)
+        ];
         res.enemy = {
             username: res.enemy.username,
             userIcon: res.enemy.userIcon,

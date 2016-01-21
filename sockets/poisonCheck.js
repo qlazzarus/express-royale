@@ -10,7 +10,7 @@ module.exports = function (io, options, socket, req, res) {
 
     if (typeof req.value !== 'undefined' && 13 == res.account.clubId) {
         var item = res.account[req.value];
-        var itemInfo = util.getItem(item.idx);
+        var itemInfo = options.container.get('items').getInfo(item.idx);
         if (-1 !== ['health', 'stamina'].indexOf(itemInfo.equip)) {
             if (0 < item.point) {
                 eventLog.push(['으음... ', itemInfo.name, '은(는) 먹어도 안전한 것 같다...'].join(''));
@@ -18,7 +18,7 @@ module.exports = function (io, options, socket, req, res) {
                 eventLog.push(['으음... ', itemInfo.name, '은(는) 독이 섞여 있는듯 하다...'].join(''));
             }
 
-            res.account.stamina -= util.getDetoxStamina();
+            res.account.stamina -= options.container.get('properties').detoxStamina;
             if (0 >= res.account.stamina) {
                 // 스테미너 부족
                 var drainStatus = require('./drain')(io, options, socket, req, res, eventName, true, eventLog);

@@ -8,6 +8,7 @@ module.exports = function (io, options, socket, req, res) {
     var eventLog = [];
 
     var poisonSlot = util.findItemSlotByEquip(
+        options.container.get('items'),
         'poison',
         res.account.item0,
         res.account.item1,
@@ -19,7 +20,7 @@ module.exports = function (io, options, socket, req, res) {
 
     if (null !== poisonSlot && typeof req.value !== 'undefined') {
         var item = res.account[req.value];
-        var itemInfo = util.getItem(item.idx);
+        var itemInfo = options.container.get('items').getInfo(item.idx);
         if (-1 !== ['health', 'stamina'].indexOf(itemInfo.equip)) {
             eventLog.push([itemInfo.name, '에 독을 섞었습니다. 스스로 먹지 않도록 조심하자...'].join(''));
 
@@ -27,7 +28,7 @@ module.exports = function (io, options, socket, req, res) {
             res.account[req.value].point = res.account[req.value].point * -1;
         }
     } else if (null !== poisonSlot) {
-        var poisonInfo = util.getItem(res.account[poisonSlot].idx);
+        var poisonInfo = options.container.get('items').getInfo(res.account[poisonSlot].idx);
         eventName = 'poisonStart';
         eventLog.push(['이 ', poisonInfo.name, '을(를) 섞으면... 후후후.'].join(''));
     }
