@@ -103,7 +103,7 @@ module.exports = function (io, options, socket, req, res) {
                 }
 
                 if (defaultEquip === prevEquip.idx) {
-                    res.account[req.value] = {idx: '', endurance: 0, point: 0};
+                    res.account[req.value] = util.setItemEmpty();
                 } else {
                     res.account[req.value] = prevEquip;
                 }
@@ -120,7 +120,7 @@ module.exports = function (io, options, socket, req, res) {
                 place.save();
 
                 // remove item
-                res.account[req.value] = {idx: '', endurance: 0, point: 0};
+                res.account[req.value] = util.setItemEmpty();
             },
             temp_radar: function () {
                 Process.map(false);
@@ -236,7 +236,7 @@ module.exports = function (io, options, socket, req, res) {
                         res.account[pcSlot].endurance = 5;
                     }
 
-                    res.account[req.value] = {idx: '', endurance: 0, point: 0};
+                    res.account[req.value] = util.setItemEmpty();
 
                     eventLog.push([
                         itemInfo.name,

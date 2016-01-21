@@ -3,6 +3,8 @@
  * @param mongoose
  * @returns {Model<T>}
  */
+var itemPlugin = require('../support/itemPlugin');
+
 module.exports = function (mongoose) {
     var passportLocalMongoose = require('passport-local-mongoose');
     var Schema = mongoose.Schema;
@@ -59,70 +61,22 @@ module.exports = function (mongoose) {
         pokeSkill: Number,   // ws
 
         // equip
-        weapon: {
-            idx: String,
-            endurance: Number,
-            point: Number
-        },
+        weapon: itemPlugin.schema(String, Number, Array),
         armor: {
-            head: {
-                idx: String,
-                endurance: Number,
-                point: Number
-            },
-            body: {
-                idx: String,
-                endurance: Number,
-                point: Number
-            },
-            arm: {
-                idx: String,
-                endurance: Number,
-                point: Number
-            },
-            foot: {
-                idx: String,
-                endurance: Number,
-                point: Number
-            },
-            accessory: {
-                idx: String,
-                endurance: Number,
-                point: Number
-            }
+            head: itemPlugin.schema(String, Number, Array),
+            body: itemPlugin.schema(String, Number, Array),
+            arm: itemPlugin.schema(String, Number, Array),
+            foot: itemPlugin.schema(String, Number, Array),
+            accessory: itemPlugin.schema(String, Number, Array)
         },
 
         // game items
-        item0: {
-            idx: String,
-            endurance: Number,
-            point: Number
-        },
-        item1: {
-            idx: String,
-            endurance: Number,
-            point: Number
-        },
-        item2: {
-            idx: String,
-            endurance: Number,
-            point: Number
-        },
-        item3: {
-            idx: String,
-            endurance: Number,
-            point: Number
-        },
-        item4: {
-            idx: String,
-            endurance: Number,
-            point: Number
-        },
-        item5: {
-            idx: String,
-            endurance: Number,
-            point: Number
-        }
+        item0: itemPlugin.schema(String, Number, Array),
+        item1: itemPlugin.schema(String, Number, Array),
+        item2: itemPlugin.schema(String, Number, Array),
+        item3: itemPlugin.schema(String, Number, Array),
+        item4: itemPlugin.schema(String, Number, Array),
+        item5: itemPlugin.schema(String, Number, Array)
     });
 
     User.plugin(passportLocalMongoose, require('../config/passport'));

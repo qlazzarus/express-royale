@@ -1,6 +1,7 @@
 /**
  * Created by monoless on 2015-12-15.
  */
+var itemPlugin = require('../support/itemPlugin');
 module.exports = function (io, options, socket, req, res) {
     var util = options.container.get('util');
     var place = {};
@@ -35,26 +36,28 @@ module.exports = function (io, options, socket, req, res) {
 
         eventLog = [itemInfo.name, '을(를) 배낭에 넣었습니다.'].join('');
 
-        res.account[emptySlot] = {
-            idx: res.account.weapon.idx,
-            endurance: res.account.weapon.endurance,
-            point: res.account.weapon.point
-        };
-        res.account.weapon = {idx: 'weaponDefault', endurance: 0, point: 0};
+        res.account[emptySlot] = itemPlugin.toObject(
+            res.account.weapon.idx,
+            res.account.weapon.endurance,
+            res.account.weapon.point,
+            res.account.weapon.stats
+        );
+        res.account.weapon = itemPlugin.toObject('weaponDefault', 0, 0);
     } else if ('drop' === req.value) {
         // 아이템 추가
-        place.items.push({
-            idx: res.account.weapon.idx,
-            endurance: res.account.weapon.endurance,
-            point: res.account.weapon.point
-        });
+        place.items.push(itemPlugin.toObject(
+            res.account.weapon.idx,
+            res.account.weapon.endurance,
+            res.account.weapon.point,
+            res.account.weapon.stats
+        ));
         place.save();
 
         itemInfo = options.container.get('items').getInfo(res.account.weapon.idx);
 
         eventLog = [itemInfo.name, '을(를) 버렸다.'].join('');
 
-        res.account.weapon = {idx: 'weaponDefault', endurance: 0, point: 0};
+        res.account.weapon = itemPlugin.toObject('weaponDefault', 0, 0);
     }
 
     require('./finalize')(io, options, socket, req, res, eventName, true, eventLog);

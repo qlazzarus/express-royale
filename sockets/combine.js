@@ -29,13 +29,17 @@ module.exports = function (io, options, socket, req, res) {
 
         var combineResult = util.isCombine(itemInfo, itemInfo2);
         if (true === combineResult) {
+            var itemId =res.account[req.value[0]].idx;
+            var point = res.account[req.value[0]].point;
+            var endurance = res.account[req.value[0]].endurance += res.account[req.value[1]].endurance;
+
             if (-1 !== ['health', 'stamina'].indexOf(itemInfo.equip)
                 && (0 >= res.account[req.value[0]].point || 0 >= res.account[req.value[1]].point)) {
-                res.account[req.value[0]].point = Math.abs(res.account[req.value[0]].point) * -1;
+                point = Math.abs(res.account[req.value[0]].point) * -1;
             }
 
-            res.account[req.value[0]].endurance += res.account[req.value[1]].endurance;
-            res.account[req.value[1]] = {idx: '', endurance: 0, point: 0};
+            res.account[req.value[0]] = util.setItemObject(itemId, endurance, point);
+            res.account[req.value[1]] = util.setItemEmpty();
             eventLog.push([itemInfo.name, '을(를) 모았다.'].join(''));
         } else {
             eventLog.push([itemInfo.name, '와(과) ', itemInfo2.name, '은(는) 모아지지 않는구나.'].join(''));

@@ -19,11 +19,11 @@ module.exports = function(io, options, socket, req, res){
     var info = options.container.get('items').getInfo(item.idx);
 
     // 아이템 추가
-    place.items.push({idx:item.idx, endurance:item.endurance, point:item.point});
+    place.items.push(util.setItemObject(item.idx, item.endurance, item.point, item.stats));
     place.save();
 
     eventLog.push([info.name, '을(를) 버렸다.'].join(''));
-    res.account[dropId] = {idx:'', endurance:0, point:0};
+    res.account[dropId] = util.setItemEmpty();
 
     require('./finalize')(io, options, socket, req, res, 'info', true, eventLog);
 };

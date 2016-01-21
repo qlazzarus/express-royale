@@ -1,7 +1,34 @@
 /**
  * Created by monoless on 2015-12-08.
  */
+var itemPlugin = require('./itemPlugin');
+
 module.exports = (function () {
+
+    /**
+     * 아이템 구조체 세팅하기
+     *
+     * @param itemId
+     * @param endurance
+     * @param point
+     * @param stats
+     * @returns {{idx, endurance, point, stats}}
+     */
+    function setItemObject(itemId, endurance, point, stats) {
+        return itemPlugin.toObject(itemId, endurance, point, stats);
+    }
+
+
+    /**
+     * 아이템 비우기
+     *
+     * @returns {{idx, endurance, point, stats}}
+     */
+    function setItemEmpty() {
+        return itemPlugin.empty();
+    }
+
+
     /**
      * 체력 상태 출력
      *
@@ -420,38 +447,38 @@ module.exports = (function () {
 
 
     /**
-     * 보급 아이템 추가 설정
+     * 보급아이템 추가 설정
      *
      * @param supplyWeapon
      * @param personalItem
-     * @returns {{item0: {idx: *, point: *, endurance: *}, item1: {idx: *, point: *, endurance: *}, item2: {idx: string, point: number, endurance: number}, item3: {idx: string, point: number, endurance: number}, item4: {}, item5: {}}}
+     * @returns {{item0: ({idx, endurance, point, stats}), item1: ({idx, endurance, point, stats}), item2: ({idx, endurance, point, stats}), item3: ({idx, endurance, point, stats}), item4: ({idx, endurance, point, stats}), item5: ({idx, endurance, point, stats})}}
      */
     function appendSupplyItem(supplyWeapon, personalItem) {
         var result = {
-            item0: {idx: supplyWeapon.id, point: supplyWeapon.point, endurance: supplyWeapon.endurance},
-            item1: {idx: personalItem.id, point: personalItem.point, endurance: personalItem.endurance},
-            item2: {idx: 'stamina17', point: 40, endurance: 2},
-            item3: {idx: 'heal1', point: 20, endurance: 2},
-            item4: {idx: '', point: 0, endurance: 0},
-            item5: {idx: '', point: 0, endurance: 0}
+            item0: setItemObject(supplyWeapon.id, supplyWeapon.endurance, supplyWeapon.point),
+            item1: setItemObject(personalItem.id, personalItem.endurance, personalItem.point),
+            item2: setItemObject('stamina17', 2, 40),
+            item3: setItemObject('heal1', 2, 20),
+            item4: setItemEmpty(),
+            item5: setItemEmpty()
         };
 
         if ('weapon' === supplyWeapon.equip && '12gauge' === supplyWeapon.ammoType) {
-            result.item4 = {idx: 'etc8', endurance: 24, point: 1};
+            result.item4 = setItemObject('etc8', 24, 1);
         } else if ('weapon' === supplyWeapon.equip && '9mm' === supplyWeapon.ammoType) {
-            result.item4 = {idx: 'etc9', endurance: 24, point: 1};
+            result.item4 = setItemObject('etc9', 24, 1);
         } else if ('weapon' === supplyWeapon.equip && '22lr' === supplyWeapon.ammoType) {
-            result.item4 = {idx: 'etc10', endurance: 24, point: 1};
+            result.item4 = setItemObject('etc10', 24, 1);
         } else if ('weapon' === supplyWeapon.equip && '357mag' === supplyWeapon.ammoType) {
-            result.item4 = {idx: 'etc12', endurance: 24, point: 1};
+            result.item4 = setItemObject('etc12', 24, 1);
         } else if ('weapon' === supplyWeapon.equip && '38special' === supplyWeapon.ammoType) {
-            result.item4 = {idx: 'etc13', endurance: 24, point: 1};
+            result.item4 = setItemObject('etc13', 24, 1);
         } else if ('weapon' === supplyWeapon.equip && '45acp' === supplyWeapon.ammoType) {
-            result.item4 = {idx: 'etc14', endurance: 24, point: 1};
+            result.item4 = setItemObject('etc14', 24, 1);
         } else if ('weapon' === supplyWeapon.equip && 'apostle' === supplyWeapon.ammoType) {
-            result.item4 = {idx: 'etc15', endurance: 24, point: 1};
+            result.item4 = setItemObject('etc15', 24, 1);
         } else if ('weapon' === supplyWeapon.equip && 'bow' === supplyWeapon.ammoType) {
-            result.item4 = {idx: 'etc16', endurance: 24, point: 1};
+            result.item4 = setItemObject('etc16', 24, 1);
         }
 
         return result;
@@ -589,7 +616,7 @@ module.exports = (function () {
         }
 
         if (0 >= item.endurance) {
-            item = {idx: '', endurance: 0, point: 0};
+            item = setItemEmpty();
         }
 
         return item;
@@ -949,7 +976,7 @@ module.exports = (function () {
         // 무기 손상
         if (dice(100) < destroyPercent) {
             res.weaponDestroy = true;
-            res.user.weapon = {idx: 'weaponDefault', point: 0, endurance: 0};
+            res.user.weapon = setItemObject('weaponDefault', 0, 0);
         }
 
         // 부상처리 & 크리티컬
@@ -980,7 +1007,12 @@ module.exports = (function () {
         if (true === injureAttack) {
             res.enemy.armor[res.injured].endurance--;
             if (0 >= res.enemy.armor[res.injured].endurance) {
-                res.enemy.armor[res.injured] = {idx: '', point: 0, endurance: 0};
+                var injureArmorId = '';
+                if ('body' === res.injured) {
+                    injureArmorId = 'armorDefault';
+                }
+
+                res.enemy.armor[res.injured] = setItemObject(injureArmorId, 0, 0);
             }
         }
 
@@ -1263,17 +1295,17 @@ module.exports = (function () {
         } else if ('bombSkill' === skillType && -1 !== weaponInfo.attackType.indexOf('bomb')) {
             weapon.endurance--;
             if (0 >= weapon.endurance) {
-                weapon = {idx: 'weaponDefault', point: 0, endurance: 0};
+                weapon = setItemObject('weaponDefault', 0, 0);
             }
         } else if ('throwSkill' === skillType && -1 !== weaponInfo.attackType.indexOf('throw')) {
             weapon.endurance--;
             if (0 >= weapon.endurance) {
-                weapon = {idx: 'weaponDefault', point: 0, endurance: 0};
+                weapon = setItemObject('weaponDefault', 0, 0);
             }
         } else if ('cutSkill' === skillType && -1 !== weaponInfo.attackType.indexOf('cut')) {
             weapon.point -= dice(1) + 1;
             if (0 >= weapon.point) {
-                weapon = {idx: 'weaponDefault', point: 0, endurance: 0};
+                weapon = setItemObject('weaponDefault', 0, 0);
             }
         }
 
@@ -1293,7 +1325,7 @@ module.exports = (function () {
         }
 
         if (0 >= armor.endurance) {
-            armor = {idx: 'armorDefault', point: 0, endurance: 0};
+            armor = setItemObject('armorDefault', 0, 0);
         }
 
         return armor;
@@ -1582,8 +1614,10 @@ module.exports = (function () {
 
     function isCombine(itemInfo, itemInfo2) {
         var result = true;
-        var allowEquip = ['health', 'stamina', '12gauge', '9mm', '22lr', '357mag', '38special', '45acp', 'apostle',
-            'bow', 'weapon'];
+        var allowEquip = [
+            'health', 'stamina', '12gauge', '9mm', '22lr', '357mag', '38special', '45acp', 'apostle',
+            'bow', 'weapon'
+        ];
         if (itemInfo.id !== itemInfo2.id) {
             result = false;
         } else {
@@ -1637,6 +1671,8 @@ module.exports = (function () {
         setRecover: setRecover,
         getCorpseMessage: getCorpseMessage,
         getDeathCauseMessage: getDeathCauseMessage,
-        isCombine: isCombine
+        isCombine: isCombine,
+        setItemObject: setItemObject,
+        setItemEmpty: setItemEmpty
     };
 })();

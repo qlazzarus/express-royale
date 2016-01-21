@@ -137,9 +137,9 @@ module.exports = function (app, options) {
                     var clubName = clubs[clubId];
                     var skillMap = util.getSkillByClubId(clubId, options.container.get('properties').expPerSkillLevel);
                     var mergeItems = util.appendSupplyItem(supplyWeapon, personalItem);
-                    var armorBody = {idx: 'armor41', point: 5, endurance: 30};
+                    var armorBody = util.setItemObject('armor41', 30, 5);
                     if (1 == req.body.userGender) {
-                        armorBody.idx = 'armor42';
+                        armorBody = util.setItemObject('armor42', 30, 5);
                     }
 
                     options.container.get('service').signup(
@@ -167,7 +167,14 @@ module.exports = function (app, options) {
                         clubId,
                         clubName,
                         skillMap,
-                        armorBody,
+                        util.setItemObject('weaponDefault', 0, 0),
+                        {
+                            head: util.setItemEmpty(),
+                            body: armorBody,
+                            arm: util.setItemEmpty(),
+                            foot: util.setItemEmpty(),
+                            accessory: util.setItemEmpty()
+                        },
                         mergeItems
                     );
                 }

@@ -307,7 +307,8 @@ module.exports = {
         weapon42: {
             id: 'weapon42',
             equip: 'weapon',
-            name: '화염병', attackType: ['bomb'], point: 15, endurance: 1, ammoRequire: false
+            name: '화염병', attackType: ['bomb'], point: 45, endurance: 1, ammoRequire: false,
+            gasoline: true
         },
         weapon43: {
             id: 'weapon43',
@@ -317,7 +318,8 @@ module.exports = {
         weapon44: {
             id: 'weapon44',
             equip: 'weapon',
-            name: '간이화염방사기', attackType: ['bomb'], point: 10, endurance: 8, ammoRequire: false
+            name: '간이화염방사기', attackType: ['bomb'], point: 65, endurance: 8, ammoRequire: false,
+            gasoline: true
         },
         weapon45: {
             id: 'weapon45',
@@ -876,8 +878,8 @@ module.exports = {
         etc16: {id: 'etc16', equip: 'bow', name: '화살', endurance: 12, point: 1},
         etc17: {id: 'etc17', equip: 'armor_refine', name: '바느질도구', endurance: 1, point: 3},
         etc20: {id: 'etc20', equip: 'weapon_refine', name: '숫돌', endurance: 1, point: 1},
-        etc23: {id: 'etc23', equip: 'item', name: '휘발유', endurance: 1, point: 1},
-        etc24: {id: 'etc24', equip: 'item', name: '경유', endurance: 1, point: 1},
+        etc23: {id: 'etc23', equip: 'gasoline', name: '휘발유', endurance: 1, point: 1},
+        etc24: {id: 'etc24', equip: 'gasoline', name: '경유', endurance: 1, point: 1},
         etc25: {id: 'etc25', equip: 'item', name: '비료', endurance: 1, point: 1},
         etc26: {id: 'etc26', equip: 'speaker', name: '확성기', endurance: 1, point: 1},
         etc27: {id: 'etc27', equip: 'battery', name: '배터리', endurance: 1, point: 1},

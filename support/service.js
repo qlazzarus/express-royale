@@ -570,13 +570,14 @@ module.exports = function () {
      * @param clubId
      * @param clubName
      * @param skillMap
-     * @param armorBody
+     * @param weapon
+     * @param armor
      * @param items
      */
     this.signup
         = function (passport, repositories, remoteAddress, expressRequest, expressResponse, attack,
                     defence, health, stamina, requireExp, groupName, studentNo, clubId, clubName, skillMap,
-                    armorBody, items) {
+                    weapon, armor, items) {
 
         repositories.registerUser(
             function(err){
@@ -673,14 +674,8 @@ module.exports = function () {
                 pokeSkill: skillMap.pokeSkill,
 
                 // equip
-                weapon: {idx: 'weaponDefault', point: 0, endurance: 0},
-                armor: {
-                    head: {idx: '', point: 0, endurance: 0},
-                    body: armorBody,
-                    arm: {idx: '', point: 0, endurance: 0},
-                    foot: {idx: '', point: 0, endurance: 0},
-                    accessory: {idx: '', point: 0, endurance: 0}
-                },
+                weapon: weapon,
+                armor: armor,
 
                 // items
                 item0: items.item0,

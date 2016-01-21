@@ -3,6 +3,8 @@
  * @param mongoose
  * @returns {Model<T>}
  */
+var itemUtil = require('../support/itemPlugin');
+
 module.exports = function (mongoose) {
     return mongoose.model('Winner', {
         status: String,         // 경기 상태
@@ -38,69 +40,21 @@ module.exports = function (mongoose) {
         pokeSkill: Number,   // ws
 
         // equip
-        weapon: {
-            idx: String,
-            endurance: Number,
-            point: Number
-        },
+        weapon: itemUtil.schema(String, Number, Array),
         armor: {
-            head: {
-                idx: String,
-                endurance: Number,
-                point: Number
-            },
-            body: {
-                idx: String,
-                endurance: Number,
-                point: Number
-            },
-            arm: {
-                idx: String,
-                endurance: Number,
-                point: Number
-            },
-            foot: {
-                idx: String,
-                endurance: Number,
-                point: Number
-            },
-            accessory: {
-                idx: String,
-                endurance: Number,
-                point: Number
-            }
+            head: itemUtil.schema(String, Number, Array),
+            body: itemUtil.schema(String, Number, Array),
+            arm: itemUtil.schema(String, Number, Array),
+            foot: itemUtil.schema(String, Number, Array),
+            accessory: itemUtil.schema(String, Number, Array)
         },
 
         // game items
-        item0: {
-            idx: String,
-            endurance: Number,
-            point: Number
-        },
-        item1: {
-            idx: String,
-            endurance: Number,
-            point: Number
-        },
-        item2: {
-            idx: String,
-            endurance: Number,
-            point: Number
-        },
-        item3: {
-            idx: String,
-            endurance: Number,
-            point: Number
-        },
-        item4: {
-            idx: String,
-            endurance: Number,
-            point: Number
-        },
-        item5: {
-            idx: String,
-            endurance: Number,
-            point: Number
-        }
+        item0: itemUtil.schema(String, Number, Array),
+        item1: itemUtil.schema(String, Number, Array),
+        item2: itemUtil.schema(String, Number, Array),
+        item3: itemUtil.schema(String, Number, Array),
+        item4: itemUtil.schema(String, Number, Array),
+        item5: itemUtil.schema(String, Number, Array)
     });
 };

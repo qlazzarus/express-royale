@@ -48,9 +48,9 @@ module.exports = function (io, options, socket, req, res) {
             ];
         } else {
             var itemInfo3 = options.container.get('items').getInfo(mixResult);
-            res.account[req.value[0]] = {idx:'', endurance:0, point:0};
-            res.account[req.value[1]] = {idx:'', endurance:0, point:0};
-            res.account[emptySlot] = {idx:mixResult, endurance:itemInfo3.endurance, point:itemInfo3.point};
+            res.account[req.value[0]] = util.setItemEmpty();
+            res.account[req.value[1]] = util.setItemEmpty()
+            res.account[emptySlot] = util.setItemObject(mixResult, itemInfo3.endurance, itemInfo3.point, []);
 
             eventLog = [
                 '아이템을 합성합니다.',

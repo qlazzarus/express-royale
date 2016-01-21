@@ -99,11 +99,7 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
 
             eventLog.push([itemInfo.name, '을(를) 발견했다. ', itemDesc].join(''));
 
-            res.account[targetItemSlot] = {
-                idx: itemInfo.id,
-                point: item.point,
-                endurance: item.endurance
-            };
+            res.account[targetItemSlot] = util.setItemObject(itemInfo.id, item.endurance, item.point, item.stats);
 
             // 아이템 삭제
             place.items.splice(randomId, 1);

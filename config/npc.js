@@ -1,6 +1,8 @@
 /**
  * Created by monoless on 2015-12-01.
  */
+var itemPlugin = require('../support/itemPlugin');
+
 module.exports = [
     {
         username: '선생님',
@@ -36,68 +38,20 @@ module.exports = [
         meleeSkill: 100,
         bombSkill: 100,
         pokeSkill: 100,
-        item5: {
-            idx: '',
-            point: 0,
-            endurance: 0
-        },
-        item4: {
-            idx: '',
-            point: 0,
-            endurance: 0
-        },
-        item3: {
-            idx: "weapon11",
-            point: 17,
-            endurance: 1
-        },
-        item2: {
-            idx: "heal4",
-            point: 50,
-            endurance: 3
-        },
-        item1: {
-            idx: 'etc26',
-            point: 1,
-            endurance: 1
-        },
-        item0: {
-            idx: 'etc39',
-            point: 1,
-            endurance: 1
-        },
+        item5: itemPlugin.empty(),
+        item4: itemPlugin.empty(),
+        item3: itemPlugin.toObject('weapon11', 1, 17),
+        item2: itemPlugin.toObject('heal4', 3, 50),
+        item1: itemPlugin.toObject('etc26', 1, 1),
+        item0: itemPlugin.toObject('etc39', 1, 1),
         armor: {
-            accessory: {
-                idx: '',
-                point: 0,
-                endurance: 0
-            },
-            foot: {
-                idx: 'armor44',
-                point: 3,
-                endurance: 10
-            },
-            arm: {
-                idx: '',
-                point: 0,
-                endurance: 0
-            },
-            body: {
-                idx: 'armor43',
-                point: 5,
-                endurance: 30
-            },
-            head: {
-                idx: '',
-                point: 0,
-                endurance: 0
-            }
+            accessory: itemPlugin.empty(),
+            foot: itemPlugin.toObject('armor44', 10, 3),
+            arm: itemPlugin.empty(),
+            body: itemPlugin.toObject('armor43', 30, 5),
+            head: itemPlugin.empty()
         },
-        weapon: {
-            idx: 'weapon14',
-            point: 23,
-            endurance: 150
-        },
+        weapon: itemPlugin.toObject('weapon14', 150, 23),
         injured: []
     },
     {
@@ -134,68 +88,20 @@ module.exports = [
         meleeSkill: 100,
         bombSkill: 100,
         pokeSkill: 100,
-        item5: {
-            idx: '',
-            point: 0,
-            endurance: 0
-        },
-        item4: {
-            idx: '',
-            point: 0,
-            endurance: 0
-        },
-        item3: {
-            idx: '',
-            point: 0,
-            endurance: 0
-        },
-        item2: {
-            idx: "weapon11",
-            point: 17,
-            endurance: 1
-        },
-        item1: {
-            idx: 'heal1',
-            point: 20,
-            endurance: 2
-        },
-        item0: {
-            idx: 'stamina18',
-            point: 20,
-            endurance: 2
-        },
+        item5: itemPlugin.empty(),
+        item4: itemPlugin.empty(),
+        item3: itemPlugin.empty(),
+        item2: itemPlugin.toObject('weapon11', 1, 17),
+        item1: itemPlugin.toObject('heal1', 2, 20),
+        item0: itemPlugin.toObject('stamina18', 2, 20),
         armor: {
-            accessory: {
-                idx: '',
-                point: 0,
-                endurance: 0
-            },
-            foot: {
-                idx: 'armor36',
-                point: 6,
-                endurance: 20
-            },
-            arm: {
-                idx: '',
-                point: 0,
-                endurance: 0
-            },
-            body: {
-                idx: 'armor40',
-                point: 6,
-                endurance: 20
-            },
-            head: {
-                idx: 'armor37',
-                point: 5,
-                endurance: 30
-            }
+            accessory: itemPlugin.empty(),
+            foot: itemPlugin.toObject('armor36', 20, 6),
+            arm: itemPlugin.empty(),
+            body: itemPlugin.toObject('armor40', 20, 6),
+            head: itemPlugin.toObject('armor37', 30, 5)
         },
-        weapon: {
-            idx: 'weapon115',
-            point: 30,
-            endurance: 300
-        },
+        weapon: itemPlugin.toObject('weapon115', 300, 30),
         injured: []
     }
 ];

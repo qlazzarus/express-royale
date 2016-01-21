@@ -48,7 +48,7 @@ module.exports = function (io, options, socket, req, res) {
             }
 
             if (hackDice >= 9) {
-                res.account[pcSlot] = {idx: '', endurance: 0, point: 0};
+                res.account[pcSlot] = util.setItemEmpty();
                 eventLog.push('왜이러지! 장치가 부서지고 말았다.');
 
                 if (util.dice(10) >= 9) {

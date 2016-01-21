@@ -278,68 +278,14 @@ module.exports = function (mongoose, modelPath) {
             meleeSkill: user.meleeSkill,
             bombSkill: user.bombSkill,
             pokeSkill: user.pokeSkill,
-            weapon: {
-                idx: user.weapon.idx,
-                endurance: user.weapon.endurance,
-                point: user.weapon.point
-            },
-            armor: {
-                head: {
-                    idx: user.armor.head.idx,
-                    endurance: user.armor.head.endurance,
-                    point: user.armor.head.point
-                },
-                body: {
-                    idx: user.armor.body.idx,
-                    endurance: user.armor.body.endurance,
-                    point: user.armor.body.point
-                },
-                arm: {
-                    idx: user.armor.arm.idx,
-                    endurance: user.armor.arm.endurance,
-                    point: user.armor.arm.point
-                },
-                foot: {
-                    idx: user.armor.foot.idx,
-                    endurance: user.armor.foot.endurance,
-                    point: user.armor.foot.point
-                },
-                accessory: {
-                    idx: user.armor.accessory.idx,
-                    endurance: user.armor.accessory.endurance,
-                    point: user.armor.accessory.point
-                }
-            },
-            item0: {
-                idx: user.item0.idx,
-                endurance: user.item0.endurance,
-                point: user.item0.point
-            },
-            item1: {
-                idx: user.item1.idx,
-                endurance: user.item1.endurance,
-                point: user.item1.point
-            },
-            item2: {
-                idx: user.item2.idx,
-                endurance: user.item2.endurance,
-                point: user.item2.point
-            },
-            item3: {
-                idx: user.item3.idx,
-                endurance: user.item3.endurance,
-                point: user.item3.point
-            },
-            item4: {
-                idx: user.item4.idx,
-                endurance: user.item4.endurance,
-                point: user.item4.point
-            },
-            item5: {
-                idx: user.item5.idx,
-                endurance: user.item5.endurance,
-                point: user.item5.point
-            }
+            weapon: user.weapon,
+            armor: user.armor,
+            item0: user.item0,
+            item1: user.item1,
+            item2: user.item2,
+            item3: user.item3,
+            item4: user.item4,
+            item5: user.item5
         });
 
         save(winner, callback);
