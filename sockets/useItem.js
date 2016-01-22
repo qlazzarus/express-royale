@@ -111,12 +111,9 @@ module.exports = function (io, options, socket, req, res) {
             trap: function () {
                 eventLog.push([itemInfo.name, '을(를) 덫으로 설치했다. 스스로도 조심하지 않으면...'].join(''));
 
-                // trap set-up & deploy (+10 id)
-                place.items.push({
-                    idx: 'trap' + (parseInt(item.idx.replace('trap', '')) + 10),
-                    point: item.point,
-                    endurance: item.endurance
-                });
+                var stats = item.stats;
+                stats.push('deploy');
+                place.items.push(util.setItemObject(item.idx, item.endurance, item.point, stats));
                 place.save();
 
                 // remove item
@@ -180,9 +177,6 @@ module.exports = function (io, options, socket, req, res) {
                 var defenceInfo = options.container.get('items').getInfo(res.account.armor.body.idx);
                 if ('fabric' === defenceInfo.material && 'armorDefault' !== res.account.armor.body.idx) {
                     res.account.armor.body.endurance += item.point;
-                    if (30 < res.account.armor.body.endurance) {
-                        res.account.armor.body.endurance = 30;
-                    }
 
                     eventLog.push([
                         itemInfo.name, '을(를) 사용했다.', defenceInfo.name, '의 내구력이 ',
@@ -232,10 +226,6 @@ module.exports = function (io, options, socket, req, res) {
                     eventLog.push('이건 어디에 쓰는 것일까...');
                 } else {
                     res.account[pcSlot].endurance += item.endurance;
-                    if (5 < res.account[pcSlot].endurance) {
-                        res.account[pcSlot].endurance = 5;
-                    }
-
                     res.account[req.value] = util.setItemEmpty();
 
                     eventLog.push([
@@ -265,7 +255,7 @@ module.exports = function (io, options, socket, req, res) {
                 eventLog.push('레이더를 사용했다.');
                 eventLog.push('숫자：지역에 있는 사람수<br />붉은숫자：자신이 있는 지역의 사람수');
 
-                options.repositories.getUsers(function(users){
+                options.repositories.getUsers(function (users) {
                     for (var i in users) {
                         var user = users[i];
                         var current = placeInfo[user.place];
@@ -289,7 +279,7 @@ module.exports = function (io, options, socket, req, res) {
                     require('./finalize')(io, options, socket, req, res, eventName, true, eventLog);
                 }, {deathAt: null});
             },
-            cellur: function() {
+            cellur: function () {
                 eventLog.push([
                     '아빠! 엄마! 보고싶어!',
                     '뚜뚜뚜뚜-',
@@ -297,6 +287,83 @@ module.exports = function (io, options, socket, req, res) {
                     '금지된 음악인 락과 헤비메탈등이 있고,',
                     '총소리도 난다.'
                 ].join('<br />'));
+            },
+            gasoline: function () {
+                var weaponInfo = options.container.get('items').getInfo(res.account.weapon.idx);
+                if (true === weaponInfo.gasoline) {
+                    eventLog.push([itemInfo.name, '을(를) ', weaponInfo.name, '에 채워넣었다.'].join(''));
+                    eventLog.push([weaponInfo.name, '의 사용횟수가 ', item.endurance, '올랐다.'].join(''));
+
+                    res.account.weapon.endurance += item.endurance;
+                    res.account[req.value] = util.setItemEmpty();
+                } else {
+                    eventLog.push('이건 어디에 쓰는 것일까...');
+                }
+            },
+            silence: function () {
+                var weaponInfo = options.container.get('items').getInfo(res.account.weapon.idx);
+                if (-1 !== weaponInfo.attackType.indexOf('shot') && -1 === res.account.weapon.stats.indexOf('silence')) {
+                    eventLog.push(
+                        [
+                            '좋아. 들고 있는 총에 소음기를 달아보자.<br />',
+                            weaponInfo.name,
+                            ' 에 소음기를 장착했다. 쓸만하겠는걸..'
+                        ].join('')
+                    );
+                    res.account.weapon.stats.push('silence');
+                    res.account[req.value] = util.setItemEmpty();
+                } else if (-1 !== weaponInfo.attackType.indexOf('shot')) {
+                    eventLog.push('소음기를 두개 장착할수는 없다.. 너는 뇌가 달려 있는건가?');
+                } else {
+                    eventLog.push('이건 어디에 쓰는 것일까...');
+                }
+            },
+            acceptance: function () {
+                eventLog.push('축하한다 자네는 서울법대생으로써...<br />이런거 필요없다고. 젠장 .');
+            },
+            tortoise: function () {
+                eventLog.push('이런것.가루내서 먹으면 몸에 좋다던데..');
+            },
+            phone_bill: function () {
+                eventLog.push('안 내면 전화를 못쓴다.<br />물론 쓸일도 없다.');
+            },
+            electricity_bill: function () {
+                eventLog.push('전기세 나온게 상당해보인다.<br />....');
+            },
+            lighter: function () {
+                eventLog.push([
+                    '이것이 있으면 불을 지를수있다.',
+                    '물론 물도 데울수있고,',
+                    '라이터 앞면을 보아하니 다방이름이 써있다.'
+                ].join('<br />'));
+            },
+            tripwire: function () {
+                eventLog.push('이것으로 폭탄종류를 제조할수있게된다.<br />물론 그전에 다른 물품이 필요하다.');
+            },
+            soft_paper: function() {
+                eventLog.push('감촉이 좋다.');
+            },
+            sound_bait: function() {
+                eventLog.push('확실히 전해졌을까?');
+                util.broadcastToAll(
+                    socket,
+                    res.account.place,
+                    options.container.get('properties').places['place' + res.account.place].name,
+                    'bait',
+                    res.account.username
+                );
+            },
+            fireworks: function() {
+                eventLog.push('불을 붙이자 빛과 함께 큰 소리가 난다..');
+                util.broadcastToAll(
+                    socket,
+                    res.account.place,
+                    options.container.get('properties').places['place' + res.account.place].name,
+                    'bait',
+                    res.account.username
+                );
+
+                res.account[req.value] = util.setConsumeItem(item);
             }
         };
 

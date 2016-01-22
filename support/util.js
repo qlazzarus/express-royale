@@ -455,10 +455,10 @@ module.exports = (function () {
      */
     function appendSupplyItem(supplyWeapon, personalItem) {
         var result = {
-            item0: setItemObject(supplyWeapon.id, supplyWeapon.endurance, supplyWeapon.point),
-            item1: setItemObject(personalItem.id, personalItem.endurance, personalItem.point),
-            item2: setItemObject('stamina17', 2, 40),
-            item3: setItemObject('heal1', 2, 20),
+            item0: supplyWeapon,
+            item1: personalItem,
+            item2: setItemObject('stamina17', 2, 40),   // 빵
+            item3: setItemObject('heal1', 2, 20),       // 물
             item4: setItemEmpty(),
             item5: setItemEmpty()
         };
@@ -652,6 +652,13 @@ module.exports = (function () {
                 '<strong style="color:#ffff00;">',
                 placeName,
                 ' 쪽에서, 폭발소리가 들렸다...</strong>'
+            ].join('');
+            socket.broadcast.emit('recv', result);
+        } else if ('bait' === broadType) {
+            result.log = [
+                '<strong style="color:#ffff00;">',
+                placeName,
+                ' 쪽에서, 큰 소리가 들려왔다!</strong>'
             ].join('');
             socket.broadcast.emit('recv', result);
         } else if ('killed' === broadType) {

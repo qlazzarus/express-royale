@@ -56,7 +56,7 @@ module.exports = function () {
      */
     this.initializePlaces = function (repositories, properties, items, util, io) {
         var places = properties.places;
-        var globalLooted = properties.globalLooted;
+        var globalLooted = items.randomLooted;
 
         async.waterfall([
             function (callback) {
@@ -72,7 +72,7 @@ module.exports = function () {
                         code: place.code,
                         restrict: place.restrict,
                         restrictReserve: place.restrictReserve,
-                        items: typeof place.looted !== 'undefined' ? place.looted : []
+                        items: typeof items.looted[i] !== 'undefined' ? items.looted[i] : []
                     });
                 }
 

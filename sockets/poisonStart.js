@@ -24,7 +24,7 @@ module.exports = function (io, options, socket, req, res) {
         if (-1 !== ['health', 'stamina'].indexOf(itemInfo.equip)) {
             eventLog.push([itemInfo.name, '에 독을 섞었습니다. 스스로 먹지 않도록 조심하자...'].join(''));
 
-            res.account[poisonSlot] = util.setItemEmpty();;
+            res.account[poisonSlot] = util.setConsumeItem(item);
             res.account[req.value].point = Math.abs(res.account[req.value].point) * -1;
         }
     } else if (null !== poisonSlot) {

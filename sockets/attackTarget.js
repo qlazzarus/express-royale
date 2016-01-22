@@ -276,7 +276,7 @@ module.exports = function (io, options, socket, req, res) {
                         // 적 탄 소모
                         res.enemy.weapon = util.setConsumeWeapon(options.container.get('items'), res.enemy.weapon,
                             enemyCommand);
-                        if ('shotSkill' === enemyCommand) {
+                        if ('shotSkill' === enemyCommand && -1 === res.enemy.weapon.indexOf('silence')) {
                             util.broadcastToAll(
                                 socket,
                                 res.account.place,
@@ -348,7 +348,7 @@ module.exports = function (io, options, socket, req, res) {
 
             // 탄소모
             res.account.weapon = util.setConsumeWeapon(options.container.get('items'), res.account.weapon, req.command);
-            if ('shotSkill' === req.command) {
+            if ('shotSkill' === req.command && -1 === res.account.weapon.indexOf('silence')) {
                 util.broadcastToAll(
                     socket,
                     res.account.place,

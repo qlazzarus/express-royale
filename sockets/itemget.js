@@ -44,7 +44,7 @@ module.exports = function (io, options, socket, req, res, eventName, eventResult
             );
         }
 
-        if ('trap' === itemInfo.equip && true === itemInfo.deploy) {
+        if ('trap' === itemInfo.equip && -1 !== item.stats.indexOf('deploy')) {
             var attackPoint = parseInt(item.point / 2);
             attackPoint = util.dice(attackPoint) + attackPoint;
             eventLog.push([

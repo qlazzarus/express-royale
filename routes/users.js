@@ -131,12 +131,13 @@ module.exports = function (app, options) {
                     signupRender(req, res, options.container.get('properties'), {}, req.body);
                 } else {
                     var clubs = options.container.get('properties').clubs;
-                    var supplyWeapon = options.container.get('items').getRandomSupply();
-                    var personalItem = options.container.get('items').getRandomPersonal();
                     var clubId = util.dice(clubs.length - 1);
                     var clubName = clubs[clubId];
                     var skillMap = util.getSkillByClubId(clubId, options.container.get('properties').expPerSkillLevel);
-                    var mergeItems = util.appendSupplyItem(supplyWeapon, personalItem);
+                    var mergeItems = util.appendSupplyItem(
+                        options.container.get('items').getRandomSupply(),
+                        options.container.get('items').getRandomPersonal()
+                    );
                     var armorBody = util.setItemObject('armor41', 30, 5);
                     if (1 == req.body.userGender) {
                         armorBody = util.setItemObject('armor42', 30, 5);
