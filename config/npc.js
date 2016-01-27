@@ -72,7 +72,7 @@ module.exports = [
         killCount: 0,
         level: 10,
         requireExp: 56,
-        place: 1,
+        place: 0,
         status: 0,
         prevAttacker: '',
         deathAt: null,
