@@ -29,16 +29,22 @@ module.exports = function (io, options, socket, req, res) {
 
         var combineResult = util.isCombine(itemInfo, itemInfo2);
         if (true === combineResult) {
-            var itemId =res.account[req.value[0]].idx;
+            var itemId = res.account[req.value[0]].idx;
             var point = res.account[req.value[0]].point;
             var endurance = res.account[req.value[0]].endurance += res.account[req.value[1]].endurance;
+            var attr = [];
 
             if (-1 !== ['health', 'stamina'].indexOf(itemInfo.equip)
-                && (0 >= res.account[req.value[0]].point || 0 >= res.account[req.value[1]].point)) {
-                point = Math.abs(res.account[req.value[0]].point) * -1;
+                && (-1 !== res.account[req.value[0]].stats.indexOf('poison') || -1 !== res.account[req.value[1]].stats.indexOf('poison'))) {
+                attr = ['poison'];
             }
 
-            res.account[req.value[0]] = util.setItemObject(itemId, endurance, point);
+            if (-1 !== ['health', 'stamina'].indexOf(itemInfo.equip)
+                && (-1 !== res.account[req.value[0]].stats.indexOf('super_poison') || -1 !== res.account[req.value[1]].stats.indexOf('super_poison'))) {
+                attr = ['super_poison'];
+            }
+
+            res.account[req.value[0]] = util.setItemObject(itemId, endurance, point, attr);
             res.account[req.value[1]] = util.setItemEmpty();
             eventLog.push([itemInfo.name, '을(를) 모았다.'].join(''));
         } else {

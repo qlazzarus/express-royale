@@ -15,8 +15,14 @@ async.waterfall([
         var lines = data.split("\r\n");
         var length = lines.length;
         for (var i = 0; i < length; i++) {
-            var result = /\s+(push\s+\(\@tmakeitem,\s+"([^<]+)<>([^<]+)<>([^<]+)<>([^<]+)<>([^<]+)<>([0-9]+)"\);)/g.exec(lines[i]);
+            var result = /\s+(push\s+\(\@tmakeitem,\s+"([^<]+)<>([^<]+)<>([^<]+)<>([^<]+)<>([^<]+)<>([0-9∞]+)"\);)/g.exec(lines[i]);
             if (null !== result) {
+                if ('∞' === result[7] && 'Y' === result[5]) {
+                    result[7] = 1;
+                } else if ('∞' === result[7]) {
+                    result[7] = 0;
+                }
+
                 queue.push({
                     line: i,
                     original: result[1],
@@ -63,32 +69,54 @@ async.waterfall([
 
     function (data, queue, callback) {
         console.log('material complete');
-        console.log(queue);
-        /*
-        for (var i = 0; i < queue.length; i++) {
-            var materialOne = false;
-            var materialTwo = false;
+
+        async.eachSeries(queue, function (mix, next){
+            var resultId = '';
 
             for (var o in item.items) {
                 var entry = item.items[o];
-                if (entry.name === queue[i].material[0]) {
-                    queue[i].material[0] = entry.id;
-                    materialOne = true;
-                }
-
-                if (entry.name === queue[i].material[1]) {
-                    queue[i].material[1] = entry.id;
-                    materialTwo = true;
-                }
-
-                if (true === materialOne && true === materialTwo) {
+                if (entry.name === mix.itemName.replace(/\+[0-9]+/g, '')) {
+                    resultId = entry.id;
                     break;
                 }
             }
-        }
 
-        callback(null, data, queue);
-        */
+            if ('' !== resultId) {
+                var attr = '';
+                var poison = /\+[0-9]+/g.exec(mix.itemName);
+                if ('SD' === mix.itemType) {
+                    attr = ", ['poison']";
+                } else if ('HD' === mix.itemType) {
+                    attr = ", ['poison']";
+                } else if ('weapon163' === resultId) {
+                    attr = ", ['silence']";
+                } else if (poison) {
+                    attr = ", ['poison" + poison[0] + "']";
+                }
+
+                mix.convert = [
+                    "{material: [ '",
+                    mix.material[0],
+                    "', '",
+                    mix.material[1],
+                    "'], result: itemPlugin.toObject('",
+                    resultId,
+                    "', ",
+                    mix.endurance,
+                    ", ",
+                    mix.point,
+                    attr,
+                    ")},    // ",
+                    mix.itemName
+                ].join('');
+            } else {
+                console.log(mix.original);
+            }
+
+            next();
+        }, function (){
+            callback(null, data, queue);
+        });
     },
 
     function (data, queue, callback) {
@@ -104,7 +132,6 @@ async.waterfall([
     },
 
     function (result) {
-        //fs.readFile('./config/items.js', 'utf8', callback);
         fs.writeFile('./config/items2.js', result);
     }
 ]);

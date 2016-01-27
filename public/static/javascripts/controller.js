@@ -1177,6 +1177,14 @@ var ExpressRoyale = (function () {
             itemInfo = {};
         }
 
+        for (var i in item.stats) {
+            if ('silence' === item.stats[i]) {
+                itemName += ' [S]';
+            } else if (/poison\+/g.exec(item.stats[i])) {
+                itemName += item.stats[i].replace('poison', '');
+            }
+        }
+
         var result = [itemName, Math.abs(item.point)];
         if (0 < item.endurance
             || ('weapon' === itemInfo.equip && -1 !== itemInfo.attackType.indexOf('shot'))

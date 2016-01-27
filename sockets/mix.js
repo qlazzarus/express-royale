@@ -47,11 +47,11 @@ module.exports = function (io, options, socket, req, res) {
                 [itemInfo.name, '와(과) ', itemInfo2.name, '은(는) 조합되지 않는구나.'].join('')
             ];
         } else {
-            var itemInfo3 = options.container.get('items').getInfo(mixResult);
             res.account[req.value[0]] = util.setItemEmpty();
-            res.account[req.value[1]] = util.setItemEmpty()
-            res.account[emptySlot] = util.setItemObject(mixResult, itemInfo3.endurance, itemInfo3.point, []);
+            res.account[req.value[1]] = util.setItemEmpty();
+            res.account[emptySlot] = mixResult;
 
+            var itemInfo3 = options.container.get('items').getInfo(mixResult.idx);
             eventLog = [
                 '아이템을 합성합니다.',
                 [itemInfo.name, '와(과) ', itemInfo2.name, '(으)로 ', itemInfo3.name, '이(가) 나왔다!'].join('')

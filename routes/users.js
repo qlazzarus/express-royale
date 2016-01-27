@@ -134,8 +134,10 @@ module.exports = function (app, options) {
                     var clubId = util.dice(clubs.length - 1);
                     var clubName = clubs[clubId];
                     var skillMap = util.getSkillByClubId(clubId, options.container.get('properties').expPerSkillLevel);
+                    var randomSupply = options.container.get('items').getRandomSupply();
                     var mergeItems = util.appendSupplyItem(
-                        options.container.get('items').getRandomSupply(),
+                        randomSupply,
+                        options.container.get('items').getInfo(randomSupply.idx),
                         options.container.get('items').getRandomPersonal()
                     );
                     var armorBody = util.setItemObject('armor41', 30, 5);

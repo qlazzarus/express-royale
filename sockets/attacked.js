@@ -29,6 +29,24 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
             options.container.get('properties').expPerSkillLevel
         );
 
+        var accountStat = util.getBattleRateByDefender(
+            options.container.get('items'),
+            res.account.status,
+            res.account.tactics,
+            options.container.get('properties').places['place' + res.account.place].specialize,
+            res.account.injured,
+            res.account.weapon,
+            res.account.shotSkill,
+            res.account.cutSkill,
+            res.account.throwSkill,
+            res.account.fistSkill,
+            res.account.bowSkill,
+            res.account.meleeSkill,
+            res.account.bombSkill,
+            res.account.pokeSkill,
+            options.container.get('properties').expPerSkillLevel
+        );
+
         eventLog.push([
             res.enemy.username,
             '(',
@@ -68,7 +86,8 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
                 res.account.armor.body.point,
                 res.account.armor.arm.point,
                 res.account.armor.foot.point,
-                res.account.armor.accessory.point
+                res.account.armor.accessory.point,
+                accountStat.defence
             );
 
             res.account.prevAttacker = res.enemy.username;
@@ -79,7 +98,8 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
                 skillType = 'meleeSkill';
             }
 
-            var enemyAttack = util.getAttackPercent(res.enemy.attack, res.enemy.weapon.point, enemyCommand);
+            var enemyAttack = util.getAttackPercent(res.enemy.attack, enemyStat.accuracyRate,
+                res.enemy.weapon.point, res.enemy.weapon.stats, enemyCommand);
             var enemyResult = util.getTotalDamage(
                 options.container.get('items'),
                 enemyAttack,
@@ -112,7 +132,7 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
         }
 
         res.enemy.weapon = util.setConsumeWeapon(options.container.get('items'), res.enemy.weapon, enemyCommand);
-        if ('shotSkill' === enemyCommand && -1 === res.enemy.weapon.indexOf('silence')) {
+        if ('shotSkill' === enemyCommand && -1 === res.enemy.weapon.stats.indexOf('silence')) {
             util.broadcastToAll(
                 socket,
                 res.account.place,
@@ -130,24 +150,6 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
             );
         }
 
-        var accountStat = util.getBattleRateByDefender(
-            options.container.get('items'),
-            res.account.status,
-            res.account.tactics,
-            options.container.get('properties').places['place' + res.account.place].specialize,
-            res.account.injured,
-            res.account.weapon,
-            res.account.shotSkill,
-            res.account.cutSkill,
-            res.account.throwSkill,
-            res.account.fistSkill,
-            res.account.bowSkill,
-            res.account.meleeSkill,
-            res.account.bombSkill,
-            res.account.pokeSkill,
-            options.container.get('properties').expPerSkillLevel
-        );
-
         if (0 >= res.account.health) {
             userKilled = true;
         } else if (7 >= util.dice(10) && accountStat.longRangeEngage == enemyStat.longRangeEngage) {
@@ -158,14 +160,16 @@ module.exports = function(io, options, socket, req, res, eventName, eventResult,
 
             // 반격 시도
             if (attackDice < accountStat.accuracyRate) {
-                var accountAttack = util.getAttackPercent(res.account.attack, res.account.weapon.point, skillType);
+                var accountAttack = util.getAttackPercent(res.account.attack, accountStat.accuracyRate,
+                    res.account.weapon.point, res.account.weapon.stats, skillType);
                 var enemyDefence = util.getDefencePercent(
                     res.enemy.defence,
                     res.enemy.armor.head.point,
                     res.enemy.armor.body.point,
                     res.enemy.armor.arm.point,
                     res.enemy.armor.foot.point,
-                    res.enemy.armor.accessory.point
+                    res.enemy.armor.accessory.point,
+                    enemyStat.defence
                 );
 
                 res.account.prevAttacker = res.enemy.username;

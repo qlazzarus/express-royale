@@ -760,7 +760,7 @@ module.exports = {
         weapon140: {
             id: 'weapon140',
             equip: 'weapon',
-            name: '베레타 PX4',
+            name: '베레타 PX4 (45ACP)',
             attackType: ['shot', 'melee'], ammoRequire: true,
             ammoReload: 11,
             ammoType: '45acp'
@@ -773,7 +773,7 @@ module.exports = {
         weapon142: {
             id: 'weapon142',
             equip: 'weapon',
-            name: '리볼버 MkII',
+            name: '리볼버 MkII (38SP)',
             attackType: ['shot', 'melee'], ammoRequire: true,
             ammoReload: 6,
             ammoType: '38special'
@@ -781,7 +781,7 @@ module.exports = {
         weapon143: {
             id: 'weapon143',
             equip: 'weapon',
-            name: '리볼버 MkI',
+            name: '리볼버 MkI (38SP)',
             attackType: ['shot', 'melee'], ammoRequire: true,
             ammoReload: 6,
             ammoType: '38special'
@@ -866,6 +866,239 @@ module.exports = {
             equip: 'weapon',
             name: '거북', attackType: ['throw'], ammoRequire: false
         },
+        weapon160: {
+            id: 'weapon160',
+            equip: 'weapon',
+            name: '암즈', attackType: ['cut', 'poke'], ammoRequire: false
+        },
+        weapon161: {
+            id: 'weapon161',
+            equip: 'weapon',
+            name: '뜨거운 물', attackType: ['throw'], ammoRequire: false
+        },
+        weapon162: {
+            id: 'weapon162',
+            equip: 'weapon',
+            name: '폭죽발사기', attackType: ['bomb'], ammoRequire: false
+        },
+        weapon163: {
+            id: 'weapon163',
+            equip: 'weapon',
+            name: '아킴보 리볼버 (38SP)', attackType: ['shot', 'melee'], ammoRequire: true,
+            ammoReload: 6,
+            ammoType: '38special'
+        },
+        weapon164: {
+            id: 'weapon164',
+            equip: 'weapon',
+            name: '대나무 채', attackType: ['throw'], ammoRequire: false
+        },
+        weapon165: {
+            id: 'weapon165',
+            equip: 'weapon',
+            name: '달궈진 숫돌', attackType: ['throw'], ammoRequire: false
+        },
+        weapon166: {
+            id: 'weapon166',
+            equip: 'weapon',
+            name: '사용가능 암즈', attackType: ['cut', 'poke'], ammoRequire: false
+        },
+        weapon167: {
+            id: 'weapon167',
+            equip: 'weapon',
+            name: '저격 크로스보우', attackType: ['shot', 'melee'], ammoRequire: true,
+            ammoReload: 1,
+            ammoType: 'bow'
+        },
+        weapon168: {
+            id: 'weapon168',
+            equip: 'weapon',
+            name: '압축본드공', attackType: ['throw'], ammoRequire: false
+        },
+        weapon169: {
+            id: 'weapon169',
+            equip: 'weapon',
+            name: '날카로운 검심', attackType: ['cut'], ammoRequire: false
+        },
+        weapon170: {
+            id: 'weapon170',
+            equip: 'weapon',
+            name: '방전되는 배터리', attackType: ['throw'], ammoRequire: false
+        },
+        weapon171: {
+            id: 'weapon171',
+            equip: 'weapon',
+            name: '폭염병', attackType: ['bomb'], ammoRequire: false,
+            gasoline: true
+        },
+        weapon172: {
+            id: 'weapon172',
+            equip: 'weapon',
+            name: '간이폭발물', attackType: ['bomb'], ammoRequire: false
+        },
+        weapon173: {
+            id: 'weapon173',
+            equip: 'weapon',
+            name: '챠크람', attackType: ['throw'], ammoRequire: false
+        },
+        weapon174: {
+            id: 'weapon174',
+            equip: 'weapon',
+            name: '챠크람', attackType: ['throw'], ammoRequire: false
+        },
+        weapon175: {
+            id: 'weapon175',
+            equip: 'weapon',
+            name: '딱딱해진 거북시체', attackType: ['throw'], ammoRequire: false
+        },
+        weapon176: {
+            id: 'weapon176',
+            equip: 'weapon',
+            name: '독침', attackType: ['throw'], ammoRequire: false
+        },
+        weapon177: {
+            id: 'weapon177',
+            equip: 'weapon',
+            name: '마비침', attackType: ['throw'], ammoRequire: false,
+            specialize: ['paralysis']
+        },
+        weapon178: {
+            id: 'weapon178',
+            equip: 'weapon',
+            name: '화염분사기', attackType: ['bomb'], ammoRequire: false,
+            gasoline: true
+        },
+        weapon179: {
+            id: 'weapon179',
+            equip: 'weapon',
+            name: '네이팜탄', attackType: ['bomb'], ammoRequire: false
+        },
+        weapon180: {
+            id: 'weapon180',
+            equip: 'weapon',
+            name: '타이타닉', attackType: ['bomb'], ammoRequire: false
+        },
+        weapon181: {
+            id: 'weapon181',
+            equip: 'weapon',
+            name: '소형폭탄', attackType: ['bomb'], ammoRequire: false
+        },
+        weapon182: {
+            id: 'weapon182',
+            equip: 'weapon',
+            name: '기화폭탄', attackType: ['bomb'], ammoRequire: false
+        },
+        weapon183: {
+            id: 'weapon183',
+            equip: 'weapon',
+            name: '원자폭탄', attackType: ['bomb'], ammoRequire: false
+        },
+        weapon184: {
+            id: 'weapon184',
+            equip: 'weapon',
+            name: '유리너클', attackType: ['fist'], ammoRequire: false
+        },
+        weapon185: {
+            id: 'weapon185',
+            equip: 'weapon',
+            name: '크고 딱딱한 부채', attackType: ['melee'], ammoRequire: false
+        },
+        weapon186: {
+            id: 'weapon186',
+            equip: 'weapon',
+            name: '녹슨 커터칼', attackType: ['cut'], ammoRequire: false
+        },
+        weapon187: {
+            id: 'weapon187',
+            equip: 'weapon',
+            name: '녹슨 면도칼', attackType: ['cut'], ammoRequire: false
+        },
+        weapon188: {
+            id: 'weapon188',
+            equip: 'weapon',
+            name: '날이 선 식칼', attackType: ['cut', 'poke'], ammoRequire: false
+        },
+        weapon189: {
+            id: 'weapon189',
+            equip: 'weapon',
+            name: '요마명도', attackType: ['cut', 'poke'], ammoRequire: false
+        },
+        weapon190: {
+            id: 'weapon190',
+            equip: 'weapon',
+            name: '날카로운연필', attackType: ['poke'], ammoRequire: false
+        },
+        weapon191: {
+            id: 'weapon191',
+            equip: 'weapon',
+            name: '사슬 나이프', attackType: ['throw', 'poke'], ammoRequire: false
+        },
+        weapon192: {
+            id: 'weapon192',
+            equip: 'weapon',
+            name: '도끼 사슬', attackType: ['throw', 'cut', 'poke'], ammoRequire: false
+        },
+        weapon193: {
+            id: 'weapon193',
+            equip: 'weapon',
+            name: '장도리깨 날사슬', attackType: ['throw', 'cut', 'poke'], ammoRequire: false
+        },
+        weapon194: {
+            id: 'weapon194',
+            equip: 'weapon',
+            name: '강화나이프', attackType: ['cut', 'poke'], ammoRequire: false
+        },
+        weapon195: {
+            id: 'weapon195',
+            equip: 'weapon',
+            name: '녹슨 강화나이프', attackType: ['cut', 'poke'], ammoRequire: false
+        },
+        weapon196: {
+            id: 'weapon196',
+            equip: 'weapon',
+            name: '망가진 검', attackType: ['cut', 'poke'], ammoRequire: false
+        },
+        weapon197: {
+            id: 'weapon197',
+            equip: 'weapon',
+            name: '핀셋', attackType: ['poke'], ammoRequire: false
+        },
+        weapon198: {
+            id: 'weapon198',
+            equip: 'weapon',
+            name: '징박은 가죽장갑', attackType: ['fist'], ammoRequire: false
+        },
+        weapon199: {
+            id: 'weapon199',
+            equip: 'weapon',
+            name: '강화 너클', attackType: ['fist'], ammoRequire: false
+        },
+        weapon200: {
+            id: 'weapon200',
+            equip: 'weapon',
+            name: '더블 라이터', attackType: ['fist'], ammoRequire: false
+        },
+        weapon201: {
+            id: 'weapon201',
+            equip: 'weapon',
+            name: '피묻은장갑', attackType: ['fist'], ammoRequire: false
+        },
+        weapon202: {
+            id: 'weapon202',
+            equip: 'weapon',
+            name: '도끼 사슬', attackType: ['throw', 'cut'], ammoRequire: false
+        },
+        weapon203: {
+            id: 'weapon203',
+            equip: 'weapon',
+            name: '물에 젖은 잡지', attackType: ['melee'], ammoRequire: false
+        },
+        weapon204: {
+            id: 'weapon204',
+            equip: 'weapon',
+            name: '물에 젖은 두꺼운책', attackType: ['melee'], ammoRequire: false
+        },
+
 
         // -- armor
         armorDefault: {
@@ -968,8 +1201,8 @@ module.exports = {
             material: 'fabric'
         },
         armor44: {id: 'armor44', equip: 'armor', name: '슬리퍼', type: 'foot'},
-        armor45: {id: 'armor45', equip: 'armor', name: '두꺼운종이1', type: 'head'},
-        armor46: {id: 'armor46', equip: 'armor', name: '두꺼운종이2', type: 'head'},
+        armor45: {id: 'armor45', equip: 'armor', name: '두꺼운 종이1', type: 'head'},
+        armor46: {id: 'armor46', equip: 'armor', name: '두꺼운 종이2', type: 'head'},
         armor47: {id: 'armor47', equip: 'armor', name: '한복', type: 'body', material: 'armor'},
         armor48: {
             id: 'armor48',
@@ -1006,6 +1239,103 @@ module.exports = {
             material: 'fabric'
         },
         armor58: {id: 'armor58', equip: 'armor', name: '시계', type: 'arm'},
+        armor59: {
+            id: 'armor59',
+            equip: 'armor',
+            name: '커스텀 교복',
+            type: 'body',
+            material: 'chain'
+        },
+        armor60: {
+            id: 'armor60',
+            equip: 'armor',
+            name: '커스텀 세라복',
+            type: 'body',
+            material: 'chain'
+        },
+        armor61: {
+            id: 'armor61',
+            equip: 'armor',
+            name: '방탄교복',
+            type: 'body',
+            material: 'armor'
+        },
+        armor62: {
+            id: 'armor62',
+            equip: 'armor',
+            name: '방탄세라복',
+            type: 'body',
+            material: 'armor'
+        },
+        armor63: {id: 'armor63', equip: 'armor', name: '딱딱한 종이', type: 'head'},
+        armor64: {id: 'armor64', equip: 'armor', name: '강화안경', type: 'head'},
+        armor65: {
+            id: 'armor65',
+            equip: 'armor',
+            name: '강화체인메일',
+            type: 'body',
+            material: 'chain'
+        },
+        armor66: {id: 'armor66', equip: 'armor', name: '종이뭉치', type: 'head'},
+        armor67: {
+            id: 'armor67',
+            equip: 'armor',
+            name: '두꺼운 종이옷',
+            type: 'body',
+            material: 'chain'
+        },
+        armor68: {
+            id: 'armor68',
+            equip: 'armor',
+            name: '딱딱한 종이옷',
+            type: 'body',
+            material: 'armor'
+        },
+        armor69: {
+            id: 'armor69',
+            equip: 'armor',
+            name: '커스텀 아머',
+            type: 'body',
+            material: 'armor'
+        },
+        armor70: {
+            id: 'armor70',
+            equip: 'armor',
+            name: '커스터마이징 아머',
+            type: 'body',
+            material: 'armor'
+        },
+        armor71: {
+            id: 'armor71',
+            equip: 'armor',
+            name: '물에 젖은 교복',
+            type: 'body',
+            material: 'armor'
+        },
+        armor72: {
+            id: 'armor72',
+            equip: 'armor',
+            name: '물에 젖은 세라복',
+            type: 'body',
+            material: 'armor'
+        },
+        armor73: {
+            id: 'armor73',
+            equip: 'armor',
+            name: '거북갑주',
+            type: 'body',
+            material: 'armor'
+        },
+        armor74: {id: 'armor74', equip: 'armor', name: '복대', type: 'accessory'},
+        armor75: {id: 'armor75', equip: 'armor', name: '안대', type: 'head'},
+        armor76: {
+            id: 'armor76',
+            equip: 'armor',
+            name: '종이뭉치옷',
+            type: 'body',
+            material: 'armor'
+        },
+
 
         // -- stamina
         stamina0: {id: 'stamina0', equip: 'stamina', name: '와일드세븐'},
@@ -1037,6 +1367,19 @@ module.exports = {
         stamina27: {id: 'stamina27', equip: 'stamina', name: '오렌지'},
         stamina28: {id: 'stamina28', equip: 'stamina', name: '박카스'},
         stamina29: {id: 'stamina29', equip: 'stamina', name: '우루사'},
+        stamina30: {id: 'stamina30', equip: 'stamina', name: '익은면발'},
+        stamina31: {id: 'stamina31', equip: 'stamina', name: '물에 젖은빵'},
+        stamina32: {id: 'stamina32', equip: 'stamina', name: '묽은 영양드링크'},
+        stamina33: {id: 'stamina33', equip: 'stamina', name: '이상한 약물'},
+        stamina34: {id: 'stamina34', equip: 'stamina', name: '세계수 엑기스'},
+        stamina35: {id: 'stamina35', equip: 'stamina', name: '약빵'},
+        stamina36: {id: 'stamina36', equip: 'stamina', name: '구운 붕어'},
+        stamina37: {id: 'stamina37', equip: 'stamina', name: '구운 미꾸라지'},
+        stamina38: {id: 'stamina38', equip: 'stamina', name: '맛있는 라면'},
+        stamina39: {id: 'stamina39', equip: 'stamina', name: '생 라면'},
+        stamina40: {id: 'stamina40', equip: 'stamina', name: '물카레'},
+        stamina41: {id: 'stamina41', equip: 'stamina', name: '회오리주'},
+
 
         // -- heal
         heal0: {id: 'heal0', equip: 'health', name: '위스키'},
@@ -1050,6 +1393,26 @@ module.exports = {
         heal8: {id: 'heal8', equip: 'health', name: '버섯'},
         heal9: {id: 'heal9', equip: 'health', name: '마취제'},
         heal10: {id: 'heal10', equip: 'health', name: '붕대'},
+        heal11: {id: 'heal11', equip: 'health', name: '거북등가루'},
+        heal12: {id: 'heal12', equip: 'health', name: '물약'},
+        heal13: {id: 'heal13', equip: 'health', name: '탕약'},
+        heal14: {id: 'heal14', equip: 'health', name: '쥬스'},
+        heal15: {id: 'heal15', equip: 'health', name: '물에 젖은 빵'},
+        heal16: {id: 'heal16', equip: 'health', name: '많은 물'},
+        heal17: {id: 'heal17', equip: 'health', name: '꿀물'},
+        heal18: {id: 'heal18', equip: 'health', name: '꿀약'},
+        heal19: {id: 'heal19', equip: 'health', name: '신선두'},
+        heal20: {id: 'heal20', equip: 'health', name: '오염된 물'},
+        heal21: {id: 'heal21', equip: 'health', name: '침술용 핀세트'},
+        heal22: {id: 'heal22', equip: 'health', name: '영약'},
+        heal23: {id: 'heal23', equip: 'health', name: '소독핀셋'},
+        heal24: {id: 'heal24', equip: 'health', name: '보약'},
+        heal25: {id: 'heal25', equip: 'health', name: '약물'},
+        heal26: {id: 'heal26', equip: 'health', name: '녹색 약'},
+        heal27: {id: 'heal27', equip: 'health', name: '꿀약'},
+        heal28: {id: 'heal28', equip: 'health', name: '녹색 물약'},
+        heal29: {id: 'heal29', equip: 'health', name: '많은 물약'},
+
 
         // -- trap
         trap0: {id: 'trap0', equip: 'trap', name: '쥐덫'},
@@ -1061,6 +1424,19 @@ module.exports = {
         trap6: {id: 'trap6', equip: 'trap', name: '마취트랩'},
         trap7: {id: 'trap7', equip: 'trap', name: '가시박힌 피아노선'},
         trap8: {id: 'trap8', equip: 'trap', name: '이중 줄선'},
+        trap9: {id: 'trap9', equip: 'trap', name: '알람트랩', specialize: ['alarm']},
+        trap10: {id: 'trap10', equip: 'trap', name: '가시박힌 피아노줄', specialize: ['paralysis']},
+        trap11: {id: 'trap11', equip: 'trap', name: '줄 덫'},
+        trap12: {id: 'trap12', equip: 'trap', name: '덫트랩'},
+        trap13: {id: 'trap13', equip: 'trap', name: '알람마비트랩', specialize: ['alarm', 'paralysis']},
+        trap14: {id: 'trap14', equip: 'trap', name: '가시트랩'},
+        trap15: {id: 'trap15', equip: 'trap', name: '대나무 트랩'},
+        trap16: {id: 'trap16', equip: 'trap', name: '대 강화 가시트랩'},
+        trap17: {id: 'trap17', equip: 'trap', name: '강화 대나무 트랩'},
+        trap18: {id: 'trap18', equip: 'trap', name: '강화 가시트랩'},
+        trap19: {id: 'trap19', equip: 'trap', name: '녹슨 트랩'},
+        trap20: {id: 'trap20', equip: 'trap', name: '폭파트랩'},
+
 
         // -- etc
         etc0: {id: 'etc0', equip: 'cellur', name: '휴대폰'},
@@ -1091,7 +1467,7 @@ module.exports = {
         etc34: {id: 'etc34', equip: 'radar', name: '레이더'},
         etc35: {id: 'etc35', equip: 'item', name: '화약'},
         etc36: {id: 'etc36', equip: 'item', name: '노트북'},
-        etc37: {id: 'etc37', equip: 'mobilepc', name: '모바일 PC'},
+        etc37: {id: 'etc37', equip: 'mobilepc', name: '모바일PC'},
         etc38: {id: 'etc38', equip: 'item', name: '창대'},
         etc39: {id: 'etc39', equip: 'program', name: '프로그램해제키'},
         etc40: {id: 'etc40', equip: 'item', name: '연결고리'},
@@ -1136,7 +1512,20 @@ module.exports = {
         etc79: {id: 'etc79', equip: 'item', name: '옷감A'},
         etc80: {id: 'etc80', equip: 'item', name: '옷감B'},
         etc81: {id: 'etc81', equip: 'item', name: '제단용옷감'},
-        etc82: {id: 'etc82', equip: 'item', name: '변형 옷감'}
+        etc82: {id: 'etc82', equip: 'item', name: '변형 옷감'},
+        etc83: {id: 'etc83', equip: 'item', name: '안경고리'},
+        etc84: {id: 'etc84', equip: 'item', name: '스위치'},
+        etc85: {id: 'etc85', equip: 'item', name: '딱딱한 종이1'},
+        etc86: {id: 'etc86', equip: 'item', name: '딱딱한 종이2'},
+        etc87: {id: 'etc87', equip: 'item', name: '두꺼운 종이'},
+        etc88: {id: 'etc88', equip: 'item', name: '가위'},
+        etc89: {id: 'etc89', equip: 'item', name: '알수없는세포'},
+        etc90: {id: 'etc90', equip: 'item', name: '???'},
+        etc91: {id: 'etc91', equip: 'item', name: '기름병'},
+        etc92: {id: 'etc92', equip: 'item', name: '유화배터리'},
+        etc93: {id: 'etc93', equip: 'item', name: '녹슨 철'},
+        etc94: {id: 'etc94', equip: 'item', name: '엉켜버린 쇠사슬'},
+        etc95: {id: 'etc95', equip: 'item', name: '무거워서 못입게된 옷'}
     },
 
 
@@ -1255,182 +1644,663 @@ module.exports = {
      * ■ 조합 아이템 정의
      */
     mixItems: [
-        /*
-         push (@tmakeitem, "경유<>비료<>화약<>Y<>1<>1");
-         push (@tmakeitem, "휘발유<>빈병<>화염병<>WQ<>45<>1");
-         push (@tmakeitem, "뇌관<>화약<>폭탄<>WD<>60<>3");
-         push (@tmakeitem, "화약<>도화선<>다이나마이트<>WD<>25<>6");
-         push (@tmakeitem, "화약<>지뢰<>강화지뢰<>TN<>40<>1");
-         push (@tmakeitem, "헤어스프레이<>라이터<>간이화염방사기<>WE<>65<>8");
-         push (@tmakeitem, "불꽃놀이<>화약<>폭죽발사기<>WD<>20<>10");
-         push (@tmakeitem, "화약<>확성기<>알람트랩<>TB2<>20<>1");
-         push (@tmakeitem, "알람트랩<>가시박힌 피아노줄<>알람마비트랩<>TD2<>100<>1");
+        {
+            material: ['etc24', 'etc25'],
+            result: itemPlugin.toObject('etc35', 1, 1)
+        },    // 화약
+        {
+            material: ['etc23', 'weapon63'],
+            result: itemPlugin.toObject('weapon42', 1, 45)
+        },    // 화염병
+        {
+            material: ['etc1', 'etc35'],
+            result: itemPlugin.toObject('weapon43', 3, 60)
+        },    // 폭탄
+        {
+            material: ['etc35', 'etc32'],
+            result: itemPlugin.toObject('weapon54', 6, 25)
+        },    // 다이나마이트
+        {
+            material: ['etc35', 'trap1'],
+            result: itemPlugin.toObject('trap3', 1, 40)
+        },    // 강화지뢰
+        {
+            material: ['etc3', 'etc4'],
+            result: itemPlugin.toObject('weapon44', 8, 65)
+        },    // 간이화염방사기
+        {
+            material: ['etc2', 'etc35'],
+            result: itemPlugin.toObject('weapon162', 10, 20)
+        },    // 폭죽발사기
+        {
+            material: ['etc35', 'etc26'],
+            result: itemPlugin.toObject('trap9', 1, 20)
+        },    // 알람트랩
+        {
+            material: ['trap9', 'trap10'],
+            result: itemPlugin.toObject('trap13', 1, 100)
+        },    // 알람마비트랩
 
-         push (@tmakeitem, "쇠사슬<>낫<>사슬낫<>WBCN<>24<>∞");
-         push (@tmakeitem, "배트<>못<>못박은배트<>WB<>22<>∞");
-         push (@tmakeitem, "대나무<>못<>못박은대나무<>WB<>15<>∞");
-         push (@tmakeitem, "암석<>대나무<>돌도끼<>WB<>16<>∞");
+        {
+            material: ['weapon67', 'weapon25'],
+            result: itemPlugin.toObject('weapon45', 0, 24)
+        },    // 사슬낫
+        {
+            material: ['weapon39', 'etc31'],
+            result: itemPlugin.toObject('weapon46', 0, 22)
+        },    // 못박은배트
+        {
+            material: ['weapon96', 'etc31'],
+            result: itemPlugin.toObject('weapon47', 0, 15)
+        },    // 못박은대나무
+        {
+            material: ['weapon79', 'weapon96'],
+            result: itemPlugin.toObject('weapon48', 0, 16)
+        },    // 돌도끼
 
-         push (@tmakeitem, "숫돌<>나이프<>커스텀나이프<>WNS<>20<>∞");
-         push (@tmakeitem, "석궁<>피아노선<>쇠뇌<>WAB<>25<>0");
-         push (@tmakeitem, "대나무<>나이프<>대나무창<>WS<>20<>∞");
+        {
+            material: ['etc20', 'weapon5'],
+            result: itemPlugin.toObject('weapon49', 0, 20)
+        },    // 커스텀나이프
+        {
+            material: ['weapon1', 'trap2'],
+            result: itemPlugin.toObject('weapon50', 0, 25)
+        },    // 쇠뇌
+        {
+            material: ['weapon96', 'weapon5'],
+            result: itemPlugin.toObject('weapon51', 0, 20)
+        },    // 죽창
 
-         push (@tmakeitem, "노트북<>간이레이더<>레이더<>R2<>1<>∞");
-         push (@tmakeitem, "휴대용게임기<>간이레이더<>레이더<>R2<>1<>∞");
+        {
+            material: ['etc36', 'etc5'],
+            result: itemPlugin.toObject('etc34', 0, 1)
+        },    // 레이더
+        {
+            material: ['weapon110', 'etc5'],
+            result: itemPlugin.toObject('etc34', 0, 1)
+        },    // 레이더
 
-         push (@tmakeitem, "전기인두<>고장난노트북<>노트북<>Y<>1<>1");
-         push (@tmakeitem, "휴대폰<>노트북<>모바일PC<>Y<>1<>0");
-         push (@tmakeitem, "보검<>창대<>언월도<>WS<>40<>∞");
-         push (@tmakeitem, "식칼<>식칼<>쌍칼<>WS<>35<>∞");
-         push (@tmakeitem, "대나무<>피아노선<>창대<>Y<>1<>1");
-         push (@tmakeitem, "안경테<>연결고리<>안경고리<>Y<>1<>1");
-         push (@tmakeitem, "안경고리<>유리알<>강화안경<>DH<>3<>3");
-         push (@tmakeitem, "가시발판<>샤미센 줄<>가시트랩<>TN<>100<>1");
-         push (@tmakeitem, "고무버튼<>플라스틱스위치통<>스위치<>Y<>1<>1");
-         push (@tmakeitem, "스위치<>조립단자<>프로그램해제키<>Y<>1<>1");
+        {
+            material: ['weapon102', 'weapon103'],
+            result: itemPlugin.toObject('etc36', 1, 1)
+        },    // 노트북
+        {
+            material: ['etc0', 'etc36'],
+            result: itemPlugin.toObject('etc37', 0, 1)
+        },    // 모바일PC
+        {
+            material: ['weapon62', 'etc38'],
+            result: itemPlugin.toObject('weapon52', 0, 40)
+        },    // 언월도
+        {
+            material: ['weapon2', 'weapon2'],
+            result: itemPlugin.toObject('weapon53', 0, 35)
+        },    // 쌍칼
+        {
+            material: ['weapon96', 'trap2'],
+            result: itemPlugin.toObject('etc38', 1, 1)
+        },    // 창대
+        {
+            material: ['weapon116', 'etc40'],
+            result: itemPlugin.toObject('etc83', 1, 1)
+        },    // 안경고리
+        {
+            material: ['etc83', 'weapon117'],
+            result: itemPlugin.toObject('armor64', 3, 3)
+        },    // 강화안경
+        {
+            material: ['trap4', 'etc6'],
+            result: itemPlugin.toObject('trap14', 1, 100)
+        },    // 가시트랩
+        {
+            material: ['etc61', 'etc41'],
+            result: itemPlugin.toObject('etc84', 1, 1)
+        },    // 스위치
+        {
+            material: ['etc84', 'etc42'],
+            result: itemPlugin.toObject('etc39', 1, 1)
+        },    // 프로그램해제키
 
-         push (@tmakeitem, "리볼버 MkI<>리볼버 MkII<>더블 리볼버SP<>WGB<>35<>0");
-         push (@tmakeitem, "유리조각<>너클<>유리너클<>WP<>15<>∞");
-         push (@tmakeitem, "물<>분말쥬스<>쥬스<>HH<>50<>1");
-         push (@tmakeitem, "쇠사슬<>체인메일<>강화체인메일<>DBK<>25<>30");
-         push (@tmakeitem, "두꺼운 종이1<>두꺼운 종이2<>딱딱한 종이<>DH<>3<>4");
-         push (@tmakeitem, "딱딱한 종이1<>딱딱한 종이2<>종이뭉치<>DH<>5<>8");
+        {
+            material: ['weapon143', 'weapon142'],
+            result: itemPlugin.toObject('weapon163', 0, 35, ['silence'])
+        },    // 아킴보 리볼버 (38SP)
+        {
+            material: ['etc62', 'weapon40'],
+            result: itemPlugin.toObject('weapon184', 0, 15)
+        },    // 유리너클
+        {
+            material: ['heal1', 'heal3'],
+            result: itemPlugin.toObject('heal14', 1, 50)
+        },    // 쥬스
+        {
+            material: ['weapon67', 'armor31'],
+            result: itemPlugin.toObject('armor65', 30, 25)
+        },    // 강화체인메일
+        {
+            material: ['armor45', 'armor46'],
+            result: itemPlugin.toObject('armor63', 4, 3)
+        },    // 딱딱한 종이
+        {
+            material: ['etc85', 'etc86'],
+            result: itemPlugin.toObject('armor66', 8, 5)
+        },    // 종이뭉치
 
-         push (@tmakeitem, "종이뭉치<>부채<>크고 딱딱한 부채<>WB<>15<>∞");
-         push (@tmakeitem, "두꺼운 종이<>가위<>두꺼운 종이옷<>DBK<>6<>7");
-         push (@tmakeitem, "딱딱한 종이<>가위<>딱딱한 종이옷<>DBA<>8<>13");
-         push (@tmakeitem, "종이뭉치<>가위<>종이뭉치옷<>DBA<>10<>30<>");
-         push (@tmakeitem, "샤미센 줄<>대나무<>대나무 트랩<>TN<>50<>1");
-         push (@tmakeitem, "샤미센 줄<>쇠사슬<>쇠사슬 줄<>Y<>1<>1");
-         push (@tmakeitem, "피아노선<>샤미센 줄<>이중 줄선<>TN<>20<>1");
-         push (@tmakeitem, "피아노선<>쇠사슬<>엉켜버린 쇠사슬<>Y<>1<>1");
-         push (@tmakeitem, "피아노선<>가시발판<>가시박힌 피아노선<>TN<>35<>1");
-         push (@tmakeitem, "가시박힌 피아노선<>마취제<>가시박힌 피아노줄<>TC2<>45<>1");
-         push (@tmakeitem, "이중 줄선<>대나무<>대나무 채<>WC<>4<>1");
-         push (@tmakeitem, "이중 줄선<>쇠사슬<>쇠사슬 줄<>Y<>1<>1");
-         push (@tmakeitem, "이중 줄선<>가시발판<>대 강화 가시트랩<>TN<>300<>1");
+        {
+            material: ['armor66', 'weapon34'],
+            result: itemPlugin.toObject('weapon185', 0, 15)
+        },    // 크고 딱딱한 부채
+        {
+            material: ['etc87', 'etc88'],
+            result: itemPlugin.toObject('armor67', 7, 6)
+        },    // 두꺼운 종이옷
+        {
+            material: ['armor63', 'etc88'],
+            result: itemPlugin.toObject('armor68', 13, 8)
+        },    // 딱딱한 종이옷
+        {
+            material: ['armor66', 'etc88'],
+            result: itemPlugin.toObject('armor76', 30, 10)
+        },    // 종이뭉치옷
+        {
+            material: ['etc6', 'weapon96'],
+            result: itemPlugin.toObject('trap15', 1, 50)
+        },    // 대나무 트랩
+        {
+            material: ['etc6', 'weapon67'],
+            result: itemPlugin.toObject('etc75', 1, 1)
+        },    // 쇠사슬 줄
+        {
+            material: ['trap2', 'etc6'],
+            result: itemPlugin.toObject('trap8', 1, 20)
+        },    // 이중 줄선
+        {
+            material: ['trap2', 'weapon67'],
+            result: itemPlugin.toObject('etc94', 1, 1)
+        },    // 엉켜버린 쇠사슬
+        {
+            material: ['trap2', 'trap4'],
+            result: itemPlugin.toObject('trap7', 1, 35)
+        },    // 가시박힌 피아노선
+        {
+            material: ['trap7', 'heal9'],
+            result: itemPlugin.toObject('trap10', 1, 45)
+        },    // 가시박힌 피아노줄
+        {
+            material: ['trap8', 'weapon96'],
+            result: itemPlugin.toObject('weapon164', 1, 4)
+        },    // 대나무 채
+        {
+            material: ['trap8', 'weapon67'],
+            result: itemPlugin.toObject('etc75', 1, 1)
+        },    // 쇠사슬 줄
+        {
+            material: ['trap8', 'trap4'],
+            result: itemPlugin.toObject('trap16', 1, 300)
+        },    // 대 강화 가시트랩
 
-         push (@tmakeitem, "쇠사슬 줄<>대나무<>강화 대나무 트랩<>TN<>150<>1");
-         push (@tmakeitem, "쇠사슬 줄<>가시발판<>강화 가시트랩<>TN<>200<>1");
-         push (@tmakeitem, "물<>빵<>물에 젖은빵<>SH<>2<>1");
-         push (@tmakeitem, "물<>커터칼<>녹슨 커터칼+20<>WN<>1<>∞");
-         push (@tmakeitem, "물<>면도칼<>녹슨 면도칼+20<>WN<>1<>∞");
-         push (@tmakeitem, "물<>영양드링크<>묽은 영양드링크<>SH<>35<>2");
-         push (@tmakeitem, "교복<>바바리코트<>커스텀 교복<>DBK<>15<>25");
-         push (@tmakeitem, "세라복<>바바리코트<>커스텀 세라복<>DBK<>15<>25");
-         push (@tmakeitem, "물<>식칼<>날이 선 식칼<>WNS<>25<>∞");
+        {
+            material: ['etc75', 'weapon96'],
+            result: itemPlugin.toObject('trap17', 1, 150)
+        },    // 강화 대나무 트랩
+        {
+            material: ['etc75', 'trap4'],
+            result: itemPlugin.toObject('trap18', 1, 200)
+        },    // 강화 가시트랩
+        {
+            material: ['heal1', 'stamina17'],
+            result: itemPlugin.toObject('stamina31', 1, 2)
+        },    // 물에 젖은빵
+        {
+            material: ['heal1', 'weapon127'],
+            result: itemPlugin.toObject('weapon186', 0, 1, ['poison+20'])
+        },    // 녹슨 커터칼+20
+        {
+            material: ['heal1', 'weapon106'],
+            result: itemPlugin.toObject('weapon187', 0, 1, ['poison+20'])
+        },    // 녹슨 면도칼+20
+        {
+            material: ['heal1', 'stamina14'],
+            result: itemPlugin.toObject('stamina32', 2, 35)
+        },    // 묽은 영양드링크
+        {
+            material: ['armor41', 'armor57'],
+            result: itemPlugin.toObject('armor59', 25, 15)
+        },    // 커스텀 교복
+        {
+            material: ['armor42', 'armor57'],
+            result: itemPlugin.toObject('armor60', 25, 15)
+        },    // 커스텀 세라복
+        {
+            material: ['heal1', 'weapon2'],
+            result: itemPlugin.toObject('weapon188', 0, 25)
+        },    // 날이 선 식칼
 
-         push (@tmakeitem, "천쪼가리A<>천쪼가리B<>천A<>Y<>1<>1");
-         push (@tmakeitem, "천쪼가리C<>천쪼가리D<>천B<>Y<>1<>1");
-         push (@tmakeitem, "천쪼가리E<>천쪼가리F<>천C<>Y<>1<>1");
-         push (@tmakeitem, "천A<>천B<>옷감A<>Y<>1<>1");
-         push (@tmakeitem, "옷감A<>천C<>옷감B<>Y<>1<>1");
-         push (@tmakeitem, "바느질도구<>옷감A<>제단용옷감<>Y<>1<>1");
-         push (@tmakeitem, "바느질도구<>옷감B<>변형 옷감<>Y<>1<>1");
-         push (@tmakeitem, "제단용옷감<>교복<>커스텀 교복<>DBK<>20<>20");
-         push (@tmakeitem, "변형 옷감<>교복<>커스텀 교복<>DBK<>30<>90");
-         push (@tmakeitem, "제단용옷감<>세라복<>커스텀 세라복<>DBK<>20<>20");
-         push (@tmakeitem, "변형 옷감<>세라복<>커스텀 세라복<>DBK<>30<>∞");
-         push (@tmakeitem, "세라복<>교복<>커스텀 아머<>DBA<>10<>15");
-         push (@tmakeitem, "커스텀 교복<>커스텀 세라복<>커스터마이징 아머<>DBA<>20<>10");
+        {
+            material: ['etc43', 'etc44'],
+            result: itemPlugin.toObject('etc76', 1, 1)
+        },    // 천A
+        {
+            material: ['etc45', 'etc46'],
+            result: itemPlugin.toObject('etc77', 1, 1)
+        },    // 천B
+        {
+            material: ['etc47', 'etc48'],
+            result: itemPlugin.toObject('etc78', 1, 1)
+        },    // 천C
+        {
+            material: ['etc76', 'etc77'],
+            result: itemPlugin.toObject('etc79', 1, 1)
+        },    // 옷감A
+        {
+            material: ['etc79', 'etc78'],
+            result: itemPlugin.toObject('etc80', 1, 1)
+        },    // 옷감B
+        {
+            material: ['etc17', 'etc79'],
+            result: itemPlugin.toObject('etc81', 1, 1)
+        },    // 제단용옷감
+        {
+            material: ['etc17', 'etc80'],
+            result: itemPlugin.toObject('etc82', 1, 1)
+        },    // 변형 옷감
+        {
+            material: ['etc81', 'armor41'],
+            result: itemPlugin.toObject('armor59', 20, 20)
+        },    // 커스텀 교복
+        {
+            material: ['etc82', 'armor41'],
+            result: itemPlugin.toObject('armor59', 90, 30)
+        },    // 커스텀 교복
+        {
+            material: ['etc81', 'armor42'],
+            result: itemPlugin.toObject('armor60', 20, 20)
+        },    // 커스텀 세라복
+        {
+            material: ['etc82', 'armor42'],
+            result: itemPlugin.toObject('armor60', 0, 30)
+        },    // 커스텀 세라복
+        {
+            material: ['armor42', 'armor41'],
+            result: itemPlugin.toObject('armor69', 15, 10)
+        },    // 커스텀 아머
+        {
+            material: ['armor59', 'armor60'],
+            result: itemPlugin.toObject('armor70', 10, 20)
+        },    // 커스터마이징 아머
 
-         push (@tmakeitem, "쥐덫<>도화선<>줄 덫<>TN<>35<>1");
-         push (@tmakeitem, "줄 덫<>식칼<>덫트랩<>TN<>85<>1");
-         push (@tmakeitem, "덫트랩<>물<>녹슨 트랩<>TN<>95<>1");
-         push (@tmakeitem, "라이터<>숫돌<>달궈진 숫돌<>WC<>35<>5");
-         push (@tmakeitem, "마이크<>컵<>확성기<>Y<>1<>1");
-         push (@tmakeitem, "요도무라마사<>명도마사무네<>요마명도+20<>WNS<>45<>∞");
-         push (@tmakeitem, "물<>약<>물약<>HH<>70<>1");
-         push (@tmakeitem, "물<>교복<>물에 젖은 교복<>DBA<>1<>1");
-         push (@tmakeitem, "물<>세라복<>물에 젖은 세라복<>DBA<>1<>1");
-         push (@tmakeitem, "추가 물<>추가 빵<>물에 젖은 빵<>HH<>5<>1");
-         push (@tmakeitem, "방탄조끼<>교복<>방탄교복<>DBA<>25<>30");
-         push (@tmakeitem, "방탄조끼<>세라복<>방탄세라복<>DBA<>25<>30");
-         push (@tmakeitem, "방탄교복<>방탄세라복<>무거워서 못입게된 옷<>Y<>1<>1");
-         push (@tmakeitem, "커터칼<>연필<>날카로운연필<>WS<>5<>∞");
-         push (@tmakeitem, "얼음송곳<>물<>많은 물<>HH<>90<>2");
-         push (@tmakeitem, "쇠사슬<>양날나이프<>사슬 나이프<>WCS<>20<>∞");
-         push (@tmakeitem, "알수없는물건<>알수없는피<>알수없는세포<>Y<>1<>1");
-         push (@tmakeitem, "알수없는세포<>이상한 콩<>???<>Y<>1<>1");
-         push (@tmakeitem, "???<>이상한기계<>암즈<>WNS<>1<>999");
-         push (@tmakeitem, "암즈 사용법<>암즈<>사용가능 암즈<>WNS<>70<>999");
+        {
+            material: ['trap0', 'etc32'],
+            result: itemPlugin.toObject('trap11', 1, 35)
+        },    // 줄 덫
+        {
+            material: ['trap11', 'weapon2'],
+            result: itemPlugin.toObject('trap12', 1, 85)
+        },    // 덫트랩
+        {
+            material: ['trap12', 'heal1'],
+            result: itemPlugin.toObject('trap19', 1, 95)
+        },    // 녹슨 트랩
+        {
+            material: ['etc4', 'etc20'],
+            result: itemPlugin.toObject('weapon165', 5, 35)
+        },    // 달궈진 숫돌
+        {
+            material: ['weapon138', 'weapon56'],
+            result: itemPlugin.toObject('etc26', 1, 1)
+        },    // 확성기
+        {
+            material: ['weapon114', 'weapon99'],
+            result: itemPlugin.toObject('weapon189', 0, 45, ['poison+20'])
+        },    // 요마명도+20
+        {
+            material: ['heal1', 'heal2'],
+            result: itemPlugin.toObject('heal12', 1, 70)
+        },    // 물약
+        {
+            material: ['heal1', 'armor41'],
+            result: itemPlugin.toObject('armor71', 1, 1)
+        },    // 물에 젖은 교복
+        {
+            material: ['heal1', 'armor42'],
+            result: itemPlugin.toObject('armor72', 1, 1)
+        },    // 물에 젖은 세라복
+        {
+            material: ['heal6', 'stamina21'],
+            result: itemPlugin.toObject('heal15', 1, 5)
+        },    // 물에 젖은 빵
+        {
+            material: ['armor6', 'armor41'],
+            result: itemPlugin.toObject('armor61', 30, 25)
+        },    // 방탄교복
+        {
+            material: ['armor6', 'armor42'],
+            result: itemPlugin.toObject('armor62', 30, 25)
+        },    // 방탄세라복
+        {
+            material: ['armor61', 'armor62'],
+            result: itemPlugin.toObject('etc95', 1, 1)
+        },    // 무거워서 못입게된 옷
+        {
+            material: ['weapon127', 'weapon82'],
+            result: itemPlugin.toObject('weapon190', 0, 5)
+        },    // 날카로운연필
+        {
+            material: ['weapon26', 'heal1'],
+            result: itemPlugin.toObject('heal16', 2, 90)
+        },    // 많은 물
+        {
+            material: ['weapon67', 'weapon17'],
+            result: itemPlugin.toObject('weapon191', 0, 20)
+        },    // 사슬 나이프
+        {
+            material: ['etc49', 'etc50'],
+            result: itemPlugin.toObject('etc89', 1, 1)
+        },    // 알수없는세포
+        {
+            material: ['etc89', 'etc51'],
+            result: itemPlugin.toObject('etc90', 1, 1)
+        },    // ???
+        {
+            material: ['etc90', 'etc52'],
+            result: itemPlugin.toObject('weapon160', 0, 1)
+        },    // 암즈
+        {
+            material: ['etc53', 'weapon160'],
+            result: itemPlugin.toObject('weapon166', 0, 70)
+        },    // 사용가능 암즈
 
-         push (@tmakeitem, "소방용도끼<>쇠사슬<>도끼 사슬<>WNCS<>30<>∞");
-         push (@tmakeitem, "장도리깨<>도끼 사슬<>장도리깨 날사슬<>WNCS<>50<>∞");
-         push (@tmakeitem, "레이져 포인트<>헤비크로스보우<>저격 크로스보우<>WAB<>45<>0");
-         push (@tmakeitem, "거북등껍질<>갑주<>거북갑주<>DBA<>30<>5");
-         push (@tmakeitem, "붕대<>옷핀<>복대<>ADB<>5<>15");
-         push (@tmakeitem, "꿀<>물<>꿀물<>SH<>55<>1");
-         push (@tmakeitem, "꿀<>약<>꿀약<>HH<>100<>1");
-         push (@tmakeitem, "많은 물<>약<>많은 물약<>140<>1");
-         push (@tmakeitem, "지뢰<>피아노선<>폭파트랩<>TN<>250<>1");
-         push (@tmakeitem, "동의보감<>약<>탕약<>HH<>100<>1");
-         push (@tmakeitem, "동의보감<>이상한 콩<>신선두<>HH<>300<>1");
-         push (@tmakeitem, "???<>박카스<>이상한 약물<>SD<>200<>1");
-         push (@tmakeitem, "제련철<>나이프<>강화나이프<>WNS<>23<>∞");
-         push (@tmakeitem, "물<>제련철<>녹슨 철<>Y<>1<>1");
-         push (@tmakeitem, "녹슨 철<>나이프<>녹슨 강화나이프+30<>WNS<>25<>∞");
-         push (@tmakeitem, "목공용본드<>물<>압축본드공<>WC<>14<>5");
-         push (@tmakeitem, "물<>비료<>오염된 물<>HD<>5<>1");
-         push (@tmakeitem, "제련철<>일본도<>날카로운 검심<>WN<>20<>1");
-         push (@tmakeitem, "녹슨 철<>일본도<>망가진 검+50<>WNS<>5<>∞");
-         push (@tmakeitem, "물<>배터리<>방전되는 배터리<>WC<>30<>2");
-         push (@tmakeitem, "옷핀<>동의보감<>침술용 핀세트<>HH<>10<>5");
-         push (@tmakeitem, "물약<>동의보감<>영약<>HH<>130<>1");
-         push (@tmakeitem, "경유<>빈병<>기름병<>Y<>1<>1");
-         push (@tmakeitem, "기름병<>라이터<>폭염병<>WQ<>150<>1");
-         push (@tmakeitem, "약<>옷핀<>소독핀셋<>HH<>80<>1");
-         push (@tmakeitem, "소독핀셋<>물<>핀셋<>WN<>2<>∞");
-         push (@tmakeitem, "녹슨 철<>물<>물<>HD<>50<>1");
-         push (@tmakeitem, "거북등껍질<>장도리깨<>거북등가루<>HH<>2<>1");
-         push (@tmakeitem, "거북등가루<>물<>보약<>HH<>50<>5");
-         push (@tmakeitem, "동의보감<>세계수<>세계수 엑기스<>SH<>60<>1");
+        {
+            material: ['weapon69', 'weapon67'],
+            result: itemPlugin.toObject('weapon192', 0, 30)
+        },    // 도끼 사슬
+        {
+            material: ['weapon135', 'weapon192'],
+            result: itemPlugin.toObject('weapon193', 0, 50)
+        },    // 장도리깨 날사슬
+        {
+            material: ['etc54', 'weapon105'],
+            result: itemPlugin.toObject('weapon167', 0, 45)
+        },    // 저격 크로스보우
+        {
+            material: ['etc55', 'armor30'],
+            result: itemPlugin.toObject('armor73', 5, 30)
+        },    // 거북갑주
+        {
+            material: ['heal10', 'weapon151'],
+            result: itemPlugin.toObject('armor74', 15, 5)
+        },    // 복대
+        {
+            material: ['stamina22', 'heal1'],
+            result: itemPlugin.toObject('heal17', 1, 55)
+        },    // 꿀물
+        {
+            material: ['stamina22', 'heal2'],
+            result: itemPlugin.toObject('heal18', 1, 100)
+        },    // 꿀약
+        {
+            material: ['heal16', 'heal2'],
+            result: itemPlugin.toObject('heal29', 1, 140)
+        },    // 많은 물약
+        {
+            material: ['trap1', 'trap2'],
+            result: itemPlugin.toObject('trap20', 1, 250)
+        },    // 폭파트랩
+        {
+            material: ['weapon120', 'heal2'],
+            result: itemPlugin.toObject('heal13', 1, 100)
+        },    // 탕약
+        {
+            material: ['weapon120', 'etc51'],
+            result: itemPlugin.toObject('heal19', 1, 300)
+        },    // 신선두
+        {
+            material: ['etc90', 'stamina28'],
+            result: itemPlugin.toObject('stamina33', 1, 200, ['poison'])
+        },    // 이상한 약물
+        {
+            material: ['etc56', 'weapon5'],
+            result: itemPlugin.toObject('weapon194', 0, 23)
+        },    // 강화나이프
+        {
+            material: ['heal1', 'etc56'],
+            result: itemPlugin.toObject('etc93', 1, 1)
+        },    // 녹슨 철
+        {
+            material: ['etc93', 'weapon5'],
+            result: itemPlugin.toObject('weapon195', 0, 25, ['poison+30'])
+        },    // 녹슨 강화나이프+30
+        {
+            material: ['etc71', 'heal1'],
+            result: itemPlugin.toObject('weapon168', 5, 14)
+        },    // 압축본드공
+        {
+            material: ['heal1', 'etc25'],
+            result: itemPlugin.toObject('heal20', 1, 5, ['poison'])
+        },    // 오염된 물
+        {
+            material: ['etc56', 'weapon33'],
+            result: itemPlugin.toObject('weapon169', 1, 20)
+        },    // 날카로운 검심
+        {
+            material: ['etc93', 'weapon33'],
+            result: itemPlugin.toObject('weapon196', 0, 5, ['poison+50'])
+        },    // 망가진 검+50
+        {
+            material: ['heal1', 'etc27'],
+            result: itemPlugin.toObject('weapon170', 2, 30)
+        },    // 방전되는 배터리
+        {
+            material: ['weapon151', 'weapon120'],
+            result: itemPlugin.toObject('heal21', 5, 10)
+        },    // 침술용 핀세트
+        {
+            material: ['heal12', 'weapon120'],
+            result: itemPlugin.toObject('heal22', 1, 130)
+        },    // 영약
+        {
+            material: ['etc24', 'weapon63'],
+            result: itemPlugin.toObject('etc91', 1, 1)
+        },    // 기름병
+        {
+            material: ['etc91', 'etc4'],
+            result: itemPlugin.toObject('weapon171', 1, 150)
+        },    // 폭염병
+        {
+            material: ['heal2', 'weapon151'],
+            result: itemPlugin.toObject('heal23', 1, 80)
+        },    // 소독핀셋
+        {
+            material: ['heal23', 'heal1'],
+            result: itemPlugin.toObject('weapon197', 0, 2)
+        },    // 핀셋
+        {
+            material: ['etc93', 'heal1'],
+            result: itemPlugin.toObject('heal1', 1, 50, ['poison'])
+        },    // 물
+        {
+            material: ['etc55', 'weapon135'],
+            result: itemPlugin.toObject('heal11', 1, 2)
+        },    // 거북등가루
+        {
+            material: ['heal11', 'heal1'],
+            result: itemPlugin.toObject('heal24', 5, 50)
+        },    // 보약
+        {
+            material: ['weapon120', 'stamina19'],
+            result: itemPlugin.toObject('stamina34', 1, 60)
+        },    // 세계수 엑기스
 
-         push (@tmakeitem, "가죽장갑<>제련철<>징박은 가죽장갑<>WP<>25<>∞");
-         push (@tmakeitem, "너클<>제련철<>강화 너클<>WP<>20<>∞");
-         push (@tmakeitem, "라이터<>라이터<>더블 라이터<>WP<>20<>∞");
-         push (@tmakeitem, "목장갑<>유리조각<>피묻은장갑<>WP<>30<>∞");
+        {
+            material: ['weapon134', 'etc56'],
+            result: itemPlugin.toObject('weapon198', 0, 25)
+        },    // 징박은 가죽장갑
+        {
+            material: ['weapon40', 'etc56'],
+            result: itemPlugin.toObject('weapon199', 0, 20)
+        },    // 강화 너클
+        {
+            material: ['etc4', 'etc4'],
+            result: itemPlugin.toObject('weapon200', 0, 20)
+        },    // 더블 라이터
+        {
+            material: ['weapon154', 'etc62'],
+            result: itemPlugin.toObject('weapon201', 0, 30)
+        },    // 피묻은장갑
 
-         push (@tmakeitem, "약초<>동의보감<>약<>HH<>50<>3");
-         push (@tmakeitem, "약초<>물<>약물<>HD<>35<>1");
-         push (@tmakeitem, "약초<>약<>녹색 약<>HD<>80<>1");
-         push (@tmakeitem, "약초<>꿀<>꿀약<>HD<>100<>1");
-         push (@tmakeitem, "약초<>물약<>녹색 물약<>HD<>90<>1");
-         push (@tmakeitem, "약초<>탕약<>탕약<>HD<>120<>1");
-         push (@tmakeitem, "약초<>빵<>약빵<>SD<>40<>1");
-         push (@tmakeitem, "배터리<>경유<>유화배터리<>Y<>1<>1");
-         push (@tmakeitem, "유화배터리<>라이터<>간이폭발물<>WD<>40<>2");
-         push (@tmakeitem, "유리잔<>라이터<>유리조각<>Y<>1<>1");
-         push (@tmakeitem, "쇠사슬<>손도끼<>도끼 사슬<>WCN<>28<>∞");
-         push (@tmakeitem, "고무줄<>부드러운 종이<>안대<>DH<>3<>2");
-         push (@tmakeitem, "면도칼<>CD<>챠크람<>WC<>20<>4");
-         push (@tmakeitem, "커터칼<>CD<>챠크람<>WC<>20<>10");
-         push (@tmakeitem, "붕어<>라이터<>구운 붕어<>SH<>35<>1");
-         push (@tmakeitem, "미꾸라지<>라이터<>구운 미꾸라지<>SH<>10<>1");
-         push (@tmakeitem, "거북<>라이터<>딱딱해진 거북시체<>WC<>15<>1");
-         push (@tmakeitem, "물<>플레이보이<>물에 젖은 잡지<>WB<>5<>∞");
-         push (@tmakeitem, "물<>동의보감<>물에 젖은 두꺼운책<>WB<>10<>∞");
-         push (@tmakeitem, "옷핀<>독약<>독침+100<>WC<>120<>1");
-         push (@tmakeitem, "바늘<>독약<>독침+100<>WC<>120<>1");
-         push (@tmakeitem, "옷핀<>마취제<>마비침<>WC<>20<>1");
-         push (@tmakeitem, "바늘<>마취제<>마비침<>WC<>20<>1");
-         push (@tmakeitem, "휴대폰<>마이크<>소리유인기<>Y<>1<>1");
+        {
+            material: ['heal7', 'weapon120'],
+            result: itemPlugin.toObject('heal2', 3, 50)
+        },    // 약
+        {
+            material: ['heal7', 'heal1'],
+            result: itemPlugin.toObject('heal25', 1, 35, ['poison'])
+        },    // 약물
+        {
+            material: ['heal7', 'heal2'],
+            result: itemPlugin.toObject('heal26', 1, 80, ['poison'])
+        },    // 녹색 약
+        {
+            material: ['heal7', 'stamina22'],
+            result: itemPlugin.toObject('heal18', 1, 100, ['poison'])
+        },    // 꿀약
+        {
+            material: ['heal7', 'heal12'],
+            result: itemPlugin.toObject('heal28', 1, 90, ['poison'])
+        },    // 녹색 물약
+        {
+            material: ['heal7', 'heal13'],
+            result: itemPlugin.toObject('heal13', 1, 120, ['poison'])
+        },    // 탕약
+        {
+            material: ['heal7', 'stamina17'],
+            result: itemPlugin.toObject('stamina35', 1, 40, ['poison'])
+        },    // 약빵
+        {
+            material: ['etc27', 'etc24'],
+            result: itemPlugin.toObject('etc92', 1, 1)
+        },    // 유화배터리
+        {
+            material: ['etc92', 'etc4'],
+            result: itemPlugin.toObject('weapon172', 2, 40)
+        },    // 간이폭발물
+        {
+            material: ['weapon65', 'etc4'],
+            result: itemPlugin.toObject('etc62', 1, 1)
+        },    // 유리조각
+        {
+            material: ['weapon67', 'weapon3'],
+            result: itemPlugin.toObject('weapon192', 0, 28)
+        },    // 도끼 사슬
+        {
+            material: ['weapon129', 'etc57'],
+            result: itemPlugin.toObject('armor75', 2, 3)
+        },    // 안대
+        {
+            material: ['weapon106', 'weapon146'],
+            result: itemPlugin.toObject('weapon173', 4, 20)
+        },    // 챠크람
+        {
+            material: ['weapon127', 'weapon146'],
+            result: itemPlugin.toObject('weapon173', 10, 20)
+        },    // 챠크람
+        {
+            material: ['weapon157', 'etc4'],
+            result: itemPlugin.toObject('stamina36', 1, 35)
+        },    // 구운 붕어
+        {
+            material: ['weapon158', 'etc4'],
+            result: itemPlugin.toObject('stamina37', 1, 10)
+        },    // 구운 미꾸라지
+        {
+            material: ['weapon159', 'etc4'],
+            result: itemPlugin.toObject('weapon175', 1, 15)
+        },    // 딱딱해진 거북시체
+        {
+            material: ['heal1', 'etc63'],
+            result: itemPlugin.toObject('weapon203', 0, 5)
+        },    // 물에 젖은 잡지
+        {
+            material: ['heal1', 'weapon120'],
+            result: itemPlugin.toObject('weapon204', 0, 10)
+        },    // 물에 젖은 두꺼운책
+        {
+            material: ['weapon151', 'etc7'],
+            result: itemPlugin.toObject('weapon176', 1, 120, ['poison+100'])
+        },    // 독침+100
+        {
+            material: ['weapon139', 'etc7'],
+            result: itemPlugin.toObject('weapon176', 1, 120, ['poison+100'])
+        },    // 독침+100
+        {
+            material: ['weapon151', 'heal9'],
+            result: itemPlugin.toObject('weapon177', 1, 20)
+        },    // 마비침
+        {
+            material: ['weapon139', 'heal9'],
+            result: itemPlugin.toObject('weapon177', 1, 20)
+        },    // 마비침
+        {
+            material: ['etc0', 'weapon138'],
+            result: itemPlugin.toObject('etc58', 1, 1)
+        },    // 소리유인기
 
-         push (@tmakeitem, "물<>라이터<>뜨거운 물<>WC<>15<>1");
-         push (@tmakeitem, "유면<>뜨거운 물<>익은면발<>SH<>5<>1");
-         push (@tmakeitem, "익은면발<>라면스프<>맛있는 라면<>SH<>15<>5");
-         push (@tmakeitem, "유면<>라면스프<>생 라면<>SH<>10<>5");
-         push (@tmakeitem, "휴대폰<>확성기<>소리유인기<>Y<>1<>1");
-         push (@tmakeitem, "경유<>라이터<>화염분사기<>WE<>50<>6");
-         push (@tmakeitem, "카레가루<>뜨거운 물<>물카레<>SH<>30<>1");
-         push (@tmakeitem, "오렌지<>배터리<>오렌지<>SD<>5<>1");
-         push (@tmakeitem, "알코올 농도4<>알코올 농도45<>회오리주<>SD<>15<>1");
-         push (@tmakeitem, "알코올 농도4<>알코올 농도17<>네이팜탄<>WD<>10<>3");
-         push (@tmakeitem, "알코올 농도4<>알코올 농도7<>타이타닉<>WD<>15<>2");
-         push (@tmakeitem, "알코올 농도17<>알코올 농도45<>소형폭탄<>WD<>30<>2");
-         push (@tmakeitem, "알코올 농도17<>알코올 농도7<>기뢰폭<>WD<>25<>2");
-         push (@tmakeitem, "알코올 농도45<>알코올 농도7<>원자탄<>WD<>50<>3");
-         */
+        {
+            material: ['heal1', 'etc4'],
+            result: itemPlugin.toObject('weapon161', 1, 15)
+        },    // 뜨거운 물
+        {
+            material: ['stamina24', 'weapon161'],
+            result: itemPlugin.toObject('stamina30', 1, 5)
+        },    // 익은면발
+        {
+            material: ['stamina30', 'stamina26'],
+            result: itemPlugin.toObject('stamina38', 5, 15)
+        },    // 맛있는 라면
+        {
+            material: ['stamina24', 'stamina26'],
+            result: itemPlugin.toObject('stamina39', 5, 10)
+        },    // 생 라면
+        {
+            material: ['etc0', 'etc26'],
+            result: itemPlugin.toObject('etc58', 1, 1)
+        },    // 소리유인기
+        {
+            material: ['etc24', 'etc4'],
+            result: itemPlugin.toObject('weapon178', 6, 50)
+        },    // 화염분사기
+        {
+            material: ['stamina11', 'weapon161'],
+            result: itemPlugin.toObject('stamina40', 1, 30)
+        },    // 물카레
+        {
+            material: ['stamina27', 'etc27'],
+            result: itemPlugin.toObject('stamina27', 1, 5, ['poison'])
+        },    // 오렌지
+        {
+            material: ['etc67', 'etc70'],
+            result: itemPlugin.toObject('stamina41', 1, 15, ['poison'])
+        },    // 회오리주
+        {
+            material: ['etc67', 'etc69'],
+            result: itemPlugin.toObject('weapon179', 3, 10)
+        },    // 네이팜탄
+        {
+            material: ['etc67', 'etc68'],
+            result: itemPlugin.toObject('weapon180', 2, 15)
+        },    // 타이타닉
+        {
+            material: ['etc69', 'etc70'],
+            result: itemPlugin.toObject('weapon181', 2, 30)
+        },    // 소형폭탄
+        {
+            material: ['etc69', 'etc68'],
+            result: itemPlugin.toObject('weapon182', 2, 25)
+        },    // 기화폭탄
+        {
+            material: ['etc70', 'etc68'],
+            result: itemPlugin.toObject('weapon183', 3, 50)
+        }    // 원자폭탄
     ],
 
     /*

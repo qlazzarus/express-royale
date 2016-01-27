@@ -1,0 +1,64 @@
+extends layout
+
+block content
+    h1.text-center.red 조합법
+    div.manual-block
+        h5.red 총
+        ul
+        for entry in gun
+            li= entry
+    div.manual-block
+        h5.red 활
+        ul
+        for entry in bow
+            li= entry
+    div.manual-block
+        h5.red 곤봉
+        ul
+        for entry in melee
+            li= entry
+    div.manual-block
+        h5.red 베기/찌르기
+        ul
+        for entry in cut
+            li= entry
+    div.manual-block
+        h5.red 때리기
+        ul
+        for entry in fist
+            li= entry
+    div.manual-block
+        h5.red 폭탄
+        ul
+        for entry in bomb
+            li= entry
+    div.manual-block
+        h5.red 던지기
+        ul
+        for entry in throws
+            li= entry
+    div.manual-block
+        h5.red 방어구
+        ul
+        for entry in armor
+            li= entry
+    div.manual-block
+        h5.red 트랩
+        ul
+        for entry in trap
+            li= entry
+    div.manual-block
+        h5.red 체력회복
+        ul
+        for entry in heal
+            li= entry
+    div.manual-block
+        h5.red 스테미너회복
+        ul
+        for entry in stamina
+            li= entry
+    div.manual-block
+        h5.red 기타
+        ul
+        for entry in etc
+            li= entry

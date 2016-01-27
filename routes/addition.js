@@ -40,7 +40,16 @@ module.exports = function (app, options) {
     });
 
     app.get('/rule', function (req, res) {
-        res.render('rule');
+        res.render('rule', {
+            groupPerMan: options.container.get('properties').groupPerMan,
+            maxGroups: options.container.get('properties').maxGroups,
+            maxItemLength: 6,
+            firstAidStamina: options.container.get('properties').firstAidStamina,
+            healthRecoverInterval: options.container.get('properties').healthRecoverInterval,
+            healthRecoverIncrease: options.container.get('properties').healthRecoverIncrease,
+            staminaRecoverInterval: options.container.get('properties').staminaRecoverInterval,
+            staminaRecoverIncrease: options.container.get('properties').staminaRecoverIncrease
+        });
     });
 
     app.get('/news', function (req, res, next) {
@@ -384,5 +393,59 @@ module.exports = function (app, options) {
                 }
             });
         });
+    });
+
+    app.get('/mix', function (req, res){
+        var mixes = options.container.get('items').mixItems;
+        var receipts = {
+            gun: [],
+            bow: [],
+            cut: [],
+            bomb: [],
+            throws: [],
+            melee: [],
+            fist: [],
+            armor: [],
+            heal: [],
+            stamina: [],
+            trap: [],
+            etc: []
+        };
+
+        for (var i in mixes) {
+            var mix = mixes[i];
+            var material1 = options.container.get('items').getInfo(mix.material[0]);
+            var material2 = options.container.get('items').getInfo(mix.material[1]);
+            var result = options.container.get('items').getInfo(mix.result.idx);
+            var receipt = [material1.name, '+', material2.name, '=', result.name].join(' ');
+
+            if ('weapon' === result.equip && -1 !== result.attackType.indexOf('shot')) {
+                receipts.gun.push(receipt);
+            } else if ('weapon' === result.equip && -1 !== result.attackType.indexOf('bow')) {
+                receipts.bow.push(receipt);
+            } else if ('weapon' === result.equip && -1 !== result.attackType.indexOf('bomb')) {
+                receipts.bomb.push(receipt);
+            } else if ('weapon' === result.equip && (-1 !== result.attackType.indexOf('cut') || -1 !== result.attackType.indexOf('poke'))) {
+                receipts.cut.push(receipt);
+            } else if ('weapon' === result.equip && -1 !== result.attackType.indexOf('throw')) {
+                receipts.throws.push(receipt);
+            } else if ('weapon' === result.equip && -1 !== result.attackType.indexOf('melee')) {
+                receipts.melee.push(receipt);
+            } else if ('weapon' === result.equip && -1 !== result.attackType.indexOf('fist')) {
+                receipts.fist.push(receipt);
+            } else if ('armor' === result.equip) {
+                receipts.armor.push(receipt);
+            } else if ('health' === result.equip) {
+                receipts.heal.push(receipt);
+            } else if ('stamina' === result.equip) {
+                receipts.stamina.push(receipt);
+            } else if ('trap' === result.equip) {
+                receipts.trap.push(receipt);
+            } else {
+                receipts.etc.push(receipt);
+            }
+        }
+
+        res.render('mix', receipts);
     });
 };

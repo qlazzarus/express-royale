@@ -342,17 +342,28 @@ module.exports = (function () {
      * 공격 퍼센트 계산
      *
      * @param attack
+     * @param attackPercent
      * @param weaponPoint
+     * @param weaponStats
      * @param command
      * @returns {Number}
      */
-    function getAttackPercent(attack, weaponPoint, command) {
-        var result = (weaponPoint + attack) * attack;
+    function getAttackPercent(attack, attackPercent, weaponPoint, weaponStats, command) {
+        var addPoint = 0;
+        var result = (weaponPoint + attack) * attackPercent;
         if ('meleeSkill' == command) {
-            result = (parseInt(weaponPoint / 10) + attack) * attack;
+            result = (parseInt(weaponPoint / 10) + attack) * attackPercent;
         }
 
-        return parseInt(result / 100);
+        result = parseInt(result / 100);
+
+        for (var i in weaponStats) {
+            if (/poison\+/g.exec(weaponStats[i])) {
+                addPoint = parseInt(weaponStats[i].replace('poison+', ''));
+            }
+        }
+
+        return result + addPoint;
     }
 
 
@@ -365,10 +376,11 @@ module.exports = (function () {
      * @param armPoint
      * @param footPoint
      * @param accessoryPoint
+     * @param fieldDefence
      * @returns {Number}
      */
-    function getDefencePercent(defence, headPoint, bodyPoint, armPoint, footPoint, accessoryPoint) {
-        var result = (defence + headPoint + bodyPoint + armPoint + footPoint + accessoryPoint) * defence;
+    function getDefencePercent(defence, headPoint, bodyPoint, armPoint, footPoint, accessoryPoint, fieldDefence) {
+        var result = (defence + headPoint + bodyPoint + armPoint + footPoint + accessoryPoint) * fieldDefence;
 
         return parseInt(result / 100);
     }
@@ -449,13 +461,14 @@ module.exports = (function () {
     /**
      * 보급아이템 추가 설정
      *
-     * @param supplyWeapon
+     * @param supplyItem
+     * @param supplyInfo
      * @param personalItem
      * @returns {{item0: ({idx, endurance, point, stats}), item1: ({idx, endurance, point, stats}), item2: ({idx, endurance, point, stats}), item3: ({idx, endurance, point, stats}), item4: ({idx, endurance, point, stats}), item5: ({idx, endurance, point, stats})}}
      */
-    function appendSupplyItem(supplyWeapon, personalItem) {
+    function appendSupplyItem(supplyItem, supplyInfo, personalItem) {
         var result = {
-            item0: supplyWeapon,
+            item0: supplyItem,
             item1: personalItem,
             item2: setItemObject('stamina17', 2, 40),   // 빵
             item3: setItemObject('heal1', 2, 20),       // 물
@@ -463,21 +476,21 @@ module.exports = (function () {
             item5: setItemEmpty()
         };
 
-        if ('weapon' === supplyWeapon.equip && '12gauge' === supplyWeapon.ammoType) {
+        if ('weapon' === supplyInfo.equip && '12gauge' === supplyInfo.ammoType) {
             result.item4 = setItemObject('etc8', 24, 1);
-        } else if ('weapon' === supplyWeapon.equip && '9mm' === supplyWeapon.ammoType) {
+        } else if ('weapon' === supplyInfo.equip && '9mm' === supplyInfo.ammoType) {
             result.item4 = setItemObject('etc9', 24, 1);
-        } else if ('weapon' === supplyWeapon.equip && '22lr' === supplyWeapon.ammoType) {
+        } else if ('weapon' === supplyInfo.equip && '22lr' === supplyInfo.ammoType) {
             result.item4 = setItemObject('etc10', 24, 1);
-        } else if ('weapon' === supplyWeapon.equip && '357mag' === supplyWeapon.ammoType) {
+        } else if ('weapon' === supplyInfo.equip && '357mag' === supplyInfo.ammoType) {
             result.item4 = setItemObject('etc12', 24, 1);
-        } else if ('weapon' === supplyWeapon.equip && '38special' === supplyWeapon.ammoType) {
+        } else if ('weapon' === supplyInfo.equip && '38special' === supplyInfo.ammoType) {
             result.item4 = setItemObject('etc13', 24, 1);
-        } else if ('weapon' === supplyWeapon.equip && '45acp' === supplyWeapon.ammoType) {
+        } else if ('weapon' === supplyInfo.equip && '45acp' === supplyInfo.ammoType) {
             result.item4 = setItemObject('etc14', 24, 1);
-        } else if ('weapon' === supplyWeapon.equip && 'apostle' === supplyWeapon.ammoType) {
+        } else if ('weapon' === supplyInfo.equip && 'apostle' === supplyInfo.ammoType) {
             result.item4 = setItemObject('etc15', 24, 1);
-        } else if ('weapon' === supplyWeapon.equip && 'bow' === supplyWeapon.ammoType) {
+        } else if ('weapon' === supplyInfo.equip && 'bow' === supplyInfo.ammoType) {
             result.item4 = setItemObject('etc16', 24, 1);
         }
 
@@ -490,7 +503,7 @@ module.exports = (function () {
      *
      * @param items
      * @param userAttack
-     * @param userDamage
+     * @param skillDamage
      * @param enemyDefence
      * @param skillName
      * @param armorBody
@@ -498,9 +511,9 @@ module.exports = (function () {
      * @param armorAccessory
      * @returns {number}
      */
-    function getTotalDamage(items, userAttack, userDamage, enemyDefence, skillName, armorBody, armorHead,
+    function getTotalDamage(items, userAttack, skillDamage, enemyDefence, skillName, armorBody, armorHead,
                             armorAccessory) {
-        var result = parseInt(userAttack * userDamage / 100) - enemyDefence;
+        var result = parseInt(userAttack * skillDamage / 100) - enemyDefence;
         result /= 2;
         result += dice(result);
 
@@ -1390,7 +1403,7 @@ module.exports = (function () {
     function getBattleRateByAttacker(items, tactics, specialize, injured, weapon, shotSkill, cutSkill, throwSkill,
                                      fistSkill, bowSkill, meleeSkill, bombSkill, pokeSkill, expPerSkillLevel) {
         var result = {
-            find: 5,    // 적, 아이템 발견율
+            find: 6,    // 적, 아이템 발견율
             ambush: 7,  // 선제공격율
             attack: 100,   // 공격율
             defence: 100,  // 방어율
@@ -1400,28 +1413,28 @@ module.exports = (function () {
 
         if (1 == tactics) {
             // 공격중시
-            result.attack += 40;
-            result.defence -= 40;
+            result.attack += 60;
+            result.defence -= 60;
         } else if (2 == tactics) {
             // 방어중시
-            result.attack -= 40;
-            result.defence += 40;
-            result.ambush -= 4;
+            result.attack -= 60;
+            result.defence += 60;
+            result.ambush -= 5;
         } else if (3 == tactics) {
             // 은밀행동
-            result.attack -= 40;
-            result.defence -= 40;
-            result.find -= 4;
-            result.ambush += 4;
+            result.attack -= 100;
+            result.defence -= 100;
+            result.find -= 7;
+            result.ambush += 5;
         } else if (4 == tactics) {
             // 탐색행동
-            result.attack -= 40;
-            result.defence -= 40;
-            result.find += 4;
-            result.ambush += 4;
+            result.attack -= 80;
+            result.defence -= 80;
+            result.find += 10;
+            result.ambush += 8;
         } else if (5 == tactics) {
             // 연속공격
-            result.defence -= 40;
+            result.defence -= 50;
             result.find += 6;
         }
 
@@ -1431,7 +1444,7 @@ module.exports = (function () {
         result.find = merged.find;
 
         if (-1 !== injured.indexOf('arm')) {
-            result.attack -= 20;
+            result.attack -= 30;
         }
 
         var weaponStatus = getBattleRateByWeapon(items, weapon, injured, shotSkill, cutSkill, throwSkill, fistSkill, bowSkill,
