@@ -17,7 +17,7 @@ class GameStudent extends Model
         return $this->belongsTo('App\GameSession');
     }
 
-    public function item()
+    public function items()
     {
         return $this->hasMany('App\GameStudentItem');
     }

@@ -64,6 +64,12 @@ class CreateGameStudentsTable extends Migration
             $table->unsignedTinyInteger('status');
             $table->timestamp('status_changed_at');
 
+            // death
+            $table->unsignedInteger('last_attacker_id')->nullable();
+            $table->string('death_cause', 128)->nullable();
+            $table->unsignedInteger('death_by')->nullable();
+            $table->timestamp('deathed_at')->nullable();
+
             $table->timestamps();
             $table->index(['session_id', 'user_id']);
             $table->unique(['session_id', 'username']);
