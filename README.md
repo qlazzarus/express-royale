@@ -1,59 +1,79 @@
-# Express-Royale
+<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
-## 무엇인가요?
-예전 CGI 웹게임으로 유명한 배틀로얄을 node.js + socket.io 로 실시간으로 구현한 예제입니다.
+<p align="center">
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
+</p>
 
-## 저작권
-MIT 라이센서를 따릅니다.
-변경 및 재배포는 자유입니다! 
-다만 하단 라이센스는 지우지 말아주세요 ㅠ_ㅠ...
+## About Laravel
 
-## 필요한것은?
-- 서버
-- node.js
-- mongodb
-의존성 있는 모듈이 있습니다! 프로젝트 root 에서 아래와 같이 입력 해주세요
-    # npm install
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-## 실행은
-    # node ./bin/www 
-상시실행은 npm forever module 을 권장합니다.
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-## 추가로...
-앞으로 다시 배틀로얄이 흥했으면 좋겠어요
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## 후원
-가난한 개발자라 후원을 받습니다... 감사합니다.
-- [비트코인](bitcoin:3JFrDd9LEKkiBYYof5YcQ3drAoCmKsgSD9?amount=0.1) / bitcoin:3JFrDd9LEKkiBYYof5YcQ3drAoCmKsgSD9
+## Learning Laravel
 
-## 업데이트
-- 체력 회복이 1초당 1회복에서 3초당 1회복으로 변경되었습니다.
-- 스테미너 회복 아이템 효과가 2배 되었습니다.
-- 레이더에 표기되는 지역 위치가 올바르게 수정되었습니다.
-- 진행상황에 금지구역으로 설정 표기가 올바르게 수정되었습니다.
-- 구역에 5명 이상 존재하면 더이상 찾지 못하는 버그를 수정하였습니다.
-- 구역에 생존자가 있을때만 알림말이 나오도록 수정하였습니다.
-- 스테미너를 소모하는 이벤트가 발생시 스테미너가 남아있더라도 최대체력이 감소하는 버그를 수정하였습니다.
-- 아이템 정리시 허용되지 않는 아이템이 조합되는 버그를 수정하였습니다.
-- 적이 죽을때 표기되는 생존자의 수가 잘못된 버그를 수정하였습니다.
-- 최소 게임 진행시간 및 최소 게임 가입시간을 수정하였습니다.
-- 게임에서 사망시 1분후에 재가입이 가능합니다.
-- 전투가 안 일어나는 치명적인 버그를 수정하였습니다.
-- 최소 게임 실행시간이 하루가 되었고 가입은 이일차까지 가능하도록 변경되었습니다.
-- 사고로 사망할 경우 게임이 종료되지 않는 버그를 수정하였습니다.
-- 샷건 탄약이 안 모아지는 버그를 수정하였습니다.
-- 독이 걸린 아이템이 안 모아지는 버그를 수정하였습니다.
-- 금지구역 입장 시도시 스테미너 소모하지 않고 현재 구역 탐색이 되는 버그를 수정하였습니다.
-- 우승자 화면에서 아이템이 노출되지 않는 버그를 수정하였습니다.
-- 아이템 합성시 아이템 스텟이 잘못 설정되는 버그를 수정하였습니다.
-- 일분안에 금지구역을 벗어나지 않으면 목걸이가 터지도록 변경하였습니다. 
-- 전학후 분교에서 나가지 않으면 10분후에 목걸이가 터지도록 변경하였습니다.
-- 모바일 대응을 위해 UI 최적화를 진행하였습니다.
-- 적 공격으로 부상을 입힌 부위가 반격으로 플레이어로 동일하게 적용되는 버그를 수정하였습니다.
-- 독섞기가 안되는 버그를 수정하였습니다.
-- 적 습격에 대한 반격으로 플레이어로 입힌 부상이 플레이어에게 동일하게 적용되는 버그를 수정하였습니다.
-- 해킹시도 후 생존자가 없을때 게임이 종료됩니다.
-- 생존자가 없을 경우 우승자리스트에 표기됩니다.
-- 기습 당했을 경우 후행 데미지가 잘못 계산되는 버그를 수정하였습니다.
-- 게임 로그를 50건 나오도록 변경하였습니다.
-- 아이템 추가할 예정입니다.
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+
+## Laravel Sponsors
+
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Cubet Techno Labs](https://cubettech.com)**
+- **[Cyber-Duck](https://cyber-duck.co.uk)**
+- **[British Software Development](https://www.britishsoftware.co)**
+- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
+- **[DevSquad](https://devsquad.com)**
+- [UserInsights](https://userinsights.com)
+- [Fragrantica](https://www.fragrantica.com)
+- [SOFTonSOFA](https://softonsofa.com/)
+- [User10](https://user10.com)
+- [Soumettre.fr](https://soumettre.fr/)
+- [CodeBrisk](https://codebrisk.com)
+- [1Forge](https://1forge.com)
+- [TECPRESSO](https://tecpresso.co.jp/)
+- [Runtime Converter](http://runtimeconverter.com/)
+- [WebL'Agence](https://weblagence.com/)
+- [Invoice Ninja](https://www.invoiceninja.com)
+- [iMi digital](https://www.imi-digital.de/)
+- [Earthlink](https://www.earthlink.ro/)
+- [Steadfast Collective](https://steadfastcollective.com/)
+- [We Are The Robots Inc.](https://watr.mx/)
+- [Understand.io](https://www.understand.io/)
+- [Abdel Elrafa](https://abdelelrafa.com)
+- [Hyper Host](https://hyper.host)
+- [Appoly](https://www.appoly.co.uk)
+- [OP.GG](https://op.gg)
+- [云软科技](http://www.yunruan.ltd/)
+
+## Contributing
+
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+
+## Code of Conduct
+
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+
+## Security Vulnerabilities
+
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+
+## License
+
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
