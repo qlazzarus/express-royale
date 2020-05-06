@@ -20,6 +20,10 @@ use BenSampo\Enum\Enum;
  * @method static static MaxStamina()
  * @method static static FirstAidStamina()
  * @method static static DetoxStamina()
+ * @method static static StaminaRecoverInterval()
+ * @method static static StaminaRecoverIncrease()
+ * @method static static HealthRecoverInterval()
+ * @method static static HealthRecoverIncrease()
  */
 final class GameSetting extends Enum
 {
@@ -73,4 +77,16 @@ final class GameSetting extends Enum
 
     // 독 조사 커맨드의 소비 스테미너
     const DetoxStamina = 10;
+
+    // 스테미나 회복 시간
+    const StaminaRecoverInterval = 1;
+
+    // 한번에 스테미너 회복 포인트
+    const StaminaRecoverIncrease = 10;
+
+    // 체력 회복 시간
+    const HealthRecoverInterval = 3;
+
+    // 한번에 체력 회복 포인트
+    const HealthRecoverIncrease = 1;
 }
