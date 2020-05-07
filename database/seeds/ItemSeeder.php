@@ -293,6 +293,83 @@ class ItemSeeder extends Seeder
                 'ammo_type' => AmmoType::Revolver38Special,
                 'armor_material' => ArmorMaterial::None
             ],            
+            [
+                'type' => ItemType::Weapon,
+                'name' => '낫',
+                'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
+                'point' => 20,
+                'endurance' => 0,
+                'ammo_require' => false,
+                'ammo_capacity' => 0,
+                'ammo_type' => AmmoType::None,
+                'armor_material' => ArmorMaterial::None
+            ],                  
+            [
+                'type' => ItemType::Weapon,
+                'name' => '얼음송곳',
+                'attack_type' => IntegerUtil::defactorize([AttackType::Stab]),
+                'point' => 8,
+                'endurance' => 0,
+                'ammo_require' => false,
+                'ammo_capacity' => 0,
+                'ammo_type' => AmmoType::None,
+                'armor_material' => ArmorMaterial::None
+            ],              
+            [
+                'type' => ItemType::Weapon,
+                'name' => '눈쳐크',
+                'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
+                'point' => 12,
+                'endurance' => 0,
+                'ammo_require' => false,
+                'ammo_capacity' => 0,
+                'ammo_type' => AmmoType::None,
+                'armor_material' => ArmorMaterial::None
+            ],               
+            [
+                'type' => ItemType::Weapon,
+                'name' => '부메랑',
+                'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
+                'point' => 9,
+                'endurance' => 5,
+                'ammo_require' => false,
+                'ammo_capacity' => 0,
+                'ammo_type' => AmmoType::None,
+                'armor_material' => ArmorMaterial::None
+            ],                   
+            [
+                'type' => ItemType::Weapon,
+                'name' => 'CZ M75',
+                'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
+                'point' => 25,
+                'endurance' => 0,
+                'ammo_require' => true,
+                'ammo_capacity' => 16,
+                'ammo_type' => AmmoType::Pistol9MM,
+                'armor_material' => ArmorMaterial::None
+            ],                           
+            [
+                'type' => ItemType::Weapon,
+                'name' => '우지 9mm 서브머신건',
+                'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
+                'point' => 30,
+                'endurance' => 0,
+                'ammo_require' => true,
+                'ammo_capacity' => 32,
+                'ammo_type' => AmmoType::Pistol9MM,
+                'armor_material' => ArmorMaterial::None
+            ],            
+            [
+                'type' => ItemType::Weapon,
+                'name' => '시그 사우엘 P230 9mm',
+                'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
+                'point' => 26,
+                'endurance' => 0,
+                'ammo_require' => true,
+                'ammo_capacity' => 8,
+                'ammo_type' => AmmoType::Pistol9MM,
+                'armor_material' => ArmorMaterial::None
+            ],             
         ];
 
         foreach ($items as $item) {
