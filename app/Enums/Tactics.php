@@ -4,13 +4,6 @@ namespace App\Enums;
 
 use BenSampo\Enum\Enum;
 
-/**
- * @method static static Normal()
- * @method static static Attack()
- * @method static static Defence()
- * @method static static Stealth()
- * @method static static Streak()
- */
 final class Tactics extends Enum
 {
     // 보통

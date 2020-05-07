@@ -4,27 +4,6 @@ namespace App\Enums;
 
 use BenSampo\Enum\Enum;
 
-/**
- * @method static static MaxClasses()
- * @method static static ClassPerMan()
- * @method static static MinSessionPeriod()
- * @method static static MaxSessionJoin()
- * @method static static MinSessionRespawn()
- * @method static static DefaultAttack()
- * @method static static AttackMaxIncrease()
- * @method static static Health()
- * @method static static HealthMaxIncrease()
- * @method static static LevelPerExperience()
- * @method static static LevelExperienceIncrease()
- * @method static static SkillExperience()
- * @method static static MaxStamina()
- * @method static static FirstAidStamina()
- * @method static static DetoxStamina()
- * @method static static StaminaRecoverInterval()
- * @method static static StaminaRecoverIncrease()
- * @method static static HealthRecoverInterval()
- * @method static static HealthRecoverIncrease()
- */
 final class GameSetting extends Enum
 {
     // 반 숫자

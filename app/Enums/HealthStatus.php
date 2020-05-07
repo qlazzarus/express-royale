@@ -4,15 +4,6 @@ namespace App\Enums;
 
 use BenSampo\Enum\Enum;
 
-/**
- * @method static static Normal()
- * @method static static MinorWound()
- * @method static static MajorWound()
- * @method static static CriticalWound()
- * @method static static Death()
- * @method static static Heal()
- * @method static static Sleep()
- */
 final class HealthStatus extends Enum
 {
     // 정상

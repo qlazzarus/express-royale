@@ -4,12 +4,6 @@ namespace App\Enums;
 
 use BenSampo\Enum\Enum;
 
-/**
- * @method static static Head()
- * @method static static Arm()
- * @method static static Body()
- * @method static static Leg()
- */
 final class Injure extends Enum
 {
     // 머리 부상

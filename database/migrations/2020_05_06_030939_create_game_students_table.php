@@ -59,7 +59,7 @@ class CreateGameStudentsTable extends Migration
 
             // status
             $table->unsignedTinyInteger('tactics');
-            $table->unsignedTinyInteger('injured'); // 1 + 2 + 4 + 8
+            $table->unsignedTinyInteger('injured');
             $table->unsignedTinyInteger('place');
             $table->unsignedTinyInteger('status');
             $table->timestamp('status_changed_at');

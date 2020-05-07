@@ -16,9 +16,9 @@ class CreateGameStudentItemsTable extends Migration
         Schema::create('game_student_items', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('student_id');
+            $table->unsignedTinyInteger('type');
             $table->unsignedInteger('item_id');
             $table->string('item_name', 64);
-            $table->unsignedTinyInteger('type');
             $table->unsignedTinyInteger('endurance');
             $table->unsignedTinyInteger('point');
             $table->timestamps();
