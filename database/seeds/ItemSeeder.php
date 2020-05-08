@@ -625,7 +625,7 @@ class ItemSeeder extends Seeder
             ],   
             [
                 'type' => ItemType::Weapon,
-                'name' => '돌맹이',
+                'name' => '돌멩이',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 15,
                 'endurance' => 5,
@@ -2205,6 +2205,28 @@ class ItemSeeder extends Seeder
                 'ammo_require' => false,
                 'ammo_capacity' => 0,
                 'ammo_type' => AmmoType::MusketBall,
+                'armor_material' => ArmorMaterial::None
+            ],
+            [
+                'type' => ItemType::Ammo,
+                'name' => '탄환 (.38SP)',
+                'attack_type' => AttackType::None,
+                'point' => 1,
+                'endurance' => 24,
+                'ammo_require' => false,
+                'ammo_capacity' => 0,
+                'ammo_type' => AmmoType::Revolver38Special,
+                'armor_material' => ArmorMaterial::None
+            ],
+            [
+                'type' => ItemType::Ammo,
+                'name' => '탄환 (.45ACP)',
+                'attack_type' => AttackType::None,
+                'point' => 1,
+                'endurance' => 24,
+                'ammo_require' => false,
+                'ammo_capacity' => 0,
+                'ammo_type' => AmmoType::Pistol45ACP,
                 'armor_material' => ArmorMaterial::None
             ],
             [

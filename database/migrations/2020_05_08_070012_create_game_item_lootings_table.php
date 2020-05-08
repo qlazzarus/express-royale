@@ -19,6 +19,7 @@ class CreateGameItemLootingsTable extends Migration
             $table->unsignedInteger('item_id');
             $table->smallInteger('point');
             $table->unsignedTinyInteger('endurance');
+            $table->unsignedTinyInteger('is_trap_activated')->default(0);
             $table->timestamps();
         });
     }
