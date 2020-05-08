@@ -12,6 +12,11 @@ class GameStudent extends Model
         return $this->belongsTo('App\GameClass', 'class_id');
     }
 
+    public function location()
+    {
+        return $this->belongsTo('App\GameLocation');
+    }
+
     public function session()
     {
         return $this->belongsTo('App\GameSession');

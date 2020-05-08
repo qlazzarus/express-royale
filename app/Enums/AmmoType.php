@@ -15,4 +15,5 @@ final class AmmoType extends Enum
     const Pistol45ACP = 6;
     const MusketBall = 7;
     const Arrow = 8;
+    const Rifle556MM = 9;
 }

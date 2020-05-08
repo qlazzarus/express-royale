@@ -60,7 +60,7 @@ class CreateGameStudentsTable extends Migration
             // status
             $table->unsignedTinyInteger('tactics');
             $table->unsignedTinyInteger('injured');
-            $table->unsignedTinyInteger('place');
+            $table->unsignedInteger('location_id');
             $table->unsignedTinyInteger('status');
             $table->timestamp('status_changed_at');
 
@@ -71,7 +71,9 @@ class CreateGameStudentsTable extends Migration
             $table->timestamp('deathed_at')->nullable();
 
             $table->timestamps();
-            $table->index(['session_id', 'user_id']);
+            $table->index('session_id');
+            $table->index('user_id');
+            $table->index('location_id');
             $table->unique(['session_id', 'username']);
         });
     }

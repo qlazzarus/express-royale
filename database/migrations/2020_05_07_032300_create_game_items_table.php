@@ -18,7 +18,7 @@ class CreateGameItemsTable extends Migration
             $table->unsignedTinyInteger('type'); // \App\Enums\ItemType
             $table->string('name', 64);
             $table->unsignedTinyInteger('attack_type'); // \App\Enums\AttackType
-            $table->unsignedTinyInteger('point');
+            $table->smallInteger('point');
             $table->unsignedTinyInteger('endurance');
             $table->unsignedTinyInteger('ammo_require');
             $table->unsignedTinyInteger('ammo_capacity');

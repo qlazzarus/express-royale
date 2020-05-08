@@ -6,6 +6,7 @@ use BenSampo\Enum\Enum;
 
 final class AttackType extends Enum
 {
+    const None = 0;
     const Shot = 1;
     const Cut = 2;
     const Throw = 4;

@@ -16,16 +16,18 @@ class CreateGameClubsTable extends Migration
         Schema::create('game_clubs', function (Blueprint $table) {
             $table->id();
             $table->string('name', 64);
-            $table->unsignedTinyInteger('reduce_stamina');
-            $table->unsignedTinyInteger('random_skill');
-            $table->decimal('skill_shot_multiplier', 1, 1)->default(0.0);
-            $table->decimal('skill_cut_multiplier', 1, 1)->default(0.0);
-            $table->decimal('skill_throw_multiplier', 1, 1)->default(0.0);
-            $table->decimal('skill_fist_multiplier', 1, 1)->default(0.0);
-            $table->decimal('skill_bow_multiplier', 1, 1)->default(0.0);
-            $table->decimal('skill_melee_multiplier', 1, 1)->default(0.0);
-            $table->decimal('skill_bomb_multiplier', 1, 1)->default(0.0);
-            $table->decimal('skill_stab_multiplier', 1, 1)->default(0.0);
+            $table->unsignedTinyInteger('is_reduce_stamina')->default(0);
+            $table->unsignedTinyInteger('is_random_skill')->default(0);
+            $table->unsignedTinyInteger('is_detect_poison')->default(0);
+            $table->unsignedTinyInteger('is_hack_possible')->default(0);
+            $table->decimal('skill_shot_multiplier', 3, 2)->default(0.00);
+            $table->decimal('skill_cut_multiplier', 3, 2)->default(0.00);
+            $table->decimal('skill_throw_multiplier', 3, 2)->default(0.00);
+            $table->decimal('skill_fist_multiplier', 3, 2)->default(0.00);
+            $table->decimal('skill_bow_multiplier', 3, 2)->default(0.00);
+            $table->decimal('skill_melee_multiplier', 3, 2)->default(0.00);
+            $table->decimal('skill_bomb_multiplier', 3, 2)->default(0.00);
+            $table->decimal('skill_stab_multiplier', 3, 2)->default(0.00);
             $table->timestamps();
         });
     }

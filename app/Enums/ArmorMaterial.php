@@ -9,4 +9,5 @@ final class ArmorMaterial extends Enum
     const None = 0;
     const Fabric = 1;
     const Armor = 2;
+    const Chain = 3;
 }
