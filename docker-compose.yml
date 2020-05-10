@@ -1,8 +1,5 @@
 version: '3'
 
-networks:
-  laravel:
-
 services:
   nginx:
     image: nginx:stable-alpine
@@ -14,14 +11,11 @@ services:
       - ./conf.d/nginx.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - php
-      - mariadb
-    networks:
-      - laravel
+    restart: unless-stopped
 
   mariadb:
     image: mariadb:latest
     container_name: mariadb
-    restart: unless-stopped
     tty: true
     ports:
       - "3306:3306"
@@ -29,8 +23,7 @@ services:
       MYSQL_ROOT_PASSWORD: "true"
     volumes:
       - ./conf.d/mariadb.cnf:/etc/mysql/my.cnf
-    networks:
-      - laravel
+    restart: always
 
   php:
     build:
@@ -41,39 +34,12 @@ services:
       - .:/var/www/html
     ports:
       - "9000:9000"
-    networks:
-      - laravel
-
-  composer:
-    image: composer:latest
-    container_name: composer
-    volumes:
-      - .:/var/www/html
-    working_dir: /var/www/html
-    depends_on:
-      - php
-    networks:
-      - laravel
-
-  npm:
-    image: node:latest
-    container_name: npm
-    volumes:
-      - .:/var/www/html
-    working_dir: /var/www/html
-    entrypoint: ['npm']
-
-  artisan:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: artisan
-    volumes:
-      - .:/var/www/html
+    links:
+      - mariadb
+      - redis
     depends_on:
       - mariadb
-    working_dir: /var/www/html
-    entrypoint: ['php', '/var/www/html/artisan']
-    networks:
-      - laravel
 
+  redis:
+    image: redis
+    hostname: redis
