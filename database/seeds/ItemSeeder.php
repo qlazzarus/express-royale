@@ -2408,7 +2408,7 @@ class ItemSeeder extends Seeder
         ];
 
         foreach ($items as $item) {
-            DB::table('game_items')->insert($item);
+            DB::table('items')->insert($item);
         }
     }
 }

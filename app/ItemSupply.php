@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class GameItemSupply extends Model
+class ItemSupply extends Model
 {
     //
     public function item()
     {
-        return $this->hasOne('App\GameItem');
+        return $this->hasOne('App\Item');
     }
 }

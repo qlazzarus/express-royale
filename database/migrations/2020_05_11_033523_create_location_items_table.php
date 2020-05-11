@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGameItemLootingsTable extends Migration
+class CreateLocationItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreateGameItemLootingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('game_item_lootings', function (Blueprint $table) {
+        Schema::create('location_items', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('location_id');
             $table->unsignedInteger('item_id');
-            $table->smallInteger('point');
+            $table->unsignedInteger('competition_id');
+            $table->string('uuid', 64);
             $table->unsignedTinyInteger('endurance');
-            $table->unsignedTinyInteger('is_trap_activated')->default(0);
+            $table->smallInteger('point');
             $table->timestamps();
+            $table->unique(['competition_id', 'uuid']);
         });
     }
 
@@ -31,6 +32,6 @@ class CreateGameItemLootingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('game_item_lootings');
+        Schema::dropIfExists('location_items');
     }
 }

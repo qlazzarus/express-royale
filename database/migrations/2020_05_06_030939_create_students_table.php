@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGameStudentsTable extends Migration
+class CreateStudentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,19 @@ class CreateGameStudentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('game_students', function (Blueprint $table) {
+        Schema::create('students', function (Blueprint $table) {
             $table->id();
 
             // relation
-            $table->unsignedInteger('session_id');
+            $table->unsignedInteger('competition_id');
             $table->unsignedInteger('user_id');
-            $table->unsignedInteger('class_id');
+            $table->unsignedInteger('klass_id');
             $table->unsignedInteger('club_id');
 
             // basic
             $table->string('username', 64);
             $table->unsignedTinyInteger('gender');
             $table->string('icon');
-            $table->unsignedTinyInteger('npc');
 
             // extends
             $table->string('club_name', 64);
@@ -71,10 +70,10 @@ class CreateGameStudentsTable extends Migration
             $table->timestamp('deathed_at')->nullable();
 
             $table->timestamps();
-            $table->index('session_id');
+            $table->index('competition_id');
             $table->index('user_id');
             $table->index('location_id');
-            $table->unique(['session_id', 'username']);
+            $table->unique(['competition_id', 'username']);
         });
     }
 
@@ -85,6 +84,6 @@ class CreateGameStudentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('game_students');
+        Schema::dropIfExists('students');
     }
 }

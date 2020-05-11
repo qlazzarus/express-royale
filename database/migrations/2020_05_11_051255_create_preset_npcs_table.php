@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGameClassesTable extends Migration
+class CreatePresetNpcsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,9 @@ class CreateGameClassesTable extends Migration
      */
     public function up()
     {
-        Schema::create('game_classes', function (Blueprint $table) {
+        Schema::create('preset_npcs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('session_id');
-            $table->string('name', 64);
-            $table->unsignedTinyInteger('male_count');
-            $table->unsignedTinyInteger('female_count');
             $table->timestamps();
-            $table->index('session_id');
         });
     }
 
@@ -31,6 +26,6 @@ class CreateGameClassesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('game_classes');
+        Schema::dropIfExists('preset_npcs');
     }
 }

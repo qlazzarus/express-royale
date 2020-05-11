@@ -81,7 +81,7 @@ class ClubSeeder extends Seeder
         ];
 
         foreach ($items as $item) {
-            DB::table('game_clubs')->insert($item);
+            DB::table('clubs')->insert($item);
         }
     }
 }

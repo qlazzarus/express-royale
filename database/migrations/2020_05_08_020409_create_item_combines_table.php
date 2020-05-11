@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGameItemCombinesTable extends Migration
+class CreateItemCombinesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateGameItemCombinesTable extends Migration
      */
     public function up()
     {
-        Schema::create('game_item_combines', function (Blueprint $table) {
+        Schema::create('item_combines', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('base_id');
             $table->unsignedInteger('combine_id');
@@ -30,6 +30,6 @@ class CreateGameItemCombinesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('game_item_combines');
+        Schema::dropIfExists('item_combines');
     }
 }

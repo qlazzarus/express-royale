@@ -193,7 +193,7 @@ class LocationSeeder extends Seeder
         ];
 
         foreach ($items as $item) {
-            DB::table('game_locations')->insert($item);
+            DB::table('locations')->insert($item);
         }
     }
 }

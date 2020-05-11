@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGameHistoriesTable extends Migration
+class CreateItemSuppliesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateGameHistoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('game_histories', function (Blueprint $table) {
+        Schema::create('item_supplies', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('session_id');
             $table->unsignedTinyInteger('type');
-            $table->string('message');
+            $table->unsignedInteger('item_id');
             $table->timestamps();
-            $table->index('session_id');
+            $table->unique(['type', 'item_id']);
         });
     }
 
@@ -30,6 +29,6 @@ class CreateGameHistoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('game_histories');
+        Schema::dropIfExists('item_supplies');
     }
 }

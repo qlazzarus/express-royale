@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGameLocationsTable extends Migration
+class CreateKlassesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,14 @@ class CreateGameLocationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('game_locations', function (Blueprint $table) {
+        Schema::create('klasses', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('competition_id');
             $table->string('name', 64);
-            $table->string('code', 16);
-            $table->string('message', 255);
-            $table->unsignedTinyInteger('specialize');
-            $table->unsignedTinyInteger('is_restrict');
-            $table->unsignedTinyInteger('is_next_restrict');
+            $table->unsignedTinyInteger('male_count');
+            $table->unsignedTinyInteger('female_count');
             $table->timestamps();
-            $table->unique('code');
+            $table->index('competition_id');
         });
     }
 
@@ -33,6 +31,6 @@ class CreateGameLocationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('game_locations');
+        Schema::dropIfExists('klasses');
     }
 }
