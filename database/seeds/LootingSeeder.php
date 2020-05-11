@@ -5197,6 +5197,2403 @@ class LootingSeeder extends Seeder
                 'point' => 30,
                 'endurance' => 0
             ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '연필')->first()->id,
+                'point' => 2,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '연필')->first()->id,
+                'point' => 2,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '연필')->first()->id,
+                'point' => 2,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '연필')->first()->id,
+                'point' => 2,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '연필')->first()->id,
+                'point' => 2,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '연필')->first()->id,
+                'point' => 2,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '연필')->first()->id,
+                'point' => 2,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '지우개')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '지우개')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '지우개')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '지우개')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '지우개')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '지우개')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '야구공세트')->first()->id,
+                'point' => 20,
+                'endurance' => 30
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '야구공세트')->first()->id,
+                'point' => 20,
+                'endurance' => 30
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '야구공세트')->first()->id,
+                'point' => 20,
+                'endurance' => 30
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '야구공세트')->first()->id,
+                'point' => 20,
+                'endurance' => 30
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '야구공세트')->first()->id,
+                'point' => 20,
+                'endurance' => 30
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '야구공세트')->first()->id,
+                'point' => 20,
+                'endurance' => 30
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '야구공세트')->first()->id,
+                'point' => 20,
+                'endurance' => 30
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '야구공세트')->first()->id,
+                'point' => 20,
+                'endurance' => 30
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '플라스크')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '플라스크')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '플라스크')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '플라스크')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '대걸레')->first()->id,
+                'point' => 8,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '대걸레')->first()->id,
+                'point' => 8,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '대걸레')->first()->id,
+                'point' => 8,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '약')->first()->id,
+                'point' => 40,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '약')->first()->id,
+                'point' => 40,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '약')->first()->id,
+                'point' => 40,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '약')->first()->id,
+                'point' => 40,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '약')->first()->id,
+                'point' => 40,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '약')->first()->id,
+                'point' => 40,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '칠판지우개')->first()->id,
+                'point' => 2,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '칠판지우개')->first()->id,
+                'point' => 2,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '칠판지우개')->first()->id,
+                'point' => 2,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '칠판지우개')->first()->id,
+                'point' => 2,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '칠판지우개')->first()->id,
+                'point' => 2,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '흰분필')->first()->id,
+                'point' => 2,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '빨간분필')->first()->id,
+                'point' => 2,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '노란분필')->first()->id,
+                'point' => 2,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '파란분필')->first()->id,
+                'point' => 2,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '인체모형')->first()->id,
+                'point' => 3,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '거대삼각자')->first()->id,
+                'point' => 4,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '거대콤파스')->first()->id,
+                'point' => 4,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '의자')->first()->id,
+                'point' => 4,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '확성기')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '소화기')->first()->id,
+                'point' => 12,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '주번완장')->first()->id,
+                'point' => 3,
+                'endurance' => 3
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '주번완장')->first()->id,
+                'point' => 3,
+                'endurance' => 3
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '주번완장')->first()->id,
+                'point' => 3,
+                'endurance' => 3
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '주번완장')->first()->id,
+                'point' => 3,
+                'endurance' => 3
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '토시')->first()->id,
+                'point' => 2,
+                'endurance' => 20
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '토시')->first()->id,
+                'point' => 2,
+                'endurance' => 20
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '털토시')->first()->id,
+                'point' => 2,
+                'endurance' => 3
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '실내화')->first()->id,
+                'point' => 1,
+                'endurance' => 2
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '실내화')->first()->id,
+                'point' => 1,
+                'endurance' => 2
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'G-3')->first()->id,
+                'item_id' => GameItem::where('name', '실내화')->first()->id,
+                'point' => 1,
+                'endurance' => 2
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '비료')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '비료')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '비료')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '비료')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '비료')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '비료')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '비료')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '비료')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '비료')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '비료')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '비료')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'H-6')->first()->id,
+                'item_id' => GameItem::where('name', '비료')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '식칼')->first()->id,
+                'point' => 15,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '식칼')->first()->id,
+                'point' => 15,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '식칼')->first()->id,
+                'point' => 15,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '식칼')->first()->id,
+                'point' => 15,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '식칼')->first()->id,
+                'point' => 15,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '컵')->first()->id,
+                'point' => 10,
+                'endurance' => 4
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '컵')->first()->id,
+                'point' => 10,
+                'endurance' => 4
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '컵')->first()->id,
+                'point' => 10,
+                'endurance' => 4
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '컵')->first()->id,
+                'point' => 10,
+                'endurance' => 4
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '컵')->first()->id,
+                'point' => 10,
+                'endurance' => 4
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '컵')->first()->id,
+                'point' => 10,
+                'endurance' => 4
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '야구공세트')->first()->id,
+                'point' => 20,
+                'endurance' => 30
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '야구공세트')->first()->id,
+                'point' => 20,
+                'endurance' => 30
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '야구공세트')->first()->id,
+                'point' => 20,
+                'endurance' => 30
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '야구공세트')->first()->id,
+                'point' => 20,
+                'endurance' => 30
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '야구공세트')->first()->id,
+                'point' => 20,
+                'endurance' => 30
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '바느질도구')->first()->id,
+                'point' => 3,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '바느질도구')->first()->id,
+                'point' => 5,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '바느질도구')->first()->id,
+                'point' => 10,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '접시')->first()->id,
+                'point' => 10,
+                'endurance' => 4
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '텔레비전')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '테이블')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '선반')->first()->id,
+                'point' => 15,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '보검')->first()->id,
+                'point' => 20,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '빈병')->first()->id,
+                'point' => 1,
+                'endurance' => 10
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '빈병')->first()->id,
+                'point' => 1,
+                'endurance' => 10
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '빈병')->first()->id,
+                'point' => 1,
+                'endurance' => 10
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '빈병')->first()->id,
+                'point' => 1,
+                'endurance' => 10
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '빈병')->first()->id,
+                'point' => 1,
+                'endurance' => 10
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '빈병')->first()->id,
+                'point' => 1,
+                'endurance' => 10
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '빈병')->first()->id,
+                'point' => 1,
+                'endurance' => 10
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '빈병')->first()->id,
+                'point' => 1,
+                'endurance' => 10
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '빈병')->first()->id,
+                'point' => 1,
+                'endurance' => 10
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '빈병')->first()->id,
+                'point' => 1,
+                'endurance' => 10
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '빈병')->first()->id,
+                'point' => 1,
+                'endurance' => 10
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '빈병')->first()->id,
+                'point' => 1,
+                'endurance' => 10
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '빈캔')->first()->id,
+                'point' => 2,
+                'endurance' => 10
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '빈캔')->first()->id,
+                'point' => 2,
+                'endurance' => 10
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '빈캔')->first()->id,
+                'point' => 2,
+                'endurance' => 10
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '빈캔')->first()->id,
+                'point' => 2,
+                'endurance' => 10
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '빈캔')->first()->id,
+                'point' => 2,
+                'endurance' => 10
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '빈캔')->first()->id,
+                'point' => 2,
+                'endurance' => 10
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '유리잔')->first()->id,
+                'point' => 10,
+                'endurance' => 4
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '유리잔')->first()->id,
+                'point' => 10,
+                'endurance' => 4
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '유리잔')->first()->id,
+                'point' => 10,
+                'endurance' => 4
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '유리잔')->first()->id,
+                'point' => 10,
+                'endurance' => 4
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '유리잔')->first()->id,
+                'point' => 10,
+                'endurance' => 4
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '냄비')->first()->id,
+                'point' => 10,
+                'endurance' => 4
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '냄비')->first()->id,
+                'point' => 10,
+                'endurance' => 4
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '냄비')->first()->id,
+                'point' => 10,
+                'endurance' => 4
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '냄비')->first()->id,
+                'point' => 10,
+                'endurance' => 4
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '냄비')->first()->id,
+                'point' => 10,
+                'endurance' => 4
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '숫돌')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '숫돌')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '숫돌')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '숫돌')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '숫돌')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '숫돌')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '숫돌')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '숫돌')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '숫돌')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '숫돌')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '숫돌')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '숫돌')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '쇠사슬')->first()->id,
+                'point' => 15,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '쇠사슬')->first()->id,
+                'point' => 15,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '후라이팬')->first()->id,
+                'point' => 15,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '후라이팬')->first()->id,
+                'point' => 15,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '휘발유')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '휘발유')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '휘발유')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '휘발유')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '경유')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '경유')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '경유')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '경유')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '팔찌')->first()->id,
+                'point' => 1,
+                'endurance' => 2
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '팔찌')->first()->id,
+                'point' => 1,
+                'endurance' => 2
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '팔찌')->first()->id,
+                'point' => 1,
+                'endurance' => 2
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'B-4')->first()->id,
+                'item_id' => GameItem::where('name', '털토시')->first()->id,
+                'point' => 2,
+                'endurance' => 3
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '쥐덫')->first()->id,
+                'point' => 10,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '쥐덫')->first()->id,
+                'point' => 10,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '쥐덫')->first()->id,
+                'point' => 10,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '쥐덫')->first()->id,
+                'point' => 10,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '쥐덫')->first()->id,
+                'point' => 10,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '쥐덫')->first()->id,
+                'point' => 10,
+                'endurance' => 1,
+                'is_trap_activated' => true
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '쥐덫')->first()->id,
+                'point' => 10,
+                'endurance' => 1,
+                'is_trap_activated' => true
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '쥐덫')->first()->id,
+                'point' => 10,
+                'endurance' => 1,
+                'is_trap_activated' => true
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '쥐덫')->first()->id,
+                'point' => 10,
+                'endurance' => 1,
+                'is_trap_activated' => true
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '쥐덫')->first()->id,
+                'point' => 10,
+                'endurance' => 1,
+                'is_trap_activated' => true
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '쥐덫')->first()->id,
+                'point' => 10,
+                'endurance' => 1,
+                'is_trap_activated' => true
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '쥐덫')->first()->id,
+                'point' => 10,
+                'endurance' => 1,
+                'is_trap_activated' => true
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '쥐덫')->first()->id,
+                'point' => 10,
+                'endurance' => 1,
+                'is_trap_activated' => true
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '쥐덫')->first()->id,
+                'point' => 10,
+                'endurance' => 1,
+                'is_trap_activated' => true
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '쥐덫')->first()->id,
+                'point' => 10,
+                'endurance' => 1,
+                'is_trap_activated' => true
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '쥐덫')->first()->id,
+                'point' => 10,
+                'endurance' => 1,
+                'is_trap_activated' => true
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (샷건)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (샷건)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (샷건)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (샷건)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (샷건)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (9mm)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (9mm)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (9mm)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (9mm)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (9mm)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (22LR)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (22LR)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (22LR)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (22LR)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (22LR)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (매그넘)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (매그넘)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (매그넘)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (매그넘)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (매그넘)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (.38SP)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (.38SP)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (.38SP)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (.38SP)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (.38SP)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (.45ACP)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (.45ACP)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (.45ACP)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (.45ACP)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (.45ACP)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (화승총)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (화승총)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (화승총)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (화승총)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '탄환 (화승총)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '지뢰')->first()->id,
+                'point' => 8,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '지뢰')->first()->id,
+                'point' => 8,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '지뢰')->first()->id,
+                'point' => 8,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '피아노선')->first()->id,
+                'point' => 8,
+                'endurance' => 1,
+                'is_trap_activated' => true
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '피아노선')->first()->id,
+                'point' => 8,
+                'endurance' => 1,
+                'is_trap_activated' => true
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '피아노선')->first()->id,
+                'point' => 8,
+                'endurance' => 1,
+                'is_trap_activated' => true
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '등산화')->first()->id,
+                'point' => 3,
+                'endurance' => 5,
+            ],
+            [
+                'location_id' => GameLocation::where('code', 'J-6')->first()->id,
+                'item_id' => GameItem::where('name', '등산모')->first()->id,
+                'point' => 2,
+                'endurance' => 3,
+            ],
+            // global
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (샷건)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (샷건)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (샷건)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (샷건)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (샷건)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (9mm)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (9mm)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (9mm)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (9mm)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (9mm)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (22LR)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (22LR)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (22LR)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (22LR)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (22LR)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (매그넘)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (매그넘)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (매그넘)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (매그넘)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (매그넘)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (.38SP)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (.38SP)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (.38SP)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (.38SP)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (.38SP)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (.45ACP)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (.45ACP)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (.45ACP)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (.45ACP)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (.45ACP)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (화승총)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (화승총)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (화승총)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (화승총)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '탄환 (화승총)')->first()->id,
+                'point' => 1,
+                'endurance' => 24
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '물')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '화승총')->first()->id,
+                'point' => 20,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '명도마사무네')->first()->id,
+                'point' => 23,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '요도무라마사')->first()->id,
+                'point' => 23,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '일본궁')->first()->id,
+                'point' => 18,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '보검')->first()->id,
+                'point' => 20,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '갑주')->first()->id,
+                'point' => 12,
+                'endurance' => 20
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '체인메일')->first()->id,
+                'point' => 12,
+                'endurance' => 20
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '투구')->first()->id,
+                'point' => 5,
+                'endurance' => 10
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '가보갑주')->first()->id,
+                'point' => 14,
+                'endurance' => 20
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '고무신')->first()->id,
+                'point' => 2,
+                'endurance' => 4
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '고무신')->first()->id,
+                'point' => 2,
+                'endurance' => 4
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '고무신')->first()->id,
+                'point' => 2,
+                'endurance' => 4
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '고무신')->first()->id,
+                'point' => 2,
+                'endurance' => 4
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '고무신')->first()->id,
+                'point' => 2,
+                'endurance' => 4
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '장화')->first()->id,
+                'point' => 4,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '장화')->first()->id,
+                'point' => 4,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '하이힐')->first()->id,
+                'point' => 3,
+                'endurance' => 3
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '하이힐')->first()->id,
+                'point' => 3,
+                'endurance' => 3
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '하이힐')->first()->id,
+                'point' => 3,
+                'endurance' => 3
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '군화')->first()->id,
+                'point' => 3,
+                'endurance' => 3
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '리본')->first()->id,
+                'point' => 1,
+                'endurance' => 2
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '리본')->first()->id,
+                'point' => 1,
+                'endurance' => 2
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '녹슨철모')->first()->id,
+                'point' => 4,
+                'endurance' => 3
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '철모')->first()->id,
+                'point' => 5,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '조교완장')->first()->id,
+                'point' => 5,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', 'MP완장')->first()->id,
+                'point' => 5,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '군복')->first()->id,
+                'point' => 10,
+                'endurance' => 40
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '레이더')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '전기인두')->first()->id,
+                'point' => 6,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '고장난노트북')->first()->id,
+                'point' => 10,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '숫돌')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '숫돌')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '숫돌')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '숫돌')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '숫돌')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '숫돌')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '식칼')->first()->id,
+                'point' => 15,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '식칼')->first()->id,
+                'point' => 15,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '식칼')->first()->id,
+                'point' => 15,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '식칼')->first()->id,
+                'point' => 15,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '수류탄')->first()->id,
+                'point' => 40,
+                'endurance' => 2
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '수리검')->first()->id,
+                'point' => 30,
+                'endurance' => 15
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '수리검')->first()->id,
+                'point' => 30,
+                'endurance' => 15
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '수리검')->first()->id,
+                'point' => 30,
+                'endurance' => 15
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '수리검')->first()->id,
+                'point' => 30,
+                'endurance' => 15
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '수리검')->first()->id,
+                'point' => 30,
+                'endurance' => 15
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '수리검')->first()->id,
+                'point' => 30,
+                'endurance' => 15
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '수리검')->first()->id,
+                'point' => 30,
+                'endurance' => 15
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '야구공세트')->first()->id,
+                'point' => 20,
+                'endurance' => 30
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '야구공세트')->first()->id,
+                'point' => 20,
+                'endurance' => 30
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '야구공세트')->first()->id,
+                'point' => 20,
+                'endurance' => 30
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '야구공세트')->first()->id,
+                'point' => 20,
+                'endurance' => 30
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '야구공세트')->first()->id,
+                'point' => 20,
+                'endurance' => 30
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '야구공세트')->first()->id,
+                'point' => 20,
+                'endurance' => 30
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '야구공세트')->first()->id,
+                'point' => 20,
+                'endurance' => 30
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '야구공세트')->first()->id,
+                'point' => 20,
+                'endurance' => 30
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '야구공세트')->first()->id,
+                'point' => 20,
+                'endurance' => 30
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '야구공세트')->first()->id,
+                'point' => 20,
+                'endurance' => 30
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '야구공세트')->first()->id,
+                'point' => 20,
+                'endurance' => 30
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '야구공세트')->first()->id,
+                'point' => 20,
+                'endurance' => 30
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '야구공세트')->first()->id,
+                'point' => 20,
+                'endurance' => 30
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '야구공세트')->first()->id,
+                'point' => 20,
+                'endurance' => 30
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '야구공세트')->first()->id,
+                'point' => 20,
+                'endurance' => 30
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '돌멩이')->first()->id,
+                'point' => 15,
+                'endurance' => 5
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '헤비크로스보우')->first()->id,
+                'point' => 30,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '헤비크로스보우')->first()->id,
+                'point' => 30,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '헤비크로스보우')->first()->id,
+                'point' => 30,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => 0,
+                'item_id' => GameItem::where('name', '헤비크로스보우')->first()->id,
+                'point' => 30,
+                'endurance' => 0
+            ],
         ];
 
         foreach ($items as $item) {
