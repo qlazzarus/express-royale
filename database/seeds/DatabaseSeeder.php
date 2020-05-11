@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             ItemSeeder::class,
             CombineItemSeeder::class,
             SupplyItemSeeder::class,
-            LootingSeeder::class,            
+            LootingSeeder::class,
+            NpcSeeder::class
         ]);
     }
 }

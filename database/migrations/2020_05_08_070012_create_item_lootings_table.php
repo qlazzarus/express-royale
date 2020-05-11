@@ -18,7 +18,7 @@ class CreateItemLootingsTable extends Migration
             $table->unsignedInteger('location_id');
             $table->unsignedInteger('item_id');
             $table->smallInteger('point');
-            $table->unsignedTinyInteger('endurance');
+            $table->unsignedSmallInteger('endurance');
             $table->unsignedTinyInteger('is_trap_activated')->default(0);
             $table->timestamps();
         });

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCompetitionNewsTable extends Migration
+class CreateNewsDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class CreateCompetitionNewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('competition_news', function (Blueprint $table) {
+        Schema::create('news_details', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('competition_id');
+            $table->unsignedInteger('news_id');
             $table->unsignedTinyInteger('type');
-            $table->string('message');
+            $table->unsignedInteger('student_id')->nullable();
+            $table->unsignedInteger('item_id')->nullable();
+            $table->string('value', 64)->nullable();
             $table->timestamps();
-            $table->index('competition_id');
+            $table->index('news_id');
         });
     }
 
@@ -30,6 +32,6 @@ class CreateCompetitionNewsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('competition_news');
+        Schema::dropIfExists('news_details');
     }
 }

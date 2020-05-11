@@ -14,7 +14,7 @@ class Competition extends Model
 
     public function news()
     {
-        return $this->hasMany('App\CompetitionNews');
+        return $this->hasMany('App\News');
     }
 
     public function locationItems()

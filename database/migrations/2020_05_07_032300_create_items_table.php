@@ -19,7 +19,7 @@ class CreateItemsTable extends Migration
             $table->string('name', 64);
             $table->unsignedTinyInteger('attack_type'); // \App\Enums\AttackType
             $table->smallInteger('point');
-            $table->unsignedTinyInteger('endurance');
+            $table->unsignedSmallInteger('endurance');
             $table->unsignedTinyInteger('ammo_require');
             $table->unsignedTinyInteger('ammo_capacity');
             $table->unsignedTinyInteger('ammo_type'); // \App\Enums\AmmoType

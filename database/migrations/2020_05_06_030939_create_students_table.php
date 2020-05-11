@@ -29,7 +29,7 @@ class CreateStudentsTable extends Migration
 
             // extends
             $table->string('club_name', 64);
-            $table->string('class_name', 64);
+            $table->string('klass_name', 64);
             $table->string('number', 64);
 
             // message
@@ -42,7 +42,7 @@ class CreateStudentsTable extends Migration
             $table->unsignedTinyInteger('defence');
             $table->unsignedTinyInteger('health');
             $table->unsignedTinyInteger('max_health');
-            $table->unsignedTinyInteger('stamina');
+            $table->unsignedSmallInteger('stamina');
             $table->unsignedTinyInteger('kill_count');
             $table->unsignedInteger('experience');
 

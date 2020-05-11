@@ -40,6 +40,6 @@ class User extends Authenticatable
 
     public function students()
     {
-        return $this->hasMany('App\GameStudent');
+        return $this->hasMany('App\Student');
     }
 }

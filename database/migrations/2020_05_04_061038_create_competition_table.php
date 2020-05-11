@@ -17,6 +17,7 @@ class CreateCompetitionTable extends Migration
             $table->id();
             $table->unsignedTinyInteger('male_count');
             $table->unsignedTinyInteger('female_count');
+            $table->unsignedInteger('winner_id')->nullable();
             $table->timestamps();
         });
     }

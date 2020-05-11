@@ -19,7 +19,7 @@ class CreateStudentItemsTable extends Migration
             $table->unsignedTinyInteger('type');
             $table->unsignedInteger('item_id');
             $table->string('uuid', 64);
-            $table->unsignedTinyInteger('endurance');
+            $table->unsignedSmallInteger('endurance');
             $table->smallInteger('point');
             $table->timestamps();
             $table->unique(['student_id', 'type']);

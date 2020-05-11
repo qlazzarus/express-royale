@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLocationItemsTable extends Migration
+class CreatePresetNpcItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateLocationItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('location_items', function (Blueprint $table) {
+        Schema::create('preset_npc_items', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('preset_npc_id');
+            $table->unsignedTinyInteger('type');
             $table->unsignedInteger('item_id');
-            $table->unsignedInteger('competition_id');
-            $table->string('uuid', 64);
             $table->unsignedSmallInteger('endurance');
             $table->smallInteger('point');
             $table->timestamps();
-            $table->unique(['competition_id', 'uuid']);
+            $table->unique(['preset_npc_id', 'type']);
         });
     }
 
@@ -32,6 +32,6 @@ class CreateLocationItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('location_items');
+        Schema::dropIfExists('preset_npc_items');
     }
 }
