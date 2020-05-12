@@ -4,6 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class ItemCombine
+ * @package App
+ * @mixin \Eloquent
+ */
 class ItemCombine extends Model
 {
     //

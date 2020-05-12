@@ -4,6 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class LocationItem
+ * @package App
+ * @mixin \Eloquent
+ */
 class LocationItem extends Model
 {
     //

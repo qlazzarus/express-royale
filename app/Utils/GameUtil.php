@@ -5,18 +5,18 @@ namespace App\Utils;
 use App\Entities\BattleLog;
 use App\Enums\ArmorMaterial;
 use App\Enums\AttackType;
+use App\Enums\EquipSlot;
 use App\Enums\GameSetting;
 use App\Enums\HealthStatus;
 use App\Enums\Injure;
 use App\Enums\Tactics;
-use App\Student;
 use App\StudentItem;
 
 class GameUtil
 {
     /**
-     * 누적 경험치로 레벨 계산
-     * 
+     * 누적 경험치 -> 레벨
+     *
      * @param integer $exp
      * @return integer
      */
@@ -34,8 +34,8 @@ class GameUtil
     }
 
     /**
-     * 레벨로 누적 경험치 계산
-     * 
+     * 레벨 -> 누적 경험치
+     *
      * @param integer $level
      * @return integer
      */
@@ -51,8 +51,8 @@ class GameUtil
     }
 
     /**
-     * 건강상태 표시
-     * 
+     * 건강 상태 표시
+     *
      * @param integer $health
      * @param integer $maxHealth
      * @return integer
@@ -77,7 +77,7 @@ class GameUtil
 
     /**
      * 기본 적 발견율
-     * 
+     *
      * @param integer $tactics
      * @param integer $level
      * @param integer $killCount
@@ -109,13 +109,13 @@ class GameUtil
             $weaponPoint = floor($weaponPoint / 10);
         }
 
-        $result = ($weaponPoint + $attack) * $attack;
+        $result = ($weaponPoint + $attackPoint) * $attackPoint;
         return floor($result / 100);
     }
 
     /**
      * 방어력 계산
-     * 
+     *
      * @param integer $defencePoint
      * @param integer $headPoint
      * @param integer $bodyPoint
@@ -127,7 +127,7 @@ class GameUtil
     public static function defencePoint($defencePoint, $headPoint, $bodyPoint, $armPoint, $legPoint, $accessoryPoint)
     {
         $result = ($defencePoint + $headPoint + $bodyPoint + $armPoint + $legPoint + $accessoryPoint) * $defencePoint;
-        return floor(result / 100);
+        return floor($result / 100);
     }
 
     /**
@@ -144,7 +144,7 @@ class GameUtil
         $result = floor($attack * $maxDamage / 100) - $defence;
         $result /= 2;
         $result += self::dice($result);
-        
+
         $result = floor($result * $damageBuff / 100);
 
         if (0 >= $result) return 1;
@@ -153,7 +153,7 @@ class GameUtil
 
     /**
      * 데미지 계산시 방어구 가산치
-     * 
+     *
      * @param integer $attackType
      * @param boolean $hasArmorHead
      * @param boolean $hasArmorBody
@@ -208,25 +208,24 @@ class GameUtil
      * @param string $me
      * @param string $weapon
      * @param string $target
-     * @param StudentItem[] $armors
      * @param integer $attackType
+     * @param integer $skill
+     * @param StudentItem[] $armors
      * @param boolean $isCounter
      * @return BattleLog
      */
-    public static function battle($me, $weapon, $target, $attackType, $skill, $isCounter)
+    public static function battle($me, $weapon, $target, $attackType, $skill, $armors, $isCounter)
     {
         $attackName = $isCounter ? '반격' : '공격';
         $destroyChance = 0;
         $injureChance = 0;
         $injureCandidate = [];
-        
-        $maxDamage = 0;
+
         $injure = Injure::None;
         $damageEquip = EquipSlot::None;
         $logs = [];
-        $isCritcal = false;
+        $isCritical = false;
         $isAlert = false;
-        $isWeaponDestroyed = false;
 
         if (AttackType::Melee === $attackType) {
             $logs[] = "{$me}의 {$attackName}! {$weapon}(으)로 {$target}을(를) 때렸다!'";
@@ -287,10 +286,10 @@ class GameUtil
 
         $maxDamage = self::maxDamage($skill, '맨손' === $weapon);
 
-        // 무기 손상
+        // weapon destroyed
         $isWeaponDestroyed = self::dice(100) < $destroyChance;
 
-        // 부상처리 & 크리티컬
+        // injured
         $isInjured = self::dice(100) < $injureChance;
         if ($isInjured) {
             $injure = $injureCandidate[self::dice(count($injureCandidate) - 1)];
@@ -324,7 +323,7 @@ class GameUtil
             'damageEquip' => $damageEquip,
             'skill' => $skill,
             'logs' => $logs,
-            'isCritical' => $isCritcal,
+            'isCritical' => $isCritical,
             'isAlert' => $isAlert,
             'isWeaponDestroyed' => $isWeaponDestroyed
         ]);
@@ -381,7 +380,7 @@ class GameUtil
 
     /**
      * 체력 회복량 계산
-     * 
+     *
      * @param integer $second
      * @return integer
      */
@@ -392,7 +391,7 @@ class GameUtil
 
     /**
      * 주사위
-     * 
+     *
      * @param integer $max
      * @return integer
      */
@@ -406,7 +405,7 @@ class GameUtil
      * 이동 피로도 계산
      *
      * @param boolean $isReduceStamina
-     * @param integer $injured
+     * @param integer $injure
      * @return integer
      */
     public static function journeyFatigue($isReduceStamina, $injure)
@@ -425,7 +424,7 @@ class GameUtil
      * 탐사 피로도 계산
      *
      * @param boolean $isReduceStamina
-     * @param integer $injured
+     * @param integer $injure
      * @return integer
      */
     public static function exploreFatigue($isReduceStamina, $injure)

@@ -20,7 +20,7 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: "true"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "1"
     volumes:
       - ./conf.d/mariadb.cnf:/etc/mysql/my.cnf
     restart: always

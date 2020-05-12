@@ -4,6 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class ItemLooting
+ * @package App
+ * @mixin \Eloquent
+ */
 class ItemLooting extends Model
 {
     //

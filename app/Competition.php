@@ -4,6 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Competition
+ * @package App
+ * @mixin \Eloquent
+ */
 class Competition extends Model
 {
     //
