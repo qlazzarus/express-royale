@@ -17,7 +17,8 @@
         "laravel/sanctum": "^2.2",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
-        "pusher/pusher-php-server": "^4.1"
+        "pusher/pusher-php-server": "^4.1",
+        "spatie/data-transfer-object": "^2.1"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

@@ -6,6 +6,8 @@ use BenSampo\Enum\Enum;
 
 final class Injure extends Enum
 {
+    const None = 0;
+
     // 머리 부상
     const Head = 1;
 

@@ -6,6 +6,7 @@ use BenSampo\Enum\Enum;
 
 final class EquipSlot extends Enum
 {
+    const None = 0;
     const Weapon = 1;
     const ArmorHead = 2;
     const ArmorBody = 3;

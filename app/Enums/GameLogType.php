@@ -4,7 +4,7 @@ namespace App\Enums;
 
 use BenSampo\Enum\Enum;
 
-final class NewsType extends Enum
+final class GameLogType extends Enum
 {
     const NewGame = 0;
     const Entry = 1;

@@ -15,6 +15,7 @@ class CreateCompetitionTable extends Migration
     {
         Schema::create('competition', function (Blueprint $table) {
             $table->id();
+            $table->unsignedTinyInteger('status');
             $table->unsignedTinyInteger('male_count');
             $table->unsignedTinyInteger('female_count');
             $table->unsignedInteger('winner_id')->nullable();
