@@ -214,66 +214,70 @@ class GameUtil
      * @param boolean $isCounter
      * @return BattleLog
      */
-    public static function battle($me, $weapon, $target, $attackType, $skill, $armors, $isCounter)
+    public static function battleLog($me, $weapon, $target, $attackType, $skill, $armors, $isCounter)
     {
         $attackName = $isCounter ? '반격' : '공격';
         $destroyChance = 0;
         $injureChance = 0;
         $injureCandidate = [];
 
-        $injure = Injure::None;
-        $damageEquip = EquipSlot::None;
-        $logs = [];
-        $isCritical = false;
-        $isAlert = false;
+        $result = new BattleLog([
+            'maxDamage' => 0,
+            'injure' => Injure::None,
+            'damageEquip' => EquipSlot::None,
+            'skill' => $skill,
+            'isCritical' => false,
+            'isAlert' => false,
+            'isWeaponDestroyed' => false
+        ]);
 
         if (AttackType::Melee === $attackType) {
-            $logs[] = "{$me}의 {$attackName}! {$weapon}(으)로 {$target}을(를) 때렸다!'";
-            $skill++;
+            $result->skill++;
+
             $destroyChance = 3;
             $injureChance = 5;
             $injureCandidate = [Injure::Head, Injure::Arm];
         } elseif (AttackType::Bow === $attackType) {
-            $logs[] = "{$me}의 {$attackName}! {$weapon}(으)로 {$target}을(를) 겨냥해 쐈다!'";
-            $skill++;
+            $result->skill++;
+
             $destroyChance = 3;
             $injureChance = 10;
             $injureCandidate = [Injure::Head, Injure::Arm, Injure::Body, Injure::Leg];
         } elseif (AttackType::Throw === $attackType) {
-            $logs[] = "{$me}의 {$attackName}! {$weapon}(을)를 {$target}에게 던졌다!'";
-            $skill++;
+            $result->skill++;
+
             $destroyChance = 0;
             $injureChance = 7;
             $injureCandidate = [Injure::Head, Injure::Leg];
         } elseif (AttackType::Bomb === $attackType) {
-            $logs[] = "{$me}의 {$attackName}! {$weapon}(을)를 {$target}에게 던졌다!'";
-            $skill++;
+            $result->skill++;
+            $result->isAlert = true;
+
             $destroyChance = 0;
             $injureChance = 15;
             $injureCandidate = [Injure::Head, Injure::Arm, Injure::Body, Injure::Leg];
-            $isAlert = true;
         } elseif (AttackType::Shot === $attackType) {
-            $logs[] = "{$me}의 {$attackName}! {$weapon}(으)로 {$target}을(를) 겨냥해 발포했다!'";
-            $skill++;
+            $result->skill++;
+            $result->isAlert = true;
+
             $destroyChance = 3;
             $injureChance = 12;
             $injureCandidate = [Injure::Head, Injure::Arm, Injure::Body, Injure::Leg];
-            $isAlert = true;
         } elseif (AttackType::Stab === $attackType) {
-            $logs[] = "{$me}의 {$attackName}! {$weapon}(으)로 {$target}을(를) 찔렀다!'";
-            $skill++;
+            $result->skill++;
+            
             $destroyChance = 3;
             $injureChance = 10;
             $injureCandidate = [Injure::Head, Injure::Arm, Injure::Body, Injure::Leg];
         } elseif (AttackType::Cut === $attackType) {
-            $logs[] = "{$me}의 {$attackName}! {$weapon}(으)로 {$target}을(를) 베었다!'";
-            $skill++;
+            $result->skill++;
+            
             $destroyChance = 3;
             $injureChance = 10;
             $injureCandidate = [Injure::Head, Injure::Arm, Injure::Body, Injure::Leg];
         } elseif (AttackType::Fist === $attackType) {
-            $logs[] = "{$me}의 {$attackName}! {$weapon}(으)로 {$target}을(를) 때렸다!'";
-            $skill++;
+            $result->skill++;
+            
             $destroyChance = 3;
             $injureChance = 10;
             $injureCandidate = [Injure::Head];
@@ -284,88 +288,118 @@ class GameUtil
             }
         }
 
-        $maxDamage = self::maxDamage($skill, '맨손' === $weapon);
+        $result->maxDamage = self::maxDamage($skill, '맨손' === $weapon);
+        $result->isWeaponDestroyed = self::dice(100) < $destroyChance;
 
-        // weapon destroyed
-        $isWeaponDestroyed = self::dice(100) < $destroyChance;
+        // not injured
+        if ($self::dice(100) > $injureChance) return $result;
 
         // injured
-        $isInjured = self::dice(100) < $injureChance;
-        if ($isInjured) {
-            $injure = $injureCandidate[self::dice(count($injureCandidate) - 1)];
-            foreach ($armors as $armor) {
-                $stuck = false;
+        $injurePart = self::dice(3);
+        if (0 === $injurePart && in_array(Injure::Head, $injureCandidate)) {
+            $result->injure = Injure::Head;
+        } elseif (1 === $injurePart && in_array(Injure::Arm, $injureCandidate)) {
+            $result->injure = Injure::Arm;
+        } elseif (2 === $injurePart && in_array(Injure::Body, $injureCandidate)) {
+            $result->injure = Injure::Body;
+        } elseif (3 === $injurePart && in_array(Injure::Leg, $injureCandidate)) {
+            $result->injure = Injure::Leg;
+        } else {
+            return $result;
+        }
 
-                if (EquipSlot::ArmorHead === $armor->type && Injure::Head === $injure) {
-                    $stuck = true;
-                } elseif (EquipSlot::ArmorBody === $armor->type && 0 < $armor->point && Injure::Body === $injure) {
-                    $stuck = true;
-                } elseif (EquipSlot::ArmorArm === $armor->type && Injure::Arm === $injure) {
-                    $stuck = true;
-                } elseif (EquipSlot::ArmorLeg === $armor->type && Injure::Leg === $injure) {
-                    $stuck = true;
-                }
+        // injure -> armor stuck
+        $stuck = false;
+        foreach ($armors as $armor) {
+            if (EquipSlot::ArmorHead === $armor->type && Injure::Head === $result->injure) {
+                $stuck = true;
+            } elseif (EquipSlot::ArmorBody === $armor->type && 0 < $armor->point && Injure::Body === $result->injure) {
+                $stuck = true;
+            } elseif (EquipSlot::ArmorArm === $armor->type && Injure::Arm === $result->injure) {
+                $stuck = true;
+            } elseif (EquipSlot::ArmorLeg === $armor->type && Injure::Leg === $result->injure) {
+                $stuck = true;
+            }
 
-                if ($stuck) {
-                    $isInjured = false;
-                    $injure = Injure::None;
-                }
+            if ($stuck) {
+                $result->injure = Injure::None;
+                $result->damageEquip = $armor->type;
+                return $result;
             }
         }
 
-        if ($isInjured) {
-            // TODO 방어구 endurance 차감?? 기존 cgi 코드 분석필요
+        // critical
+        $critical = self::dice(100);
+
+        // dice(100) < {head: 30, arm: 80, body: 20, foot: 50}[res.injured]
+        if ((Injure::Head === $result->injure && 30 > $critical)) {
+        } elseif ((Injure::Body === $result->injure && 20 > $critical)) {
+        } elseif ((Injure::Arm === $result->injure && 80 > $critical)) {
+        } elseif ((Injure::Leg === $result->injure && 50 > $critical)) {
+        } else {
+            $result->injure = Injure::None;
+            $result->isCritical = true;
+            $result->maxDamage += 10;
         }
 
-        return new BattleLog([
-            'maxDamage' => $maxDamage,
-            'injure' => $injure,
-            'damageEquip' => $damageEquip,
-            'skill' => $skill,
-            'logs' => $logs,
-            'isCritical' => $isCritical,
-            'isAlert' => $isAlert,
-            'isWeaponDestroyed' => $isWeaponDestroyed
-        ]);
+        return $result;
     }
-    /*
-    function getBattleResult(user, skillType, enemy, strikeBack, eventLog) {
-        var res = {
-            damage: 0, //integer
-            critical: false, //isCritical boolean
-            injured: '', //injure integer[]
-            alert: false, //isAlert boolean
-            weaponDestroy: false, //isWeaponDestroy boolean
-            eventLog: eventLog, //logs string[]
-            user: user,
-            enemy: enemy
-        };
 
-        var attackName = strikeBack ? '반격' : '공격';
-        var weapon = getItem(user.weapon.idx);
-        var destroyPercent = 0;
-        var injurePercent = 0;
-        var injurePart = [];
-        var skillLevel = 0;
+    /**
+     * 무기 소모 endurance 계산
+     * 
+     * @param StudentItem $weapon
+     * @param integer $attack
+     * @return 
+     */
+    public static function weapon(StudentItem $weapon, $attack)
+    {
+        $point = $weapon->point;
+        $endurance = $weapon->endurance;
 
-
-
-        if (true === injureAttack) {
-            res.enemy.armor[res.injured].endurance--;
-            if (0 >= res.enemy.armor[res.injured].endurance) {
-                res.enemy.armor[res.injured] = {idx: '', point: 0, endurance: 0};
-            }
+        if ($weapon->item->ammo_require && 0 >= $weapon->endurance) {
+            $attack = AttackType::Melee;
         }
 
-        if (true === injureAttack && dice(100) < {head: 30, arm: 80, body: 20, foot: 50}[res.injured]) {
-            res.injured = '';
-            res.damage += 10;
-            res.critical = true;
+        if (AttackType::Shot === $attack && in_array($weapon->item->attackType, [AttackType::Shot])) {
+            $endurance--;
+        } elseif (AttackType::Bow === $attack && in_array($weapon->item->attackType, [AttackType::Bow])) {
+            $endurance--;
+        } elseif (AttackType::Bomb === $attack && in_array($weapon->item->attackType, [AttackType::Bomb])) {
+            $endurance--;
+        } elseif (AttackType::Throw === $attack && in_array($weapon->item->attackType, [AttackType::Throw])) {
+            $endurance--;
+        } elseif (AttackType::Cut === $attack && in_array($weapon->item->attackType, [AttackType::Cut])) {
+            $point -= self::dice(1) + 1;
         }
 
-        return res;
+        if (0 >= $endurance) $endurance = 0;
+        if (0 >= $point) $point = 0;
+
+        return [
+            'point' => $point,
+            'endurance' => $endurance,
+        ];
     }
-    */
+
+    /**
+     * 방어구 소모 endurance 계산
+     * 
+     * @param StudentItem $armor
+     * @return integer
+     */
+    public static function spendArmorEndurance(StudentItem $armor)
+    {
+        $endurance = $armor->endurance;
+        if (EquipSlot::ArmorBody !== $armor->type) return $endurance;
+
+        if (0 < $armor->point && 0 === self::dice(5)) {
+            $endurance--;
+        }
+
+        if (0 >= $endurance) return 0;
+        return $endurance;
+    }
 
     /**
      * 스테미너 회복량 계산

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Casts\Factorize;
 
 /**
  * Class Item
@@ -12,4 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 class Item extends Model
 {
     //
+    protected $casts = [
+        'attackType' => Factorize::class,
+    ];
 }
