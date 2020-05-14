@@ -4,7 +4,7 @@ namespace App\Entities;
 
 use \Spatie\DataTransferObject\DataTransferObject;
 
-class BattleLog extends DataTransferObject
+class BattleReport extends DataTransferObject
 {
     public int $maxDamage;
 

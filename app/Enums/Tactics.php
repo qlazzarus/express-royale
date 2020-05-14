@@ -16,8 +16,11 @@ final class Tactics extends Enum
     const Defence = 2;
 
     // 탐색행동
-    const Stealth = 3;
+    const Investigate = 3;
+
+    // 은밀행동
+    const Stealth = 4;
 
     // 연속공격
-    const Streak = 4;
+    const Streak = 5;
 }

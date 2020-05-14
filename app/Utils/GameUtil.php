@@ -2,13 +2,17 @@
 
 namespace App\Utils;
 
-use App\Entities\BattleLog;
+use App\Entities\AttackerReport;
+use App\Entities\BattleReport;
+use App\Entities\DefenderReport;
+use App\Entities\ReconnReportInterface;
 use App\Enums\ArmorMaterial;
 use App\Enums\AttackType;
 use App\Enums\EquipSlot;
 use App\Enums\GameSetting;
 use App\Enums\HealthStatus;
 use App\Enums\Injure;
+use App\Enums\LocationSpecialize;
 use App\Enums\Tactics;
 use App\StudentItem;
 
@@ -212,16 +216,16 @@ class GameUtil
      * @param integer $skill
      * @param StudentItem[] $armors
      * @param boolean $isCounter
-     * @return BattleLog
+     * @return BattleReport
      */
-    public static function battleLog($me, $weapon, $target, $attackType, $skill, $armors, $isCounter)
+    public static function battle($me, $weapon, $target, $attackType, $skill, $armors, $isCounter)
     {
         $attackName = $isCounter ? '반격' : '공격';
         $destroyChance = 0;
         $injureChance = 0;
         $injureCandidate = [];
 
-        $result = new BattleLog([
+        $result = new BattleReport([
             'maxDamage' => 0,
             'injure' => Injure::None,
             'damageEquip' => EquipSlot::None,
@@ -330,17 +334,219 @@ class GameUtil
 
         // critical
         $critical = self::dice(100);
-
-        // dice(100) < {head: 30, arm: 80, body: 20, foot: 50}[res.injured]
-        if ((Injure::Head === $result->injure && 30 > $critical)) {
-        } elseif ((Injure::Body === $result->injure && 20 > $critical)) {
-        } elseif ((Injure::Arm === $result->injure && 80 > $critical)) {
-        } elseif ((Injure::Leg === $result->injure && 50 > $critical)) {
-        } else {
+        if ((Injure::Head === $result->injure && 30 > $critical) || 
+            (Injure::Body === $result->injure && 20 > $critical) ||
+            (Injure::Arm === $result->injure && 80 > $critical) ||
+            (Injure::Leg === $result->injure && 50 > $critical)) {
             $result->injure = Injure::None;
             $result->isCritical = true;
             $result->maxDamage += 10;
         }
+
+        return $result;
+    }
+    
+    /**
+     * @param StudentInfo $weapon
+     * @param integer $melee
+     * @param integer $bow
+     * @param integer $throw
+     * @param integer $bomb
+     * @param integer $shot
+     * @param integer $cut
+     * @param integer $stab
+     * @param integer $fist
+     * @param integer $tactics
+     * @param integer $specialize
+     * @param integer $injure
+     * @return AttackerReport
+     */
+    public static function reconn(StudentInfo $weapon, $melee, $bow, $throw, $bomb, $shot, $cut, $stab, $fist, $tactics, $specialize, $injure)
+    {
+        $result = new AttackerReport([
+            'find' => 5,    // 적, 아이템 발견율
+            'ambush' => 7,  // 선제공격율
+            'attack' => 100,   // 공격율
+            'defence' => 100,  // 방어율
+            'accuracy' => 0,
+            'isLongRange' => false,
+        ]);
+
+        $result = self::tacticsSpecialize($result, $tactics);
+        if (Tactics::Defence == $tactics) {
+            // 방어중시
+            $result->ambush -= 4;
+        } elseif (Tactics::Stealth == $tactics) {
+            // 은밀행동
+            $result->find -= 4;
+            $result->ambush += 4;
+        } elseif (Tactics::Investigate == $tactics) {
+            // 탐색행동
+            $result->find += 4;
+            $result->ambush += 4;
+        } elseif (Tactics::Streak == $tactics) {
+            // 연속공격
+            $result->find += 6;
+        }
+
+        $result = self::locationSpecialize($result, $specialize);
+        if (in_array(Injure::Arm, IntegerUtil::factorize($injure))) $result->attack -= 20;
+
+        $result = self::weaponSpecialize($result, $weapon, $melee, $bow, $throw, $bomb, $shot, $cut, $stab, $fist);
+        if (in_array(Injure::Head, IntegerUtil::factorize($injure))) $result->accurancy -= 20;
+
+        return $result;
+    }
+
+    /**
+     * @param StudentInfo $weapon
+     * @param integer $melee
+     * @param integer $bow
+     * @param integer $throw
+     * @param integer $bomb
+     * @param integer $shot
+     * @param integer $cut
+     * @param integer $stab
+     * @param integer $fist
+     * @param integer $tactics
+     * @param integer $specialize
+     * @param integer $injure
+     * @param integer $status
+     * @return DefenderReport
+     */
+    public static function defence(StudentInfo $weapon, $melee, $bow, $throw, $bomb, $shot, $cut, $stab, $fist, $tactics, $specialize, $injure, $status)
+    {
+        $result = new DefenderReport([
+            'attack' => 100,   // 공격율
+            'defence' => 100,  // 방어율
+            'stealth' => 100,   // 발견당할 확율? (높을수록 발견되지 않음)
+            'accuracy' => 0,
+            'isLongRange' => false,
+        ]);
+
+        if (HealthStatus::Heal === $status) {
+            // 치료중
+            $result->stealth -= 30;
+        }
+
+        $result = self::tacticsSpecialize($result, $tactics);
+        if (Tactics::Defence == $tactics) {
+            // 방어중시
+            $result->stealth -= 20;
+        } elseif (Tactics::Stealth == $tactics) {
+            // 은밀행동
+            $result->stealth += 40;
+        } elseif (Tactics::Investigate == $tactics) {
+            // 탐색행동
+            $result->stealth -= 40;
+        } elseif (Tactics::Streak == $tactics) {
+            // 연속공격
+            $result->stealth -= 30;
+        }
+
+        $result = self::locationSpecialize($result, $specialize);
+        if (in_array(Injure::Arm, IntegerUtil::factorize($injure))) $result->attack -= 20;
+
+        $result = self::weaponSpecialize($result, $weapon, $melee, $bow, $throw, $bomb, $shot, $cut, $stab, $fist);
+        if (in_array(Injure::Head, IntegerUtil::factorize($injure))) $result->accurancy -= 20;
+
+        return $result;
+    }
+
+    /**
+     * @param ReconnReportInterface $result
+     * @param integer $tactics
+     * @return ReconnReportInterface
+     */
+    public static function tacticsSpecialize(ReconnReportInterface $result, $tactics)
+    {
+        if (Tactics::Attack == $tactics) {
+            // 공격중시
+            $result->attack += 40;
+            $result->defence -= 40;
+        } elseif (Tactics::Defence == $tactics) {
+            // 방어중시
+            $result->attack -= 40;
+            $result->defence += 40;
+        } elseif (Tactics::Stealth == $tactics) {
+            // 은밀행동
+            $result->attack -= 40;
+            $result->defence -= 40;
+        } elseif (Tactics::Investigate == $tactics) {
+            // 탐색행동
+            $result->attack -= 40;
+            $result->defence -= 40;
+        } elseif (Tactics::Streak == $tactics) {
+            // 연속공격
+            $result->defence -= 40;
+        }
+
+        return $result;
+    }
+
+    /**
+     * @param ReconnReportInterface $result
+     * @param integer $specialize
+     * @return ReconnReportInterface
+     */
+    public static function locationSpecialize(ReconnReportInterface $result, $specialize)
+    {
+        if (LocationSpecialize::AttackPlus === $specialize) {
+            $result->attack += 10;
+        } elseif (LocationSpecialize::AttackMinus === $specialize) {
+            $result->attack -= 10;
+        } elseif (LocationSpecialize::DefencePlus === $specialize) {
+            $result->defence += 10;
+        } elseif (LocationSpecialize::DefenceMinus === $specialize) {
+            $result->defence -= 10;
+        } elseif (LocationSpecialize::FindPlus === $specialize) {
+            $result->find += 10;
+        } elseif (LocationSpecialize::FindMinus === $specialize) {
+            $result->find -= 10;
+        }
+
+        return $result;
+    }
+
+    /**
+     * @param ReconnReportInterface $result
+     * @param StudentInfo $weapon
+     * @param integer $melee
+     * @param integer $bow
+     * @param integer $throw
+     * @param integer $bomb
+     * @param integer $shot
+     * @param integer $cut
+     * @param integer $stab
+     * @param integer $fist
+     * @return ReconnReportInterface
+     */
+    public static function weaponSpecialize(ReconnReportInterface $result, StudentInfo $weapon, $melee, $bow, $throw, $bomb, $shot, $cut, $stab, $fist)
+    {
+        if (in_array(AttackType::Melee, $weapon->item->attackType) || 
+            ((in_array(AttackType::Bow, $weapon->item->attackType) || in_array(AttackType::Shot, $weapon->item->attackType)) && 0 >= $weapon->endurance)) {
+            $result->accurancy = 80 + floor($melee / GameSetting::SkillExperience);
+        } elseif (in_array(AttackType::Bow, $weapon->item->attackType)) {
+            $result->isLongRange = true;
+            $result->accurancy = 60 + floor($bow / GameSetting::SkillExperience * 2);
+        } elseif (in_array(AttackType::Throw, $weapon->item->attackType)) {
+            $result->isLongRange = true;
+            $result->accurancy = 70 + floor($throw / GameSetting::SkillExperience * 1.5);
+        } elseif (in_array(AttackType::Bomb, $weapon->item->attackType)) {
+            $result->isLongRange = true;
+            $result->accurancy = 60 + floor($bomb / GameSetting::SkillExperience * 2);
+        } elseif (in_array(AttackType::Shot, $weapon->item->attackType)) {
+            $result->isLongRange = true;
+            $result->accurancy = 60 + floor($bomb / GameSetting::SkillExperience * 2);
+        } elseif (in_array(AttackType::Cut, $weapon->item->attackType)) {
+            $result->accurancy = 80 + floor($cut / GameSetting::SkillExperience);
+        } elseif (in_array(AttackType::Stab, $weapon->item->attackType)) {
+            $result->accurancy = 80 + floor($stab / GameSetting::SkillExperience);
+        } else {
+            $result->accurancy = 70 + floor($fist / GameSetting::SkillExperience * 1.5);
+        }
+
+        if (95 < $result->accurancy) $result->accurancy = 95;
 
         return $result;
     }
@@ -350,36 +556,41 @@ class GameUtil
      * 
      * @param StudentItem $weapon
      * @param integer $attack
-     * @return 
+     * @return WeaponFatigue
      */
-    public static function weapon(StudentItem $weapon, $attack)
+    public static function weaponFatigue(StudentItem $weapon, $attack)
     {
-        $point = $weapon->point;
-        $endurance = $weapon->endurance;
+        $result = new WeaponFatigue([
+            'point' => $weapon->point,
+            'endurance' => $weapon->endurance,
+            'isWeaponDestroyed' => false
+        ]);
 
-        if ($weapon->item->ammo_require && 0 >= $weapon->endurance) {
+        if ($weapon->item->ammo_require && 0 >= $result->endurance) {
             $attack = AttackType::Melee;
         }
 
-        if (AttackType::Shot === $attack && in_array($weapon->item->attackType, [AttackType::Shot])) {
-            $endurance--;
-        } elseif (AttackType::Bow === $attack && in_array($weapon->item->attackType, [AttackType::Bow])) {
-            $endurance--;
-        } elseif (AttackType::Bomb === $attack && in_array($weapon->item->attackType, [AttackType::Bomb])) {
-            $endurance--;
-        } elseif (AttackType::Throw === $attack && in_array($weapon->item->attackType, [AttackType::Throw])) {
-            $endurance--;
-        } elseif (AttackType::Cut === $attack && in_array($weapon->item->attackType, [AttackType::Cut])) {
-            $point -= self::dice(1) + 1;
+        if (AttackType::Shot === $attack && in_array(AttackType::Shot, $weapon->item->attackType)) {
+            $result->endurance--;
+        } elseif (AttackType::Bow === $attack && in_array(AttackType::Bow, $weapon->item->attackType)) {
+            $result->endurance--;
+        } elseif (AttackType::Bomb === $attack && in_array(AttackType::Bomb, $weapon->item->attackType)) {
+            $result->endurance--;
+        } elseif (AttackType::Throw === $attack && in_array(AttackType::Throw, $weapon->item->attackType)) {
+            $result->endurance--;
+        } elseif (AttackType::Cut === $attack && in_array(AttackType::Cut, $weapon->item->attackType)) {
+            $result->point -= self::dice(1) + 1;
         }
 
-        if (0 >= $endurance) $endurance = 0;
-        if (0 >= $point) $point = 0;
+        if (0 > $result->endurance) {
+            $result->endurance = 0;
+            $result->isWeaponDestroyed = true;
+        } elseif (0 > $result->point) {
+            $result->point = 0;
+            $result->isWeaponDestroyed = true;
+        }
 
-        return [
-            'point' => $point,
-            'endurance' => $endurance,
-        ];
+        return $result;
     }
 
     /**
@@ -388,7 +599,7 @@ class GameUtil
      * @param StudentItem $armor
      * @return integer
      */
-    public static function spendArmorEndurance(StudentItem $armor)
+    public static function armorFatigue(StudentItem $armor)
     {
         $endurance = $armor->endurance;
         if (EquipSlot::ArmorBody !== $armor->type) return $endurance;
