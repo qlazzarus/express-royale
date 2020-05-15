@@ -11,6 +11,10 @@
       "esModuleInterop": true,
       "experimentalDecorators": true,
       "jsx": "react",
+      "baseUrl": "./resources/ts",
+      "paths": {
+        "@/*": ["./*"]
+      },
       "typeRoots": [
         "./node_modules/@types",
         "./resources/typings"
