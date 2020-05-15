@@ -1,13 +1,20 @@
 {
     "compilerOptions": {
-      "target": "esnext",
+      "module": "CommonJS",
+      "target": "es5",
       "moduleResolution": "node",
       "allowJs": true,
-      "noEmit": true,
+      "noEmit": false,
       "strict": true,
+      "sourceMap": true,
       "isolatedModules": true,
       "esModuleInterop": true,
-      "jsx": "react"
+      "experimentalDecorators": true,
+      "jsx": "react",
+      "typeRoots": [
+        "./node_modules/@types",
+        "./resources/typings"
+      ]
     },
-    "include": ["resources/js"]
+    "include": ["resources/ts/**/*"]
   }

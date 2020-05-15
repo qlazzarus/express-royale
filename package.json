@@ -10,18 +10,33 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "dependencies": {
+        "mobx": "^5.15.4",
+        "mobx-react": "^6.2.2",
+        "pusher": "^3.0.1",
         "react": "^16.13.1",
-        "react-dom": "^16.13.1"
+        "react-dom": "^16.13.1",
+        "react-router": "^5.2.0",
+        "react-router-dom": "^5.2.0",
+        "tailwindcss": "^1.4.6"
     },
     "devDependencies": {
         "@babel/plugin-proposal-class-properties": "^7.8.3",
+        "@babel/plugin-proposal-decorators": "^7.8.3",
         "@babel/preset-react": "^7.0.0",
         "@babel/preset-typescript": "^7.9.0",
+        "@types/node": "^14.0.1",
+        "@types/react": "^16.9.35",
+        "@types/react-dom": "^16.9.8",
+        "@types/react-router": "^5.1.7",
+        "@types/react-router-dom": "^5.1.5",
         "cross-env": "^7.0",
         "laravel-mix": "^5.0.1",
-        "laravel-mix-react-typescript-extension": "^1.0.2",
+        "laravel-mix-polyfill": "^2.0.0",
+        "mix-tailwindcss": "^1.2.0",
+        "resolve-url-loader": "^3.1.0",
         "sass": "^1.15.2",
         "sass-loader": "^8.0.0",
+        "ts-loader": "^7.0.4",
         "typescript": "^3.9.2"
     }
 }

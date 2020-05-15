@@ -1,14 +1,27 @@
 const mix = require('laravel-mix');
 
-require("laravel-mix-react-typescript-extension");
-/*
+require('mix-tailwindcss');
+require('laravel-mix-polyfill');
+
+mix.ts('resources/ts/index.tsx', 'public/js')
+  .polyfill({
+    enabled: true,
+    useBuiltIns: 'usage',
+    targets: { 'chrome': '58', "firefox": '50', 'ie': 10 }
+  })
+  .sass('resources/sass/app.scss', 'public/css')
+  .tailwind()  
   .webpackConfig({
-    output: {
-      path: path.resolve(__dirname, './public_html/')
+    module: {
+      rules: [
+        {
+          test: /\.tsx?$/,
+          loader: 'ts-loader',
+          exclude: /node_modules/
+        }
+      ]
     }
   })
-*/
-mix.reactTypeScript('resources/ts/index.tsx', 'public/js')
   .sourceMaps(false, 'source-map')
+  .extract()
   .version();
-    //.sass('resources/sass/app.scss', 'public/css');
