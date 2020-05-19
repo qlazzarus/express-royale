@@ -12,8 +12,7 @@ mix.ts('resources/ts/index.tsx', 'public/js')
   })
   .sass('resources/sass/app.scss', 'public/css')
   .tailwind('./tailwind.config.js')
-  .sourceMaps(false, 'source-map')
-  .extract()
+  .sourceMaps()
   .webpackConfig({
     resolve: {
       extensions: ['.ts', '.js', '.tsx', '.jsx'],
@@ -21,5 +20,8 @@ mix.ts('resources/ts/index.tsx', 'public/js')
         '@': path.resolve(__dirname, 'resources/ts/')
       }
     }
-  })
-  .version();
+  });
+
+if (mix.inProduction()) {
+  mix.version();
+}
