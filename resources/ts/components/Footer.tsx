@@ -1,11 +1,14 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Footer: React.FC = () => {
+    const { t } = useTranslation();
+
     return (
         <footer className={'p-4'}>
             <div className={'flex flex-col items-end'}>
-                <a href={'http://github.com/monoless/express-royale'} target={'_blank'}>Express Royale by monoless</a>    
-                <span>Special Thanks to 원본 한글화 루리아</span>
+                <a href={'http://github.com/monoless/express-royale'} target={'_blank'}>{t('FOOTER_COPYRIGHT')}</a>    
+                <span>{t('FOOTER_THANKS')}</span>
             </div>
         </footer>
     );

@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter } from "react-router-dom";
 
+import '@/i18n';
 import { Header, Footer } from '@/components';
 import { Provider, RootStoreInstance as stores } from '@/Provider';
 import Router from '@/Router';

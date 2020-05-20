@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const Header: React.FC = () => {
+    const { t } = useTranslation();
     const [visible, setVisible] = useState(false);
 
     return (
         <nav className={'flex flex-wrap items-center justify-between p-4'}>
             <div className={'w-auto lg:w-1/5 lg:text-center'}>
-                <Link to={'/'} className={'text-xl text-red-500 font-bold'}>Express Royale</Link>
+                <Link to={'/'} className={'text-xl text-red-500 font-bold'}>{t('TITLE')}</Link>
             </div>
             <div className={'block lg:hidden'} onClick={() => setVisible(!visible)}>
                 <button className={'navbar-burger flex items-center py-2 px-3 text-red-500 rounded border border-red-500'}>
@@ -18,12 +20,12 @@ const Header: React.FC = () => {
                 </button>
             </div>
             <div className={`navbar-menu w-full ${visible ? 'flex' : 'hidden'} flex-col justify-around items-center lg:flex lg:flex-row lg:w-4/5`}>
-                <Link to={'/login'} className={"text-red-500 hover:text-red-700 my-3"}>로그인</Link>
-                <Link to={'/transfer'} className={"text-red-500 hover:text-red-700 my-3"}>전학수속</Link>
-                <Link to={'/manual'} className={"text-red-500 hover:text-red-700 my-3"}>메뉴얼</Link>
-                <Link to={'/rank'} className={"text-red-500 hover:text-red-700 my-3"}>생존자 리스트</Link>
-                <Link to={'/news'} className={"text-red-500 hover:text-red-700 my-3"}>진행사항</Link>
-                <Link to={'/winner'} className={"text-red-500 hover:text-red-700 my-3"}>역대 우승자</Link>
+                <Link to={'/login'} className={"text-red-500 hover:text-red-700 my-3"}>{t('MENU_LOGIN')}</Link>
+                <Link to={'/transfer'} className={"text-red-500 hover:text-red-700 my-3"}>{t('MENU_TRANSFER')}</Link>
+                <Link to={'/rule'} className={"text-red-500 hover:text-red-700 my-3"}>{t('MENU_RULE')}</Link>
+                <Link to={'/rank'} className={"text-red-500 hover:text-red-700 my-3"}>{t('MENU_RANK')}</Link>
+                <Link to={'/news'} className={"text-red-500 hover:text-red-700 my-3"}>{t('MENU_NEWS')}</Link>
+                <Link to={'/winner'} className={"text-red-500 hover:text-red-700 my-3"}>{t('MENU_WINNER')}</Link>
             </div>
         </nav>
     );
