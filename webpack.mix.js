@@ -12,16 +12,16 @@ mix.ts('resources/ts/index.tsx', 'public/js')
   })
   .sass('resources/sass/app.scss', 'public/css')
   .tailwind('./tailwind.config.js')
-  .sourceMaps()
   .webpackConfig({
     resolve: {
       extensions: ['.ts', '.js', '.tsx', '.jsx'],
       alias: {
         '@': path.resolve(__dirname, 'resources/ts/')
       }
-    }
+    },
+    devtool: !mix.inProduction() ? 'cheap-module-eval-source-map' : false
   });
 
 if (mix.inProduction()) {
-  mix.version();
+  mix.version().sourceMaps();
 }

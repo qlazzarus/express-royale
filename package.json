@@ -10,9 +10,12 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "dependencies": {
+        "axios": "^0.19.2",
         "mobx": "^5.15.4",
         "mobx-react-lite": "^2.0.6",
         "mobx-state-tree": "^3.16.0",
+        "moment": "^2.26.0",
+        "moment-timezone": "^0.5.31",
         "pusher": "^3.0.1",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
@@ -25,6 +28,9 @@
         "@babel/plugin-proposal-decorators": "^7.8.3",
         "@babel/preset-react": "^7.0.0",
         "@babel/preset-typescript": "^7.9.0",
+        "@types/axios": "^0.14.0",
+        "@types/moment": "^2.13.0",
+        "@types/moment-timezone": "^0.5.13",
         "@types/node": "^14.0.1",
         "@types/react": "^16.9.35",
         "@types/react-dom": "^16.9.8",
