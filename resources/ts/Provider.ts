@@ -1,15 +1,12 @@
 import { useContext, createContext } from "react";
 import { Instance, onSnapshot } from "mobx-state-tree";
-import { RootModel } from '@/models';
 import { RootStore } from '@/stores';
 
-export const RootStoreInstance = RootStore;
+const RootStoreContext = createContext<null | Instance<typeof RootStore>>(null);
 
-export type RootModelInstance = Instance<typeof RootModel>;
+export const stores = RootStore;
 
-const RootStoreContext = createContext<null | RootModelInstance>(null);
-
-export const Provider = RootStoreContext.Provider;
+export const { Provider } = RootStoreContext;
 
 export function useMobxStateTree() {
     const store = useContext(RootStoreContext);
@@ -20,4 +17,4 @@ export function useMobxStateTree() {
     return store;
 }
 
-onSnapshot(RootStore, snapshot => console.log('Snapshot: ', snapshot));
+//onSnapshot(RootStore, snapshot => console.log('Snapshot: ', snapshot));

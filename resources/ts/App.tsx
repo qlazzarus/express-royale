@@ -3,7 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 
 import '@/i18n';
 import { Header, Footer } from '@/components';
-import { Provider, RootStoreInstance as stores } from '@/Provider';
+import { Provider, stores } from '@/Provider';
 import Router from '@/Router';
 
 const App: React.FC = () => {
@@ -13,9 +13,7 @@ const App: React.FC = () => {
         <div className={'container mx-auto px-4'}>
           <Header />
           <section className={'py-8'}>
-            <div className={'w-full max-w-sm mx-auto'}>
-              <Router />
-            </div>
+            <Router />
           </section>
           <Footer />
         </div>
