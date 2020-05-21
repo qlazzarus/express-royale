@@ -14,7 +14,6 @@
         "camelcase-keys-recursive": "^0.8.3",
         "i18next": "^19.4.4",
         "i18next-browser-languagedetector": "^4.2.0",
-        "i18next-markdown-jsx-plugin": "^1.0.13",
         "mobx": "^5.15.4",
         "mobx-react-lite": "^2.0.6",
         "mobx-state-tree": "^3.16.0",

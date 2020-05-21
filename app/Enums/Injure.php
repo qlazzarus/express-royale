@@ -9,7 +9,7 @@ final class Injure extends Enum
     const None = 0;
 
     // 머리 부상
-    const Head = 1;
+    const Head = 1 << 0;
 
     // 팔 부상
     const Arm = 1 << 1;
