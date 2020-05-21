@@ -12,11 +12,11 @@ final class Injure extends Enum
     const Head = 1;
 
     // 팔 부상
-    const Arm = 2;
+    const Arm = 1 << 1;
 
     // 복부 부상
-    const Body = 4;
+    const Body = 1 << 2;
 
     // 다리 부상
-    const Leg = 8;
+    const Leg = 1 << 3;
 }
