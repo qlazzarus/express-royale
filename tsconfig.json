@@ -1,24 +1,30 @@
 {
-    "compilerOptions": {
-      "module": "CommonJS",
-      "target": "es5",
-      "moduleResolution": "node",
-      "allowJs": true,
-      "noEmit": false,
-      "strict": true,
-      "sourceMap": true,
-      "isolatedModules": true,
-      "esModuleInterop": true,
-      "experimentalDecorators": true,
-      "jsx": "react",
-      "baseUrl": "./resources/ts",
-      "paths": {
-        "@/*": ["./*"]
-      },
-      "typeRoots": [
-        "./node_modules/@types",
-        "./resources/typings"
-      ]
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "es5",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "noEmit": false,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "sourceMap": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "baseUrl": "./resources/ts",
+    "paths": {
+      "@/*": ["./*"]
     },
-    "include": ["resources/ts/**/*"]
-  }
+    "typeRoots": [
+      "./node_modules/@types",
+      "./resources/typings"
+    ]
+  },
+  "include": ["resources/ts/**/*"]
+}

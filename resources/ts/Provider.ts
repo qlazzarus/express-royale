@@ -1,10 +1,15 @@
 import { useContext, createContext } from "react";
-import { Instance, onSnapshot } from "mobx-state-tree";
-import { RootStore } from '@/stores';
+import { onSnapshot } from "mobx-state-tree";
+import uuid from 'uuid-random';
+import { RootStore, RootStoreInterface } from '@/stores';
 
-const RootStoreContext = createContext<null | Instance<typeof RootStore>>(null);
+const id = window && window.localStorage && window.localStorage.getItem('identifier') || uuid();
 
-export const stores = RootStore;
+export const stores = RootStore.create({
+    id
+});
+
+const RootStoreContext = createContext<null | RootStoreInterface>(stores);
 
 export const { Provider } = RootStoreContext;
 
@@ -17,4 +22,4 @@ export function useMobxStateTree() {
     return store;
 }
 
-//onSnapshot(RootStore, snapshot => console.log('Snapshot: ', snapshot));
+onSnapshot(stores, snapshot => console.log('Snapshot: ', snapshot));
