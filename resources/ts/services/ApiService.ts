@@ -5,13 +5,13 @@ import { HttpServiceInterface } from './HttpService';
 
 const ApiService = types.model()
     .views((self) => ({
-        get sessionToken(): string | undefined {
+        get sessionToken(): string {
             const authStore: AuthStoreInterface = getParentOfType(self, RootStore).authStore;
-            return authStore.token;
+            return authStore.token || '';
         },
-        get uniqueId(): string | undefined {
+        get uniqueId(): string {
             const rootStore: RootStoreInterface = getParentOfType(self, RootStore);
-            return rootStore.id;
+            return rootStore.id || '';
         }
     }))
     .volatile((self) => {

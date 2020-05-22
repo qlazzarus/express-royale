@@ -1,15 +1,16 @@
 import { useContext, createContext } from "react";
 import { onSnapshot } from "mobx-state-tree";
 import uuid from 'uuid-random';
+import { localStorage } from '@/helpers';
 import { RootStore, RootStoreInterface } from '@/stores';
 
-const id = window && window.localStorage && window.localStorage.getItem('identifier') || uuid();
+const [id] = localStorage('identifier', uuid());
 
 export const stores = RootStore.create({
     id
 });
 
-const RootStoreContext = createContext<null | RootStoreInterface>(stores);
+export const RootStoreContext = createContext<null | RootStoreInterface>(stores);
 
 export const { Provider } = RootStoreContext;
 
