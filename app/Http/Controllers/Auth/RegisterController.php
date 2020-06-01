@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Validator;
 class RegisterController extends Controller
 {
     /*
+    https://github.com/kodooy/laravel7-vue-spa/blob/master/app/Http/Controllers/Auth/RegisterController.php
     |--------------------------------------------------------------------------
     | Register Controller
     |--------------------------------------------------------------------------

@@ -16,24 +16,19 @@ const AuthStore = types.model('AuthStore', {
     const apiService = getParent<typeof RootStore>(self).apiService;
     const login = flow(function* (username?: string, password?: string) {
         apiService.get('sanctum/csrf-cookie')
-            .then(() => {
+            .then(() => apiService.post('api/auth/login', { username, password }));
+    });
 
-            });
+    const register = flow(function* (username?: string, password?: string) {
+        apiService.get('sanctum/csrf-cookie')
+            .then(() => apiService.post('api/auth/register', { username, password }));
     });
 
     return {
-        login
+        login,
+        register
     };
 });
-/*
-    const login = flow(function*(email: string, password: string) {
-        const userResponse: UserResponse = yield userClient.login(email, password);
-  
-        persistToken(userResponse.user.token);
-  
-        self.currentUser = userResponse.user;
-    });
-*/
 
 export interface AuthStoreInterface extends Instance<typeof AuthStore> {};
 
