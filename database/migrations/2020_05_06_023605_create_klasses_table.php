@@ -15,12 +15,12 @@ class CreateKlassesTable extends Migration
     {
         Schema::create('klasses', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('competition_id');
+            $table->unsignedBigInteger('competition_id');
             $table->string('name', 64);
             $table->unsignedTinyInteger('male_count');
             $table->unsignedTinyInteger('female_count');
             $table->timestamps();
-            $table->index('competition_id');
+            $table->foreign('competition_id')->references('id')->on('competitions');
         });
     }
 

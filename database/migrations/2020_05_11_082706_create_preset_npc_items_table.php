@@ -15,13 +15,14 @@ class CreatePresetNpcItemsTable extends Migration
     {
         Schema::create('preset_npc_items', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('preset_npc_id');
+            $table->unsignedBigInteger('preset_npc_id');
             $table->unsignedTinyInteger('type');
-            $table->unsignedInteger('item_id');
+            $table->unsignedBigInteger('item_id');
             $table->unsignedSmallInteger('endurance');
             $table->smallInteger('point');
             $table->timestamps();
             $table->unique(['preset_npc_id', 'type']);
+            $table->foreign('preset_npc_id')->references('id')->on('preset_npcs');
         });
     }
 

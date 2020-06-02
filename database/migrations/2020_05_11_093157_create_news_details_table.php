@@ -15,13 +15,13 @@ class CreateNewsDetailsTable extends Migration
     {
         Schema::create('news_details', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('news_id');
+            $table->unsignedBigInteger('news_id');
             $table->unsignedTinyInteger('type');
-            $table->unsignedInteger('student_id')->nullable();
-            $table->unsignedInteger('item_id')->nullable();
+            $table->unsignedBigInteger('student_id')->nullable();
+            $table->unsignedBigInteger('item_id')->nullable();
             $table->string('value', 64)->nullable();
             $table->timestamps();
-            $table->index('news_id');
+            $table->foreign('news_id')->references('id')->on('news');
         });
     }
 

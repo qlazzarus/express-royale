@@ -17,8 +17,8 @@ class CreateStudentsTable extends Migration
             $table->id();
 
             // relation
-            $table->unsignedInteger('competition_id');
-            $table->unsignedInteger('user_id');
+            $table->unsignedBigInteger('competition_id');
+            $table->unsignedBigInteger('user_id');
             $table->unsignedInteger('klass_id');
             $table->unsignedInteger('club_id');
 
@@ -70,8 +70,8 @@ class CreateStudentsTable extends Migration
             $table->timestamp('deathed_at')->nullable();
 
             $table->timestamps();
-            $table->index('competition_id');
-            $table->index('user_id');
+            $table->foreign('competition_id')->references('id')->on('competitions');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->index('location_id');
             $table->unique(['competition_id', 'username']);
         });

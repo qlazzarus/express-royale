@@ -44,43 +44,43 @@ class NpcSeeder extends Seeder
                 'items' => [
                     [
                         'type' => EquipSlot::Weapon,
-                        'item_id' => Item::where('name', '베레타M92F')->first()->id,
+                        'item_id' => Item::where('name', 'beretta_m9')->first()->id,
                         'endurance' => 150,
                         'point' => 23
                     ],
                     [
                         'type' => EquipSlot::ArmorBody,
-                        'item_id' => Item::where('name', '체육복')->first()->id,
+                        'item_id' => Item::where('name', 'gym_suit')->first()->id,
                         'endurance' => 30,
                         'point' => 5
                     ],
                     [
                         'type' => EquipSlot::ArmorLeg,
-                        'item_id' => Item::where('name', '슬리퍼')->first()->id,
+                        'item_id' => Item::where('name', 'slipper')->first()->id,
                         'endurance' => 10,
                         'point' => 3
                     ],
                     [
                         'type' => EquipSlot::Inventory0,
-                        'item_id' => Item::where('name', '프로그램해제키')->first()->id,
+                        'item_id' => Item::where('name', 'program_key')->first()->id,
                         'endurance' => 1,
                         'point' => 1
                     ],
                     [
                         'type' => EquipSlot::Inventory1,
-                        'item_id' => Item::where('name', '확성기')->first()->id,
+                        'item_id' => Item::where('name', 'loud_speaker')->first()->id,
                         'endurance' => 1,
                         'point' => 1
                     ],
                     [
                         'type' => EquipSlot::Inventory2,
-                        'item_id' => Item::where('name', '구급약')->first()->id,
+                        'item_id' => Item::where('name', 'first_aid')->first()->id,
                         'endurance' => 3,
                         'point' => 50
                     ],
                     [
                         'type' => EquipSlot::Inventory3,
-                        'item_id' => Item::where('name', '군용 나이프')->first()->id,
+                        'item_id' => Item::where('name', 'military_knife')->first()->id,
                         'endurance' => 1,
                         'point' => 17
                     ],
@@ -113,37 +113,37 @@ class NpcSeeder extends Seeder
                 'items' => [
                     [
                         'type' => EquipSlot::Weapon,
-                        'item_id' => Item::where('name', 'M16A2')->first()->id,
+                        'item_id' => Item::where('name', 'm16a2')->first()->id,
                         'endurance' => 300,
                         'point' => 30
                     ],
                     [
                         'type' => EquipSlot::ArmorHead,
-                        'item_id' => Item::where('name', '철모')->first()->id,
+                        'item_id' => Item::where('name', 'military_helmet')->first()->id,
                         'endurance' => 30,
                         'point' => 5
                     ],
                     [
                         'type' => EquipSlot::ArmorBody,
-                        'item_id' => Item::where('name', '군복')->first()->id,
+                        'item_id' => Item::where('name', 'military_uniform')->first()->id,
                         'endurance' => 20,
                         'point' => 6
                     ],
                     [
                         'type' => EquipSlot::ArmorLeg,
-                        'item_id' => Item::where('name', '군화')->first()->id,
+                        'item_id' => Item::where('name', 'military_boots')->first()->id,
                         'endurance' => 20,
                         'point' => 6
                     ],
                     [
                         'type' => EquipSlot::Inventory0,
-                        'item_id' => Item::where('name', '건빵')->first()->id,
+                        'item_id' => Item::where('name', 'hardtack')->first()->id,
                         'endurance' => 2,
                         'point' => 20
                     ],
                     [
                         'type' => EquipSlot::Inventory1,
-                        'item_id' => Item::where('name', '군용 나이프')->first()->id,
+                        'item_id' => Item::where('name', 'military_knife')->first()->id,
                         'endurance' => 1,
                         'point' => 17
                     ]

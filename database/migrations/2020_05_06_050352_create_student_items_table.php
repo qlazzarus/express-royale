@@ -15,13 +15,14 @@ class CreateStudentItemsTable extends Migration
     {
         Schema::create('student_items', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('student_id');
+            $table->unsignedBigInteger('student_id');
             $table->unsignedTinyInteger('type');
-            $table->unsignedInteger('item_id');
+            $table->unsignedBigInteger('item_id');
             $table->string('uuid', 64);
             $table->unsignedSmallInteger('endurance');
             $table->smallInteger('point');
             $table->timestamps();
+            $table->foreign('student_id')->references('id')->on('students');
             $table->unique(['student_id', 'type']);
         });
     }

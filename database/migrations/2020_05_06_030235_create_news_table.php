@@ -15,11 +15,11 @@ class CreateNewsTable extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('competition_id');
+            $table->unsignedBigInteger('competition_id');
             $table->unsignedTinyInteger('type');
             $table->string('message');
             $table->timestamps();
-            $table->index('competition_id');
+            $table->foreign('competition_id')->references('id')->on('competitions');
         });
     }
 

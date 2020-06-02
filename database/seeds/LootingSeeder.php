@@ -17,1393 +17,1393 @@ class LootingSeeder extends Seeder
         $items = [
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '식칼')->first()->id,
+                'item_id' => Item::where('name', 'kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '컵')->first()->id,
+                'item_id' => Item::where('name', 'cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '컵')->first()->id,
+                'item_id' => Item::where('name', 'cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '컵')->first()->id,
+                'item_id' => Item::where('name', 'cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '컵')->first()->id,
+                'item_id' => Item::where('name', 'cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '컵')->first()->id,
+                'item_id' => Item::where('name', 'cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '컵')->first()->id,
+                'item_id' => Item::where('name', 'cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '분말쥬스')->first()->id,
+                'item_id' => Item::where('name', 'powder_juice')->first()->id,
                 'point' => 30,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '분말쥬스')->first()->id,
+                'item_id' => Item::where('name', 'powder_juice')->first()->id,
                 'point' => 30,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '분말쥬스')->first()->id,
+                'item_id' => Item::where('name', 'powder_juice')->first()->id,
                 'point' => 30,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '분말쥬스')->first()->id,
+                'item_id' => Item::where('name', 'powder_juice')->first()->id,
                 'point' => 30,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '분말쥬스')->first()->id,
+                'item_id' => Item::where('name', 'powder_juice')->first()->id,
                 'point' => 30,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '분말쥬스')->first()->id,
+                'item_id' => Item::where('name', 'powder_juice')->first()->id,
                 'point' => 30,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '분말쥬스')->first()->id,
+                'item_id' => Item::where('name', 'powder_juice')->first()->id,
                 'point' => 30,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '분말쥬스')->first()->id,
+                'item_id' => Item::where('name', 'powder_juice')->first()->id,
                 'point' => 30,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '접시')->first()->id,
+                'item_id' => Item::where('name', 'glass_plate')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '접시')->first()->id,
+                'item_id' => Item::where('name', 'glass_plate')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '접시')->first()->id,
+                'item_id' => Item::where('name', 'glass_plate')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '냄비')->first()->id,
+                'item_id' => Item::where('name', 'pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '냄비')->first()->id,
+                'item_id' => Item::where('name', 'pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '냄비')->first()->id,
+                'item_id' => Item::where('name', 'pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '냄비')->first()->id,
+                'item_id' => Item::where('name', 'pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '냄비')->first()->id,
+                'item_id' => Item::where('name', 'pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '유리잔')->first()->id,
+                'item_id' => Item::where('name', 'glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '유리잔')->first()->id,
+                'item_id' => Item::where('name', 'glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '유리잔')->first()->id,
+                'item_id' => Item::where('name', 'glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '유리잔')->first()->id,
+                'item_id' => Item::where('name', 'glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '유리잔')->first()->id,
+                'item_id' => Item::where('name', 'glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '텔레비전')->first()->id,
+                'item_id' => Item::where('name', 'television')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '테이블')->first()->id,
+                'item_id' => Item::where('name', 'dining_table')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '선반')->first()->id,
+                'item_id' => Item::where('name', 'shelf')->first()->id,
                 'point' => 15,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '식칼')->first()->id,
-                'point' => 15,
-                'endurance' => 0
-            ],
-            [
-                'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '식칼')->first()->id,
+                'item_id' => Item::where('name', 'kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '식칼')->first()->id,
+                'item_id' => Item::where('name', 'kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '식칼')->first()->id,
+                'item_id' => Item::where('name', 'kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
-                'point' => 1,
-                'endurance' => 1
-            ],
-            [
-                'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
-                'point' => 1,
-                'endurance' => 1
-            ],
-            [
-                'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
-                'point' => 1,
-                'endurance' => 1
-            ],
-            [
-                'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
-                'point' => 1,
-                'endurance' => 1
-            ],
-            [
-                'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
-                'point' => 1,
-                'endurance' => 1
-            ],
-            [
-                'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
-                'point' => 1,
-                'endurance' => 1
-            ],
-            [
-                'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
-                'point' => 1,
-                'endurance' => 1
-            ],
-            [
-                'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
-                'point' => 1,
-                'endurance' => 1
-            ],
-            [
-                'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
-                'point' => 1,
-                'endurance' => 1
-            ],
-            [
-                'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
-                'point' => 1,
-                'endurance' => 1
-            ],
-            [
-                'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '쇠사슬')->first()->id,
+                'item_id' => Item::where('name', 'kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '쇠사슬')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => Location::where('code', 'I-6')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => Location::where('code', 'I-6')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => Location::where('code', 'I-6')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => Location::where('code', 'I-6')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => Location::where('code', 'I-6')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => Location::where('code', 'I-6')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => Location::where('code', 'I-6')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => Location::where('code', 'I-6')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => Location::where('code', 'I-6')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
+                'point' => 1,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => Location::where('code', 'I-6')->first()->id,
+                'item_id' => Item::where('name', 'chains')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '후라이팬')->first()->id,
+                'item_id' => Item::where('name', 'chains')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '후라이팬')->first()->id,
+                'item_id' => Item::where('name', 'frying_pan')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '휘발유')->first()->id,
+                'item_id' => Item::where('name', 'frying_pan')->first()->id,
+                'point' => 15,
+                'endurance' => 0
+            ],
+            [
+                'location_id' => Location::where('code', 'I-6')->first()->id,
+                'item_id' => Item::where('name', 'gasoline')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '휘발유')->first()->id,
+                'item_id' => Item::where('name', 'gasoline')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '휘발유')->first()->id,
+                'item_id' => Item::where('name', 'gasoline')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '휘발유')->first()->id,
+                'item_id' => Item::where('name', 'gasoline')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '경유')->first()->id,
+                'item_id' => Item::where('name', 'disel')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '경유')->first()->id,
+                'item_id' => Item::where('name', 'disel')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '경유')->first()->id,
+                'item_id' => Item::where('name', 'disel')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '경유')->first()->id,
+                'item_id' => Item::where('name', 'disel')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '팔찌')->first()->id,
+                'item_id' => Item::where('name', 'bracelet')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '팔찌')->first()->id,
+                'item_id' => Item::where('name', 'bracelet')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('name', '팔찌')->first()->id,
+                'item_id' => Item::where('name', 'bracelet')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '피아노선')->first()->id,
+                'item_id' => Item::where('name', 'piano_wire')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '피아노선')->first()->id,
+                'item_id' => Item::where('name', 'piano_wire')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '피아노선')->first()->id,
+                'item_id' => Item::where('name', 'piano_wire')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '피아노선')->first()->id,
+                'item_id' => Item::where('name', 'piano_wire')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '피아노선')->first()->id,
+                'item_id' => Item::where('name', 'piano_wire')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '피아노선')->first()->id,
+                'item_id' => Item::where('name', 'piano_wire')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '피아노선')->first()->id,
+                'item_id' => Item::where('name', 'piano_wire')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '피아노선')->first()->id,
+                'item_id' => Item::where('name', 'piano_wire')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '피아노선')->first()->id,
+                'item_id' => Item::where('name', 'piano_wire')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '피아노선')->first()->id,
+                'item_id' => Item::where('name', 'piano_wire')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '피아노선')->first()->id,
+                'item_id' => Item::where('name', 'piano_wire')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '피아노선')->first()->id,
+                'item_id' => Item::where('name', 'piano_wire')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '피아노선')->first()->id,
+                'item_id' => Item::where('name', 'piano_wire')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '피아노선')->first()->id,
+                'item_id' => Item::where('name', 'piano_wire')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '피아노선')->first()->id,
+                'item_id' => Item::where('name', 'piano_wire')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '피아노선')->first()->id,
+                'item_id' => Item::where('name', 'piano_wire')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '머리띠')->first()->id,
+                'item_id' => Item::where('name', 'hairband')->first()->id,
                 'point' => 1,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '머리띠')->first()->id,
+                'item_id' => Item::where('name', 'hairband')->first()->id,
                 'point' => 1,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '머리띠')->first()->id,
+                'item_id' => Item::where('name', 'hairband')->first()->id,
                 'point' => 1,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('name', '머리띠')->first()->id,
+                'item_id' => Item::where('name', 'hairband')->first()->id,
                 'point' => 1,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '못')->first()->id,
+                'item_id' => Item::where('name', 'nail')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '못')->first()->id,
+                'item_id' => Item::where('name', 'nail')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '못')->first()->id,
+                'item_id' => Item::where('name', 'nail')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '못')->first()->id,
+                'item_id' => Item::where('name', 'nail')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '못')->first()->id,
+                'item_id' => Item::where('name', 'nail')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '못')->first()->id,
+                'item_id' => Item::where('name', 'nail')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '못')->first()->id,
+                'item_id' => Item::where('name', 'nail')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '못')->first()->id,
+                'item_id' => Item::where('name', 'nail')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '못')->first()->id,
+                'item_id' => Item::where('name', 'nail')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '못')->first()->id,
+                'item_id' => Item::where('name', 'nail')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '못')->first()->id,
+                'item_id' => Item::where('name', 'nail')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '못')->first()->id,
+                'item_id' => Item::where('name', 'nail')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '도화선')->first()->id,
+                'item_id' => Item::where('name', 'fuze')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '도화선')->first()->id,
+                'item_id' => Item::where('name', 'fuze')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '도화선')->first()->id,
+                'item_id' => Item::where('name', 'fuze')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '도화선')->first()->id,
+                'item_id' => Item::where('name', 'fuze')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '도화선')->first()->id,
+                'item_id' => Item::where('name', 'fuze')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '도화선')->first()->id,
+                'item_id' => Item::where('name', 'fuze')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '작업용헬멧')->first()->id,
+                'item_id' => Item::where('name', 'safety_helmet')->first()->id,
                 'point' => 4,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '작업용헬멧')->first()->id,
+                'item_id' => Item::where('name', 'safety_helmet')->first()->id,
                 'point' => 4,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '작업복')->first()->id,
+                'item_id' => Item::where('name', 'boilersuit')->first()->id,
                 'point' => 8,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '작업복')->first()->id,
+                'item_id' => Item::where('name', 'boilersuit')->first()->id,
                 'point' => 8,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '작업복')->first()->id,
+                'item_id' => Item::where('name', 'boilersuit')->first()->id,
                 'point' => 8,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '오토바이헬멧')->first()->id,
+                'item_id' => Item::where('name', 'motorcycle_helmet')->first()->id,
                 'point' => 8,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('name', '오토바이헬멧')->first()->id,
+                'item_id' => Item::where('name', 'motorcycle_helmet')->first()->id,
                 'point' => 8,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '낫')->first()->id,
+                'item_id' => Item::where('name', 'sickle')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '낫')->first()->id,
+                'item_id' => Item::where('name', 'sickle')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '목검')->first()->id,
+                'item_id' => Item::where('name', 'wooden_sword')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '목검')->first()->id,
+                'item_id' => Item::where('name', 'wooden_sword')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '목검')->first()->id,
+                'item_id' => Item::where('name', 'wooden_sword')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '목검')->first()->id,
+                'item_id' => Item::where('name', 'wooden_sword')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '목검')->first()->id,
+                'item_id' => Item::where('name', 'wooden_sword')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '목검')->first()->id,
+                'item_id' => Item::where('name', 'wooden_sword')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '목검')->first()->id,
+                'item_id' => Item::where('name', 'wooden_sword')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '목검')->first()->id,
+                'item_id' => Item::where('name', 'wooden_sword')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '목검')->first()->id,
+                'item_id' => Item::where('name', 'wooden_sword')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '목검')->first()->id,
+                'item_id' => Item::where('name', 'wooden_sword')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '대나무')->first()->id,
+                'item_id' => Item::where('name', 'bamboo')->first()->id,
                 'point' => 6,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '대나무')->first()->id,
+                'item_id' => Item::where('name', 'bamboo')->first()->id,
                 'point' => 6,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '대나무')->first()->id,
+                'item_id' => Item::where('name', 'bamboo')->first()->id,
                 'point' => 6,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '대나무')->first()->id,
+                'item_id' => Item::where('name', 'bamboo')->first()->id,
                 'point' => 6,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '등산모')->first()->id,
+                'item_id' => Item::where('name', 'hiking_helmet')->first()->id,
                 'point' => 2,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '등산모')->first()->id,
+                'item_id' => Item::where('name', 'hiking_helmet')->first()->id,
                 'point' => 2,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '녹슨철모')->first()->id,
+                'item_id' => Item::where('name', 'rusty_helmet')->first()->id,
                 'point' => 4,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('name', '녹슨철모')->first()->id,
+                'item_id' => Item::where('name', 'rusty_helmet')->first()->id,
                 'point' => 4,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (샷건)')->first()->id,
+                'item_id' => Item::where('name', '12gauge_shell')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (샷건)')->first()->id,
+                'item_id' => Item::where('name', '12gauge_shell')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (샷건)')->first()->id,
+                'item_id' => Item::where('name', '12gauge_shell')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (샷건)')->first()->id,
+                'item_id' => Item::where('name', '12gauge_shell')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (샷건)')->first()->id,
+                'item_id' => Item::where('name', '12gauge_shell')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (9mm)')->first()->id,
+                'item_id' => Item::where('name', '9mm_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (9mm)')->first()->id,
+                'item_id' => Item::where('name', '9mm_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (9mm)')->first()->id,
+                'item_id' => Item::where('name', '9mm_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (9mm)')->first()->id,
+                'item_id' => Item::where('name', '9mm_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (9mm)')->first()->id,
+                'item_id' => Item::where('name', '9mm_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (22LR)')->first()->id,
+                'item_id' => Item::where('name', '22lr_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (22LR)')->first()->id,
+                'item_id' => Item::where('name', '22lr_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (22LR)')->first()->id,
+                'item_id' => Item::where('name', '22lr_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (22LR)')->first()->id,
+                'item_id' => Item::where('name', '22lr_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (22LR)')->first()->id,
+                'item_id' => Item::where('name', '22lr_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (매그넘)')->first()->id,
+                'item_id' => Item::where('name', '357mag_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (매그넘)')->first()->id,
+                'item_id' => Item::where('name', '357mag_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (매그넘)')->first()->id,
+                'item_id' => Item::where('name', '357mag_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (매그넘)')->first()->id,
+                'item_id' => Item::where('name', '357mag_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (매그넘)')->first()->id,
+                'item_id' => Item::where('name', '357mag_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (.38SP)')->first()->id,
+                'item_id' => Item::where('name', '38sp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (.38SP)')->first()->id,
+                'item_id' => Item::where('name', '38sp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (.38SP)')->first()->id,
+                'item_id' => Item::where('name', '38sp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (.38SP)')->first()->id,
+                'item_id' => Item::where('name', '38sp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (.38SP)')->first()->id,
+                'item_id' => Item::where('name', '38sp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (.45ACP)')->first()->id,
+                'item_id' => Item::where('name', '45acp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (.45ACP)')->first()->id,
+                'item_id' => Item::where('name', '45acp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (.45ACP)')->first()->id,
+                'item_id' => Item::where('name', '45acp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (.45ACP)')->first()->id,
+                'item_id' => Item::where('name', '45acp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (.45ACP)')->first()->id,
+                'item_id' => Item::where('name', '45acp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (화승총)')->first()->id,
+                'item_id' => Item::where('name', 'musket_ball')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (화승총)')->first()->id,
+                'item_id' => Item::where('name', 'musket_ball')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (화승총)')->first()->id,
+                'item_id' => Item::where('name', 'musket_ball')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (화승총)')->first()->id,
+                'item_id' => Item::where('name', 'musket_ball')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '탄환 (화승총)')->first()->id,
+                'item_id' => Item::where('name', 'musket_ball')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '곡괭이')->first()->id,
+                'item_id' => Item::where('name', 'pickaxe')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '곡괭이')->first()->id,
+                'item_id' => Item::where('name', 'pickaxe')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
@@ -1415,2920 +1415,2920 @@ class LootingSeeder extends Seeder
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '샤벨')->first()->id,
+                'item_id' => Item::where('name', 'sabre')->first()->id,
                 'point' => 5,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '샤벨')->first()->id,
+                'item_id' => Item::where('name', 'sabre')->first()->id,
                 'point' => 5,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '샤벨')->first()->id,
+                'item_id' => Item::where('name', 'sabre')->first()->id,
                 'point' => 5,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '암석')->first()->id,
+                'item_id' => Item::where('name', 'rocks')->first()->id,
                 'point' => 8,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '암석')->first()->id,
+                'item_id' => Item::where('name', 'rocks')->first()->id,
                 'point' => 8,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '암석')->first()->id,
+                'item_id' => Item::where('name', 'rocks')->first()->id,
                 'point' => 8,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '암석')->first()->id,
+                'item_id' => Item::where('name', 'rocks')->first()->id,
                 'point' => 8,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '암석')->first()->id,
+                'item_id' => Item::where('name', 'rocks')->first()->id,
                 'point' => 8,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '암석')->first()->id,
+                'item_id' => Item::where('name', 'rocks')->first()->id,
                 'point' => 8,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '암석')->first()->id,
+                'item_id' => Item::where('name', 'rocks')->first()->id,
                 'point' => 8,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '암석')->first()->id,
+                'item_id' => Item::where('name', 'rocks')->first()->id,
                 'point' => 8,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '암석')->first()->id,
+                'item_id' => Item::where('name', 'rocks')->first()->id,
                 'point' => 8,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '암석')->first()->id,
+                'item_id' => Item::where('name', 'rocks')->first()->id,
                 'point' => 8,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '암석')->first()->id,
+                'item_id' => Item::where('name', 'rocks')->first()->id,
                 'point' => 8,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '암석')->first()->id,
+                'item_id' => Item::where('name', 'rocks')->first()->id,
                 'point' => 8,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '암석')->first()->id,
+                'item_id' => Item::where('name', 'rocks')->first()->id,
                 'point' => 8,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '암석')->first()->id,
+                'item_id' => Item::where('name', 'rocks')->first()->id,
                 'point' => 8,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '암석')->first()->id,
+                'item_id' => Item::where('name', 'rocks')->first()->id,
                 'point' => 8,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '암석')->first()->id,
+                'item_id' => Item::where('name', 'rocks')->first()->id,
                 'point' => 8,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '암석')->first()->id,
+                'item_id' => Item::where('name', 'rocks')->first()->id,
                 'point' => 8,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '암석')->first()->id,
+                'item_id' => Item::where('name', 'rocks')->first()->id,
                 'point' => 8,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '암석')->first()->id,
+                'item_id' => Item::where('name', 'rocks')->first()->id,
                 'point' => 8,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '암석')->first()->id,
+                'item_id' => Item::where('name', 'rocks')->first()->id,
                 'point' => 8,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '도화선')->first()->id,
+                'item_id' => Item::where('name', 'fuze')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '도화선')->first()->id,
+                'item_id' => Item::where('name', 'fuze')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '도화선')->first()->id,
+                'item_id' => Item::where('name', 'fuze')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '도화선')->first()->id,
+                'item_id' => Item::where('name', 'fuze')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '도화선')->first()->id,
+                'item_id' => Item::where('name', 'fuze')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '도화선')->first()->id,
+                'item_id' => Item::where('name', 'fuze')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '작업용헬멧')->first()->id,
+                'item_id' => Item::where('name', 'safety_helmet')->first()->id,
                 'point' => 4,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '작업용헬멧')->first()->id,
+                'item_id' => Item::where('name', 'safety_helmet')->first()->id,
                 'point' => 4,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '작업복')->first()->id,
+                'item_id' => Item::where('name', 'boilersuit')->first()->id,
                 'point' => 8,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '작업복')->first()->id,
+                'item_id' => Item::where('name', 'boilersuit')->first()->id,
                 'point' => 8,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '작업복')->first()->id,
+                'item_id' => Item::where('name', 'boilersuit')->first()->id,
                 'point' => 8,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '등산화')->first()->id,
+                'item_id' => Item::where('name', 'hiking_boots')->first()->id,
                 'point' => 3,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '등산화')->first()->id,
+                'item_id' => Item::where('name', 'hiking_boots')->first()->id,
                 'point' => 3,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '등산모')->first()->id,
+                'item_id' => Item::where('name', 'hiking_helmet')->first()->id,
                 'point' => 2,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('name', '등산모')->first()->id,
+                'item_id' => Item::where('name', 'hiking_helmet')->first()->id,
                 'point' => 2,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('name', '관음보살상')->first()->id,
+                'item_id' => Item::where('name', 'quan_yin_bodhisattva_statue')->first()->id,
                 'point' => 5,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('name', '염라대왕상')->first()->id,
+                'item_id' => Item::where('name', 'yama_raja_statue')->first()->id,
                 'point' => 7,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('name', '아수라상')->first()->id,
+                'item_id' => Item::where('name', 'asura_statue')->first()->id,
                 'point' => 10,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('name', '지장보살상')->first()->id,
+                'item_id' => Item::where('name', 'ksitigarbha_statue')->first()->id,
                 'point' => 8,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('name', '승복')->first()->id,
+                'item_id' => Item::where('name', 'monk_cloth')->first()->id,
                 'point' => 8,
                 'endurance' => 20,
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('name', '승복')->first()->id,
+                'item_id' => Item::where('name', 'monk_cloth')->first()->id,
                 'point' => 8,
                 'endurance' => 20,
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('name', '승복')->first()->id,
+                'item_id' => Item::where('name', 'monk_cloth')->first()->id,
                 'point' => 8,
                 'endurance' => 20,
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('name', '승복')->first()->id,
+                'item_id' => Item::where('name', 'monk_cloth')->first()->id,
                 'point' => 8,
                 'endurance' => 20,
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('name', '신관의옷')->first()->id,
+                'item_id' => Item::where('name', 'shamen_cloth')->first()->id,
                 'point' => 8,
                 'endurance' => 15,
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('name', '신관의옷')->first()->id,
+                'item_id' => Item::where('name', 'shamen_cloth')->first()->id,
                 'point' => 8,
                 'endurance' => 15,
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('name', '신관의옷')->first()->id,
+                'item_id' => Item::where('name', 'shamen_cloth')->first()->id,
                 'point' => 8,
                 'endurance' => 15,
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('name', '신관의옷')->first()->id,
+                'item_id' => Item::where('name', 'shamen_cloth')->first()->id,
                 'point' => 8,
                 'endurance' => 15,
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('name', '신관의옷')->first()->id,
+                'item_id' => Item::where('name', 'shamen_cloth')->first()->id,
                 'point' => 8,
                 'endurance' => 15,
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('name', '신관의옷')->first()->id,
+                'item_id' => Item::where('name', 'shamen_cloth')->first()->id,
                 'point' => 8,
                 'endurance' => 15,
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('name', '나막신')->first()->id,
+                'item_id' => Item::where('name', 'clog')->first()->id,
                 'point' => 2,
                 'endurance' => 5,
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('name', '나막신')->first()->id,
+                'item_id' => Item::where('name', 'clog')->first()->id,
                 'point' => 2,
                 'endurance' => 5,
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '양궁')->first()->id,
+                'item_id' => Item::where('name', 'bow')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '양궁')->first()->id,
+                'item_id' => Item::where('name', 'bow')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '양궁')->first()->id,
+                'item_id' => Item::where('name', 'bow')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '양궁')->first()->id,
+                'item_id' => Item::where('name', 'bow')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '양궁')->first()->id,
+                'item_id' => Item::where('name', 'bow')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '양궁')->first()->id,
+                'item_id' => Item::where('name', 'bow')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '양궁')->first()->id,
+                'item_id' => Item::where('name', 'bow')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '양궁')->first()->id,
+                'item_id' => Item::where('name', 'bow')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '나막신')->first()->id,
+                'item_id' => Item::where('name', 'clog')->first()->id,
                 'point' => 2,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('name', '나막신')->first()->id,
+                'item_id' => Item::where('name', 'clog')->first()->id,
                 'point' => 2,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '비료')->first()->id,
+                'item_id' => Item::where('name', 'fertilizer')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '비료')->first()->id,
+                'item_id' => Item::where('name', 'fertilizer')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '비료')->first()->id,
+                'item_id' => Item::where('name', 'fertilizer')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '비료')->first()->id,
+                'item_id' => Item::where('name', 'fertilizer')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '비료')->first()->id,
+                'item_id' => Item::where('name', 'fertilizer')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '비료')->first()->id,
+                'item_id' => Item::where('name', 'fertilizer')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '비료')->first()->id,
+                'item_id' => Item::where('name', 'fertilizer')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '비료')->first()->id,
+                'item_id' => Item::where('name', 'fertilizer')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '비료')->first()->id,
+                'item_id' => Item::where('name', 'fertilizer')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '비료')->first()->id,
+                'item_id' => Item::where('name', 'fertilizer')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '비료')->first()->id,
+                'item_id' => Item::where('name', 'fertilizer')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '비료')->first()->id,
+                'item_id' => Item::where('name', 'fertilizer')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '피아노선')->first()->id,
+                'item_id' => Item::where('name', 'piano_wire')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '피아노선')->first()->id,
+                'item_id' => Item::where('name', 'piano_wire')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '피아노선')->first()->id,
+                'item_id' => Item::where('name', 'piano_wire')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '피아노선')->first()->id,
+                'item_id' => Item::where('name', 'piano_wire')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '피아노선')->first()->id,
+                'item_id' => Item::where('name', 'piano_wire')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '피아노선')->first()->id,
+                'item_id' => Item::where('name', 'piano_wire')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '피아노선')->first()->id,
-                'point' => 8,
-                'endurance' => 1,
-                'is_trap_activated' => true
-            ],
-            [
-                'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '피아노선')->first()->id,
+                'item_id' => Item::where('name', 'piano_wire')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '피아노선')->first()->id,
+                'item_id' => Item::where('name', 'piano_wire')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '피아노선')->first()->id,
+                'item_id' => Item::where('name', 'piano_wire')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '피아노선')->first()->id,
+                'item_id' => Item::where('name', 'piano_wire')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '피아노선')->first()->id,
+                'item_id' => Item::where('name', 'piano_wire')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'piano_wire')->first()->id,
+                'point' => 8,
+                'endurance' => 1,
+                'is_trap_activated' => true
+            ],
+            [
+                'location_id' => Location::where('code', 'C-3')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '확성기')->first()->id,
+                'item_id' => Item::where('name', 'loud_speaker')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '민방위완장')->first()->id,
-                'point' => 2,
-                'endurance' => 3
-            ],
-            [
-                'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '민방위완장')->first()->id,
+                'item_id' => Item::where('name', 'civil_defense_armbands')->first()->id,
                 'point' => 2,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '민방위완장')->first()->id,
+                'item_id' => Item::where('name', 'civil_defense_armbands')->first()->id,
                 'point' => 2,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '새마을완장')->first()->id,
+                'item_id' => Item::where('name', 'civil_defense_armbands')->first()->id,
+                'point' => 2,
+                'endurance' => 3
+            ],
+            [
+                'location_id' => Location::where('code', 'C-3')->first()->id,
+                'item_id' => Item::where('name', 'rural_armbands')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '새마을완장')->first()->id,
+                'item_id' => Item::where('name', 'rural_armbands')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '새마을완장')->first()->id,
+                'item_id' => Item::where('name', 'rural_armbands')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '새마을완장')->first()->id,
+                'item_id' => Item::where('name', 'rural_armbands')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('name', '새마을완장')->first()->id,
+                'item_id' => Item::where('name', 'rural_armbands')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '스튜')->first()->id,
+                'item_id' => Item::where('name', 'stew')->first()->id,
                 'point' => -50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '스튜')->first()->id,
+                'item_id' => Item::where('name', 'stew')->first()->id,
                 'point' => -50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '스튜')->first()->id,
+                'item_id' => Item::where('name', 'stew')->first()->id,
                 'point' => -50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '스튜')->first()->id,
+                'item_id' => Item::where('name', 'stew')->first()->id,
                 'point' => -50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '스튜')->first()->id,
+                'item_id' => Item::where('name', 'stew')->first()->id,
                 'point' => -50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '스튜')->first()->id,
+                'item_id' => Item::where('name', 'stew')->first()->id,
                 'point' => -50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '스튜')->first()->id,
+                'item_id' => Item::where('name', 'stew')->first()->id,
                 'point' => -50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '스튜')->first()->id,
+                'item_id' => Item::where('name', 'stew')->first()->id,
                 'point' => -50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '스튜')->first()->id,
+                'item_id' => Item::where('name', 'stew')->first()->id,
                 'point' => -50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '스튜')->first()->id,
+                'item_id' => Item::where('name', 'stew')->first()->id,
                 'point' => -50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '스튜')->first()->id,
+                'item_id' => Item::where('name', 'stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '스튜')->first()->id,
+                'item_id' => Item::where('name', 'stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '스튜')->first()->id,
+                'item_id' => Item::where('name', 'stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '스튜')->first()->id,
+                'item_id' => Item::where('name', 'stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '스튜')->first()->id,
+                'item_id' => Item::where('name', 'stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '스튜')->first()->id,
+                'item_id' => Item::where('name', 'stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '스튜')->first()->id,
+                'item_id' => Item::where('name', 'stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '스튜')->first()->id,
+                'item_id' => Item::where('name', 'stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '스튜')->first()->id,
+                'item_id' => Item::where('name', 'stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '스튜')->first()->id,
+                'item_id' => Item::where('name', 'stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '스튜')->first()->id,
+                'item_id' => Item::where('name', 'stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '스튜')->first()->id,
+                'item_id' => Item::where('name', 'stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '스튜')->first()->id,
+                'item_id' => Item::where('name', 'stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '스튜')->first()->id,
+                'item_id' => Item::where('name', 'stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '스튜')->first()->id,
+                'item_id' => Item::where('name', 'stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '스튜')->first()->id,
+                'item_id' => Item::where('name', 'stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '스튜')->first()->id,
+                'item_id' => Item::where('name', 'stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '스튜')->first()->id,
+                'item_id' => Item::where('name', 'stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '스튜')->first()->id,
+                'item_id' => Item::where('name', 'stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '스튜')->first()->id,
+                'item_id' => Item::where('name', 'stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '낫')->first()->id,
+                'item_id' => Item::where('name', 'sickle')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '낫')->first()->id,
+                'item_id' => Item::where('name', 'sickle')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '소화기')->first()->id,
+                'item_id' => Item::where('name', 'fire_extinguisher')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '소화기')->first()->id,
+                'item_id' => Item::where('name', 'fire_extinguisher')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '장화')->first()->id,
+                'item_id' => Item::where('name', 'rainboots')->first()->id,
                 'point' => 4,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('name', '장화')->first()->id,
+                'item_id' => Item::where('name', 'rainboots')->first()->id,
                 'point' => 4,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '식칼')->first()->id,
+                'item_id' => Item::where('name', 'kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '식칼')->first()->id,
+                'item_id' => Item::where('name', 'kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '식칼')->first()->id,
+                'item_id' => Item::where('name', 'kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '식칼')->first()->id,
+                'item_id' => Item::where('name', 'kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '식칼')->first()->id,
+                'item_id' => Item::where('name', 'kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '컵')->first()->id,
+                'item_id' => Item::where('name', 'cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '컵')->first()->id,
+                'item_id' => Item::where('name', 'cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '컵')->first()->id,
+                'item_id' => Item::where('name', 'cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '컵')->first()->id,
+                'item_id' => Item::where('name', 'cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '컵')->first()->id,
+                'item_id' => Item::where('name', 'cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '접시')->first()->id,
+                'item_id' => Item::where('name', 'glass_plate')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '접시')->first()->id,
+                'item_id' => Item::where('name', 'glass_plate')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '접시')->first()->id,
+                'item_id' => Item::where('name', 'glass_plate')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '냄비')->first()->id,
+                'item_id' => Item::where('name', 'pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '냄비')->first()->id,
+                'item_id' => Item::where('name', 'pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '냄비')->first()->id,
+                'item_id' => Item::where('name', 'pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '냄비')->first()->id,
+                'item_id' => Item::where('name', 'pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '냄비')->first()->id,
+                'item_id' => Item::where('name', 'pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '유리잔')->first()->id,
+                'item_id' => Item::where('name', 'glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '유리잔')->first()->id,
+                'item_id' => Item::where('name', 'glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '유리잔')->first()->id,
+                'item_id' => Item::where('name', 'glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '유리잔')->first()->id,
+                'item_id' => Item::where('name', 'glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '유리잔')->first()->id,
+                'item_id' => Item::where('name', 'glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '텔레비전')->first()->id,
+                'item_id' => Item::where('name', 'television')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '테이블')->first()->id,
+                'item_id' => Item::where('name', 'dining_table')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '바느질도구')->first()->id,
+                'item_id' => Item::where('name', 'sewing_tools')->first()->id,
                 'point' => 3,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '바느질도구')->first()->id,
+                'item_id' => Item::where('name', 'sewing_tools')->first()->id,
                 'point' => 3,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '바느질도구')->first()->id,
+                'item_id' => Item::where('name', 'sewing_tools')->first()->id,
                 'point' => 5,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '바느질도구')->first()->id,
+                'item_id' => Item::where('name', 'sewing_tools')->first()->id,
                 'point' => 5,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '바느질도구')->first()->id,
+                'item_id' => Item::where('name', 'sewing_tools')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '바느질도구')->first()->id,
+                'item_id' => Item::where('name', 'sewing_tools')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '선반')->first()->id,
+                'item_id' => Item::where('name', 'shelf')->first()->id,
                 'point' => 15,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '빈병')->first()->id,
+                'item_id' => Item::where('name', 'empty_bottle')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '빈병')->first()->id,
+                'item_id' => Item::where('name', 'empty_bottle')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '빈병')->first()->id,
+                'item_id' => Item::where('name', 'empty_bottle')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '빈병')->first()->id,
+                'item_id' => Item::where('name', 'empty_bottle')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '빈병')->first()->id,
+                'item_id' => Item::where('name', 'empty_bottle')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '빈캔')->first()->id,
-                'point' => 10,
-                'endurance' => 2
-            ],
-            [
-                'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '빈캔')->first()->id,
+                'item_id' => Item::where('name', 'empty_can')->first()->id,
                 'point' => 10,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '빈캔')->first()->id,
+                'item_id' => Item::where('name', 'empty_can')->first()->id,
                 'point' => 10,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '빈캔')->first()->id,
+                'item_id' => Item::where('name', 'empty_can')->first()->id,
                 'point' => 10,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '빈캔')->first()->id,
+                'item_id' => Item::where('name', 'empty_can')->first()->id,
                 'point' => 10,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '빈캔')->first()->id,
+                'item_id' => Item::where('name', 'empty_can')->first()->id,
                 'point' => 10,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '빈캔')->first()->id,
+                'item_id' => Item::where('name', 'empty_can')->first()->id,
                 'point' => 10,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '빈캔')->first()->id,
+                'item_id' => Item::where('name', 'empty_can')->first()->id,
                 'point' => 10,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '빈캔')->first()->id,
+                'item_id' => Item::where('name', 'empty_can')->first()->id,
                 'point' => 10,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '빈캔')->first()->id,
+                'item_id' => Item::where('name', 'empty_can')->first()->id,
                 'point' => 10,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '카레가루')->first()->id,
+                'item_id' => Item::where('name', 'empty_can')->first()->id,
+                'point' => 10,
+                'endurance' => 2
+            ],
+            [
+                'location_id' => Location::where('code', 'F-2')->first()->id,
+                'item_id' => Item::where('name', 'curry_powder')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '간장')->first()->id,
+                'item_id' => Item::where('name', 'soy_source')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '소스')->first()->id,
+                'item_id' => Item::where('name', 'source')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '털토시')->first()->id,
+                'item_id' => Item::where('name', 'fur_cuffs')->first()->id,
                 'point' => 2,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '리본')->first()->id,
+                'item_id' => Item::where('name', 'ribbon')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '리본')->first()->id,
+                'item_id' => Item::where('name', 'ribbon')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '리본')->first()->id,
+                'item_id' => Item::where('name', 'ribbon')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '운동화')->first()->id,
+                'item_id' => Item::where('name', 'running_shoes')->first()->id,
                 'point' => 3,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('name', '운동화')->first()->id,
+                'item_id' => Item::where('name', 'running_shoes')->first()->id,
                 'point' => 3,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '영양드링크')->first()->id,
+                'item_id' => Item::where('name', 'energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '영양드링크')->first()->id,
+                'item_id' => Item::where('name', 'energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '영양드링크')->first()->id,
+                'item_id' => Item::where('name', 'energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '영양드링크')->first()->id,
+                'item_id' => Item::where('name', 'energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '영양드링크')->first()->id,
+                'item_id' => Item::where('name', 'energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '영양드링크')->first()->id,
+                'item_id' => Item::where('name', 'energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '영양드링크')->first()->id,
+                'item_id' => Item::where('name', 'energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '영양드링크')->first()->id,
+                'item_id' => Item::where('name', 'energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '영양드링크')->first()->id,
+                'item_id' => Item::where('name', 'energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '영양드링크')->first()->id,
+                'item_id' => Item::where('name', 'energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '영양드링크')->first()->id,
+                'item_id' => Item::where('name', 'energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '영양드링크')->first()->id,
+                'item_id' => Item::where('name', 'energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '영양드링크')->first()->id,
+                'item_id' => Item::where('name', 'energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '영양드링크')->first()->id,
+                'item_id' => Item::where('name', 'energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '영양드링크')->first()->id,
+                'item_id' => Item::where('name', 'energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '영양드링크')->first()->id,
+                'item_id' => Item::where('name', 'energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '영양드링크')->first()->id,
+                'item_id' => Item::where('name', 'energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '영양드링크')->first()->id,
+                'item_id' => Item::where('name', 'energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '영양드링크')->first()->id,
+                'item_id' => Item::where('name', 'energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '영양드링크')->first()->id,
+                'item_id' => Item::where('name', 'energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '영양드링크')->first()->id,
+                'item_id' => Item::where('name', 'energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '영양드링크')->first()->id,
+                'item_id' => Item::where('name', 'energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '영양드링크')->first()->id,
+                'item_id' => Item::where('name', 'energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '영양드링크')->first()->id,
+                'item_id' => Item::where('name', 'energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '영양드링크')->first()->id,
+                'item_id' => Item::where('name', 'energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '영양드링크')->first()->id,
+                'item_id' => Item::where('name', 'energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '영양드링크')->first()->id,
+                'item_id' => Item::where('name', 'energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '소화기')->first()->id,
+                'item_id' => Item::where('name', 'fire_extinguisher')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '소화기')->first()->id,
+                'item_id' => Item::where('name', 'fire_extinguisher')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '흰옷')->first()->id,
+                'item_id' => Item::where('name', 'white_clothes')->first()->id,
                 'point' => 10,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '흰옷')->first()->id,
+                'item_id' => Item::where('name', 'white_clothes')->first()->id,
                 'point' => 10,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('name', '흰옷')->first()->id,
+                'item_id' => Item::where('name', 'white_clothes')->first()->id,
                 'point' => 10,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '배터리')->first()->id,
+                'item_id' => Item::where('name', 'battery')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '배터리')->first()->id,
+                'item_id' => Item::where('name', 'battery')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '배터리')->first()->id,
+                'item_id' => Item::where('name', 'battery')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '배터리')->first()->id,
+                'item_id' => Item::where('name', 'battery')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '배터리')->first()->id,
+                'item_id' => Item::where('name', 'battery')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
-                'point' => 8,
-                'endurance' => 1,
-                'is_trap_activated' => true
-            ],
-            [
-                'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '소방용도끼')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
+                'point' => 8,
+                'endurance' => 1,
+                'is_trap_activated' => true
+            ],
+            [
+                'location_id' => Location::where('code', 'C-5')->first()->id,
+                'item_id' => Item::where('name', 'fire_axe')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '소방용도끼')->first()->id,
+                'item_id' => Item::where('name', 'fire_axe')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '소화기')->first()->id,
+                'item_id' => Item::where('name', 'fire_extinguisher')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '소화기')->first()->id,
+                'item_id' => Item::where('name', 'fire_extinguisher')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '소화기')->first()->id,
+                'item_id' => Item::where('name', 'fire_extinguisher')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '방화복')->first()->id,
+                'item_id' => Item::where('name', 'fire_suit')->first()->id,
                 'point' => 10,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '방화복')->first()->id,
+                'item_id' => Item::where('name', 'fire_suit')->first()->id,
                 'point' => 10,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '방화복')->first()->id,
+                'item_id' => Item::where('name', 'fire_suit')->first()->id,
                 'point' => 10,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '방화헬멧')->first()->id,
+                'item_id' => Item::where('name', 'fire_helmet')->first()->id,
                 'point' => 3,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('name', '방화헬멧')->first()->id,
+                'item_id' => Item::where('name', 'fire_helmet')->first()->id,
                 'point' => 3,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
-                'point' => 8,
-                'endurance' => 1,
-                'is_trap_activated' => true
-            ],
-            [
-                'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
+                'point' => 8,
+                'endurance' => 1,
+                'is_trap_activated' => true
+            ],
+            [
+                'location_id' => Location::where('code', 'D-4')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '대나무')->first()->id,
+                'item_id' => Item::where('name', 'bamboo')->first()->id,
                 'point' => 6,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '대나무')->first()->id,
+                'item_id' => Item::where('name', 'bamboo')->first()->id,
                 'point' => 6,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '대나무')->first()->id,
+                'item_id' => Item::where('name', 'bamboo')->first()->id,
                 'point' => 6,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '대나무')->first()->id,
+                'item_id' => Item::where('name', 'bamboo')->first()->id,
                 'point' => 6,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '화살')->first()->id,
+                'item_id' => Item::where('name', 'arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '양궁')->first()->id,
+                'item_id' => Item::where('name', 'bow')->first()->id,
                 'point' => 0,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '양궁')->first()->id,
+                'item_id' => Item::where('name', 'bow')->first()->id,
                 'point' => 0,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '양궁')->first()->id,
+                'item_id' => Item::where('name', 'bow')->first()->id,
                 'point' => 0,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '양궁')->first()->id,
+                'item_id' => Item::where('name', 'bow')->first()->id,
                 'point' => 0,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '양궁')->first()->id,
+                'item_id' => Item::where('name', 'bow')->first()->id,
                 'point' => 0,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '양궁')->first()->id,
+                'item_id' => Item::where('name', 'bow')->first()->id,
                 'point' => 0,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '양궁')->first()->id,
+                'item_id' => Item::where('name', 'bow')->first()->id,
                 'point' => 0,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '양궁')->first()->id,
+                'item_id' => Item::where('name', 'bow')->first()->id,
                 'point' => 0,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '양궁')->first()->id,
+                'item_id' => Item::where('name', 'bow')->first()->id,
                 'point' => 0,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '나막신')->first()->id,
+                'item_id' => Item::where('name', 'clog')->first()->id,
                 'point' => 2,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '나막신')->first()->id,
+                'item_id' => Item::where('name', 'clog')->first()->id,
                 'point' => 2,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('name', '나막신')->first()->id,
+                'item_id' => Item::where('name', 'clog')->first()->id,
                 'point' => 2,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('name', '목탁')->first()->id,
+                'item_id' => Item::where('name', 'wooden_fish')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
@@ -4382,3215 +4382,3215 @@ class LootingSeeder extends Seeder
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('name', '머리띠')->first()->id,
+                'item_id' => Item::where('name', 'hairband')->first()->id,
                 'point' => 1,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('name', '머리띠')->first()->id,
+                'item_id' => Item::where('name', 'hairband')->first()->id,
                 'point' => 1,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '쥐덫')->first()->id,
+                'item_id' => Item::where('name', 'mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '쥐덫')->first()->id,
+                'item_id' => Item::where('name', 'mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '쥐덫')->first()->id,
+                'item_id' => Item::where('name', 'mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '쥐덫')->first()->id,
+                'item_id' => Item::where('name', 'mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '쥐덫')->first()->id,
+                'item_id' => Item::where('name', 'mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '쥐덫')->first()->id,
+                'item_id' => Item::where('name', 'mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '쥐덫')->first()->id,
+                'item_id' => Item::where('name', 'mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '쥐덫')->first()->id,
+                'item_id' => Item::where('name', 'mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '쥐덫')->first()->id,
+                'item_id' => Item::where('name', 'mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '쥐덫')->first()->id,
+                'item_id' => Item::where('name', 'mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '쥐덫')->first()->id,
+                'item_id' => Item::where('name', 'mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '다이나마이트')->first()->id,
+                'item_id' => Item::where('name', 'dynamite')->first()->id,
                 'point' => 30,
                 'endurance' => 8
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '탄환 (샷건)')->first()->id,
+                'item_id' => Item::where('name', '12gauge_shell')->first()->id,
                 'point' => 24,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '탄환 (샷건)')->first()->id,
+                'item_id' => Item::where('name', '12gauge_shell')->first()->id,
                 'point' => 24,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '탄환 (9mm)')->first()->id,
+                'item_id' => Item::where('name', '9mm_ammo')->first()->id,
                 'point' => 24,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '탄환 (9mm)')->first()->id,
+                'item_id' => Item::where('name', '9mm_ammo')->first()->id,
                 'point' => 24,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '탄환 (22LR)')->first()->id,
+                'item_id' => Item::where('name', '22lr_ammo')->first()->id,
                 'point' => 24,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '탄환 (22LR)')->first()->id,
+                'item_id' => Item::where('name', '22lr_ammo')->first()->id,
                 'point' => 24,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '탄환 (매그넘)')->first()->id,
+                'item_id' => Item::where('name', '357mag_ammo')->first()->id,
                 'point' => 24,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '탄환 (매그넘)')->first()->id,
+                'item_id' => Item::where('name', '357mag_ammo')->first()->id,
                 'point' => 24,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '탄환 (.38SP)')->first()->id,
+                'item_id' => Item::where('name', '38sp_ammo')->first()->id,
                 'point' => 24,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '탄환 (.38SP)')->first()->id,
+                'item_id' => Item::where('name', '38sp_ammo')->first()->id,
                 'point' => 24,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '탄환 (.45ACP)')->first()->id,
+                'item_id' => Item::where('name', '45acp_ammo')->first()->id,
                 'point' => 24,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '탄환 (.45ACP)')->first()->id,
+                'item_id' => Item::where('name', '45acp_ammo')->first()->id,
                 'point' => 24,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '탄환 (화승총)')->first()->id,
+                'item_id' => Item::where('name', 'musket_ball')->first()->id,
                 'point' => 24,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '탄환 (화승총)')->first()->id,
+                'item_id' => Item::where('name', 'musket_ball')->first()->id,
                 'point' => 24,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '등산화')->first()->id,
+                'item_id' => Item::where('name', 'hiking_boots')->first()->id,
                 'point' => 3,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('name', '등산모')->first()->id,
+                'item_id' => Item::where('name', 'hiking_helmet')->first()->id,
                 'point' => 2,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '식칼')->first()->id,
+                'item_id' => Item::where('name', 'kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '컵')->first()->id,
+                'item_id' => Item::where('name', 'cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '컵')->first()->id,
+                'item_id' => Item::where('name', 'cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '컵')->first()->id,
+                'item_id' => Item::where('name', 'cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '컵')->first()->id,
+                'item_id' => Item::where('name', 'cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '컵')->first()->id,
+                'item_id' => Item::where('name', 'cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '컵')->first()->id,
+                'item_id' => Item::where('name', 'cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '접시')->first()->id,
+                'item_id' => Item::where('name', 'glass_plate')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '접시')->first()->id,
+                'item_id' => Item::where('name', 'glass_plate')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '접시')->first()->id,
+                'item_id' => Item::where('name', 'glass_plate')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '냄비')->first()->id,
+                'item_id' => Item::where('name', 'pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '냄비')->first()->id,
+                'item_id' => Item::where('name', 'pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '냄비')->first()->id,
+                'item_id' => Item::where('name', 'pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '냄비')->first()->id,
+                'item_id' => Item::where('name', 'pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '냄비')->first()->id,
+                'item_id' => Item::where('name', 'pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '유리잔')->first()->id,
+                'item_id' => Item::where('name', 'glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '유리잔')->first()->id,
+                'item_id' => Item::where('name', 'glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '유리잔')->first()->id,
+                'item_id' => Item::where('name', 'glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '유리잔')->first()->id,
+                'item_id' => Item::where('name', 'glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '유리잔')->first()->id,
+                'item_id' => Item::where('name', 'glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '텔레비전')->first()->id,
+                'item_id' => Item::where('name', 'television')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '테이블')->first()->id,
+                'item_id' => Item::where('name', 'dining_table')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '선반')->first()->id,
+                'item_id' => Item::where('name', 'shelf')->first()->id,
                 'point' => 15,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '보검')->first()->id,
+                'item_id' => Item::where('name', 'precious_sword')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '비료')->first()->id,
+                'item_id' => Item::where('name', 'fertilizer')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '비료')->first()->id,
+                'item_id' => Item::where('name', 'fertilizer')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '비료')->first()->id,
+                'item_id' => Item::where('name', 'fertilizer')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '비료')->first()->id,
+                'item_id' => Item::where('name', 'fertilizer')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '비료')->first()->id,
+                'item_id' => Item::where('name', 'fertilizer')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '비료')->first()->id,
+                'item_id' => Item::where('name', 'fertilizer')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '고구마')->first()->id,
+                'item_id' => Item::where('name', 'sweet_potato')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '참마')->first()->id,
+                'item_id' => Item::where('name', 'yam')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '감자')->first()->id,
+                'item_id' => Item::where('name', 'potato')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '우엉')->first()->id,
+                'item_id' => Item::where('name', 'burdock')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '당근')->first()->id,
+                'item_id' => Item::where('name', 'carrot')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '양파')->first()->id,
+                'item_id' => Item::where('name', 'onion')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '마늘')->first()->id,
+                'item_id' => Item::where('name', 'garlic')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '생강')->first()->id,
+                'item_id' => Item::where('name', 'ginger')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '후라이팬')->first()->id,
+                'item_id' => Item::where('name', 'frying_pan')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '후라이팬')->first()->id,
+                'item_id' => Item::where('name', 'frying_pan')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '후라이팬')->first()->id,
+                'item_id' => Item::where('name', 'frying_pan')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '후라이팬')->first()->id,
+                'item_id' => Item::where('name', 'frying_pan')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '후라이팬')->first()->id,
+                'item_id' => Item::where('name', 'frying_pan')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '후라이팬')->first()->id,
+                'item_id' => Item::where('name', 'frying_pan')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '소방용도끼')->first()->id,
+                'item_id' => Item::where('name', 'fire_axe')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '소방용도끼')->first()->id,
+                'item_id' => Item::where('name', 'fire_axe')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '소화기')->first()->id,
+                'item_id' => Item::where('name', 'fire_extinguisher')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '소화기')->first()->id,
+                'item_id' => Item::where('name', 'fire_extinguisher')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '부메랑')->first()->id,
+                'item_id' => Item::where('name', 'boomerang')->first()->id,
                 'point' => 9,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '부메랑')->first()->id,
+                'item_id' => Item::where('name', 'boomerang')->first()->id,
                 'point' => 9,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '부메랑')->first()->id,
+                'item_id' => Item::where('name', 'boomerang')->first()->id,
                 'point' => 9,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '부메랑')->first()->id,
+                'item_id' => Item::where('name', 'boomerang')->first()->id,
                 'point' => 9,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', 'CZ M75')->first()->id,
+                'item_id' => Item::where('name', 'cz_m75')->first()->id,
                 'point' => 25,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', 'CZ M75')->first()->id,
+                'item_id' => Item::where('name', 'cz_m75')->first()->id,
                 'point' => 25,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', 'CZ M75')->first()->id,
+                'item_id' => Item::where('name', 'cz_m75')->first()->id,
                 'point' => 25,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', 'CZ M75')->first()->id,
+                'item_id' => Item::where('name', 'cz_m75')->first()->id,
                 'point' => 25,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '우지 9mm 서브머신건')->first()->id,
+                'item_id' => Item::where('name', 'uzi_9mm')->first()->id,
                 'point' => 30,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '우지 9mm 서브머신건')->first()->id,
+                'item_id' => Item::where('name', 'uzi_9mm')->first()->id,
                 'point' => 30,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '우지 9mm 서브머신건')->first()->id,
+                'item_id' => Item::where('name', 'uzi_9mm')->first()->id,
                 'point' => 30,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('name', '우지 9mm 서브머신건')->first()->id,
+                'item_id' => Item::where('name', 'uzi_9mm')->first()->id,
                 'point' => 30,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '연필')->first()->id,
+                'item_id' => Item::where('name', 'pencil')->first()->id,
                 'point' => 2,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '연필')->first()->id,
+                'item_id' => Item::where('name', 'pencil')->first()->id,
                 'point' => 2,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '연필')->first()->id,
+                'item_id' => Item::where('name', 'pencil')->first()->id,
                 'point' => 2,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '연필')->first()->id,
+                'item_id' => Item::where('name', 'pencil')->first()->id,
                 'point' => 2,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '연필')->first()->id,
+                'item_id' => Item::where('name', 'pencil')->first()->id,
                 'point' => 2,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '연필')->first()->id,
+                'item_id' => Item::where('name', 'pencil')->first()->id,
                 'point' => 2,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '연필')->first()->id,
+                'item_id' => Item::where('name', 'pencil')->first()->id,
                 'point' => 2,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '지우개')->first()->id,
+                'item_id' => Item::where('name', 'eraser')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '지우개')->first()->id,
+                'item_id' => Item::where('name', 'eraser')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '지우개')->first()->id,
+                'item_id' => Item::where('name', 'eraser')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '지우개')->first()->id,
+                'item_id' => Item::where('name', 'eraser')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '지우개')->first()->id,
+                'item_id' => Item::where('name', 'eraser')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '지우개')->first()->id,
+                'item_id' => Item::where('name', 'eraser')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '야구공세트')->first()->id,
+                'item_id' => Item::where('name', 'baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '야구공세트')->first()->id,
+                'item_id' => Item::where('name', 'baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '야구공세트')->first()->id,
+                'item_id' => Item::where('name', 'baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '야구공세트')->first()->id,
+                'item_id' => Item::where('name', 'baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '야구공세트')->first()->id,
+                'item_id' => Item::where('name', 'baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '야구공세트')->first()->id,
+                'item_id' => Item::where('name', 'baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '야구공세트')->first()->id,
+                'item_id' => Item::where('name', 'baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '야구공세트')->first()->id,
+                'item_id' => Item::where('name', 'baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '플라스크')->first()->id,
+                'item_id' => Item::where('name', 'glass_flask')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '플라스크')->first()->id,
+                'item_id' => Item::where('name', 'glass_flask')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '플라스크')->first()->id,
+                'item_id' => Item::where('name', 'glass_flask')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '플라스크')->first()->id,
+                'item_id' => Item::where('name', 'glass_flask')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '대걸레')->first()->id,
+                'item_id' => Item::where('name', 'mop')->first()->id,
                 'point' => 8,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '대걸레')->first()->id,
+                'item_id' => Item::where('name', 'mop')->first()->id,
                 'point' => 8,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '대걸레')->first()->id,
+                'item_id' => Item::where('name', 'mop')->first()->id,
                 'point' => 8,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '약')->first()->id,
+                'item_id' => Item::where('name', 'pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '칠판지우개')->first()->id,
+                'item_id' => Item::where('name', 'blackboard_eraser')->first()->id,
                 'point' => 2,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '칠판지우개')->first()->id,
+                'item_id' => Item::where('name', 'blackboard_eraser')->first()->id,
                 'point' => 2,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '칠판지우개')->first()->id,
+                'item_id' => Item::where('name', 'blackboard_eraser')->first()->id,
                 'point' => 2,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '칠판지우개')->first()->id,
+                'item_id' => Item::where('name', 'blackboard_eraser')->first()->id,
                 'point' => 2,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '칠판지우개')->first()->id,
+                'item_id' => Item::where('name', 'blackboard_eraser')->first()->id,
                 'point' => 2,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '흰분필')->first()->id,
+                'item_id' => Item::where('name', 'white_chalk')->first()->id,
                 'point' => 2,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '빨간분필')->first()->id,
+                'item_id' => Item::where('name', 'red_chalk')->first()->id,
                 'point' => 2,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '노란분필')->first()->id,
+                'item_id' => Item::where('name', 'yellow_chalk')->first()->id,
                 'point' => 2,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '파란분필')->first()->id,
+                'item_id' => Item::where('name', 'blue_chalk')->first()->id,
                 'point' => 2,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '인체모형')->first()->id,
+                'item_id' => Item::where('name', 'human_body_model')->first()->id,
                 'point' => 3,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '거대삼각자')->first()->id,
+                'item_id' => Item::where('name', 'giant_set_square')->first()->id,
                 'point' => 4,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '거대콤파스')->first()->id,
+                'item_id' => Item::where('name', 'giant_compasses')->first()->id,
                 'point' => 4,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '의자')->first()->id,
+                'item_id' => Item::where('name', 'chair')->first()->id,
                 'point' => 4,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '확성기')->first()->id,
+                'item_id' => Item::where('name', 'loud_speaker')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '소화기')->first()->id,
+                'item_id' => Item::where('name', 'fire_extinguisher')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '주번완장')->first()->id,
+                'item_id' => Item::where('name', 'duty_student_armband')->first()->id,
                 'point' => 3,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '주번완장')->first()->id,
+                'item_id' => Item::where('name', 'duty_student_armband')->first()->id,
                 'point' => 3,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '주번완장')->first()->id,
+                'item_id' => Item::where('name', 'duty_student_armband')->first()->id,
                 'point' => 3,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '주번완장')->first()->id,
+                'item_id' => Item::where('name', 'duty_student_armband')->first()->id,
                 'point' => 3,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '토시')->first()->id,
+                'item_id' => Item::where('name', 'cuffs')->first()->id,
                 'point' => 2,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '토시')->first()->id,
+                'item_id' => Item::where('name', 'cuffs')->first()->id,
                 'point' => 2,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '털토시')->first()->id,
+                'item_id' => Item::where('name', 'fur_cuffs')->first()->id,
                 'point' => 2,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '실내화')->first()->id,
+                'item_id' => Item::where('name', 'indoor_shoes')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '실내화')->first()->id,
+                'item_id' => Item::where('name', 'indoor_shoes')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('name', '실내화')->first()->id,
+                'item_id' => Item::where('name', 'indoor_shoes')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '비료')->first()->id,
+                'item_id' => Item::where('name', 'fertilizer')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '비료')->first()->id,
+                'item_id' => Item::where('name', 'fertilizer')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '비료')->first()->id,
+                'item_id' => Item::where('name', 'fertilizer')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '비료')->first()->id,
+                'item_id' => Item::where('name', 'fertilizer')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '비료')->first()->id,
+                'item_id' => Item::where('name', 'fertilizer')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '비료')->first()->id,
+                'item_id' => Item::where('name', 'fertilizer')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '비료')->first()->id,
+                'item_id' => Item::where('name', 'fertilizer')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '비료')->first()->id,
+                'item_id' => Item::where('name', 'fertilizer')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '비료')->first()->id,
+                'item_id' => Item::where('name', 'fertilizer')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '비료')->first()->id,
+                'item_id' => Item::where('name', 'fertilizer')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '비료')->first()->id,
+                'item_id' => Item::where('name', 'fertilizer')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('name', '비료')->first()->id,
+                'item_id' => Item::where('name', 'fertilizer')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '식칼')->first()->id,
+                'item_id' => Item::where('name', 'kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '식칼')->first()->id,
+                'item_id' => Item::where('name', 'kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '식칼')->first()->id,
+                'item_id' => Item::where('name', 'kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '식칼')->first()->id,
+                'item_id' => Item::where('name', 'kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '식칼')->first()->id,
+                'item_id' => Item::where('name', 'kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '컵')->first()->id,
+                'item_id' => Item::where('name', 'cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '컵')->first()->id,
+                'item_id' => Item::where('name', 'cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '컵')->first()->id,
+                'item_id' => Item::where('name', 'cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '컵')->first()->id,
+                'item_id' => Item::where('name', 'cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '컵')->first()->id,
+                'item_id' => Item::where('name', 'cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '컵')->first()->id,
+                'item_id' => Item::where('name', 'cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '야구공세트')->first()->id,
+                'item_id' => Item::where('name', 'baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '야구공세트')->first()->id,
+                'item_id' => Item::where('name', 'baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '야구공세트')->first()->id,
+                'item_id' => Item::where('name', 'baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '야구공세트')->first()->id,
+                'item_id' => Item::where('name', 'baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '야구공세트')->first()->id,
+                'item_id' => Item::where('name', 'baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '바느질도구')->first()->id,
+                'item_id' => Item::where('name', 'sewing_tools')->first()->id,
                 'point' => 3,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '바느질도구')->first()->id,
+                'item_id' => Item::where('name', 'sewing_tools')->first()->id,
                 'point' => 5,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '바느질도구')->first()->id,
+                'item_id' => Item::where('name', 'sewing_tools')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '접시')->first()->id,
+                'item_id' => Item::where('name', 'glass_plate')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '텔레비전')->first()->id,
+                'item_id' => Item::where('name', 'television')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '테이블')->first()->id,
+                'item_id' => Item::where('name', 'dining_table')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '선반')->first()->id,
+                'item_id' => Item::where('name', 'shelf')->first()->id,
                 'point' => 15,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '보검')->first()->id,
+                'item_id' => Item::where('name', 'precious_sword')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '빈병')->first()->id,
+                'item_id' => Item::where('name', 'empty_bottle')->first()->id,
                 'point' => 1,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '빈병')->first()->id,
+                'item_id' => Item::where('name', 'empty_bottle')->first()->id,
                 'point' => 1,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '빈병')->first()->id,
+                'item_id' => Item::where('name', 'empty_bottle')->first()->id,
                 'point' => 1,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '빈병')->first()->id,
+                'item_id' => Item::where('name', 'empty_bottle')->first()->id,
                 'point' => 1,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '빈병')->first()->id,
+                'item_id' => Item::where('name', 'empty_bottle')->first()->id,
                 'point' => 1,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '빈병')->first()->id,
+                'item_id' => Item::where('name', 'empty_bottle')->first()->id,
                 'point' => 1,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '빈병')->first()->id,
+                'item_id' => Item::where('name', 'empty_bottle')->first()->id,
                 'point' => 1,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '빈병')->first()->id,
+                'item_id' => Item::where('name', 'empty_bottle')->first()->id,
                 'point' => 1,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '빈병')->first()->id,
+                'item_id' => Item::where('name', 'empty_bottle')->first()->id,
                 'point' => 1,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '빈병')->first()->id,
+                'item_id' => Item::where('name', 'empty_bottle')->first()->id,
                 'point' => 1,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '빈병')->first()->id,
+                'item_id' => Item::where('name', 'empty_bottle')->first()->id,
                 'point' => 1,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '빈병')->first()->id,
+                'item_id' => Item::where('name', 'empty_bottle')->first()->id,
                 'point' => 1,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '빈캔')->first()->id,
+                'item_id' => Item::where('name', 'empty_can')->first()->id,
                 'point' => 2,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '빈캔')->first()->id,
+                'item_id' => Item::where('name', 'empty_can')->first()->id,
                 'point' => 2,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '빈캔')->first()->id,
+                'item_id' => Item::where('name', 'empty_can')->first()->id,
                 'point' => 2,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '빈캔')->first()->id,
+                'item_id' => Item::where('name', 'empty_can')->first()->id,
                 'point' => 2,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '빈캔')->first()->id,
+                'item_id' => Item::where('name', 'empty_can')->first()->id,
                 'point' => 2,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '빈캔')->first()->id,
+                'item_id' => Item::where('name', 'empty_can')->first()->id,
                 'point' => 2,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '유리잔')->first()->id,
+                'item_id' => Item::where('name', 'glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '유리잔')->first()->id,
+                'item_id' => Item::where('name', 'glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '유리잔')->first()->id,
+                'item_id' => Item::where('name', 'glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '유리잔')->first()->id,
+                'item_id' => Item::where('name', 'glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '유리잔')->first()->id,
+                'item_id' => Item::where('name', 'glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '냄비')->first()->id,
+                'item_id' => Item::where('name', 'pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '냄비')->first()->id,
+                'item_id' => Item::where('name', 'pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '냄비')->first()->id,
+                'item_id' => Item::where('name', 'pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '냄비')->first()->id,
+                'item_id' => Item::where('name', 'pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '냄비')->first()->id,
+                'item_id' => Item::where('name', 'pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '쇠사슬')->first()->id,
+                'item_id' => Item::where('name', 'chains')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '쇠사슬')->first()->id,
+                'item_id' => Item::where('name', 'chains')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '후라이팬')->first()->id,
+                'item_id' => Item::where('name', 'frying_pan')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '후라이팬')->first()->id,
+                'item_id' => Item::where('name', 'frying_pan')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '휘발유')->first()->id,
+                'item_id' => Item::where('name', 'gasoline')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '휘발유')->first()->id,
+                'item_id' => Item::where('name', 'gasoline')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '휘발유')->first()->id,
+                'item_id' => Item::where('name', 'gasoline')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '휘발유')->first()->id,
+                'item_id' => Item::where('name', 'gasoline')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '경유')->first()->id,
+                'item_id' => Item::where('name', 'disel')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '경유')->first()->id,
+                'item_id' => Item::where('name', 'disel')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '경유')->first()->id,
+                'item_id' => Item::where('name', 'disel')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '경유')->first()->id,
+                'item_id' => Item::where('name', 'disel')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '팔찌')->first()->id,
+                'item_id' => Item::where('name', 'bracelet')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '팔찌')->first()->id,
+                'item_id' => Item::where('name', 'bracelet')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '팔찌')->first()->id,
+                'item_id' => Item::where('name', 'bracelet')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('name', '털토시')->first()->id,
+                'item_id' => Item::where('name', 'fur_cuffs')->first()->id,
                 'point' => 2,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '쥐덫')->first()->id,
+                'item_id' => Item::where('name', 'mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '쥐덫')->first()->id,
+                'item_id' => Item::where('name', 'mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '쥐덫')->first()->id,
+                'item_id' => Item::where('name', 'mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '쥐덫')->first()->id,
+                'item_id' => Item::where('name', 'mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '쥐덫')->first()->id,
+                'item_id' => Item::where('name', 'mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '쥐덫')->first()->id,
-                'point' => 10,
-                'endurance' => 1,
-                'is_trap_activated' => true
-            ],
-            [
-                'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '쥐덫')->first()->id,
+                'item_id' => Item::where('name', 'mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '쥐덫')->first()->id,
+                'item_id' => Item::where('name', 'mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '쥐덫')->first()->id,
+                'item_id' => Item::where('name', 'mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '쥐덫')->first()->id,
+                'item_id' => Item::where('name', 'mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '쥐덫')->first()->id,
+                'item_id' => Item::where('name', 'mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '쥐덫')->first()->id,
+                'item_id' => Item::where('name', 'mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '쥐덫')->first()->id,
+                'item_id' => Item::where('name', 'mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '쥐덫')->first()->id,
+                'item_id' => Item::where('name', 'mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '쥐덫')->first()->id,
+                'item_id' => Item::where('name', 'mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '쥐덫')->first()->id,
+                'item_id' => Item::where('name', 'mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (샷건)')->first()->id,
+                'item_id' => Item::where('name', 'mousetrap')->first()->id,
+                'point' => 10,
+                'endurance' => 1,
+                'is_trap_activated' => true
+            ],
+            [
+                'location_id' => Location::where('code', 'J-6')->first()->id,
+                'item_id' => Item::where('name', '12gauge_shell')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (샷건)')->first()->id,
+                'item_id' => Item::where('name', '12gauge_shell')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (샷건)')->first()->id,
+                'item_id' => Item::where('name', '12gauge_shell')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (샷건)')->first()->id,
+                'item_id' => Item::where('name', '12gauge_shell')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (샷건)')->first()->id,
+                'item_id' => Item::where('name', '12gauge_shell')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (9mm)')->first()->id,
+                'item_id' => Item::where('name', '9mm_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (9mm)')->first()->id,
+                'item_id' => Item::where('name', '9mm_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (9mm)')->first()->id,
+                'item_id' => Item::where('name', '9mm_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (9mm)')->first()->id,
+                'item_id' => Item::where('name', '9mm_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (9mm)')->first()->id,
+                'item_id' => Item::where('name', '9mm_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (22LR)')->first()->id,
+                'item_id' => Item::where('name', '22lr_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (22LR)')->first()->id,
+                'item_id' => Item::where('name', '22lr_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (22LR)')->first()->id,
+                'item_id' => Item::where('name', '22lr_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (22LR)')->first()->id,
+                'item_id' => Item::where('name', '22lr_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (22LR)')->first()->id,
+                'item_id' => Item::where('name', '22lr_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (매그넘)')->first()->id,
+                'item_id' => Item::where('name', '357mag_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (매그넘)')->first()->id,
+                'item_id' => Item::where('name', '357mag_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (매그넘)')->first()->id,
+                'item_id' => Item::where('name', '357mag_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (매그넘)')->first()->id,
+                'item_id' => Item::where('name', '357mag_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (매그넘)')->first()->id,
+                'item_id' => Item::where('name', '357mag_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (.38SP)')->first()->id,
+                'item_id' => Item::where('name', '38sp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (.38SP)')->first()->id,
+                'item_id' => Item::where('name', '38sp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (.38SP)')->first()->id,
+                'item_id' => Item::where('name', '38sp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (.38SP)')->first()->id,
+                'item_id' => Item::where('name', '38sp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (.38SP)')->first()->id,
+                'item_id' => Item::where('name', '38sp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (.45ACP)')->first()->id,
+                'item_id' => Item::where('name', '45acp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (.45ACP)')->first()->id,
+                'item_id' => Item::where('name', '45acp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (.45ACP)')->first()->id,
+                'item_id' => Item::where('name', '45acp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (.45ACP)')->first()->id,
+                'item_id' => Item::where('name', '45acp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (.45ACP)')->first()->id,
+                'item_id' => Item::where('name', '45acp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (화승총)')->first()->id,
+                'item_id' => Item::where('name', 'musket_ball')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (화승총)')->first()->id,
+                'item_id' => Item::where('name', 'musket_ball')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (화승총)')->first()->id,
+                'item_id' => Item::where('name', 'musket_ball')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (화승총)')->first()->id,
+                'item_id' => Item::where('name', 'musket_ball')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '탄환 (화승총)')->first()->id,
+                'item_id' => Item::where('name', 'musket_ball')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '지뢰')->first()->id,
+                'item_id' => Item::where('name', 'mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '피아노선')->first()->id,
-                'point' => 8,
-                'endurance' => 1,
-                'is_trap_activated' => true
-            ],
-            [
-                'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '피아노선')->first()->id,
+                'item_id' => Item::where('name', 'piano_wire')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '피아노선')->first()->id,
+                'item_id' => Item::where('name', 'piano_wire')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '등산화')->first()->id,
+                'item_id' => Item::where('name', 'piano_wire')->first()->id,
+                'point' => 8,
+                'endurance' => 1,
+                'is_trap_activated' => true
+            ],
+            [
+                'location_id' => Location::where('code', 'J-6')->first()->id,
+                'item_id' => Item::where('name', 'hiking_boots')->first()->id,
                 'point' => 3,
                 'endurance' => 5,
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('name', '등산모')->first()->id,
+                'item_id' => Item::where('name', 'hiking_helmet')->first()->id,
                 'point' => 2,
                 'endurance' => 3,
             ],
             // global
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (샷건)')->first()->id,
+                'item_id' => Item::where('name', '12gauge_shell')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (샷건)')->first()->id,
+                'item_id' => Item::where('name', '12gauge_shell')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (샷건)')->first()->id,
+                'item_id' => Item::where('name', '12gauge_shell')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (샷건)')->first()->id,
+                'item_id' => Item::where('name', '12gauge_shell')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (샷건)')->first()->id,
+                'item_id' => Item::where('name', '12gauge_shell')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (9mm)')->first()->id,
+                'item_id' => Item::where('name', '9mm_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (9mm)')->first()->id,
+                'item_id' => Item::where('name', '9mm_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (9mm)')->first()->id,
+                'item_id' => Item::where('name', '9mm_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (9mm)')->first()->id,
+                'item_id' => Item::where('name', '9mm_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (9mm)')->first()->id,
+                'item_id' => Item::where('name', '9mm_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (22LR)')->first()->id,
+                'item_id' => Item::where('name', '22lr_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (22LR)')->first()->id,
+                'item_id' => Item::where('name', '22lr_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (22LR)')->first()->id,
+                'item_id' => Item::where('name', '22lr_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (22LR)')->first()->id,
+                'item_id' => Item::where('name', '22lr_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (22LR)')->first()->id,
+                'item_id' => Item::where('name', '22lr_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (매그넘)')->first()->id,
+                'item_id' => Item::where('name', '357mag_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (매그넘)')->first()->id,
+                'item_id' => Item::where('name', '357mag_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (매그넘)')->first()->id,
+                'item_id' => Item::where('name', '357mag_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (매그넘)')->first()->id,
+                'item_id' => Item::where('name', '357mag_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (매그넘)')->first()->id,
+                'item_id' => Item::where('name', '357mag_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (.38SP)')->first()->id,
+                'item_id' => Item::where('name', '38sp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (.38SP)')->first()->id,
+                'item_id' => Item::where('name', '38sp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (.38SP)')->first()->id,
+                'item_id' => Item::where('name', '38sp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (.38SP)')->first()->id,
+                'item_id' => Item::where('name', '38sp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (.38SP)')->first()->id,
+                'item_id' => Item::where('name', '38sp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (.45ACP)')->first()->id,
+                'item_id' => Item::where('name', '45acp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (.45ACP)')->first()->id,
+                'item_id' => Item::where('name', '45acp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (.45ACP)')->first()->id,
+                'item_id' => Item::where('name', '45acp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (.45ACP)')->first()->id,
+                'item_id' => Item::where('name', '45acp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (.45ACP)')->first()->id,
+                'item_id' => Item::where('name', '45acp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (화승총)')->first()->id,
+                'item_id' => Item::where('name', 'musket_ball')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (화승총)')->first()->id,
+                'item_id' => Item::where('name', 'musket_ball')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (화승총)')->first()->id,
+                'item_id' => Item::where('name', 'musket_ball')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (화승총)')->first()->id,
+                'item_id' => Item::where('name', 'musket_ball')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '탄환 (화승총)')->first()->id,
+                'item_id' => Item::where('name', 'musket_ball')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '물')->first()->id,
+                'item_id' => Item::where('name', 'water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '화승총')->first()->id,
+                'item_id' => Item::where('name', 'firelock')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '명도마사무네')->first()->id,
+                'item_id' => Item::where('name', 'masamune_great_sword')->first()->id,
                 'point' => 23,
                 'endurance' => 0
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '요도무라마사')->first()->id,
+                'item_id' => Item::where('name', 'muramasa_magical_sword')->first()->id,
                 'point' => 23,
                 'endurance' => 0
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '일본궁')->first()->id,
+                'item_id' => Item::where('name', 'japanese_bow')->first()->id,
                 'point' => 18,
                 'endurance' => 0
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '보검')->first()->id,
+                'item_id' => Item::where('name', 'precious_sword')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '갑주')->first()->id,
+                'item_id' => Item::where('name', 'armor')->first()->id,
                 'point' => 12,
                 'endurance' => 20
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '체인메일')->first()->id,
+                'item_id' => Item::where('name', 'chainmail_armor')->first()->id,
                 'point' => 12,
                 'endurance' => 20
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '투구')->first()->id,
+                'item_id' => Item::where('name', 'combat_helmet')->first()->id,
                 'point' => 5,
                 'endurance' => 10
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '가보갑주')->first()->id,
+                'item_id' => Item::where('name', 'precious_armor')->first()->id,
                 'point' => 14,
                 'endurance' => 20
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '고무신')->first()->id,
+                'item_id' => Item::where('name', 'rubber_shoes')->first()->id,
                 'point' => 2,
                 'endurance' => 4
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '고무신')->first()->id,
+                'item_id' => Item::where('name', 'rubber_shoes')->first()->id,
                 'point' => 2,
                 'endurance' => 4
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '고무신')->first()->id,
+                'item_id' => Item::where('name', 'rubber_shoes')->first()->id,
                 'point' => 2,
                 'endurance' => 4
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '고무신')->first()->id,
+                'item_id' => Item::where('name', 'rubber_shoes')->first()->id,
                 'point' => 2,
                 'endurance' => 4
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '고무신')->first()->id,
+                'item_id' => Item::where('name', 'rubber_shoes')->first()->id,
                 'point' => 2,
                 'endurance' => 4
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '장화')->first()->id,
+                'item_id' => Item::where('name', 'rainboots')->first()->id,
                 'point' => 4,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '장화')->first()->id,
+                'item_id' => Item::where('name', 'rainboots')->first()->id,
                 'point' => 4,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '하이힐')->first()->id,
+                'item_id' => Item::where('name', 'high_heel')->first()->id,
                 'point' => 3,
                 'endurance' => 3
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '하이힐')->first()->id,
+                'item_id' => Item::where('name', 'high_heel')->first()->id,
                 'point' => 3,
                 'endurance' => 3
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '하이힐')->first()->id,
+                'item_id' => Item::where('name', 'high_heel')->first()->id,
                 'point' => 3,
                 'endurance' => 3
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '군화')->first()->id,
+                'item_id' => Item::where('name', 'military_boots')->first()->id,
                 'point' => 3,
                 'endurance' => 3
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '리본')->first()->id,
+                'item_id' => Item::where('name', 'ribbon')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '리본')->first()->id,
+                'item_id' => Item::where('name', 'ribbon')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '녹슨철모')->first()->id,
+                'item_id' => Item::where('name', 'rusty_helmet')->first()->id,
                 'point' => 4,
                 'endurance' => 3
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '철모')->first()->id,
+                'item_id' => Item::where('name', 'military_helmet')->first()->id,
                 'point' => 5,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '조교완장')->first()->id,
+                'item_id' => Item::where('name', 'drill_surgent_armband')->first()->id,
                 'point' => 5,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', 'MP완장')->first()->id,
+                'item_id' => Item::where('name', 'mp_armband')->first()->id,
                 'point' => 5,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '군복')->first()->id,
+                'item_id' => Item::where('name', 'military_uniform')->first()->id,
                 'point' => 10,
                 'endurance' => 40
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '레이더')->first()->id,
+                'item_id' => Item::where('name', 'radar')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '전기인두')->first()->id,
+                'item_id' => Item::where('name', 'soldering_iron')->first()->id,
                 'point' => 6,
                 'endurance' => 0
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '고장난노트북')->first()->id,
+                'item_id' => Item::where('name', 'broken_laptop')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '숫돌')->first()->id,
+                'item_id' => Item::where('name', 'whetstone')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '식칼')->first()->id,
+                'item_id' => Item::where('name', 'kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '식칼')->first()->id,
+                'item_id' => Item::where('name', 'kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '식칼')->first()->id,
+                'item_id' => Item::where('name', 'kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '식칼')->first()->id,
+                'item_id' => Item::where('name', 'kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '수류탄')->first()->id,
+                'item_id' => Item::where('name', 'grenade')->first()->id,
                 'point' => 40,
                 'endurance' => 2
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '수리검')->first()->id,
+                'item_id' => Item::where('name', 'shuriken')->first()->id,
                 'point' => 30,
                 'endurance' => 15
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '수리검')->first()->id,
+                'item_id' => Item::where('name', 'shuriken')->first()->id,
                 'point' => 30,
                 'endurance' => 15
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '수리검')->first()->id,
+                'item_id' => Item::where('name', 'shuriken')->first()->id,
                 'point' => 30,
                 'endurance' => 15
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '수리검')->first()->id,
+                'item_id' => Item::where('name', 'shuriken')->first()->id,
                 'point' => 30,
                 'endurance' => 15
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '수리검')->first()->id,
+                'item_id' => Item::where('name', 'shuriken')->first()->id,
                 'point' => 30,
                 'endurance' => 15
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '수리검')->first()->id,
+                'item_id' => Item::where('name', 'shuriken')->first()->id,
                 'point' => 30,
                 'endurance' => 15
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '수리검')->first()->id,
+                'item_id' => Item::where('name', 'shuriken')->first()->id,
                 'point' => 30,
                 'endurance' => 15
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '야구공세트')->first()->id,
+                'item_id' => Item::where('name', 'baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '야구공세트')->first()->id,
+                'item_id' => Item::where('name', 'baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '야구공세트')->first()->id,
+                'item_id' => Item::where('name', 'baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '야구공세트')->first()->id,
+                'item_id' => Item::where('name', 'baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '야구공세트')->first()->id,
+                'item_id' => Item::where('name', 'baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '야구공세트')->first()->id,
+                'item_id' => Item::where('name', 'baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '야구공세트')->first()->id,
+                'item_id' => Item::where('name', 'baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '야구공세트')->first()->id,
+                'item_id' => Item::where('name', 'baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '야구공세트')->first()->id,
+                'item_id' => Item::where('name', 'baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '야구공세트')->first()->id,
+                'item_id' => Item::where('name', 'baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '야구공세트')->first()->id,
+                'item_id' => Item::where('name', 'baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '야구공세트')->first()->id,
+                'item_id' => Item::where('name', 'baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '야구공세트')->first()->id,
+                'item_id' => Item::where('name', 'baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '야구공세트')->first()->id,
+                'item_id' => Item::where('name', 'baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '야구공세트')->first()->id,
+                'item_id' => Item::where('name', 'baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '돌멩이')->first()->id,
+                'item_id' => Item::where('name', 'stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '헤비크로스보우')->first()->id,
+                'item_id' => Item::where('name', 'heavy_crossbow')->first()->id,
                 'point' => 30,
                 'endurance' => 0
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '헤비크로스보우')->first()->id,
+                'item_id' => Item::where('name', 'heavy_crossbow')->first()->id,
                 'point' => 30,
                 'endurance' => 0
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '헤비크로스보우')->first()->id,
+                'item_id' => Item::where('name', 'heavy_crossbow')->first()->id,
                 'point' => 30,
                 'endurance' => 0
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('name', '헤비크로스보우')->first()->id,
+                'item_id' => Item::where('name', 'heavy_crossbow')->first()->id,
                 'point' => 30,
                 'endurance' => 0
             ],

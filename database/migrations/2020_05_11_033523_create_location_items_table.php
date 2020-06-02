@@ -15,8 +15,8 @@ class CreateLocationItemsTable extends Migration
     {
         Schema::create('location_items', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('item_id');
-            $table->unsignedInteger('competition_id');
+            $table->unsignedBigInteger('item_id');
+            $table->unsignedBigInteger('competition_id');
             $table->string('uuid', 64);
             $table->unsignedSmallInteger('endurance');
             $table->smallInteger('point');

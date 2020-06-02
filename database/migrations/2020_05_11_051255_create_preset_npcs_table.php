@@ -17,7 +17,7 @@ class CreatePresetNpcsTable extends Migration
             $table->id();
 
             // relation
-            $table->unsignedInteger('user_id');
+            $table->unsignedBigInteger('user_id');
 
             // basic
             $table->string('username', 64);

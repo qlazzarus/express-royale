@@ -16,7 +16,7 @@ class CreateItemsTable extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->unsignedTinyInteger('type'); // \App\Enums\ItemType
-            $table->string('code', 64);
+            $table->string('name', 64);
             $table->unsignedTinyInteger('attack_type'); // \App\Enums\AttackType
             $table->smallInteger('point');
             $table->unsignedSmallInteger('endurance');
@@ -25,7 +25,7 @@ class CreateItemsTable extends Migration
             $table->unsignedTinyInteger('ammo_type'); // \App\Enums\AmmoType
             $table->unsignedTinyInteger('armor_material'); // \App\Enums\ArmorMaterial
             $table->timestamps();
-            $table->unique('code');
+            $table->unique('name');
         });
     }
 

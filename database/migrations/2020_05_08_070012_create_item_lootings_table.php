@@ -16,7 +16,7 @@ class CreateItemLootingsTable extends Migration
         Schema::create('item_lootings', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('location_id');
-            $table->unsignedInteger('item_id');
+            $table->unsignedBigInteger('item_id');
             $table->smallInteger('point');
             $table->unsignedSmallInteger('endurance');
             $table->unsignedTinyInteger('is_trap_activated')->default(0);

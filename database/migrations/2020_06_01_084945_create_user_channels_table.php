@@ -15,9 +15,12 @@ class CreateUserChannelsTable extends Migration
     {
         Schema::create('user_channels', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('user_id');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedTinyInteger('channel');
+            $table->string('channel_id', 128);
             $table->timestamps();
-            $table->index('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unique(['channel', 'channel_id']);
         });
     }
 

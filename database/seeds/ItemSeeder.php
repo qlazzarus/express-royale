@@ -20,7 +20,7 @@ class ItemSeeder extends Seeder
         $items = [
             [
                 'type' => ItemType::Weapon,
-                'name' => '맨손',
+                'name' => 'bear_hands',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Fist]),
                 'point' => 0,
                 'endurance' => 0,
@@ -31,7 +31,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '석궁',
+                'name' => 'crossbow',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Bow, AttackType::Melee]),
                 'point' => 20,
                 'endurance' => 0,
@@ -42,7 +42,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '식칼',
+                'name' => 'kitchen_knife',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
                 'point' => 15,
                 'endurance' => 0,
@@ -53,7 +53,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '손도끼',
+                'name' => 'hand_axe',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut]),
                 'point' => 17,
                 'endurance' => 0,
@@ -64,7 +64,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '레밍턴M31RS',
+                'name' => 'remington_mk31',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 28,
                 'endurance' => 0,
@@ -75,7 +75,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '나이프',
+                'name' => 'knife',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
                 'point' => 17,
                 'endurance' => 0,
@@ -86,7 +86,7 @@ class ItemSeeder extends Seeder
             ],   
             [
                 'type' => ItemType::Weapon,
-                'name' => '단도',
+                'name' => 'dagger',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
                 'point' => 15,
                 'endurance' => 0,
@@ -97,7 +97,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '잉그램M10 서브머신건',
+                'name' => 'mac_10',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 30,
                 'endurance' => 0,
@@ -108,7 +108,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '포크',
+                'name' => 'fork',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Stab]),
                 'point' => 7,
                 'endurance' => 0,
@@ -119,7 +119,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '금속 배트',
+                'name' => 'metal_bet',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 15,
                 'endurance' => 0,
@@ -130,7 +130,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '22구경 2연발 데린져',
+                'name' => 'derringer',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 20,
                 'endurance' => 0,
@@ -141,7 +141,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '군용 나이프',
+                'name' => 'military_knife',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab, AttackType::Throw]),
                 'point' => 20,
                 'endurance' => 1,
@@ -152,7 +152,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '월터PPK 9밀리',
+                'name' => 'walther_ppk',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 25,
                 'endurance' => 0,
@@ -163,7 +163,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'S&W M19 357 매그넘',
+                'name' => 'm19_magnum',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 26,
                 'endurance' => 0,
@@ -174,7 +174,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '베레타M92F',
+                'name' => 'beretta_m9',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 25,
                 'endurance' => 0,
@@ -185,7 +185,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'S&W 치프스페셜 38구경',
+                'name' => 'm36_revolver',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 23,
                 'endurance' => 0,
@@ -196,7 +196,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '콜트357 매그넘 리볼버',
+                'name' => 'python_magnum',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 27,
                 'endurance' => 0,
@@ -207,7 +207,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '양날 나이프',
+                'name' => 'dagger_knife',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
                 'point' => 20,
                 'endurance' => 0,
@@ -218,7 +218,7 @@ class ItemSeeder extends Seeder
             ],   
             [
                 'type' => ItemType::Weapon,
-                'name' => '브라우닝 하이파워 9mm',
+                'name' => 'browning_hipower',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 26,
                 'endurance' => 0,
@@ -229,7 +229,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '다이버즈 나이프',
+                'name' => 'divers_knife',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
                 'point' => 20,
                 'endurance' => 0,
@@ -240,7 +240,7 @@ class ItemSeeder extends Seeder
             ],     
             [
                 'type' => ItemType::Weapon,
-                'name' => '다트',
+                'name' => 'dart',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 5,
                 'endurance' => 12,
@@ -251,7 +251,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '수류탄',
+                'name' => 'grenade',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Bomb]),
                 'point' => 40,
                 'endurance' => 2,
@@ -262,7 +262,7 @@ class ItemSeeder extends Seeder
             ],   
             [
                 'type' => ItemType::Weapon,
-                'name' => 'S&W M59 오토',
+                'name' => 'm59_pistol',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 24,
                 'endurance' => 0,
@@ -273,7 +273,7 @@ class ItemSeeder extends Seeder
             ],   
             [
                 'type' => ItemType::Weapon,
-                'name' => '특수경봉',
+                'name' => 'baton',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 13,
                 'endurance' => 0,
@@ -284,7 +284,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '콜트 하이웨이 패트롤맨 38구경',
+                'name' => 'm28_38special',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 24,
                 'endurance' => 0,
@@ -295,7 +295,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '낫',
+                'name' => 'sickle',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
                 'point' => 20,
                 'endurance' => 0,
@@ -306,7 +306,7 @@ class ItemSeeder extends Seeder
             ],      
             [
                 'type' => ItemType::Weapon,
-                'name' => '얼음송곳',
+                'name' => 'ice_pick',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Stab]),
                 'point' => 8,
                 'endurance' => 0,
@@ -317,7 +317,7 @@ class ItemSeeder extends Seeder
             ],  
             [
                 'type' => ItemType::Weapon,
-                'name' => '눈쳐크',
+                'name' => 'nunchaku',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 12,
                 'endurance' => 0,
@@ -328,7 +328,7 @@ class ItemSeeder extends Seeder
             ],   
             [
                 'type' => ItemType::Weapon,
-                'name' => '부메랑',
+                'name' => 'boomerang',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 9,
                 'endurance' => 5,
@@ -339,7 +339,7 @@ class ItemSeeder extends Seeder
             ],       
             [
                 'type' => ItemType::Weapon,
-                'name' => 'CZ M75',
+                'name' => 'cz_m75',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 25,
                 'endurance' => 0,
@@ -350,7 +350,7 @@ class ItemSeeder extends Seeder
             ],   
             [
                 'type' => ItemType::Weapon,
-                'name' => '우지 9mm 서브머신건',
+                'name' => 'uzi_9mm',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 30,
                 'endurance' => 0,
@@ -361,7 +361,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '시그 사우엘 P230 9mm',
+                'name' => 'p230_9mm',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 26,
                 'endurance' => 0,
@@ -372,7 +372,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '콜트 거버먼트 45구경',
+                'name' => 'm1911_45acp',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 25,
                 'endurance' => 0,
@@ -383,7 +383,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '일본도',
+                'name' => 'katana',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
                 'point' => 25,
                 'endurance' => 0,
@@ -394,7 +394,7 @@ class ItemSeeder extends Seeder
             ],     
             [
                 'type' => ItemType::Weapon,
-                'name' => '부채',
+                'name' => 'hand_fan',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 1,
                 'endurance' => 0,
@@ -405,7 +405,7 @@ class ItemSeeder extends Seeder
             ],      
             [
                 'type' => ItemType::Weapon,
-                'name' => '대야',
+                'name' => 'rubber_basin',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 3,
                 'endurance' => 0,
@@ -416,7 +416,7 @@ class ItemSeeder extends Seeder
             ],      
             [
                 'type' => ItemType::Weapon,
-                'name' => '슬리퍼',
+                'name' => 'slipper',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 2,
                 'endurance' => 0,
@@ -427,7 +427,7 @@ class ItemSeeder extends Seeder
             ],      
             [
                 'type' => ItemType::Weapon,
-                'name' => '칠판지우개',
+                'name' => 'blackboard_eraser',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 2,
                 'endurance' => 1,
@@ -438,7 +438,7 @@ class ItemSeeder extends Seeder
             ],       
             [
                 'type' => ItemType::Weapon,
-                'name' => '분필',
+                'name' => 'chalk',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 1,
                 'endurance' => 1,
@@ -449,7 +449,7 @@ class ItemSeeder extends Seeder
             ],       
             [
                 'type' => ItemType::Weapon,
-                'name' => '배트',
+                'name' => 'baseball_bat',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 12,
                 'endurance' => 0,
@@ -460,7 +460,7 @@ class ItemSeeder extends Seeder
             ],      
             [
                 'type' => ItemType::Weapon,
-                'name' => '너클',
+                'name' => 'knuckle',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Fist]),
                 'point' => 8,
                 'endurance' => 0,
@@ -471,7 +471,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '뿅망치',
+                'name' => 'toy_hammer',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 1,
                 'endurance' => 0,
@@ -482,7 +482,7 @@ class ItemSeeder extends Seeder
             ],      
             [
                 'type' => ItemType::Weapon,
-                'name' => '화염병',
+                'name' => 'molotov_cocktail',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Bomb]),
                 'point' => 15,
                 'endurance' => 1,
@@ -493,7 +493,7 @@ class ItemSeeder extends Seeder
             ],   
             [
                 'type' => ItemType::Weapon,
-                'name' => '폭탄',
+                'name' => 'bomb',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Bomb]),
                 'point' => 60,
                 'endurance' => 3,
@@ -504,7 +504,7 @@ class ItemSeeder extends Seeder
             ],   
             [
                 'type' => ItemType::Weapon,
-                'name' => '간이화염방사기',
+                'name' => 'temp_flamethrower',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Bomb]),
                 'point' => 10,
                 'endurance' => 8,
@@ -515,7 +515,7 @@ class ItemSeeder extends Seeder
             ],   
             [
                 'type' => ItemType::Weapon,
-                'name' => '사슬낫',
+                'name' => 'chain_sickle',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Melee]),
                 'point' => 22,
                 'endurance' => 0,
@@ -526,7 +526,7 @@ class ItemSeeder extends Seeder
             ],      
             [
                 'type' => ItemType::Weapon,
-                'name' => '못박은배트',
+                'name' => 'nailed_bat',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 20,
                 'endurance' => 0,
@@ -537,7 +537,7 @@ class ItemSeeder extends Seeder
             ],      
             [
                 'type' => ItemType::Weapon,
-                'name' => '못박은대나무',
+                'name' => 'nailed_bamboo',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 13,
                 'endurance' => 0,
@@ -548,7 +548,7 @@ class ItemSeeder extends Seeder
             ],      
             [
                 'type' => ItemType::Weapon,
-                'name' => '돌도끼',
+                'name' => 'stone_axe',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 15,
                 'endurance' => 0,
@@ -559,7 +559,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '커스텀나이프',
+                'name' => 'custom_knife',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
                 'point' => 20,
                 'endurance' => 0,
@@ -570,7 +570,7 @@ class ItemSeeder extends Seeder
             ],     
             [
                 'type' => ItemType::Weapon,
-                'name' => '쇠뇌',
+                'name' => 'catapult',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Bow, AttackType::Melee]),
                 'point' => 25,
                 'endurance' => 0,
@@ -581,7 +581,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '죽창',
+                'name' => 'bamboo_spear',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Stab]),
                 'point' => 20,
                 'endurance' => 0,
@@ -592,7 +592,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '언월도',
+                'name' => 'crescent_blade',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Stab]),
                 'point' => 40,
                 'endurance' => 0,
@@ -603,7 +603,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '쌍칼',
+                'name' => 'double_knife',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Stab]),
                 'point' => 35,
                 'endurance' => 0,
@@ -614,7 +614,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '다이나마이트',
+                'name' => 'dynamite',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Bomb]),
                 'point' => 30,
                 'endurance' => 8,
@@ -625,7 +625,7 @@ class ItemSeeder extends Seeder
             ],   
             [
                 'type' => ItemType::Weapon,
-                'name' => '돌멩이',
+                'name' => 'stones',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 15,
                 'endurance' => 5,
@@ -636,7 +636,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '컵',
+                'name' => 'cup',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 10,
                 'endurance' => 4,
@@ -647,7 +647,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '야구공세트',
+                'name' => 'baseball_balls',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 20,
                 'endurance' => 30,
@@ -658,7 +658,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '접시',
+                'name' => 'glass_plate',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 10,
                 'endurance' => 4,
@@ -669,7 +669,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '텔레비전',
+                'name' => 'television',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 20,
                 'endurance' => 1,
@@ -680,7 +680,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '테이블',
+                'name' => 'dining_table',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 20,
                 'endurance' => 1,
@@ -691,7 +691,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '선반',
+                'name' => 'shelf',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 15,
                 'endurance' => 1,
@@ -702,7 +702,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '보검',
+                'name' => 'precious_sword',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
                 'point' => 20,
                 'endurance' => 0,
@@ -713,7 +713,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '빈병',
+                'name' => 'empty_bottle',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 1,
                 'endurance' => 10,
@@ -724,7 +724,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '빈캔',
+                'name' => 'empty_can',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 2,
                 'endurance' => 10,
@@ -735,7 +735,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '유리잔',
+                'name' => 'glass_goblet',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 10,
                 'endurance' => 4,
@@ -746,7 +746,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '냄비',
+                'name' => 'pot',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 10,
                 'endurance' => 4,
@@ -757,7 +757,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '쇠사슬',
+                'name' => 'chains',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 15,
                 'endurance' => 0,
@@ -768,7 +768,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '후라이팬',
+                'name' => 'frying_pan',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 15,
                 'endurance' => 0,
@@ -779,7 +779,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '소방용도끼',
+                'name' => 'fire_axe',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut]),
                 'point' => 20,
                 'endurance' => 0,
@@ -790,7 +790,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '소화기',
+                'name' => 'fire_extinguisher',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 12,
                 'endurance' => 0,
@@ -801,7 +801,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '관음보살상',
+                'name' => 'quan_yin_bodhisattva_statue',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 5,
                 'endurance' => 0,
@@ -812,7 +812,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '염라대왕상',
+                'name' => 'yama_raja_statue',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 7,
                 'endurance' => 0,
@@ -823,7 +823,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '아수라상',
+                'name' => 'asura_statue',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 10,
                 'endurance' => 0,
@@ -834,7 +834,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '지장보살상',
+                'name' => 'ksitigarbha_statue',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 8,
                 'endurance' => 0,
@@ -845,7 +845,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '양궁',
+                'name' => 'bow',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Bow, AttackType::Melee]),
                 'point' => 20,
                 'endurance' => 0,
@@ -856,7 +856,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '곡괭이',
+                'name' => 'pickaxe',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Stab]),
                 'point' => 15,
                 'endurance' => 0,
@@ -878,7 +878,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '샤벨',
+                'name' => 'sabre',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
                 'point' => 5,
                 'endurance' => 0,
@@ -889,7 +889,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '암석',
+                'name' => 'rocks',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 20,
                 'endurance' => 8,
@@ -900,7 +900,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '목탁',
+                'name' => 'wooden_fish',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 1,
                 'endurance' => 1,
@@ -922,7 +922,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '연필',
+                'name' => 'pencil',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Stab]),
                 'point' => 2,
                 'endurance' => 0,
@@ -933,7 +933,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '지우개',
+                'name' => 'eraser',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 1,
                 'endurance' => 1,
@@ -944,7 +944,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '플라스크',
+                'name' => 'glass_flask',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 1,
                 'endurance' => 1,
@@ -955,7 +955,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '대걸레',
+                'name' => 'mop',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 8,
                 'endurance' => 0,
@@ -966,7 +966,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '흰분필',
+                'name' => 'white_chalk',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 2,
                 'endurance' => 1,
@@ -977,7 +977,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '빨간분필',
+                'name' => 'red_chalk',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 2,
                 'endurance' => 1,
@@ -988,7 +988,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '노란분필',
+                'name' => 'yellow_chalk',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 2,
                 'endurance' => 1,
@@ -999,7 +999,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '파란분필',
+                'name' => 'blue_chalk',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 2,
                 'endurance' => 1,
@@ -1010,7 +1010,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '인체모형',
+                'name' => 'human_body_model',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 3,
                 'endurance' => 0,
@@ -1021,7 +1021,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '거대삼각자',
+                'name' => 'giant_set_square',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 4,
                 'endurance' => 0,
@@ -1032,7 +1032,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '거대콤파스',
+                'name' => 'giant_compasses',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 8,
                 'endurance' => 0,
@@ -1043,7 +1043,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '의자',
+                'name' => 'chair',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 4,
                 'endurance' => 0,
@@ -1054,7 +1054,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '대나무',
+                'name' => 'bamboo',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 6,
                 'endurance' => 0,
@@ -1065,7 +1065,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '목검',
+                'name' => 'wooden_sword',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
                 'point' => 12,
                 'endurance' => 0,
@@ -1076,7 +1076,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '화승총',
+                'name' => 'firelock',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 20,
                 'endurance' => 0,
@@ -1087,7 +1087,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '명도마사무네',
+                'name' => 'masamune_great_sword',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
                 'point' => 23,
                 'endurance' => 0,
@@ -1098,7 +1098,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '일본궁',
+                'name' => 'japanese_bow',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Bow, AttackType::Melee]),
                 'point' => 18,
                 'endurance' => 0,
@@ -1109,7 +1109,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '전기인두',
+                'name' => 'soldering_iron',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Stab]),
                 'point' => 6,
                 'endurance' => 0,
@@ -1120,7 +1120,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '고장난노트북',
+                'name' => 'broken_laptop',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 10,
                 'endurance' => 1,
@@ -1131,7 +1131,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '수리검',
+                'name' => 'shuriken',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 30,
                 'endurance' => 15,
@@ -1142,7 +1142,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '헤비크로스보우',
+                'name' => 'heavy_crossbow',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Bow, AttackType::Melee]),
                 'point' => 30,
                 'endurance' => 0,
@@ -1153,7 +1153,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '면도칼',
+                'name' => 'razor',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut]),
                 'point' => 5,
                 'endurance' => 0,
@@ -1164,7 +1164,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '버터플라이나이프',
+                'name' => 'butterfly_knife',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
                 'point' => 8,
                 'endurance' => 0,
@@ -1175,7 +1175,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '화투',
+                'name' => 'hanafuda',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 1,
                 'endurance' => 1,
@@ -1186,7 +1186,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '트럼프카드',
+                'name' => 'playing_cards',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 1,
                 'endurance' => 1,
@@ -1197,7 +1197,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '휴대용게임기',
+                'name' => 'portable_console',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 2,
                 'endurance' => 0,
@@ -1208,7 +1208,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '비누',
+                'name' => 'soap',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 1,
                 'endurance' => 0,
@@ -1219,7 +1219,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '칫솔',
+                'name' => 'toothbrush',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 1,
                 'endurance' => 0,
@@ -1230,7 +1230,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '요도마사무네',
+                'name' => 'masamune_magical_sword',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
                 'point' => 25,
                 'endurance' => 0,
@@ -1241,7 +1241,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '요도무라마사',
+                'name' => 'muramasa_magical_sword',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
                 'point' => 23,
                 'endurance' => 0,
@@ -1252,7 +1252,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'M16A2',
+                'name' => 'm16a2',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 30,
                 'endurance' => 0,
@@ -1263,7 +1263,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorBody,
-                'name' => '속옷',
+                'name' => 'underwear',
                 'attack_type' => AttackType::None,
                 'point' => 0,
                 'endurance' => 0,
@@ -1274,7 +1274,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorHead,
-                'name' => '목걸이',
+                'name' => 'necklace',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 5,
@@ -1285,7 +1285,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorHead,
-                'name' => '머리핀',
+                'name' => 'hairpin',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 2,
@@ -1296,7 +1296,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorHead,
-                'name' => '안경',
+                'name' => 'glasses',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -1307,7 +1307,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorAccessory,
-                'name' => '잡지',
+                'name' => 'magazine',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 2,
@@ -1318,7 +1318,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorAccessory,
-                'name' => '다마고치',
+                'name' => 'tamagotchi',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 3,
@@ -1329,7 +1329,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorAccessory,
-                'name' => 'CD플레이어',
+                'name' => 'cd_player',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 3,
@@ -1340,7 +1340,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorAccessory,
-                'name' => '방탄조끼',
+                'name' => 'bulletproof_vest',
                 'attack_type' => AttackType::None,
                 'point' => 5,
                 'endurance' => 10,
@@ -1351,7 +1351,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorLeg,
-                'name' => '등산화',
+                'name' => 'hiking_boots',
                 'attack_type' => AttackType::None,
                 'point' => 3,
                 'endurance' => 5,
@@ -1362,7 +1362,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorHead,
-                'name' => '등산모',
+                'name' => 'hiking_helmet',
                 'attack_type' => AttackType::None,
                 'point' => 2,
                 'endurance' => 3,
@@ -1373,7 +1373,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorArm,
-                'name' => '팔찌',
+                'name' => 'bracelet',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 2,
@@ -1384,7 +1384,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorArm,
-                'name' => '털토시',
+                'name' => 'fur_cuffs',
                 'attack_type' => AttackType::None,
                 'point' => 2,
                 'endurance' => 3,
@@ -1395,7 +1395,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorArm,
-                'name' => '민방위완장',
+                'name' => 'civil_defense_armbands',
                 'attack_type' => AttackType::None,
                 'point' => 2,
                 'endurance' => 3,
@@ -1406,7 +1406,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorArm,
-                'name' => '새마을완장',
+                'name' => 'rural_armbands',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 2,
@@ -1417,7 +1417,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorHead,
-                'name' => '머리띠',
+                'name' => 'hairband',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 3,
@@ -1428,7 +1428,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorBody,
-                'name' => '방화복',
+                'name' => 'fire_suit',
                 'attack_type' => AttackType::None,
                 'point' => 10,
                 'endurance' => 20,
@@ -1439,7 +1439,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorHead,
-                'name' => '방화헬멧',
+                'name' => 'fire_helmet',
                 'attack_type' => AttackType::None,
                 'point' => 3,
                 'endurance' => 5,
@@ -1450,7 +1450,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorBody,
-                'name' => '승복',
+                'name' => 'monk_cloth',
                 'attack_type' => AttackType::None,
                 'point' => 8,
                 'endurance' => 20,
@@ -1461,7 +1461,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorBody,
-                'name' => '신관의옷',
+                'name' => 'shamen_cloth',
                 'attack_type' => AttackType::None,
                 'point' => 8,
                 'endurance' => 15,
@@ -1472,7 +1472,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorLeg,
-                'name' => '나막신',
+                'name' => 'clog',
                 'attack_type' => AttackType::None,
                 'point' => 2,
                 'endurance' => 5,
@@ -1483,7 +1483,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorHead,
-                'name' => '작업용헬멧',
+                'name' => 'safety_helmet',
                 'attack_type' => AttackType::None,
                 'point' => 4,
                 'endurance' => 5,
@@ -1494,7 +1494,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorBody,
-                'name' => '작업복',
+                'name' => 'boilersuit',
                 'attack_type' => AttackType::None,
                 'point' => 8,
                 'endurance' => 10,
@@ -1505,7 +1505,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorHead,
-                'name' => '오토바이헬멧',
+                'name' => 'motorcycle_helmet',
                 'attack_type' => AttackType::None,
                 'point' => 4,
                 'endurance' => 10,
@@ -1516,7 +1516,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorHead,
-                'name' => '리본',
+                'name' => 'ribbon',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 2,
@@ -1527,7 +1527,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorLeg,
-                'name' => '운동화',
+                'name' => 'running_shoes',
                 'attack_type' => AttackType::None,
                 'point' => 3,
                 'endurance' => 5,
@@ -1538,7 +1538,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorArm,
-                'name' => '주번완장',
+                'name' => 'duty_student_armband',
                 'attack_type' => AttackType::None,
                 'point' => 3,
                 'endurance' => 3,
@@ -1549,7 +1549,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorArm,
-                'name' => '토시',
+                'name' => 'cuffs',
                 'attack_type' => AttackType::None,
                 'point' => 2,
                 'endurance' => 20,
@@ -1560,7 +1560,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorLeg,
-                'name' => '실내화',
+                'name' => 'indoor_shoes',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 2,
@@ -1571,7 +1571,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorHead,
-                'name' => '녹슨철모',
+                'name' => 'rusty_helmet',
                 'attack_type' => AttackType::None,
                 'point' => 4,
                 'endurance' => 3,
@@ -1582,7 +1582,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorBody,
-                'name' => '흰옷',
+                'name' => 'white_clothes',
                 'attack_type' => AttackType::None,
                 'point' => 10,
                 'endurance' => 5,
@@ -1593,7 +1593,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorLeg,
-                'name' => '장화',
+                'name' => 'rainboots',
                 'attack_type' => AttackType::None,
                 'point' => 4,
                 'endurance' => 5,
@@ -1604,7 +1604,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorBody,
-                'name' => '갑주',
+                'name' => 'armor',
                 'attack_type' => AttackType::None,
                 'point' => 12,
                 'endurance' => 20,
@@ -1615,7 +1615,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorBody,
-                'name' => '체인메일',
+                'name' => 'chainmail_armor',
                 'attack_type' => AttackType::None,
                 'point' => 12,
                 'endurance' => 20,
@@ -1626,7 +1626,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorHead,
-                'name' => '투구',
+                'name' => 'combat_helmet',
                 'attack_type' => AttackType::None,
                 'point' => 5,
                 'endurance' => 10,
@@ -1637,7 +1637,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorBody,
-                'name' => '가보갑주',
+                'name' => 'precious_armor',
                 'attack_type' => AttackType::None,
                 'point' => 14,
                 'endurance' => 20,
@@ -1648,7 +1648,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorLeg,
-                'name' => '고무신',
+                'name' => 'rubber_shoes',
                 'attack_type' => AttackType::None,
                 'point' => 2,
                 'endurance' => 4,
@@ -1659,7 +1659,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorLeg,
-                'name' => '하이힐',
+                'name' => 'high_heel',
                 'attack_type' => AttackType::None,
                 'point' => 3,
                 'endurance' => 3,
@@ -1670,7 +1670,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorLeg,
-                'name' => '군화',
+                'name' => 'military_boots',
                 'attack_type' => AttackType::None,
                 'point' => 5,
                 'endurance' => 5,
@@ -1681,7 +1681,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorHead,
-                'name' => '철모',
+                'name' => 'military_helmet',
                 'attack_type' => AttackType::None,
                 'point' => 5,
                 'endurance' => 5,
@@ -1692,7 +1692,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorArm,
-                'name' => '조교완장',
+                'name' => 'drill_surgent_armband',
                 'attack_type' => AttackType::None,
                 'point' => 5,
                 'endurance' => 5,
@@ -1703,7 +1703,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorArm,
-                'name' => 'MP완장',
+                'name' => 'mp_armband',
                 'attack_type' => AttackType::None,
                 'point' => 4,
                 'endurance' => 5,
@@ -1714,7 +1714,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorBody,
-                'name' => '군복',
+                'name' => 'military_uniform',
                 'attack_type' => AttackType::None,
                 'point' => 12,
                 'endurance' => 40,
@@ -1725,7 +1725,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorBody,
-                'name' => '교복',
+                'name' => 'school_uniform',
                 'attack_type' => AttackType::None,
                 'point' => 5,
                 'endurance' => 30,
@@ -1736,7 +1736,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorBody,
-                'name' => '세라복',
+                'name' => 'women_school_uniform',
                 'attack_type' => AttackType::None,
                 'point' => 5,
                 'endurance' => 30,
@@ -1747,7 +1747,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorBody,
-                'name' => '체육복',
+                'name' => 'gym_suit',
                 'attack_type' => AttackType::None,
                 'point' => 5,
                 'endurance' => 30,
@@ -1758,7 +1758,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorLeg,
-                'name' => '슬리퍼',
+                'name' => 'slipper',
                 'attack_type' => AttackType::None,
                 'point' => 3,
                 'endurance' => 10,
@@ -1769,7 +1769,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => '와일드세븐',
+                'name' => 'mild_seven_cigarettes',
                 'attack_type' => AttackType::None,
                 'point' => 40,
                 'endurance' => 1,
@@ -1780,7 +1780,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => '초콜렛',
+                'name' => 'chocolate',
                 'attack_type' => AttackType::None,
                 'point' => 40,
                 'endurance' => 1,
@@ -1791,7 +1791,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => '쿠키',
+                'name' => 'cookie',
                 'attack_type' => AttackType::None,
                 'point' => 40,
                 'endurance' => 1,
@@ -1802,7 +1802,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => '고구마',
+                'name' => 'sweet_potato',
                 'attack_type' => AttackType::None,
                 'point' => 40,
                 'endurance' => 1,
@@ -1813,7 +1813,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => '참마',
+                'name' => 'yam',
                 'attack_type' => AttackType::None,
                 'point' => 20,
                 'endurance' => 1,
@@ -1824,7 +1824,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => '감자',
+                'name' => 'potato',
                 'attack_type' => AttackType::None,
                 'point' => 40,
                 'endurance' => 1,
@@ -1835,7 +1835,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => '우엉',
+                'name' => 'burdock',
                 'attack_type' => AttackType::None,
                 'point' => 40,
                 'endurance' => 1,
@@ -1846,7 +1846,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => '당근',
+                'name' => 'carrot',
                 'attack_type' => AttackType::None,
                 'point' => 40,
                 'endurance' => 1,
@@ -1857,7 +1857,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => '양파',
+                'name' => 'onion',
                 'attack_type' => AttackType::None,
                 'point' => 40,
                 'endurance' => 1,
@@ -1868,7 +1868,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => '마늘',
+                'name' => 'garlic',
                 'attack_type' => AttackType::None,
                 'point' => 40,
                 'endurance' => 1,
@@ -1879,7 +1879,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => '생강',
+                'name' => 'ginger',
                 'attack_type' => AttackType::None,
                 'point' => 40,
                 'endurance' => 1,
@@ -1890,7 +1890,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => '카레가루',
+                'name' => 'curry_powder',
                 'attack_type' => AttackType::None,
                 'point' => 20,
                 'endurance' => 1,
@@ -1901,7 +1901,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => '간장',
+                'name' => 'soy_source',
                 'attack_type' => AttackType::None,
                 'point' => 20,
                 'endurance' => 1,
@@ -1912,7 +1912,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => '소스',
+                'name' => 'source',
                 'attack_type' => AttackType::None,
                 'point' => 20,
                 'endurance' => 1,
@@ -1923,7 +1923,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => '영양드링크',
+                'name' => 'energy_drink',
                 'attack_type' => AttackType::None,
                 'point' => 100,
                 'endurance' => 1,
@@ -1934,7 +1934,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => '스튜',
+                'name' => 'stew',
                 'attack_type' => AttackType::None,
                 'point' => 50,
                 'endurance' => 1,
@@ -1945,7 +1945,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => '빵',
+                'name' => 'bread',
                 'attack_type' => AttackType::None,
                 'point' => 40,
                 'endurance' => 2,
@@ -1956,7 +1956,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => '건빵',
+                'name' => 'hardtack',
                 'attack_type' => AttackType::None,
                 'point' => 40,
                 'endurance' => 2,
@@ -1967,7 +1967,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionHealth,
-                'name' => '위스키',
+                'name' => 'whiskey',
                 'attack_type' => AttackType::None,
                 'point' => 20,
                 'endurance' => 1,
@@ -1978,7 +1978,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionHealth,
-                'name' => '물',
+                'name' => 'water',
                 'attack_type' => AttackType::None,
                 'point' => 20,
                 'endurance' => 1,
@@ -1989,7 +1989,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionHealth,
-                'name' => '약',
+                'name' => 'pill',
                 'attack_type' => AttackType::None,
                 'point' => 40,
                 'endurance' => 1,
@@ -2000,7 +2000,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionHealth,
-                'name' => '분말쥬스',
+                'name' => 'powder_juice',
                 'attack_type' => AttackType::None,
                 'point' => 30,
                 'endurance' => 1,
@@ -2011,7 +2011,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionHealth,
-                'name' => '구급약',
+                'name' => 'first_aid',
                 'attack_type' => AttackType::None,
                 'point' => 50,
                 'endurance' => 3,
@@ -2022,7 +2022,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Trap,
-                'name' => '쥐덫',
+                'name' => 'mousetrap',
                 'attack_type' => AttackType::None,
                 'point' => 10,
                 'endurance' => 1,
@@ -2033,7 +2033,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Trap,
-                'name' => '지뢰',
+                'name' => 'mine',
                 'attack_type' => AttackType::None,
                 'point' => 8,
                 'endurance' => 1,
@@ -2044,7 +2044,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Trap,
-                'name' => '피아노선',
+                'name' => 'piano_wire',
                 'attack_type' => AttackType::None,
                 'point' => 8,
                 'endurance' => 1,
@@ -2055,7 +2055,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Trap,
-                'name' => '강화지뢰',
+                'name' => 'enchanted_mine',
                 'attack_type' => AttackType::None,
                 'point' => 20,
                 'endurance' => 1,
@@ -2066,7 +2066,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Phone,
-                'name' => '휴대폰',
+                'name' => 'phone',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2077,7 +2077,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Item,
-                'name' => '뇌관',
+                'name' => 'primer',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2088,7 +2088,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Item,
-                'name' => '불꽃놀이',
+                'name' => 'fireworks',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2099,7 +2099,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Item,
-                'name' => '헤어스프레이',
+                'name' => 'hair_spray',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2110,7 +2110,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Item,
-                'name' => '라이터',
+                'name' => 'lighter',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2121,7 +2121,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::TempRadar,
-                'name' => '간이레이더',
+                'name' => 'temp_radar',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2132,7 +2132,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Item,
-                'name' => '샤미센 줄',
+                'name' => 'shamisen_wire',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2143,7 +2143,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Poison,
-                'name' => '독약',
+                'name' => 'poison',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2154,7 +2154,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Ammo,
-                'name' => '탄환 (샷건)',
+                'name' => '12gauge_shell',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 24,
@@ -2165,7 +2165,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Ammo,
-                'name' => '탄환 (9mm)',
+                'name' => '9mm_ammo',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 24,
@@ -2176,7 +2176,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Ammo,
-                'name' => '탄환 (22LR)',
+                'name' => '22lr_ammo',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 24,
@@ -2187,7 +2187,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Ammo,
-                'name' => '탄환 (매그넘)',
+                'name' => '357mag_ammo',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 24,
@@ -2198,7 +2198,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Ammo,
-                'name' => '탄환 (화승총)',
+                'name' => 'musket_ball',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 24,
@@ -2209,7 +2209,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Ammo,
-                'name' => '탄환 (.38SP)',
+                'name' => '38sp_ammo',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 24,
@@ -2220,7 +2220,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Ammo,
-                'name' => '탄환 (.45ACP)',
+                'name' => '45acp_ammo',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 24,
@@ -2231,7 +2231,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Ammo,
-                'name' => '화살',
+                'name' => 'arrow',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 12,
@@ -2242,7 +2242,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorRefine,
-                'name' => '바느질도구',
+                'name' => 'sewing_tools',
                 'attack_type' => AttackType::None,
                 'point' => 3,
                 'endurance' => 1,
@@ -2253,7 +2253,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::WeaponRefine,
-                'name' => '숫돌',
+                'name' => 'whetstone',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2264,7 +2264,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Item,
-                'name' => '휘발유',
+                'name' => 'gasoline',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2275,7 +2275,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Item,
-                'name' => '경유',
+                'name' => 'disel',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2286,7 +2286,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Item,
-                'name' => '비료',
+                'name' => 'fertilizer',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2297,7 +2297,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Speaker,
-                'name' => '확성기',
+                'name' => 'loud_speaker',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2308,7 +2308,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Item,
-                'name' => '배터리',
+                'name' => 'battery',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2319,7 +2319,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Item,
-                'name' => '못',
+                'name' => 'nail',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2330,7 +2330,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Item,
-                'name' => '도화선',
+                'name' => 'fuze',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2341,7 +2341,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Radar,
-                'name' => '레이더',
+                'name' => 'radar',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2352,7 +2352,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Item,
-                'name' => '화약',
+                'name' => 'gunpowder',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2363,7 +2363,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Item,
-                'name' => '노트북',
+                'name' => 'laptop',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2374,7 +2374,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::MobilePc,
-                'name' => '모바일PC',
+                'name' => 'portable_pc',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 0,
@@ -2385,7 +2385,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Item,
-                'name' => '창대',
+                'name' => 'shaft',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2396,7 +2396,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Program,
-                'name' => '프로그램해제키',
+                'name' => 'program_key',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,

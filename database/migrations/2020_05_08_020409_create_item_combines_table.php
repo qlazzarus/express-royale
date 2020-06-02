@@ -15,9 +15,9 @@ class CreateItemCombinesTable extends Migration
     {
         Schema::create('item_combines', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('base_id');
-            $table->unsignedInteger('combine_id');
-            $table->unsignedInteger('result_id');
+            $table->unsignedBigInteger('base_id');
+            $table->unsignedBigInteger('combine_id');
+            $table->unsignedBigInteger('result_id');
             $table->timestamps();
             $table->unique(['base_id', 'combine_id']);
         });

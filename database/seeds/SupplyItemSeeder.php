@@ -18,263 +18,263 @@ class SupplyItemSeeder extends Seeder
         $items = [
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', '휴대폰')->first()->id
+                'item_id' => Item::where('name', 'phone')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', '와일드세븐')->first()->id
+                'item_id' => Item::where('name', 'mild_seven_cigarettes')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', '초콜렛')->first()->id
+                'item_id' => Item::where('name', 'chocolate')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', '위스키')->first()->id
+                'item_id' => Item::where('name', 'whiskey')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', '쿠키')->first()->id
+                'item_id' => Item::where('name', 'cookie')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', '면도칼')->first()->id
+                'item_id' => Item::where('name', 'razor')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', '버터플라이나이프')->first()->id
+                'item_id' => Item::where('name', 'butterfly_knife')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', '목걸이')->first()->id
+                'item_id' => Item::where('name', 'necklace')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', '뇌관')->first()->id
+                'item_id' => Item::where('name', 'primer')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', '화투')->first()->id
+                'item_id' => Item::where('name', 'hanafuda')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', '트럼프카드')->first()->id
+                'item_id' => Item::where('name', 'playing_cards')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', '휴대용게임기')->first()->id
+                'item_id' => Item::where('name', 'portable_console')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', '비누')->first()->id
+                'item_id' => Item::where('name', 'soap')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', '칫솔')->first()->id
+                'item_id' => Item::where('name', 'toothbrush')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', '헤어스프레이')->first()->id
+                'item_id' => Item::where('name', 'hair_spray')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', '안경')->first()->id
+                'item_id' => Item::where('name', 'glasses')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', '라이터')->first()->id
+                'item_id' => Item::where('name', 'lighter')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', '잡지')->first()->id
+                'item_id' => Item::where('name', 'magazine')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', '다마고치')->first()->id
+                'item_id' => Item::where('name', 'tamagotchi')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', 'CD플레이어')->first()->id
+                'item_id' => Item::where('name', 'cd_player')->first()->id
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '석궁')->first()->id
+                'item_id' => Item::where('name', 'crossbow')->first()->id
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '식칼')->first()->id
+                'item_id' => Item::where('name', 'kitchen_knife')->first()->id
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '손도끼')->first()->id
+                'item_id' => Item::where('name', 'hand_axe')->first()->id
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '방탄조끼')->first()->id
+                'item_id' => Item::where('name', 'bulletproof_vest')->first()->id
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '레밍턴M31RS')->first()->id,
+                'item_id' => Item::where('name', 'remington_mk31')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '나이프')->first()->id,
+                'item_id' => Item::where('name', 'knife')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '단도')->first()->id,
+                'item_id' => Item::where('name', 'dagger')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '잉그램M10 서브머신건')->first()->id,
+                'item_id' => Item::where('name', 'mac_10')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '간이레이더')->first()->id,
+                'item_id' => Item::where('name', 'temp_radar')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '포크')->first()->id,
+                'item_id' => Item::where('name', 'fork')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '금속 배트')->first()->id,
+                'item_id' => Item::where('name', 'metal_bet')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '22구경 2연발 데린져')->first()->id,
+                'item_id' => Item::where('name', 'derringer')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '군용 나이프')->first()->id,
+                'item_id' => Item::where('name', 'military_knife')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '샤미센 줄')->first()->id,
+                'item_id' => Item::where('name', 'shamisen_wire')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '월터PPK 9밀리')->first()->id,
+                'item_id' => Item::where('name', 'walther_ppk')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'S&W M19 357 매그넘')->first()->id,
+                'item_id' => Item::where('name', 'm19_magnum')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '베레타M92F')->first()->id,
+                'item_id' => Item::where('name', 'beretta_m9')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'S&W 치프스페셜 38구경')->first()->id,
+                'item_id' => Item::where('name', 'm36_revolver')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '콜트357 매그넘 리볼버')->first()->id,
+                'item_id' => Item::where('name', 'python_magnum')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '양날 나이프')->first()->id,
+                'item_id' => Item::where('name', 'dagger_knife')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '브라우닝 하이파워 9mm')->first()->id,
+                'item_id' => Item::where('name', 'browning_hipower')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '다이버즈 나이프')->first()->id,
+                'item_id' => Item::where('name', 'divers_knife')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '다트')->first()->id,
+                'item_id' => Item::where('name', 'dart')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '수류탄')->first()->id,
+                'item_id' => Item::where('name', 'grenade')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'S&W M59 오토')->first()->id,
+                'item_id' => Item::where('name', 'm59_pistol')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '특수경봉')->first()->id,
+                'item_id' => Item::where('name', 'baton')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '콜트 하이웨이 패트롤맨 38구경')->first()->id,
+                'item_id' => Item::where('name', 'm28_38special')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '낫')->first()->id,
+                'item_id' => Item::where('name', 'sickle')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '얼음송곳')->first()->id,
+                'item_id' => Item::where('name', 'ice_pick')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '눈쳐크')->first()->id,
+                'item_id' => Item::where('name', 'nunchaku')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '부메랑')->first()->id,
+                'item_id' => Item::where('name', 'boomerang')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'CZ M75')->first()->id,
+                'item_id' => Item::where('name', 'cz_m75')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '우지 9mm 서브머신건')->first()->id,
+                'item_id' => Item::where('name', 'uzi_9mm')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '시그 사우엘 P230 9mm')->first()->id,
+                'item_id' => Item::where('name', 'p230_9mm')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '콜트 거버먼트 45구경')->first()->id,
+                'item_id' => Item::where('name', 'm1911_45acp')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '일본도')->first()->id,
+                'item_id' => Item::where('name', 'katana')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '부채')->first()->id,
+                'item_id' => Item::where('name', 'hand_fan')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '대야')->first()->id,
+                'item_id' => Item::where('name', 'rubber_basin')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '슬리퍼')->first()->id,
+                'item_id' => Item::where('name', 'slipper')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '칠판지우개')->first()->id,
+                'item_id' => Item::where('name', 'blackboard_eraser')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '분필')->first()->id,
+                'item_id' => Item::where('name', 'chalk')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '배트')->first()->id,
+                'item_id' => Item::where('name', 'baseball_bat')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '너클')->first()->id,
+                'item_id' => Item::where('name', 'knuckle')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '뿅망치')->first()->id,
+                'item_id' => Item::where('name', 'toy_hammer')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', '독약')->first()->id,
+                'item_id' => Item::where('name', 'poison')->first()->id,
             ],
         ];
 

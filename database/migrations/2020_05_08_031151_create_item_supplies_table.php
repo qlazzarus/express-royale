@@ -16,7 +16,7 @@ class CreateItemSuppliesTable extends Migration
         Schema::create('item_supplies', function (Blueprint $table) {
             $table->id();
             $table->unsignedTinyInteger('type');
-            $table->unsignedInteger('item_id');
+            $table->unsignedBigInteger('item_id');
             $table->timestamps();
             $table->unique(['type', 'item_id']);
         });
