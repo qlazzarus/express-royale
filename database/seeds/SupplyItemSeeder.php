@@ -18,263 +18,263 @@ class SupplyItemSeeder extends Seeder
         $items = [
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', 'phone')->first()->id
+                'item_id' => Item::where('code', 'phone.phone')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', 'mild_seven_cigarettes')->first()->id
+                'item_id' => Item::where('code', 'mild_seven_cigarettes')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', 'chocolate')->first()->id
+                'item_id' => Item::where('code', 'chocolate')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', 'whiskey')->first()->id
+                'item_id' => Item::where('code', 'whiskey')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', 'cookie')->first()->id
+                'item_id' => Item::where('code', 'cookie')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', 'razor')->first()->id
+                'item_id' => Item::where('code', 'razor')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', 'butterfly_knife')->first()->id
+                'item_id' => Item::where('code', 'butterfly_knife')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', 'necklace')->first()->id
+                'item_id' => Item::where('code', 'necklace')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', 'primer')->first()->id
+                'item_id' => Item::where('code', 'item.primer')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', 'hanafuda')->first()->id
+                'item_id' => Item::where('code', 'hanafuda')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', 'playing_cards')->first()->id
+                'item_id' => Item::where('code', 'playing_cards')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', 'portable_console')->first()->id
+                'item_id' => Item::where('code', 'weapon.portable_console')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', 'soap')->first()->id
+                'item_id' => Item::where('code', 'soap')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', 'toothbrush')->first()->id
+                'item_id' => Item::where('code', 'toothbrush')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', 'hair_spray')->first()->id
+                'item_id' => Item::where('code', 'item.hair_spray')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', 'glasses')->first()->id
+                'item_id' => Item::where('code', 'glasses')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', 'lighter')->first()->id
+                'item_id' => Item::where('code', 'item.lighter')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', 'magazine')->first()->id
+                'item_id' => Item::where('code', 'magazine')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', 'tamagotchi')->first()->id
+                'item_id' => Item::where('code', 'tamagotchi')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('name', 'cd_player')->first()->id
+                'item_id' => Item::where('code', 'cd_player')->first()->id
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'crossbow')->first()->id
+                'item_id' => Item::where('code', 'weapon.crossbow')->first()->id
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'kitchen_knife')->first()->id
+                'item_id' => Item::where('code', 'kitchen_knife')->first()->id
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'hand_axe')->first()->id
+                'item_id' => Item::where('code', 'hand_axe')->first()->id
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'bulletproof_vest')->first()->id
+                'item_id' => Item::where('code', 'bulletproof_vest')->first()->id
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'remington_mk31')->first()->id,
+                'item_id' => Item::where('code', 'remington_mk31')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'knife')->first()->id,
+                'item_id' => Item::where('code', 'weapon.knife')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'dagger')->first()->id,
+                'item_id' => Item::where('code', 'dagger')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'mac_10')->first()->id,
+                'item_id' => Item::where('code', 'mac_10')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'temp_radar')->first()->id,
+                'item_id' => Item::where('code', 'temp_radar.temp_radar')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'fork')->first()->id,
+                'item_id' => Item::where('code', 'fork')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'metal_bet')->first()->id,
+                'item_id' => Item::where('code', 'metal_bet')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'derringer')->first()->id,
+                'item_id' => Item::where('code', 'derringer')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'military_knife')->first()->id,
+                'item_id' => Item::where('code', 'weapon.military_knife')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'shamisen_wire')->first()->id,
+                'item_id' => Item::where('code', 'shamisen_wire')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'walther_ppk')->first()->id,
+                'item_id' => Item::where('code', 'walther_ppk')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'm19_magnum')->first()->id,
+                'item_id' => Item::where('code', 'm19_magnum')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'beretta_m9')->first()->id,
+                'item_id' => Item::where('code', 'weapon.beretta_m9')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'm36_revolver')->first()->id,
+                'item_id' => Item::where('code', 'm36_revolver')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'python_magnum')->first()->id,
+                'item_id' => Item::where('code', 'python_magnum')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'dagger_knife')->first()->id,
+                'item_id' => Item::where('code', 'dagger_knife')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'browning_hipower')->first()->id,
+                'item_id' => Item::where('code', 'browning_hipower')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'divers_knife')->first()->id,
+                'item_id' => Item::where('code', 'divers_knife')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'dart')->first()->id,
+                'item_id' => Item::where('code', 'dart')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'grenade')->first()->id,
+                'item_id' => Item::where('code', 'grenade')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'm59_pistol')->first()->id,
+                'item_id' => Item::where('code', 'm59_pistol')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'baton')->first()->id,
+                'item_id' => Item::where('code', 'baton')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'm28_38special')->first()->id,
+                'item_id' => Item::where('code', 'm28_38special')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'sickle')->first()->id,
+                'item_id' => Item::where('code', 'weapon.sickle')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'ice_pick')->first()->id,
+                'item_id' => Item::where('code', 'ice_pick')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'nunchaku')->first()->id,
+                'item_id' => Item::where('code', 'nunchaku')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'boomerang')->first()->id,
+                'item_id' => Item::where('code', 'boomerang')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'cz_m75')->first()->id,
+                'item_id' => Item::where('code', 'cz_m75')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'uzi_9mm')->first()->id,
+                'item_id' => Item::where('code', 'uzi_9mm')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'p230_9mm')->first()->id,
+                'item_id' => Item::where('code', 'p230_9mm')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'm1911_45acp')->first()->id,
+                'item_id' => Item::where('code', 'm1911_45acp')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'katana')->first()->id,
+                'item_id' => Item::where('code', 'katana')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'hand_fan')->first()->id,
+                'item_id' => Item::where('code', 'hand_fan')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'rubber_basin')->first()->id,
+                'item_id' => Item::where('code', 'rubber_basin')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'slipper')->first()->id,
+                'item_id' => Item::where('code', 'armor_leg.slipper')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'blackboard_eraser')->first()->id,
+                'item_id' => Item::where('code', 'blackboard_eraser')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'chalk')->first()->id,
+                'item_id' => Item::where('code', 'chalk')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'baseball_bat')->first()->id,
+                'item_id' => Item::where('code', 'weapon.baseball_bat')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'knuckle')->first()->id,
+                'item_id' => Item::where('code', 'knuckle')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'toy_hammer')->first()->id,
+                'item_id' => Item::where('code', 'toy_hammer')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('name', 'poison')->first()->id,
+                'item_id' => Item::where('code', 'poison')->first()->id,
             ],
         ];
 

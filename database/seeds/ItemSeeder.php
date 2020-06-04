@@ -20,7 +20,8 @@ class ItemSeeder extends Seeder
         $items = [
             [
                 'type' => ItemType::Weapon,
-                'name' => 'bear_hands',
+                'name' => 'item.bear_hands',
+                'code' => 'weapon.bear_hands',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Fist]),
                 'point' => 0,
                 'endurance' => 0,
@@ -31,7 +32,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'crossbow',
+                'name' => 'item.crossbow',
+                'code' => 'weapon.crossbow',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Bow, AttackType::Melee]),
                 'point' => 20,
                 'endurance' => 0,
@@ -42,7 +44,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'kitchen_knife',
+                'name' => 'item.kitchen_knife',
+                'code' => 'weapon.kitchen_knife',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
                 'point' => 15,
                 'endurance' => 0,
@@ -53,7 +56,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'hand_axe',
+                'name' => 'item.hand_axe',
+                'code' => 'weapon.hand_axe',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut]),
                 'point' => 17,
                 'endurance' => 0,
@@ -64,7 +68,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'remington_mk31',
+                'name' => 'item.remington_mk31',
+                'code' => 'weapon.remington_mk31',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 28,
                 'endurance' => 0,
@@ -75,7 +80,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'knife',
+                'name' => 'item.knife',
+                'code' => 'weapon.knife',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
                 'point' => 17,
                 'endurance' => 0,
@@ -86,7 +92,8 @@ class ItemSeeder extends Seeder
             ],   
             [
                 'type' => ItemType::Weapon,
-                'name' => 'dagger',
+                'name' => 'item.dagger',
+                'code' => 'weapon.dagger',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
                 'point' => 15,
                 'endurance' => 0,
@@ -97,7 +104,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'mac_10',
+                'name' => 'item.mac_10',
+                'code' => 'weapon.mac_10',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 30,
                 'endurance' => 0,
@@ -108,7 +116,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'fork',
+                'name' => 'item.fork',
+                'code' => 'weapon.fork',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Stab]),
                 'point' => 7,
                 'endurance' => 0,
@@ -119,7 +128,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'metal_bet',
+                'name' => 'item.metal_bet',
+                'code' => 'weapon.metal_bet',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 15,
                 'endurance' => 0,
@@ -130,7 +140,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'derringer',
+                'name' => 'item.derringer',
+                'code' => 'weapon.derringer',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 20,
                 'endurance' => 0,
@@ -141,7 +152,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'military_knife',
+                'name' => 'item.military_knife',
+                'code' => 'weapon.military_knife',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab, AttackType::Throw]),
                 'point' => 20,
                 'endurance' => 1,
@@ -152,7 +164,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'walther_ppk',
+                'name' => 'item.walther_ppk',
+                'code' => 'weapon.walther_ppk',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 25,
                 'endurance' => 0,
@@ -163,7 +176,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'm19_magnum',
+                'name' => 'item.m19_magnum',
+                'code' => 'weapon.m19_magnum',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 26,
                 'endurance' => 0,
@@ -174,7 +188,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'beretta_m9',
+                'name' => 'item.beretta_m9',
+                'code' => 'weapon.beretta_m9',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 25,
                 'endurance' => 0,
@@ -185,7 +200,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'm36_revolver',
+                'name' => 'item.m36_revolver',
+                'code' => 'weapon.m36_revolver',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 23,
                 'endurance' => 0,
@@ -196,7 +212,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'python_magnum',
+                'name' => 'item.python_magnum',
+                'code' => 'weapon.python_magnum',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 27,
                 'endurance' => 0,
@@ -207,7 +224,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'dagger_knife',
+                'name' => 'item.dagger_knife',
+                'code' => 'weapon.dagger_knife',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
                 'point' => 20,
                 'endurance' => 0,
@@ -218,7 +236,8 @@ class ItemSeeder extends Seeder
             ],   
             [
                 'type' => ItemType::Weapon,
-                'name' => 'browning_hipower',
+                'name' => 'item.browning_hipower',
+                'code' => 'weapon.browning_hipower',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 26,
                 'endurance' => 0,
@@ -229,7 +248,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'divers_knife',
+                'name' => 'item.divers_knife',
+                'code' => 'weapon.divers_knife',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
                 'point' => 20,
                 'endurance' => 0,
@@ -240,7 +260,8 @@ class ItemSeeder extends Seeder
             ],     
             [
                 'type' => ItemType::Weapon,
-                'name' => 'dart',
+                'name' => 'item.dart',
+                'code' => 'weapon.dart',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 5,
                 'endurance' => 12,
@@ -251,7 +272,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'grenade',
+                'name' => 'item.grenade',
+                'code' => 'weapon.grenade',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Bomb]),
                 'point' => 40,
                 'endurance' => 2,
@@ -262,7 +284,8 @@ class ItemSeeder extends Seeder
             ],   
             [
                 'type' => ItemType::Weapon,
-                'name' => 'm59_pistol',
+                'name' => 'item.m59_pistol',
+                'code' => 'weapon.m59_pistol',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 24,
                 'endurance' => 0,
@@ -273,7 +296,8 @@ class ItemSeeder extends Seeder
             ],   
             [
                 'type' => ItemType::Weapon,
-                'name' => 'baton',
+                'name' => 'item.baton',
+                'code' => 'weapon.baton',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 13,
                 'endurance' => 0,
@@ -284,7 +308,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'm28_38special',
+                'name' => 'item.m28_38special',
+                'code' => 'weapon.m28_38special',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 24,
                 'endurance' => 0,
@@ -295,7 +320,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'sickle',
+                'name' => 'item.sickle',
+                'code' => 'weapon.sickle',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
                 'point' => 20,
                 'endurance' => 0,
@@ -306,7 +332,8 @@ class ItemSeeder extends Seeder
             ],      
             [
                 'type' => ItemType::Weapon,
-                'name' => 'ice_pick',
+                'name' => 'item.ice_pick',
+                'code' => 'weapon.ice_pick',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Stab]),
                 'point' => 8,
                 'endurance' => 0,
@@ -317,7 +344,8 @@ class ItemSeeder extends Seeder
             ],  
             [
                 'type' => ItemType::Weapon,
-                'name' => 'nunchaku',
+                'name' => 'item.nunchaku',
+                'code' => 'weapon.nunchaku',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 12,
                 'endurance' => 0,
@@ -328,7 +356,8 @@ class ItemSeeder extends Seeder
             ],   
             [
                 'type' => ItemType::Weapon,
-                'name' => 'boomerang',
+                'name' => 'item.boomerang',
+                'code' => 'weapon.boomerang',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 9,
                 'endurance' => 5,
@@ -339,7 +368,8 @@ class ItemSeeder extends Seeder
             ],       
             [
                 'type' => ItemType::Weapon,
-                'name' => 'cz_m75',
+                'name' => 'item.cz_m75',
+                'code' => 'weapon.cz_m75',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 25,
                 'endurance' => 0,
@@ -350,7 +380,8 @@ class ItemSeeder extends Seeder
             ],   
             [
                 'type' => ItemType::Weapon,
-                'name' => 'uzi_9mm',
+                'name' => 'item.uzi_9mm',
+                'code' => 'weapon.uzi_9mm',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 30,
                 'endurance' => 0,
@@ -361,7 +392,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'p230_9mm',
+                'name' => 'item.p230_9mm',
+                'code' => 'weapon.p230_9mm',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 26,
                 'endurance' => 0,
@@ -372,7 +404,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'm1911_45acp',
+                'name' => 'item.m1911_45acp',
+                'code' => 'weapon.m1911_45acp',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 25,
                 'endurance' => 0,
@@ -383,7 +416,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'katana',
+                'name' => 'item.katana',
+                'code' => 'weapon.katana',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
                 'point' => 25,
                 'endurance' => 0,
@@ -394,7 +428,8 @@ class ItemSeeder extends Seeder
             ],     
             [
                 'type' => ItemType::Weapon,
-                'name' => 'hand_fan',
+                'name' => 'item.hand_fan',
+                'code' => 'weapon.hand_fan',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 1,
                 'endurance' => 0,
@@ -405,7 +440,8 @@ class ItemSeeder extends Seeder
             ],      
             [
                 'type' => ItemType::Weapon,
-                'name' => 'rubber_basin',
+                'name' => 'item.rubber_basin',
+                'code' => 'weapon.rubber_basin',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 3,
                 'endurance' => 0,
@@ -416,7 +452,8 @@ class ItemSeeder extends Seeder
             ],      
             [
                 'type' => ItemType::Weapon,
-                'name' => 'slipper',
+                'name' => 'item.slipper',
+                'code' => 'weapon.slipper',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 2,
                 'endurance' => 0,
@@ -427,7 +464,8 @@ class ItemSeeder extends Seeder
             ],      
             [
                 'type' => ItemType::Weapon,
-                'name' => 'blackboard_eraser',
+                'name' => 'item.blackboard_eraser',
+                'code' => 'weapon.blackboard_eraser',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 2,
                 'endurance' => 1,
@@ -438,7 +476,8 @@ class ItemSeeder extends Seeder
             ],       
             [
                 'type' => ItemType::Weapon,
-                'name' => 'chalk',
+                'name' => 'item.chalk',
+                'code' => 'weapon.chalk',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 1,
                 'endurance' => 1,
@@ -449,7 +488,8 @@ class ItemSeeder extends Seeder
             ],       
             [
                 'type' => ItemType::Weapon,
-                'name' => 'baseball_bat',
+                'name' => 'item.baseball_bat',
+                'code' => 'weapon.baseball_bat',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 12,
                 'endurance' => 0,
@@ -460,7 +500,8 @@ class ItemSeeder extends Seeder
             ],      
             [
                 'type' => ItemType::Weapon,
-                'name' => 'knuckle',
+                'name' => 'item.knuckle',
+                'code' => 'weapon.knuckle',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Fist]),
                 'point' => 8,
                 'endurance' => 0,
@@ -471,7 +512,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'toy_hammer',
+                'name' => 'item.toy_hammer',
+                'code' => 'weapon.toy_hammer',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 1,
                 'endurance' => 0,
@@ -482,7 +524,8 @@ class ItemSeeder extends Seeder
             ],      
             [
                 'type' => ItemType::Weapon,
-                'name' => 'molotov_cocktail',
+                'name' => 'item.molotov_cocktail',
+                'code' => 'weapon.molotov_cocktail',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Bomb]),
                 'point' => 15,
                 'endurance' => 1,
@@ -493,7 +536,8 @@ class ItemSeeder extends Seeder
             ],   
             [
                 'type' => ItemType::Weapon,
-                'name' => 'bomb',
+                'name' => 'item.bomb',
+                'code' => 'weapon.bomb',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Bomb]),
                 'point' => 60,
                 'endurance' => 3,
@@ -504,7 +548,8 @@ class ItemSeeder extends Seeder
             ],   
             [
                 'type' => ItemType::Weapon,
-                'name' => 'temp_flamethrower',
+                'name' => 'item.temp_flamethrower',
+                'code' => 'weapon.temp_flamethrower',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Bomb]),
                 'point' => 10,
                 'endurance' => 8,
@@ -515,7 +560,8 @@ class ItemSeeder extends Seeder
             ],   
             [
                 'type' => ItemType::Weapon,
-                'name' => 'chain_sickle',
+                'name' => 'item.chain_sickle',
+                'code' => 'weapon.chain_sickle',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Melee]),
                 'point' => 22,
                 'endurance' => 0,
@@ -526,7 +572,8 @@ class ItemSeeder extends Seeder
             ],      
             [
                 'type' => ItemType::Weapon,
-                'name' => 'nailed_bat',
+                'name' => 'item.nailed_bat',
+                'code' => 'weapon.nailed_bat',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 20,
                 'endurance' => 0,
@@ -537,7 +584,8 @@ class ItemSeeder extends Seeder
             ],      
             [
                 'type' => ItemType::Weapon,
-                'name' => 'nailed_bamboo',
+                'name' => 'item.nailed_bamboo',
+                'code' => 'weapon.nailed_bamboo',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 13,
                 'endurance' => 0,
@@ -548,7 +596,8 @@ class ItemSeeder extends Seeder
             ],      
             [
                 'type' => ItemType::Weapon,
-                'name' => 'stone_axe',
+                'name' => 'item.stone_axe',
+                'code' => 'weapon.stone_axe',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 15,
                 'endurance' => 0,
@@ -559,7 +608,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'custom_knife',
+                'name' => 'item.custom_knife',
+                'code' => 'weapon.custom_knife',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
                 'point' => 20,
                 'endurance' => 0,
@@ -570,7 +620,8 @@ class ItemSeeder extends Seeder
             ],     
             [
                 'type' => ItemType::Weapon,
-                'name' => 'catapult',
+                'name' => 'item.catapult',
+                'code' => 'weapon.catapult',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Bow, AttackType::Melee]),
                 'point' => 25,
                 'endurance' => 0,
@@ -581,7 +632,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'bamboo_spear',
+                'name' => 'item.bamboo_spear',
+                'code' => 'weapon.bamboo_spear',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Stab]),
                 'point' => 20,
                 'endurance' => 0,
@@ -592,7 +644,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'crescent_blade',
+                'name' => 'item.crescent_blade',
+                'code' => 'weapon.crescent_blade',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Stab]),
                 'point' => 40,
                 'endurance' => 0,
@@ -603,7 +656,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'double_knife',
+                'name' => 'item.double_knife',
+                'code' => 'weapon.double_knife',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Stab]),
                 'point' => 35,
                 'endurance' => 0,
@@ -614,7 +668,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'dynamite',
+                'name' => 'item.dynamite',
+                'code' => 'weapon.dynamite',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Bomb]),
                 'point' => 30,
                 'endurance' => 8,
@@ -625,7 +680,8 @@ class ItemSeeder extends Seeder
             ],   
             [
                 'type' => ItemType::Weapon,
-                'name' => 'stones',
+                'name' => 'item.stones',
+                'code' => 'weapon.stones',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 15,
                 'endurance' => 5,
@@ -636,7 +692,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'cup',
+                'name' => 'item.cup',
+                'code' => 'weapon.cup',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 10,
                 'endurance' => 4,
@@ -647,7 +704,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'baseball_balls',
+                'name' => 'item.baseball_balls',
+                'code' => 'weapon.baseball_balls',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 20,
                 'endurance' => 30,
@@ -658,7 +716,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'glass_plate',
+                'name' => 'item.glass_plate',
+                'code' => 'weapon.glass_plate',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 10,
                 'endurance' => 4,
@@ -669,7 +728,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'television',
+                'name' => 'item.television',
+                'code' => 'weapon.television',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 20,
                 'endurance' => 1,
@@ -680,7 +740,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'dining_table',
+                'name' => 'item.dining_table',
+                'code' => 'weapon.dining_table',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 20,
                 'endurance' => 1,
@@ -691,7 +752,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'shelf',
+                'name' => 'item.shelf',
+                'code' => 'weapon.shelf',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 15,
                 'endurance' => 1,
@@ -702,7 +764,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'precious_sword',
+                'name' => 'item.precious_sword',
+                'code' => 'weapon.precious_sword',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
                 'point' => 20,
                 'endurance' => 0,
@@ -713,7 +776,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'empty_bottle',
+                'name' => 'item.empty_bottle',
+                'code' => 'weapon.empty_bottle',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 1,
                 'endurance' => 10,
@@ -724,7 +788,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'empty_can',
+                'name' => 'item.empty_can',
+                'code' => 'weapon.empty_can',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 2,
                 'endurance' => 10,
@@ -735,7 +800,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'glass_goblet',
+                'name' => 'item.glass_goblet',
+                'code' => 'weapon.glass_goblet',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 10,
                 'endurance' => 4,
@@ -746,7 +812,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'pot',
+                'name' => 'item.pot',
+                'code' => 'weapon.pot',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 10,
                 'endurance' => 4,
@@ -757,7 +824,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'chains',
+                'name' => 'item.chains',
+                'code' => 'weapon.chains',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 15,
                 'endurance' => 0,
@@ -768,7 +836,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'frying_pan',
+                'name' => 'item.frying_pan',
+                'code' => 'weapon.frying_pan',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 15,
                 'endurance' => 0,
@@ -779,7 +848,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'fire_axe',
+                'name' => 'item.fire_axe',
+                'code' => 'weapon.fire_axe',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut]),
                 'point' => 20,
                 'endurance' => 0,
@@ -790,7 +860,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'fire_extinguisher',
+                'name' => 'item.fire_extinguisher',
+                'code' => 'weapon.fire_extinguisher',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 12,
                 'endurance' => 0,
@@ -801,7 +872,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'quan_yin_bodhisattva_statue',
+                'name' => 'item.quan_yin_bodhisattva_statue',
+                'code' => 'weapon.quan_yin_bodhisattva_statue',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 5,
                 'endurance' => 0,
@@ -812,7 +884,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'yama_raja_statue',
+                'name' => 'item.yama_raja_statue',
+                'code' => 'weapon.yama_raja_statue',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 7,
                 'endurance' => 0,
@@ -823,7 +896,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'asura_statue',
+                'name' => 'item.asura_statue',
+                'code' => 'weapon.asura_statue',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 10,
                 'endurance' => 0,
@@ -834,7 +908,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'ksitigarbha_statue',
+                'name' => 'item.ksitigarbha_statue',
+                'code' => 'weapon.ksitigarbha_statue',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 8,
                 'endurance' => 0,
@@ -845,7 +920,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'bow',
+                'name' => 'item.bow',
+                'code' => 'weapon.bow',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Bow, AttackType::Melee]),
                 'point' => 20,
                 'endurance' => 0,
@@ -856,7 +932,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'pickaxe',
+                'name' => 'item.pickaxe',
+                'code' => 'weapon.pickaxe',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Stab]),
                 'point' => 15,
                 'endurance' => 0,
@@ -867,7 +944,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '스카프',
+                'name' => 'item.스카프',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
                 'point' => 10,
                 'endurance' => 0,
@@ -878,7 +955,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'sabre',
+                'name' => 'item.sabre',
+                'code' => 'weapon.sabre',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
                 'point' => 5,
                 'endurance' => 0,
@@ -889,7 +967,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'rocks',
+                'name' => 'item.rocks',
+                'code' => 'weapon.rocks',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 20,
                 'endurance' => 8,
@@ -900,7 +979,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'wooden_fish',
+                'name' => 'item.wooden_fish',
+                'code' => 'weapon.wooden_fish',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 1,
                 'endurance' => 1,
@@ -911,7 +991,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => '솔도파',
+                'name' => 'item.솔도파',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 4,
                 'endurance' => 0,
@@ -922,7 +1002,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'pencil',
+                'name' => 'item.pencil',
+                'code' => 'weapon.pencil',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Stab]),
                 'point' => 2,
                 'endurance' => 0,
@@ -933,7 +1014,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'eraser',
+                'name' => 'item.eraser',
+                'code' => 'weapon.eraser',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 1,
                 'endurance' => 1,
@@ -944,7 +1026,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'glass_flask',
+                'name' => 'item.glass_flask',
+                'code' => 'weapon.glass_flask',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 1,
                 'endurance' => 1,
@@ -955,7 +1038,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'mop',
+                'name' => 'item.mop',
+                'code' => 'weapon.mop',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 8,
                 'endurance' => 0,
@@ -966,7 +1050,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'white_chalk',
+                'name' => 'item.white_chalk',
+                'code' => 'weapon.white_chalk',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 2,
                 'endurance' => 1,
@@ -977,7 +1062,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'red_chalk',
+                'name' => 'item.red_chalk',
+                'code' => 'weapon.red_chalk',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 2,
                 'endurance' => 1,
@@ -988,7 +1074,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'yellow_chalk',
+                'name' => 'item.yellow_chalk',
+                'code' => 'weapon.yellow_chalk',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 2,
                 'endurance' => 1,
@@ -999,7 +1086,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'blue_chalk',
+                'name' => 'item.blue_chalk',
+                'code' => 'weapon.blue_chalk',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 2,
                 'endurance' => 1,
@@ -1010,7 +1098,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'human_body_model',
+                'name' => 'item.human_body_model',
+                'code' => 'weapon.human_body_model',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 3,
                 'endurance' => 0,
@@ -1021,7 +1110,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'giant_set_square',
+                'name' => 'item.giant_set_square',
+                'code' => 'weapon.giant_set_square',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 4,
                 'endurance' => 0,
@@ -1032,7 +1122,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'giant_compasses',
+                'name' => 'item.giant_compasses',
+                'code' => 'weapon.giant_compasses',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 8,
                 'endurance' => 0,
@@ -1043,7 +1134,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'chair',
+                'name' => 'item.chair',
+                'code' => 'weapon.chair',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 4,
                 'endurance' => 0,
@@ -1054,7 +1146,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'bamboo',
+                'name' => 'item.bamboo',
+                'code' => 'weapon.bamboo',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 6,
                 'endurance' => 0,
@@ -1065,7 +1158,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'wooden_sword',
+                'name' => 'item.wooden_sword',
+                'code' => 'weapon.wooden_sword',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
                 'point' => 12,
                 'endurance' => 0,
@@ -1076,7 +1170,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'firelock',
+                'name' => 'item.firelock',
+                'code' => 'weapon.firelock',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 20,
                 'endurance' => 0,
@@ -1087,7 +1182,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'masamune_great_sword',
+                'name' => 'item.masamune_great_sword',
+                'code' => 'weapon.masamune_great_sword',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
                 'point' => 23,
                 'endurance' => 0,
@@ -1098,7 +1194,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'japanese_bow',
+                'name' => 'item.japanese_bow',
+                'code' => 'weapon.japanese_bow',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Bow, AttackType::Melee]),
                 'point' => 18,
                 'endurance' => 0,
@@ -1109,7 +1206,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'soldering_iron',
+                'name' => 'item.soldering_iron',
+                'code' => 'weapon.soldering_iron',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Stab]),
                 'point' => 6,
                 'endurance' => 0,
@@ -1120,7 +1218,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'broken_laptop',
+                'name' => 'item.broken_laptop',
+                'code' => 'weapon.broken_laptop',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 10,
                 'endurance' => 1,
@@ -1131,7 +1230,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'shuriken',
+                'name' => 'item.shuriken',
+                'code' => 'weapon.shuriken',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 30,
                 'endurance' => 15,
@@ -1142,7 +1242,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'heavy_crossbow',
+                'name' => 'item.heavy_crossbow',
+                'code' => 'weapon.heavy_crossbow',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Bow, AttackType::Melee]),
                 'point' => 30,
                 'endurance' => 0,
@@ -1153,7 +1254,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'razor',
+                'name' => 'item.razor',
+                'code' => 'weapon.razor',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut]),
                 'point' => 5,
                 'endurance' => 0,
@@ -1164,7 +1266,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'butterfly_knife',
+                'name' => 'item.butterfly_knife',
+                'code' => 'weapon.butterfly_knife',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
                 'point' => 8,
                 'endurance' => 0,
@@ -1175,7 +1278,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'hanafuda',
+                'name' => 'item.hanafuda',
+                'code' => 'weapon.hanafuda',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 1,
                 'endurance' => 1,
@@ -1186,7 +1290,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'playing_cards',
+                'name' => 'item.playing_cards',
+                'code' => 'weapon.playing_cards',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 1,
                 'endurance' => 1,
@@ -1197,7 +1302,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'portable_console',
+                'name' => 'item.portable_console',
+                'code' => 'weapon.portable_console',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 2,
                 'endurance' => 0,
@@ -1208,7 +1314,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'soap',
+                'name' => 'item.soap',
+                'code' => 'weapon.soap',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 1,
                 'endurance' => 0,
@@ -1219,7 +1326,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'toothbrush',
+                'name' => 'item.toothbrush',
+                'code' => 'weapon.toothbrush',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
                 'point' => 1,
                 'endurance' => 0,
@@ -1230,7 +1338,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'masamune_magical_sword',
+                'name' => 'item.masamune_magical_sword',
+                'code' => 'weapon.masamune_magical_sword',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
                 'point' => 25,
                 'endurance' => 0,
@@ -1241,7 +1350,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'muramasa_magical_sword',
+                'name' => 'item.muramasa_magical_sword',
+                'code' => 'weapon.muramasa_magical_sword',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
                 'point' => 23,
                 'endurance' => 0,
@@ -1252,7 +1362,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'm16a2',
+                'name' => 'item.m16a2',
+                'code' => 'weapon.m16a2',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Shot, AttackType::Melee]),
                 'point' => 30,
                 'endurance' => 0,
@@ -1263,7 +1374,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorBody,
-                'name' => 'underwear',
+                'name' => 'item.underwear',
+                'code' => 'armor_body.underwear',
                 'attack_type' => AttackType::None,
                 'point' => 0,
                 'endurance' => 0,
@@ -1274,7 +1386,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorHead,
-                'name' => 'necklace',
+                'name' => 'item.necklace',
+                'code' => 'armor_head.necklace',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 5,
@@ -1285,7 +1398,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorHead,
-                'name' => 'hairpin',
+                'name' => 'item.hairpin',
+                'code' => 'armor_head.hairpin',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 2,
@@ -1296,7 +1410,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorHead,
-                'name' => 'glasses',
+                'name' => 'item.glasses',
+                'code' => 'armor_head.glasses',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -1307,7 +1422,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorAccessory,
-                'name' => 'magazine',
+                'name' => 'item.magazine',
+                'code' => 'armoraccessory.magazine',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 2,
@@ -1318,7 +1434,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorAccessory,
-                'name' => 'tamagotchi',
+                'name' => 'item.tamagotchi',
+                'code' => 'armoraccessory.tamagotchi',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 3,
@@ -1329,7 +1446,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorAccessory,
-                'name' => 'cd_player',
+                'name' => 'item.cd_player',
+                'code' => 'armoraccessory.cd_player',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 3,
@@ -1340,7 +1458,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorAccessory,
-                'name' => 'bulletproof_vest',
+                'name' => 'item.bulletproof_vest',
+                'code' => 'armoraccessory.bulletproof_vest',
                 'attack_type' => AttackType::None,
                 'point' => 5,
                 'endurance' => 10,
@@ -1351,7 +1470,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorLeg,
-                'name' => 'hiking_boots',
+                'name' => 'item.hiking_boots',
+                'code' => 'armor_leg.hiking_boots',
                 'attack_type' => AttackType::None,
                 'point' => 3,
                 'endurance' => 5,
@@ -1362,7 +1482,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorHead,
-                'name' => 'hiking_helmet',
+                'name' => 'item.hiking_helmet',
+                'code' => 'armor_head.hiking_helmet',
                 'attack_type' => AttackType::None,
                 'point' => 2,
                 'endurance' => 3,
@@ -1373,7 +1494,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorArm,
-                'name' => 'bracelet',
+                'name' => 'item.bracelet',
+                'code' => 'armor_arm.bracelet',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 2,
@@ -1384,7 +1506,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorArm,
-                'name' => 'fur_cuffs',
+                'name' => 'item.fur_cuffs',
+                'code' => 'armor_arm.fur_cuffs',
                 'attack_type' => AttackType::None,
                 'point' => 2,
                 'endurance' => 3,
@@ -1395,7 +1518,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorArm,
-                'name' => 'civil_defense_armbands',
+                'name' => 'item.civil_defense_armbands',
+                'code' => 'armor_arm.civil_defense_armbands',
                 'attack_type' => AttackType::None,
                 'point' => 2,
                 'endurance' => 3,
@@ -1406,7 +1530,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorArm,
-                'name' => 'rural_armbands',
+                'name' => 'item.rural_armbands',
+                'code' => 'armor_arm.rural_armbands',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 2,
@@ -1417,7 +1542,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorHead,
-                'name' => 'hairband',
+                'name' => 'item.hairband',
+                'code' => 'armor_head.hairband',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 3,
@@ -1428,7 +1554,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorBody,
-                'name' => 'fire_suit',
+                'name' => 'item.fire_suit',
+                'code' => 'armor_body.fire_suit',
                 'attack_type' => AttackType::None,
                 'point' => 10,
                 'endurance' => 20,
@@ -1439,7 +1566,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorHead,
-                'name' => 'fire_helmet',
+                'name' => 'item.fire_helmet',
+                'code' => 'armor_head.fire_helmet',
                 'attack_type' => AttackType::None,
                 'point' => 3,
                 'endurance' => 5,
@@ -1450,7 +1578,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorBody,
-                'name' => 'monk_cloth',
+                'name' => 'item.monk_cloth',
+                'code' => 'armor_body.monk_cloth',
                 'attack_type' => AttackType::None,
                 'point' => 8,
                 'endurance' => 20,
@@ -1461,7 +1590,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorBody,
-                'name' => 'shamen_cloth',
+                'name' => 'item.shamen_cloth',
+                'code' => 'armor_body.shamen_cloth',
                 'attack_type' => AttackType::None,
                 'point' => 8,
                 'endurance' => 15,
@@ -1472,7 +1602,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorLeg,
-                'name' => 'clog',
+                'name' => 'item.clog',
+                'code' => 'armor_leg.clog',
                 'attack_type' => AttackType::None,
                 'point' => 2,
                 'endurance' => 5,
@@ -1483,7 +1614,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorHead,
-                'name' => 'safety_helmet',
+                'name' => 'item.safety_helmet',
+                'code' => 'armor_head.safety_helmet',
                 'attack_type' => AttackType::None,
                 'point' => 4,
                 'endurance' => 5,
@@ -1494,7 +1626,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorBody,
-                'name' => 'boilersuit',
+                'name' => 'item.boilersuit',
+                'code' => 'armor_body.boilersuit',
                 'attack_type' => AttackType::None,
                 'point' => 8,
                 'endurance' => 10,
@@ -1505,7 +1638,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorHead,
-                'name' => 'motorcycle_helmet',
+                'name' => 'item.motorcycle_helmet',
+                'code' => 'armor_head.motorcycle_helmet',
                 'attack_type' => AttackType::None,
                 'point' => 4,
                 'endurance' => 10,
@@ -1516,7 +1650,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorHead,
-                'name' => 'ribbon',
+                'name' => 'item.ribbon',
+                'code' => 'armor_head.ribbon',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 2,
@@ -1527,7 +1662,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorLeg,
-                'name' => 'running_shoes',
+                'name' => 'item.running_shoes',
+                'code' => 'armor_leg.running_shoes',
                 'attack_type' => AttackType::None,
                 'point' => 3,
                 'endurance' => 5,
@@ -1538,7 +1674,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorArm,
-                'name' => 'duty_student_armband',
+                'name' => 'item.duty_student_armband',
+                'code' => 'armor_arm.duty_student_armband',
                 'attack_type' => AttackType::None,
                 'point' => 3,
                 'endurance' => 3,
@@ -1549,7 +1686,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorArm,
-                'name' => 'cuffs',
+                'name' => 'item.cuffs',
+                'code' => 'armor_arm.cuffs',
                 'attack_type' => AttackType::None,
                 'point' => 2,
                 'endurance' => 20,
@@ -1560,7 +1698,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorLeg,
-                'name' => 'indoor_shoes',
+                'name' => 'item.indoor_shoes',
+                'code' => 'armor_leg.indoor_shoes',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 2,
@@ -1571,7 +1710,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorHead,
-                'name' => 'rusty_helmet',
+                'name' => 'item.rusty_helmet',
+                'code' => 'armor_head.rusty_helmet',
                 'attack_type' => AttackType::None,
                 'point' => 4,
                 'endurance' => 3,
@@ -1582,7 +1722,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorBody,
-                'name' => 'white_clothes',
+                'name' => 'item.white_clothes',
+                'code' => 'armor_body.white_clothes',
                 'attack_type' => AttackType::None,
                 'point' => 10,
                 'endurance' => 5,
@@ -1593,7 +1734,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorLeg,
-                'name' => 'rainboots',
+                'name' => 'item.rainboots',
+                'code' => 'armor_leg.rainboots',
                 'attack_type' => AttackType::None,
                 'point' => 4,
                 'endurance' => 5,
@@ -1604,7 +1746,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorBody,
-                'name' => 'armor',
+                'name' => 'item.armor',
+                'code' => 'armor_body.armor',
                 'attack_type' => AttackType::None,
                 'point' => 12,
                 'endurance' => 20,
@@ -1615,7 +1758,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorBody,
-                'name' => 'chainmail_armor',
+                'name' => 'item.chainmail_armor',
+                'code' => 'armor_body.chainmail_armor',
                 'attack_type' => AttackType::None,
                 'point' => 12,
                 'endurance' => 20,
@@ -1626,7 +1770,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorHead,
-                'name' => 'combat_helmet',
+                'name' => 'item.combat_helmet',
+                'code' => 'armor_head.combat_helmet',
                 'attack_type' => AttackType::None,
                 'point' => 5,
                 'endurance' => 10,
@@ -1637,7 +1782,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorBody,
-                'name' => 'precious_armor',
+                'name' => 'item.precious_armor',
+                'code' => 'armor_body.precious_armor',
                 'attack_type' => AttackType::None,
                 'point' => 14,
                 'endurance' => 20,
@@ -1648,7 +1794,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorLeg,
-                'name' => 'rubber_shoes',
+                'name' => 'item.rubber_shoes',
+                'code' => 'armor_leg.rubber_shoes',
                 'attack_type' => AttackType::None,
                 'point' => 2,
                 'endurance' => 4,
@@ -1659,7 +1806,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorLeg,
-                'name' => 'high_heel',
+                'name' => 'item.high_heel',
+                'code' => 'armor_leg.high_heel',
                 'attack_type' => AttackType::None,
                 'point' => 3,
                 'endurance' => 3,
@@ -1670,7 +1818,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorLeg,
-                'name' => 'military_boots',
+                'name' => 'item.military_boots',
+                'code' => 'armor_leg.military_boots',
                 'attack_type' => AttackType::None,
                 'point' => 5,
                 'endurance' => 5,
@@ -1681,7 +1830,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorHead,
-                'name' => 'military_helmet',
+                'name' => 'item.military_helmet',
+                'code' => 'armor_head.military_helmet',
                 'attack_type' => AttackType::None,
                 'point' => 5,
                 'endurance' => 5,
@@ -1692,7 +1842,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorArm,
-                'name' => 'drill_surgent_armband',
+                'name' => 'item.drill_surgent_armband',
+                'code' => 'armor_arm.drill_surgent_armband',
                 'attack_type' => AttackType::None,
                 'point' => 5,
                 'endurance' => 5,
@@ -1703,7 +1854,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorArm,
-                'name' => 'mp_armband',
+                'name' => 'item.mp_armband',
+                'code' => 'armor_arm.mp_armband',
                 'attack_type' => AttackType::None,
                 'point' => 4,
                 'endurance' => 5,
@@ -1714,7 +1866,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorBody,
-                'name' => 'military_uniform',
+                'name' => 'item.military_uniform',
+                'code' => 'armor_body.military_uniform',
                 'attack_type' => AttackType::None,
                 'point' => 12,
                 'endurance' => 40,
@@ -1725,7 +1878,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorBody,
-                'name' => 'school_uniform',
+                'name' => 'item.school_uniform',
+                'code' => 'armor_body.school_uniform',
                 'attack_type' => AttackType::None,
                 'point' => 5,
                 'endurance' => 30,
@@ -1736,7 +1890,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorBody,
-                'name' => 'women_school_uniform',
+                'name' => 'item.women_school_uniform',
+                'code' => 'armor_body.women_school_uniform',
                 'attack_type' => AttackType::None,
                 'point' => 5,
                 'endurance' => 30,
@@ -1747,7 +1902,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorBody,
-                'name' => 'gym_suit',
+                'name' => 'item.gym_suit',
+                'code' => 'armor_body.gym_suit',
                 'attack_type' => AttackType::None,
                 'point' => 5,
                 'endurance' => 30,
@@ -1758,7 +1914,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorLeg,
-                'name' => 'slipper',
+                'name' => 'item.slipper',
+                'code' => 'armor_leg.slipper',
                 'attack_type' => AttackType::None,
                 'point' => 3,
                 'endurance' => 10,
@@ -1769,7 +1926,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => 'mild_seven_cigarettes',
+                'name' => 'item.mild_seven_cigarettes',
+                'code' => 'potion_stamina.mild_seven_cigarettes',
                 'attack_type' => AttackType::None,
                 'point' => 40,
                 'endurance' => 1,
@@ -1780,7 +1938,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => 'chocolate',
+                'name' => 'item.chocolate',
+                'code' => 'potion_stamina.chocolate',
                 'attack_type' => AttackType::None,
                 'point' => 40,
                 'endurance' => 1,
@@ -1791,7 +1950,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => 'cookie',
+                'name' => 'item.cookie',
+                'code' => 'potion_stamina.cookie',
                 'attack_type' => AttackType::None,
                 'point' => 40,
                 'endurance' => 1,
@@ -1802,7 +1962,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => 'sweet_potato',
+                'name' => 'item.sweet_potato',
+                'code' => 'potion_stamina.sweet_potato',
                 'attack_type' => AttackType::None,
                 'point' => 40,
                 'endurance' => 1,
@@ -1813,7 +1974,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => 'yam',
+                'name' => 'item.yam',
+                'code' => 'potion_stamina.yam',
                 'attack_type' => AttackType::None,
                 'point' => 20,
                 'endurance' => 1,
@@ -1824,7 +1986,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => 'potato',
+                'name' => 'item.potato',
+                'code' => 'potion_stamina.potato',
                 'attack_type' => AttackType::None,
                 'point' => 40,
                 'endurance' => 1,
@@ -1835,7 +1998,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => 'burdock',
+                'name' => 'item.burdock',
+                'code' => 'potion_stamina.burdock',
                 'attack_type' => AttackType::None,
                 'point' => 40,
                 'endurance' => 1,
@@ -1846,7 +2010,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => 'carrot',
+                'name' => 'item.carrot',
+                'code' => 'potion_stamina.carrot',
                 'attack_type' => AttackType::None,
                 'point' => 40,
                 'endurance' => 1,
@@ -1857,7 +2022,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => 'onion',
+                'name' => 'item.onion',
+                'code' => 'potion_stamina.onion',
                 'attack_type' => AttackType::None,
                 'point' => 40,
                 'endurance' => 1,
@@ -1868,7 +2034,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => 'garlic',
+                'name' => 'item.garlic',
+                'code' => 'potion_stamina.garlic',
                 'attack_type' => AttackType::None,
                 'point' => 40,
                 'endurance' => 1,
@@ -1879,7 +2046,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => 'ginger',
+                'name' => 'item.ginger',
+                'code' => 'potion_stamina.ginger',
                 'attack_type' => AttackType::None,
                 'point' => 40,
                 'endurance' => 1,
@@ -1890,7 +2058,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => 'curry_powder',
+                'name' => 'item.curry_powder',
+                'code' => 'potion_stamina.curry_powder',
                 'attack_type' => AttackType::None,
                 'point' => 20,
                 'endurance' => 1,
@@ -1901,7 +2070,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => 'soy_source',
+                'name' => 'item.soy_source',
+                'code' => 'potion_stamina.soy_source',
                 'attack_type' => AttackType::None,
                 'point' => 20,
                 'endurance' => 1,
@@ -1912,7 +2082,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => 'source',
+                'name' => 'item.source',
+                'code' => 'potion_stamina.source',
                 'attack_type' => AttackType::None,
                 'point' => 20,
                 'endurance' => 1,
@@ -1923,7 +2094,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => 'energy_drink',
+                'name' => 'item.energy_drink',
+                'code' => 'potion_stamina.energy_drink',
                 'attack_type' => AttackType::None,
                 'point' => 100,
                 'endurance' => 1,
@@ -1934,7 +2106,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => 'stew',
+                'name' => 'item.stew',
+                'code' => 'potion_stamina.stew',
                 'attack_type' => AttackType::None,
                 'point' => 50,
                 'endurance' => 1,
@@ -1945,7 +2118,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => 'bread',
+                'name' => 'item.bread',
+                'code' => 'potion_stamina.bread',
                 'attack_type' => AttackType::None,
                 'point' => 40,
                 'endurance' => 2,
@@ -1956,7 +2130,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionStamina,
-                'name' => 'hardtack',
+                'name' => 'item.hardtack',
+                'code' => 'potion_stamina.hardtack',
                 'attack_type' => AttackType::None,
                 'point' => 40,
                 'endurance' => 2,
@@ -1967,7 +2142,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionHealth,
-                'name' => 'whiskey',
+                'name' => 'item.whiskey',
+                'code' => 'potion_health.whiskey',
                 'attack_type' => AttackType::None,
                 'point' => 20,
                 'endurance' => 1,
@@ -1978,7 +2154,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionHealth,
-                'name' => 'water',
+                'name' => 'item.water',
+                'code' => 'potion_health.water',
                 'attack_type' => AttackType::None,
                 'point' => 20,
                 'endurance' => 1,
@@ -1989,7 +2166,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionHealth,
-                'name' => 'pill',
+                'name' => 'item.pill',
+                'code' => 'potion_health.pill',
                 'attack_type' => AttackType::None,
                 'point' => 40,
                 'endurance' => 1,
@@ -2000,7 +2178,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionHealth,
-                'name' => 'powder_juice',
+                'name' => 'item.powder_juice',
+                'code' => 'potion_health.powder_juice',
                 'attack_type' => AttackType::None,
                 'point' => 30,
                 'endurance' => 1,
@@ -2011,7 +2190,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::PotionHealth,
-                'name' => 'first_aid',
+                'name' => 'item.first_aid',
+                'code' => 'potion_health.first_aid',
                 'attack_type' => AttackType::None,
                 'point' => 50,
                 'endurance' => 3,
@@ -2022,7 +2202,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Trap,
-                'name' => 'mousetrap',
+                'name' => 'item.mousetrap',
+                'code' => 'trap.mousetrap',
                 'attack_type' => AttackType::None,
                 'point' => 10,
                 'endurance' => 1,
@@ -2033,7 +2214,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Trap,
-                'name' => 'mine',
+                'name' => 'item.mine',
+                'code' => 'trap.mine',
                 'attack_type' => AttackType::None,
                 'point' => 8,
                 'endurance' => 1,
@@ -2044,7 +2226,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Trap,
-                'name' => 'piano_wire',
+                'name' => 'item.piano_wire',
+                'code' => 'trap.piano_wire',
                 'attack_type' => AttackType::None,
                 'point' => 8,
                 'endurance' => 1,
@@ -2055,7 +2238,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Trap,
-                'name' => 'enchanted_mine',
+                'name' => 'item.enchanted_mine',
+                'code' => 'trap.enchanted_mine',
                 'attack_type' => AttackType::None,
                 'point' => 20,
                 'endurance' => 1,
@@ -2066,7 +2250,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Phone,
-                'name' => 'phone',
+                'name' => 'item.phone',
+                'code' => 'phone.phone',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2077,7 +2262,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Item,
-                'name' => 'primer',
+                'name' => 'item.primer',
+                'code' => 'item.primer',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2088,7 +2274,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Item,
-                'name' => 'fireworks',
+                'name' => 'item.fireworks',
+                'code' => 'item.fireworks',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2099,7 +2286,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Item,
-                'name' => 'hair_spray',
+                'name' => 'item.hair_spray',
+                'code' => 'item.hair_spray',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2110,7 +2298,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Item,
-                'name' => 'lighter',
+                'name' => 'item.lighter',
+                'code' => 'item.lighter',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2121,7 +2310,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::TempRadar,
-                'name' => 'temp_radar',
+                'name' => 'item.temp_radar',
+                'code' => 'temp_radar.temp_radar',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2132,7 +2322,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Item,
-                'name' => 'shamisen_wire',
+                'name' => 'item.shamisen_wire',
+                'code' => 'item.shamisen_wire',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2143,7 +2334,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Poison,
-                'name' => 'poison',
+                'name' => 'item.poison',
+                'code' => 'poison.poison',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2154,7 +2346,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Ammo,
-                'name' => '12gauge_shell',
+                'name' => 'item.12gauge_shell',
+                'code' => 'ammo.12gauge_shell',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 24,
@@ -2165,7 +2358,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Ammo,
-                'name' => '9mm_ammo',
+                'name' => 'item.9mm_ammo',
+                'code' => 'ammo.9mm_ammo',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 24,
@@ -2176,7 +2370,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Ammo,
-                'name' => '22lr_ammo',
+                'name' => 'item.22lr_ammo',
+                'code' => 'ammo.22lr_ammo',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 24,
@@ -2187,7 +2382,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Ammo,
-                'name' => '357mag_ammo',
+                'name' => 'item.357mag_ammo',
+                'code' => 'ammo.357mag_ammo',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 24,
@@ -2198,7 +2394,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Ammo,
-                'name' => 'musket_ball',
+                'name' => 'item.musket_ball',
+                'code' => 'ammo.musket_ball',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 24,
@@ -2209,7 +2406,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Ammo,
-                'name' => '38sp_ammo',
+                'name' => 'item.38sp_ammo',
+                'code' => 'ammo.38sp_ammo',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 24,
@@ -2220,7 +2418,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Ammo,
-                'name' => '45acp_ammo',
+                'name' => 'item.45acp_ammo',
+                'code' => 'ammo.45acp_ammo',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 24,
@@ -2231,7 +2430,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Ammo,
-                'name' => 'arrow',
+                'name' => 'item.arrow',
+                'code' => 'ammo.arrow',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 12,
@@ -2242,7 +2442,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::ArmorRefine,
-                'name' => 'sewing_tools',
+                'name' => 'item.sewing_tools',
+                'code' => 'armor_refine.sewing_tools',
                 'attack_type' => AttackType::None,
                 'point' => 3,
                 'endurance' => 1,
@@ -2253,7 +2454,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::WeaponRefine,
-                'name' => 'whetstone',
+                'name' => 'item.whetstone',
+                'code' => 'weapon_refine.whetstone',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2264,7 +2466,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Item,
-                'name' => 'gasoline',
+                'name' => 'item.gasoline',
+                'code' => 'item.gasoline',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2275,7 +2478,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Item,
-                'name' => 'disel',
+                'name' => 'item.disel',
+                'code' => 'item.disel',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2286,7 +2490,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Item,
-                'name' => 'fertilizer',
+                'name' => 'item.fertilizer',
+                'code' => 'item.fertilizer',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2297,7 +2502,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Speaker,
-                'name' => 'loud_speaker',
+                'name' => 'item.loud_speaker',
+                'code' => 'speaker.loud_speaker',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2308,7 +2514,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Item,
-                'name' => 'battery',
+                'name' => 'item.battery',
+                'code' => 'item.battery',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2319,7 +2526,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Item,
-                'name' => 'nail',
+                'name' => 'item.nail',
+                'code' => 'item.nail',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2330,7 +2538,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Item,
-                'name' => 'fuze',
+                'name' => 'item.fuze',
+                'code' => 'item.fuze',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2341,7 +2550,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Radar,
-                'name' => 'radar',
+                'name' => 'item.radar',
+                'code' => 'radar.radar',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2352,7 +2562,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Item,
-                'name' => 'gunpowder',
+                'name' => 'item.gunpowder',
+                'code' => 'item.gunpowder',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2363,7 +2574,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Item,
-                'name' => 'laptop',
+                'name' => 'item.laptop',
+                'code' => 'item.laptop',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2373,8 +2585,9 @@ class ItemSeeder extends Seeder
                 'armor_material' => ArmorMaterial::None
             ],
             [
-                'type' => ItemType::MobilePc,
-                'name' => 'portable_pc',
+                'type' => ItemType::PortablePc,
+                'name' => 'item.portable_pc',
+                'code' => 'portable_pc.portable_pc',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 0,
@@ -2385,7 +2598,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Item,
-                'name' => 'shaft',
+                'name' => 'item.shaft',
+                'code' => 'item.shaft',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
@@ -2396,7 +2610,8 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Program,
-                'name' => 'program_key',
+                'name' => 'item.program_key',
+                'code' => 'program.program_key',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,

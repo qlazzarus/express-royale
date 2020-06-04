@@ -25,6 +25,6 @@ final class ItemType extends Enum
     const Speaker = 17;
     const Battery = 18;
     const Radar = 19;
-    const MobilePc = 20;
+    const PortablePc = 20;
     const Program = 21;
 }

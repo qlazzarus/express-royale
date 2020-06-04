@@ -14,67 +14,67 @@ class ClubSeeder extends Seeder
         //
         $items = [
             [
-                'name' => '궁도부',
+                'name' => 'club.archery',
                 'skill_shot_multiplier' => 0.5,
                 'skill_bow_multiplier' => 2,
             ],
             [
-                'name' => '사격부',
+                'name' => 'club.shooting',
                 'skill_shot_multiplier' => 2,
                 'skill_bow_multiplier' => 0.5,
             ],
             [
-                'name' => '검도부',
+                'name' => 'club.kendo',
                 'skill_cut_multiplier' => 2,
                 'skill_stab_multiplier' => 0.5,
                 'skill_melee_multiplier' => 0.25
             ],
             [
-                'name' => '펜싱부',
+                'name' => 'club.fencing',
                 'skill_stab_multiplier' => 2
             ],
             [
-                'name' => '공수도부',
+                'name' => 'club.karate',
                 'skill_melee_multiplier' => 2
             ],
             [
-                'name' => '복싱부',
+                'name' => 'club.boxing',
                 'skill_melee_multiplier' => 2
             ],
             [
-                'name' => '농구부',
+                'name' => 'club.basketball',
                 'skill_throw_multiplier' => 2,
                 'skill_bomb_multiplier' => 0.25
             ],
             [
-                'name' => '배구부',
+                'name' => 'club.volleyball',
                 'skill_throw_multiplier' => 2,
                 'skill_bomb_multiplier' => 0.25
             ],
             [
-                'name' => '야구부',
+                'name' => 'club.baseball',
                 'skill_melee_multiplier' => 2,
                 'skill_throw_multiplier' => 0.5,
                 'skill_bomb_multiplier' => 0.25
             ],
             [
-                'name' => '화학부',
+                'name' => 'club.chemical',
                 'skill_bomb_multiplier' => 2
             ],
             [
-                'name' => '육상부',
+                'name' => 'club.athletic',
                 'is_reduce_stamina' => true,
             ],
             [
-                'name' => '연극부',
+                'name' => 'club.dramatic',
                 'is_random_skill' => true,
             ],
             [
-                'name' => '컴퓨터부',
+                'name' => 'club.computer',
                 'is_hack_possible' => true,
             ],
             [
-                'name' => '요리부',
+                'name' => 'club.cooking',
                 'is_detect_poison' => true,
                 'skill_cut_multiplier' => 0.5,
             ],

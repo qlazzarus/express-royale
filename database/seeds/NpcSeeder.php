@@ -44,43 +44,43 @@ class NpcSeeder extends Seeder
                 'items' => [
                     [
                         'type' => EquipSlot::Weapon,
-                        'item_id' => Item::where('name', 'beretta_m9')->first()->id,
+                        'item_id' => Item::where('code', 'weapon.beretta_m9')->first()->id,
                         'endurance' => 150,
                         'point' => 23
                     ],
                     [
                         'type' => EquipSlot::ArmorBody,
-                        'item_id' => Item::where('name', 'gym_suit')->first()->id,
+                        'item_id' => Item::where('code', 'armor_body.gym_suit')->first()->id,
                         'endurance' => 30,
                         'point' => 5
                     ],
                     [
                         'type' => EquipSlot::ArmorLeg,
-                        'item_id' => Item::where('name', 'slipper')->first()->id,
+                        'item_id' => Item::where('code', 'armor_leg.slipper')->first()->id,
                         'endurance' => 10,
                         'point' => 3
                     ],
                     [
                         'type' => EquipSlot::Inventory0,
-                        'item_id' => Item::where('name', 'program_key')->first()->id,
+                        'item_id' => Item::where('code', 'program.program_key')->first()->id,
                         'endurance' => 1,
                         'point' => 1
                     ],
                     [
                         'type' => EquipSlot::Inventory1,
-                        'item_id' => Item::where('name', 'loud_speaker')->first()->id,
+                        'item_id' => Item::where('code', 'speaker.loud_speaker')->first()->id,
                         'endurance' => 1,
                         'point' => 1
                     ],
                     [
                         'type' => EquipSlot::Inventory2,
-                        'item_id' => Item::where('name', 'first_aid')->first()->id,
+                        'item_id' => Item::where('code', 'potion_health.first_aid')->first()->id,
                         'endurance' => 3,
                         'point' => 50
                     ],
                     [
                         'type' => EquipSlot::Inventory3,
-                        'item_id' => Item::where('name', 'military_knife')->first()->id,
+                        'item_id' => Item::where('code', 'weapon.military_knife')->first()->id,
                         'endurance' => 1,
                         'point' => 17
                     ],
@@ -113,37 +113,37 @@ class NpcSeeder extends Seeder
                 'items' => [
                     [
                         'type' => EquipSlot::Weapon,
-                        'item_id' => Item::where('name', 'm16a2')->first()->id,
+                        'item_id' => Item::where('code', 'weapon.m16a2')->first()->id,
                         'endurance' => 300,
                         'point' => 30
                     ],
                     [
                         'type' => EquipSlot::ArmorHead,
-                        'item_id' => Item::where('name', 'military_helmet')->first()->id,
+                        'item_id' => Item::where('code', 'armor_head.military_helmet')->first()->id,
                         'endurance' => 30,
                         'point' => 5
                     ],
                     [
                         'type' => EquipSlot::ArmorBody,
-                        'item_id' => Item::where('name', 'military_uniform')->first()->id,
+                        'item_id' => Item::where('code', 'armor_body.military_uniform')->first()->id,
                         'endurance' => 20,
                         'point' => 6
                     ],
                     [
                         'type' => EquipSlot::ArmorLeg,
-                        'item_id' => Item::where('name', 'military_boots')->first()->id,
+                        'item_id' => Item::where('code', 'armor_leg.military_boots')->first()->id,
                         'endurance' => 20,
                         'point' => 6
                     ],
                     [
                         'type' => EquipSlot::Inventory0,
-                        'item_id' => Item::where('name', 'hardtack')->first()->id,
+                        'item_id' => Item::where('code', 'potion_stamina.hardtack')->first()->id,
                         'endurance' => 2,
                         'point' => 20
                     ],
                     [
                         'type' => EquipSlot::Inventory1,
-                        'item_id' => Item::where('name', 'military_knife')->first()->id,
+                        'item_id' => Item::where('code', 'weapon.military_knife')->first()->id,
                         'endurance' => 1,
                         'point' => 17
                     ]
