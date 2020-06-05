@@ -22,31 +22,31 @@ class SupplyItemSeeder extends Seeder
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('code', 'mild_seven_cigarettes')->first()->id
+                'item_id' => Item::where('code', 'potion_stamina.mild_seven_cigarettes')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('code', 'chocolate')->first()->id
+                'item_id' => Item::where('code', 'potion_stamina.chocolate')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('code', 'whiskey')->first()->id
+                'item_id' => Item::where('code', 'potion_health.whiskey')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('code', 'cookie')->first()->id
+                'item_id' => Item::where('code', 'potion_stamina.cookie')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('code', 'razor')->first()->id
+                'item_id' => Item::where('code', 'weapon.razor')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('code', 'butterfly_knife')->first()->id
+                'item_id' => Item::where('code', 'weapon.butterfly_knife')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('code', 'necklace')->first()->id
+                'item_id' => Item::where('code', 'armor_head.necklace')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
@@ -54,11 +54,11 @@ class SupplyItemSeeder extends Seeder
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('code', 'hanafuda')->first()->id
+                'item_id' => Item::where('code', 'weapon.hanafuda')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('code', 'playing_cards')->first()->id
+                'item_id' => Item::where('code', 'weapon.playing_cards')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
@@ -66,11 +66,11 @@ class SupplyItemSeeder extends Seeder
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('code', 'soap')->first()->id
+                'item_id' => Item::where('code', 'weapon.soap')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('code', 'toothbrush')->first()->id
+                'item_id' => Item::where('code', 'weapon.toothbrush')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
@@ -78,7 +78,7 @@ class SupplyItemSeeder extends Seeder
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('code', 'glasses')->first()->id
+                'item_id' => Item::where('code', 'armor_head.glasses')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
@@ -86,15 +86,15 @@ class SupplyItemSeeder extends Seeder
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('code', 'magazine')->first()->id
+                'item_id' => Item::where('code', 'armor_accessory.magazine')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('code', 'tamagotchi')->first()->id
+                'item_id' => Item::where('code', 'armor_accessory.tamagotchi')->first()->id
             ],
             [
                 'type' => SupplyType::Personal,
-                'item_id' => Item::where('code', 'cd_player')->first()->id
+                'item_id' => Item::where('code', 'armor_accessory.cd_player')->first()->id
             ],
             [
                 'type' => SupplyType::Goverment,
@@ -102,19 +102,19 @@ class SupplyItemSeeder extends Seeder
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'kitchen_knife')->first()->id
+                'item_id' => Item::where('code', 'weapon.kitchen_knife')->first()->id
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'hand_axe')->first()->id
+                'item_id' => Item::where('code', 'weapon.hand_axe')->first()->id
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'bulletproof_vest')->first()->id
+                'item_id' => Item::where('code', 'armor_accessory.bulletproof_vest')->first()->id
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'remington_mk31')->first()->id,
+                'item_id' => Item::where('code', 'weapon.remington_mk31')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
@@ -122,11 +122,11 @@ class SupplyItemSeeder extends Seeder
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'dagger')->first()->id,
+                'item_id' => Item::where('code', 'weapon.dagger')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'mac_10')->first()->id,
+                'item_id' => Item::where('code', 'weapon.mac_10')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
@@ -134,15 +134,15 @@ class SupplyItemSeeder extends Seeder
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'fork')->first()->id,
+                'item_id' => Item::where('code', 'weapon.fork')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'metal_bet')->first()->id,
+                'item_id' => Item::where('code', 'weapon.metal_bet')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'derringer')->first()->id,
+                'item_id' => Item::where('code', 'weapon.derringer')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
@@ -150,15 +150,15 @@ class SupplyItemSeeder extends Seeder
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'shamisen_wire')->first()->id,
+                'item_id' => Item::where('code', 'item.shamisen_wire')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'walther_ppk')->first()->id,
+                'item_id' => Item::where('code', 'weapon.walther_ppk')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'm19_magnum')->first()->id,
+                'item_id' => Item::where('code', 'weapon.m19_magnum')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
@@ -166,43 +166,43 @@ class SupplyItemSeeder extends Seeder
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'm36_revolver')->first()->id,
+                'item_id' => Item::where('code', 'weapon.m36_revolver')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'python_magnum')->first()->id,
+                'item_id' => Item::where('code', 'weapon.python_magnum')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'dagger_knife')->first()->id,
+                'item_id' => Item::where('code', 'weapon.dagger_knife')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'browning_hipower')->first()->id,
+                'item_id' => Item::where('code', 'weapon.browning_hipower')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'divers_knife')->first()->id,
+                'item_id' => Item::where('code', 'weapon.divers_knife')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'dart')->first()->id,
+                'item_id' => Item::where('code', 'weapon.dart')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'grenade')->first()->id,
+                'item_id' => Item::where('code', 'weapon.grenade')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'm59_pistol')->first()->id,
+                'item_id' => Item::where('code', 'weapon.m59_pistol')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'baton')->first()->id,
+                'item_id' => Item::where('code', 'weapon.baton')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'm28_38special')->first()->id,
+                'item_id' => Item::where('code', 'weapon.m28_38special')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
@@ -210,43 +210,43 @@ class SupplyItemSeeder extends Seeder
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'ice_pick')->first()->id,
+                'item_id' => Item::where('code', 'weapon.ice_pick')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'nunchaku')->first()->id,
+                'item_id' => Item::where('code', 'weapon.nunchaku')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'boomerang')->first()->id,
+                'item_id' => Item::where('code', 'weapon.boomerang')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'cz_m75')->first()->id,
+                'item_id' => Item::where('code', 'weapon.cz_m75')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'uzi_9mm')->first()->id,
+                'item_id' => Item::where('code', 'weapon.uzi_9mm')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'p230_9mm')->first()->id,
+                'item_id' => Item::where('code', 'weapon.p230_9mm')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'm1911_45acp')->first()->id,
+                'item_id' => Item::where('code', 'weapon.m1911_45acp')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'katana')->first()->id,
+                'item_id' => Item::where('code', 'weapon.katana')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'hand_fan')->first()->id,
+                'item_id' => Item::where('code', 'weapon.hand_fan')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'rubber_basin')->first()->id,
+                'item_id' => Item::where('code', 'weapon.rubber_basin')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
@@ -254,11 +254,11 @@ class SupplyItemSeeder extends Seeder
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'blackboard_eraser')->first()->id,
+                'item_id' => Item::where('code', 'weapon.blackboard_eraser')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'chalk')->first()->id,
+                'item_id' => Item::where('code', 'weapon.chalk')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
@@ -266,15 +266,15 @@ class SupplyItemSeeder extends Seeder
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'knuckle')->first()->id,
+                'item_id' => Item::where('code', 'weapon.knuckle')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'toy_hammer')->first()->id,
+                'item_id' => Item::where('code', 'weapon.toy_hammer')->first()->id,
             ],
             [
                 'type' => SupplyType::Goverment,
-                'item_id' => Item::where('code', 'poison')->first()->id,
+                'item_id' => Item::where('code', 'poison.poison')->first()->id,
             ],
         ];
 

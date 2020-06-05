@@ -187,17 +187,17 @@ class CombineItemSeeder extends Seeder
             [
                 'base_id' => Item::where('code', 'weapon.precious_sword')->first()->id,                
                 'combine_id' => Item::where('code', 'item.shaft')->first()->id,
-                'result_id' => Item::where('code', 'crescent_blade')->first()->id
+                'result_id' => Item::where('code', 'weapon.crescent_blade')->first()->id
             ],
             [
                 'base_id' => Item::where('code', 'item.shaft')->first()->id,                
                 'combine_id' => Item::where('code', 'weapon.precious_sword')->first()->id,
-                'result_id' => Item::where('code', 'crescent_blade')->first()->id
+                'result_id' => Item::where('code', 'weapon.crescent_blade')->first()->id
             ],
             [
-                'base_id' => Item::where('code', 'kitchen_knife')->first()->id,                
-                'combine_id' => Item::where('code', 'kitchen_knife')->first()->id,
-                'result_id' => Item::where('code', 'double_knife')->first()->id
+                'base_id' => Item::where('code', 'weapon.kitchen_knife')->first()->id,                
+                'combine_id' => Item::where('code', 'weapon.kitchen_knife')->first()->id,
+                'result_id' => Item::where('code', 'weapon.double_knife')->first()->id
             ],
             [
                 'base_id' => Item::where('code', 'weapon.bamboo')->first()->id,                

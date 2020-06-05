@@ -17,7 +17,7 @@ class CreateLocationsTable extends Migration
             $table->id();
             $table->string('name', 64);
             $table->string('code', 16);
-            $table->string('message', 255);
+            $table->string('message', 64);
             $table->unsignedTinyInteger('specialize');
             $table->unsignedTinyInteger('is_restrict');
             $table->unsignedTinyInteger('is_next_restrict');

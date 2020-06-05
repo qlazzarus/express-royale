@@ -17,211 +17,211 @@ class LootingSeeder extends Seeder
         $items = [
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'kitchen_knife')->first()->id,
+                'item_id' => Item::where('code', 'weapon.kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'cup')->first()->id,
+                'item_id' => Item::where('code', 'weapon.cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'cup')->first()->id,
+                'item_id' => Item::where('code', 'weapon.cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'cup')->first()->id,
+                'item_id' => Item::where('code', 'weapon.cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'cup')->first()->id,
+                'item_id' => Item::where('code', 'weapon.cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'cup')->first()->id,
+                'item_id' => Item::where('code', 'weapon.cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'cup')->first()->id,
+                'item_id' => Item::where('code', 'weapon.cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'powder_juice')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.powder_juice')->first()->id,
                 'point' => 30,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'powder_juice')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.powder_juice')->first()->id,
                 'point' => 30,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'powder_juice')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.powder_juice')->first()->id,
                 'point' => 30,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'powder_juice')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.powder_juice')->first()->id,
                 'point' => 30,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'powder_juice')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.powder_juice')->first()->id,
                 'point' => 30,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'powder_juice')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.powder_juice')->first()->id,
                 'point' => 30,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'powder_juice')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.powder_juice')->first()->id,
                 'point' => 30,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'powder_juice')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.powder_juice')->first()->id,
                 'point' => 30,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'glass_plate')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_plate')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'glass_plate')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_plate')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'glass_plate')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_plate')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'pot')->first()->id,
+                'item_id' => Item::where('code', 'weapon.pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'pot')->first()->id,
+                'item_id' => Item::where('code', 'weapon.pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'pot')->first()->id,
+                'item_id' => Item::where('code', 'weapon.pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'pot')->first()->id,
+                'item_id' => Item::where('code', 'weapon.pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'pot')->first()->id,
+                'item_id' => Item::where('code', 'weapon.pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'glass_goblet')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'glass_goblet')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'glass_goblet')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'glass_goblet')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'glass_goblet')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'television')->first()->id,
+                'item_id' => Item::where('code', 'weapon.television')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'dining_table')->first()->id,
+                'item_id' => Item::where('code', 'weapon.dining_table')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'shelf')->first()->id,
+                'item_id' => Item::where('code', 'weapon.shelf')->first()->id,
                 'point' => 15,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'kitchen_knife')->first()->id,
+                'item_id' => Item::where('code', 'weapon.kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'kitchen_knife')->first()->id,
+                'item_id' => Item::where('code', 'weapon.kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'kitchen_knife')->first()->id,
+                'item_id' => Item::where('code', 'weapon.kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'kitchen_knife')->first()->id,
+                'item_id' => Item::where('code', 'weapon.kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
@@ -299,13 +299,13 @@ class LootingSeeder extends Seeder
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'frying_pan')->first()->id,
+                'item_id' => Item::where('code', 'weapon.frying_pan')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'frying_pan')->first()->id,
+                'item_id' => Item::where('code', 'weapon.frying_pan')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
@@ -359,19 +359,19 @@ class LootingSeeder extends Seeder
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'bracelet')->first()->id,
+                'item_id' => Item::where('code', 'armor_arm.bracelet')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'bracelet')->first()->id,
+                'item_id' => Item::where('code', 'armor_arm.bracelet')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'I-6')->first()->id,
-                'item_id' => Item::where('code', 'bracelet')->first()->id,
+                'item_id' => Item::where('code', 'armor_arm.bracelet')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
@@ -473,172 +473,172 @@ class LootingSeeder extends Seeder
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('code', 'hairband')->first()->id,
+                'item_id' => Item::where('code', 'armor_head.hairband')->first()->id,
                 'point' => 1,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('code', 'hairband')->first()->id,
+                'item_id' => Item::where('code', 'armor_head.hairband')->first()->id,
                 'point' => 1,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('code', 'hairband')->first()->id,
+                'item_id' => Item::where('code', 'armor_head.hairband')->first()->id,
                 'point' => 1,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'C-4')->first()->id,
-                'item_id' => Item::where('code', 'hairband')->first()->id,
+                'item_id' => Item::where('code', 'armor_head.hairband')->first()->id,
                 'point' => 1,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
@@ -860,43 +860,43 @@ class LootingSeeder extends Seeder
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('code', 'safety_helmet')->first()->id,
+                'item_id' => Item::where('code', 'armor_head.safety_helmet')->first()->id,
                 'point' => 4,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('code', 'safety_helmet')->first()->id,
+                'item_id' => Item::where('code', 'armor_head.safety_helmet')->first()->id,
                 'point' => 4,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('code', 'boilersuit')->first()->id,
+                'item_id' => Item::where('code', 'armor_body.boilersuit')->first()->id,
                 'point' => 8,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('code', 'boilersuit')->first()->id,
+                'item_id' => Item::where('code', 'armor_body.boilersuit')->first()->id,
                 'point' => 8,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('code', 'boilersuit')->first()->id,
+                'item_id' => Item::where('code', 'armor_body.boilersuit')->first()->id,
                 'point' => 8,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('code', 'motorcycle_helmet')->first()->id,
+                'item_id' => Item::where('code', 'armor_head.motorcycle_helmet')->first()->id,
                 'point' => 8,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'E-7')->first()->id,
-                'item_id' => Item::where('code', 'motorcycle_helmet')->first()->id,
+                'item_id' => Item::where('code', 'armor_head.motorcycle_helmet')->first()->id,
                 'point' => 8,
                 'endurance' => 10
             ],
@@ -914,136 +914,136 @@ class LootingSeeder extends Seeder
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
-                'point' => 8,
-                'endurance' => 1,
-                'is_trap_activated' => true
-            ],
-            [
-                'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('code', 'wooden_sword')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
+                'point' => 8,
+                'endurance' => 1,
+                'is_trap_activated' => true
+            ],
+            [
+                'location_id' => Location::where('code', 'H-4')->first()->id,
+                'item_id' => Item::where('code', 'weapon.wooden_sword')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('code', 'wooden_sword')->first()->id,
+                'item_id' => Item::where('code', 'weapon.wooden_sword')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('code', 'wooden_sword')->first()->id,
+                'item_id' => Item::where('code', 'weapon.wooden_sword')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('code', 'wooden_sword')->first()->id,
+                'item_id' => Item::where('code', 'weapon.wooden_sword')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('code', 'wooden_sword')->first()->id,
+                'item_id' => Item::where('code', 'weapon.wooden_sword')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('code', 'wooden_sword')->first()->id,
+                'item_id' => Item::where('code', 'weapon.wooden_sword')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('code', 'wooden_sword')->first()->id,
+                'item_id' => Item::where('code', 'weapon.wooden_sword')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('code', 'wooden_sword')->first()->id,
+                'item_id' => Item::where('code', 'weapon.wooden_sword')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('code', 'wooden_sword')->first()->id,
+                'item_id' => Item::where('code', 'weapon.wooden_sword')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('code', 'wooden_sword')->first()->id,
+                'item_id' => Item::where('code', 'weapon.wooden_sword')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
@@ -1073,235 +1073,235 @@ class LootingSeeder extends Seeder
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('code', 'hiking_helmet')->first()->id,
+                'item_id' => Item::where('code', 'armor_head.hiking_helmet')->first()->id,
                 'point' => 2,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('code', 'hiking_helmet')->first()->id,
+                'item_id' => Item::where('code', 'armor_head.hiking_helmet')->first()->id,
                 'point' => 2,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('code', 'rusty_helmet')->first()->id,
+                'item_id' => Item::where('code', 'armor_head.rusty_helmet')->first()->id,
                 'point' => 4,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'H-4')->first()->id,
-                'item_id' => Item::where('code', 'rusty_helmet')->first()->id,
+                'item_id' => Item::where('code', 'armor_head.rusty_helmet')->first()->id,
                 'point' => 4,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', '12gauge_shell')->first()->id,
+                'item_id' => Item::where('code', 'ammo.12gauge_shell')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', '12gauge_shell')->first()->id,
+                'item_id' => Item::where('code', 'ammo.12gauge_shell')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', '12gauge_shell')->first()->id,
+                'item_id' => Item::where('code', 'ammo.12gauge_shell')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', '12gauge_shell')->first()->id,
+                'item_id' => Item::where('code', 'ammo.12gauge_shell')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', '12gauge_shell')->first()->id,
+                'item_id' => Item::where('code', 'ammo.12gauge_shell')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', '9mm_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.9mm_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', '9mm_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.9mm_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', '9mm_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.9mm_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', '9mm_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.9mm_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', '9mm_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.9mm_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', '22lr_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.22lr_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', '22lr_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.22lr_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', '22lr_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.22lr_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', '22lr_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.22lr_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', '22lr_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.22lr_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', '357mag_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.357mag_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', '357mag_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.357mag_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', '357mag_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.357mag_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', '357mag_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.357mag_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', '357mag_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.357mag_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', '38sp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.38sp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', '38sp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.38sp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', '38sp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.38sp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', '38sp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.38sp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', '38sp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.38sp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', '45acp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.45acp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', '45acp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.45acp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', '45acp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.45acp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', '45acp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.45acp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', '45acp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.45acp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', 'musket_ball')->first()->id,
+                'item_id' => Item::where('code', 'ammo.musket_ball')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', 'musket_ball')->first()->id,
+                'item_id' => Item::where('code', 'ammo.musket_ball')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', 'musket_ball')->first()->id,
+                'item_id' => Item::where('code', 'ammo.musket_ball')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', 'musket_ball')->first()->id,
+                'item_id' => Item::where('code', 'ammo.musket_ball')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', 'musket_ball')->first()->id,
+                'item_id' => Item::where('code', 'ammo.musket_ball')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
@@ -1397,37 +1397,31 @@ class LootingSeeder extends Seeder
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', 'pickaxe')->first()->id,
+                'item_id' => Item::where('code', 'weapon.pickaxe')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', 'pickaxe')->first()->id,
+                'item_id' => Item::where('code', 'weapon.pickaxe')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', '스카프')->first()->id,
-                'point' => 10,
-                'endurance' => 0
-            ],
-            [
-                'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', 'sabre')->first()->id,
+                'item_id' => Item::where('code', 'weapon.sabre')->first()->id,
                 'point' => 5,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', 'sabre')->first()->id,
+                'item_id' => Item::where('code', 'weapon.sabre')->first()->id,
                 'point' => 5,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', 'sabre')->first()->id,
+                'item_id' => Item::where('code', 'weapon.sabre')->first()->id,
                 'point' => 5,
                 'endurance' => 0
             ],
@@ -1589,493 +1583,493 @@ class LootingSeeder extends Seeder
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', 'safety_helmet')->first()->id,
+                'item_id' => Item::where('code', 'armor_head.safety_helmet')->first()->id,
                 'point' => 4,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', 'safety_helmet')->first()->id,
+                'item_id' => Item::where('code', 'armor_head.safety_helmet')->first()->id,
                 'point' => 4,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', 'boilersuit')->first()->id,
+                'item_id' => Item::where('code', 'armor_body.boilersuit')->first()->id,
                 'point' => 8,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', 'boilersuit')->first()->id,
+                'item_id' => Item::where('code', 'armor_body.boilersuit')->first()->id,
                 'point' => 8,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', 'boilersuit')->first()->id,
+                'item_id' => Item::where('code', 'armor_body.boilersuit')->first()->id,
                 'point' => 8,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', 'hiking_boots')->first()->id,
+                'item_id' => Item::where('code', 'armor_leg.hiking_boots')->first()->id,
                 'point' => 3,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', 'hiking_boots')->first()->id,
+                'item_id' => Item::where('code', 'armor_leg.hiking_boots')->first()->id,
                 'point' => 3,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', 'hiking_helmet')->first()->id,
+                'item_id' => Item::where('code', 'armor_head.hiking_helmet')->first()->id,
                 'point' => 2,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'F-5')->first()->id,
-                'item_id' => Item::where('code', 'hiking_helmet')->first()->id,
+                'item_id' => Item::where('code', 'armor_head.hiking_helmet')->first()->id,
                 'point' => 2,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('code', 'quan_yin_bodhisattva_statue')->first()->id,
+                'item_id' => Item::where('code', 'weapon.quan_yin_bodhisattva_statue')->first()->id,
                 'point' => 5,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('code', 'yama_raja_statue')->first()->id,
+                'item_id' => Item::where('code', 'weapon.yama_raja_statue')->first()->id,
                 'point' => 7,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('code', 'asura_statue')->first()->id,
+                'item_id' => Item::where('code', 'weapon.asura_statue')->first()->id,
                 'point' => 10,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('code', 'ksitigarbha_statue')->first()->id,
+                'item_id' => Item::where('code', 'weapon.ksitigarbha_statue')->first()->id,
                 'point' => 8,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('code', 'monk_cloth')->first()->id,
+                'item_id' => Item::where('code', 'armor_body.monk_cloth')->first()->id,
                 'point' => 8,
                 'endurance' => 20,
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('code', 'monk_cloth')->first()->id,
+                'item_id' => Item::where('code', 'armor_body.monk_cloth')->first()->id,
                 'point' => 8,
                 'endurance' => 20,
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('code', 'monk_cloth')->first()->id,
+                'item_id' => Item::where('code', 'armor_body.monk_cloth')->first()->id,
                 'point' => 8,
                 'endurance' => 20,
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('code', 'monk_cloth')->first()->id,
+                'item_id' => Item::where('code', 'armor_body.monk_cloth')->first()->id,
                 'point' => 8,
                 'endurance' => 20,
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('code', 'shamen_cloth')->first()->id,
+                'item_id' => Item::where('code', 'armor_body.shamen_cloth')->first()->id,
                 'point' => 8,
                 'endurance' => 15,
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('code', 'shamen_cloth')->first()->id,
+                'item_id' => Item::where('code', 'armor_body.shamen_cloth')->first()->id,
                 'point' => 8,
                 'endurance' => 15,
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('code', 'shamen_cloth')->first()->id,
+                'item_id' => Item::where('code', 'armor_body.shamen_cloth')->first()->id,
                 'point' => 8,
                 'endurance' => 15,
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('code', 'shamen_cloth')->first()->id,
+                'item_id' => Item::where('code', 'armor_body.shamen_cloth')->first()->id,
                 'point' => 8,
                 'endurance' => 15,
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('code', 'shamen_cloth')->first()->id,
+                'item_id' => Item::where('code', 'armor_body.shamen_cloth')->first()->id,
                 'point' => 8,
                 'endurance' => 15,
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('code', 'shamen_cloth')->first()->id,
+                'item_id' => Item::where('code', 'armor_body.shamen_cloth')->first()->id,
                 'point' => 8,
                 'endurance' => 15,
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('code', 'clog')->first()->id,
+                'item_id' => Item::where('code', 'armor_leg.clog')->first()->id,
                 'point' => 2,
                 'endurance' => 5,
             ],
             [
                 'location_id' => Location::where('code', 'C-6')->first()->id,
-                'item_id' => Item::where('code', 'clog')->first()->id,
+                'item_id' => Item::where('code', 'armor_leg.clog')->first()->id,
                 'point' => 2,
                 'endurance' => 5,
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'bow')->first()->id,
+                'item_id' => Item::where('code', 'weapon.bow')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'bow')->first()->id,
+                'item_id' => Item::where('code', 'weapon.bow')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'bow')->first()->id,
+                'item_id' => Item::where('code', 'weapon.bow')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'bow')->first()->id,
+                'item_id' => Item::where('code', 'weapon.bow')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'bow')->first()->id,
+                'item_id' => Item::where('code', 'weapon.bow')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'bow')->first()->id,
+                'item_id' => Item::where('code', 'weapon.bow')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'bow')->first()->id,
+                'item_id' => Item::where('code', 'weapon.bow')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'bow')->first()->id,
+                'item_id' => Item::where('code', 'weapon.bow')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'clog')->first()->id,
+                'item_id' => Item::where('code', 'armor_leg.clog')->first()->id,
                 'point' => 2,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-2')->first()->id,
-                'item_id' => Item::where('code', 'clog')->first()->id,
+                'item_id' => Item::where('code', 'armor_leg.clog')->first()->id,
                 'point' => 2,
                 'endurance' => 5
             ],
@@ -2231,169 +2225,169 @@ class LootingSeeder extends Seeder
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
@@ -2405,229 +2399,229 @@ class LootingSeeder extends Seeder
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'civil_defense_armbands')->first()->id,
+                'item_id' => Item::where('code', 'armor_arm.civil_defense_armbands')->first()->id,
                 'point' => 2,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'civil_defense_armbands')->first()->id,
+                'item_id' => Item::where('code', 'armor_arm.civil_defense_armbands')->first()->id,
                 'point' => 2,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'civil_defense_armbands')->first()->id,
+                'item_id' => Item::where('code', 'armor_arm.civil_defense_armbands')->first()->id,
                 'point' => 2,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'rural_armbands')->first()->id,
+                'item_id' => Item::where('code', 'armor_arm.rural_armbands')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'rural_armbands')->first()->id,
+                'item_id' => Item::where('code', 'armor_arm.rural_armbands')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'rural_armbands')->first()->id,
+                'item_id' => Item::where('code', 'armor_arm.rural_armbands')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'rural_armbands')->first()->id,
+                'item_id' => Item::where('code', 'armor_arm.rural_armbands')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'C-3')->first()->id,
-                'item_id' => Item::where('code', 'rural_armbands')->first()->id,
+                'item_id' => Item::where('code', 'armor_arm.rural_armbands')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'stew')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.stew')->first()->id,
                 'point' => -50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'stew')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.stew')->first()->id,
                 'point' => -50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'stew')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.stew')->first()->id,
                 'point' => -50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'stew')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.stew')->first()->id,
                 'point' => -50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'stew')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.stew')->first()->id,
                 'point' => -50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'stew')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.stew')->first()->id,
                 'point' => -50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'stew')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.stew')->first()->id,
                 'point' => -50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'stew')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.stew')->first()->id,
                 'point' => -50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'stew')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.stew')->first()->id,
                 'point' => -50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'stew')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.stew')->first()->id,
                 'point' => -50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'stew')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'stew')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'stew')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'stew')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'stew')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'stew')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'stew')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'stew')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'stew')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'stew')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'stew')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'stew')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'stew')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'stew')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'stew')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'stew')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'stew')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'stew')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'stew')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'stew')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.stew')->first()->id,
                 'point' => 50,
                 'endurance' => 1
             ],
@@ -2645,13 +2639,13 @@ class LootingSeeder extends Seeder
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'fire_extinguisher')->first()->id,
+                'item_id' => Item::where('code', 'weapon.fire_extinguisher')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'fire_extinguisher')->first()->id,
+                'item_id' => Item::where('code', 'weapon.fire_extinguisher')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
@@ -2717,319 +2711,319 @@ class LootingSeeder extends Seeder
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'rainboots')->first()->id,
+                'item_id' => Item::where('code', 'armor_leg.rainboots')->first()->id,
                 'point' => 4,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'I-10')->first()->id,
-                'item_id' => Item::where('code', 'rainboots')->first()->id,
+                'item_id' => Item::where('code', 'armor_leg.rainboots')->first()->id,
                 'point' => 4,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'kitchen_knife')->first()->id,
+                'item_id' => Item::where('code', 'weapon.kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'kitchen_knife')->first()->id,
+                'item_id' => Item::where('code', 'weapon.kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'kitchen_knife')->first()->id,
+                'item_id' => Item::where('code', 'weapon.kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'kitchen_knife')->first()->id,
+                'item_id' => Item::where('code', 'weapon.kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'kitchen_knife')->first()->id,
+                'item_id' => Item::where('code', 'weapon.kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'cup')->first()->id,
+                'item_id' => Item::where('code', 'weapon.cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'cup')->first()->id,
+                'item_id' => Item::where('code', 'weapon.cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'cup')->first()->id,
+                'item_id' => Item::where('code', 'weapon.cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'cup')->first()->id,
+                'item_id' => Item::where('code', 'weapon.cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'cup')->first()->id,
+                'item_id' => Item::where('code', 'weapon.cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'glass_plate')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_plate')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'glass_plate')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_plate')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'glass_plate')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_plate')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'pot')->first()->id,
+                'item_id' => Item::where('code', 'weapon.pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'pot')->first()->id,
+                'item_id' => Item::where('code', 'weapon.pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'pot')->first()->id,
+                'item_id' => Item::where('code', 'weapon.pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'pot')->first()->id,
+                'item_id' => Item::where('code', 'weapon.pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'pot')->first()->id,
+                'item_id' => Item::where('code', 'weapon.pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'glass_goblet')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'glass_goblet')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'glass_goblet')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'glass_goblet')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'glass_goblet')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'television')->first()->id,
+                'item_id' => Item::where('code', 'weapon.television')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'dining_table')->first()->id,
+                'item_id' => Item::where('code', 'weapon.dining_table')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'sewing_tools')->first()->id,
+                'item_id' => Item::where('code', 'armor_refine.sewing_tools')->first()->id,
                 'point' => 3,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'sewing_tools')->first()->id,
+                'item_id' => Item::where('code', 'armor_refine.sewing_tools')->first()->id,
                 'point' => 3,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'sewing_tools')->first()->id,
+                'item_id' => Item::where('code', 'armor_refine.sewing_tools')->first()->id,
                 'point' => 5,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'sewing_tools')->first()->id,
+                'item_id' => Item::where('code', 'armor_refine.sewing_tools')->first()->id,
                 'point' => 5,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'sewing_tools')->first()->id,
+                'item_id' => Item::where('code', 'armor_refine.sewing_tools')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'sewing_tools')->first()->id,
+                'item_id' => Item::where('code', 'armor_refine.sewing_tools')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'shelf')->first()->id,
+                'item_id' => Item::where('code', 'weapon.shelf')->first()->id,
                 'point' => 15,
                 'endurance' => 1
             ],
@@ -3065,85 +3059,79 @@ class LootingSeeder extends Seeder
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'empty_can')->first()->id,
+                'item_id' => Item::where('code', 'weapon.empty_can')->first()->id,
                 'point' => 10,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'empty_can')->first()->id,
+                'item_id' => Item::where('code', 'weapon.empty_can')->first()->id,
                 'point' => 10,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'empty_can')->first()->id,
+                'item_id' => Item::where('code', 'weapon.empty_can')->first()->id,
                 'point' => 10,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'empty_can')->first()->id,
+                'item_id' => Item::where('code', 'weapon.empty_can')->first()->id,
                 'point' => 10,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'empty_can')->first()->id,
+                'item_id' => Item::where('code', 'weapon.empty_can')->first()->id,
                 'point' => 10,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'empty_can')->first()->id,
+                'item_id' => Item::where('code', 'weapon.empty_can')->first()->id,
                 'point' => 10,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'empty_can')->first()->id,
+                'item_id' => Item::where('code', 'weapon.empty_can')->first()->id,
                 'point' => 10,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'empty_can')->first()->id,
+                'item_id' => Item::where('code', 'weapon.empty_can')->first()->id,
                 'point' => 10,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'empty_can')->first()->id,
+                'item_id' => Item::where('code', 'weapon.empty_can')->first()->id,
                 'point' => 10,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'empty_can')->first()->id,
+                'item_id' => Item::where('code', 'weapon.empty_can')->first()->id,
                 'point' => 10,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'curry_powder')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.curry_powder')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'soy_source')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.soy_source')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'source')->first()->id,
-                'point' => 20,
-                'endurance' => 1
-            ],
-            [
-                'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'weapon_refine.whetstone')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.source')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
@@ -3227,903 +3215,909 @@ class LootingSeeder extends Seeder
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'fur_cuffs')->first()->id,
+                'item_id' => Item::where('code', 'weapon_refine.whetstone')->first()->id,
+                'point' => 20,
+                'endurance' => 1
+            ],
+            [
+                'location_id' => Location::where('code', 'F-2')->first()->id,
+                'item_id' => Item::where('code', 'armor_arm.fur_cuffs')->first()->id,
                 'point' => 2,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'ribbon')->first()->id,
+                'item_id' => Item::where('code', 'armor_head.ribbon')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'ribbon')->first()->id,
+                'item_id' => Item::where('code', 'armor_head.ribbon')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'ribbon')->first()->id,
+                'item_id' => Item::where('code', 'armor_head.ribbon')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'running_shoes')->first()->id,
+                'item_id' => Item::where('code', 'armor_leg.running_shoes')->first()->id,
                 'point' => 3,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-2')->first()->id,
-                'item_id' => Item::where('code', 'running_shoes')->first()->id,
+                'item_id' => Item::where('code', 'armor_leg.running_shoes')->first()->id,
                 'point' => 3,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'energy_drink')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'energy_drink')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'energy_drink')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'energy_drink')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'energy_drink')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'energy_drink')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'energy_drink')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'energy_drink')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'energy_drink')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'energy_drink')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'energy_drink')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'energy_drink')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'energy_drink')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'energy_drink')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'energy_drink')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'energy_drink')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'energy_drink')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'energy_drink')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'energy_drink')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'energy_drink')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'energy_drink')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'energy_drink')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'energy_drink')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'energy_drink')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'energy_drink')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'energy_drink')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'energy_drink')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.energy_drink')->first()->id,
                 'point' => 100,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'fire_extinguisher')->first()->id,
+                'item_id' => Item::where('code', 'weapon.fire_extinguisher')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'fire_extinguisher')->first()->id,
+                'item_id' => Item::where('code', 'weapon.fire_extinguisher')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'white_clothes')->first()->id,
+                'item_id' => Item::where('code', 'armor_body.white_clothes')->first()->id,
                 'point' => 10,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'white_clothes')->first()->id,
+                'item_id' => Item::where('code', 'armor_body.white_clothes')->first()->id,
                 'point' => 10,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'I-7')->first()->id,
-                'item_id' => Item::where('code', 'white_clothes')->first()->id,
+                'item_id' => Item::where('code', 'armor_body.white_clothes')->first()->id,
                 'point' => 10,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'battery')->first()->id,
+                'item_id' => Item::where('code', 'battery.battery')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'battery')->first()->id,
+                'item_id' => Item::where('code', 'battery.battery')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'battery')->first()->id,
+                'item_id' => Item::where('code', 'battery.battery')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'battery')->first()->id,
+                'item_id' => Item::where('code', 'battery.battery')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'battery')->first()->id,
+                'item_id' => Item::where('code', 'battery.battery')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
-                'point' => 8,
-                'endurance' => 1,
-                'is_trap_activated' => true
-            ],
-            [
-                'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'fire_axe')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
+                'point' => 8,
+                'endurance' => 1,
+                'is_trap_activated' => true
+            ],
+            [
+                'location_id' => Location::where('code', 'C-5')->first()->id,
+                'item_id' => Item::where('code', 'weapon.fire_axe')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'fire_axe')->first()->id,
+                'item_id' => Item::where('code', 'weapon.fire_axe')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'fire_extinguisher')->first()->id,
+                'item_id' => Item::where('code', 'weapon.fire_extinguisher')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'fire_extinguisher')->first()->id,
+                'item_id' => Item::where('code', 'weapon.fire_extinguisher')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'fire_extinguisher')->first()->id,
+                'item_id' => Item::where('code', 'weapon.fire_extinguisher')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'fire_suit')->first()->id,
+                'item_id' => Item::where('code', 'armor_body.fire_suit')->first()->id,
                 'point' => 10,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'fire_suit')->first()->id,
+                'item_id' => Item::where('code', 'armor_body.fire_suit')->first()->id,
                 'point' => 10,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'fire_suit')->first()->id,
+                'item_id' => Item::where('code', 'armor_body.fire_suit')->first()->id,
                 'point' => 10,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'fire_helmet')->first()->id,
+                'item_id' => Item::where('code', 'armor_head.fire_helmet')->first()->id,
                 'point' => 3,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'C-5')->first()->id,
-                'item_id' => Item::where('code', 'fire_helmet')->first()->id,
+                'item_id' => Item::where('code', 'armor_head.fire_helmet')->first()->id,
                 'point' => 3,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
-                'point' => 8,
-                'endurance' => 1,
-                'is_trap_activated' => true
-            ],
-            [
-                'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'D-4')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
+                'point' => 8,
+                'endurance' => 1,
+                'is_trap_activated' => true
+            ],
+            [
+                'location_id' => Location::where('code', 'D-4')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
@@ -4154,415 +4148,367 @@ class LootingSeeder extends Seeder
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('code', 'arrow')->first()->id,
+                'item_id' => Item::where('code', 'ammo.arrow')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('code', 'bow')->first()->id,
+                'item_id' => Item::where('code', 'weapon.bow')->first()->id,
                 'point' => 0,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('code', 'bow')->first()->id,
+                'item_id' => Item::where('code', 'weapon.bow')->first()->id,
                 'point' => 0,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('code', 'bow')->first()->id,
+                'item_id' => Item::where('code', 'weapon.bow')->first()->id,
                 'point' => 0,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('code', 'bow')->first()->id,
+                'item_id' => Item::where('code', 'weapon.bow')->first()->id,
                 'point' => 0,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('code', 'bow')->first()->id,
+                'item_id' => Item::where('code', 'weapon.bow')->first()->id,
                 'point' => 0,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('code', 'bow')->first()->id,
+                'item_id' => Item::where('code', 'weapon.bow')->first()->id,
                 'point' => 0,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('code', 'bow')->first()->id,
+                'item_id' => Item::where('code', 'weapon.bow')->first()->id,
                 'point' => 0,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('code', 'bow')->first()->id,
+                'item_id' => Item::where('code', 'weapon.bow')->first()->id,
                 'point' => 0,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('code', 'bow')->first()->id,
+                'item_id' => Item::where('code', 'weapon.bow')->first()->id,
                 'point' => 0,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('code', 'clog')->first()->id,
+                'item_id' => Item::where('code', 'armor_leg.clog')->first()->id,
                 'point' => 2,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('code', 'clog')->first()->id,
+                'item_id' => Item::where('code', 'armor_leg.clog')->first()->id,
                 'point' => 2,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'G-6')->first()->id,
-                'item_id' => Item::where('code', 'clog')->first()->id,
+                'item_id' => Item::where('code', 'armor_leg.clog')->first()->id,
                 'point' => 2,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('code', 'wooden_fish')->first()->id,
+                'item_id' => Item::where('code', 'weapon.wooden_fish')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('code', '솔도파')->first()->id,
-                'point' => 4,
-                'endurance' => 0
-            ],
-            [
-                'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('code', '솔도파')->first()->id,
-                'point' => 4,
-                'endurance' => 0
-            ],
-            [
-                'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('code', '솔도파')->first()->id,
-                'point' => 4,
-                'endurance' => 0
-            ],
-            [
-                'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('code', '솔도파')->first()->id,
-                'point' => 4,
-                'endurance' => 0
-            ],
-            [
-                'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('code', '솔도파')->first()->id,
-                'point' => 4,
-                'endurance' => 0
-            ],
-            [
-                'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('code', '솔도파')->first()->id,
-                'point' => 4,
-                'endurance' => 0
-            ],
-            [
-                'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('code', '솔도파')->first()->id,
-                'point' => 4,
-                'endurance' => 0
-            ],
-            [
-                'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('code', '솔도파')->first()->id,
-                'point' => 4,
-                'endurance' => 0
-            ],
-            [
-                'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('code', 'hairband')->first()->id,
+                'item_id' => Item::where('code', 'armor_head.hairband')->first()->id,
                 'point' => 1,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'F-8')->first()->id,
-                'item_id' => Item::where('code', 'hairband')->first()->id,
+                'item_id' => Item::where('code', 'armor_head.hairband')->first()->id,
                 'point' => 1,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', 'mousetrap')->first()->id,
+                'item_id' => Item::where('code', 'trap.mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', 'mousetrap')->first()->id,
+                'item_id' => Item::where('code', 'trap.mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', 'mousetrap')->first()->id,
+                'item_id' => Item::where('code', 'trap.mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', 'mousetrap')->first()->id,
+                'item_id' => Item::where('code', 'trap.mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', 'mousetrap')->first()->id,
+                'item_id' => Item::where('code', 'trap.mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', 'mousetrap')->first()->id,
+                'item_id' => Item::where('code', 'trap.mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', 'mousetrap')->first()->id,
+                'item_id' => Item::where('code', 'trap.mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', 'mousetrap')->first()->id,
+                'item_id' => Item::where('code', 'trap.mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', 'mousetrap')->first()->id,
+                'item_id' => Item::where('code', 'trap.mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', 'mousetrap')->first()->id,
+                'item_id' => Item::where('code', 'trap.mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', 'mousetrap')->first()->id,
+                'item_id' => Item::where('code', 'trap.mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
@@ -4592,386 +4538,386 @@ class LootingSeeder extends Seeder
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', '12gauge_shell')->first()->id,
+                'item_id' => Item::where('code', 'ammo.12gauge_shell')->first()->id,
                 'point' => 24,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', '12gauge_shell')->first()->id,
+                'item_id' => Item::where('code', 'ammo.12gauge_shell')->first()->id,
                 'point' => 24,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', '9mm_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.9mm_ammo')->first()->id,
                 'point' => 24,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', '9mm_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.9mm_ammo')->first()->id,
                 'point' => 24,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', '22lr_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.22lr_ammo')->first()->id,
                 'point' => 24,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', '22lr_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.22lr_ammo')->first()->id,
                 'point' => 24,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', '357mag_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.357mag_ammo')->first()->id,
                 'point' => 24,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', '357mag_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.357mag_ammo')->first()->id,
                 'point' => 24,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', '38sp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.38sp_ammo')->first()->id,
                 'point' => 24,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', '38sp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.38sp_ammo')->first()->id,
                 'point' => 24,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', '45acp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.45acp_ammo')->first()->id,
                 'point' => 24,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', '45acp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.45acp_ammo')->first()->id,
                 'point' => 24,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', 'musket_ball')->first()->id,
+                'item_id' => Item::where('code', 'ammo.musket_ball')->first()->id,
                 'point' => 24,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', 'musket_ball')->first()->id,
+                'item_id' => Item::where('code', 'ammo.musket_ball')->first()->id,
                 'point' => 24,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', 'hiking_boots')->first()->id,
+                'item_id' => Item::where('code', 'armor_leg.hiking_boots')->first()->id,
                 'point' => 3,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'A-2')->first()->id,
-                'item_id' => Item::where('code', 'hiking_helmet')->first()->id,
+                'item_id' => Item::where('code', 'armor_head.hiking_helmet')->first()->id,
                 'point' => 2,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'kitchen_knife')->first()->id,
+                'item_id' => Item::where('code', 'weapon.kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'cup')->first()->id,
+                'item_id' => Item::where('code', 'weapon.cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'cup')->first()->id,
+                'item_id' => Item::where('code', 'weapon.cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'cup')->first()->id,
+                'item_id' => Item::where('code', 'weapon.cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'cup')->first()->id,
+                'item_id' => Item::where('code', 'weapon.cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'cup')->first()->id,
+                'item_id' => Item::where('code', 'weapon.cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'cup')->first()->id,
+                'item_id' => Item::where('code', 'weapon.cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'glass_plate')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_plate')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'glass_plate')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_plate')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'glass_plate')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_plate')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'pot')->first()->id,
+                'item_id' => Item::where('code', 'weapon.pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'pot')->first()->id,
+                'item_id' => Item::where('code', 'weapon.pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'pot')->first()->id,
+                'item_id' => Item::where('code', 'weapon.pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'pot')->first()->id,
+                'item_id' => Item::where('code', 'weapon.pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'pot')->first()->id,
+                'item_id' => Item::where('code', 'weapon.pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'glass_goblet')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'glass_goblet')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'glass_goblet')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'glass_goblet')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'glass_goblet')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'television')->first()->id,
+                'item_id' => Item::where('code', 'weapon.television')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'dining_table')->first()->id,
+                'item_id' => Item::where('code', 'weapon.dining_table')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'shelf')->first()->id,
+                'item_id' => Item::where('code', 'weapon.shelf')->first()->id,
                 'point' => 15,
                 'endurance' => 1
             ],
@@ -5019,463 +4965,463 @@ class LootingSeeder extends Seeder
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'sweet_potato')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.sweet_potato')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'yam')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.yam')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'potato')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.potato')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'burdock')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.burdock')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'carrot')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.carrot')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'onion')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.onion')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'garlic')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.garlic')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'ginger')->first()->id,
+                'item_id' => Item::where('code', 'potion_stamina.ginger')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'frying_pan')->first()->id,
+                'item_id' => Item::where('code', 'weapon.frying_pan')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'frying_pan')->first()->id,
+                'item_id' => Item::where('code', 'weapon.frying_pan')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'frying_pan')->first()->id,
+                'item_id' => Item::where('code', 'weapon.frying_pan')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'frying_pan')->first()->id,
+                'item_id' => Item::where('code', 'weapon.frying_pan')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'frying_pan')->first()->id,
+                'item_id' => Item::where('code', 'weapon.frying_pan')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'frying_pan')->first()->id,
+                'item_id' => Item::where('code', 'weapon.frying_pan')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'fire_axe')->first()->id,
+                'item_id' => Item::where('code', 'weapon.fire_axe')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'fire_axe')->first()->id,
+                'item_id' => Item::where('code', 'weapon.fire_axe')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'fire_extinguisher')->first()->id,
+                'item_id' => Item::where('code', 'weapon.fire_extinguisher')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'fire_extinguisher')->first()->id,
+                'item_id' => Item::where('code', 'weapon.fire_extinguisher')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'boomerang')->first()->id,
+                'item_id' => Item::where('code', 'weapon.boomerang')->first()->id,
                 'point' => 9,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'boomerang')->first()->id,
+                'item_id' => Item::where('code', 'weapon.boomerang')->first()->id,
                 'point' => 9,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'boomerang')->first()->id,
+                'item_id' => Item::where('code', 'weapon.boomerang')->first()->id,
                 'point' => 9,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'boomerang')->first()->id,
+                'item_id' => Item::where('code', 'weapon.boomerang')->first()->id,
                 'point' => 9,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'cz_m75')->first()->id,
+                'item_id' => Item::where('code', 'weapon.cz_m75')->first()->id,
                 'point' => 25,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'cz_m75')->first()->id,
+                'item_id' => Item::where('code', 'weapon.cz_m75')->first()->id,
                 'point' => 25,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'cz_m75')->first()->id,
+                'item_id' => Item::where('code', 'weapon.cz_m75')->first()->id,
                 'point' => 25,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'cz_m75')->first()->id,
+                'item_id' => Item::where('code', 'weapon.cz_m75')->first()->id,
                 'point' => 25,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'uzi_9mm')->first()->id,
+                'item_id' => Item::where('code', 'weapon.uzi_9mm')->first()->id,
                 'point' => 30,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'uzi_9mm')->first()->id,
+                'item_id' => Item::where('code', 'weapon.uzi_9mm')->first()->id,
                 'point' => 30,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'uzi_9mm')->first()->id,
+                'item_id' => Item::where('code', 'weapon.uzi_9mm')->first()->id,
                 'point' => 30,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'E-4')->first()->id,
-                'item_id' => Item::where('code', 'uzi_9mm')->first()->id,
+                'item_id' => Item::where('code', 'weapon.uzi_9mm')->first()->id,
                 'point' => 30,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'pencil')->first()->id,
+                'item_id' => Item::where('code', 'weapon.pencil')->first()->id,
                 'point' => 2,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'pencil')->first()->id,
+                'item_id' => Item::where('code', 'weapon.pencil')->first()->id,
                 'point' => 2,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'pencil')->first()->id,
+                'item_id' => Item::where('code', 'weapon.pencil')->first()->id,
                 'point' => 2,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'pencil')->first()->id,
+                'item_id' => Item::where('code', 'weapon.pencil')->first()->id,
                 'point' => 2,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'pencil')->first()->id,
+                'item_id' => Item::where('code', 'weapon.pencil')->first()->id,
                 'point' => 2,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'pencil')->first()->id,
+                'item_id' => Item::where('code', 'weapon.pencil')->first()->id,
                 'point' => 2,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'pencil')->first()->id,
+                'item_id' => Item::where('code', 'weapon.pencil')->first()->id,
                 'point' => 2,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'eraser')->first()->id,
+                'item_id' => Item::where('code', 'weapon.eraser')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'eraser')->first()->id,
+                'item_id' => Item::where('code', 'weapon.eraser')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'eraser')->first()->id,
+                'item_id' => Item::where('code', 'weapon.eraser')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'eraser')->first()->id,
+                'item_id' => Item::where('code', 'weapon.eraser')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'eraser')->first()->id,
+                'item_id' => Item::where('code', 'weapon.eraser')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'eraser')->first()->id,
+                'item_id' => Item::where('code', 'weapon.eraser')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'baseball_balls')->first()->id,
+                'item_id' => Item::where('code', 'weapon.baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'baseball_balls')->first()->id,
+                'item_id' => Item::where('code', 'weapon.baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'baseball_balls')->first()->id,
+                'item_id' => Item::where('code', 'weapon.baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'baseball_balls')->first()->id,
+                'item_id' => Item::where('code', 'weapon.baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'baseball_balls')->first()->id,
+                'item_id' => Item::where('code', 'weapon.baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'baseball_balls')->first()->id,
+                'item_id' => Item::where('code', 'weapon.baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'baseball_balls')->first()->id,
+                'item_id' => Item::where('code', 'weapon.baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'baseball_balls')->first()->id,
+                'item_id' => Item::where('code', 'weapon.baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'glass_flask')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_flask')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'glass_flask')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_flask')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'glass_flask')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_flask')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'glass_flask')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_flask')->first()->id,
                 'point' => 1,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'mop')->first()->id,
+                'item_id' => Item::where('code', 'weapon.mop')->first()->id,
                 'point' => 8,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'mop')->first()->id,
+                'item_id' => Item::where('code', 'weapon.mop')->first()->id,
                 'point' => 8,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'mop')->first()->id,
+                'item_id' => Item::where('code', 'weapon.mop')->first()->id,
                 'point' => 8,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'pill')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.pill')->first()->id,
                 'point' => 40,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'blackboard_eraser')->first()->id,
+                'item_id' => Item::where('code', 'weapon.blackboard_eraser')->first()->id,
                 'point' => 2,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'blackboard_eraser')->first()->id,
+                'item_id' => Item::where('code', 'weapon.blackboard_eraser')->first()->id,
                 'point' => 2,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'blackboard_eraser')->first()->id,
+                'item_id' => Item::where('code', 'weapon.blackboard_eraser')->first()->id,
                 'point' => 2,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'blackboard_eraser')->first()->id,
+                'item_id' => Item::where('code', 'weapon.blackboard_eraser')->first()->id,
                 'point' => 2,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'blackboard_eraser')->first()->id,
+                'item_id' => Item::where('code', 'weapon.blackboard_eraser')->first()->id,
                 'point' => 2,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'white_chalk')->first()->id,
+                'item_id' => Item::where('code', 'weapon.white_chalk')->first()->id,
                 'point' => 2,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'red_chalk')->first()->id,
+                'item_id' => Item::where('code', 'weapon.red_chalk')->first()->id,
                 'point' => 2,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'yellow_chalk')->first()->id,
+                'item_id' => Item::where('code', 'weapon.yellow_chalk')->first()->id,
                 'point' => 2,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'blue_chalk')->first()->id,
+                'item_id' => Item::where('code', 'weapon.blue_chalk')->first()->id,
                 'point' => 2,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'human_body_model')->first()->id,
+                'item_id' => Item::where('code', 'weapon.human_body_model')->first()->id,
                 'point' => 3,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'giant_set_square')->first()->id,
+                'item_id' => Item::where('code', 'weapon.giant_set_square')->first()->id,
                 'point' => 4,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'giant_compasses')->first()->id,
+                'item_id' => Item::where('code', 'weapon.giant_compasses')->first()->id,
                 'point' => 4,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'chair')->first()->id,
+                'item_id' => Item::where('code', 'weapon.chair')->first()->id,
                 'point' => 4,
                 'endurance' => 0
             ],
@@ -5487,217 +5433,217 @@ class LootingSeeder extends Seeder
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'fire_extinguisher')->first()->id,
+                'item_id' => Item::where('code', 'weapon.fire_extinguisher')->first()->id,
                 'point' => 12,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'duty_student_armband')->first()->id,
+                'item_id' => Item::where('code', 'armor_arm.duty_student_armband')->first()->id,
                 'point' => 3,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'duty_student_armband')->first()->id,
+                'item_id' => Item::where('code', 'armor_arm.duty_student_armband')->first()->id,
                 'point' => 3,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'duty_student_armband')->first()->id,
+                'item_id' => Item::where('code', 'armor_arm.duty_student_armband')->first()->id,
                 'point' => 3,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'duty_student_armband')->first()->id,
+                'item_id' => Item::where('code', 'armor_arm.duty_student_armband')->first()->id,
                 'point' => 3,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'cuffs')->first()->id,
+                'item_id' => Item::where('code', 'armor_arm.cuffs')->first()->id,
                 'point' => 2,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'cuffs')->first()->id,
+                'item_id' => Item::where('code', 'armor_arm.cuffs')->first()->id,
                 'point' => 2,
                 'endurance' => 20
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'fur_cuffs')->first()->id,
+                'item_id' => Item::where('code', 'armor_arm.fur_cuffs')->first()->id,
                 'point' => 2,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'indoor_shoes')->first()->id,
+                'item_id' => Item::where('code', 'armor_leg.indoor_shoes')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'indoor_shoes')->first()->id,
+                'item_id' => Item::where('code', 'armor_leg.indoor_shoes')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'G-3')->first()->id,
-                'item_id' => Item::where('code', 'indoor_shoes')->first()->id,
+                'item_id' => Item::where('code', 'armor_leg.indoor_shoes')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'H-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
@@ -5775,163 +5721,163 @@ class LootingSeeder extends Seeder
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'kitchen_knife')->first()->id,
+                'item_id' => Item::where('code', 'weapon.kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'kitchen_knife')->first()->id,
+                'item_id' => Item::where('code', 'weapon.kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'kitchen_knife')->first()->id,
+                'item_id' => Item::where('code', 'weapon.kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'kitchen_knife')->first()->id,
+                'item_id' => Item::where('code', 'weapon.kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'kitchen_knife')->first()->id,
+                'item_id' => Item::where('code', 'weapon.kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'cup')->first()->id,
+                'item_id' => Item::where('code', 'weapon.cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'cup')->first()->id,
+                'item_id' => Item::where('code', 'weapon.cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'cup')->first()->id,
+                'item_id' => Item::where('code', 'weapon.cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'cup')->first()->id,
+                'item_id' => Item::where('code', 'weapon.cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'cup')->first()->id,
+                'item_id' => Item::where('code', 'weapon.cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'cup')->first()->id,
+                'item_id' => Item::where('code', 'weapon.cup')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'baseball_balls')->first()->id,
+                'item_id' => Item::where('code', 'weapon.baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'baseball_balls')->first()->id,
+                'item_id' => Item::where('code', 'weapon.baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'baseball_balls')->first()->id,
+                'item_id' => Item::where('code', 'weapon.baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'baseball_balls')->first()->id,
+                'item_id' => Item::where('code', 'weapon.baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'baseball_balls')->first()->id,
+                'item_id' => Item::where('code', 'weapon.baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'sewing_tools')->first()->id,
+                'item_id' => Item::where('code', 'armor_refine.sewing_tools')->first()->id,
                 'point' => 3,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'sewing_tools')->first()->id,
+                'item_id' => Item::where('code', 'armor_refine.sewing_tools')->first()->id,
                 'point' => 5,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'sewing_tools')->first()->id,
+                'item_id' => Item::where('code', 'armor_refine.sewing_tools')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'glass_plate')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_plate')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'television')->first()->id,
+                'item_id' => Item::where('code', 'weapon.television')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'dining_table')->first()->id,
+                'item_id' => Item::where('code', 'weapon.dining_table')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'shelf')->first()->id,
+                'item_id' => Item::where('code', 'weapon.shelf')->first()->id,
                 'point' => 15,
                 'endurance' => 1
             ],
@@ -6015,97 +5961,97 @@ class LootingSeeder extends Seeder
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'empty_can')->first()->id,
+                'item_id' => Item::where('code', 'weapon.empty_can')->first()->id,
                 'point' => 2,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'empty_can')->first()->id,
+                'item_id' => Item::where('code', 'weapon.empty_can')->first()->id,
                 'point' => 2,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'empty_can')->first()->id,
+                'item_id' => Item::where('code', 'weapon.empty_can')->first()->id,
                 'point' => 2,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'empty_can')->first()->id,
+                'item_id' => Item::where('code', 'weapon.empty_can')->first()->id,
                 'point' => 2,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'empty_can')->first()->id,
+                'item_id' => Item::where('code', 'weapon.empty_can')->first()->id,
                 'point' => 2,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'empty_can')->first()->id,
+                'item_id' => Item::where('code', 'weapon.empty_can')->first()->id,
                 'point' => 2,
                 'endurance' => 10
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'glass_goblet')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'glass_goblet')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'glass_goblet')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'glass_goblet')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'glass_goblet')->first()->id,
+                'item_id' => Item::where('code', 'weapon.glass_goblet')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'pot')->first()->id,
+                'item_id' => Item::where('code', 'weapon.pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'pot')->first()->id,
+                'item_id' => Item::where('code', 'weapon.pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'pot')->first()->id,
+                'item_id' => Item::where('code', 'weapon.pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'pot')->first()->id,
+                'item_id' => Item::where('code', 'weapon.pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'pot')->first()->id,
+                'item_id' => Item::where('code', 'weapon.pot')->first()->id,
                 'point' => 10,
                 'endurance' => 4
             ],
@@ -6195,13 +6141,13 @@ class LootingSeeder extends Seeder
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'frying_pan')->first()->id,
+                'item_id' => Item::where('code', 'weapon.frying_pan')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'frying_pan')->first()->id,
+                'item_id' => Item::where('code', 'weapon.frying_pan')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
@@ -6255,450 +6201,450 @@ class LootingSeeder extends Seeder
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'bracelet')->first()->id,
+                'item_id' => Item::where('code', 'armor_arm.bracelet')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'bracelet')->first()->id,
+                'item_id' => Item::where('code', 'armor_arm.bracelet')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'bracelet')->first()->id,
+                'item_id' => Item::where('code', 'armor_arm.bracelet')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => Location::where('code', 'B-4')->first()->id,
-                'item_id' => Item::where('code', 'fur_cuffs')->first()->id,
+                'item_id' => Item::where('code', 'armor_arm.fur_cuffs')->first()->id,
                 'point' => 2,
                 'endurance' => 3
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'mousetrap')->first()->id,
+                'item_id' => Item::where('code', 'trap.mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'mousetrap')->first()->id,
+                'item_id' => Item::where('code', 'trap.mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'mousetrap')->first()->id,
+                'item_id' => Item::where('code', 'trap.mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'mousetrap')->first()->id,
+                'item_id' => Item::where('code', 'trap.mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'mousetrap')->first()->id,
+                'item_id' => Item::where('code', 'trap.mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'mousetrap')->first()->id,
-                'point' => 10,
-                'endurance' => 1,
-                'is_trap_activated' => true
-            ],
-            [
-                'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'mousetrap')->first()->id,
+                'item_id' => Item::where('code', 'trap.mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'mousetrap')->first()->id,
+                'item_id' => Item::where('code', 'trap.mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'mousetrap')->first()->id,
+                'item_id' => Item::where('code', 'trap.mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'mousetrap')->first()->id,
+                'item_id' => Item::where('code', 'trap.mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'mousetrap')->first()->id,
+                'item_id' => Item::where('code', 'trap.mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'mousetrap')->first()->id,
+                'item_id' => Item::where('code', 'trap.mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'mousetrap')->first()->id,
+                'item_id' => Item::where('code', 'trap.mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'mousetrap')->first()->id,
+                'item_id' => Item::where('code', 'trap.mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'mousetrap')->first()->id,
+                'item_id' => Item::where('code', 'trap.mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'mousetrap')->first()->id,
+                'item_id' => Item::where('code', 'trap.mousetrap')->first()->id,
                 'point' => 10,
                 'endurance' => 1,
                 'is_trap_activated' => true
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', '12gauge_shell')->first()->id,
+                'item_id' => Item::where('code', 'trap.mousetrap')->first()->id,
+                'point' => 10,
+                'endurance' => 1,
+                'is_trap_activated' => true
+            ],
+            [
+                'location_id' => Location::where('code', 'J-6')->first()->id,
+                'item_id' => Item::where('code', 'ammo.12gauge_shell')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', '12gauge_shell')->first()->id,
+                'item_id' => Item::where('code', 'ammo.12gauge_shell')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', '12gauge_shell')->first()->id,
+                'item_id' => Item::where('code', 'ammo.12gauge_shell')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', '12gauge_shell')->first()->id,
+                'item_id' => Item::where('code', 'ammo.12gauge_shell')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', '12gauge_shell')->first()->id,
+                'item_id' => Item::where('code', 'ammo.12gauge_shell')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', '9mm_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.9mm_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', '9mm_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.9mm_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', '9mm_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.9mm_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', '9mm_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.9mm_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', '9mm_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.9mm_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', '22lr_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.22lr_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', '22lr_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.22lr_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', '22lr_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.22lr_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', '22lr_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.22lr_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', '22lr_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.22lr_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', '357mag_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.357mag_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', '357mag_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.357mag_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', '357mag_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.357mag_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', '357mag_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.357mag_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', '357mag_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.357mag_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', '38sp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.38sp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', '38sp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.38sp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', '38sp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.38sp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', '38sp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.38sp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', '38sp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.38sp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', '45acp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.45acp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', '45acp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.45acp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', '45acp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.45acp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', '45acp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.45acp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', '45acp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.45acp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'musket_ball')->first()->id,
+                'item_id' => Item::where('code', 'ammo.musket_ball')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'musket_ball')->first()->id,
+                'item_id' => Item::where('code', 'ammo.musket_ball')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'musket_ball')->first()->id,
+                'item_id' => Item::where('code', 'ammo.musket_ball')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'musket_ball')->first()->id,
+                'item_id' => Item::where('code', 'ammo.musket_ball')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'musket_ball')->first()->id,
+                'item_id' => Item::where('code', 'ammo.musket_ball')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'mine')->first()->id,
+                'item_id' => Item::where('code', 'trap.mine')->first()->id,
                 'point' => 8,
                 'endurance' => 1
             ],
@@ -6725,320 +6671,320 @@ class LootingSeeder extends Seeder
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'hiking_boots')->first()->id,
+                'item_id' => Item::where('code', 'armor_leg.hiking_boots')->first()->id,
                 'point' => 3,
                 'endurance' => 5,
             ],
             [
                 'location_id' => Location::where('code', 'J-6')->first()->id,
-                'item_id' => Item::where('code', 'hiking_helmet')->first()->id,
+                'item_id' => Item::where('code', 'armor_head.hiking_helmet')->first()->id,
                 'point' => 2,
                 'endurance' => 3,
             ],
             // global
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', '12gauge_shell')->first()->id,
+                'item_id' => Item::where('code', 'ammo.12gauge_shell')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', '12gauge_shell')->first()->id,
+                'item_id' => Item::where('code', 'ammo.12gauge_shell')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', '12gauge_shell')->first()->id,
+                'item_id' => Item::where('code', 'ammo.12gauge_shell')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', '12gauge_shell')->first()->id,
+                'item_id' => Item::where('code', 'ammo.12gauge_shell')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', '12gauge_shell')->first()->id,
+                'item_id' => Item::where('code', 'ammo.12gauge_shell')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', '9mm_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.9mm_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', '9mm_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.9mm_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', '9mm_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.9mm_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', '9mm_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.9mm_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', '9mm_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.9mm_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', '22lr_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.22lr_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', '22lr_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.22lr_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', '22lr_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.22lr_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', '22lr_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.22lr_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', '22lr_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.22lr_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', '357mag_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.357mag_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', '357mag_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.357mag_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', '357mag_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.357mag_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', '357mag_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.357mag_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', '357mag_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.357mag_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', '38sp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.38sp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', '38sp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.38sp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', '38sp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.38sp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', '38sp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.38sp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', '38sp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.38sp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', '45acp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.45acp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', '45acp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.45acp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', '45acp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.45acp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', '45acp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.45acp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', '45acp_ammo')->first()->id,
+                'item_id' => Item::where('code', 'ammo.45acp_ammo')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'musket_ball')->first()->id,
+                'item_id' => Item::where('code', 'ammo.musket_ball')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'musket_ball')->first()->id,
+                'item_id' => Item::where('code', 'ammo.musket_ball')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'musket_ball')->first()->id,
+                'item_id' => Item::where('code', 'ammo.musket_ball')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'musket_ball')->first()->id,
+                'item_id' => Item::where('code', 'ammo.musket_ball')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'musket_ball')->first()->id,
+                'item_id' => Item::where('code', 'ammo.musket_ball')->first()->id,
                 'point' => 1,
                 'endurance' => 24
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'water')->first()->id,
+                'item_id' => Item::where('code', 'potion_health.water')->first()->id,
                 'point' => 20,
                 'endurance' => 1
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'firelock')->first()->id,
+                'item_id' => Item::where('code', 'weapon.firelock')->first()->id,
                 'point' => 20,
                 'endurance' => 0
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'masamune_great_sword')->first()->id,
+                'item_id' => Item::where('code', 'weapon.masamune_great_sword')->first()->id,
                 'point' => 23,
                 'endurance' => 0
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'muramasa_magical_sword')->first()->id,
+                'item_id' => Item::where('code', 'weapon.muramasa_magical_sword')->first()->id,
                 'point' => 23,
                 'endurance' => 0
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'japanese_bow')->first()->id,
+                'item_id' => Item::where('code', 'weapon.japanese_bow')->first()->id,
                 'point' => 18,
                 'endurance' => 0
             ],
@@ -7050,85 +6996,85 @@ class LootingSeeder extends Seeder
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'armor')->first()->id,
+                'item_id' => Item::where('code', 'armor_body.armor')->first()->id,
                 'point' => 12,
                 'endurance' => 20
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'chainmail_armor')->first()->id,
+                'item_id' => Item::where('code', 'armor_body.chainmail_armor')->first()->id,
                 'point' => 12,
                 'endurance' => 20
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'combat_helmet')->first()->id,
+                'item_id' => Item::where('code', 'armor_head.combat_helmet')->first()->id,
                 'point' => 5,
                 'endurance' => 10
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'precious_armor')->first()->id,
+                'item_id' => Item::where('code', 'armor_body.precious_armor')->first()->id,
                 'point' => 14,
                 'endurance' => 20
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'rubber_shoes')->first()->id,
+                'item_id' => Item::where('code', 'armor_leg.rubber_shoes')->first()->id,
                 'point' => 2,
                 'endurance' => 4
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'rubber_shoes')->first()->id,
+                'item_id' => Item::where('code', 'armor_leg.rubber_shoes')->first()->id,
                 'point' => 2,
                 'endurance' => 4
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'rubber_shoes')->first()->id,
+                'item_id' => Item::where('code', 'armor_leg.rubber_shoes')->first()->id,
                 'point' => 2,
                 'endurance' => 4
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'rubber_shoes')->first()->id,
+                'item_id' => Item::where('code', 'armor_leg.rubber_shoes')->first()->id,
                 'point' => 2,
                 'endurance' => 4
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'rubber_shoes')->first()->id,
+                'item_id' => Item::where('code', 'armor_leg.rubber_shoes')->first()->id,
                 'point' => 2,
                 'endurance' => 4
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'rainboots')->first()->id,
+                'item_id' => Item::where('code', 'armor_leg.rainboots')->first()->id,
                 'point' => 4,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'rainboots')->first()->id,
+                'item_id' => Item::where('code', 'armor_leg.rainboots')->first()->id,
                 'point' => 4,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'high_heel')->first()->id,
+                'item_id' => Item::where('code', 'armor_leg.high_heel')->first()->id,
                 'point' => 3,
                 'endurance' => 3
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'high_heel')->first()->id,
+                'item_id' => Item::where('code', 'armor_leg.high_heel')->first()->id,
                 'point' => 3,
                 'endurance' => 3
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'high_heel')->first()->id,
+                'item_id' => Item::where('code', 'armor_leg.high_heel')->first()->id,
                 'point' => 3,
                 'endurance' => 3
             ],
@@ -7140,19 +7086,19 @@ class LootingSeeder extends Seeder
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'ribbon')->first()->id,
+                'item_id' => Item::where('code', 'armor_head.ribbon')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'ribbon')->first()->id,
+                'item_id' => Item::where('code', 'armor_head.ribbon')->first()->id,
                 'point' => 1,
                 'endurance' => 2
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'rusty_helmet')->first()->id,
+                'item_id' => Item::where('code', 'armor_head.rusty_helmet')->first()->id,
                 'point' => 4,
                 'endurance' => 3
             ],
@@ -7164,13 +7110,13 @@ class LootingSeeder extends Seeder
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'drill_surgent_armband')->first()->id,
+                'item_id' => Item::where('code', 'armor_arm.drill_surgent_armband')->first()->id,
                 'point' => 5,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'mp_armband')->first()->id,
+                'item_id' => Item::where('code', 'armor_arm.mp_armband')->first()->id,
                 'point' => 5,
                 'endurance' => 5
             ],
@@ -7236,361 +7182,361 @@ class LootingSeeder extends Seeder
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'kitchen_knife')->first()->id,
+                'item_id' => Item::where('code', 'weapon.kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'kitchen_knife')->first()->id,
+                'item_id' => Item::where('code', 'weapon.kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'kitchen_knife')->first()->id,
+                'item_id' => Item::where('code', 'weapon.kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'kitchen_knife')->first()->id,
+                'item_id' => Item::where('code', 'weapon.kitchen_knife')->first()->id,
                 'point' => 15,
                 'endurance' => 0
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'grenade')->first()->id,
+                'item_id' => Item::where('code', 'weapon.grenade')->first()->id,
                 'point' => 40,
                 'endurance' => 2
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'shuriken')->first()->id,
+                'item_id' => Item::where('code', 'weapon.shuriken')->first()->id,
                 'point' => 30,
                 'endurance' => 15
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'shuriken')->first()->id,
+                'item_id' => Item::where('code', 'weapon.shuriken')->first()->id,
                 'point' => 30,
                 'endurance' => 15
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'shuriken')->first()->id,
+                'item_id' => Item::where('code', 'weapon.shuriken')->first()->id,
                 'point' => 30,
                 'endurance' => 15
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'shuriken')->first()->id,
+                'item_id' => Item::where('code', 'weapon.shuriken')->first()->id,
                 'point' => 30,
                 'endurance' => 15
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'shuriken')->first()->id,
+                'item_id' => Item::where('code', 'weapon.shuriken')->first()->id,
                 'point' => 30,
                 'endurance' => 15
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'shuriken')->first()->id,
+                'item_id' => Item::where('code', 'weapon.shuriken')->first()->id,
                 'point' => 30,
                 'endurance' => 15
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'shuriken')->first()->id,
+                'item_id' => Item::where('code', 'weapon.shuriken')->first()->id,
                 'point' => 30,
                 'endurance' => 15
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'baseball_balls')->first()->id,
+                'item_id' => Item::where('code', 'weapon.baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'baseball_balls')->first()->id,
+                'item_id' => Item::where('code', 'weapon.baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'baseball_balls')->first()->id,
+                'item_id' => Item::where('code', 'weapon.baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'baseball_balls')->first()->id,
+                'item_id' => Item::where('code', 'weapon.baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'baseball_balls')->first()->id,
+                'item_id' => Item::where('code', 'weapon.baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'baseball_balls')->first()->id,
+                'item_id' => Item::where('code', 'weapon.baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'baseball_balls')->first()->id,
+                'item_id' => Item::where('code', 'weapon.baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'baseball_balls')->first()->id,
+                'item_id' => Item::where('code', 'weapon.baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'baseball_balls')->first()->id,
+                'item_id' => Item::where('code', 'weapon.baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'baseball_balls')->first()->id,
+                'item_id' => Item::where('code', 'weapon.baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'baseball_balls')->first()->id,
+                'item_id' => Item::where('code', 'weapon.baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'baseball_balls')->first()->id,
+                'item_id' => Item::where('code', 'weapon.baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'baseball_balls')->first()->id,
+                'item_id' => Item::where('code', 'weapon.baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'baseball_balls')->first()->id,
+                'item_id' => Item::where('code', 'weapon.baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'baseball_balls')->first()->id,
+                'item_id' => Item::where('code', 'weapon.baseball_balls')->first()->id,
                 'point' => 20,
                 'endurance' => 30
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'stones')->first()->id,
+                'item_id' => Item::where('code', 'weapon.stones')->first()->id,
                 'point' => 15,
                 'endurance' => 5
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'heavy_crossbow')->first()->id,
+                'item_id' => Item::where('code', 'weapon.heavy_crossbow')->first()->id,
                 'point' => 30,
                 'endurance' => 0
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'heavy_crossbow')->first()->id,
+                'item_id' => Item::where('code', 'weapon.heavy_crossbow')->first()->id,
                 'point' => 30,
                 'endurance' => 0
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'heavy_crossbow')->first()->id,
+                'item_id' => Item::where('code', 'weapon.heavy_crossbow')->first()->id,
                 'point' => 30,
                 'endurance' => 0
             ],
             [
                 'location_id' => 0,
-                'item_id' => Item::where('code', 'heavy_crossbow')->first()->id,
+                'item_id' => Item::where('code', 'weapon.heavy_crossbow')->first()->id,
                 'point' => 30,
                 'endurance' => 0
             ],

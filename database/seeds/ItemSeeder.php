@@ -944,17 +944,6 @@ class ItemSeeder extends Seeder
             ],
             [
                 'type' => ItemType::Weapon,
-                'name' => 'item.스카프',
-                'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
-                'point' => 10,
-                'endurance' => 0,
-                'ammo_require' => false,
-                'ammo_capacity' => 0,
-                'ammo_type' => AmmoType::None,
-                'armor_material' => ArmorMaterial::None
-            ],
-            [
-                'type' => ItemType::Weapon,
                 'name' => 'item.sabre',
                 'code' => 'weapon.sabre',
                 'attack_type' => IntegerUtil::defactorize([AttackType::Cut, AttackType::Stab]),
@@ -984,17 +973,6 @@ class ItemSeeder extends Seeder
                 'attack_type' => IntegerUtil::defactorize([AttackType::Throw]),
                 'point' => 1,
                 'endurance' => 1,
-                'ammo_require' => false,
-                'ammo_capacity' => 0,
-                'ammo_type' => AmmoType::None,
-                'armor_material' => ArmorMaterial::None
-            ],
-            [
-                'type' => ItemType::Weapon,
-                'name' => 'item.솔도파',
-                'attack_type' => IntegerUtil::defactorize([AttackType::Melee]),
-                'point' => 4,
-                'endurance' => 0,
                 'ammo_require' => false,
                 'ammo_capacity' => 0,
                 'ammo_type' => AmmoType::None,
@@ -1423,7 +1401,7 @@ class ItemSeeder extends Seeder
             [
                 'type' => ItemType::ArmorAccessory,
                 'name' => 'item.magazine',
-                'code' => 'armoraccessory.magazine',
+                'code' => 'armor_accessory.magazine',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 2,
@@ -1435,7 +1413,7 @@ class ItemSeeder extends Seeder
             [
                 'type' => ItemType::ArmorAccessory,
                 'name' => 'item.tamagotchi',
-                'code' => 'armoraccessory.tamagotchi',
+                'code' => 'armor_accessory.tamagotchi',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 3,
@@ -1447,7 +1425,7 @@ class ItemSeeder extends Seeder
             [
                 'type' => ItemType::ArmorAccessory,
                 'name' => 'item.cd_player',
-                'code' => 'armoraccessory.cd_player',
+                'code' => 'armor_accessory.cd_player',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 3,
@@ -1459,7 +1437,7 @@ class ItemSeeder extends Seeder
             [
                 'type' => ItemType::ArmorAccessory,
                 'name' => 'item.bulletproof_vest',
-                'code' => 'armoraccessory.bulletproof_vest',
+                'code' => 'armor_accessory.bulletproof_vest',
                 'attack_type' => AttackType::None,
                 'point' => 5,
                 'endurance' => 10,
@@ -2515,7 +2493,7 @@ class ItemSeeder extends Seeder
             [
                 'type' => ItemType::Item,
                 'name' => 'item.battery',
-                'code' => 'item.battery',
+                'code' => 'battery.battery',
                 'attack_type' => AttackType::None,
                 'point' => 1,
                 'endurance' => 1,
