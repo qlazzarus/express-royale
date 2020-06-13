@@ -5,24 +5,15 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Enums\UserChannel;
+use App\Services\AccountService;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class RegisterController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
-
     use RegistersUsers;
 
     /**
@@ -30,16 +21,18 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected string $redirectTo = RouteServiceProvider::HOME;
+
+    protected AccountService $accountService;
 
     /**
-     * Create a new controller instance.
-     *
-     * @return void
+     * RegisterController constructor.
+     * @param AccountService $accountService
      */
-    public function __construct()
+    public function __construct(AccountService $accountService)
     {
         $this->middleware('guest');
+        $this->accountService = $accountService;
     }
 
     /**
@@ -52,23 +45,23 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => [
-                'required', 
-                'string', 
+                'required',
+                'string',
                 'max:255'
             ],
             'email' => [
-                'required', 
-                'string', 
-                'email', 
+                'required',
+                'string',
+                'email',
                 'max:255',
                 Rule::unique('user_channels', 'channel_id')->where(function ($query) {
                     return $query->where('channel', UserChannel::Email);
                 }),
             ],
             'password' => [
-                'required', 
-                'string', 
-                'min:8', 
+                'required',
+                'string',
+                'min:8',
                 'confirmed'
             ],
         ]);
@@ -78,7 +71,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\User
+     * @return User
      */
     protected function create(array $data)
     {
