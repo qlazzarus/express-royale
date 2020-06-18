@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
+/**
+ * Class RegisterController
+ * https://github.com/ankurk91/laravel-socialite-multiple-providers-example/blob/master/app/Http/Controllers/Auth/SocialiteController.php
+ * @package App\Http\Controllers\Auth
+ */
 class RegisterController extends Controller
 {
     use RegistersUsers;

@@ -20,6 +20,13 @@ mix.ts('resources/ts/index.tsx', 'public/js')
       }
     },
     devtool: !mix.inProduction() ? 'cheap-module-eval-source-map' : false
+  })
+  .copy('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/webfonts')
+  .options({
+    hmrOptions: {
+      host: 'localhost',
+      port: 8081
+    }
   });
 
 if (mix.inProduction()) {

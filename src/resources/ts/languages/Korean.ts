@@ -26,8 +26,11 @@ enum Korean {
     USERNAME = '유저명',
     PASSWORD = '비밀번호',
     SIGN_IN = '로그인',
+    SIGN_UP = '회원 가입',
     FIND_PASSWORD = '비밀번호 찾기',
     SIGN_IN_GITHUB = 'Github 로 로그인',
+    SIGN_IN_FACEBOOK = 'Facebook 으로 로그인',
+    SIGN_IN_GOOGLE = 'Google 로 로그인',
 }
 
 export default Korean;
