@@ -8,8 +8,7 @@ const AuthStore = types.model('AuthStore', {
 })
 .views((self) => ({
     get logged(): boolean {
-        if (!self.token || !self.currentUser) return false;
-        return false;
+        return Boolean(self.token);
     }
 }))
 .actions(self => {

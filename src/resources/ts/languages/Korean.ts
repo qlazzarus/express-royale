@@ -23,6 +23,11 @@ enum Korean {
     MENU_WINNER = '역대 우승자',
     FOOTER_COPYRIGHT = 'Express Royale by monoless',
     FOOTER_THANKS = 'Special Thanks to 원본 한글화 루리아',
+    USERNAME = '유저명',
+    PASSWORD = '비밀번호',
+    SIGN_IN = '로그인',
+    FIND_PASSWORD = '비밀번호 찾기',
+    SIGN_IN_GITHUB = 'Github 로 로그인',
 }
 
 export default Korean;
