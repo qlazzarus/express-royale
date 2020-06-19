@@ -3,29 +3,45 @@ import { UserModel } from '@/models';
 import RootStore from './RootStore';
 
 const AuthStore = types.model('AuthStore', {
-    token: types.maybe(types.string),
-    currentUser: types.maybe(UserModel)
+    errors: types.maybeNull(types.array(types.string)),
+    redriectTo: types.maybeNull(types.string),
+    token: types.maybeNull(types.string),
+    user: types.maybeNull(UserModel),
 })
 .views((self) => ({
-    get logged(): boolean {
+    get isLogged(): boolean {
         return Boolean(self.token);
     }
 }))
 .actions(self => {
     const apiService = getParent<typeof RootStore>(self).apiService;
-    const login = flow(function* (username?: string, password?: string) {
+
+    const clearErrors = () => {
+        self.errors = null;
+    };
+
+    const signIn = flow(function* (username?: string, password?: string) {
         apiService.get('sanctum/csrf-cookie')
             .then(() => apiService.post('api/auth/login', { username, password }));
     });
 
-    const register = flow(function* (username?: string, password?: string) {
+    const signUp = flow(function* (username?: string, password?: string) {
         apiService.get('sanctum/csrf-cookie')
             .then(() => apiService.post('api/auth/register', { username, password }));
     });
 
+    const logout = () => {
+        self.errors = null;
+        self.redriectTo = null;
+        self.token = null;
+        self.user = null;
+    }
+
     return {
-        login,
-        register
+        clearErrors,
+        signIn,
+        signUp,
+        logout
     };
 });
 

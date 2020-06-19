@@ -14,7 +14,7 @@ const Main: React.FC = () => {
                 <ReactMarkdown source={t('INTRO')} escapeHtml={false} />
             </div>
             <h1 className={'text-5xl text-center text-red-500'}>{t('TITLE')}</h1>
-            {authStore.logged ? <div>hello world</div> : <SignInForm />}
+            {authStore.isLogged ? <div>hello world</div> : <SignInForm />}
         </>
     );
 }

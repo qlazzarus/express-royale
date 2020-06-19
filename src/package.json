@@ -23,6 +23,7 @@
         "pusher": "^3.0.1",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
+        "react-hook-form": "^5.7.2",
         "react-i18next": "^11.4.0",
         "react-markdown": "^4.3.1",
         "react-router": "^5.2.0",

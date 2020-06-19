@@ -1,14 +1,14 @@
 import React from 'react';
 import { Switch, Route } from "react-router-dom";
 import { PrivateRoute } from '@/components';
-import { Main } from '@/pages';
+import { Main, SignIn, SignUp } from '@/pages';
 
 const Router: React.FC = () => {
     return (
         <Switch>
             <Route path={'/'} exact component={Main} />
-            <Route path={'/signup'} exact component={Main} />
-            <Route path={'/login'} exact component={Main} />
+            <Route path={'/signin'} exact component={SignIn} />
+            <Route path={'/signup'} exact component={SignUp} />
             <PrivateRoute path={'/game'} exact component={Main} />
             <PrivateRoute path={'/transfer'} exact component={Main} />
             <PrivateRoute path={'/account'} exact component={Main} />

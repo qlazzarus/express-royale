@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { InputForm } from '@/components';
 
@@ -19,9 +20,9 @@ const SignInForm: React.FC = () => {
             <div className="py-2">
                 {/* border-red-500 */}
                 <div className={'text-right'}>
-                    <a className="inline-block align-baseline text-red-500 hover:text-red-800" href="#">
+                    <Link to={'/find-password'} className={'inline-block align-baseline text-red-500 hover:text-red-800'}>
                         {t('FIND_PASSWORD')}
-                    </a>
+                    </Link>
                 </div>
                 <label>
                     <InputForm
@@ -36,9 +37,7 @@ const SignInForm: React.FC = () => {
                 <button className="bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
                     {t('SIGN_IN')}
                 </button>
-                <a className="inline-block align-baseline text-red-500 hover:text-red-800" href="#">
-                    {t('SIGN_UP')}
-                </a>
+                <Link to={'/signup'} className={'inline-block align-baseline text-red-500 hover:text-red-800'}>{t('SIGN_UP')}</Link>
             </div>
             <div className="flex py-2">
                 <button className="flex w-full items-center justify-between bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">

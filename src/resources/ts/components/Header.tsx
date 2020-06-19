@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useStore } from '@/helpers';
 
 const Header: React.FC = () => {
     const { t } = useTranslation();
+    const { authStore } = useStore();
     const [visible, setVisible] = useState(false);
 
     return (
@@ -21,8 +23,8 @@ const Header: React.FC = () => {
                     </button>
                 </div>
                 <div className={`navbar-menu w-full ${visible ? 'flex' : 'hidden'} flex-col justify-around items-center lg:flex lg:flex-row lg:w-4/5`}>
-                    <Link to={'/login'} className={"text-red-500 hover:text-red-700 my-3"}>{t('MENU_LOGIN')}</Link>
-                    <Link to={'/transfer'} className={"text-red-500 hover:text-red-700 my-3"}>{t('MENU_TRANSFER')}</Link>
+                    {!authStore.isLogged && <Link to={'/signin'} className={"text-red-500 hover:text-red-700 my-3"}>{t('MENU_LOGIN')}</Link>}
+                    {authStore.isLogged && <Link to={'/transfer'} className={"text-red-500 hover:text-red-700 my-3"}>{t('MENU_TRANSFER')}</Link>}
                     <Link to={'/rule'} className={"text-red-500 hover:text-red-700 my-3"}>{t('MENU_RULE')}</Link>
                     <Link to={'/rank'} className={"text-red-500 hover:text-red-700 my-3"}>{t('MENU_RANK')}</Link>
                     <Link to={'/news'} className={"text-red-500 hover:text-red-700 my-3"}>{t('MENU_NEWS')}</Link>
