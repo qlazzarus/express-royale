@@ -1,67 +1,91 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Controller } from 'react-hook-form';
 import { InputForm } from '@/components';
+import { useSignUpForm } from '@/forms';
 import { useStore } from '@/helpers';
 
-/*
-https://github.com/DmytriyZahrebelny/my-medium/blob/55d46f45d07c5b66f256bd3200a22dd227fe09e9/src/components/Auth/useAuthHooks.tsx
-https://github.com/DmytriyZahrebelny/my-medium/blob/55d46f45d07c5b66f256bd3200a22dd227fe09e9/src/components/Auth/SignUp/SignUp.tsx
-*/
 const SignUp: React.FC = () => {
     const { authStore } = useStore();
     const { t } = useTranslation();
-
-    const handleSignUp = () => {
-
-    }
+    const { control, errors, onSubmit } = useSignUpForm();
 
     if (authStore.isLogged) {
         // TODO redirect
     }
 
     return (
-        <form 
+        <form
             className={'bg-gray-900 rounded w-full md:w-1/2 px-8 pt-6 pb-8 mx-auto my-8'}
-            onSubmit={handleSignUp}
+            onSubmit={onSubmit}
         >
             <div className="py-2">
                 <label>
-                    <InputForm
-                        className="shadow appearance-none bg-gray-700 border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                        type="text"
-                        placeholder={t('USERNAME')}
+                    <Controller
+                        name={'username'}
+                        as={(
+                            <InputForm
+                                className="shadow appearance-none bg-gray-700 border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+                                type="text"
+                                placeholder={t('USERNAME')}
+                            />
+                        )}
+                        control={control}
                     />
                 </label>
+                {errors.username && <p className="text-red-500 italic">{errors.username}</p>}
             </div>
             <div className="py-2">
                 <label>
-                    <InputForm
-                        className="shadow appearance-none bg-gray-700 border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                        type="text"
-                        placeholder={t('EMAIL')}
+                    <Controller
+                        name={'email'}
+                        as={(
+                            <InputForm
+                                className="shadow appearance-none bg-gray-700 border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+                                type="text"
+                                placeholder={t('EMAIL')}
+                            />
+                        )}
+                        control={control}
                     />
                 </label>
+                {errors.email && <p className="text-red-500 italic">{errors.email}</p>}
             </div>
             <div className="py-2">
                 <label>
-                    <InputForm
-                        className="shadow appearance-none bg-gray-700 border rounded w-full py-2 px-3 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                        type="password"
-                        placeholder={t('PASSWORD')}
+                    <Controller
+                        name={'password'}
+                        as={(
+                            <InputForm
+                                className="shadow appearance-none bg-gray-700 border rounded w-full py-2 px-3 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                                type="password"
+                                placeholder={t('PASSWORD')}
+                            />
+                        )}
+                        control={control}
                     />
+
                 </label>
+                {errors.password && <p className="text-red-500 italic">{errors.password}</p>}
             </div>
             <div className="py-2">
                 <label>
-                    <InputForm
-                        className="shadow appearance-none bg-gray-700 border rounded w-full py-2 px-3 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                        type="password"
-                        placeholder={t('PASSWORD_CONFIRM')}
+                    <Controller
+                        name={'passwordConfirm'}
+                        as={(
+                            <InputForm
+                                className="shadow appearance-none bg-gray-700 border rounded w-full py-2 px-3 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                                type="password"
+                                placeholder={t('PASSWORD_CONFIRM')}
+                            />
+                        )}
+                        control={control}
                     />
                 </label>
+                {errors.passwordConfirm && <p className="text-red-500 italic">{errors.passwordConfirm}</p>}
             </div>
             <div className="flex pt-8 pb-2 items-center justify-end">
-                <button 
+                <button
                     className={"bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline"}
                     type={"submit"}
                 >
