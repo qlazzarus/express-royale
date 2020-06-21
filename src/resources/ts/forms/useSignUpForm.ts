@@ -9,22 +9,21 @@ export type SignUpFormData = {
 	passwordConfirm: string
 }
 
-const validationSchema = yup.object().shape({
+export const SignUpSchema = yup.object().shape({
     username: yup.string().matches(/[a-z][a-z0-9_.]+/).required(),
     email: yup.string().email().required(),
     password: yup.string().min(8).required(),
-    passwordConfirm: yup.string().oneOf([yup.ref('password')])
+    passwordConfirm: yup.string().oneOf([yup.ref('password')]).required()
 });
 
 const useSignUpForm = () => {
 	const { authStore } = useStore();
 	const { signUp } = authStore;
 	const { control, errors, formState, handleSubmit, register } = useForm<SignUpFormData>({
-        validationSchema
+        validationSchema: SignUpSchema
     });
 
 	const onSubmit = handleSubmit((data: SignUpFormData) => {
-	    const { username, email, password, passwordConfirm } = data;
 	    return signUp(data);
     });
 

@@ -33,7 +33,9 @@ const SignUp: React.FC = () => {
                         control={control}
                     />
                 </label>
-                {errors.username && <p className="text-red-500 italic">{errors.username}</p>}
+                {errors.username && errors.username.message && (
+                    <p className="text-red-500 italic">{errors.username.message}</p>
+                )}
             </div>
             <div className="py-2">
                 <label>
@@ -49,7 +51,9 @@ const SignUp: React.FC = () => {
                         control={control}
                     />
                 </label>
-                {errors.email && <p className="text-red-500 italic">{errors.email}</p>}
+                {errors.email && errors.email.message && (
+                    <p className="text-red-500 italic">{errors.email.message}</p>
+                )}
             </div>
             <div className="py-2">
                 <label>
@@ -66,7 +70,9 @@ const SignUp: React.FC = () => {
                     />
 
                 </label>
-                {errors.password && <p className="text-red-500 italic">{errors.password}</p>}
+                {errors.password && errors.password.message && (
+                    <p className="text-red-500 italic">{errors.password.message}</p>
+                )}
             </div>
             <div className="py-2">
                 <label>
@@ -82,7 +88,9 @@ const SignUp: React.FC = () => {
                         control={control}
                     />
                 </label>
-                {errors.passwordConfirm && <p className="text-red-500 italic">{errors.passwordConfirm}</p>}
+                {errors.passwordConfirm && errors.passwordConfirm.message && (
+                    <p className="text-red-500 italic">{errors.passwordConfirm.message}</p>
+                )}
             </div>
             <div className="flex pt-8 pb-2 items-center justify-end">
                 <button

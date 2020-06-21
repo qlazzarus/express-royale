@@ -1,3 +1,3 @@
-export { default as useSignUpForm } from './useSignUpForm';
+export { default as useSignUpForm, SignUpSchema } from './useSignUpForm';
 
 export type { SignUpFormData } from './useSignUpForm';
