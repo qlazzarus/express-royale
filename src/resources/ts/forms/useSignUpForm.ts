@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import useStore from '@/helpers/useStore';
+import { useStore } from '@/helpers';
 
 export type SignUpFormData = {
 	username: string,
@@ -23,9 +23,7 @@ const useSignUpForm = () => {
         validationSchema: SignUpSchema
     });
 
-	const onSubmit = handleSubmit((data: SignUpFormData) => {
-	    return signUp(data);
-    });
+	const onSubmit = handleSubmit((data: SignUpFormData) => signUp(data));
 
 	return {
 	    control,

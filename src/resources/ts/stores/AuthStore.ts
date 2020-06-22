@@ -2,6 +2,7 @@ import { types, flow, Instance, getParent, getParentOfType } from 'mobx-state-tr
 import { SignUpFormData } from "@/forms";
 import { UserModel } from '@/models';
 import RootStore from './RootStore';
+import { ApiServiceInterface } from '@/services';
 
 const AuthStore = types.model('AuthStore', {
         errors: types.maybeNull(types.array(types.string)),
@@ -15,7 +16,7 @@ const AuthStore = types.model('AuthStore', {
         }
     }))
     .actions(self => {
-        const apiService = getParent<typeof RootStore>(self).apiService;
+        const apiService: ApiServiceInterface = getParent<typeof RootStore>(self).apiService;
 
         const signIn = flow(function* (username?: string, password?: string) {
             apiService.get('sanctum/csrf-cookie')
@@ -23,8 +24,7 @@ const AuthStore = types.model('AuthStore', {
         });
 
         const signUp = flow(function* (data: SignUpFormData) {
-            apiService.get('sanctum/csrf-cookie')
-                .then(() => apiService.post('api/auth/register', data));
+            return apiService.post('api/auth/register', data);
         });
 
         const logout = () => {

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Controller } from 'react-hook-form';
-import { InputForm } from '@/components';
+import { InputForm, LabelError } from '@/components';
 import { useSignUpForm } from '@/forms';
 import { useStore } from '@/helpers';
 
@@ -17,7 +17,7 @@ const SignUp: React.FC = () => {
     return (
         <form
             className={'bg-gray-900 rounded w-full md:w-1/2 px-8 pt-6 pb-8 mx-auto my-8'}
-            onSubmit={onSubmit}
+            onSubmit={useCallback(onSubmit, [])}
         >
             <div className="py-2">
                 <label>
@@ -33,9 +33,7 @@ const SignUp: React.FC = () => {
                         control={control}
                     />
                 </label>
-                {errors.username && errors.username.message && (
-                    <p className="text-red-500 italic">{errors.username.message}</p>
-                )}
+                {errors.username && <LabelError error={errors.username} />}
             </div>
             <div className="py-2">
                 <label>
@@ -51,9 +49,7 @@ const SignUp: React.FC = () => {
                         control={control}
                     />
                 </label>
-                {errors.email && errors.email.message && (
-                    <p className="text-red-500 italic">{errors.email.message}</p>
-                )}
+                {errors.email && <LabelError error={errors.email} />}
             </div>
             <div className="py-2">
                 <label>
@@ -70,9 +66,7 @@ const SignUp: React.FC = () => {
                     />
 
                 </label>
-                {errors.password && errors.password.message && (
-                    <p className="text-red-500 italic">{errors.password.message}</p>
-                )}
+                {errors.password && <LabelError error={errors.password} />}
             </div>
             <div className="py-2">
                 <label>
@@ -88,9 +82,7 @@ const SignUp: React.FC = () => {
                         control={control}
                     />
                 </label>
-                {errors.passwordConfirm && errors.passwordConfirm.message && (
-                    <p className="text-red-500 italic">{errors.passwordConfirm.message}</p>
-                )}
+                {errors.passwordConfirm && <LabelError error={errors.passwordConfirm} />}
             </div>
             <div className="flex pt-8 pb-2 items-center justify-end">
                 <button
