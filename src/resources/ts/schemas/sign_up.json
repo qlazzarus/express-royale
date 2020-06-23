@@ -1,0 +1,34 @@
+{
+    "title": "sign up",
+    "description": "sign up",
+    "type": "object",
+    "properties": {
+        "username": {
+            "description": "name of the person",
+            "type": "string",
+            "minLength": 4,
+            "pattern": "[a-z][a-z0-9_.]+",
+            "flags": "i",
+            "required": true
+        },
+        "email": {
+            "description": "email of the person",
+            "type": "string",
+            "email": true,
+            "required": true
+        },
+        "password": {
+            "description": "password of the person",
+            "type": "string",
+            "minLength": 8,
+            "pattern": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$",
+            "required": true
+        },
+        "passwordConfirm": {
+            "description": "password of the person",
+            "type": "string",
+            "oneOf": ["password"],
+            "required": true
+        }
+    }
+}
