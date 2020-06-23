@@ -1,6 +1,6 @@
-import { useForm } from 'react-hook-form';
-import * as yup from 'yup';
-import { useStore } from '@/helpers';
+import {useForm} from 'react-hook-form';
+import {useStore, validationSchema} from '@/helpers';
+import Validator from "@/enums/Validator";
 
 export type SignUpFormData = {
 	username: string,
@@ -9,18 +9,11 @@ export type SignUpFormData = {
 	passwordConfirm: string
 }
 
-const SignUpSchema = yup.object().shape({
-    username: yup.string().matches(/[a-z][a-z0-9_.]+/).required(),
-    email: yup.string().email().required(),
-    password: yup.string().min(8).required(),
-    passwordConfirm: yup.string().oneOf([yup.ref('password')]).required()
-});
-
 const useSignUpForm = () => {
 	const { authStore } = useStore();
 	const { signUp } = authStore;
 	const { control, errors, formState, handleSubmit, register } = useForm<SignUpFormData>({
-        validationSchema: SignUpSchema
+        validationSchema: validationSchema(Validator.SIGN_UP)
     });
 
 	const onSubmit = handleSubmit((data: SignUpFormData) => signUp(data));

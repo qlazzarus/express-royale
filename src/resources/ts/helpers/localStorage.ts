@@ -1,4 +1,4 @@
-function localStorage(key: string, initialValue: any) {
+export default function (key: string, initialValue: any) {
     const storedValue: any = (() => {
         const item = window.localStorage.getItem(key);
         return item ? JSON.parse(item) : initialValue;
@@ -15,5 +15,3 @@ function localStorage(key: string, initialValue: any) {
 
     return [storedValue, setValue];
 }
-
-export default localStorage;

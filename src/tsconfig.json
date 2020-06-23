@@ -16,6 +16,7 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
+    "resolveJsonModule": true,,
     "jsx": "react",
     "baseUrl": "./resources/ts",
     "paths": {
