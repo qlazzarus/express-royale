@@ -1,6 +1,6 @@
-import {useForm} from 'react-hook-form';
-import {useStore, validationSchema} from '@/helpers';
-import Validator from "@/enums/Validator";
+import { useForm } from 'react-hook-form';
+import { Validator } from "@/enums";
+import { useStore, validationSchema } from '@/helpers';
 
 export type SignUpFormData = {
 	username: string,

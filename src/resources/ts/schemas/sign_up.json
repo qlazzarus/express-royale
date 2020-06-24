@@ -1,4 +1,6 @@
 {
+    "$schema": "http://json-schema.org/draft/2019-09/schema#",
+    "$id": "sign_up.json",
     "title": "sign up",
     "description": "sign up",
     "type": "object",
@@ -8,27 +10,26 @@
             "type": "string",
             "minLength": 4,
             "pattern": "[a-z][a-z0-9_.]+",
-            "flags": "i",
-            "required": true
+            "flags": "i"
         },
         "email": {
             "description": "email of the person",
             "type": "string",
-            "email": true,
-            "required": true
+            "email": true
         },
         "password": {
             "description": "password of the person",
             "type": "string",
             "minLength": 8,
-            "pattern": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$",
-            "required": true
+            "pattern": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"
         },
         "passwordConfirm": {
             "description": "password of the person",
             "type": "string",
-            "oneOf": ["password"],
-            "required": true
+            "oneOf": [{
+                "$data": ""
+            }]
         }
-    }
+    },
+    "required": ["username", "email", "password", "passwordConfirm"]
 }
