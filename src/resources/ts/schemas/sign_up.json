@@ -21,14 +21,12 @@
             "description": "password of the person",
             "type": "string",
             "minLength": 8,
-            "pattern": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"
+            "pattern": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$",
+            "confirm": true            
         },
         "passwordConfirm": {
             "description": "password of the person",
-            "type": "string",
-            "oneOf": [{
-                "$data": ""
-            }]
+            "type": "string"
         }
     },
     "required": ["username", "email", "password", "passwordConfirm"]
