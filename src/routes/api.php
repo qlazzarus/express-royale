@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::group(['prefix' => 'auth', 'middleware' => 'auth:sanctum'], function(){
-    
+Route::post('auth/register', 'Auth\RegisterController@create');
+
+Route::middleware(['auth:sanctum'], function(){
 });
 
 Broadcast::routes(['middleware' => ['auth:sanctum']]);

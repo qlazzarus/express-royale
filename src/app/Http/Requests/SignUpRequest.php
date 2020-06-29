@@ -3,9 +3,12 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Helpers\JsonValidationSchema;
 
 class SignUpRequest extends FormRequest
 {
+    use JsonValidationSchema;
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -13,7 +16,7 @@ class SignUpRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,9 +26,13 @@ class SignUpRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules = array_merge($this->schema(), [
             //
-            
-        ];
+            'username' => 'required'
+        ]);
+
+        var_dump($rules);
+
+        return $rules;
     }
 }

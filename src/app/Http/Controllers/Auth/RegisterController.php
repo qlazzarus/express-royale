@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use App\Enums\UserChannel;
+use App\Providers\RouteServiceProvider;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\SignUpRequest;
 use App\Services\AccountService;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -75,15 +76,18 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param SignUpRequest $request
      * @return User
      */
-    protected function create(array $data)
+    protected function create(SignUpRequest $request)
     {
+        return null;
+        /*
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        */
     }
 }
