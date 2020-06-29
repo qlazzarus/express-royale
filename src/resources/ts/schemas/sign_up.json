@@ -14,7 +14,7 @@
         "type": "string",
         "required": true,
         "min": 8,
-        "matches": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"
+        "matches": "^.*(?=^.{8,15}$)(?=.*\\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$"
     },
     "passwordConfirm": {
         "type": "string",

@@ -166,7 +166,6 @@ const applyMethodsOnType = (base: any, typeName: string, methods?: ResultArray[]
 
 const getYupSchema = (config: any) => {
     const normalizedConfig = getNormalizedConfig(config);
-    console.log(normalizedConfig);
 
     return applyMethodsOnType(
         getYupType(normalizedConfig),

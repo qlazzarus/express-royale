@@ -1,4 +1,3 @@
-import * as yup from 'yup';
 import { Validator } from "@/enums";
 import schemaGenerator from './schemaGenerator';
 

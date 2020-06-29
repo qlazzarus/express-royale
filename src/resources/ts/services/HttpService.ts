@@ -2,6 +2,7 @@ import axios, { AxiosResponse, AxiosRequestConfig } from 'axios';
 import camelcaseKeysRecursive from 'camelcase-keys-recursive';
 import { types, flow, Instance } from 'mobx-state-tree';
 import querystring from 'querystring';
+import snakeCaseKeys from 'snakecase-keys';
 
 const client = axios.create({
     headers: {
@@ -20,7 +21,7 @@ client.interceptors.response.use(
     }
 );
 
-client.defaults.transformRequest = [data => querystring.stringify(data)];
+client.defaults.transformRequest = [data => querystring.stringify(snakeCaseKeys(data))];
 
 const HttpService = types.model().volatile(() => ({
     get: flow(function* (url: string, config?: AxiosRequestConfig) {
