@@ -1,33 +1,24 @@
 {
-    "$schema": "http://json-schema.org/draft/2019-09/schema#",
-    "$id": "sign_up.json",
-    "title": "sign up",
-    "description": "sign up",
-    "type": "object",
-    "properties": {
-        "username": {
-            "description": "name of the person",
-            "type": "string",
-            "minLength": 4,
-            "pattern": "[a-z][a-z0-9_.]+",
-            "flags": "i"
-        },
-        "email": {
-            "description": "email of the person",
-            "type": "string",
-            "email": true
-        },
-        "password": {
-            "description": "password of the person",
-            "type": "string",
-            "minLength": 8,
-            "pattern": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$",
-            "confirm": true            
-        },
-        "passwordConfirm": {
-            "description": "password of the person",
-            "type": "string"
-        }
+    "username": {
+        "type": "string",
+        "required": true,
+        "min": 4,
+        "matches": "[a-z][a-z0-9_.]+"
     },
-    "required": ["username", "email", "password", "passwordConfirm"]
+    "email": {
+        "type": "string",
+        "required": true,
+        "email": true
+    },
+    "password": {
+        "type": "string",
+        "required": true,
+        "min": 8,
+        "matches": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"
+    },
+    "passwordConfirm": {
+        "type": "string",
+        "required": true,
+        "equal": "password"
+    }
 }
