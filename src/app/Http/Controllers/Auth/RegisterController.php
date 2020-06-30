@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SignUpRequest;
 use App\Services\AccountService;
 use App\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -41,32 +42,33 @@ class RegisterController extends Controller
     }
 
     /**
-     * Get a validator for an incoming registration request.
+     * Handle a registration request for the application.
      *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
+     * @param SignUpRequest $request
+     * @return \Illuminate\Http\Response
      */
-    protected function validator(array $data)
+    public function register(SignUpRequest $request)
     {
-        return Validator::make($data, [
-            'name' => [
-                'required',
-                'string',
-                'max:255'
-            ],
-            'email' => [
-                'required',
-                'string',
-                'email',
-                'max:255',
-            ],
-            'password' => [
-                'required',
-                'string',
-                'min:8',
-                'confirmed'
-            ],
-        ]);
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        $this->guard()->login($user);
+
+        return $this->registered($request, $user)
+                        ?: redirect($this->redirectPath());
+    }
+
+    /**
+     * The user has been registered.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function registered(Request $request, $user)
+    {
+        //
     }
 
     /**
