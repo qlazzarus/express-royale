@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Validator;
 /**
  * Class RegisterController
  * @package App\Http\Controllers\Auth
+ * 
+ * https://github.com/laravel/framework/blob/5.5/src/Illuminate/Foundation/Auth/RegistersUsers.php
  */
 class RegisterController extends Controller
 {

@@ -11,4 +11,5 @@ final class UserChannel extends Enum
     const Google = 'google';
     const Github = 'github';
     const Kakao = 'kakao';
+    const Name = 'name';
 }

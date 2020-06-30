@@ -18,6 +18,7 @@ class CreateUserChannelsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('channel', 16);
             $table->string('channel_id', 256);
+            $table->string('password')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
             $table->unique(['channel', 'channel_id']);

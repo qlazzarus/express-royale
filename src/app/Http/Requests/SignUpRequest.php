@@ -31,6 +31,12 @@ class SignUpRequest extends FormRequest
         $rules = $this->schema();
 
         // merge below here
+        if (array_key_exists('username', $rules)) {
+            $rules['username'][] = Rule::unique('user_channels', 'channel_id')->where(function ($query) {
+                return $query->where('channel', UserChannel::Name);
+            });
+        }
+
         if (array_key_exists('email', $rules)) {
             $rules['email'][] = Rule::unique('user_channels', 'channel_id')->where(function ($query) {
                 return $query->where('channel', UserChannel::Email);
