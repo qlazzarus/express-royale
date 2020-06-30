@@ -4,8 +4,12 @@ namespace App\Helpers;
 
 use Illuminate\Support\Str;
 
-trait JsonValidationSchema {
-
+trait JsonValidationSchema 
+{
+    /**
+     * @param string|null $file
+     * @return array
+     */
     protected function getJson($file = null)
     {
         if (null === $file) {
@@ -27,15 +31,62 @@ trait JsonValidationSchema {
     }
 
     /**
-     * @param string|null $schema
+     * @param array $obj
+     * @return array
+     */
+    protected function convertSchema(array $obj)
+    {
+        $result = [];
+
+        foreach ($obj as $key => $rows) {
+            $rules = [];
+            foreach ($rows as $type => $param) {
+                $rule = $this->convertRule($type, $param);
+                if ($rule) $rules[] = $rule;
+            }
+
+            $result[Str::snake($key)] = $rules;
+        }
+
+        return $result;
+    }
+
+    /**
+     * @param string $type
+     * @param string $param
+     * @return string|null
+     */
+    protected function convertRule($type, $param)
+    {
+        if (!$param) return null;
+
+        if ('type' === $type && 'string' === $param) {
+            return 'string';
+        } elseif ('required' === $type) {
+            return 'required';
+        } elseif ('min' === $type) {
+            return "min:{$param}";
+        } elseif ('max' === $type) {
+            return "max:{$param}";
+        } elseif ('matches' === $type) {
+            return "regex:/{$param}/";
+        } elseif ('email' === $type) {
+            return 'email';
+        } elseif ('equal' === $type) {
+            return "same:{$param}";
+        }
+
+        return null;
+    }
+
+    /**
+     * @param string|null $file
      * @return array
      */
     public function schema($file = null)
     {
         $obj = $this->getJson($file);
-
-        return [
-            'password' => 'required'
-        ];
+        
+        return $this->convertSchema($obj);
     }
 }

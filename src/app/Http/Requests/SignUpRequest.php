@@ -2,8 +2,10 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Enums\UserChannel;
 use App\Helpers\JsonValidationSchema;
+use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class SignUpRequest extends FormRequest
 {
@@ -26,12 +28,14 @@ class SignUpRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = array_merge($this->schema(), [
-            //
-            'username' => 'required'
-        ]);
+        $rules = $this->schema();
 
-        var_dump($rules);
+        // merge below here
+        if (array_key_exists('email', $rules)) {
+            $rules['email'][] = Rule::unique('user_channels', 'channel_id')->where(function ($query) {
+                return $query->where('channel', UserChannel::Email);
+            });
+        }
 
         return $rules;
     }

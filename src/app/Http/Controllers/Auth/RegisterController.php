@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Enums\UserChannel;
 use App\Providers\RouteServiceProvider;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SignUpRequest;
@@ -11,11 +10,9 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
 
 /**
  * Class RegisterController
- * https://github.com/ankurk91/laravel-socialite-multiple-providers-example/blob/master/app/Http/Controllers/Auth/SocialiteController.php
  * @package App\Http\Controllers\Auth
  */
 class RegisterController extends Controller
@@ -60,9 +57,6 @@ class RegisterController extends Controller
                 'string',
                 'email',
                 'max:255',
-                Rule::unique('user_channels', 'channel_id')->where(function ($query) {
-                    return $query->where('channel', UserChannel::Email);
-                }),
             ],
             'password' => [
                 'required',
