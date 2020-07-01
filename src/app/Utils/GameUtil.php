@@ -269,19 +269,19 @@ class GameUtil
             $injureCandidate = [Injure::Head, Injure::Arm, Injure::Body, Injure::Leg];
         } elseif (AttackType::Stab === $attackType) {
             $result->skill++;
-            
+
             $destroyChance = 3;
             $injureChance = 10;
             $injureCandidate = [Injure::Head, Injure::Arm, Injure::Body, Injure::Leg];
         } elseif (AttackType::Cut === $attackType) {
             $result->skill++;
-            
+
             $destroyChance = 3;
             $injureChance = 10;
             $injureCandidate = [Injure::Head, Injure::Arm, Injure::Body, Injure::Leg];
         } elseif (AttackType::Fist === $attackType) {
             $result->skill++;
-            
+
             $destroyChance = 3;
             $injureChance = 10;
             $injureCandidate = [Injure::Head];
@@ -334,7 +334,7 @@ class GameUtil
 
         // critical
         $critical = self::dice(100);
-        if ((Injure::Head === $result->injure && 30 > $critical) || 
+        if ((Injure::Head === $result->injure && 30 > $critical) ||
             (Injure::Body === $result->injure && 20 > $critical) ||
             (Injure::Arm === $result->injure && 80 > $critical) ||
             (Injure::Leg === $result->injure && 50 > $critical)) {
@@ -345,7 +345,7 @@ class GameUtil
 
         return $result;
     }
-    
+
     /**
      * @param StudentInfo $weapon
      * @param integer $melee
@@ -523,7 +523,7 @@ class GameUtil
      */
     public static function weaponSpecialize(ReconnReportInterface $result, StudentInfo $weapon, $melee, $bow, $throw, $bomb, $shot, $cut, $stab, $fist)
     {
-        if (in_array(AttackType::Melee, $weapon->item->attackType) || 
+        if (in_array(AttackType::Melee, $weapon->item->attackType) ||
             ((in_array(AttackType::Bow, $weapon->item->attackType) || in_array(AttackType::Shot, $weapon->item->attackType)) && 0 >= $weapon->endurance)) {
             $result->accurancy = 80 + floor($melee / GameSetting::SkillExperience);
         } elseif (in_array(AttackType::Bow, $weapon->item->attackType)) {
@@ -553,7 +553,7 @@ class GameUtil
 
     /**
      * 무기 소모 endurance 계산
-     * 
+     *
      * @param StudentItem $weapon
      * @param integer $attack
      * @return WeaponFatigue
@@ -595,7 +595,7 @@ class GameUtil
 
     /**
      * 방어구 소모 endurance 계산
-     * 
+     *
      * @param StudentItem $armor
      * @return integer
      */

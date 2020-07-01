@@ -9,14 +9,11 @@ use App\Services\AccountService;
 use App\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+use Throwable;
 
 /**
  * Class RegisterController
  * @package App\Http\Controllers\Auth
- * 
- * https://github.com/laravel/framework/blob/5.5/src/Illuminate/Foundation/Auth/RegistersUsers.php
  */
 class RegisterController extends Controller
 {
@@ -45,47 +42,35 @@ class RegisterController extends Controller
      * Handle a registration request for the application.
      *
      * @param SignUpRequest $request
-     * @return \Illuminate\Http\Response
+     * @return User
+     * @throws Throwable
      */
     public function register(SignUpRequest $request)
     {
-        $this->validator($request->all())->validate();
+        event(new Registered($user = $this->accountService->createByUsernameAndEmail(
+            $request->input('username'),
+            $request->input('email'),
+            $request->input('password')
+        )));
 
-        event(new Registered($user = $this->create($request->all())));
-
+        /*
+         * https://github.com/garethredfern/sanctum-api/blob/master/app/Http/Controllers/API/Auth/LoginController.php
+         */
         $this->guard()->login($user);
 
-        return $this->registered($request, $user)
-                        ?: redirect($this->redirectPath());
+        return $this->registered($request, $user);
     }
 
     /**
      * The user has been registered.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  mixed  $user
-     * @return mixed
-     */
-    protected function registered(Request $request, $user)
-    {
-        //
-    }
-
-    /**
-     * Create a new user instance after a valid registration.
-     *
      * @param SignUpRequest $request
+     * @param User $user
      * @return User
      */
-    protected function create(SignUpRequest $request)
+    protected function registered(SignUpRequest $request, User $user)
     {
-        return null;
-        /*
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
-        */
+        //
+        return $user;
     }
 }

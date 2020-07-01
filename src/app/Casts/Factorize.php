@@ -3,31 +3,33 @@
 namespace App\Casts;
 
 use App\Utils\IntegerUtil;
+use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
+use Illuminate\Database\Eloquent\Model;
 
-class Factorize extends CastsAttributes
+class Factorize implements CastsAttributes
 {
     /**
      * Cast the given value.
      *
-     * @param \Illuminate\Database\Eloquent\Model $model
+     * @param Model $model
      * @param string $key
      * @param mixed $value
      * @param array $attributes
-     * @return integer[]
+     * @return integer
      */
     public function get($model, $key, $value, $attributes)
     {
-        return IntegerUtil::defactorize($value);
+        return IntegerUtil::toInteger($value);
     }
 
     /**
      * Prepare the given value for storage.
      *
-     * @param \Illuminate\Database\Eloquent\Model $model
+     * @param Model $model
      * @param string $key
      * @param array $value
      * @param array $attributes
-     * @return integer
+     * @return integer[]
      */
     public function set($model, $key, $value, $attributes)
     {

@@ -18,7 +18,7 @@ class NpcSeeder extends Seeder
     {
         $entries = [
             [
-                'user_id' => User::where('email', 'teacher@localhost')->first()->id,
+                'user_id' => 0,
                 'username' => '선생님',
                 'gender' => 0,
                 'icon' => '/storage/avatar/42.jpg',
@@ -87,7 +87,7 @@ class NpcSeeder extends Seeder
                 ]
             ],
             [
-                'user_id' => User::where('email', 'soldier@localhost')->first()->id,
+                'user_id' => 0,
                 'username' => '병사1',
                 'gender' => 0,
                 'icon' => '/storage/avatar/42.jpg',

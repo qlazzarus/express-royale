@@ -5,21 +5,22 @@ namespace App\Utils;
 class IntegerUtil
 {
     /**
-     * @param integer $mixed
+     * @param $masked
      * @return integer[]
      */
-    public static function factorize($maskd)
+    public static function factorize($masked)
     {
         $result = [];
-        if (!is_numeric($maskd)) return $result;
+        $end = 0;
+        if (!is_numeric($masked)) return $result;
 
-        while (0 < $maskd) {
-            for ($i = 0, $n = 0; $i <= $maskd; $i = 1 * pow(2, $n), $n++) {
+        while (0 < $masked) {
+            for ($i = 0, $n = 0; $i <= $masked; $i = 1 * pow(2, $n), $n++) {
                 $end = $i;
             }
 
             $result[] = $end;
-            $maskd -= $end;
+            $masked -= $end;
         }
 
         return $result;
@@ -29,7 +30,7 @@ class IntegerUtil
      * @param integer[] $values
      * @return integer
      */
-    public static function defactorize(array $values)
+    public static function toInteger(array $values)
     {
         $result = 0;
         foreach ($values as $value) {
