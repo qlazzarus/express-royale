@@ -22,6 +22,7 @@ client.interceptors.response.use(
 );
 
 client.defaults.transformRequest = [data => querystring.stringify(snakeCaseKeys(data))];
+client.defaults.withCredentials = true;
 
 const HttpService = types.model().volatile(() => ({
     get: flow(function* (url: string, config?: AxiosRequestConfig) {

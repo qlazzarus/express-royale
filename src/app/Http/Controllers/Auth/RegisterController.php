@@ -47,16 +47,15 @@ class RegisterController extends Controller
      */
     public function register(SignUpRequest $request)
     {
+        return [
+            'token' => 'hello world'
+        ];
+
         event(new Registered($user = $this->accountService->createByUsernameAndEmail(
             $request->input('username'),
             $request->input('email'),
             $request->input('password')
         )));
-
-        /*
-         * https://github.com/garethredfern/sanctum-api/blob/master/app/Http/Controllers/API/Auth/LoginController.php
-         */
-        $this->guard()->login($user);
 
         return $this->registered($request, $user);
     }
@@ -66,11 +65,13 @@ class RegisterController extends Controller
      *
      * @param SignUpRequest $request
      * @param User $user
-     * @return User
+     * @return array
      */
     protected function registered(SignUpRequest $request, User $user)
     {
         //
-        return $user;
+        return [
+            'token' => $user->createToken($request->header('Request-Id'))->plainTextToken
+        ];
     }
 }

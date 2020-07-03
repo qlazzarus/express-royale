@@ -4,7 +4,7 @@ import AuthStore from "./AuthStore";
 
 const RootStore = types.model('RootStore', {
     id: types.string,
-    authStore: types.optional(AuthStore, {}),
+    authStore: types.optional(AuthStore, { pending: false }),
     apiService: types.optional(ApiService, {}),
     httpService: types.optional(HttpService, {})
 });

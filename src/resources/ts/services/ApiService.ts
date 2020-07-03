@@ -1,4 +1,4 @@
-import { AxiosError } from 'axios';
+import { AxiosError, AxiosResponse } from 'axios';
 import { flow, getParentOfType, Instance, types } from 'mobx-state-tree';
 import { RootStore, RootStoreInterface, AuthStoreInterface } from '@/stores'
 import { HttpServiceInterface } from './HttpService';
@@ -17,18 +17,21 @@ const ApiService = types.model()
     .volatile((self) => {
         const rootStore: RootStoreInterface = getParentOfType(self, RootStore);
         const httpService: HttpServiceInterface = rootStore.httpService;
+
+        const headers = {
+            'Authorization': self.sessionToken,
+            'Request-Id': self.uniqueId
+        };
+
         const errorHandler = (error: AxiosError) => {
             console.warn('API Error:', error, error.response);
         };
 
+        const responseHandler = (res: AxiosResponse) => 200 === res.status ? res.data : res;
+
         const get = flow(function* (url: string) {
             try {
-                return yield httpService.get(url, {
-                    headers: {
-                        'Authorization': self.sessionToken,
-                        'Request-Id': self.uniqueId
-                    }
-                });
+                return responseHandler(yield httpService.get(url, { headers }));
             } catch (error) {
                 errorHandler(error);
                 throw error;
@@ -37,12 +40,7 @@ const ApiService = types.model()
 
         const deleted = flow(function* (url: string) {
             try {
-                return yield httpService.delete(url, {
-                    headers: {
-                        'Authorization': self.sessionToken,
-                        'Request-Id': self.uniqueId
-                    }
-                });
+                return responseHandler(yield httpService.delete(url, { headers }));
             } catch (error) {
                 errorHandler(error);
                 throw error;
@@ -51,12 +49,7 @@ const ApiService = types.model()
 
         const post = flow(function* (url: string, data?: any) {
             try {
-                return yield httpService.post(url, data, {
-                    headers: {
-                        'Authorization': self.sessionToken,
-                        'Request-Id': self.uniqueId
-                    }
-                });
+                return responseHandler(yield httpService.post(url, data, { headers }));
             } catch (error) {
                 errorHandler(error);
                 throw error;
@@ -65,12 +58,7 @@ const ApiService = types.model()
 
         const put = flow(function* (url: string, data?: any) {
             try {
-                return yield httpService.put(url, data, {
-                    headers: {
-                        'Authorization': self.sessionToken,
-                        'Request-Id': self.uniqueId
-                    }
-                });
+                return responseHandler(yield httpService.put(url, data, { headers }));
             } catch (error) {
                 errorHandler(error);
                 throw error;
@@ -79,12 +67,7 @@ const ApiService = types.model()
 
         const patch = flow(function* (url: string, data?: any) {
             try {
-                return yield httpService.patch(url, data, {
-                    headers: {
-                        'Authorization': self.sessionToken,
-                        'Request-Id': self.uniqueId
-                    }
-                });
+                return responseHandler(yield httpService.patch(url, data, { headers }));
             } catch (error) {
                 errorHandler(error);
                 throw error;

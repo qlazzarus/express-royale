@@ -27,7 +27,7 @@ class AccountService
                     \App\Enums\UserChannel::Name => $username,
                     \App\Enums\UserChannel::Email => $email
                 ],
-                function($key, $values) use ($userId, $password)
+                function($values, $key) use ($userId, $password)
                 {
                     $channel = new UserChannel();
                     $channel->user_id = $userId;
