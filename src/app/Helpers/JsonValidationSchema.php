@@ -4,7 +4,7 @@ namespace App\Helpers;
 
 use Illuminate\Support\Str;
 
-trait JsonValidationSchema 
+trait JsonValidationSchema
 {
     /**
      * @param string|null $file
@@ -26,7 +26,7 @@ trait JsonValidationSchema
         }
 
         $obj = file_get_contents(resource_path($file));
-        
+
         return json_decode($obj, true);
     }
 
@@ -86,7 +86,15 @@ trait JsonValidationSchema
     public function schema($file = null)
     {
         $obj = $this->getJson($file);
-        
+
         return $this->convertSchema($obj);
+    }
+
+    /**
+     * @return array
+     */
+    public function rules()
+    {
+        return $this->schema();
     }
 }

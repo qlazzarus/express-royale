@@ -42,16 +42,12 @@ class RegisterController extends Controller
      * Handle a registration request for the application.
      *
      * @param SignUpRequest $request
-     * @return User
+     * @return array
      * @throws Throwable
      */
     public function register(SignUpRequest $request)
     {
-        return [
-            'token' => 'hello world'
-        ];
-
-        event(new Registered($user = $this->accountService->createByUsernameAndEmail(
+        event(new Registered($user = $this->accountService->createByUsername(
             $request->input('username'),
             $request->input('email'),
             $request->input('password')

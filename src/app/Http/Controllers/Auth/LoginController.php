@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SignInRequest;
 use App\Providers\RouteServiceProvider;
+use App\Services\AccountService;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -21,6 +24,8 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
+    protected AccountService $accountService;
+
     /**
      * Where to redirect users after login.
      *
@@ -29,12 +34,30 @@ class LoginController extends Controller
     protected string $redirectTo = RouteServiceProvider::HOME;
 
     /**
-     * Create a new controller instance.
-     *
-     * @return void
+     * LoginController constructor.
+     * @param AccountService $accountService
      */
-    public function __construct()
+    public function __construct(AccountService $accountService)
     {
         $this->middleware('guest')->except('logout');
+        $this->accountService = $accountService;
+    }
+
+    /**
+     * @param SignInRequest $request
+     */
+    protected function validateLogin(SignInRequest $request)
+    {
+        // do nothing
+    }
+
+    protected function attemptLogin(SignInRequest $request)
+    {
+        $user = $this->accountService->loginByUsername(
+            $request->input('username'),
+            $request->input('password')
+        );
+
+        return true;
     }
 }

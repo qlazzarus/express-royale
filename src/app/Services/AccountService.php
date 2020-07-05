@@ -9,13 +9,23 @@ use Throwable;
 class AccountService
 {
     /**
-     * @param $username
-     * @param $email
-     * @param $password
+     * @param string $username
+     * @param string $password
+     * @return User
+     */
+    public function loginByUsername($username, $password)
+    {
+        return null;
+    }
+
+    /**
+     * @param string $username
+     * @param string $email
+     * @param string $password
      * @return User
      * @throws Throwable
      */
-    public function createByUsernameAndEmail($username, $email, $password)
+    public function createByUsername($username, $email, $password)
     {
         return \DB::transaction(function() use ($username, $email, $password) {
             $user = new User();

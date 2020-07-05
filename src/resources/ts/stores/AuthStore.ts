@@ -1,5 +1,5 @@
 import { types, flow, Instance, getParent } from 'mobx-state-tree';
-import { SignUpFormData } from "@/forms";
+import { SignInFormData, SignUpFormData } from "@/forms";
 import { UserModel } from '@/models';
 import RootStore from './RootStore';
 import { ApiServiceInterface } from '@/services';
@@ -23,14 +23,17 @@ const AuthStore = types.model('AuthStore', {
     .actions(self => {
         const apiService: ApiServiceInterface = getParent<typeof RootStore>(self).apiService;
 
-        const signIn = flow(function* (username?: string, password?: string) {
-            /*
+        const signIn = flow(function* (data: SignInFormData) {
             self.pending = true;
 
-            apiService.get('sanctum/csrf-cookie')
-                .then(() => apiService.post('api/auth/login', {username, password}))
-                .finally(() => self.pending = false);
-            */
+            try {
+                yield apiService.get('sanctum/csrf-token');
+                const response: SanctumToken = yield apiService.post('api/auth/login', data);
+                self.pending = false;
+                self.token = response.token;
+            } catch (error) {
+                console.log(error);
+            }
         });
 
         const signUp = flow(function* (data: SignUpFormData) {
