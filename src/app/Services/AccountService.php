@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\User;
 use App\UserChannel;
+use Illuminate\Support\Facades\Hash;
 use Throwable;
 
 class AccountService
@@ -15,6 +16,22 @@ class AccountService
      */
     public function loginByUsername($username, $password)
     {
+        $channel = UserChannel::whereChannel(\App\Enums\UserChannel::Name)
+            ->where('channel_id', $username)
+            ->first();
+
+        if ($channel && \Hash::check($channel->password, $password)) {
+            return $channel->user;
+        }
+
+        $channel = UserChannel::whereChannel(\App\Enums\UserChannel::Email)
+            ->where('channel_id', $username)
+            ->first();
+
+        if ($channel && \Hash::check($channel->password, $password)) {
+            return $channel->user;
+        }
+
         return null;
     }
 

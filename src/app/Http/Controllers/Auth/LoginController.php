@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SignInRequest;
 use App\Providers\RouteServiceProvider;
 use App\Services\AccountService;
+use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 
@@ -51,6 +52,10 @@ class LoginController extends Controller
         // do nothing
     }
 
+    /**
+     * @param SignInRequest $request
+     * @return bool
+     */
     protected function attemptLogin(SignInRequest $request)
     {
         $user = $this->accountService->loginByUsername(
@@ -58,6 +63,31 @@ class LoginController extends Controller
             $request->input('password')
         );
 
+        if (!$user) {
+            return false;
+        }
+
+        $this->guard()->login($user);
         return true;
+    }
+
+    /**
+     * @return \Illuminate\Contracts\Auth\Guard|\Illuminate\Contracts\Auth\StatefulGuard
+     */
+    protected function guard()
+    {
+        return \Auth::guard();
+    }
+
+    /**
+     * @param SignInRequest $request
+     * @param User $user
+     * @return array
+     */
+    protected function authenticated(SignInRequest $request, User $user)
+    {
+        return [
+            'token' => $user->createToken($request->header('Request-Id'))->plainTextToken
+        ];
     }
 }
