@@ -23,7 +23,9 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    use AuthenticatesUsers {
+        login as protected abstractLogin;
+    }
 
     protected AccountService $accountService;
 
@@ -42,6 +44,16 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
         $this->accountService = $accountService;
+    }
+
+    /**
+     * @param SignInRequest $request
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    public function login(SignInRequest $request)
+    {
+        return $this->abstractLogin($request);
     }
 
     /**

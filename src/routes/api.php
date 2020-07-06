@@ -1,8 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,9 +10,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::post('auth/register', 'Auth\RegisterController@register');
-
-Route::middleware(['auth:sanctum'], function(){
-});
+\Route::post('auth/register', 'Auth\RegisterController@register');
+\Route::post('auth/login', 'Auth\LoginController@login');
 
 Broadcast::routes(['middleware' => ['auth:sanctum']]);

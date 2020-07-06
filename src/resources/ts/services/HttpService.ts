@@ -21,11 +21,12 @@ client.interceptors.response.use(
     }
 );
 
-client.defaults.transformRequest = [data => querystring.stringify(snakeCaseKeys(data))];
+client.defaults.transformRequest = [data => data && querystring.stringify(snakeCaseKeys(data))];
 client.defaults.withCredentials = true;
 
 const HttpService = types.model().volatile(() => ({
     get: flow(function* (url: string, config?: AxiosRequestConfig) {
+        console.log(url, config);
         return yield client.get(url, config);
     }),
     delete: flow(function* (url: string, config?: AxiosRequestConfig) {
@@ -44,4 +45,4 @@ const HttpService = types.model().volatile(() => ({
 
 export default HttpService;
 
-export interface HttpServiceInterface extends Instance<typeof HttpService> {};
+export interface HttpServiceInterface extends Instance<typeof HttpService> {}
