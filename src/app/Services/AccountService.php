@@ -20,7 +20,7 @@ class AccountService
             ->where('channel_id', $username)
             ->first();
 
-        if ($channel && \Hash::check($channel->password, $password)) {
+        if ($channel && \Hash::check($password, $channel->password)) {
             return $channel->user;
         }
 
@@ -28,7 +28,7 @@ class AccountService
             ->where('channel_id', $username)
             ->first();
 
-        if ($channel && \Hash::check($channel->password, $password)) {
+        if ($channel && \Hash::check($password, $channel->password)) {
             return $channel->user;
         }
 

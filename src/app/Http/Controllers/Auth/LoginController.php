@@ -80,6 +80,7 @@ class LoginController extends Controller
         }
 
         $this->guard()->login($user);
+        
         return true;
     }
 
