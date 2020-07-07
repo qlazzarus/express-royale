@@ -5,6 +5,7 @@ namespace App\Services;
 use App\User;
 use App\UserChannel;
 use Illuminate\Support\Facades\Hash;
+use Laravel\Sanctum\PersonalAccessToken;
 use Throwable;
 
 class AccountService
@@ -68,5 +69,17 @@ class AccountService
 
             return $user;
         });
+    }
+
+    /**
+     * @param User $user
+     * @param string $requestId
+     * @return string
+     */
+    public function publishToken(User $user, $requestId)
+    {
+        $user->tokens()->where('name', $requestId)->delete();
+
+        return $user->createToken($requestId)->plainTextToken;
     }
 }

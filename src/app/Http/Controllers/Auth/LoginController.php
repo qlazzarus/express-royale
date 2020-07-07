@@ -7,8 +7,9 @@ use App\Http\Requests\SignInRequest;
 use App\Providers\RouteServiceProvider;
 use App\Services\AccountService;
 use App\User;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class LoginController extends Controller
 {
@@ -80,7 +81,7 @@ class LoginController extends Controller
         }
 
         $this->guard()->login($user);
-        
+
         return true;
     }
 
@@ -93,14 +94,31 @@ class LoginController extends Controller
     }
 
     /**
+     * Send the response after the user was authenticated.
+     *
+     * @param  SignInRequest $request
+     * @return Response|array
+     */
+    protected function sendLoginResponse(SignInRequest $request)
+    {
+        $this->clearLoginAttempts($request);
+
+        if ($response = $this->authenticated($request, $this->guard()->user())) {
+            return $response;
+        }
+
+        return new Response('', 204);
+    }
+
+    /**
      * @param SignInRequest $request
-     * @param User $user
+     * @param Authenticatable|User $user
      * @return array
      */
-    protected function authenticated(SignInRequest $request, User $user)
+    protected function authenticated(SignInRequest $request, Authenticatable $user)
     {
         return [
-            'token' => $user->createToken($request->header('Request-Id'))->plainTextToken
+            'token' => $this->accountService->publishToken($user, $request->header('Request-Id'))
         ];
     }
 }

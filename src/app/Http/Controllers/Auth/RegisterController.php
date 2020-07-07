@@ -67,7 +67,7 @@ class RegisterController extends Controller
     {
         //
         return [
-            'token' => $user->createToken($request->header('Request-Id'))->plainTextToken
+            'token' => $this->accountService->publishToken($user, $request->header('Request-Id'))
         ];
     }
 }
