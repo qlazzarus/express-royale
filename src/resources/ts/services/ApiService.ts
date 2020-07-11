@@ -27,7 +27,10 @@ const ApiService = types.model()
             console.warn('API Error:', error, error.response);
         };
 
-        const responseHandler = (res: AxiosResponse) => 200 === res.status ? res.data : res;
+        const responseHandler = (res: AxiosResponse) => {
+            if (400 <= res.status) return res;
+            return res.data;
+        }
 
         const get = flow(function* (url: string) {
             try {
@@ -85,4 +88,4 @@ const ApiService = types.model()
 
 export default ApiService;
 
-export interface ApiServiceInterface extends Instance<typeof ApiService> {};
+export interface ApiServiceInterface extends Instance<typeof ApiService> {}

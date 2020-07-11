@@ -4,11 +4,11 @@ import AuthStore from "./AuthStore";
 
 const RootStore = types.model('RootStore', {
     id: types.string,
-    authStore: types.optional(AuthStore, { pending: false }),
+    authStore: types.optional(AuthStore, {}),
     apiService: types.optional(ApiService, {}),
     httpService: types.optional(HttpService, {})
 });
 
-export interface RootStoreInterface extends Instance<typeof RootStore> {};
+export interface RootStoreInterface extends Instance<typeof RootStore> {}
 
 export default RootStore;

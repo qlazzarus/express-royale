@@ -10,12 +10,13 @@ export type SignUpFormData = {
 }
 
 const useSignUpForm = () => {
-	const { authStore: { signUp, pending } } = useStore();
+	const { authStore } = useStore();
 	const validationSchema = useValidator(Validator.SIGN_UP);
 	const { control, errors, formState, handleSubmit, register } = useForm<SignUpFormData>({
         validationSchema
     });
 
+	const { signUp } = authStore;
 	const onSubmit = handleSubmit((data: SignUpFormData) => signUp(data));
 
 	return {
@@ -23,7 +24,7 @@ const useSignUpForm = () => {
         errors,
         formState,
 		onSubmit,
-		pending,
+		pending: false,
         register,
 	}
 }

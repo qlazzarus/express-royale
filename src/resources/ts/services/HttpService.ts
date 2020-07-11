@@ -26,7 +26,6 @@ client.defaults.withCredentials = true;
 
 const HttpService = types.model().volatile(() => ({
     get: flow(function* (url: string, config?: AxiosRequestConfig) {
-        console.log(url, config);
         return yield client.get(url, config);
     }),
     delete: flow(function* (url: string, config?: AxiosRequestConfig) {

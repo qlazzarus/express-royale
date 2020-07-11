@@ -9,11 +9,13 @@ import { useStore } from "@/helpers";
 const SignInForm: React.FC = () => {
     const { authStore } = useStore();
     const { t } = useTranslation();
-    const { control, errors, onSubmit } = useSignInForm();
+    const { control, errors, onSubmit, pending } = useSignInForm();
 
     if (authStore.isLogged) {
         // TODO redirect
     }
+
+    console.log(pending);
 
     return (
         <form
@@ -27,6 +29,7 @@ const SignInForm: React.FC = () => {
                             <InputForm
                                 className="shadow appearance-none bg-gray-700 border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
                                 type="text"
+                                disabled={pending}
                                 placeholder={t('USERNAME')}
                             />
                         )}
@@ -49,6 +52,7 @@ const SignInForm: React.FC = () => {
                             <InputForm
                                 className="shadow appearance-none bg-gray-700 border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
                                 type="password"
+                                disabled={pending}
                                 placeholder={t('PASSWORD')}
                             />
                         )}
@@ -58,7 +62,11 @@ const SignInForm: React.FC = () => {
                 {errors.password && <LabelError error={errors.password} />}
             </div>
             <div className="flex pt-2 pb-8 items-center justify-between">
-                <button className="bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                <button
+                    className="bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    type="submit"
+                    disabled={pending}
+                >
                     {t('SIGN_IN')}
                 </button>
                 <Link to={'/signup'} className={'inline-block align-baseline text-red-500 hover:text-red-800'}>
@@ -66,19 +74,31 @@ const SignInForm: React.FC = () => {
                 </Link>
             </div>
             <div className="flex py-2">
-                <button className="flex w-full items-center justify-between bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                <button
+                    className="flex w-full items-center justify-between bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    type="button"
+                    disabled={pending}
+                >
                     {t("SIGN_IN_GITHUB")}
                     <i className="fab fa-github-alt" />
                 </button>
             </div>
             <div className="flex py-2">
-                <button className="flex w-full items-center justify-between bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                <button
+                    className="flex w-full items-center justify-between bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    type="button"
+                    disabled={pending}
+                >
                     {t("SIGN_IN_FACEBOOK")}
                     <i className="fab fa-facebook-square" />
                 </button>
             </div>
             <div className="flex py-2">
-                <button className="flex w-full items-center justify-between bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                <button
+                    className="flex w-full items-center justify-between bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    type="button"
+                    disabled={pending}
+                >
                     {t("SIGN_IN_GOOGLE")}
                     <i className="fab fa-google" />
                 </button>

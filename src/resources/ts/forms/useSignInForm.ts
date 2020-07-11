@@ -8,11 +8,13 @@ export type SignInFormData = {
 }
 
 const useSignInForm = () => {
-	const { authStore: { signIn, pending } } = useStore();
+	const { authStore } = useStore();
 	const validationSchema = useValidator(Validator.SIGN_IN);
 	const { control, errors, formState, handleSubmit, register } = useForm<SignInFormData>({
         validationSchema
     });
+
+	const { signIn } = authStore;
 
 	const onSubmit = handleSubmit((data: SignInFormData) => signIn(data));
 
@@ -21,7 +23,7 @@ const useSignInForm = () => {
         errors,
         formState,
 		onSubmit,
-		pending,
+        pending: false,
         register,
 	}
 }

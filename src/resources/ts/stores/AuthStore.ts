@@ -13,7 +13,6 @@ const AuthStore = types.model('AuthStore', {
         redirectTo: types.maybeNull(types.string),
         token: types.maybeNull(types.string),
         user: types.maybeNull(UserModel),
-        pending: types.boolean
     })
     .views((self) => ({
         get isLogged(): boolean {
@@ -24,12 +23,9 @@ const AuthStore = types.model('AuthStore', {
         const apiService: ApiServiceInterface = getParent<typeof RootStore>(self).apiService;
 
         const signIn = flow(function* (data: SignInFormData) {
-            self.pending = true;
-
             try {
                 yield apiService.get('sanctum/csrf-token');
                 const response: SanctumToken = yield apiService.post('api/auth/login', data);
-                self.pending = false;
                 self.token = response.token;
             } catch (error) {
                 console.log(error);
@@ -37,11 +33,8 @@ const AuthStore = types.model('AuthStore', {
         });
 
         const signUp = flow(function* (data: SignUpFormData) {
-            self.pending = true;
-
             try {
                 const response: SanctumToken = yield apiService.post('api/auth/register', data);
-                self.pending = false;
                 self.token = response.token;
             } catch (error) {
                 console.log(error);
@@ -53,7 +46,6 @@ const AuthStore = types.model('AuthStore', {
             self.redirectTo = null;
             self.token = null;
             self.user = null;
-            self.pending = false;
         }
 
         return {
