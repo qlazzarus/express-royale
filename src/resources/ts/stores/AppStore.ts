@@ -1,18 +1,9 @@
-import { action, observable, reaction } from "mobx";
-import { localStorage } from '@/helpers';
-/*
-import { ApiService, HttpService } from '@/services';
-import AuthStore from "./AuthStore";
+import { action, configure, observable, reaction } from "mobx";
+import uuid from 'uuid-random';
+import { useLocalStorage } from '@/hooks';
 
-const RootStore = types.model('RootStore', {
-    id: types.string,
-    authStore: types.optional(AuthStore, {}),
-    apiService: types.optional(ApiService, {}),
-    httpService: types.optional(HttpService, {})
-});
+configure({ enforceActions: 'observed' });
 
-https://github.com/min44/rfa-web-manager-frontend/blob/d9d82e92b8e4c443ca3359c1955e720f2195ebfd/src/stores/authStore.ts
-*/
 class AppStore {
     @observable pending: boolean = false;
 
@@ -27,11 +18,13 @@ class AppStore {
     }
 
     constructor() {
+        const [id, setId] = useLocalStorage('id', uuid());
+
+        this.setId(id);
+
         reaction(
             () => this.id,
-            (id: string) => {
-                localStorage
-            }
+            (id: string) => setId(id)
         );
     }
 }

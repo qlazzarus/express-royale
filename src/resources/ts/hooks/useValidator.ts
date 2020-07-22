@@ -1,5 +1,5 @@
 import { Validator } from "@/enums";
-import schemaGenerator from './schemaGenerator';
+import { schemaGenerator } from '@/helpers';
 
 const getSchema = (validator: Validator) => {
     switch (validator) {

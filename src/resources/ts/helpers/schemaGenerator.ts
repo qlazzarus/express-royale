@@ -88,7 +88,7 @@ const getYupType = ({ type }: { type: string }) => {
     }
 };
 
-const applayMethodWhen = (base: any, args: any) => {
+const applyMethodWhen = (base: any, args: any) => {
     const fieldName = head(keys(args));
     if (!fieldName) {
         throw new Error('Invalid Configuration, Can not get field name');
@@ -122,7 +122,7 @@ const applayMethodWhen = (base: any, args: any) => {
     );
 };
 
-const applayMethodShape = (base: any, args: any) => base.shape(mapValues(args, getYupSchema));
+const applyMethodShape = (base: any, args: any) => base.shape(mapValues(args, getYupSchema));
 
 const applyMethodsOnType = (base: any, typeName: string, methods?: ResultArray[]) => {
     let baseType = base;
@@ -136,10 +136,10 @@ const applyMethodsOnType = (base: any, typeName: string, methods?: ResultArray[]
 
             switch (name) {
                 case 'when':
-                    baseType = applayMethodWhen(baseType, args);
+                    baseType = applyMethodWhen(baseType, args);
                     break;
                 case 'shape':
-                    baseType = applayMethodShape(baseType, args);
+                    baseType = applyMethodShape(baseType, args);
                     break;
                 case 'matches':
                     baseType = baseType[name](new RegExp(args));
