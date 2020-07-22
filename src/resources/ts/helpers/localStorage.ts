@@ -7,7 +7,9 @@ export default function (key: string, initialValue: any) {
     const setValue = (value: any) => {
         try {
             const valueToStore = value instanceof Function ? value(storedValue) : value;
-            window.localStorage.setItem(key, JSON.stringify(valueToStore));
+            valueToStore ? 
+                window.localStorage.setItem(key, JSON.stringify(valueToStore)) :
+                window.localStorage.removeItem(key);
         } catch (error) {
             console.log(error);
         }

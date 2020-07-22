@@ -1,5 +1,9 @@
-export {default as AuthStore} from './AuthStore';
-export {default as RootStore} from './RootStore';
+import AppStore from './AppStore';
+import AuthStore from './AuthStore';
 
-export type { AuthStoreInterface } from './AuthStore';
-export type { RootStoreInterface } from './RootStore';
+export { AuthStore, AppStore };
+
+export default {
+    app: AppStore,    
+    auth: AuthStore,
+};

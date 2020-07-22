@@ -1,47 +1,57 @@
-import axios, { AxiosResponse, AxiosRequestConfig } from 'axios';
+import axios, { AxiosResponse, AxiosRequestConfig, AxiosInstance } from 'axios';
 import camelcaseKeysRecursive from 'camelcase-keys-recursive';
-import { types, flow, Instance } from 'mobx-state-tree';
 import querystring from 'querystring';
 import snakeCaseKeys from 'snakecase-keys';
 
-const client = axios.create({
-    headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Accept': 'application/json'
+export default class HttpService {
+
+    protected client: AxiosInstance;
+
+    constructor() {
+        this.client = this.initClient();
     }
-});
 
-client.interceptors.response.use(
-    (res: AxiosResponse<any>) => {
-        res.data = res.data && camelcaseKeysRecursive(res.data) || {};
-        return res;
-    },
-    (error: any) => {
-        throw error;
+    protected initClient(): AxiosInstance {
+        const client = axios.create({
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Accept': 'application/json'
+            }
+        });
+
+        client.interceptors.response.use(
+            (res: AxiosResponse<any>) => {
+                res.data = res.data && camelcaseKeysRecursive(res.data) || {};
+                return res;
+            },
+            (error: any) => {
+                throw error;
+            }
+        );
+        
+        client.defaults.transformRequest = [data => data && querystring.stringify(snakeCaseKeys(data))];
+        client.defaults.withCredentials = true;
+
+        return client;
     }
-);
 
-client.defaults.transformRequest = [data => data && querystring.stringify(snakeCaseKeys(data))];
-client.defaults.withCredentials = true;
+    get(url: string, config?: AxiosRequestConfig): Promise<any> {
+        return this.client.get(url, config);
+    }
 
-const HttpService = types.model().volatile(() => ({
-    get: flow(function* (url: string, config?: AxiosRequestConfig) {
-        return yield client.get(url, config);
-    }),
-    delete: flow(function* (url: string, config?: AxiosRequestConfig) {
-        return yield client.delete(url, config);
-    }),
-    post: flow(function* (url: string, data?: any, config?: AxiosRequestConfig) {
-        return yield client.post(url, data, config);
-    }),
-    put: flow(function* (url: string, data?: any, config?: AxiosRequestConfig) {
-        return yield client.put(url, data, config);
-    }),
-    patch: flow(function* (url: string, data?: any, config?: AxiosRequestConfig) {
-        return yield client.patch(url, data, config);
-    }),
-}));
+    delete(url: string, config?: AxiosRequestConfig): Promise<any> {
+        return this.client.delete(url, config);
+    }
+    
+    post(url: string, data?: any, config?: AxiosRequestConfig): Promise<any> {
+        return this.client.post(url, data, config);
+    }
 
-export default HttpService;
+    put(url: string, data?: any, config?: AxiosRequestConfig): Promise<any> {
+        return this.client.put(url, data, config);
+    }
 
-export interface HttpServiceInterface extends Instance<typeof HttpService> {}
+    patch(url: string, data?: any, config?: AxiosRequestConfig): Promise<any> {
+        return this.client.patch(url, data, config);
+    }
+};

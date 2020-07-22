@@ -1,91 +1,55 @@
-import { AxiosError, AxiosResponse } from 'axios';
-import { flow, getParentOfType, Instance, types } from 'mobx-state-tree';
-import { RootStore, RootStoreInterface, AuthStoreInterface } from '@/stores'
-import { HttpServiceInterface } from './HttpService';
+import { AxiosRequestConfig } from 'axios';
+import { useStore } from '@/helpers';
+import HttpService from './HttpService';
 
-const ApiService = types.model()
-    .views((self) => ({
-        get sessionToken(): string {
-            const authStore: AuthStoreInterface = getParentOfType(self, RootStore).authStore;
-            return authStore.token || '';
-        },
-        get uniqueId(): string {
-            const rootStore: RootStoreInterface = getParentOfType(self, RootStore);
-            return rootStore.id || '';
-        }
-    }))
-    .volatile((self) => {
-        const rootStore: RootStoreInterface = getParentOfType(self, RootStore);
-        const httpService: HttpServiceInterface = rootStore.httpService;
+export default class ApiService extends HttpService {
 
-        const headers = {
-            'Authorization': self.sessionToken,
-            'Request-Id': self.uniqueId
-        };
+    constructor() {
+        super();
+    }
 
-        const errorHandler = (error: AxiosError) => {
-            console.warn('API Error:', error, error.response);
-        };
+    private get sessionToken(): string {
+        // TODO
+        //const authStore: AuthStoreInterface = getParentOfType(self, RootStore).authStore;
+        //return authStore.token || '';
+        return '';
+    }
 
-        const responseHandler = (res: AxiosResponse) => {
-            if (400 <= res.status) return res;
-            return res.data;
-        }
+    private get uniqueId(): string {
+        // TODO
+        //const rootStore: RootStoreInterface = getParentOfType(self, RootStore);
+        //return rootStore.id || '';
+        return '';
+    }
 
-        const get = flow(function* (url: string) {
-            try {
-                return responseHandler(yield httpService.get(url, { headers }));
-            } catch (error) {
-                errorHandler(error);
-                throw error;
-            }
-        });
-
-        const deleted = flow(function* (url: string) {
-            try {
-                return responseHandler(yield httpService.delete(url, { headers }));
-            } catch (error) {
-                errorHandler(error);
-                throw error;
-            }
-        });
-
-        const post = flow(function* (url: string, data?: any) {
-            try {
-                return responseHandler(yield httpService.post(url, data, { headers }));
-            } catch (error) {
-                errorHandler(error);
-                throw error;
-            }
-        });
-
-        const put = flow(function* (url: string, data?: any) {
-            try {
-                return responseHandler(yield httpService.put(url, data, { headers }));
-            } catch (error) {
-                errorHandler(error);
-                throw error;
-            }
-        });
-
-        const patch = flow(function* (url: string, data?: any) {
-            try {
-                return responseHandler(yield httpService.patch(url, data, { headers }));
-            } catch (error) {
-                errorHandler(error);
-                throw error;
-            }
-        });
+    private get config(): AxiosRequestConfig {
+        // TODO
 
         return {
-            get,
-            deleted,
-            post,
-            put,
-            patch
+            headers: {
+                'Authorization': this.sessionToken,
+                'Request-Id': this.uniqueId
+            }
         };
-    })
+    }
 
-export default ApiService;
+    get(url: string): Promise<any> {
+        return this.client.get(url, this.config);
+    }
 
-export interface ApiServiceInterface extends Instance<typeof ApiService> {}
+    delete(url: string): Promise<any> {
+        return this.client.delete(url, this.config);
+    }
+    
+    post(url: string, data?: any): Promise<any> {
+        return this.client.post(url, data, this.config);
+    }
+
+    put(url: string, data?: any): Promise<any> {
+        return this.client.put(url, data, this.config);
+    }
+
+    patch(url: string, data?: any): Promise<any> {
+        return this.client.patch(url, data, this.config);
+    }
+}

@@ -1,10 +1,13 @@
 import React from 'react';
 import { BrowserRouter } from "react-router-dom";
+import { MobXProviderContext } from "mobx-react";
 
 import '@/i18n';
 import { Header, Footer } from '@/components';
-import { Provider, stores } from '@/Provider';
 import Router from '@/Router';
+import stores from '@/stores';
+
+const { Provider } = MobXProviderContext;
 
 const App: React.FC = () => {
   return (

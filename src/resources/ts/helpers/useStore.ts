@@ -1,15 +1,14 @@
 import { useContext } from 'react';
-import { RootStoreInterface } from '@/stores';
-import { RootStoreContext } from '@/Provider';
+import { MobXProviderContext } from "mobx-react";
 
-function useStore(): RootStoreInterface {
-  const store = useContext(RootStoreContext);
+function useStore(name?: string) {
+  const store = useContext(MobXProviderContext);
 
   if (!store) {
     throw new Error('StoreProvider is not defined');
   }
 
-  return store;
+  return name ? store[name] : store;
 }
 
 export default useStore;

@@ -1,3 +1,6 @@
+import { ApiService } from "@/services";
+
+/*
 import { types, flow, Instance, getParent } from 'mobx-state-tree';
 import { SignInFormData, SignUpFormData } from "@/forms";
 import { UserModel } from '@/models';
@@ -58,3 +61,14 @@ const AuthStore = types.model('AuthStore', {
 export interface AuthStoreInterface extends Instance<typeof AuthStore> {}
 
 export default AuthStore;
+*/
+class AuthStore {
+    
+    private connector: ApiService;
+
+    constructor() {
+        this.connector = new ApiService();
+    }
+}
+
+export default new AuthStore();
