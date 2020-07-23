@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { InputForm, LabelError } from '@/components';
 import { useSignInForm } from "@/forms";
-import { useStore } from "@/helpers";
+import { useStore } from "@/hooks";
 
 const SignInForm: React.FC = () => {
-    const { authStore } = useStore();
+    const auth = useStore('auth');
     const { t } = useTranslation();
     const { control, errors, onSubmit, pending } = useSignInForm();
 
-    if (authStore.isLogged) {
+    if (auth.isLogged) {
         // TODO redirect
     }
 

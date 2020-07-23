@@ -1,11 +1,11 @@
 import React from 'react';
 import { SignInForm } from '@/components';
-import { useStore } from '@/helpers';
+import { useStore } from '@/hooks';
 
 const SignIn: React.FC = () => {
-    const { authStore } = useStore();
+    const auth = useStore('auth');
 
-    if (authStore.isLogged) {
+    if (auth.isLogged) {
         // TODO redirect
     }
 

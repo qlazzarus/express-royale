@@ -3,14 +3,14 @@ import { useTranslation } from 'react-i18next';
 import { Controller } from 'react-hook-form';
 import { InputForm, LabelError } from '@/components';
 import { useSignUpForm } from '@/forms';
-import { useStore } from '@/helpers';
+import { useStore } from '@/hooks';
 
 const SignUp: React.FC = () => {
-    const { authStore } = useStore();
+    const auth = useStore('auth');
     const { t } = useTranslation();
     const { control, errors, onSubmit } = useSignUpForm();
 
-    if (authStore.isLogged) {
+    if (auth.isLogged) {
         // TODO redirect
     }
 

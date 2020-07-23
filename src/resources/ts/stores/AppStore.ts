@@ -9,14 +9,6 @@ class AppStore {
 
     @observable id: string = '';
 
-    @action setId(id: string) {
-        this.id = id;
-    }
-
-    @action setPending(pending: boolean) {
-        this.pending = pending;
-    }
-
     constructor() {
         const [id, setId] = useLocalStorage('id', uuid());
 
@@ -27,6 +19,16 @@ class AppStore {
             (id: string) => setId(id)
         );
     }
+
+    @action setId(id: string) {
+        this.id = id;
+    }
+
+    @action setPending(pending: boolean) {
+        this.pending = pending;
+    }
 }
 
 export default new AppStore();
+
+export type AppStoreInterface = InstanceType<typeof AppStore>;

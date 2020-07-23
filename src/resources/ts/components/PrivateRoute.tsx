@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { useStore } from '@/helpers';
+import { useStore } from '@/hooks';
 
 const PrivateRoute: React.FC<{ component: React.FC; path: string; exact: boolean; }> = props => {
-    const { authStore } = useStore();
+    const auth = useStore('auth');
 
-    return authStore.isLogged ? 
+    return auth.isLogged ?
         <Route path={props.path} exact={props.exact} component={props.component} /> : 
         <Redirect to={{ pathname: "/signin", state: { from: props.path } }}  />;
 }

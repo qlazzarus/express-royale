@@ -2,12 +2,16 @@ import axios, { AxiosResponse, AxiosRequestConfig, AxiosInstance } from 'axios';
 import camelcaseKeysRecursive from 'camelcase-keys-recursive';
 import querystring from 'querystring';
 import snakeCaseKeys from 'snakecase-keys';
+import { AppStoreInterface } from '@/stores';
 
 export default class HttpService {
 
+    protected appStore: AppStoreInterface;
+
     protected client: AxiosInstance;
 
-    constructor() {
+    constructor(appStore: AppStoreInterface) {
+        this.appStore = appStore;
         this.client = this.initClient();
     }
 
@@ -36,22 +40,37 @@ export default class HttpService {
     }
 
     get(url: string, config?: AxiosRequestConfig): Promise<any> {
-        return this.client.get(url, config);
+        this.appStore.setPending(true);
+
+        return this.client.get(url, config)
+            .finally(() => this.appStore.setPending(false));
     }
 
     delete(url: string, config?: AxiosRequestConfig): Promise<any> {
-        return this.client.delete(url, config);
+        this.appStore.setPending(true);
+
+        return this.client.delete(url, config)
+            .finally(() => this.appStore.setPending(false));
     }
     
     post(url: string, data?: any, config?: AxiosRequestConfig): Promise<any> {
-        return this.client.post(url, data, config);
+        this.appStore.setPending(true);
+
+        return this.client.post(url, data, config)
+            .finally(() => this.appStore.setPending(false));        
     }
 
     put(url: string, data?: any, config?: AxiosRequestConfig): Promise<any> {
-        return this.client.put(url, data, config);
+        this.appStore.setPending(true);
+
+        return this.client.put(url, data, config)
+            .finally(() => this.appStore.setPending(false));
     }
 
     patch(url: string, data?: any, config?: AxiosRequestConfig): Promise<any> {
-        return this.client.patch(url, data, config);
+        this.appStore.setPending(true);
+
+        return this.client.patch(url, data, config)
+            .finally(() => this.appStore.setPending(false));
     }
 };

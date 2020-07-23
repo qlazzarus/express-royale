@@ -1,30 +1,25 @@
 import { AxiosRequestConfig } from 'axios';
-import { useStore } from '@/helpers';
+import { AppStoreInterface, AuthStoreInterface } from '@/stores';
 import HttpService from './HttpService';
 
 export default class ApiService extends HttpService {
 
-    constructor() {
-        super();
+    private authStore: AuthStoreInterface;
+
+    constructor(app: AppStoreInterface, auth: AuthStoreInterface) {
+        super(app);
+        this.authStore = auth;
     }
 
     private get sessionToken(): string {
-        // TODO
-        //const authStore: AuthStoreInterface = getParentOfType(self, RootStore).authStore;
-        //return authStore.token || '';
-        return '';
+        return this.authStore.token || '';
     }
 
     private get uniqueId(): string {
-        // TODO
-        //const rootStore: RootStoreInterface = getParentOfType(self, RootStore);
-        //return rootStore.id || '';
-        return '';
+        return this.appStore.id || '';
     }
 
     private get config(): AxiosRequestConfig {
-        // TODO
-
         return {
             headers: {
                 'Authorization': this.sessionToken,
@@ -34,22 +29,22 @@ export default class ApiService extends HttpService {
     }
 
     get(url: string): Promise<any> {
-        return this.client.get(url, this.config);
+        return super.get(url, this.config);
     }
 
     delete(url: string): Promise<any> {
-        return this.client.delete(url, this.config);
+        return super.delete(url, this.config);
     }
     
     post(url: string, data?: any): Promise<any> {
-        return this.client.post(url, data, this.config);
+        return super.post(url, data, this.config);
     }
 
     put(url: string, data?: any): Promise<any> {
-        return this.client.put(url, data, this.config);
+        return super.put(url, data, this.config);
     }
 
     patch(url: string, data?: any): Promise<any> {
-        return this.client.patch(url, data, this.config);
+        return super.patch(url, data, this.config);
     }
 }

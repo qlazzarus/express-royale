@@ -2,10 +2,10 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import ReactMarkdown from 'react-markdown/with-html';
 import { SignInForm } from '@/components';
-import { useStore } from '@/helpers';
+import { useStore } from '@/hooks';
 
 const Main: React.FC = () => {
-    const { authStore } = useStore();
+    const auth = useStore('auth');
     const { t } = useTranslation();
 
     return (
@@ -14,7 +14,7 @@ const Main: React.FC = () => {
                 <ReactMarkdown source={t('INTRO')} escapeHtml={false} />
             </div>
             <h1 className={'text-5xl text-center text-red-500'}>{t('TITLE')}</h1>
-            {authStore.isLogged ? <div>hello world</div> : <SignInForm />}
+            {auth.isLogged ? <div>hello world</div> : <SignInForm />}
         </>
     );
 }
