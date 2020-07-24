@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import { PrivateRoute } from '@/components';
 import { Main, SignIn, SignUp } from '@/pages';
 
-const Router: React.FC = () => {
+export default () => {
     return (
         <Switch>
             <Route path={'/'} exact component={Main} />
@@ -19,5 +19,3 @@ const Router: React.FC = () => {
         </Switch>
     );
 };
-
-export default Router;

@@ -1,9 +1,4 @@
 export default function (key: string, initialValue: any) {
-    const storedValue: any = (() => {
-        const item = window.localStorage.getItem(key);
-        return item ? JSON.parse(item) : initialValue;
-    })();
-
     const setValue = (value: any) => {
         try {
             const valueToStore = value instanceof Function ? value(storedValue) : value;
@@ -14,6 +9,16 @@ export default function (key: string, initialValue: any) {
             console.log(error);
         }
     };
+
+    const storedValue: any = (() => {
+        const item = window.localStorage.getItem(key);
+        if (item) {
+            return JSON.parse(item);
+        }
+
+        setValue(initialValue);
+        return initialValue;
+    })();
 
     return [storedValue, setValue];
 }

@@ -28,9 +28,7 @@ export default class HttpService {
                 res.data = res.data && camelcaseKeysRecursive(res.data) || {};
                 return res;
             },
-            (error: any) => {
-                throw error;
-            }
+            (error: any) => Promise.reject(error)
         );
         
         client.defaults.transformRequest = [data => data && querystring.stringify(snakeCaseKeys(data))];
@@ -39,38 +37,44 @@ export default class HttpService {
         return client;
     }
 
-    get(url: string, config?: AxiosRequestConfig): Promise<any> {
-        this.appStore.setPending(true);
+    private preProcess(): Promise<any> {
+        return new Promise((resolve) => {
+            this.appStore.setPending(true);
+            resolve();
+        });
+    }
 
-        return this.client.get(url, config)
-            .finally(() => this.appStore.setPending(false));
+    private postProcess(): void {
+        this.appStore.setPending(false);
+    }
+
+    get(url: string, config?: AxiosRequestConfig): Promise<any> {
+        return this.preProcess()
+            .then(() => this.client.get(url, config))
+            .finally(this.postProcess.bind(this));
     }
 
     delete(url: string, config?: AxiosRequestConfig): Promise<any> {
-        this.appStore.setPending(true);
-
-        return this.client.delete(url, config)
-            .finally(() => this.appStore.setPending(false));
+        return this.preProcess()
+            .then(() => this.client.delete(url, config))
+            .finally(this.postProcess.bind(this));
     }
     
     post(url: string, data?: any, config?: AxiosRequestConfig): Promise<any> {
-        this.appStore.setPending(true);
-
-        return this.client.post(url, data, config)
-            .finally(() => this.appStore.setPending(false));        
+        return this.preProcess()
+            .then(() => this.client.post(url, data, config))
+            .finally(this.postProcess.bind(this));
     }
 
     put(url: string, data?: any, config?: AxiosRequestConfig): Promise<any> {
-        this.appStore.setPending(true);
-
-        return this.client.put(url, data, config)
-            .finally(() => this.appStore.setPending(false));
+        return this.preProcess()
+            .then(() => this.client.put(url, data, config))
+            .finally(this.postProcess.bind(this));
     }
 
     patch(url: string, data?: any, config?: AxiosRequestConfig): Promise<any> {
-        this.appStore.setPending(true);
-
-        return this.client.patch(url, data, config)
-            .finally(() => this.appStore.setPending(false));
+        return this.preProcess()
+            .then(() => this.client.patch(url, data, config))
+            .finally(this.postProcess.bind(this));
     }
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { FieldError } from 'react-hook-form';
 
 interface LabelErrorProps {
@@ -6,7 +6,7 @@ interface LabelErrorProps {
     error?: FieldError
 }
 
-const LabelError: React.FC<LabelErrorProps> = (props: LabelErrorProps) => {
+const LabelError: FC<LabelErrorProps> = (props: LabelErrorProps) => {
     if (!props.error) return null;
     const { message } = props.error;
 

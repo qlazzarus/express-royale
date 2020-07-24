@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useStore } from '@/hooks';
 
-const Header: React.FC = () => {
+export default () => {
     const { t } = useTranslation();
     const auth = useStore('auth');
     const [visible, setVisible] = useState(false);
@@ -34,5 +34,3 @@ const Header: React.FC = () => {
         </div>  
     );
 }
-
-export default Header;

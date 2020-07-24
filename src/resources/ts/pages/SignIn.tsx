@@ -2,7 +2,7 @@ import React from 'react';
 import { SignInForm } from '@/components';
 import { useStore } from '@/hooks';
 
-const SignIn: React.FC = () => {
+export default () => {
     const auth = useStore('auth');
 
     if (auth.isLogged) {
@@ -11,5 +11,3 @@ const SignIn: React.FC = () => {
 
     return <SignInForm />;
 }
-
-export default SignIn;

@@ -174,6 +174,4 @@ const getYupSchema = (config: any) => {
     );
 }
 
-const schemaGenerator = (config: any) => yup.object().shape(mapValues(config, getYupSchema));
-
-export default schemaGenerator;
+export default (config: any) => yup.object().shape(mapValues(config, getYupSchema));

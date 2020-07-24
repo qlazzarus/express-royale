@@ -11,19 +11,11 @@ export default class ApiService extends HttpService {
         this.authStore = auth;
     }
 
-    private get sessionToken(): string {
-        return this.authStore.token || '';
-    }
-
-    private get uniqueId(): string {
-        return this.appStore.id || '';
-    }
-
     private get config(): AxiosRequestConfig {
         return {
             headers: {
-                'Authorization': this.sessionToken,
-                'Request-Id': this.uniqueId
+                'Authorization': this.authStore.token || '',
+                'Request-Id': this.appStore.id || ''
             }
         };
     }

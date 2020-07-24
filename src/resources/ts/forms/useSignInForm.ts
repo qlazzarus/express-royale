@@ -1,21 +1,21 @@
 import { useForm } from 'react-hook-form';
 import { Validator } from "@/enums";
-import { useStore, useValidator } from '@/hooks';
+import { useObserver, useStore, useValidator } from '@/hooks';
 
 export type SignInFormData = {
 	username: string,
 	password: string,
 }
 
-const useSignInForm = () => {
-	const { app, auth } = useStore();
+export default () => {
+	const auth = useStore('auth');
 	const validationSchema = useValidator(Validator.SIGN_IN);
 	const { control, errors, formState, handleSubmit, register } = useForm<SignInFormData>({
         validationSchema
     });
 
 	const onSubmit = handleSubmit((data: SignInFormData) => auth.signIn.bind(auth)(data));
-	const { pending } = app;
+	const pending = useObserver('app', 'pending');
 
 	return {
 	    control,
@@ -26,5 +26,3 @@ const useSignInForm = () => {
         register,
 	}
 }
-
-export default useSignInForm;

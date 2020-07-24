@@ -6,7 +6,7 @@ import { InputForm, LabelError } from '@/components';
 import { useSignInForm } from "@/forms";
 import { useStore } from "@/hooks";
 
-const SignInForm: React.FC = () => {
+export default () => {
     const auth = useStore('auth');
     const { t } = useTranslation();
     const { control, errors, onSubmit, pending } = useSignInForm();
@@ -14,8 +14,6 @@ const SignInForm: React.FC = () => {
     if (auth.isLogged) {
         // TODO redirect
     }
-
-    console.log(pending);
 
     return (
         <form
@@ -106,5 +104,3 @@ const SignInForm: React.FC = () => {
         </form>
     );
 };
-
-export default SignInForm;

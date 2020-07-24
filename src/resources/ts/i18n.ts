@@ -5,7 +5,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import { Language } from '@/enums';
 import { Korean } from '@/languages';
 
-i18n.use(initReactI18next)
+export default i18n.use(initReactI18next)
     .use(LanguageDetector)
     .init({
         resources: { 
@@ -14,5 +14,3 @@ i18n.use(initReactI18next)
         fallbackLng: Language.KR,
         debug: true
     });
-
-export default i18n;

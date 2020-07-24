@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown/with-html';
 import { SignInForm } from '@/components';
 import { useStore } from '@/hooks';
 
-const Main: React.FC = () => {
+export default () => {
     const auth = useStore('auth');
     const { t } = useTranslation();
 
@@ -18,5 +18,3 @@ const Main: React.FC = () => {
         </>
     );
 }
-
-export default Main;

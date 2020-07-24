@@ -5,7 +5,7 @@ import { InputForm, LabelError } from '@/components';
 import { useSignUpForm } from '@/forms';
 import { useStore } from '@/hooks';
 
-const SignUp: React.FC = () => {
+export default () => {
     const auth = useStore('auth');
     const { t } = useTranslation();
     const { control, errors, onSubmit } = useSignUpForm();
@@ -95,5 +95,3 @@ const SignUp: React.FC = () => {
         </form>
     );
 }
-
-export default SignUp;

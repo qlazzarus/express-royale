@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 
 interface InputFormProps {
     [key: string]: any,
@@ -6,7 +6,7 @@ interface InputFormProps {
     onChange?: Function
 }
 
-const InputForm: React.FC<InputFormProps> = (props: InputFormProps) => {
+const InputForm: FC<InputFormProps> = (props: InputFormProps) => {
     const { value, onChange } = props;
     const [inputValue, setInputValue] = useState(value);
 

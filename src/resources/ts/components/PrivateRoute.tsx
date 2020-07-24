@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { useStore } from '@/hooks';
 
-const PrivateRoute: React.FC<{ component: React.FC; path: string; exact: boolean; }> = props => {
+const PrivateRoute: FC<{ component: FC; path: string; exact: boolean; }> = props => {
     const auth = useStore('auth');
 
     return auth.isLogged ?
