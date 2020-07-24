@@ -9,4 +9,10 @@ declare global {
         defaultValue?: string | number,
         onChange?: Function
     }
+
+    interface FlashMessageProps {
+        message: string,
+        type: 'alert',
+        closeIn: number
+    }
 }

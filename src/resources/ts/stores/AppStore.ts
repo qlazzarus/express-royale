@@ -10,20 +10,20 @@ class AppStore {
 
     @observable id: string = id;
 
-    @observable message: string | null = null;
+    @observable flash: FlashMessageProps | null = null;
 
     @observable pending: boolean = false;
 
     constructor() {
         reaction(
-            () => this.id, 
+            () => this.id,
             (id: string) => setId(id)
         );
 
         /*
         reaction(
-            () => this.message,
-            () => window.setTimeout(() => this.setMessage(null), 3000)
+            () => this.flash,
+            (flash: FlashMessageProps | null) => flash && window.setTimeout(() => this.setFlash(null), flash.closeIn)
         );
         */
     }
@@ -32,8 +32,8 @@ class AppStore {
         this.id = id;
     }
 
-    @action setMessage(message: string | null) {
-        this.message = message;
+    @action setFlash(message: FlashMessageProps | null) {
+        this.flash = message;
     }
 
     @action setPending(pending: boolean) {

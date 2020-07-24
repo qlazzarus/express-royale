@@ -63,9 +63,10 @@ class AuthStore {
 
         if (response) {
             const { errors, message } = response.data;
+            const type = 'alert';
+            const closeIn = 3000;
 
-            AppStore.setMessage(message);
-            //this.setErrors();
+            AppStore.setFlash({ type, message, closeIn });
             console.log(errors);
         }
         /*

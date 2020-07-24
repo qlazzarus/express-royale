@@ -27,5 +27,8 @@
       "./resources/typings"
     ]
   },
-  "include": ["resources/ts/**/*"]
+  "include": [
+    "resources/ts/**/*",
+    "resources/typings/index.d.ts"
+  ]
 }
