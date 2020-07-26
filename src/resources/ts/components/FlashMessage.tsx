@@ -2,7 +2,7 @@ import React from 'react';
 import { useObserver } from '@/hooks';
 
 export default () => {
-    const flash: FlashMessageProps = useObserver('app', 'flash');
+    const flash: FlashMessageProps = useObserver('app.flash');
 
     return flash && (
         <div className={'fixed top-5 left-0 my-6 z-50 w-full'} role={"alert"}>

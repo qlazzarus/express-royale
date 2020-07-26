@@ -9,7 +9,7 @@ export default (validate: Validator, processor: Function) => {
     const { control, errors, formState, handleSubmit, register } = useFormValidator({ validationSchema });
 
     const onSubmit = handleSubmit((data: any) => processor(data));
-    const pending = useObserver('app', 'pending');
+    const pending = useObserver('app.pending');
 
     return {
 	    control,

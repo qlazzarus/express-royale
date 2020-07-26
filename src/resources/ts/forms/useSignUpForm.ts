@@ -18,7 +18,7 @@ export default () => {
 
 	const { signUp } = auth;
 	const onSubmit = handleSubmit((data: SignUpFormData) => signUp(data));
-	const pending = useObserver('app', 'pending');
+	const pending = useObserver('app.pending');
 
 	return {
 	    control,
