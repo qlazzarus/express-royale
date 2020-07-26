@@ -12,6 +12,8 @@ class AppStore {
 
     @observable flash: FlashMessageProps | null = null;
 
+    @observable flashTimer: number | null = null;
+
     @observable pending: boolean = false;
 
     constructor() {
@@ -20,12 +22,23 @@ class AppStore {
             (id: string) => setId(id)
         );
 
-        /*
         reaction(
             () => this.flash,
-            (flash: FlashMessageProps | null) => flash && window.setTimeout(() => this.setFlash(null), flash.closeIn)
+            (flash: FlashMessageProps | null) => {
+                if (flash) {
+                    const timer = window.setTimeout(() => this.setFlash(null), flash.closeIn);
+                    this.setFlashTimer(timer);
+                }
+            }
         );
-        */
+    }
+
+    @action closeFlash() {
+        if (!this.flash || !this.flashTimer) return;
+
+        window.clearTimeout(this.flashTimer);
+        this.setFlash(null);
+        this.setFlashTimer(null);
     }
 
     @action setId(id: string) {
@@ -34,6 +47,10 @@ class AppStore {
 
     @action setFlash(message: FlashMessageProps | null) {
         this.flash = message;
+    }
+
+    @action setFlashTimer(timer: number | null) {
+        this.flashTimer = timer;
     }
 
     @action setPending(pending: boolean) {
