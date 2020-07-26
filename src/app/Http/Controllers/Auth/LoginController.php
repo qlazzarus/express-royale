@@ -94,6 +94,14 @@ class LoginController extends Controller
     }
 
     /**
+     * @return string
+     */
+    public function username()
+    {
+        return 'username';
+    }
+
+    /**
      * Send the response after the user was authenticated.
      *
      * @param  SignInRequest $request

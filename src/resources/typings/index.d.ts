@@ -15,4 +15,8 @@ declare global {
         type: 'alert',
         closeIn: number
     }
+
+    interface StringArrayEntries {
+        [key: string]: string[]
+    }
 }

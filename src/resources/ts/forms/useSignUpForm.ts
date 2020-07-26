@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
+import { useObserver } from "mobx-react";
 import { Validator } from "@/enums";
-import { useObserver, useStore, useValidator } from '@/hooks';
+import { useStore, useValidator } from '@/hooks';
 
 export type SignUpFormData = {
 	username: string,
@@ -10,7 +11,7 @@ export type SignUpFormData = {
 }
 
 export default () => {
-	const auth = useStore('auth');
+	const { app, auth } = useStore();
 	const validationSchema = useValidator(Validator.SIGN_UP);
 	const { control, errors, formState, handleSubmit, register } = useForm<SignUpFormData>({
         validationSchema
@@ -18,7 +19,7 @@ export default () => {
 
 	const { signUp } = auth;
 	const onSubmit = handleSubmit((data: SignUpFormData) => signUp(data));
-	const pending = useObserver('app.pending');
+	const pending = useObserver(() => app.pending);
 
 	return {
 	    control,

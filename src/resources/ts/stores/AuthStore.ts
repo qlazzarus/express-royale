@@ -11,7 +11,7 @@ class AuthStore {
 
     private connector: ApiService;
 
-    @observable errors: string[] = [];
+    @observable errors: StringArrayEntries | null  = null;
 
     @observable redirectTo: string | null = null;
 
@@ -27,7 +27,7 @@ class AuthStore {
         return Boolean(this.token);
     }
 
-    @action setErrors(errors: string[]): void {
+    @action setErrors(errors: StringArrayEntries | null): void {
         this.errors = errors;
     }
 
@@ -39,18 +39,18 @@ class AuthStore {
         this.token = token;
     }
 
-    @action signIn(data: SignInFormData): void {
+    @action async signIn(data: SignInFormData) {
         const { connector, failedAfter, successAfter } = this;
 
-        connector.get('sanctum/csrf-token')
+        return await connector.get('sanctum/csrf-token')
             .then(() => connector.post('api/auth/login', data))
             .then(successAfter, failedAfter);
     }
 
-    @action signUp(data: SignUpFormData): void {
+    @action async signUp(data: SignUpFormData) {
         const { connector, failedAfter, successAfter } = this;
 
-        connector.post('api/auth/register', data)
+        return await connector.post('api/auth/register', data)
             .then(successAfter, failedAfter);
     }
 
@@ -67,15 +67,9 @@ class AuthStore {
             const closeIn = 3000;
 
             AppStore.setFlash({ type, message, closeIn });
-            console.log(errors);
+            this.setErrors(errors);
         }
         /*
-        if (error.response) {
-            // 요청이 이루어졌으며 서버가 2xx의 범위를 벗어나는 상태 코드로 응답했습니다.
-            console.log(error.response.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
-          }
           else if (error.request) {
             // 요청이 이루어 졌으나 응답을 받지 못했습니다.
             // `error.request`는 브라우저의 XMLHttpRequest 인스턴스 또는
@@ -90,7 +84,7 @@ class AuthStore {
     }
 
     @action logout(): void {
-        this.setErrors([]);
+        this.setErrors(null);
         this.setRedirectTo(null);
         this.setToken(null);
         /* self.user = null; */
