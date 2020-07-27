@@ -17,11 +17,20 @@ export default () => {
 
     const authError = useObserver(() => auth.errors);
 
+    /*
+    https://foxhound87.github.io/mobx-react-form/docs/quick-start.html
+     */
+
 	const onSubmit = handleSubmit(async (data: SignInFormData) => {
 	    clearError();
 	    await auth.signIn.bind(auth)(data);
-	    console.log('handleSubmit', authError);
-        authError && setError(authError);
+	    console.log('handleSubmit', authError)
+        if (authError) {
+            Object.entries(authError).map((property, value) => {
+                //setError(property)
+                console.log({ property, value });
+            });
+        }
     });
 
 	const pending = useObserver(() => app.pending);
