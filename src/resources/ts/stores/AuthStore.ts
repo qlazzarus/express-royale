@@ -11,8 +11,6 @@ class AuthStore {
 
     private connector: ApiService;
 
-    @observable errors: StringArrayEntries | null  = null;
-
     @observable redirectTo: string | null = null;
 
     @observable token: string | null = null;
@@ -25,10 +23,6 @@ class AuthStore {
 
     @computed get isLogged(): boolean {
         return Boolean(this.token);
-    }
-
-    @action setErrors(errors: StringArrayEntries | null): void {
-        this.errors = errors;
     }
 
     @action setRedirectTo(redirectTo: string | null): void {
@@ -44,14 +38,16 @@ class AuthStore {
 
         return await connector.get('sanctum/csrf-token')
             .then(() => connector.post('api/auth/login', data))
-            .then(successAfter, failedAfter);
+            .then(successAfter)
+            .catch(failedAfter);
     }
 
     @action async signUp(data: SignUpFormData) {
         const { connector, failedAfter, successAfter } = this;
 
         return await connector.post('api/auth/register', data)
-            .then(successAfter, failedAfter);
+            .then(successAfter)
+            .catch(failedAfter);
     }
 
     @action.bound successAfter(response: SanctumToken): void {
@@ -67,8 +63,10 @@ class AuthStore {
             const closeIn = 3000;
 
             AppStore.setFlash({ type, message, closeIn });
-            this.setErrors(errors);
+
+            return errors;
         }
+
         /*
           else if (error.request) {
             // 요청이 이루어 졌으나 응답을 받지 못했습니다.
@@ -84,7 +82,6 @@ class AuthStore {
     }
 
     @action logout(): void {
-        this.setErrors(null);
         this.setRedirectTo(null);
         this.setToken(null);
         /* self.user = null; */

@@ -2,14 +2,17 @@ import React, { useCallback } from 'react';
 import { Controller } from "react-hook-form";
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { ErrorMessage } from '@hookform/error-message';
 import { InputForm, LabelError } from '@/components';
-import { useSignInForm } from "@/forms";
-import { useStore } from "@/hooks";
+import { Validator } from '@/enums';
+//import { useSignInForm } from "@/forms";
+import { useForm, useStore } from "@/hooks";
 
 export default () => {
     const auth = useStore('auth');
     const { t } = useTranslation();
-    const { control, errors, onSubmit, pending } = useSignInForm();
+    //const { control, errors, onSubmit, pending } = useSignInForm();
+    const { control, errors, onSubmit, pending } = useForm(Validator.SIGN_IN, auth.signIn);
 
     if (auth.isLogged) {
         // TODO redirect
@@ -19,7 +22,6 @@ export default () => {
         <form
             className="bg-gray-900 rounded w-full md:w-1/2 px-8 pt-6 pb-8 mx-auto my-8"
             onSubmit={useCallback(onSubmit, [])}>
-            <span onClick={() => console.log(errors)}>click me</span>
             <div className="py-2">
                 <label>
                     <Controller
@@ -35,7 +37,7 @@ export default () => {
                         control={control}
                     />
                 </label>
-                {errors.username && <LabelError error={errors.username} />}
+                <ErrorMessage errors={errors} name={'username'} render={LabelError} />
             </div>
             <div className="py-2">
                 {/* border-red-500 */}
@@ -58,7 +60,7 @@ export default () => {
                         control={control}
                     />
                 </label>
-                {errors.password && <LabelError error={errors.password} />}
+                <ErrorMessage errors={errors} name={'password'} render={LabelError} />
             </div>
             <div className="flex pt-2 pb-8 items-center justify-between">
                 <button

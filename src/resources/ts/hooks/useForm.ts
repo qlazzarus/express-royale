@@ -1,24 +1,40 @@
-/* experimental */
-import { useObserver } from 'mobx-react';
-import { useForm as useFormValidator } from 'react-hook-form';
-import { Validator } from '@/enums';
+import { useObserver } from 'mobx-react'
+import { useForm as useReactHookForm } from 'react-hook-form';
+import { Validator } from "@/enums";
+import useResolver from './useResolver';
 import useStore from './useStore';
-import useValidator from './useValidator';
 
-export default (validate: Validator, processor: Function) => {
-    const app = useStore('app');
-    const validationSchema = useValidator(validate);
-    const { control, errors, formState, handleSubmit, register } = useFormValidator({ validationSchema });
+const handleFailure = (errors: StringArrayEntries, setError: Function) => {
+    Object.entries(errors).map(([property, messages]) => {
+        setError(property, { type: 'manual', message: messages[0] })
+    });
+};
 
-    const onSubmit = handleSubmit((data: any) => processor(data));
+export default (schema: Validator, processor: Function, handleSuccess?: Function) => {
+	const { app } = useStore();
+    const resolver = useResolver(schema);
+    
+    const { clearErrors, control, errors, formState, handleSubmit, setError } = useReactHookForm({ resolver });
+    
+	const onSubmit = handleSubmit(async (data: any) => {
+        /*
+        clearErrors();
+        
+        console.log(processor);
+
+        processor(data)
+            .then(handleSuccess)
+            .catch((errors: StringArrayEntries) => handleFailure(errors, setError));
+        */
+    });
+
     const pending = useObserver(() => app.pending);
 
-    return {
+	return {
 	    control,
         errors,
         formState,
 		onSubmit,
-        pending,
-        register,
+        pending
 	}
 }

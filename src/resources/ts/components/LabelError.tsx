@@ -1,16 +1,6 @@
-import React, { FC } from 'react';
-import { FieldError } from 'react-hook-form';
+import React from 'react';
 
-interface LabelErrorProps {
-    [key: string]: any,
-    error?: FieldError
-}
-
-const LabelError: FC<LabelErrorProps> = (props: LabelErrorProps) => {
-    if (!props.error) return null;
-    const { message } = props.error;
-
-    return <p className="text-red-500 italic">{message}</p>;
-}
-
-export default LabelError;
+export default ({ message, messages }: { message: string, messages?: Object }) => {
+    console.log('LabelError', message, messages);
+    return <p className="text-red-500 italic">{message}</p>
+};

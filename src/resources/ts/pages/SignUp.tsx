@@ -6,6 +6,8 @@ import { useSignUpForm } from '@/forms';
 import { useStore } from '@/hooks';
 
 export default () => {
+    return null;
+    /*
     const auth = useStore('auth');
     const { t } = useTranslation();
     const { control, errors, onSubmit } = useSignUpForm();
@@ -94,4 +96,5 @@ export default () => {
             </div>
         </form>
     );
+    */
 }

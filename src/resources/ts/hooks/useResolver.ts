@@ -1,3 +1,4 @@
+import { yupResolver } from '@hookform/resolvers';
 import { Validator } from "@/enums";
 import { schemaGenerator } from '@/helpers';
 
@@ -12,6 +13,7 @@ const getSchema = (validator: Validator) => {
     }
 }
 
-export default (validator: Validator, options?: any) => {
-    return schemaGenerator(getSchema(validator));
+export default (validator: Validator) => {
+    const schema = schemaGenerator(getSchema(validator));
+    return yupResolver(schema);
 };

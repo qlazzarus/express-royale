@@ -1,7 +1,9 @@
+/*
 import { useForm } from 'react-hook-form';
 import { useObserver } from "mobx-react";
 import { Validator } from "@/enums";
 import { useStore, useValidator } from '@/hooks';
+*/
 
 export type SignUpFormData = {
 	username: string,
@@ -11,6 +13,7 @@ export type SignUpFormData = {
 }
 
 export default () => {
+	/*
 	const { app, auth } = useStore();
 	const validationSchema = useValidator(Validator.SIGN_UP);
 	const { control, errors, formState, handleSubmit, register } = useForm<SignUpFormData>({
@@ -29,4 +32,5 @@ export default () => {
 		pending,
         register,
 	}
+	*/
 }
