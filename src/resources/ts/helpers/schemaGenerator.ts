@@ -148,10 +148,8 @@ const applyMethodsOnType = (base: any, typeName: string, methods?: ResultArray[]
                     baseType = baseType.oneOf([yup.ref(args)]);
                     break;
                 default:
-                    if (isBoolean(args)) {
-                        if (args) {
-                            baseType = baseType[name](args);
-                        }
+                    if (isBoolean(args) && args) {
+                        baseType = baseType[name]();
                     } else {
                         baseType = baseType[name](args);
                     }

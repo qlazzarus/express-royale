@@ -1,10 +1,21 @@
 import { action, computed, observable } from "mobx";
-import { SignInFormData, SignUpFormData } from "@/forms";
 import { ApiService } from "@/services";
 import AppStore from "./AppStore";
 
 type SanctumToken = {
     token: string
+}
+
+type SignInFormData = {
+    username: string,
+    password: string,
+}
+
+export type SignUpFormData = {
+    username: string,
+    email: string,
+    password: string,
+    passwordConfirm: string
 }
 
 class AuthStore {

@@ -13,19 +13,13 @@ const handleFailure = (errors: StringArrayEntries, setError: Function) => {
 export default (schema: Validator, processor: Function, handleSuccess?: Function) => {
 	const { app } = useStore();
     const resolver = useResolver(schema);
-    
     const { clearErrors, control, errors, formState, handleSubmit, setError } = useReactHookForm({ resolver });
-    
 	const onSubmit = handleSubmit(async (data: any) => {
-        /*
         clearErrors();
-        
-        console.log(processor);
 
-        processor(data)
+        processor.bind(processor)(data)
             .then(handleSuccess)
             .catch((errors: StringArrayEntries) => handleFailure(errors, setError));
-        */
     });
 
     const pending = useObserver(() => app.pending);

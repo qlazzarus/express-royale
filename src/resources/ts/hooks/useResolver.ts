@@ -13,7 +13,4 @@ const getSchema = (validator: Validator) => {
     }
 }
 
-export default (validator: Validator) => {
-    const schema = schemaGenerator(getSchema(validator));
-    return yupResolver(schema);
-};
+export default (validator: Validator) => yupResolver(schemaGenerator(getSchema(validator)));

@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Controller } from 'react-hook-form';
 import { InputForm, LabelError } from '@/components';
-import { useSignUpForm } from '@/forms';
+//import { useSignUpForm } from '@/forms';
 import { useStore } from '@/hooks';
 
 export default () => {

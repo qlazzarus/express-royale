@@ -5,13 +5,11 @@ import { useTranslation } from 'react-i18next';
 import { ErrorMessage } from '@hookform/error-message';
 import { InputForm, LabelError } from '@/components';
 import { Validator } from '@/enums';
-//import { useSignInForm } from "@/forms";
 import { useForm, useStore } from "@/hooks";
 
 export default () => {
     const auth = useStore('auth');
     const { t } = useTranslation();
-    //const { control, errors, onSubmit, pending } = useSignInForm();
     const { control, errors, onSubmit, pending } = useForm(Validator.SIGN_IN, auth.signIn);
 
     if (auth.isLogged) {
