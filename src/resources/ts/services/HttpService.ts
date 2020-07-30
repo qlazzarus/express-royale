@@ -24,13 +24,10 @@ export default class HttpService {
         });
 
         client.interceptors.response.use(
-            (res: AxiosResponse<any>) => {
-                res.data = res.data && camelcaseKeysRecursive(res.data) || {};
-                return res;
-            },
+            (res: AxiosResponse<any>): any => res.data && camelcaseKeysRecursive(res.data),
             (error: any) => Promise.reject(error)
         );
-        
+
         client.defaults.transformRequest = [data => data && querystring.stringify(snakeCaseKeys(data))];
         client.defaults.withCredentials = true;
 
@@ -59,7 +56,7 @@ export default class HttpService {
             .then(() => this.client.delete(url, config))
             .finally(this.postProcess.bind(this));
     }
-    
+
     post(url: string, data?: any, config?: AxiosRequestConfig): Promise<any> {
         return this.preProcess()
             .then(() => this.client.post(url, data, config))

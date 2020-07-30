@@ -47,26 +47,28 @@ class AuthStore {
     @action async signIn(data: SignInFormData) {
         const { connector, failedAfter, successAfter } = this;
 
-        return await connector.get('sanctum/csrf-token')
+        await connector.get('sanctum/csrf-token')
             .then(() => connector.post('api/auth/login', data))
             .then(successAfter)
-            .then(this.me)
             .catch(failedAfter);
+
+        await this.me();
     }
 
     @action async signUp(data: SignUpFormData) {
         const { connector, failedAfter, successAfter } = this;
 
-        return await connector.post('api/auth/register', data)
+        await connector.post('api/auth/register', data)
             .then(successAfter)
-            .then(this.me)
             .catch(failedAfter);
+
+        await this.me();
     }
 
     @action async me() {
         const { connector, failedAfter } = this;
 
-        return await connector.get('api/auth/me')
+        await connector.get('api/auth/me')
             .then((res: any) => console.log('then', res))
             .catch((error: any) => console.log('catch', error));
     }

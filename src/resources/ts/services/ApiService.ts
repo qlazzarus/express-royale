@@ -14,7 +14,7 @@ export default class ApiService extends HttpService {
     private get config(): AxiosRequestConfig {
         return {
             headers: {
-                'Authorization': this.authStore.token || '',
+                'Authorization': this.authStore.token && `Bearer ${this.authStore.token}` || '',
                 'Request-Id': this.appStore.id || ''
             }
         };
@@ -27,7 +27,7 @@ export default class ApiService extends HttpService {
     delete(url: string): Promise<any> {
         return super.delete(url, this.config);
     }
-    
+
     post(url: string, data?: any): Promise<any> {
         return super.post(url, data, this.config);
     }
