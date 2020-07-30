@@ -10,7 +10,11 @@
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-\Route::post('auth/register', 'Auth\RegisterController@register');
-\Route::post('auth/login', 'Auth\LoginController@login');
+Route::post('auth/register', 'Auth\RegisterController@register');
+Route::post('auth/login', 'Auth\LoginController@login');
+
+Route::group(['middleware' => ['auth:sanctum']], function() {
+    Route::get('auth/me', 'Auth\AccountController@me');
+});
 
 Broadcast::routes(['middleware' => ['auth:sanctum']]);

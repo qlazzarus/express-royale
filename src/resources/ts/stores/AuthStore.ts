@@ -61,6 +61,14 @@ class AuthStore {
             .catch(failedAfter);
     }
 
+    @action async me() {
+        const { connector, failedAfter } = this;
+
+        return await connector.get('api/auth/me')
+            .then((res: any) => console.log('then', res))
+            .catch((error: any) => console.log('catch', error));
+    }
+
     @action.bound successAfter(response: SanctumToken): void {
         this.setToken(response.token);
     }
@@ -74,15 +82,14 @@ class AuthStore {
             const closeIn = 3000;
 
             AppStore.setFlash({ type, message, closeIn });
-
-            return errors;
+            throw errors;
+        } else {
+            throw error;
         }
 
         /*
           else if (error.request) {
             // 요청이 이루어 졌으나 응답을 받지 못했습니다.
-            // `error.request`는 브라우저의 XMLHttpRequest 인스턴스 또는
-            // Node.js의 http.ClientRequest 인스턴스입니다.
             console.log(error.request);
           }
           else {

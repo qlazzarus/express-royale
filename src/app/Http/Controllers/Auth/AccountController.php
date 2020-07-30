@@ -12,9 +12,12 @@ class AccountController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function me()
     {
         //
+        return [
+            'hello' => 'world'
+        ]
     }
 
     /**

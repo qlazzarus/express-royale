@@ -10,7 +10,7 @@ import { useForm, useStore } from "@/hooks";
 export default () => {
     const auth = useStore('auth');
     const { t } = useTranslation();
-    const { control, errors, onSubmit, pending } = useForm(Validator.SIGN_IN, auth.signIn);
+    const { control, errors, onSubmit, pending } = useForm(Validator.SIGN_IN, auth.signIn.bind(auth));
 
     if (auth.isLogged) {
         // TODO redirect
