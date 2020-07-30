@@ -50,6 +50,7 @@ class AuthStore {
         return await connector.get('sanctum/csrf-token')
             .then(() => connector.post('api/auth/login', data))
             .then(successAfter)
+            .then(this.me)
             .catch(failedAfter);
     }
 
@@ -58,6 +59,7 @@ class AuthStore {
 
         return await connector.post('api/auth/register', data)
             .then(successAfter)
+            .then(this.me)
             .catch(failedAfter);
     }
 
