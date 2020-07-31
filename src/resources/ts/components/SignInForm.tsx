@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import { Controller } from "react-hook-form";
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useObserver } from 'mobx-react';
 import { ErrorMessage } from '@hookform/error-message';
 import { InputForm, LabelError } from '@/components';
 import { Validator } from '@/enums';
@@ -11,8 +12,9 @@ export default () => {
     const auth = useStore('auth');
     const { t } = useTranslation();
     const { control, errors, onSubmit, pending } = useForm(Validator.SIGN_IN, auth.signIn.bind(auth));
+    const logged = useObserver(() => auth.logged);
 
-    if (auth.isLogged) {
+    if (logged) {
         // TODO redirect
     }
 
@@ -38,12 +40,13 @@ export default () => {
                 <ErrorMessage errors={errors} name={'username'} render={LabelError} />
             </div>
             <div className="py-2">
-                {/* border-red-500 */}
-                <div className={'text-right'}>
-                    <Link to={'/find-password'} className={'inline-block align-baseline text-red-500 hover:text-red-800'}>
-                        {t('FIND_PASSWORD')}
-                    </Link>
-                </div>
+                {/*
+                    <div className={'text-right'}>
+                        <Link to={'/find-password'} className={'inline-block align-baseline text-red-500 hover:text-red-800'}>
+                            {t('FIND_PASSWORD')}
+                        </Link>
+                    </div>
+                */}
                 <label>
                     <Controller
                         name={'password'}
@@ -72,6 +75,7 @@ export default () => {
                     {t('SIGN_UP')}
                 </Link>
             </div>
+            {/*
             <div className="flex py-2">
                 <button
                     className="flex w-full items-center justify-between bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline"
@@ -101,7 +105,8 @@ export default () => {
                     {t("SIGN_IN_GOOGLE")}
                     <i className="fab fa-google" />
                 </button>
-            </div>
+            </div>             
+            */}
         </form>
     );
 };

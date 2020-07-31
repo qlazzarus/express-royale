@@ -35,7 +35,11 @@ class UserChannel extends Model
      * @var array
      */
     protected $hidden = [
+        'id',
+        'user_id',
         'password',
+        'created_at',
+        'updated_at'
     ];
 
     public function user()

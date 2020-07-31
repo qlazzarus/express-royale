@@ -1,18 +1,19 @@
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Controller } from 'react-hook-form';
+import { useObserver } from 'mobx-react';
+import { ErrorMessage } from '@hookform/error-message';
 import { InputForm, LabelError } from '@/components';
-//import { useSignUpForm } from '@/forms';
-import { useStore } from '@/hooks';
+import { Validator } from '@/enums';
+import { useForm, useStore } from '@/hooks';
 
 export default () => {
-    return null;
-    /*
     const auth = useStore('auth');
     const { t } = useTranslation();
-    const { control, errors, onSubmit } = useSignUpForm();
+    const { control, errors, onSubmit, pending } = useForm(Validator.SIGN_UP, auth.signUp.bind(auth));
+    const logged = useObserver(() => auth.logged);
 
-    if (auth.isLogged) {
+    if (logged) {
         // TODO redirect
     }
 
@@ -29,13 +30,14 @@ export default () => {
                             <InputForm
                                 className="shadow appearance-none bg-gray-700 border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
                                 type="text"
+                                disabled={pending}
                                 placeholder={t('USERNAME')}
                             />
                         )}
                         control={control}
                     />
                 </label>
-                {errors.username && <LabelError error={errors.username} />}
+                <ErrorMessage errors={errors} name={'username'} render={LabelError} />
             </div>
             <div className="py-2">
                 <label>
@@ -45,13 +47,14 @@ export default () => {
                             <InputForm
                                 className="shadow appearance-none bg-gray-700 border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
                                 type="text"
+                                disabled={pending}
                                 placeholder={t('EMAIL')}
                             />
                         )}
                         control={control}
                     />
                 </label>
-                {errors.email && <LabelError error={errors.email} />}
+                <ErrorMessage errors={errors} name={'email'} render={LabelError} />
             </div>
             <div className="py-2">
                 <label>
@@ -61,6 +64,7 @@ export default () => {
                             <InputForm
                                 className="shadow appearance-none bg-gray-700 border rounded w-full py-2 px-3 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                                 type="password"
+                                disabled={pending}
                                 placeholder={t('PASSWORD')}
                             />
                         )}
@@ -68,7 +72,7 @@ export default () => {
                     />
 
                 </label>
-                {errors.password && <LabelError error={errors.password} />}
+                <ErrorMessage errors={errors} name={'password'} render={LabelError} />
             </div>
             <div className="py-2">
                 <label>
@@ -78,23 +82,24 @@ export default () => {
                             <InputForm
                                 className="shadow appearance-none bg-gray-700 border rounded w-full py-2 px-3 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                                 type="password"
+                                disabled={pending}
                                 placeholder={t('PASSWORD_CONFIRM')}
                             />
                         )}
                         control={control}
                     />
                 </label>
-                {errors.passwordConfirm && <LabelError error={errors.passwordConfirm} />}
+                <ErrorMessage errors={errors} name={'passwordConfirm'} render={LabelError} />
             </div>
             <div className="flex pt-8 pb-2 items-center justify-end">
                 <button
                     className={"bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline"}
                     type={"submit"}
+                    disabled={pending}
                 >
                     {t('SIGN_UP')}
                 </button>
             </div>
         </form>
     );
-    */
 }

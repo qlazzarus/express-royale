@@ -1,5 +1,6 @@
-import { action, computed, observable } from "mobx";
+import { action, autorun, computed, observable, reaction } from "mobx";
 import { ApiService } from "@/services";
+import { useLocalStorage } from '@/hooks';
 import AppStore from "./AppStore";
 
 type SanctumToken = {
@@ -18,59 +19,83 @@ export type SignUpFormData = {
     passwordConfirm: string
 }
 
+export type UserInfo = {
+    channels: UserChannel[],
+    unique_identifer: string
+};
+
+export type UserChannel = {
+    channel: 'name' | 'email',
+    channelId: string
+}
+
+const [token, setToken] = useLocalStorage('token', '');
+
 class AuthStore {
 
     private connector: ApiService;
 
     @observable redirectTo: string | null = null;
 
-    @observable token: string | null = null;
+    @observable token: string = token;
 
-    /* user: types.maybeNull(UserModel) */
+    @observable user: UserInfo | null = null;
 
     constructor() {
         this.connector = new ApiService(AppStore, this);
+
+        reaction(
+            () => this.token,
+            (token: string) => setToken(token)
+        );
+
+        this.token && this.me();
     }
 
-    @computed get isLogged(): boolean {
-        return Boolean(this.token);
+    @computed get logged(): boolean {
+        return Boolean(this.token) && null !== this.user;
     }
 
     @action setRedirectTo(redirectTo: string | null): void {
         this.redirectTo = redirectTo;
     }
 
-    @action setToken(token: string | null): void {
+    @action setToken(token: string): void {
         this.token = token;
     }
 
+    @action setUser(info: UserInfo | null): void {
+        this.user = info;
+    }
+
     @action async signIn(data: SignInFormData) {
-        const { connector, failedAfter, successAfter } = this;
+        const { connector, failedAfter, successAfter, me } = this;
 
         await connector.get('sanctum/csrf-token')
             .then(() => connector.post('api/auth/login', data))
             .then(successAfter)
             .catch(failedAfter);
 
-        await this.me();
+        await me();
     }
 
     @action async signUp(data: SignUpFormData) {
-        const { connector, failedAfter, successAfter } = this;
+        const { connector, failedAfter, successAfter, me } = this;
 
         await connector.post('api/auth/register', data)
             .then(successAfter)
             .catch(failedAfter);
 
-        await this.me();
+        await me();
     }
 
     @action async me() {
-        const { connector, failedAfter } = this;
-
-        await connector.get('api/auth/me')
-            .then((res: any) => console.log('then', res))
-            .catch((error: any) => console.log('catch', error));
+        await this.connector.get('api/auth/me')
+            .then((user: UserInfo) => this.setUser(user))
+            .catch((error) => {
+                console.log('logout', error);
+                //this.logout();
+            });
     }
 
     @action.bound successAfter(response: SanctumToken): void {
@@ -79,6 +104,8 @@ class AuthStore {
 
     @action.bound failedAfter(error: any): void {
         const { response } = error;
+
+        this.logout();
 
         if (response) {
             const { errors, message } = response.data;
@@ -104,9 +131,8 @@ class AuthStore {
     }
 
     @action logout(): void {
-        this.setRedirectTo(null);
-        this.setToken(null);
-        /* self.user = null; */
+        this.setToken('');
+        this.setUser(null);
     }
 }
 

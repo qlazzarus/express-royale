@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useObserver } from 'mobx-react';
 import { useStore } from '@/hooks';
 
 export default () => {
     const { t } = useTranslation();
     const auth = useStore('auth');
     const [visible, setVisible] = useState(false);
+    const logged = useObserver(() => auth.logged);
 
     return (
         <div className={'sticky w-full bg-black z-10 top-0'}>
@@ -23,8 +25,8 @@ export default () => {
                     </button>
                 </div>
                 <div className={`navbar-menu w-full ${visible ? 'flex' : 'hidden'} flex-col justify-around items-center lg:flex lg:flex-row lg:w-4/5`}>
-                    {!auth.isLogged && <Link to={'/signin'} className={"text-red-500 hover:text-red-700 my-3"}>{t('MENU_LOGIN')}</Link>}
-                    {auth.isLogged && <Link to={'/transfer'} className={"text-red-500 hover:text-red-700 my-3"}>{t('MENU_TRANSFER')}</Link>}
+                    {!logged && <Link to={'/signin'} className={"text-red-500 hover:text-red-700 my-3"}>{t('MENU_LOGIN')}</Link>}
+                    {logged && <Link to={'/transfer'} className={"text-red-500 hover:text-red-700 my-3"}>{t('MENU_TRANSFER')}</Link>}
                     <Link to={'/rule'} className={"text-red-500 hover:text-red-700 my-3"}>{t('MENU_RULE')}</Link>
                     <Link to={'/rank'} className={"text-red-500 hover:text-red-700 my-3"}>{t('MENU_RANK')}</Link>
                     <Link to={'/news'} className={"text-red-500 hover:text-red-700 my-3"}>{t('MENU_NEWS')}</Link>

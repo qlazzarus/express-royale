@@ -34,6 +34,22 @@ class User extends Authenticatable
     use HasApiTokens;
     use Notifiable;
 
+    protected $hidden = [
+        'id',
+        'created_at',
+        'updated_at'
+    ];
+
+    protected $appends = [
+        'unique_identifier'
+    ];
+
+    public function getUniqueIdentifierAttribute()
+    {
+        $key = env('APP_KEY');
+        return hash('sha256', "{$key}-user::{$this->id}");
+    }
+
     public function students()
     {
         return $this->hasMany('App\Student');
