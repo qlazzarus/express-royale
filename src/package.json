@@ -15,6 +15,7 @@
         "@hookform/resolvers": "^0.1.0",
         "axios": "^0.19.2",
         "camelcase-keys-recursive": "^0.8.3",
+        "gasp": "0.0.2",
         "i18next": "^19.4.4",
         "i18next-browser-languagedetector": "^4.2.0",
         "lodash": "^4.17.15",
