@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useObserver } from 'mobx-react';
 import { ErrorMessage } from '@hookform/error-message';
 import { InputForm, LabelError } from '@/components';
-import { Validator } from '@/enums';
+import { Path, Validator } from '@/enums';
 import { useForm, useStore } from "@/hooks";
 
 export default () => {
@@ -14,9 +14,7 @@ export default () => {
     const { control, errors, onSubmit, pending } = useForm(Validator.SIGN_IN, auth.signIn.bind(auth));
     const logged = useObserver(() => auth.logged);
 
-    if (logged) {
-        // TODO redirect
-    }
+    if (logged) return null;
 
     return (
         <form
@@ -71,7 +69,7 @@ export default () => {
                 >
                     {t('SIGN_IN')}
                 </button>
-                <Link to={'/signup'} className={'inline-block align-baseline text-red-500 hover:text-red-800'}>
+                <Link to={Path.SIGN_UP} className={'inline-block align-baseline text-red-500 hover:text-red-800'}>
                     {t('SIGN_UP')}
                 </Link>
             </div>

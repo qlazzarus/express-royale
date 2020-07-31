@@ -15,6 +15,7 @@ enum Korean {
 .  
 &nbsp;
 `,
+    MENU_GAME = '등교',
     MENU_LOGIN = '로그인',
     MENU_TRANSFER = '전학수속',
     MENU_RULE = '메뉴얼',

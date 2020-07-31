@@ -1,21 +1,22 @@
 import React from 'react';
 import { Switch, Route } from "react-router-dom";
 import { PrivateRoute } from '@/components';
+import { Path } from '@/enums';
 import { Main, SignIn, SignUp } from '@/pages';
 
 export default () => {
     return (
         <Switch>
-            <Route path={'/'} exact component={Main} />
-            <Route path={'/signin'} exact component={SignIn} />
-            <Route path={'/signup'} exact component={SignUp} />
-            <PrivateRoute path={'/game'} exact component={Main} />
-            <PrivateRoute path={'/transfer'} exact component={Main} />
-            <PrivateRoute path={'/account'} exact component={Main} />
-            <Route path={'/rule'} exact component={Main} />
-            <Route path={'/rank'} exact component={Main} />
-            <Route path={'/news'} exact component={Main} />
-            <Route path={'/winner'} exact component={Main} />
+            <Route path={Path.INDEX} exact component={Main} />
+            <Route path={Path.SIGN_IN} exact component={SignIn} />
+            <Route path={Path.SIGN_UP} exact component={SignUp} />
+            <PrivateRoute path={Path.GAME} exact component={Main} />
+            <PrivateRoute path={Path.TRANFER} exact component={Main} />
+            <PrivateRoute path={Path.ACCOUNT} exact component={Main} />
+            <Route path={Path.RULE} exact component={Main} />
+            <Route path={Path.RULE} exact component={Main} />
+            <Route path={Path.NEWS} exact component={Main} />
+            <Route path={Path.WINNER} exact component={Main} />
         </Switch>
     );
 };
