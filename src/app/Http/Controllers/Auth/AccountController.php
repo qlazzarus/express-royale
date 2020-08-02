@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class AccountController extends Controller
 {
     /**
-     * @return array
+     * @param Request $request
+     * @return mixed
      */
     public function me(Request $request)
     {

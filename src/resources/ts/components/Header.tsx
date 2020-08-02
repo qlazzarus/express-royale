@@ -26,14 +26,14 @@ export default () => {
                     </button>
                 </div>
                 <div className={`navbar-menu w-full ${visible ? 'flex' : 'hidden'} flex-col justify-around items-center lg:flex lg:flex-row lg:w-4/5`}>
-                    {!logged && <Link to={Path.SIGN_UP} className={"text-red-500 hover:text-red-700 my-3"}>{t('MENU_LOGIN')}</Link>}
-                    {logged && <Link to={Path.TRANFER} className={"text-red-500 hover:text-red-700 my-3"}>{t('MENU_TRANSFER')}</Link>}
+                    {!logged && <Link to={Path.SIGN_IN} className={"text-red-500 hover:text-red-700 my-3"}>{t('MENU_LOGIN')}</Link>}
+                    {logged && <Link to={Path.TRANSFER} className={"text-red-500 hover:text-red-700 my-3"}>{t('MENU_TRANSFER')}</Link>}
                     <Link to={Path.RULE} className={"text-red-500 hover:text-red-700 my-3"}>{t('MENU_RULE')}</Link>
                     <Link to={Path.RANK} className={"text-red-500 hover:text-red-700 my-3"}>{t('MENU_RANK')}</Link>
                     <Link to={Path.NEWS} className={"text-red-500 hover:text-red-700 my-3"}>{t('MENU_NEWS')}</Link>
                     <Link to={Path.WINNER} className={"text-red-500 hover:text-red-700 my-3"}>{t('MENU_WINNER')}</Link>
                 </div>
             </nav>
-        </div>  
+        </div>
     );
 }

@@ -1,8 +1,7 @@
 import React, { useCallback } from 'react';
 import { Controller } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useObserver } from 'mobx-react';
 import { ErrorMessage } from '@hookform/error-message';
 import { InputForm, LabelError } from '@/components';
 import { Path, Validator } from '@/enums';
@@ -11,10 +10,12 @@ import { useForm, useStore } from "@/hooks";
 export default () => {
     const auth = useStore('auth');
     const { t } = useTranslation();
-    const { control, errors, onSubmit, pending } = useForm(Validator.SIGN_IN, auth.signIn.bind(auth));
-    const logged = useObserver(() => auth.logged);
+    const { control, errors, onSubmit, pending } = useForm(
+        Validator.SIGN_IN,
+        auth.signIn.bind(auth)
+    );
 
-    if (logged) return null;
+    //if (auth.logged && !redirect) setRedirect(true);
 
     return (
         <form
@@ -103,7 +104,7 @@ export default () => {
                     {t("SIGN_IN_GOOGLE")}
                     <i className="fab fa-google" />
                 </button>
-            </div>             
+            </div>
             */}
         </form>
     );

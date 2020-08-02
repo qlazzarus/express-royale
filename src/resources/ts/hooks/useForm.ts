@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { useObserver } from 'mobx-react'
 import { useForm as useReactHookForm } from 'react-hook-form';
 import { Validator } from "@/enums";
@@ -27,11 +28,11 @@ export default (schema: Validator, processor: Function, handleSuccess?: Function
 
     const pending = useObserver(() => app.pending);
 
-	return {
+	return useCallback(() => ({
 	    control,
         errors,
         formState,
 		onSubmit,
         pending
-	}
+	}), [control, errors, formState, onSubmit, pending])();
 }

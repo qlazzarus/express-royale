@@ -11,7 +11,7 @@ export default () => {
             <Route path={Path.SIGN_IN} exact component={SignIn} />
             <Route path={Path.SIGN_UP} exact component={SignUp} />
             <PrivateRoute path={Path.GAME} exact component={Main} />
-            <PrivateRoute path={Path.TRANFER} exact component={Main} />
+            <PrivateRoute path={Path.TRANSFER} exact component={Main} />
             <PrivateRoute path={Path.ACCOUNT} exact component={Main} />
             <Route path={Path.RULE} exact component={Main} />
             <Route path={Path.RULE} exact component={Main} />

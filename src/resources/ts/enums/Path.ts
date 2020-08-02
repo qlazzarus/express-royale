@@ -7,7 +7,7 @@ enum Link {
     RULE = '/rule',
     SIGN_IN = '/signin',
     SIGN_UP = '/signup',
-    TRANFER = '/transfer',
+    TRANSFER = '/transfer',
     WINNER = '/winner'
 }
 

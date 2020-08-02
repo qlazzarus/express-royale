@@ -44,7 +44,6 @@ const drawCanvas = () => {
 export default () => {
     return (
         <div>
-            <ShaderCanvas width={320} height={240} fragShader={shader} />
         </div>
     );
 }

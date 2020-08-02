@@ -69,40 +69,35 @@ class AuthStore {
     }
 
     @action async signIn(data: SignInFormData) {
-        const { connector, failedAfter, successAfter, me } = this;
-
-        await connector.get('sanctum/csrf-token')
-            .then(() => connector.post('api/auth/login', data))
-            .then(successAfter)
-            .catch(failedAfter);
-
-        await me();
+        return await this.connector.get('sanctum/csrf-token')
+            .then(() => this.connector.post('api/auth/login', data))
+            .then(this.loginSuccess)
+            .then(() => this.me())
+            .catch(this.loginFailed);
     }
 
     @action async signUp(data: SignUpFormData) {
-        const { connector, failedAfter, successAfter, me } = this;
-
-        await connector.post('api/auth/register', data)
-            .then(successAfter)
-            .catch(failedAfter);
-
-        await me();
+        return await this.connector.post('api/auth/register', data)
+            .then(this.loginSuccess)
+            .then(() => this.me())
+            .catch(this.loginFailed);
     }
 
     @action async me() {
-        await this.connector.get('api/auth/me')
-            .then((user: UserInfo) => this.setUser(user))
-            .catch((error) => {
-                console.log('logout', error);
-                //this.logout();
-            });
+        return await this.connector.get('api/auth/me')
+            .then(this.infoSuccess)
+            .catch(this.logout);
     }
 
-    @action.bound successAfter(response: SanctumToken): void {
+    @action.bound infoSuccess(response: UserInfo): void {
+        this.setUser(response);
+    }
+
+    @action.bound loginSuccess(response: SanctumToken): void {
         this.setToken(response.token);
     }
 
-    @action.bound failedAfter(error: any): void {
+    @action.bound loginFailed(error: any): void {
         const { response } = error;
 
         this.logout();
