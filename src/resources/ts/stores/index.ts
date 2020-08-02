@@ -1,3 +1,12 @@
+/*
+import { configure } from "mobx";
+
+configure({
+    enforceActions: 'always',
+    computedRequiresReaction: true
+});
+*/
+
 import AppStore, { AppStoreInterface } from './AppStore';
 import AuthStore, { AuthStoreInterface } from './AuthStore';
 

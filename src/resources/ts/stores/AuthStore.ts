@@ -64,8 +64,9 @@ class AuthStore {
         this.token = token;
     }
 
-    @action setUser(info: UserInfo | null): void {
-        this.user = info;
+    @action setUser(user: UserInfo | null): void {
+        console.log(user);
+        this.user = user;
     }
 
     @action async signIn(data: SignInFormData) {

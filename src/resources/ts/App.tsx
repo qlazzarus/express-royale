@@ -1,17 +1,15 @@
 import React from 'react';
 import { BrowserRouter } from "react-router-dom";
-import { MobXProviderContext } from "mobx-react";
+import { Provider } from "mobx-react";
 
 import '@/i18n';
-import { FlashMessage, Footer, Header, Loader  } from '@/components';
+import { FlashMessage, Footer, Header, Loader } from '@/components';
 import Router from '@/Router';
 import stores from '@/stores';
 
-const { Provider } = MobXProviderContext;
-
 export default () => {
   return (
-    <Provider value={stores}>
+    <Provider {...stores}>
       <BrowserRouter>
         <div className={'container mx-auto px-4'}>
           <FlashMessage />

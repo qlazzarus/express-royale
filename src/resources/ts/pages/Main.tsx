@@ -26,6 +26,7 @@ export default () => {
     const auth = useStore('auth');
     const { t } = useTranslation();
     const logged = useObserver(() => auth.logged);
+    //const logged = auth.logged;
 
     return (
         <>

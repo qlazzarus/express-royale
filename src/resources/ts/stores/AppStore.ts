@@ -1,14 +1,10 @@
-import { action, configure, observable, reaction } from "mobx";
+import { action, observable, reaction } from "mobx";
 import uuid from 'uuid-random';
 import { useLocalStorage } from '@/hooks';
 
-configure({ enforceActions: 'observed' });
-
-const [id, setId] = useLocalStorage('id', uuid());
-
 class AppStore {
 
-    @observable id: string = id;
+    @observable id: string = '';
 
     @observable flash: FlashMessageProps | null = null;
 
@@ -17,6 +13,8 @@ class AppStore {
     @observable pending: boolean = false;
 
     constructor() {
+        const [id, setId] = useLocalStorage('id', uuid());
+
         reaction(
             () => this.id,
             (id: string) => setId(id)
@@ -31,6 +29,8 @@ class AppStore {
                 }
             }
         );
+
+        this.setId(id);
     }
 
     @action closeFlash() {

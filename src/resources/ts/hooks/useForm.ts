@@ -12,7 +12,6 @@ const handleFailure = (errors: StringArrayEntries, setError: Function) => {
 };
 
 export default (schema: Validator, processor: Function, handleSuccess?: Function) => {
-	const { app } = useStore();
     const resolver = useResolver(schema);
     const { clearErrors, control, errors, formState, handleSubmit, setError } = useReactHookForm({ resolver });
 	const onSubmit = handleSubmit(async (data: any) => {
@@ -26,13 +25,10 @@ export default (schema: Validator, processor: Function, handleSuccess?: Function
         }
     });
 
-    const pending = useObserver(() => app.pending);
-
-	return useCallback(() => ({
+	return {
 	    control,
         errors,
         formState,
-		onSubmit,
-        pending
-	}), [control, errors, formState, onSubmit, pending])();
+		onSubmit
+	}
 }

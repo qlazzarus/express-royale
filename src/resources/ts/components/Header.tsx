@@ -10,6 +10,7 @@ export default () => {
     const auth = useStore('auth');
     const [visible, setVisible] = useState(false);
     const logged = useObserver(() => auth.logged);
+    //const logged = auth.logged;
 
     return (
         <div className={'sticky w-full bg-black z-10 top-0'}>

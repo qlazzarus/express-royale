@@ -1,20 +1,29 @@
 import React, { useCallback } from 'react';
 import { Controller } from "react-hook-form";
-import {Link, Redirect} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ErrorMessage } from '@hookform/error-message';
 import { InputForm, LabelError } from '@/components';
 import { Path, Validator } from '@/enums';
 import { useForm, useStore } from "@/hooks";
+import {useObserver} from "mobx-react";
 
 export default () => {
-    const auth = useStore('auth');
+    const { auth } = useStore();
     const { t } = useTranslation();
-    const { control, errors, onSubmit, pending } = useForm(
+    const { control, errors, onSubmit } = useForm(
         Validator.SIGN_IN,
         auth.signIn.bind(auth)
     );
 
+    const logged = useObserver(() => auth.logged);
+    const pending = false;
+    //console.log(auth.logged);
+
+    if (logged) {
+        console.log('hello world');
+        return <div>hello world</div>;
+    }
     //if (auth.logged && !redirect) setRedirect(true);
 
     return (

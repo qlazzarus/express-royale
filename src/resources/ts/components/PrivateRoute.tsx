@@ -6,6 +6,7 @@ import { useStore } from '@/hooks';
 const PrivateRoute: FC<{ component: FC; path: string; exact: boolean; }> = props => {
     const auth = useStore('auth');
     const logged = useObserver(() => auth.logged);
+    //const logged = auth.logged;
 
     return logged ?
         <Route path={props.path} exact={props.exact} component={props.component} /> :

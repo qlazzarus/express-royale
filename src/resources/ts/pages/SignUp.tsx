@@ -10,8 +10,10 @@ import { useForm, useStore } from '@/hooks';
 export default () => {
     const auth = useStore('auth');
     const { t } = useTranslation();
-    const { control, errors, onSubmit, pending } = useForm(Validator.SIGN_UP, auth.signUp.bind(auth));
+    const { control, errors, onSubmit } = useForm(Validator.SIGN_UP, auth.signUp.bind(auth));
     const logged = useObserver(() => auth.logged);
+    //const logged = auth.logged;
+    const pending = true;
 
     if (logged) {
         // TODO redirect
