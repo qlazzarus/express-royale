@@ -11,11 +11,6 @@ export default class HttpService {
     protected client: AxiosInstance;
 
     constructor(appStore: AppStoreInterface) {
-        this.appStore = appStore;
-        this.client = this.initClient();
-    }
-
-    protected initClient(): AxiosInstance {
         const client = axios.create({
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
@@ -25,13 +20,14 @@ export default class HttpService {
 
         client.interceptors.response.use(
             (res: AxiosResponse<any>): any => res.data && camelcaseKeysRecursive(res.data),
-            (error: any) => Promise.reject(error)
+            (error) => Promise.reject(error)
         );
 
         client.defaults.transformRequest = [data => data && querystring.stringify(snakeCaseKeys(data))];
         client.defaults.withCredentials = true;
 
-        return client;
+        this.appStore = appStore;
+        this.client = client;
     }
 
     private preProcess(): Promise<any> {
