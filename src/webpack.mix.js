@@ -2,7 +2,6 @@ const mix = require('laravel-mix');
 const path = require('path');
 
 require('mix-tailwindcss');
-require('laravel-mix-eslint-config');
 require('laravel-mix-polyfill');
 
 mix.ts('resources/ts/index.tsx', 'public/js')

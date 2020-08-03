@@ -1,20 +1,22 @@
 import React from 'react';
-import { BrowserRouter } from "react-router-dom";
-import { Provider } from "mobx-react";
+import { BrowserRouter } from 'react-router-dom';
+import { MobXProviderContext } from 'mobx-react';
 
 import '@/i18n';
 import { FlashMessage, Footer, Header, Loader } from '@/components';
 import Router from '@/Router';
 import stores from '@/stores';
 
-export default () => {
+const { Provider } = MobXProviderContext;
+
+export default (): JSX.Element => {
   return (
-    <Provider {...stores}>
+    <Provider value={stores}>
       <BrowserRouter>
-        <div className={'container mx-auto px-4'}>
+        <div className="container mx-auto px-4">
           <FlashMessage />
           <Header />
-          <section className={'py-8'}>
+          <section className="py-8">
             <Router />
           </section>
           <Footer />

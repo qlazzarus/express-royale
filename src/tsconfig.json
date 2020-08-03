@@ -22,13 +22,7 @@
     "paths": {
       "@/*": ["./*"]
     },
-    "typeRoots": [
-      "./node_modules/@types",
-      "./resources/typings"
-    ]
+    "typeRoots": ["./node_modules/@types", "./resources/typings"]
   },
-  "include": [
-    "resources/ts/**/*",
-    "resources/typings/index.d.ts"
-  ]
+  "include": ["resources/ts/**/*", "resources/typings/index.d.ts"]
 }
