@@ -17,7 +17,7 @@ import * as yup from 'yup';
 
 type ResultArray = {
     name: string,
-    args: unknown
+    args: any
 }
 
 const YupTypesNames = {
@@ -36,7 +36,16 @@ const customTypes = [
 
 const isYupType = (value: string) => includes(values(YupTypesNames), value);
 
-const getNormalizedConfig = (config: any) => {
+/*
+{
+    type: ValidationType & string;
+    methods?: undefined;
+} | {
+    type: string;
+    methods: ResultArray[];
+}
+*/
+const getNormalizedConfig = (config: ValidationType) => {
     if (isString(config)) {
         if (isYupType(config)) {
             return { type: config };
@@ -86,6 +95,12 @@ const getYupType = ({ type }: { type: string }) => {
         default: throw new Error(`Type ${type} is not valid type.`);
     }
 };
+
+/*
+const getYupType: ({ type }: {
+    type: string;
+}) => yup.NotRequiredArraySchema<unknown> | yup.BooleanSchema<boolean | undefined> | yup.DateSchema<Date | undefined> | yup.MixedSchema<{} | null | undefined> | yup.NumberSchema<...> | yup.ObjectSchema<...> | yup.StringSchema<...>
+*/
 
 const applyMethodWhen = (base: any, args: any) => {
     const fieldName = head(keys(args));
@@ -147,11 +162,7 @@ const applyMethodsOnType = (base: any, typeName: string, methods?: ResultArray[]
                     baseType = baseType.oneOf([yup.ref(args)]);
                     break;
                 default:
-                    if (isBoolean(args) && args) {
-                        baseType = baseType[name]();
-                    } else {
-                        baseType = baseType[name](args);
-                    }
+                    baseType = (isBoolean(args) && args) ? baseType[name]() : baseType[name](args);
                     break;
             }
         },
@@ -161,7 +172,7 @@ const applyMethodsOnType = (base: any, typeName: string, methods?: ResultArray[]
 };
 
 
-const getYupSchema = (config: any) => {
+const getYupSchema = (config: ValidationType) => {
     const normalizedConfig = getNormalizedConfig(config);
 
     return applyMethodsOnType(
@@ -171,11 +182,4 @@ const getYupSchema = (config: any) => {
     );
 }
 
-/*
-(method) ObjectSchema<object | undefined>.shape<{
-    [x: string]: ...;
-}>(fields: yup.ObjectSchemaDefinition<{
-    [x: string]: ...;
-}>, noSortEdges?: [string, string][] | undefined): yup.ObjectSchema<yup.Shape<object | undefined, { [x: string]: ...; }>>
-*/
 export default (config: ValidationSchema) => yup.object().shape(mapValues(config, getYupSchema));

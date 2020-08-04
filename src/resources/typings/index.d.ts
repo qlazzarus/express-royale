@@ -21,15 +21,17 @@ declare global {
     }
 
     interface ValidationSchema {
-        [key: string]: {
-            email?: boolean,
-            equal?: string,
-            type: string,
-            required: boolean,
-            matches?: boolean,
-            max?: number,
-            min?: number,
-        }
+        [key: string]: ValidationType
+    }
+
+    type ValidationType = {
+        email?: boolean,
+        equal?: string,
+        type: string,
+        required: boolean,
+        matches?: boolean,
+        max?: number,
+        min?: number,
     }
 
     type CustomHookType = [
