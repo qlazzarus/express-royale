@@ -2,6 +2,8 @@ import { AxiosRequestConfig } from 'axios';
 import { AppStoreInterface, AuthStoreInterface } from '@/stores';
 import HttpService from './HttpService';
 
+/* eslint-disable  @typescript-eslint/no-explicit-any */
+
 export default class ApiService extends HttpService {
 
     private authStore: AuthStoreInterface;
@@ -28,15 +30,15 @@ export default class ApiService extends HttpService {
         return super.delete(url, this.config);
     }
 
-    post(url: string, data?: any): Promise<any> {
+    post(url: string, data?: Record<string, unknown>): Promise<any> {
         return super.post(url, data, this.config);
     }
 
-    put(url: string, data?: any): Promise<any> {
+    put(url: string, data?: Record<string, unknown>): Promise<any> {
         return super.put(url, data, this.config);
     }
 
-    patch(url: string, data?: any): Promise<any> {
+    patch(url: string, data?: Record<string, unknown>): Promise<any> {
         return super.patch(url, data, this.config);
     }
 }

@@ -1,7 +1,9 @@
-import { action, autorun, computed, observable, reaction } from "mobx";
+import { action, computed, observable, reaction } from "mobx";
 import { ApiService } from "@/services";
 import { useLocalStorage } from '@/hooks';
 import AppStore from "./AppStore";
+
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 
 type SanctumToken = {
     token: string
@@ -29,31 +31,32 @@ export type UserChannel = {
     channelId: string
 }
 
-const [token, setToken] = useLocalStorage('token', '');
-
 class AuthStore {
 
     private connector: ApiService;
 
     @observable redirectTo: string | null = null;
 
-    @observable token: string = token;
+    @observable token = '';
 
     @observable user: UserInfo | null = null;
 
     constructor() {
-        this.connector = new ApiService(AppStore, this);
+        const [token, setToken] = useLocalStorage('token', '');
 
         reaction(
             () => this.token,
-            (token: string) => setToken(token)
+            (currentToken: string) => setToken(currentToken)
         );
 
-        this.token && this.me();
+        this.connector = new ApiService(AppStore, this);
+        this.setToken(<string>token);
+
+        if (this.token) this.me();
     }
 
     @computed get logged(): boolean {
-        return Boolean(this.token) && null !== this.user;
+        return Boolean(this.token) && this.user !== null;
     }
 
     @action setRedirectTo(redirectTo: string | null): void {
@@ -65,12 +68,11 @@ class AuthStore {
     }
 
     @action setUser(user: UserInfo | null): void {
-        console.log(user);
         this.user = user;
     }
 
     @action async signIn(data: SignInFormData) {
-        return await this.connector.get('sanctum/csrf-token')
+        return this.connector.get('sanctum/csrf-token')
             .then(() => this.connector.post('api/auth/login', data))
             .then(this.loginSuccess)
             .then(() => this.me())
@@ -78,14 +80,14 @@ class AuthStore {
     }
 
     @action async signUp(data: SignUpFormData) {
-        return await this.connector.post('api/auth/register', data)
+        return this.connector.post('api/auth/register', data)
             .then(this.loginSuccess)
             .then(() => this.me())
             .catch(this.loginFailed);
     }
 
     @action async me() {
-        return await this.connector.get('api/auth/me')
+        return this.connector.get('api/auth/me')
             .then(this.infoSuccess)
             .catch(this.logout);
     }

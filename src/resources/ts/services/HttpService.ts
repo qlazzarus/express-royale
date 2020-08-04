@@ -4,6 +4,8 @@ import querystring from 'querystring';
 import snakeCaseKeys from 'snakecase-keys';
 import { AppStoreInterface } from '@/stores';
 
+/* eslint-disable  @typescript-eslint/no-explicit-any */
+
 export default class HttpService {
 
     protected appStore: AppStoreInterface;
@@ -30,7 +32,7 @@ export default class HttpService {
         this.client = client;
     }
 
-    private preProcess(): Promise<any> {
+    private preProcess(): Promise<void> {
         return new Promise((resolve) => {
             this.appStore.setPending(true);
             resolve();
@@ -53,19 +55,19 @@ export default class HttpService {
             .finally(this.postProcess.bind(this));
     }
 
-    post(url: string, data?: any, config?: AxiosRequestConfig): Promise<any> {
+    post(url: string, data?: Record<string, unknown>, config?: AxiosRequestConfig): Promise<any> {
         return this.preProcess()
             .then(() => this.client.post(url, data, config))
             .finally(this.postProcess.bind(this));
     }
 
-    put(url: string, data?: any, config?: AxiosRequestConfig): Promise<any> {
+    put(url: string, data?: Record<string, unknown>, config?: AxiosRequestConfig): Promise<any> {
         return this.preProcess()
             .then(() => this.client.put(url, data, config))
             .finally(this.postProcess.bind(this));
     }
 
-    patch(url: string, data?: any, config?: AxiosRequestConfig): Promise<any> {
+    patch(url: string, data?: Record<string, unknown>, config?: AxiosRequestConfig): Promise<any> {
         return this.preProcess()
             .then(() => this.client.patch(url, data, config))
             .finally(this.postProcess.bind(this));

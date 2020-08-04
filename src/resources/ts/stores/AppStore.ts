@@ -4,20 +4,20 @@ import { useLocalStorage } from '@/hooks';
 
 class AppStore {
 
-    @observable id: string = '';
+    @observable id = '';
 
     @observable flash: FlashMessageProps | null = null;
 
     @observable flashTimer: number | null = null;
 
-    @observable pending: boolean = false;
+    @observable pending = false;
 
     constructor() {
         const [id, setId] = useLocalStorage('id', uuid());
 
         reaction(
             () => this.id,
-            (id: string) => setId(id)
+            (currentId: string) => setId(currentId)
         );
 
         reaction(

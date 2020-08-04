@@ -2,7 +2,6 @@ import {
     forEach,
     head,
     includes,
-    isArray,
     isBoolean,
     isFunction,
     isPlainObject,
@@ -18,7 +17,7 @@ import * as yup from 'yup';
 
 type ResultArray = {
     name: string,
-    args: any
+    args: unknown
 }
 
 const YupTypesNames = {
@@ -130,7 +129,7 @@ const applyMethodsOnType = (base: any, typeName: string, methods?: ResultArray[]
     forEach(
         methods,
         ({ name, args }) => {
-            if (!isFunction(base[name]) && -1 === customTypes.indexOf(name)) {
+            if (!isFunction(base[name]) && customTypes.indexOf(name) === -1) {
                 throw new Error(`Invalid method ${name} on ${typeName} type`);
             }
 
@@ -172,4 +171,11 @@ const getYupSchema = (config: any) => {
     );
 }
 
-export default (config: any) => yup.object().shape(mapValues(config, getYupSchema));
+/*
+(method) ObjectSchema<object | undefined>.shape<{
+    [x: string]: ...;
+}>(fields: yup.ObjectSchemaDefinition<{
+    [x: string]: ...;
+}>, noSortEdges?: [string, string][] | undefined): yup.ObjectSchema<yup.Shape<object | undefined, { [x: string]: ...; }>>
+*/
+export default (config: ValidationSchema) => yup.object().shape(mapValues(config, getYupSchema));

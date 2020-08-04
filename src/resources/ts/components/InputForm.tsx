@@ -1,32 +1,28 @@
 import React, { FC, useState } from 'react';
 
 interface InputFormProps {
-    [key: string]: any,
-    value?: string | number,
-    onChange?: Function
+  [key: string]: unknown;
+  value?: string | number;
+  onChange?: (value: string | number) => void | undefined;
 }
 
 const InputForm: FC<InputFormProps> = (props: InputFormProps) => {
-    const { value, onChange } = props;
-    const [inputValue, setInputValue] = useState(value);
+  const { value, onChange } = props;
+  const [inputValue, setInputValue] = useState(value);
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { value } = e.target;
-        setInputValue(value);
-        onChange && onChange(value);
-    }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value: targetValue } = e.target;
+    setInputValue(targetValue);
+    if (onChange) onChange(targetValue);
+  };
 
-    return (
-        <input 
-            {...props}
-            value={inputValue}
-            onChange={handleChange}
-        />
-    );
-}
+  /* eslint-disable-next-line  */
+  return <input {...props} value={inputValue} onChange={handleChange} />;
+};
 
 InputForm.defaultProps = {
-    value: ''
-}
+  value: '',
+  onChange: undefined,
+};
 
-export default InputForm
+export default InputForm;

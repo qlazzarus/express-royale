@@ -2,12 +2,12 @@ export {}
 
 declare global {
     interface InputFormProps {
-        [key: string]: any,
+        [key: string]: unknown,
         className?: string,
         type?: 'text' | 'password' | 'number' | 'email' | 'datetime' | 'datetime-local',
         placeholder?: string,
         defaultValue?: string | number,
-        onChange?: Function
+        onChange?: () => void
     }
 
     interface FlashMessageProps {
@@ -19,4 +19,25 @@ declare global {
     interface StringArrayEntries {
         [key: string]: string[]
     }
+
+    interface ValidationSchema {
+        [key: string]: {
+            email?: boolean,
+            equal?: string,
+            type: string,
+            required: boolean,
+            matches?: boolean,
+            max?: number,
+            min?: number,
+        }
+    }
+
+    type CustomHookType = [
+        unknown,
+        (value: unknown) => void
+    ]
+}
+
+declare module "schemas/*.json" {
+    export default ValidationSchema;
 }
