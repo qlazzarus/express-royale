@@ -1,5 +1,7 @@
 export {}
 
+/* eslint-disable  @typescript-eslint/no-explicit-any */
+
 declare global {
     interface InputFormProps {
         [key: string]: unknown,
@@ -35,8 +37,8 @@ declare global {
     }
 
     type CustomHookType = [
-        unknown,
-        (value: unknown) => void
+        any,
+        (value: any) => void
     ]
 }
 

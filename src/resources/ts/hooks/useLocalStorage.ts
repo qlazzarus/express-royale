@@ -1,4 +1,7 @@
-const getItem = (key: string, initialValue: unknown): unknown => {
+/* eslint-disable  @typescript-eslint/no-explicit-any */
+/* eslint-disable  @typescript-eslint/explicit-module-boundary-types */
+
+const getItem = (key: string, initialValue: any): any => {
     const item = window.localStorage.getItem(key);
     if (item) {
         return JSON.parse(item);
@@ -7,10 +10,10 @@ const getItem = (key: string, initialValue: unknown): unknown => {
     return initialValue;
 };
 
-export default (key: string, initialValue: unknown): CustomHookType => {
+export default (key: string, initialValue: any): CustomHookType => {
     const storedValue = getItem(key, initialValue);
 
-    const setValue = (value: unknown) => {
+    const setValue = (value: any) => {
         try {
             const valueToStore = value instanceof Function ? value(storedValue) : value;
             if (valueToStore) {
