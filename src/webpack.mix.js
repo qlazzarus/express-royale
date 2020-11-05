@@ -1,7 +1,6 @@
 const mix = require('laravel-mix');
 const path = require('path');
 
-require('mix-tailwindcss');
 require('laravel-mix-polyfill');
 
 mix.ts('resources/ts/index.tsx', 'public/js')
@@ -10,8 +9,6 @@ mix.ts('resources/ts/index.tsx', 'public/js')
     useBuiltIns: 'usage',
     targets: { 'chrome': '58', "firefox": '50', 'ie': 10 }
   })
-  .sass('resources/sass/app.scss', 'public/css')
-  .tailwind('./tailwind.config.js')
   .webpackConfig({
     resolve: {
       extensions: ['.ts', '.js', '.tsx', '.jsx'],
@@ -21,7 +18,6 @@ mix.ts('resources/ts/index.tsx', 'public/js')
     },
     devtool: !mix.inProduction() ? 'cheap-module-eval-source-map' : false
   })
-  .copy('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/webfonts')
   .options({
     hmrOptions: {
       host: 'localhost',

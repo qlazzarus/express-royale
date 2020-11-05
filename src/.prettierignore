@@ -1,7 +1,4 @@
 **/*.svg
-package.json
-/build
-/dist
 .dockerignore
 .DS_Store
 .eslintignore
@@ -17,4 +14,3 @@ LICENSE
 yarn-error.log
 .history
 CNAME
-*.md
