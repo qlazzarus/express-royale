@@ -9,8 +9,8 @@ type PrivateRoutePropType = {
 };
 
 export default ({ path, exact, component }: PrivateRoutePropType): JSX.Element => {
-  //const auth = useStore('auth');
-  //const logged = useObserver(() => auth.logged);
+  // const auth = useStore('auth');
+  // const logged = useObserver(() => auth.logged);
   // const logged = auth.logged;
     const logged = true;
 
