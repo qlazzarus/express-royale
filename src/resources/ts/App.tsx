@@ -2,7 +2,7 @@ import React, { StrictMode } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import { CSSReset, ChakraProvider } from "@chakra-ui/core";
+import { CSSReset, ChakraProvider } from "@chakra-ui/react";
 
 import '@/i18n';
 import { MainLayout } from '@/components';

@@ -11,7 +11,9 @@
         "lint": "eslint '*/**/*.{js,ts,jsx,tsx}' --quiet --fix"
     },
     "dependencies": {
-        "@chakra-ui/core": "^1.0.0-rc.8",
+        "@chakra-ui/react": "^1.0.0",
+        "@emotion/react": "^11.0.0",
+        "@emotion/styled": "^11.0.0",
         "@types/react-redux": "^7.1.11",
         "axios": "^0.21.0",
         "camelcase-keys-recursive": "^0.8.3",
