@@ -1,8 +1,11 @@
 import React from 'react';
-import { Container } from '@chakra-ui/react';
+import { NavBar } from '@/components';
 
-export default ({ children }: { children: React.ReactNode }): JSX.Element => (
-    <Container>
-        {children}
-    </Container>
-);
+export default ({ children }: { children: React.ReactNode }): JSX.Element => {
+    return  (
+        <>
+            <NavBar/>
+            {children}
+        </>
+    );
+}
