@@ -11,7 +11,7 @@
       "target": "ES5",
 
       /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */
-      "module": "ESNext",
+      "module": "commonjs",
 
       /* Specify library files to be included in the compilation. */
       "lib": ["DOM", "DOM.Iterable", "ESNext"],
