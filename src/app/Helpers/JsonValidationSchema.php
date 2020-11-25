@@ -21,7 +21,7 @@ trait JsonValidationSchema
             $pos = strpos($file, '_request');
             if (false !== $pos) {
                 $file = substr($file, 0, $pos);
-                $file = "/ts/schemas/{$file}.json";
+                $file = "/ts/validations/{$file}.json";
             }
         }
 
