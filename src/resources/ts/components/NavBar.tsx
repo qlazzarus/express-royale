@@ -1,8 +1,8 @@
 import React from 'react';
-import { Flex } from '@chakra-ui/layout';
+import { Flex } from '@chakra-ui/react';
 
 export default () => (
-    <Flex alignItems={'center'} backgroundColor={'gray.500'}>
+    <Flex alignItems="center" backgroundColor="red.300">
         <span>navbar2</span>
     </Flex>
 )

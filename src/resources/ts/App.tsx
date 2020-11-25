@@ -1,23 +1,18 @@
 import React, { StrictMode } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import { ChakraProvider, CSSReset } from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
 
 import '@/i18n';
 import { MainLayout } from '@/components';
-import reducers from '@/stores';
-import theme from '@/theme';
+import store from '@/configureStore';
 import Router from '@/Router';
-
-const store = createStore(reducers);
 
 export default (): JSX.Element => {
     return (
         <StrictMode>
-            <Provider store={store}>
-                <ChakraProvider theme={theme}>
-                    <CSSReset />
+            <Provider store={store()}>
+                <ChakraProvider>
                     <BrowserRouter>
                         <MainLayout>
                             <Router />
