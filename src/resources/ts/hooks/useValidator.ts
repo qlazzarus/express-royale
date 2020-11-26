@@ -1,5 +1,5 @@
 import { Resolver } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { Validator } from "@/enums";
 import { validationGenerator } from '@/helpers';
 import SignUp from '@/validations/sign_up.json';
