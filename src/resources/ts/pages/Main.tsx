@@ -1,18 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import ReactMarkdown from 'react-markdown/with-html';
-import { Box } from '@chakra-ui/react';
+import { Box, Flex, Heading } from '@chakra-ui/react';
 
 export default (): JSX.Element => {
     const { t } = useTranslation();
 
     return (
-        <>
-            <Box>
+        <Flex py='4' direction='column' justifyContent='center' alignItems='center'>
+            <Box textAlign='center'>
                 <ReactMarkdown source={t('INTRO') || ''} escapeHtml={false} />
             </Box>
-            <h1 className="text-5xl text-center text-red-500">{t('TITLE')}</h1>
-        </>
+            <Heading size='4xl' textAlign='center' color='red.500'>
+                {t('TITLE')}
+            </Heading>
+        </Flex>
     );
 };
