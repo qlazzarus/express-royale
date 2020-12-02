@@ -1,16 +1,20 @@
-import React, { StrictMode } from 'react';
+import React, { StrictMode, useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { ChakraProvider } from "@chakra-ui/react";
 
 import '@/i18n';
+import { initRequest } from '@/actions';
 import { MainLayout } from '@/components';
 import configureStore from '@/configureStore';
 import Router from '@/Router';
 
 export default (): JSX.Element => {
     const { store, persistor } = configureStore();
+    useEffect(() => {
+        store.dispatch(initRequest());
+    }, []);
 
     return (
         <StrictMode>
