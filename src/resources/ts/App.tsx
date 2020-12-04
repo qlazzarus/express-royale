@@ -5,7 +5,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { ChakraProvider } from "@chakra-ui/react";
 
 import '@/i18n';
-import { initRequest } from '@/actions';
+import { initialize } from '@/actions';
 import { MainLayout } from '@/components';
 import configureStore from '@/configureStore';
 import Router from '@/Router';
@@ -13,7 +13,7 @@ import Router from '@/Router';
 export default (): JSX.Element => {
     const { store, persistor } = configureStore();
     useEffect(() => {
-        store.dispatch(initRequest());
+        store.dispatch(initialize());
     }, []);
 
     return (

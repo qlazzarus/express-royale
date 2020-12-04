@@ -1,5 +1,5 @@
 enum ActionType {
-    INIT_REQUEST,
+    INITIALIZE,
     MESSAGE_RESPONSE,
     MESSAGE_REQUEST,
     UUID_GENERATE,    

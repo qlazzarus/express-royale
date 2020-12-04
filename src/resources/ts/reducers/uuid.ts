@@ -6,7 +6,7 @@ const initialState = {
 }
 
 export default (state = initialState, action: any) => {
-    if (action.type === ActionType.INIT_REQUEST) {
+    if (action.type === ActionType.INITIALIZE) {
         const id = state.id || uuid();
         return { ...state, id };
     } 

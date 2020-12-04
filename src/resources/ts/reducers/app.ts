@@ -6,7 +6,7 @@ const initialState = {
 
 export default (state = initialState, action: any) => {
     switch (action.type) {
-        case ActionType.INIT_REQUEST:
+        case ActionType.INITIALIZE:
             return { ...state, loading: true };
         default:
             return state;
