@@ -1,3 +1,4 @@
+/*
 import { Resolver } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Validator } from "@/enums";
@@ -17,3 +18,4 @@ const getValidator = (validator: Validator) => {
 }
 
 export default (validator: Validator): Resolver => yupResolver(validationGenerator(getValidator(validator)));
+*/

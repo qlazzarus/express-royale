@@ -1,5 +1,18 @@
-export { default as account } from './account';
-export { default as app } from './app';
-export { default as uuid } from './uuid';
+import account, { AccountState } from './account';
+import app, { AppState } from './app';
 
-export type { AccountState } from './account';
+interface RootState {
+    account: AccountState,
+    app: AppState
+}
+
+export {
+    account,
+    app
+};
+
+export type {
+    AccountState,
+    AppState,
+    RootState
+};
