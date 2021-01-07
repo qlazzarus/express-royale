@@ -1,7 +1,6 @@
 import { ActionType } from "@/enums";
+import BaseAction from './BaseAction';
 
-export default () => {
-    return {
-        type: ActionType.INITIALIZE
-    }
-};
+export default (): BaseAction => ({
+    type: ActionType.INITIALIZE
+});
