@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import ReactMarkdown from 'react-markdown/with-html';
 import { Box, Flex, Heading } from '@chakra-ui/react';
 import { isLogged } from '@/hooks';
+import {SignInForm} from "@/forms";
 
 /*
 const TransferMenu = () => {
@@ -40,7 +41,7 @@ export default (): JSX.Element => {
                 {t('TITLE')}
             </Heading>
             {/* logged ? <TransferMenu /> : <SignInForm /> */}
-
+            <SignInForm />
         </Flex>
     );
 };

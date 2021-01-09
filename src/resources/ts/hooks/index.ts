@@ -1,2 +1,2 @@
 export { default as isLogged } from './isLogged';
-//export { default as useValidator } from './useValidator';
+export { default as useResolver } from './useResolver';
