@@ -1,10 +1,23 @@
 {
     "username": {
         "type": "string",
-        "required": true
+        "required": true,
+        "meta": {
+            "placeholder": "USERNAME",
+            "errorTexts": {
+                "required": "ERROR_USERNAME_REQUIRED"
+            }
+        }
     },
     "password": {
         "type": "string",
-        "required": true
+        "required": true,
+        "meta": {
+            "type": "password",
+            "placeholder": "PASSWORD",
+            "errorTexts": {
+                "required": "ERROR_PASSWORD_REQUIRED"
+            }
+        }
     }
 }

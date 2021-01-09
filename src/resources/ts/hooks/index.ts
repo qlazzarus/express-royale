@@ -1,2 +1,3 @@
 export { default as isLogged } from './isLogged';
-export { default as useResolver } from './useResolver';
+export { default as useFormMeta } from './useFormMeta';
+export { default as useFormResolver } from './useFormResolver';

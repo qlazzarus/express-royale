@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 
 import {YupTypeName} from '@/enums';
-import objectMap from './objectMap';
+import {objectMap} from '@/utils';
 
 type YupArraySchema = yup.NotRequiredArraySchema<any, any>;
 
@@ -52,7 +52,7 @@ const getNormalizedConfig = (config: ValidationType | string): NormalizedConfig 
         const {type} = config;
         const methods: TestMethod[] = [];
         Object.entries(config).forEach(([name, args]) => {
-            if (name === 'type') {
+            if (['type', 'meta'].indexOf(name) !== -1) {
                 return;
             }
 

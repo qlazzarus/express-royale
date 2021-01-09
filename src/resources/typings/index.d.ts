@@ -10,9 +10,20 @@ declare global {
         equal?: string,
         type: string,
         required: boolean,
-        matches?: boolean,
+        matches?: string,
         max?: number,
         min?: number,
+        meta?: FormMeta
+    }
+
+    type FormMeta = {
+        type?: string,
+        label?: string,
+        helper?: string,
+        placeholder?: string,
+        errorTexts?: {
+            [key: string]: string
+        },
     }
 }
 

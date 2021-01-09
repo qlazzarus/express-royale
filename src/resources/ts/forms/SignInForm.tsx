@@ -1,14 +1,17 @@
-import React, { useCallback, useMemo } from 'react';
-import { useForm } from 'react-hook-form';
-import { Button, FormControl, FormErrorMessage, Input } from '@chakra-ui/react';
+import React, {useCallback, useMemo} from 'react';
+import {useForm} from 'react-hook-form';
+import {Button} from '@chakra-ui/react';
 
-import { Validator } from '@/enums';
-import { useResolver } from '@/hooks';
+import {FormSection} from '@/components';
+import {Validator} from '@/enums';
+import {useFormMeta, useFormResolver} from '@/hooks';
 
 export default (): JSX.Element => {
-    const resolver = useMemo(() => useResolver(Validator.SIGN_IN), []);
+    const validate = Validator.SIGN_IN;
+    const resolver = useMemo(() => useFormResolver(validate), [validate]);
+    const metas = useMemo(() => useFormMeta(validate), [validate]);
 
-    const { handleSubmit, errors, register, formState } = useForm({
+    const {handleSubmit, errors, register, formState} = useForm({
         resolver
     });
 
@@ -23,27 +26,15 @@ export default (): JSX.Element => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <FormControl isInvalid={errors.username}>
-                <Input
-                    name='username'
-                    placeholder="Username or Email"
-                    ref={register}
+            {Object.entries(metas).map(([name, meta]) => (
+                <FormSection
+                    key={name}
+                    name={name}
+                    meta={(meta || {})}
+                    errors={errors}
+                    register={register}
                 />
-                <FormErrorMessage>
-                    {errors.username && errors.username.message}
-                </FormErrorMessage>
-            </FormControl>
-            <FormControl isInvalid={errors.password}>
-                <Input
-                    name='password'
-                    type='password'
-                    placeholder="Password"
-                    ref={register}
-                />
-                <FormErrorMessage>
-                    {errors.password && errors.password.message}
-                </FormErrorMessage>
-            </FormControl>
+            ))}
             <Button mt={4} isLoading={formState.isSubmitting} type='submit'>
                 Submit
             </Button>
