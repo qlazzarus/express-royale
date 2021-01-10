@@ -1,19 +1,12 @@
-import React, {useCallback, useMemo} from 'react';
-import {useForm} from 'react-hook-form';
+import React, {useCallback} from 'react';
 import {Button} from '@chakra-ui/react';
 
 import {FormSection} from '@/components';
 import {Validator} from '@/enums';
-import {useFormMeta, useFormResolver} from '@/hooks';
+import {useForm} from '@/hooks';
 
 export default (): JSX.Element => {
-    const validate = Validator.SIGN_IN;
-    const resolver = useMemo(() => useFormResolver(validate), [validate]);
-    const metas = useMemo(() => useFormMeta(validate), [validate]);
-
-    const {handleSubmit, errors, register, formState} = useForm({
-        resolver
-    });
+    const {meta, handleSubmit, errors, register, formState} = useForm(Validator.SIGN_IN);
 
     const onSubmit = useCallback((values: any) => {
         return new Promise(resolve => {
@@ -26,11 +19,11 @@ export default (): JSX.Element => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            {Object.entries(metas).map(([name, meta]) => (
+            {Object.entries(meta).map(([name, current]) => (
                 <FormSection
                     key={name}
                     name={name}
-                    meta={(meta || {})}
+                    meta={(current || {})}
                     errors={errors}
                     register={register}
                 />
