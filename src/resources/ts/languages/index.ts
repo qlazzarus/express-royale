@@ -1,2 +1,1 @@
-/* eslint-disable-next-line  */
-export { default as Korean } from './Korean';
+export {default as Korean} from './Korean';

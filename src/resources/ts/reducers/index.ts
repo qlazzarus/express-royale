@@ -1,5 +1,5 @@
-import account, { AccountState } from './account';
-import app, { AppState } from './app';
+import account, {AccountState} from './account';
+import app, {AppState} from './app';
 
 interface RootState {
     account: AccountState,

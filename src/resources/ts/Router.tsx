@@ -1,14 +1,14 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 // import { PrivateRoute } from '@/components';
-import { Path } from '@/enums';
-import { Main /* , NotFound, SignIn, SignUp */ } from '@/pages';
+import {Path} from '@/enums';
+import {Main /* , NotFound, SignIn, SignUp */} from '@/pages';
 
 
 export default (): JSX.Element => {
     return (
         <Switch>
-            <Route path={Path.INDEX} exact component={Main} />
+            <Route path={Path.INDEX} exact component={Main}/>
         </Switch>
     );
     /*

@@ -1,12 +1,13 @@
-import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import { createLogger } from 'redux-logger';
-import { persistStore, persistReducer } from 'redux-persist';
+import {AxiosInstance} from "axios";
+import {applyMiddleware, combineReducers, compose, createStore} from 'redux';
+import {composeWithDevTools} from 'redux-devtools-extension';
+import {createLogger} from 'redux-logger';
+import {persistStore, persistReducer} from 'redux-persist';
 import thunk from 'redux-thunk';
-import storage from 'redux-persist/lib/storage';
 
-import { ActionType } from '@/enums';
-import { requestMiddleware } from '@/middlewares';
+import storage from 'redux-persist/lib/storage';
+import {ActionType} from '@/enums';
+import {requestMiddleware} from '@/middlewares';
 import * as reducers from '@/reducers';
 
 const actionTypeEnumToString = (action: any): any => typeof action.type === 'number' && ActionType[action.type] ? ({
@@ -19,12 +20,12 @@ const persistConfig = {
     storage,
 };
 
-export default () => {
-    const logger = createLogger({ actionTransformer: actionTypeEnumToString });
-    const composeEnhancers = composeWithDevTools({ actionSanitizer: actionTypeEnumToString });
+export default (client: AxiosInstance) => {
+    const logger = createLogger({actionTransformer: actionTypeEnumToString});
+    const composeEnhancers = composeWithDevTools({actionSanitizer: actionTypeEnumToString});
     const enhancers = process.env.NODE_ENV === 'production' ?
-        compose(applyMiddleware(thunk, logger, requestMiddleware)) :
-        composeEnhancers(applyMiddleware(thunk, requestMiddleware));
+        compose(applyMiddleware(thunk, logger, requestMiddleware(client))) :
+        composeEnhancers(applyMiddleware(thunk, requestMiddleware(client)));
 
     const rootReducer = combineReducers(reducers);
     const persistedReducer = persistReducer(persistConfig, rootReducer);

@@ -1,1 +1,1 @@
-export { default as requestMiddleware } from './requestMiddleware';
+export {default as requestMiddleware} from './requestMiddleware';

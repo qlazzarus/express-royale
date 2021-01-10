@@ -1,4 +1,4 @@
-import { Validator } from "@/enums";
+import {Validator} from "@/enums";
 import SignUp from '@/validations/sign_up.json';
 import SignIn from '@/validations/sign_in.json';
 

@@ -91,7 +91,7 @@ const applyMethodWhen = (type: YupSchema, args: ConditionSchema): YupSchema => {
     }
 
     const fieldName = keys[0];
-    const { is, then, otherwise } = args[fieldName];
+    const {is, then, otherwise} = args[fieldName];
 
     if (typeof is === 'undefined') {
         throw new Error('Invalid Configuration, "is" is required in "when" method');

@@ -1,5 +1,3 @@
-// https://redux.js.org/recipes/usage-with-typescript#type-checking-reducers
-
 export interface AccountState {
     token: string
 }

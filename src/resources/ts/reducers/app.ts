@@ -1,4 +1,4 @@
-import { ActionType } from "@/enums";
+import {ActionType} from "@/enums";
 import uuid from 'uuid-random';
 
 export interface AppState {
@@ -14,15 +14,15 @@ const initialState: AppState = {
 export default (state = initialState, action: any): AppState => {
     if (action.type === ActionType.INITIALIZE) {
         const id = state.id || uuid();
-        return { ...state, id, loading: true };
+        return {...state, id, loading: true};
     }
 
     if (action.type === ActionType.UUID_GENERATE) {
-        return { ...state, id: uuid() };
+        return {...state, id: uuid()};
     }
 
     if (action.type === ActionType.UUID_REMOVE) {
-        return { ...state, id: '' };
+        return {...state, id: ''};
     }
 
     return state;

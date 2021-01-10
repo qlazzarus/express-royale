@@ -1,8 +1,8 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 import ReactMarkdown from 'react-markdown/with-html';
-import { Box, Flex, Heading } from '@chakra-ui/react';
-import { isLogged } from '@/hooks';
+import {Box, Flex, Heading} from '@chakra-ui/react';
+import {isLogged} from '@/hooks';
 import {SignInForm} from "@/forms";
 
 /*
@@ -29,19 +29,19 @@ const TransferMenu = () => {
  */
 
 export default (): JSX.Element => {
-    const { t } = useTranslation();
+    const {t} = useTranslation();
     const logged = isLogged();
 
     return (
         <Flex py='4' direction='column' justifyContent='center' alignItems='center'>
             <Box textAlign='center'>
-                <ReactMarkdown source={t('INTRO') || ''} escapeHtml={false} />
+                <ReactMarkdown source={t('INTRO') || ''} escapeHtml={false}/>
             </Box>
             <Heading size='4xl' textAlign='center' color='red.500'>
                 {t('TITLE')}
             </Heading>
             {/* logged ? <TransferMenu /> : <SignInForm /> */}
-            <SignInForm />
+            <SignInForm/>
         </Flex>
     );
 };
