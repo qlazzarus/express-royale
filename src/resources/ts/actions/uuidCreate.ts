@@ -2,5 +2,5 @@ import {ActionType} from "@/enums";
 import BaseAction from './BaseAction';
 
 export default (): BaseAction => ({
-    type: ActionType.UUID_GENERATE
+    type: ActionType.UUID_CREATE
 });

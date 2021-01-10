@@ -1,23 +1,21 @@
 import React, {useCallback} from 'react';
+import {useTranslation} from "react-i18next";
+import {useDispatch} from "react-redux";
 import {Box, Button} from '@chakra-ui/react';
 
+import {signIn} from '@/actions';
 import {FormSection} from '@/components';
 import {Validator} from '@/enums';
 import {useForm} from '@/hooks';
-import {useTranslation} from "react-i18next";
 
 export default (): JSX.Element => {
     const {meta, handleSubmit, errors, register, formState} = useForm(Validator.SIGN_IN);
     const {t} = useTranslation();
+    const dispatch = useDispatch();
 
-    const onSubmit = useCallback((values: any) => {
-        return new Promise(resolve => {
-            setTimeout(() => {
-                console.log(values);
-                resolve();
-            }, 1000);
-        })
-    }, []);
+    const onSubmit = useCallback(({ username, password }) => {
+        dispatch(signIn(username, password));
+    }, [dispatch]);
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
