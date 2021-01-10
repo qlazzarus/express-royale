@@ -7,7 +7,9 @@ export default ({ children }: { children: React.ReactNode }): JSX.Element => {
     return  (
         <Box minHeight="100vh" backgroundColor="gray.300">
             <NavBar/>
-            {children}
+            <Box pt={12}>
+                {children}
+            </Box>
             <Footer />
         </Box>
     );

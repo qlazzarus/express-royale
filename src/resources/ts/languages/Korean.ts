@@ -13,7 +13,7 @@ enum Korean {
 .  
 .  
 .  
-&nbsp;
+&nbsp;  
 `,
     MENU_GAME = '등교',
     MENU_LOGIN = '로그인',
@@ -24,16 +24,14 @@ enum Korean {
     MENU_WINNER = '역대 우승자',
     FOOTER_COPYRIGHT = 'Express Royale by monoless',
     FOOTER_THANKS = 'Special Thanks to 원본 한글화 루리아',
-    USERNAME = '유저명',
-    EMAIL = '이메일',
-    PASSWORD = '비밀번호',
-    PASSWORD_CONFIRM = '비밀번호 확인',
-    SIGN_IN = '로그인',
-    SIGN_UP = '회원 가입',
-    FIND_PASSWORD = '비밀번호 찾기',
-    SIGN_IN_GITHUB = 'Github 로 로그인',
-    SIGN_IN_FACEBOOK = 'Facebook 으로 로그인',
-    SIGN_IN_GOOGLE = 'Google 로 로그인',
+    SIGNIN_USERNAME_PLACEHOLDER = '유저 아이디 혹은 이메일',
+    SIGNIN_USERNAME_REQUIRED = '유저 아이디 혹은 이메일을 입력해 주세요',
+    SIGNIN_PASSWORD_PLACEHOLDER = '비밀번호',
+    SIGNIN_PASSWORD_REQUIRED = '비밀번호를 입력해 주세요',
+    SIGNIN_SUBMIT = '로그인',
+    SIGNIN_GITHUB = 'Github 로 로그인',
+    SIGNIN_FACEBOOK = 'Facebook 으로 로그인',
+    SIGNIN_GOOGLE = 'Google 로 로그인',
 }
 
 export default Korean;

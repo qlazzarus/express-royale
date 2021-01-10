@@ -3,9 +3,9 @@
         "type": "string",
         "required": true,
         "meta": {
-            "placeholder": "USERNAME",
+            "placeholder": "SIGNIN_USERNAME_PLACEHOLDER",
             "errorTexts": {
-                "required": "ERROR_USERNAME_REQUIRED"
+                "required": "SIGNIN_USERNAME_REQUIRED"
             }
         }
     },
@@ -14,9 +14,9 @@
         "required": true,
         "meta": {
             "type": "password",
-            "placeholder": "PASSWORD",
+            "placeholder": "SIGNIN_PASSWORD_PLACEHOLDER",
             "errorTexts": {
-                "required": "ERROR_PASSWORD_REQUIRED"
+                "required": "SIGNIN_PASSWORD_REQUIRED"
             }
         }
     }
