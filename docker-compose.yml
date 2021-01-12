@@ -43,6 +43,8 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: php
+    ports:
+      - "9009:9009"
     volumes:
       - ./src:/var/www/html
     networks:

@@ -4,10 +4,10 @@ import querystring from 'querystring';
 import snakecaseKeys from "snakecase-keys";
 
 export default () => {
-    const {APP_URL} = process.env;
+    const {MIX_APP_URL} = process.env;
 
     const client = axios.create({
-        baseURL: `${APP_URL}/api`,
+        baseURL: `${MIX_APP_URL}/api`,
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
             'Accept': 'application/json'

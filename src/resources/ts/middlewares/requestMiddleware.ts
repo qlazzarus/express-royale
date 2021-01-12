@@ -23,11 +23,7 @@ export default (client: AxiosInstance): Middleware<{}, any, Dispatch<CombineActi
                 const {type} = action;
                 const stringType = ActionType[type];
 
-                if (!stringType || !stringType.endsWith('_REQUEST')) {
-                    return next(action);
-                }
-
-                if (!('promise' in action)) {
+                if (!stringType || !stringType.endsWith('_REQUEST') || !('promise' in action)) {
                     return next(action);
                 }
 
