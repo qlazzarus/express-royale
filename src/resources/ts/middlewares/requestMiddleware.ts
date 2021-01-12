@@ -8,11 +8,13 @@ import {ActionType} from "@/enums";
 
 type CombineAction = BaseAction | RequestAction;
 
+/*
 const skipRequests = [
     ActionType[ActionType.SIGNIN_REQUEST],
     ActionType[ActionType.SIGNUP_REQUEST],
     ActionType[ActionType.REFRESH_TOKEN_REQUEST]
 ];
+*/
 
 export default (client: AxiosInstance): Middleware<{}, any, Dispatch<CombineAction>> =>
     ({dispatch, getState}: MiddlewareAPI<Dispatch<CombineAction>, any>) =>
@@ -21,24 +23,26 @@ export default (client: AxiosInstance): Middleware<{}, any, Dispatch<CombineActi
                 const {type} = action;
                 const stringType = ActionType[type];
 
-                if (!stringType || skipRequests.includes(stringType) || !stringType.endsWith('_REQUEST')) {
+                if (!stringType || !stringType.endsWith('_REQUEST')) {
                     return next(action);
                 }
 
-                const {account} = getState();
-                console.log(account);
-                /*
-                or 401 <- error
-    // NOTE: in this case the methods implemented above works, nevertheless, some of them need to be public
-    api.requestRefreshToken(session.refresh_token)
-      .then((response) => {
-        api.onRequestRefreshTokenSucess(response, dispatch)
-        // NOTE: for this approach we can also drop the `enqueueRequests` related code above
-        // 3. AFTER 2 has been resolved then we release the calls
-        next(action)
-      })
-      .catch((e) => api.onRequestRefreshTokenFailure(e, dispatch))
-                 */
+                if (!('promise' in action)) {
+                    return next(action);
+                }
 
-                return next(action);
+                const successType = ActionType[stringType.replace('_REQUEST', '_SUCCESS') as keyof typeof ActionType];
+                const failureType = ActionType[stringType.replace('_REQUEST', '_FAILURE') as keyof typeof ActionType];
+
+                const {promise, ...rest} = <RequestAction>action;
+                const actionPromise = promise(client);
+                actionPromise.then(
+                    (result) => next({ ...rest, result, type: successType }),
+                    (error) => next({ ...rest, error, type: failureType })
+                ).catch((error) => {
+                    console.error('MIDDLEWARE ERROR: ', error);
+                    next({...rest, error, type: failureType });
+                });
+
+                return actionPromise;
             }
