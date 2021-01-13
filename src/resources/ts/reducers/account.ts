@@ -10,28 +10,16 @@ const initialState: AccountState = {
 
 export default (state = initialState, action: any): AccountState => {
     if (action.type === ActionType.SIGNIN_REQUEST) {
-        console.log('account-reducer:', action);
-        return state;
+        console.log('SIGNIN_REQUEST');
+    }
+
+    if (action.type === ActionType.SIGNIN_SUCCESS) {
+        console.log('SIGNIN_SUCCESS', action);
+    }
+
+    if (action.type === ActionType.SIGNIN_FAILURE) {
+        console.log('SIGNIN_FAILURE', action);
     }
 
     return state;
 }
-
-/*
-export default (state = initialState, action: BaseAction): AppState => {
-    if (action.type === ActionType.INITIALIZE) {
-        const id = state.id || uuid();
-        return {...state, id, loading: true};
-    }
-
-    if (action.type === ActionType.UUID_CREATE) {
-        return {...state, id: uuid()};
-    }
-
-    if (action.type === ActionType.UUID_REMOVE) {
-        return {...state, id: ''};
-    }
-
-    return state;
-}
- */

@@ -1,14 +1,16 @@
 import React, {useCallback} from 'react';
 import {useTranslation} from "react-i18next";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {Box, Button} from '@chakra-ui/react';
 
 import {signIn} from '@/actions';
 import {FormSection} from '@/components';
 import {Validator} from '@/enums';
 import {useForm} from '@/hooks';
+import {RootState} from "@/reducers";
 
 export default (): JSX.Element => {
+    const pending = useSelector((obj: RootState) => obj.app.pending); // TODO TEMPORARY
     const {meta, handleSubmit, errors, register, formState} = useForm(Validator.SIGN_IN);
     const {t} = useTranslation();
     const dispatch = useDispatch();
@@ -36,7 +38,7 @@ export default (): JSX.Element => {
                         }}
                     />
                 ))}
-                <Button mt={4} isLoading={formState.isSubmitting} type='submit'>
+                <Button mt={4} isLoading={formState.isSubmitting || pending} type='submit'>
                     {t('SIGNIN_SUBMIT')}
                 </Button>
             </Box>

@@ -1,18 +1,12 @@
-import account, {AccountState} from './account';
-import app, {AppState} from './app';
+import {combineReducers} from "redux";
+import account from './account';
+import app from './app';
 
-interface RootState {
-    account: AccountState,
-    app: AppState
-}
-
-export {
+export const rootReducer = combineReducers({
     account,
     app
-};
+});
 
-export type {
-    AccountState,
-    AppState,
-    RootState
-};
+export type {AccountState} from './account';
+export type {AppState} from './app';
+export type RootState = ReturnType<typeof rootReducer>;

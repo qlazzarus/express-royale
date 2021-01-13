@@ -4,6 +4,7 @@ import useFormMeta from "./useFormMeta";
 import useFormResolver from "./useFormResolver";
 
 export default (validator: Validator, args?: any) => {
+    // TODO integrate app.pending && *_SUCCESS / *_FAILURE
     const meta = useFormMeta(validator);
     const resolver = useFormResolver(validator);
 

@@ -31,13 +31,23 @@ export default (client: AxiosInstance): Middleware<{}, any, Dispatch<CombineActi
                 const failureType = ActionType[stringType.replace('_REQUEST', '_FAILURE') as keyof typeof ActionType];
 
                 const {promise, ...rest} = <RequestAction>action;
+                next({...rest, type});
+                next({type: ActionType.PENDING_ACQUIRE});
+
                 const actionPromise = promise(client);
                 actionPromise.then(
-                    (result) => next({ ...rest, result, type: successType }),
-                    (error) => next({ ...rest, error, type: failureType })
+                    (result) => {
+                        next({ ...rest, result, type: successType });
+                        next({type: ActionType.PENDING_RELEASE});
+                    },
+                    (error) => {
+                        next({ ...rest, error, type: failureType });
+                        next({type: ActionType.PENDING_RELEASE});
+                    }
                 ).catch((error) => {
                     console.error('MIDDLEWARE ERROR: ', error);
                     next({...rest, error, type: failureType });
+                    next({type: ActionType.PENDING_RELEASE});
                 });
 
                 return actionPromise;

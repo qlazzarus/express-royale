@@ -8,7 +8,7 @@ import thunk from 'redux-thunk';
 import storage from 'redux-persist/lib/storage';
 import {ActionType} from '@/enums';
 import {requestMiddleware} from '@/middlewares';
-import * as reducers from '@/reducers';
+import {rootReducer} from '@/reducers';
 
 const actionTypeEnumToString = (action: any): any => typeof action.type === 'number' && ActionType[action.type] ? ({
     type: ActionType[action.type],
@@ -27,7 +27,6 @@ export default (client: AxiosInstance) => {
         compose(applyMiddleware(thunk, logger, requestMiddleware(client))) :
         composeEnhancers(applyMiddleware(thunk, requestMiddleware(client)));
 
-    const rootReducer = combineReducers(reducers);
     const persistedReducer = persistReducer(persistConfig, rootReducer);
     const store = createStore(persistedReducer, enhancers);
     const persistor = persistStore(store);
