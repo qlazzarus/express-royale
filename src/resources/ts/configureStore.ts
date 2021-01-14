@@ -1,5 +1,5 @@
 import {AxiosInstance} from "axios";
-import {applyMiddleware, combineReducers, compose, createStore} from 'redux';
+import {applyMiddleware, compose, createStore} from 'redux';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import {createLogger} from 'redux-logger';
 import {persistStore, persistReducer} from 'redux-persist';

@@ -1,12 +1,20 @@
 import {useForm as useHookForm} from 'react-hook-form';
+import {useSelector} from "react-redux";
 import {Validator} from "@/enums";
+import {RootState} from "@/reducers";
 import useFormMeta from "./useFormMeta";
 import useFormResolver from "./useFormResolver";
 
-export default (validator: Validator, args?: any) => {
-    // TODO integrate app.pending && *_SUCCESS / *_FAILURE
+export default (validator: Validator, selector: (state: RootState) => unknown, args?: any) => {
+    const {pending,payload,failed} = useSelector((state: RootState) => state.app);
+    const reducer = useSelector(selector);
     const meta = useFormMeta(validator);
     const resolver = useFormResolver(validator);
+
+    if (!pending && payload) {
+        // TODO resolve / reject
+        console.log({payload,failed,reducer});
+    }
 
     const {
         register,
@@ -27,6 +35,7 @@ export default (validator: Validator, args?: any) => {
     });
 
     return {
+        isLoading: pending || formState.isSubmitting,
         meta,
         resolver,
         register,

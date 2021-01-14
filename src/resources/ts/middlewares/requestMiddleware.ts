@@ -32,22 +32,18 @@ export default (client: AxiosInstance): Middleware<{}, any, Dispatch<CombineActi
 
                 const {promise, ...rest} = <RequestAction>action;
                 next({...rest, type});
-                next({type: ActionType.PENDING_ACQUIRE});
 
                 const actionPromise = promise(client);
                 actionPromise.then(
-                    (result) => {
-                        next({ ...rest, result, type: successType });
-                        next({type: ActionType.PENDING_RELEASE});
+                    payload => {
+                        next({ ...rest, payload, type: successType });
                     },
-                    (error) => {
-                        next({ ...rest, error, type: failureType });
-                        next({type: ActionType.PENDING_RELEASE});
+                    payload => {
+                        next({ ...rest, payload, type: failureType });
                     }
-                ).catch((error) => {
-                    console.error('MIDDLEWARE ERROR: ', error);
-                    next({...rest, error, type: failureType });
-                    next({type: ActionType.PENDING_RELEASE});
+                ).catch(payload => {
+                    console.error('MIDDLEWARE ERROR: ', payload);
+                    next({...rest, payload, type: failureType });
                 });
 
                 return actionPromise;

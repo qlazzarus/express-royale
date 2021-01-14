@@ -1,40 +1,53 @@
 import uuid from 'uuid-random';
 
 import {ActionType} from "@/enums";
-import {BaseAction} from "@/actions";
+import {BaseAction, RequestAction, ResponseAction} from "@/actions";
 
 export interface AppState {
-    loading: boolean,
+    initialize: boolean,
     pending: boolean,
-    id: string
+    id: string,
+    payload: object | undefined,
+    failed: boolean,
 }
 
 const initialState: AppState = {
-    loading: false,
+    initialize: false,
     pending: false,
-    id: ''
+    id: '',
+    payload: undefined,
+    failed: false
 }
 
-export default (state = initialState, action: BaseAction): AppState => {
-    if (action.type === ActionType.INITIALIZE) {
+export default (state = initialState, action: BaseAction | RequestAction | ResponseAction): AppState => {
+    const {type} = action;
+    const stringType = ActionType[type];
+
+    if (type === ActionType.INITIALIZE) {
         const id = state.id || uuid();
-        return {...state, id, pending: false, loading: true};
+        return {...state, id, pending: false, initialize: true, payload: undefined, failed: false};
     }
 
-    if (action.type === ActionType.UUID_CREATE) {
+    if (type === ActionType.UUID_CREATE) {
         return {...state, id: uuid()};
     }
 
-    if (action.type === ActionType.UUID_REMOVE) {
+    if (type === ActionType.UUID_REMOVE) {
         return {...state, id: ''};
     }
 
-    if (action.type === ActionType.PENDING_ACQUIRE) {
-        return {...state, pending: true};
+    if (stringType && stringType.endsWith('_REQUEST')) {
+        return {...state, pending: true, failed: false, payload: undefined};
     }
 
-    if (action.type === ActionType.PENDING_RELEASE) {
-        return {...state, pending: false};
+    if (stringType && stringType.endsWith('_SUCCESS')) {
+        const {payload} = <ResponseAction>action;
+        return {...state, pending: false, failed: false, payload};
+    }
+
+    if (stringType && stringType.endsWith('_FAILURE')) {
+        const {payload} = <ResponseAction>action;
+        return {...state, pending: false, failed: true, payload};
     }
 
     return state;

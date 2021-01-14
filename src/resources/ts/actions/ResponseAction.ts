@@ -1,0 +1,6 @@
+import {AxiosError, AxiosResponse} from "axios";
+import BaseAction from "./BaseAction";
+
+export default interface RequestAction extends BaseAction {
+    payload: AxiosResponse<any> | AxiosError<any>
+}

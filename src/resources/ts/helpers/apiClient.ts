@@ -1,4 +1,4 @@
-import axios, {AxiosResponse} from 'axios';
+import axios, {AxiosError, AxiosResponse} from 'axios';
 import camelcaseKeysRecursive from "camelcase-keys-recursive";
 import querystring from 'querystring';
 import snakecaseKeys from "snakecase-keys";
@@ -19,7 +19,7 @@ export default () => {
             res.data = res.data && camelcaseKeysRecursive(res.data) || {};
             return res;
         },
-        (error: any) => Promise.reject(error)
+        (error: AxiosError) => Promise.reject(error.response || {})
     );
 
     client.defaults.transformRequest = [data => data && querystring.stringify(snakecaseKeys(data))]
