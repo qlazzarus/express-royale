@@ -1,20 +1,21 @@
-import {useForm as useHookForm} from 'react-hook-form';
+import {SubmitHandler, useForm as useHookForm, UseFormOptions as UseHookFormOptions} from 'react-hook-form';
 import {useSelector} from "react-redux";
 import {Validator} from "@/enums";
 import {RootState} from "@/reducers";
 import useFormMeta from "./useFormMeta";
-import useFormResolver from "./useFormResolver";
+import useFormResolver from "./useFormResolver"
 
-export default (validator: Validator, selector: (state: RootState) => unknown, args?: any) => {
-    const {pending,payload,failed} = useSelector((state: RootState) => state.app);
-    const reducer = useSelector(selector);
+export type UseFormOptions = UseHookFormOptions & {
+    onSubmit: SubmitHandler<Record<string, any>>,
+    onSuccess: Function,
+    onFailure: Function
+}
+
+export default (validator: Validator, options: UseFormOptions) => {
+    const {failed, payload, pending} = useSelector((state: RootState) => state.app);
     const meta = useFormMeta(validator);
     const resolver = useFormResolver(validator);
-
-    if (!pending && payload) {
-        // TODO resolve / reject
-        console.log({payload,failed,reducer});
-    }
+    const {onSubmit, onSuccess, onFailure, ...formOptions} = options;
 
     const {
         register,
@@ -30,19 +31,27 @@ export default (validator: Validator, selector: (state: RootState) => unknown, a
         trigger,
         formState
     } = useHookForm({
-        resolver,
-        ...args
+        ...formOptions,
+        resolver
     });
 
+    const isLoading = pending || formState.isSubmitting;
+
+    if (payload && !isLoading && !failed) {
+        onSuccess(payload);
+    } else if (payload && !isLoading && failed) {
+        onFailure(payload, setError);
+    }
+
     return {
-        isLoading: pending || formState.isSubmitting,
+        isLoading,
         meta,
         resolver,
         register,
         unregister,
         errors,
         watch,
-        handleSubmit,
+        handleSubmit: handleSubmit(onSubmit),
         reset,
         setError,
         clearErrors,

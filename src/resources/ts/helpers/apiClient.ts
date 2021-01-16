@@ -19,7 +19,7 @@ export default () => {
             res.data = res.data && camelcaseKeysRecursive(res.data) || {};
             return res;
         },
-        (error: AxiosError) => Promise.reject(error.response || {})
+        (error: AxiosError) => Promise.reject(error)
     );
 
     client.defaults.transformRequest = [data => data && querystring.stringify(snakecaseKeys(data))]

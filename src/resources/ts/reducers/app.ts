@@ -4,19 +4,19 @@ import {ActionType} from "@/enums";
 import {BaseAction, RequestAction, ResponseAction} from "@/actions";
 
 export interface AppState {
-    initialize: boolean,
-    pending: boolean,
-    id: string,
-    payload: object | undefined,
     failed: boolean,
+    id: string,
+    initialize: boolean,
+    payload: object | undefined,
+    pending: boolean,
 }
 
 const initialState: AppState = {
-    initialize: false,
-    pending: false,
+    failed: false,
     id: '',
+    initialize: false,
     payload: undefined,
-    failed: false
+    pending: false
 }
 
 export default (state = initialState, action: BaseAction | RequestAction | ResponseAction): AppState => {
@@ -25,7 +25,7 @@ export default (state = initialState, action: BaseAction | RequestAction | Respo
 
     if (type === ActionType.INITIALIZE) {
         const id = state.id || uuid();
-        return {...state, id, pending: false, initialize: true, payload: undefined, failed: false};
+        return {...state, failed: false, id, payload: undefined, pending: false, initialize: true};
     }
 
     if (type === ActionType.UUID_CREATE) {
@@ -37,17 +37,17 @@ export default (state = initialState, action: BaseAction | RequestAction | Respo
     }
 
     if (stringType && stringType.endsWith('_REQUEST')) {
-        return {...state, pending: true, failed: false, payload: undefined};
+        return {...state, failed: false, payload: undefined, pending: true};
     }
 
     if (stringType && stringType.endsWith('_SUCCESS')) {
         const {payload} = <ResponseAction>action;
-        return {...state, pending: false, failed: false, payload};
+        return {...state, failed: false, payload, pending: false};
     }
 
     if (stringType && stringType.endsWith('_FAILURE')) {
         const {payload} = <ResponseAction>action;
-        return {...state, pending: false, failed: true, payload};
+        return {...state, failed: true, payload, pending: false};
     }
 
     return state;

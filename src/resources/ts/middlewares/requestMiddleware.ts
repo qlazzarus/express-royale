@@ -38,12 +38,12 @@ export default (client: AxiosInstance): Middleware<{}, any, Dispatch<CombineActi
                     payload => {
                         next({ ...rest, payload, type: successType });
                     },
-                    payload => {
-                        next({ ...rest, payload, type: failureType });
+                    error => {
+                        next({ ...rest, payload: error.response, type: failureType });
                     }
-                ).catch(payload => {
-                    console.error('MIDDLEWARE ERROR: ', payload);
-                    next({...rest, payload, type: failureType });
+                ).catch(error => {
+                    console.error('MIDDLEWARE ERROR: ', error);
+                    next({...rest, payload: error.response, type: failureType });
                 });
 
                 return actionPromise;

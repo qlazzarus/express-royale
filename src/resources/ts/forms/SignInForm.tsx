@@ -7,24 +7,24 @@ import {signIn} from '@/actions';
 import {FormSection} from '@/components';
 import {Validator} from '@/enums';
 import {useForm} from '@/hooks';
-import {RootState} from "@/reducers";
 
 export default (): JSX.Element => {
-    const {meta, handleSubmit, errors, register, isLoading} = useForm(
-        Validator.SIGN_IN,
-(state: RootState) => state.account,
-    );
     const {t} = useTranslation();
     const dispatch = useDispatch();
-
-    const onSubmit = useCallback(({username, password}) => {
-        dispatch(signIn(username, password));
-    }, [dispatch]);
-
-    // promise.then(res => console.log('promise', res));
+    const {meta, handleSubmit, errors, register, isLoading} = useForm(Validator.SIGN_IN, {
+        onSubmit: useCallback(({username, password}) => {
+            dispatch(signIn(username, password));
+        }, [dispatch]),
+        onSuccess: useCallback((payload) => {
+            console.log('onSuccess', payload);
+        }, []),
+        onFailure: useCallback((payload, setError) => {
+            console.log('onFailure', payload);
+        }, [])
+    });
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit}>
             <Box p={4}>
                 {Object.entries(meta).map(([name, current]) => (
                     <FormSection
