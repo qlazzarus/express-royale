@@ -28,7 +28,7 @@ class SignUpRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = $this->schema();
+        $rules = $this->getRules();
 
         // merge below here
         if (array_key_exists('username', $rules)) {

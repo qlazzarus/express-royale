@@ -3,14 +3,17 @@
 namespace App\Helpers;
 
 use Illuminate\Support\Str;
+use stdClass;
 
 trait JsonValidationSchema
 {
+    private ?stdClass $schema = null;
+
     /**
      * @param string|null $file
-     * @return array
+     * @return stdClass
      */
-    protected function getJson($file = null)
+    protected function getJson($file = null): stdClass
     {
         if (null === $file) {
             $className = explode("\\", get_called_class());
@@ -27,36 +30,15 @@ trait JsonValidationSchema
 
         $obj = file_get_contents(resource_path($file));
 
-        return json_decode($obj, true);
-    }
-
-    /**
-     * @param array $obj
-     * @return array
-     */
-    protected function convertSchema(array $obj)
-    {
-        $result = [];
-
-        foreach ($obj as $key => $rows) {
-            $rules = [];
-            foreach ($rows as $type => $param) {
-                $rule = $this->convertRule($type, $param);
-                if ($rule) $rules[] = $rule;
-            }
-
-            $result[Str::snake($key)] = $rules;
-        }
-
-        return $result;
+        return json_decode($obj);
     }
 
     /**
      * @param string $type
-     * @param string $param
+     * @param string|stdClass $param
      * @return string|null
      */
-    protected function convertRule($type, $param)
+    protected function convertRule(string $type, string|stdClass $param): ?string
     {
         if (!$param) return null;
 
@@ -80,21 +62,102 @@ trait JsonValidationSchema
     }
 
     /**
-     * @param string|null $file
      * @return array
      */
-    public function schema($file = null)
+    protected function convertRules(): array
     {
-        $obj = $this->getJson($file);
+        $obj = $this->schema;
+        $result = [];
 
-        return $this->convertSchema($obj);
+        foreach ($obj as $key => $rows) {
+            $rules = [];
+            foreach ($rows as $type => $param) {
+                $rule = $this->convertRule($type, $param);
+                if ($rule) $rules[] = $rule;
+            }
+
+            $result[Str::snake($key)] = $rules;
+        }
+
+        return $result;
     }
 
     /**
      * @return array
      */
-    public function rules()
+    protected function convertMessages(): array
     {
-        return $this->schema();
+        $obj = $this->schema;
+        $result = [];
+        $allows = [
+            'string',
+            'required',
+            'min',
+            'max',
+            'regex',
+            'email',
+            'same'
+        ];
+
+        foreach ($obj as $key => $rows) {
+            $key = Str::snake($key);
+            $errorTexts = $rows?->meta?->errorTexts;
+
+            foreach ($errorTexts as $type => $value) {
+                if ($type === 'matches') {
+                    $type = 'regex';
+                } elseif ($type === 'equal') {
+                    $type = 'same';
+                }
+
+                if (in_array($type, $allows)) {
+                    $result["{$key}.{$type}"] = $value;
+                }
+            }
+        }
+
+        return $result;
+    }
+
+    /**
+     * @param string|null $file
+     * @return array
+     */
+    public function getRules($file = null): array
+    {
+        if (!$this->schema) {
+            $this->schema = $this->getJson($file);
+        }
+
+        return $this->convertRules();
+    }
+
+    /**
+     * @return array
+     */
+    public function rules(): array
+    {
+        return $this->getRules();
+    }
+
+    /**
+     * @param string|null $file
+     * @return array
+     */
+    public function getMessages($file = null): array
+    {
+        if (!$this->schema) {
+            $this->schema = $this->getJson($file);
+        }
+
+        return $this->convertMessages();
+    }
+
+    /**
+     * @return array
+     */
+    public function messages(): array
+    {
+        return $this->getMessages();
     }
 }

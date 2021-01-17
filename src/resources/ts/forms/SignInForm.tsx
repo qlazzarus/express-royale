@@ -7,6 +7,7 @@ import {signIn} from '@/actions';
 import {FormSection} from '@/components';
 import {Validator} from '@/enums';
 import {useForm} from '@/hooks';
+import {AxiosError} from "axios";
 
 export default (): JSX.Element => {
     const {t} = useTranslation();
@@ -18,8 +19,9 @@ export default (): JSX.Element => {
         onSuccess: useCallback((payload) => {
             console.log('onSuccess', payload);
         }, []),
-        onFailure: useCallback((payload, setError) => {
-            console.log('onFailure', payload);
+        onFailure: useCallback((payload: AxiosError, setError) => {
+            const response = payload.response || {};
+            console.log('onFailure', response);
         }, [])
     });
 

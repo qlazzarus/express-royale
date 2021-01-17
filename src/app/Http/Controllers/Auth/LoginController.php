@@ -8,8 +8,15 @@ use App\Providers\RouteServiceProvider;
 use App\Services\AccountService;
 use App\User;
 use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
+use JetBrains\PhpStorm\ArrayShape;
 
 class LoginController extends Controller
 {
@@ -49,10 +56,10 @@ class LoginController extends Controller
 
     /**
      * @param SignInRequest $request
-     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
-     * @throws \Illuminate\Validation\ValidationException
+     * @return JsonResponse|RedirectResponse|Response
+     * @throws ValidationException
      */
-    public function login(SignInRequest $request)
+    public function login(SignInRequest $request): Response|JsonResponse|RedirectResponse
     {
         return $this->abstractLogin($request);
     }
@@ -69,7 +76,7 @@ class LoginController extends Controller
      * @param SignInRequest $request
      * @return bool
      */
-    protected function attemptLogin(SignInRequest $request)
+    protected function attemptLogin(SignInRequest $request): bool
     {
         $user = $this->accountService->loginByUsername(
             $request->input('username'),
@@ -86,17 +93,17 @@ class LoginController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\Auth\Guard|\Illuminate\Contracts\Auth\StatefulGuard
+     * @return Guard|StatefulGuard
      */
-    protected function guard()
+    protected function guard(): Guard|StatefulGuard
     {
-        return \Auth::guard();
+        return Auth::guard();
     }
 
     /**
      * @return string
      */
-    public function username()
+    public function username(): string
     {
         return 'username';
     }
@@ -107,7 +114,7 @@ class LoginController extends Controller
      * @param  SignInRequest $request
      * @return Response|array
      */
-    protected function sendLoginResponse(SignInRequest $request)
+    protected function sendLoginResponse(SignInRequest $request): Response|array
     {
         $this->clearLoginAttempts($request);
 
@@ -123,7 +130,7 @@ class LoginController extends Controller
      * @param Authenticatable|User $user
      * @return array
      */
-    protected function authenticated(SignInRequest $request, Authenticatable $user)
+    #[ArrayShape(['token' => "string"])] protected function authenticated(SignInRequest $request, Authenticatable|User $user): array
     {
         return [
             'token' => $this->accountService->publishToken($user, $request->header('Request-Id'))
