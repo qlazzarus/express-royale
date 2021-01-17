@@ -6,8 +6,6 @@ import {Dispatch, Middleware, MiddlewareAPI} from 'redux';
 import {BaseAction, RequestAction} from "@/actions";
 import {ActionType} from "@/enums";
 
-type CombineAction = BaseAction | RequestAction;
-
 /*
 const skipRequests = [
     ActionType[ActionType.SIGNIN_REQUEST],
@@ -16,10 +14,10 @@ const skipRequests = [
 ];
 */
 
-export default (client: AxiosInstance): Middleware<{}, any, Dispatch<CombineAction>> =>
-    ({dispatch, getState}: MiddlewareAPI<Dispatch<CombineAction>, any>) =>
-        (next: Dispatch<CombineAction>) =>
-            (action: CombineAction) => {
+export default (client: AxiosInstance): Middleware<{}, any, Dispatch<BaseAction | RequestAction>> =>
+    ({dispatch, getState}: MiddlewareAPI<Dispatch<BaseAction | RequestAction>, any>) =>
+        (next: Dispatch<BaseAction | RequestAction>) =>
+            (action: BaseAction | RequestAction) => {
                 const {type} = action;
                 const stringType = ActionType[type];
 

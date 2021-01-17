@@ -19,9 +19,9 @@ type NormalizedConfig = {
 }
 
 type ConditionArgument = {
-    is?: ValidationType,
-    then?: ValidationType,
-    otherwise?: ValidationType
+    is?: ValidationSchema,
+    then?: ValidationSchema,
+    otherwise?: ValidationSchema
 }
 
 interface ConditionSchema {
@@ -43,7 +43,7 @@ const instanceOfYupObjectSchema = (schema: YupSchema): schema is yup.ObjectSchem
 
 const isYupType = (value: string) => (<any>Object).values(YupTypeName).includes(value);
 
-const getNormalizedConfig = (config: ValidationType | string): NormalizedConfig => {
+const getNormalizedConfig = (config: ValidationSchema | string): NormalizedConfig => {
     if (typeof config === 'string' && isYupType(config)) {
         return {type: config};
     }
@@ -52,7 +52,7 @@ const getNormalizedConfig = (config: ValidationType | string): NormalizedConfig 
         const {type} = config;
         const methods: TestMethod[] = [];
         Object.entries(config).forEach(([name, args]) => {
-            if (['type', 'meta'].indexOf(name) !== -1) {
+            if (['type', 'form'].indexOf(name) !== -1) {
                 return;
             }
 
@@ -146,11 +146,11 @@ function applyMethodsOnType(schema: YupSchema, {methods}: NormalizedConfig) {
     return baseSchema;
 }
 
-const getSchema = (config: ValidationType) => {
+const getSchema = (config: ValidationSchema) => {
     const normalizedConfig = getNormalizedConfig(config);
     return applyMethodsOnType(getType(normalizedConfig.type), normalizedConfig);
 }
 
-export default (schema: ValidationSchema): yup.ObjectSchema => {
+export default (schema: ValidationSchemaCollection): yup.ObjectSchema => {
     return yup.object().shape(objectMap(schema, getSchema));
 }

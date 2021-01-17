@@ -2,7 +2,7 @@
     "username": {
         "type": "string",
         "required": true,
-        "meta": {
+        "form": {
             "placeholder": "SIGNIN_USERNAME_PLACEHOLDER",
             "errorTexts": {
                 "required": "SIGNIN_USERNAME_REQUIRED"
@@ -12,7 +12,7 @@
     "password": {
         "type": "string",
         "required": true,
-        "meta": {
+        "form": {
             "type": "password",
             "placeholder": "SIGNIN_PASSWORD_PLACEHOLDER",
             "errorTexts": {

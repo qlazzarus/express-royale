@@ -7,32 +7,36 @@ import {signIn} from '@/actions';
 import {FormSection} from '@/components';
 import {Validator} from '@/enums';
 import {useForm} from '@/hooks';
-import {AxiosError} from "axios";
+import {AxiosResponse} from "axios";
 
 export default (): JSX.Element => {
     const {t} = useTranslation();
     const dispatch = useDispatch();
-    const {meta, handleSubmit, errors, register, isLoading} = useForm(Validator.SIGN_IN, {
+
+    const {schema, handleSubmit, errors, register, isLoading} = useForm(Validator.SIGN_IN, {
         onSubmit: useCallback(({username, password}) => {
             dispatch(signIn(username, password));
         }, [dispatch]),
         onSuccess: useCallback((payload) => {
             console.log('onSuccess', payload);
         }, []),
-        onFailure: useCallback((payload: AxiosError, setError) => {
-            const response = payload.response || {};
-            console.log('onFailure', response);
+        onFailure: useCallback((payload: AxiosResponse<UnprocessableEntityResponse>|undefined) => {
+            if (!payload) return;
+            const {data} = payload;
+            Object.entries(data.errors).forEach(([key, value]) => {
+                // setError(key, { message: value[0] })
+            });
         }, [])
     });
 
     return (
         <form onSubmit={handleSubmit}>
             <Box p={4}>
-                {Object.entries(meta).map(([name, current]) => (
+                {Object.entries(schema).map(([name, current]) => (
                     <FormSection
                         key={name}
                         name={name}
-                        meta={(current || {})}
+                        schema={(current || {})}
                         errors={errors}
                         register={register}
                         controlProps={{

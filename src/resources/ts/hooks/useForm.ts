@@ -2,8 +2,8 @@ import {SubmitHandler, useForm as useHookForm, UseFormOptions as UseHookFormOpti
 import {useSelector} from "react-redux";
 import {Validator} from "@/enums";
 import {RootState} from "@/reducers";
-import useFormMeta from "./useFormMeta";
 import useFormResolver from "./useFormResolver"
+import useFormSchema from "./useFormSchema";
 
 export type UseFormOptions = UseHookFormOptions & {
     onSubmit: SubmitHandler<Record<string, any>>,
@@ -11,9 +11,14 @@ export type UseFormOptions = UseHookFormOptions & {
     onFailure: Function
 }
 
+/*
+export declare type SubmitHandler<TFieldValues extends FieldValues> =
+(data: UnpackNestedValue<TFieldValues>, event?: React.BaseSyntheticEvent) => any | Promise<any>;
+ */
+
 export default (validator: Validator, options: UseFormOptions) => {
     const {failed, payload, pending} = useSelector((state: RootState) => state.app);
-    const meta = useFormMeta(validator);
+    const schema = useFormSchema(validator);
     const resolver = useFormResolver(validator);
     const {onSubmit, onSuccess, onFailure, ...formOptions} = options;
 
@@ -40,12 +45,12 @@ export default (validator: Validator, options: UseFormOptions) => {
     if (payload && !isLoading && !failed) {
         onSuccess(payload);
     } else if (payload && !isLoading && failed) {
-        onFailure(payload, setError);
+        onFailure(payload);
     }
 
     return {
         isLoading,
-        meta,
+        schema,
         resolver,
         register,
         unregister,

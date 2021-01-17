@@ -101,7 +101,7 @@ trait JsonValidationSchema
 
         foreach ($obj as $key => $rows) {
             $key = Str::snake($key);
-            $errorTexts = $rows?->meta?->errorTexts;
+            $errorTexts = $rows?->form?->errorTexts;
 
             foreach ($errorTexts as $type => $value) {
                 if ($type === 'matches') {

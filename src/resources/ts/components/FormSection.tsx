@@ -14,9 +14,9 @@ import {
     InputProps
 } from '@chakra-ui/react';
 
-type FormSectionProps = {
+export type FormSectionProps = {
     name: string,
-    meta: FormMeta,
+    schema: FormSchema,
     errors: DeepMap<Record<string, any>, FieldError>,
     register: any,
     // eslint-disable-next-line react/require-default-props
@@ -34,7 +34,7 @@ type FormSectionProps = {
 export default (props: FormSectionProps): JSX.Element => {
     const {
         name,
-        meta,
+        schema,
         errors,
         register,
         controlProps,
@@ -51,20 +51,20 @@ export default (props: FormSectionProps): JSX.Element => {
         // eslint-disable-next-line react/jsx-props-no-spreading
         <FormControl isInvalid={error} {...controlProps}>
             {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-            {meta.label && <FormLabel {...labelProps}>{t(meta.label)}</FormLabel>}
+            {schema.label && <FormLabel {...labelProps}>{t(schema.label)}</FormLabel>}
             {/* eslint-disable-next-line react/jsx-props-no-spreading */}
             <Input
                 name={name}
-                type={meta.type || 'text'}
-                placeholder={meta.placeholder && t(meta.placeholder) || name}
+                type={schema.type || 'text'}
+                placeholder={schema.placeholder && t(schema.placeholder) || name}
                 ref={register}
                 {...inputProps}
             />
             {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-            {meta.helper && <FormHelperText {...helpTextProps}>{t(meta.helper)}</FormHelperText>}
+            {schema.helper && <FormHelperText {...helpTextProps}>{t(schema.helper)}</FormHelperText>}
             {/* eslint-disable-next-line react/jsx-props-no-spreading */}
             <FormErrorMessage {...errorMessageProps}>
-                {Object.entries(meta.errorTexts || {}).map(([key, value]) =>
+                {Object.entries(schema.errorTexts || {}).map(([key, value]) =>
                     <span key={key}>{error && error.type === key && t(value)}</span>)}
             </FormErrorMessage>
         </FormControl>

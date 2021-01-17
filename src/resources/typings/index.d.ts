@@ -1,11 +1,11 @@
 export {}
 
 declare global {
-    interface ValidationSchema {
-        [key: string]: ValidationType
+    interface ValidationSchemaCollection {
+        [key: string]: ValidationSchema
     }
 
-    type ValidationType = {
+    type ValidationSchema = {
         email?: boolean,
         equal?: string,
         type: string,
@@ -13,10 +13,10 @@ declare global {
         matches?: string,
         max?: number,
         min?: number,
-        meta?: FormMeta
+        form?: FormSchema
     }
 
-    type FormMeta = {
+    type FormSchema = {
         type?: string,
         label?: string,
         helper?: string,
@@ -25,8 +25,15 @@ declare global {
             [key: string]: string
         },
     }
+
+    type UnprocessableEntityResponse = {
+        message: string,
+        errors: {
+            [key: string]: string[]
+        }
+    }
 }
 
 declare module "schemas/*.json" {
-    export default ValidationSchema;
+    export default ValidationSchemaCollection;
 }

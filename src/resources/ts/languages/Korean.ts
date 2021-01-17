@@ -26,6 +26,7 @@ enum Korean {
     FOOTER_THANKS = 'Special Thanks to 원본 한글화 루리아',
     SIGNIN_USERNAME_PLACEHOLDER = '유저 아이디 혹은 이메일',
     SIGNIN_USERNAME_REQUIRED = '유저 아이디 혹은 이메일을 입력해 주세요',
+    SIGNIN_USERNAME_FAILED = 'SIGNIN_USERNAME_FAILED',
     SIGNIN_PASSWORD_PLACEHOLDER = '비밀번호',
     SIGNIN_PASSWORD_REQUIRED = '비밀번호를 입력해 주세요',
     SIGNIN_SUBMIT = '로그인',

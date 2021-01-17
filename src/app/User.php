@@ -28,6 +28,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereUpdatedAt($value)
+ * @property-read string $unique_identifier
  */
 class User extends Authenticatable
 {
@@ -44,18 +45,18 @@ class User extends Authenticatable
         'unique_identifier'
     ];
 
-    public function getUniqueIdentifierAttribute()
+    public function getUniqueIdentifierAttribute(): string
     {
         $key = env('APP_KEY');
         return hash('sha256', "{$key}-user::{$this->id}");
     }
 
-    public function students()
+    public function students(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany('App\Student');
     }
 
-    public function channels()
+    public function channels(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany('App\UserChannel');
     }
