@@ -1,3 +1,4 @@
+import {AxiosResponse} from "axios";
 import uuid from 'uuid-random';
 
 import {ActionType} from "@/enums";
@@ -7,7 +8,7 @@ export interface AppState {
     failed: boolean,
     id: string,
     initialize: boolean,
-    payload: object | undefined,
+    payload: AxiosResponse | undefined,
     pending: boolean,
 }
 
@@ -34,6 +35,11 @@ export default (state = initialState, action: BaseAction | RequestAction | Respo
 
     if (type === ActionType.UUID_REMOVE) {
         return {...state, id: ''};
+    }
+
+    if (type === ActionType.PAYLOAD_RECYCLE) {
+        console.log('PAYLOAD_RECYCLE');
+        return {...state, failed: false, payload: undefined, pending: false};
     }
 
     if (stringType && stringType.endsWith('_REQUEST')) {

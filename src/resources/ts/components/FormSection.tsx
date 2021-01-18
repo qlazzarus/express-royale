@@ -45,28 +45,36 @@ export default (props: FormSectionProps): JSX.Element => {
     } = props;
 
     const {t} = useTranslation();
+    const {errorTexts, helper, placeholder, type, label} = schema;
     const error = errors[name];
 
     return (
         // eslint-disable-next-line react/jsx-props-no-spreading
         <FormControl isInvalid={error} {...controlProps}>
             {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-            {schema.label && <FormLabel {...labelProps}>{t(schema.label)}</FormLabel>}
+            {label && <FormLabel {...labelProps}>{t(label)}</FormLabel>}
             {/* eslint-disable-next-line react/jsx-props-no-spreading */}
             <Input
                 name={name}
-                type={schema.type || 'text'}
-                placeholder={schema.placeholder && t(schema.placeholder) || name}
+                type={type || 'text'}
+                placeholder={placeholder && t(placeholder) || name}
                 ref={register}
                 {...inputProps}
             />
             {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-            {schema.helper && <FormHelperText {...helpTextProps}>{t(schema.helper)}</FormHelperText>}
-            {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-            <FormErrorMessage {...errorMessageProps}>
-                {Object.entries(schema.errorTexts || {}).map(([key, value]) =>
-                    <span key={key}>{error && error.type === key && t(value)}</span>)}
-            </FormErrorMessage>
+            {helper && <FormHelperText {...helpTextProps}>{t(helper)}</FormHelperText>}
+            {error && errorTexts && errorTexts[error.type] && (
+                // eslint-disable-next-line react/jsx-props-no-spreading
+                <FormErrorMessage {...errorMessageProps}>
+                    {t(errorTexts[error.type])}
+                </FormErrorMessage>
+            )}
+            {error && error.type === 'custom' && (
+                // eslint-disable-next-line react/jsx-props-no-spreading
+                <FormErrorMessage {...errorMessageProps}>
+                    {t(error.message)}
+                </FormErrorMessage>
+            )}
         </FormControl>
     );
 }
