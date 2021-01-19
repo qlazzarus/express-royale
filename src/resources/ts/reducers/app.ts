@@ -38,7 +38,6 @@ export default (state = initialState, action: BaseAction | RequestAction | Respo
     }
 
     if (type === ActionType.PAYLOAD_RECYCLE) {
-        console.log('PAYLOAD_RECYCLE');
         return {...state, failed: false, payload: undefined, pending: false};
     }
 

@@ -1,17 +1,18 @@
 import React, {useCallback} from 'react';
 import {useTranslation} from "react-i18next";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {AxiosResponse} from "axios";
 import {Box, Button} from '@chakra-ui/react';
 
-import {signIn} from '@/actions';
+import {payloadRecycle, signIn} from '@/actions';
 import {FormSection} from '@/components';
 import {Validator} from '@/enums';
 import {useForm} from '@/hooks';
-import {payloadResponse} from "@/helpers";
+import {RootState} from "@/reducers";
 
 export default (): JSX.Element => {
     const {t} = useTranslation();
+    const {failed,payload,pending} = useSelector((state: RootState) => state.app)
     const dispatch = useDispatch();
 
     const onSubmit = useCallback(({username, password}) => dispatch(signIn(username, password)), [dispatch]);
@@ -20,24 +21,29 @@ export default (): JSX.Element => {
         handleSubmit,
         errors,
         register,
-        isLoading,
-        setError
+        setError,
+        formState
     } = useForm(Validator.SIGN_IN);
+    const isLoading = pending || formState.isSubmitting;
 
-    /*
-    const onSuccess = useCallback((payload) => {
-        console.log('onSuccess', payload);
+    const onSuccess = useCallback((res: AxiosResponse<any>) => {
+        console.log('onSuccess', res);
     }, []);
-    const onFailure = useCallback((payload: AxiosResponse<UnprocessableEntityResponse>|undefined) => {
-        if (!payload) return;
-        const {data} = payload;
+    const onFailure = useCallback((res: AxiosResponse<UnprocessableEntityResponse>) => {
+        console.log('onFailure', res);
+        const {data} = res;
         Object.entries(data.errors).forEach(([key, value]) => {
             setError(key, { message: value[0] });
         });
     }, [setError]);
 
-    useCallback(() => payloadResponse().then(onSuccess).catch(onFailure), [onSuccess, onFailure]);
-    */
+    if (payload && !isLoading && !failed) {
+        onSuccess(payload);
+        dispatch(payloadRecycle());
+    } else if (payload && !isLoading && failed) {
+        onFailure(payload);
+        dispatch(payloadRecycle());
+    }
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>

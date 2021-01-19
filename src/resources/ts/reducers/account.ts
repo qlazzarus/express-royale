@@ -1,5 +1,3 @@
-import {ActionType} from "@/enums";
-
 export interface AccountState {
     token: string,
 }

@@ -6,7 +6,7 @@ import useFormResolver from "./useFormResolver"
 import useFormSchema from "./useFormSchema";
 
 export default (validator: Validator, options?: UseFormOptions) => {
-    const {pending} = useSelector((state: RootState) => state.app);
+    // const {pending} = useSelector((state: RootState) => state.app);
     const schema = useFormSchema(validator);
     const resolver = useFormResolver(validator);
 
@@ -28,10 +28,9 @@ export default (validator: Validator, options?: UseFormOptions) => {
         resolver
     });
 
-    const isLoading = pending || formState.isSubmitting;
+    // const isLoading = pending || formState.isSubmitting;
 
     return {
-        isLoading,
         schema,
         resolver,
         register,
