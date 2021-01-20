@@ -32,6 +32,18 @@ declare global {
             [key: string]: string[]
         }
     }
+
+    type AccountInfoSuccessResponse = {
+        channels: ({
+            channels: string,
+            channelId: string
+        })[],
+        uniqueIdentifier: string
+    }
+
+    type TokenSuccessResponse = {
+        token: string
+    }
 }
 
 declare module "schemas/*.json" {

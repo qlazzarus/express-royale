@@ -38,6 +38,7 @@ export default (): JSX.Element => {
             <Heading size='4xl' textAlign='center' color='red.500'>
                 {t('TITLE')}
             </Heading>
+
             {/* logged ? <TransferMenu /> : <SignInForm /> */}
             <SignInForm/>
         </Flex>

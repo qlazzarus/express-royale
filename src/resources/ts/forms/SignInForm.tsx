@@ -4,18 +4,20 @@ import {useDispatch, useSelector} from "react-redux";
 import {AxiosResponse} from "axios";
 import {Box, Button} from '@chakra-ui/react';
 
-import {payloadRecycle, signIn} from '@/actions';
+import {accountInfo, signIn} from '@/actions/account';
 import {FormSection} from '@/components';
 import {Validator} from '@/enums';
 import {useForm} from '@/hooks';
 import {RootState} from "@/reducers";
+import {apiResponse} from "@/helpers";
 
 export default (): JSX.Element => {
     const {t} = useTranslation();
-    const {failed,payload,pending} = useSelector((state: RootState) => state.app)
+    const {failed, payload, pending} = useSelector((state: RootState) => state.app)
     const dispatch = useDispatch();
 
     const onSubmit = useCallback(({username, password}) => dispatch(signIn(username, password)), [dispatch]);
+
     const {
         schema,
         handleSubmit,
@@ -24,26 +26,28 @@ export default (): JSX.Element => {
         setError,
         formState
     } = useForm(Validator.SIGN_IN);
+
     const isLoading = pending || formState.isSubmitting;
 
     const onSuccess = useCallback((res: AxiosResponse<any>) => {
         console.log('onSuccess', res);
     }, []);
+
     const onFailure = useCallback((res: AxiosResponse<UnprocessableEntityResponse>) => {
-        console.log('onFailure', res);
         const {data} = res;
+        if (!data.errors) {
+            // something happened
+            return;
+        }
+
         Object.entries(data.errors).forEach(([key, value]) => {
-            setError(key, { message: value[0] });
+            setError(key, {type: 'custom', message: value[0]});
         });
     }, [setError]);
 
-    if (payload && !isLoading && !failed) {
-        onSuccess(payload);
-        dispatch(payloadRecycle());
-    } else if (payload && !isLoading && failed) {
-        onFailure(payload);
-        dispatch(payloadRecycle());
-    }
+    const handleInfo = useCallback(() => dispatch(accountInfo()), [dispatch]);
+
+    apiResponse({payload, isLoading, failed, dispatch, onSuccess, onFailure});
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -66,6 +70,9 @@ export default (): JSX.Element => {
                 ))}
                 <Button mt={4} isLoading={isLoading} type='submit'>
                     {t('SIGNIN_SUBMIT')}
+                </Button>
+                <Button m={4} type={'button'} onClick={handleInfo}>
+                    ME
                 </Button>
             </Box>
         </form>

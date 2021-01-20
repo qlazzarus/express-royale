@@ -11,7 +11,7 @@ class AccountController extends Controller
      * @param Request $request
      * @return mixed
      */
-    public function me(Request $request)
+    public function me(Request $request): mixed
     {
         return $request->user()->load('channels');
     }

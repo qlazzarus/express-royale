@@ -5,7 +5,7 @@ import {PersistGate} from 'redux-persist/integration/react';
 import {ChakraProvider} from "@chakra-ui/react";
 
 import '@/i18n';
-import {initialize} from '@/actions';
+import {initialize} from '@/actions/app';
 import {MainLayout} from '@/components';
 import configureStore from '@/configureStore';
 import {apiClient} from "@/helpers";

@@ -1,6 +1,6 @@
 import {ActionType} from "@/enums";
-import BaseAction from './BaseAction';
+import BaseAction from '../BaseAction';
 
 export default (): BaseAction => ({
-    type: ActionType.INITIALIZE
+    type: ActionType.PAYLOAD_RECYCLE
 });

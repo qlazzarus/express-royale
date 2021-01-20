@@ -57,10 +57,10 @@ class LoginController extends Controller
 
     /**
      * @param SignInRequest $request
-     * @return JsonResponse|RedirectResponse|Response
+     * @return JsonResponse|RedirectResponse|Response|array
      * @throws ValidationException
      */
-    public function login(SignInRequest $request): Response|JsonResponse|RedirectResponse
+    public function login(SignInRequest $request): Response|JsonResponse|RedirectResponse|array
     {
         return $this->abstractLogin($request);
     }

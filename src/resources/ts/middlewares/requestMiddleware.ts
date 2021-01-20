@@ -1,21 +1,11 @@
-// https://gist.github.com/duranmla/37e2484692b904b45f045b00f07b73e1
-
 import {AxiosInstance} from "axios";
 import {Dispatch, Middleware, MiddlewareAPI} from 'redux';
 
 import {BaseAction, RequestAction} from "@/actions";
 import {ActionType} from "@/enums";
 
-/*
-const skipRequests = [
-    ActionType[ActionType.SIGNIN_REQUEST],
-    ActionType[ActionType.SIGNUP_REQUEST],
-    ActionType[ActionType.REFRESH_TOKEN_REQUEST]
-];
-*/
-
 export default (client: AxiosInstance): Middleware<{}, any, Dispatch<BaseAction | RequestAction>> =>
-    ({dispatch, getState}: MiddlewareAPI<Dispatch<BaseAction | RequestAction>, any>) =>
+    ({getState}: MiddlewareAPI<Dispatch<BaseAction | RequestAction>, any>) =>
         (next: Dispatch<BaseAction | RequestAction>) =>
             (action: BaseAction | RequestAction) => {
                 const {type} = action;
@@ -30,6 +20,12 @@ export default (client: AxiosInstance): Middleware<{}, any, Dispatch<BaseAction 
 
                 const {promise, ...rest} = <RequestAction>action;
                 next({...rest, type});
+
+                const {account, app} = getState();
+                // eslint-disable-next-line no-param-reassign
+                client.defaults.headers.common['Request-Id'] = app.id || '';
+                // eslint-disable-next-line no-param-reassign
+                client.defaults.headers.common.Authorization = account.token && `Bearer ${account.token}` || '';
 
                 const actionPromise = promise(client);
                 actionPromise.then(
