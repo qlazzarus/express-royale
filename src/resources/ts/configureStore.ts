@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 
 import storage from 'redux-persist/lib/storage';
 import {ActionType} from '@/enums';
-import {requestMiddleware, responseMiddleware} from '@/middlewares';
+import {requestMiddleware,responseMiddleware} from '@/middlewares';
 import {rootReducer} from '@/reducers';
 
 const actionTypeEnumToString = (action: any): any => typeof action.type === 'number' && ActionType[action.type] ? ({
