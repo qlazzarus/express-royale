@@ -1,12 +1,9 @@
 import {useForm as useHookForm, UseFormOptions} from 'react-hook-form';
-import {useSelector} from "react-redux";
 import {Validator} from "@/enums";
-import {RootState} from "@/reducers";
 import useFormResolver from "./useFormResolver"
 import useFormSchema from "./useFormSchema";
 
 export default (validator: Validator, options?: UseFormOptions) => {
-    // const {pending} = useSelector((state: RootState) => state.app);
     const schema = useFormSchema(validator);
     const resolver = useFormResolver(validator);
 
@@ -27,8 +24,6 @@ export default (validator: Validator, options?: UseFormOptions) => {
         ...options,
         resolver
     });
-
-    // const isLoading = pending || formState.isSubmitting;
 
     return {
         schema,

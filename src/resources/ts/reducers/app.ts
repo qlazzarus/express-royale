@@ -10,6 +10,7 @@ export interface AppState {
     initialize: boolean,
     payload: AxiosResponse | undefined,
     pending: boolean,
+    requested: string
 }
 
 const initialState: AppState = {
@@ -17,7 +18,8 @@ const initialState: AppState = {
     id: '',
     initialize: false,
     payload: undefined,
-    pending: false
+    pending: false,
+    requested: ''
 }
 
 export default (state = initialState, action: BaseAction | RequestAction | ResponseAction): AppState => {
@@ -26,7 +28,7 @@ export default (state = initialState, action: BaseAction | RequestAction | Respo
 
     if (type === ActionType.INITIALIZE) {
         const id = state.id || uuid();
-        return {...state, failed: false, id, payload: undefined, pending: false, initialize: true};
+        return {...state, failed: false, id, initialize: true, payload: undefined, pending: false, requested: ''};
     }
 
     if (type === ActionType.UUID_CREATE) {
@@ -38,11 +40,11 @@ export default (state = initialState, action: BaseAction | RequestAction | Respo
     }
 
     if (type === ActionType.PAYLOAD_RECYCLE) {
-        return {...state, failed: false, payload: undefined, pending: false};
+        return {...state, failed: false, payload: undefined, pending: false, requested: ''};
     }
 
     if (stringType && stringType.endsWith('_REQUEST')) {
-        return {...state, failed: false, payload: undefined, pending: true};
+        return {...state, failed: false, payload: undefined, pending: true, requested: stringType.replace('_REQUEST', '')};
     }
 
     if (stringType && stringType.endsWith('_SUCCESS')) {

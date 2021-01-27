@@ -4,9 +4,9 @@ import SignIn from '@/validations/sign_in.json';
 
 export default (validator: Validator): ValidationSchemaCollection => {
     switch (validator) {
-        case Validator.SIGN_UP:
+        case Validator.SIGNUP:
             return SignUp;
-        case Validator.SIGN_IN:
+        case Validator.SIGNIN:
             return SignIn;
         default:
             throw new Error('not found validator schema');
