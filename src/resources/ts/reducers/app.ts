@@ -2,7 +2,7 @@ import {AxiosResponse} from "axios";
 import uuid from 'uuid-random';
 
 import {ActionType} from "@/enums";
-import {BaseAction, RequestAction, ResponseAction} from "@/actions";
+import {CombinedAction, ResponseAction} from "@/actions";
 
 export interface AppState {
     failed: boolean,
@@ -22,7 +22,7 @@ const initialState: AppState = {
     requested: ''
 }
 
-export default (state = initialState, action: BaseAction | RequestAction | ResponseAction): AppState => {
+export default (state = initialState, action: CombinedAction): AppState => {
     const {type} = action;
     const stringType = ActionType[type];
 

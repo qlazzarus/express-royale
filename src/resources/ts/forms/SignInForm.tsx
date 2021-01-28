@@ -5,11 +5,12 @@ import {Box, Button} from '@chakra-ui/react';
 import {AxiosResponse} from "axios";
 
 import {signIn} from '@/actions/account';
+import {append} from "@/actions/alert";
+import {payloadRecycle} from "@/actions/app";
 import {FormSection} from '@/components';
-import {Validator} from '@/enums';
+import {AlertStatus, Validator} from '@/enums';
 import {useForm} from '@/hooks';
 import {RootState} from "@/reducers";
-import {payloadRecycle} from "@/actions/app";
 
 export default (): JSX.Element => {
     const {t} = useTranslation();
@@ -27,9 +28,9 @@ export default (): JSX.Element => {
                 setError(key, {type: 'custom', message: value[0]});
             });
         } else if (data.message) {
-            // TODO
+            dispatch(append(AlertStatus.ERROR, t(data.message)));
         } else {
-            // TODO
+            dispatch(append(AlertStatus.ERROR, t('COMMON_EXCEPTION')));
         }
 
         dispatch(payloadRecycle());

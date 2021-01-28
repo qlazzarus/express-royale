@@ -1,6 +1,6 @@
 import {Dispatch, Middleware, MiddlewareAPI} from 'redux';
 
-import {BaseAction, ResponseAction} from "@/actions";
+import {CombinedAction} from "@/actions";
 import {accountInfo} from "@/actions/account";
 import {ActionType} from "@/enums";
 
@@ -11,10 +11,10 @@ const outerRequests = [
 ];
 */
 
-export default (): Middleware<{}, any, Dispatch<BaseAction | ResponseAction>> =>
-    ({dispatch}: MiddlewareAPI<Dispatch<BaseAction | ResponseAction>, any>) =>
-        (next: Dispatch<BaseAction | ResponseAction>) =>
-            (action: BaseAction | ResponseAction) => {
+export default (): Middleware<{}, any, Dispatch<CombinedAction>> =>
+    ({dispatch}: MiddlewareAPI<Dispatch<CombinedAction>, any>) =>
+        (next: Dispatch<CombinedAction>) =>
+            (action: CombinedAction) => {
                 const {type} = action;
                 const stringType = ActionType[type];
 

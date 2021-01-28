@@ -1,11 +1,10 @@
-// https://medium.com/swlh/few-ways-to-update-a-state-array-in-redux-reducer-f2621ae8061
-
-import {ActionType} from "@/enums";
-import {BaseAction, RequestAction, ResponseAction} from "@/actions";
+import {ActionType, AlertStatus} from "@/enums";
+import {AppendAlertAction, CombinedAction, RemoveAlertAction} from "@/actions";
 
 export interface AlertState {
     entries: ({
-        status: 'error' | 'success' | 'warning' | 'info' | null,
+        id: string,
+        status: AlertStatus,
         message: string,
         expiredIn: number
     })[]
@@ -15,9 +14,31 @@ const initialState: AlertState = {
     entries: []
 }
 
-export default (state = initialState, action: BaseAction | RequestAction | ResponseAction): AlertState => {
+export default (state = initialState, action: CombinedAction): AlertState => {
     const {type} = action;
-    const stringType = ActionType[type];
+
+    if (type === ActionType.APPEND_ALERT) {
+        const {id, status, message, expiredIn} = <AppendAlertAction>action;
+
+        return {
+            ...state,
+            entries: [...state.entries, {
+                id,
+                status,
+                message,
+                expiredIn
+            }]
+        };
+    }
+
+    if (type === ActionType.REMOVE_ALERT) {
+        const {id} = <RemoveAlertAction>action;
+
+        return {
+            ...state,
+            entries: state.entries.filter(entry => entry.id !== id)
+        };
+    }
 
     return state;
 }

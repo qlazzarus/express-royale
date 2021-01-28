@@ -2,6 +2,8 @@ import React from 'react';
 import {useTranslation} from 'react-i18next';
 import ReactMarkdown from 'react-markdown/with-html';
 import {Box, Flex, Heading} from '@chakra-ui/react';
+
+import {ColorCode} from "@/enums";
 import {SignInForm} from "@/forms";
 
 /*
@@ -35,7 +37,7 @@ export default (): JSX.Element => {
             <Box textAlign='center'>
                 <ReactMarkdown source={t('INTRO') || ''} escapeHtml={false}/>
             </Box>
-            <Heading size='4xl' textAlign='center' color='red.500'>
+            <Heading size='4xl' textAlign='center' color={ColorCode.PRIMARY_BOLD}>
                 {t('TITLE')}
             </Heading>
 

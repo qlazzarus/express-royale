@@ -1,13 +1,13 @@
 import {AxiosInstance} from "axios";
 import {Dispatch, Middleware, MiddlewareAPI} from 'redux';
 
-import {BaseAction, RequestAction} from "@/actions";
+import {CombinedAction, RequestAction} from "@/actions";
 import {ActionType} from "@/enums";
 
-export default (client: AxiosInstance): Middleware<{}, any, Dispatch<BaseAction | RequestAction>> =>
-    ({getState}: MiddlewareAPI<Dispatch<BaseAction | RequestAction>, any>) =>
-        (next: Dispatch<BaseAction | RequestAction>) =>
-            (action: BaseAction | RequestAction) => {
+export default (client: AxiosInstance): Middleware<{}, any, Dispatch<CombinedAction>> =>
+    ({getState}: MiddlewareAPI<Dispatch<CombinedAction>, any>) =>
+        (next: Dispatch<CombinedAction>) =>
+            (action: CombinedAction) => {
                 const {type} = action;
                 const stringType = ActionType[type];
 

@@ -1,6 +1,6 @@
 import {AxiosResponse} from "axios";
 import {ActionType} from "@/enums";
-import {BaseAction, RequestAction, ResponseAction} from "@/actions";
+import {CombinedAction, ResponseAction} from "@/actions";
 
 export interface AccountState {
     info: AccountInfoSuccessResponse|undefined,
@@ -12,7 +12,7 @@ const initialState: AccountState = {
     token: '',
 }
 
-export default (state = initialState, action: BaseAction | RequestAction | ResponseAction): AccountState => {
+export default (state = initialState, action: CombinedAction): AccountState => {
     const {type} = action;
 
     if (type === ActionType.SIGNIN_SUCCESS || type === ActionType.SIGNUP_SUCCESS) {

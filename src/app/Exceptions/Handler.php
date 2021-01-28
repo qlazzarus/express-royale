@@ -2,7 +2,11 @@
 
 namespace App\Exceptions;
 
+use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\Exceptions\ThrottleRequestsException;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -29,27 +33,36 @@ class Handler extends ExceptionHandler
     /**
      * Report or log an exception.
      *
-     * @param  \Throwable  $exception
+     * @param Throwable $e
      * @return void
      *
-     * @throws \Exception
+     * @throws Exception|Throwable
      */
-    public function report(Throwable $exception)
+    public function report(Throwable $e)
     {
-        parent::report($exception);
+        parent::report($e);
     }
 
     /**
      * Render an exception into an HTTP response.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Throwable  $exception
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param mixed $request
+     * @param Throwable $e
+     * @return Response
      *
-     * @throws \Throwable
+     * @throws Throwable
      */
-    public function render($request, Throwable $exception)
+    public function render(mixed $request, Throwable $e): Response
     {
-        return parent::render($request, $exception);
+        if ($e instanceof ThrottleRequestsException) {
+            return parent::render($request, new ThrottleRequestsException(
+               "THROTTLE_REQUESTS_EXCEPTION",
+               $e->getPrevious(),
+               $e->getHeaders(),
+               $e->getCode()
+            ));
+        }
+
+        return parent::render($request, $e);
     }
 }
