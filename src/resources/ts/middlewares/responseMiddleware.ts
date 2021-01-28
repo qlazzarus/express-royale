@@ -2,7 +2,6 @@ import {Dispatch, Middleware, MiddlewareAPI} from 'redux';
 
 import {BaseAction, ResponseAction} from "@/actions";
 import {accountInfo} from "@/actions/account";
-import {payloadRecycle} from "@/actions/app";
 import {ActionType} from "@/enums";
 
 /*
