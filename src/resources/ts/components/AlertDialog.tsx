@@ -1,10 +1,10 @@
 import React from 'react';
 import {Stack, Alert, AlertIcon} from '@chakra-ui/react';
-import {useSelector} from "react-redux";
-import {RootState} from "@/reducers";
+
+import {alertEntries} from "@/selectors";
 
 export default () => {
-    const {entries} = useSelector((state: RootState) => state.alert);
+    const entries = alertEntries();
 
     if (!entries.length) {
         return null;

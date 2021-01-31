@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect} from 'react';
 import {useTranslation} from "react-i18next";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {Box, Button} from '@chakra-ui/react';
 
 import {signIn} from '@/actions/account';
@@ -8,17 +8,16 @@ import {append} from "@/actions/alert";
 import {FormSection} from '@/components';
 import {AlertStatus, Validator} from '@/enums';
 import {useForm, useRequestFailed} from '@/hooks';
-import {RootState} from "@/reducers";
+import {isPending} from "@/selectors";
 
 export default (): JSX.Element => {
     const {t} = useTranslation();
-    const {pending} = useSelector((state: RootState) => state.app)
     const dispatch = useDispatch();
 
     const onSubmit = useCallback(({username, password}) => dispatch(signIn(username, password)), [dispatch]);
     const {schema, handleSubmit, errors, register, setError, formState} = useForm(Validator.SIGNIN);
 
-    const isLoading = pending || formState.isSubmitting;
+    const isLoading = isPending() || formState.isSubmitting;
 
     const onFailed = useRequestFailed(
         isLoading,

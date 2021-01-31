@@ -1,12 +1,11 @@
 import React from 'react';
-import {useSelector} from "react-redux";
 import {CircularProgress} from '@chakra-ui/react';
 
 import {ColorCode, LayerDepth} from "@/enums";
-import {RootState} from "@/reducers";
+import {isPending} from "@/selectors";
 
 export default () => {
-    const {pending} = useSelector((state: RootState) => state.app);
+    const pending = isPending();
 
     if (!pending) {
         return null;
