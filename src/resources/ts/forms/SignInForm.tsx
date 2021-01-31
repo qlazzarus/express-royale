@@ -1,40 +1,43 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useEffect} from 'react';
 import {useTranslation} from "react-i18next";
 import {useDispatch, useSelector} from "react-redux";
 import {Box, Button} from '@chakra-ui/react';
-import {AxiosResponse} from "axios";
 
 import {signIn} from '@/actions/account';
 import {append} from "@/actions/alert";
-import {payloadRecycle} from "@/actions/app";
 import {FormSection} from '@/components';
 import {AlertStatus, Validator} from '@/enums';
-import {useForm} from '@/hooks';
+import {useForm, useRequestFailed} from '@/hooks';
 import {RootState} from "@/reducers";
 
 export default (): JSX.Element => {
     const {t} = useTranslation();
-    const {failed, payload, pending, requested} = useSelector((state: RootState) => state.app)
+    const {pending} = useSelector((state: RootState) => state.app)
     const dispatch = useDispatch();
 
     const onSubmit = useCallback(({username, password}) => dispatch(signIn(username, password)), [dispatch]);
     const {schema, handleSubmit, errors, register, setError, formState} = useForm(Validator.SIGNIN);
 
     const isLoading = pending || formState.isSubmitting;
-    if (failed && payload && !isLoading && requested === 'SIGNIN') {
-        const {data} = payload as AxiosResponse<UnprocessableEntityResponse>;
-        if (data.errors) {
-            Object.entries(data.errors).forEach(([key, value]) => {
-                setError(key, {type: 'custom', message: value[0]});
-            });
-        } else if (data.message) {
-            dispatch(append(AlertStatus.ERROR, t(data.message)));
-        } else {
-            dispatch(append(AlertStatus.ERROR, t('COMMON_EXCEPTION')));
-        }
 
-        dispatch(payloadRecycle());
-    }
+    const onFailed = useRequestFailed(
+        isLoading,
+        'SIGNIN',
+        (response) => {
+            const {data} = response;
+            if (data.errors) {
+                Object.entries(data.errors).forEach(([key, value]) => {
+                    setError(key, {type: 'custom', message: value[0]});
+                });
+            } else if (data.message) {
+                dispatch(append(AlertStatus.ERROR, t(data.message)));
+            } else {
+                dispatch(append(AlertStatus.ERROR, t('COMMON_EXCEPTION')));
+            }
+        }
+    );
+
+    useEffect(() => onFailed(), [onFailed]);
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>

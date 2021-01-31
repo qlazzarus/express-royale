@@ -1,7 +1,6 @@
 import axios, {AxiosError, AxiosResponse} from 'axios';
-import camelcaseKeysRecursive from "camelcase-keys-recursive";
-import querystring from 'querystring';
-import snakecaseKeys from "snakecase-keys";
+import humps from 'humps';
+import qs from 'qs';
 
 export default () => {
     const {MIX_APP_URL} = process.env;
@@ -11,18 +10,19 @@ export default () => {
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
             'Accept': 'application/json'
-        }
+        },
+        transformRequest: [
+            data => qs.stringify(humps.decamelizeKeys(data))
+        ]
     });
 
     client.interceptors.response.use(
         (res: AxiosResponse<any>) => {
-            res.data = res.data && camelcaseKeysRecursive(res.data) || {};
+            res.data = res.data && humps.camelizeKeys(res.data) || {};
             return res;
         },
         (error: AxiosError) => Promise.reject(error)
     );
-
-    client.defaults.transformRequest = [data => data && querystring.stringify(snakecaseKeys(data))]
 
     return client;
 }
