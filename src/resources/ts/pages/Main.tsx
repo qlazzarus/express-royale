@@ -1,31 +1,34 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
+import {Link} from 'react-router-dom';
 import ReactMarkdown from 'react-markdown/with-html';
-import {Box, Flex, Heading} from '@chakra-ui/react';
+import {Box, Button, Flex, Heading, VStack} from '@chakra-ui/react';
 
-import {ColorCode} from "@/enums";
+import {ColorCode, Path} from "@/enums";
 import {SignInForm} from "@/forms";
 import {isLogged} from "@/selectors";
 
+const Menu = ({title, to}: {title: string, to: string}): JSX.Element => {
+    return (
+        <Box py={2} width={'100%'}>
+            <Link to={to}>
+                <Button isFullWidth colorScheme='red'>
+                    {title}
+                </Button>
+            </Link>
+        </Box>
+    )
+}
+
 const TransferMenu = (): JSX.Element => {
-    // const {t} = useTranslation();
-    /*
-    <div className="bg-gray-900 rounded w-full md:w-1/2 px-8 pt-6 pb-8 mx-auto my-8">
-      <Link
-        to={Path.TRANSFER}
-        className="inline-block w-full text-center bg-red-500 hover:bg-red-700 text-white my-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-      >
-        {t('MENU_TRANSFER')}
-      </Link>
-      <Link
-        to={Path.GAME}
-        className="inline-block w-full text-center bg-red-500 hover:bg-red-700 text-white my-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-      >
-        {t('MENU_GAME')}
-      </Link>
-    </div>
-     */
-  return <span>transfer menu</span>;
+    const {t} = useTranslation();
+
+    return (
+        <VStack p={10} width={'sm'}>
+            <Menu title={t('MENU_TRANSFER')} to={Path.TRANSFER} />
+            <Menu title={t('MENU_GAME')} to={Path.GAME} />
+        </VStack>
+    );
 };
 
 export default (): JSX.Element => {
@@ -40,7 +43,7 @@ export default (): JSX.Element => {
             <Heading size='4xl' textAlign='center' color={ColorCode.PRIMARY_BOLD}>
                 {t('TITLE')}
             </Heading>
-            {logged ? <TransferMenu /> : <SignInForm />}
+            {logged ? <TransferMenu/> : <SignInForm/>}
         </Flex>
     );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Stack, Alert, AlertIcon} from '@chakra-ui/react';
+import {Alert, AlertIcon, Stack} from '@chakra-ui/react';
 
 import {alertEntries} from "@/selectors";
 
@@ -24,7 +24,7 @@ export default () => {
                         <AlertIcon />
                         {entry.message}
                     </Alert>
-                );
+                )
             })}
         </Stack>
     );
