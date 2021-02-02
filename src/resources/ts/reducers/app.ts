@@ -5,6 +5,7 @@ import {ActionType} from "@/enums";
 import {CombinedAction, ResponseAction} from "@/actions";
 
 export interface AppState {
+    drawer: boolean,
     failed: boolean,
     id: string,
     initialize: boolean,
@@ -14,6 +15,7 @@ export interface AppState {
 }
 
 const initialState: AppState = {
+    drawer: false,
     failed: false,
     id: '',
     initialize: false,
@@ -28,7 +30,16 @@ export default (state = initialState, action: CombinedAction): AppState => {
 
     if (type === ActionType.INITIALIZE) {
         const id = state.id || uuid();
-        return {...state, failed: false, id, initialize: true, payload: undefined, pending: false, requested: ''};
+        return {
+            ...state,
+            drawer: false,
+            failed: false,
+            id,
+            initialize: true,
+            payload: undefined,
+            pending: false,
+            requested: ''
+        };
     }
 
     if (type === ActionType.UUID_CREATE) {
@@ -43,8 +54,22 @@ export default (state = initialState, action: CombinedAction): AppState => {
         return {...state, failed: false, payload: undefined, pending: false, requested: ''};
     }
 
+    if (type === ActionType.OPEN_DRAWER) {
+        return {...state, drawer: true};
+    }
+
+    if (type === ActionType.CLOSE_DRAWER) {
+        return {...state, drawer: false};
+    }
+
     if (stringType && stringType.endsWith('_REQUEST')) {
-        return {...state, failed: false, payload: undefined, pending: true, requested: stringType.replace('_REQUEST', '')};
+        return {
+            ...state,
+            failed: false,
+            payload: undefined,
+            pending: true,
+            requested: stringType.replace('_REQUEST', '')
+        };
     }
 
     if (stringType && stringType.endsWith('_SUCCESS')) {

@@ -1,4 +1,5 @@
 export {default as alertEntries} from './alertEntries';
+export {default as isDrawerOpened} from './isDrawerOpened';
 export {default as isLogged} from './isLogged';
 export {default as isPending} from './isPending';
 export {default as responsePayload} from './responsePayload';

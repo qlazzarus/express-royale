@@ -4,6 +4,7 @@ import {Box} from '@chakra-ui/react';
 import {ColorCode} from "@/enums";
 
 import AlertDialog from "./AlertDialog";
+import Drawer from "./Drawer";
 import Footer from './Footer';
 import NavBar from "./NavBar";
 import PendingIndicator from "./PendingIndicator";
@@ -15,6 +16,7 @@ export default ({children}: { children: React.ReactNode }): JSX.Element => {
             backgroundColor={ColorCode.SECONDARY_REGULAR}
             overflowX={'hidden'}
         >
+            <Drawer />
             <AlertDialog />
             <NavBar/>
             <Box pt={12}>

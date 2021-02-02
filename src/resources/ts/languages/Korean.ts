@@ -33,6 +33,8 @@ enum Korean {
     SIGNIN_GITHUB = 'Github 로 로그인',
     SIGNIN_FACEBOOK = 'Facebook 으로 로그인',
     SIGNIN_GOOGLE = 'Google 로 로그인',
+
+    NOT_FOUND = '찾을 수 없는 페이지입니다.',
     
     THROTTLE_REQUESTS_EXCEPTION = '너무 많은 시도를 하였습니다.',
     COMMON_EXCEPTION = '뭔가 문제가 생겼습니다!'
