@@ -11,6 +11,11 @@ const noise = (canvas: HTMLCanvasElement, width: number, height: number) => {
         return;
     }
 
+    // eslint-disable-next-line no-param-reassign
+    canvas.width = width;
+    // eslint-disable-next-line no-param-reassign
+    canvas.height = height;
+
     const imageData = context.createImageData(width, height);
     const buffer32 = new Uint32Array(imageData.data.buffer);
     const bufferLength = buffer32.length;
@@ -49,7 +54,26 @@ export default (): JSX.Element => {
 
     return (
         <Flex py='4' direction='column' justifyContent='center' alignItems='center'>
-            <AspectRatio m={4} width='50vw' maxW='sm' ratio={1}>
+            <AspectRatio
+                ratio={1}
+                m={4}
+                maxW='sm'
+                width='50vw'
+                _after={{
+                    alignItems: 'center',
+                    color: '#ffffff',
+                    content: `"${t('NOT_FOUND_CODE')}"`,
+                    display: 'flex',
+                    fontSize: '300%',
+                    fontWeight: 'bold',
+                    height: '100%',
+                    justifyContent: 'center',
+                    marginTop: '-100%',
+                    position: 'absolute',
+                    textAlign: 'center',
+                    width: '100%'
+                }}
+            >
                 <canvas
                     ref={ref}
                     style={{
