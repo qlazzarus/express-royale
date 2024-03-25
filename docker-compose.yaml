@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  # Backend 서비스
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/var/www/html
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=true
+    depends_on:
+      - db
+
+  # Frontend 서비스
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/usr/src/app
+    environment:
+      - NODE_ENV=development
+
+  # PostgreSQL 데이터베이스 서비스
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: laravel_db
+      POSTGRES_USER: laravel_user
+      POSTGRES_PASSWORD: laravel_password
+    volumes:
+      - laravel_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  laravel_data:
