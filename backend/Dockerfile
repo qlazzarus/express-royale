@@ -21,7 +21,7 @@ WORKDIR /var/www/html
 COPY . .
 
 # Composer 의존성 패키지 설치
-RUN composer install
+RUN composer install --ignore-platform-reqs --no-interaction --no-plugins --no-scripts
 
 # 포트 노출
 EXPOSE 8000

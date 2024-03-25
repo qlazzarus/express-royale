@@ -1,6 +1,18 @@
 version: '3'
 
 services:
+  # PostgreSQL 데이터베이스 서비스
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: laravel_db
+      POSTGRES_USER: laravel_user
+      POSTGRES_PASSWORD: laravel_password
+    volumes:
+      - laravel_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
   # Backend 서비스
   backend:
     build:
@@ -9,12 +21,13 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./backend:/var/www/html
+      - ./backend:/var/www/html:rw
     environment:
       - APP_ENV=local
       - APP_DEBUG=true
     depends_on:
       - db
+    command: sh -c "composer install --ignore-platform-reqs --no-interaction --no-plugins --no-scripts && php artisan serve --host=0.0.0.0 --port=8000"
 
   # Frontend 서비스
   frontend:
@@ -27,18 +40,7 @@ services:
       - ./frontend:/usr/src/app
     environment:
       - NODE_ENV=development
-
-  # PostgreSQL 데이터베이스 서비스
-  db:
-    image: postgres:latest
-    environment:
-      POSTGRES_DB: laravel_db
-      POSTGRES_USER: laravel_user
-      POSTGRES_PASSWORD: laravel_password
-    volumes:
-      - laravel_data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
+    command: sh -c "npm install --unsafe-perm && npm run dev"
 
 volumes:
   laravel_data:
