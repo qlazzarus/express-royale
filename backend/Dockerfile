@@ -20,6 +20,9 @@ WORKDIR /var/www/html
 # 필요한 파일 복사
 COPY . .
 
+# Composer 의존성 패키지 설치
+RUN composer install
+
 # 포트 노출
 EXPOSE 8000
 
