@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'sqlite'),
+    'default' => env('DB_CONNECTION', 'account'),
 
     /*
     |--------------------------------------------------------------------------
@@ -30,15 +30,23 @@ return [
     */
 
     'connections' => [
-
-        'sqlite' => [
+        'account' => [
             'driver' => 'sqlite',
             'url' => env('DB_URL'),
-            'database' => env('DB_DATABASE', database_path('database.sqlite')),
-            'prefix' => '',
+            'database' => env('DB_DATABASE', database_path('account.sqlite')),
+            'prefix' => 'account_',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
 
+        'battle_royale' => [
+            'driver' => 'sqlite',
+            'url' => env('BATTLE_ROYALE_DB_URL'),
+            'database' => env('BATTLE_ROYALE_DB_DATABASE', database_path('battle_royale.sqlite')),
+            'prefix' => 'br_',
+            'foreign_key_constraints' => env('BATTLE_ROYALE_DB_FOREIGN_KEYS', true),
+        ],
+
+        /*
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DB_URL'),
@@ -108,7 +116,7 @@ return [
             // 'encrypt' => env('DB_ENCRYPT', 'yes'),
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
-
+        */
     ],
 
     /*
